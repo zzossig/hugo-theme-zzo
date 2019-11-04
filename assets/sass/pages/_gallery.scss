@@ -1,0 +1,65 @@
+.grid {
+  position: relative;
+  margin-bottom: 1rem;
+
+  .full {
+    width: 100%;
+  }
+
+  .half {
+    width: 50%;
+  }
+
+  .third {
+    width: 33.3%;
+  }
+
+  .quarter {
+    width: 25%;
+  }
+
+  .fifth {
+    width: 20%;
+  }
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+  padding: 0.25rem;
+  
+  img {
+      border-radius: 0.25rem;
+  }
+}
+
+.grid-item {
+  float: left;
+}
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
+
+
+.gallery {
+  padding: 1rem;
+  
+  &__contents {
+      padding: 1rem;
+      width: 65%;
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      text-align: center;
+  }
+}

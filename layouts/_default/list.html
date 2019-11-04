@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main class="main-main">
+    {{ partial "body/breadcrumb" . }}
+    <article class="list">
+        <header class="list__header">
+            <h4 class="list__header--title h5">{{.Title}}</h1>
+        </header>
+        <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+        <div class="list__header--desc p2">
+            {{.Content}}
+        </div>
+
+        <div class="summary__container">
+            {{ $paginator := .Paginate (where .Pages "Type" .Type) }}            
+            {{ range $paginator.Pages }}
+            {{ .Render "summary" }}
+            {{ end }}
+        </div>
+    </article>    
+
+    {{ partial "pagination/pagination-list" . }}
+</main>
+<aside class="main-side">
+    {{ partial "sidebar/sidebar-list" . }}
+</aside>
+{{ end }}

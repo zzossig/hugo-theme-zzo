@@ -1,0 +1,39 @@
+[[main]]
+  identifier = "about"
+  name = "about"
+  url = "/en/about/"
+  weight = 1
+
+[[main]]
+    identifier = "archive"
+    name = "archive"
+    url = "/en/archive/"
+    weight = 2
+
+[[main]]
+  identifier = "gallery"
+  name = "gallery"
+  url = "/en/gallery"
+  weight = 3
+    
+[[main]]
+    parent = "gallery"
+    name = "cartoon"
+    url = "/en/gallery/cartoon"
+
+[[main]]
+    parent = "gallery"
+    name = "photo"
+    url = "/en/gallery/photo"
+
+[[main]]
+    identifier = "posts"
+    name = "posts"
+    url = "/en/posts/"
+    weight = 4
+
+[[main]]
+  identifier = "notes"
+  name = "notes"
+  url = "/en/notes/"
+  weight = 5

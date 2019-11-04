@@ -1,0 +1,27 @@
+{{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+<nav class="pagination-list">
+  <div>
+    <a href="{{ if .Paginator.HasPrev }}{{ .Paginator.First.URL }}{{ else }}#{{ end }}" aria-disabled="{{ if .Paginator.HasPrev }}false{{ else }}true{{ end }}" rel="first" class="pagination-list__item">
+      <span class="icon {{ if .Paginator.HasPrev }}enable{{ else }}disabled{{ end }}">{{ partial "svgs/arrow/first-page.svg" (dict "width" 22 "height" 22) }}First</span>
+    </a>
+  </div>
+  <div>
+    <a href="{{ if .Paginator.HasPrev }}{{ .Paginator.Prev.URL }}{{ else }}#{{ end }}" aria-disabled="{{ if .Paginator.HasPrev }}false{{ else }}true{{ end }}" rel="prev" class="pagination-list__item">
+      <span class="icon {{ if .Paginator.HasPrev }}enable{{ else }}disabled{{ end }}">{{ partial "svgs/arrow/keyboard-arrow-left.svg" (dict "width" 22 "height" 22) }}Prev</span>
+    </a>
+  </div>
+  <div>    
+    <p class="pagination-list__item--number p2">{{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}</p>    
+  </div>
+  <div>
+    <a href="{{ if .Paginator.HasNext }}{{ .Paginator.Next.URL }}{{ else }}#{{ end }}" aria-disabled="{{ if .Paginator.HasNext }}false{{ else }}true{{ end }}" rel="next" class="pagination-list__item">
+      <span class="icon {{ if .Paginator.HasNext }}enable{{ else }}disabled{{ end }}">Next{{ partial "svgs/arrow/keyboard-arrow-right.svg" (dict "width" 22 "height" 22) }}</span>
+    </a>
+  </div>
+  <div>
+    <a href="{{ if .Paginator.HasNext }}{{ .Paginator.Last.URL }}{{ else }}#{{ end }}" aria-disabled="{{ if .Paginator.HasNext }}false{{ else }}true{{ end }}" rel="last" class="pagination-list__item">
+      <span class="icon {{ if .Paginator.HasNext }}enable{{ else }}disabled{{ end }}">Last{{ partial "svgs/arrow/last-page.svg" (dict "width" 22 "height" 22) }}</span>
+    </a>
+  </div>
+</nav>
+{{ end }}

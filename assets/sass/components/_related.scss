@@ -1,0 +1,26 @@
+.related {
+  margin: 5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  @include flexbox();
+  @include align-items(center);
+  @include flex-direction(column);
+
+  &-title {
+    @include align-self(center);
+    @include themify($themes) {
+      color: themed('related-header-title-color');
+    }
+  }
+
+  &-ul {
+    @include align-self(center);
+    list-style-type: disc;
+  }
+
+  &-link {
+    @include themify($themes) {
+      color: themed('related-link-color');
+    }
+  }
+}

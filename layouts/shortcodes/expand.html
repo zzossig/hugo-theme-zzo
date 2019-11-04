@@ -1,0 +1,19 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+<div class="expand">
+    <div class="expand-label" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('.expand-icon').attr('class',function () {return $h.next('div').is(':visible') ? 'expand-icon expand-icon__down' : 'expand-icon expand-icon__right';});});">
+        <span class="expand-icon expand-icon__right">
+            {{ partial "svgs/arrow/keyboard-arrow-right.svg" (dict "width" 20 "height" 20) }}            
+        </span>        
+        <span>
+            {{$expandMessage := T "Expand-title"}}
+            {{ if .IsNamedParams }}
+            {{.Get "default" | default $expandMessage}}
+            {{else}}
+            {{.Get 0 | default $expandMessage}}
+            {{end}}
+        </span>
+    </div>
+    <div class="expand-content">
+        {{.Inner | safeHTML}}
+    </div>
+</div>

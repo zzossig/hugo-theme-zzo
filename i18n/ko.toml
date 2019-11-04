@@ -1,0 +1,35 @@
+[search-placeholder]
+other = "검색..."
+
+[summary-dateformat]
+other = "2006년 01월 02일"
+
+[taxo-tags]
+other = "태그"
+
+[taxo-categories]
+other = "카테고리"
+
+[taxo-series]
+other = "시리즈"
+
+[footer-theme]
+other = "테마"
+
+[footer-language]
+other = "언어"
+
+[footer-subscribe]
+other = "구독"
+
+[footer-social]
+other = "소셜"
+
+[single-dateformat]
+other = "2006년 01월 02일"
+
+[single-related]
+other = "관련글"
+
+[toc-label]
+other = "목차"

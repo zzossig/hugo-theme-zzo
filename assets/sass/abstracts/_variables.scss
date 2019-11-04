@@ -1,0 +1,27 @@
+@import "../themes/theme";
+
+$text-font-stack: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+$code-font-stack: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter",
+  "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
+  monospace !default;
+
+$z-indexes: ("modal", "navbar", "dropdown", "header", "grid", "search", "content", "footer");
+$ls: (
+  base: -10,
+  heading: 10,
+  button: 5,
+  slogan: -100
+);
+$breakpoints: (
+  'xs': 0,
+  'sm': 769px,
+  'md': 960px,
+  'lg': 1280px,
+  'xl': 1960px,
+);
+
+$max-width: 960px !default;
+$nav-height: 50px !default;
+$search-height: 35px !default;
+$main-main-width: 640px !default;

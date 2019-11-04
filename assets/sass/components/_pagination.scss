@@ -1,0 +1,110 @@
+.pagination-single {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(space-between);
+  width: 100%;
+  margin: 1rem 0;
+
+  &__left,
+  &__right {    
+    @include flex-basis(auto);
+    @include flex-grow(0);
+    @include flex-shrink(0);
+    @include flexbox();
+    @include align-items(center);
+    @include themify($themes) {
+      background-color: themed('pagination-background-color');
+    }
+
+    border-radius: 0.125rem;
+  }
+
+  &__left {
+    @include align-items(center);
+    @include justify-content(center);
+    padding: 0 0.5rem 0 0.25rem;
+
+    &-title {
+      @include truncate(200px);
+      padding-bottom: 0.125rem;
+    }
+
+    &-title--icon {      
+      @include themify($themes) {
+        color: themed('social-icon-color');
+      }      
+    }
+  }
+
+  &__right {
+    @include align-items(center);
+    @include justify-content(center);
+    padding: 0 0.25rem 0 0.5rem;
+
+    &-title {
+      @include truncate(200px);
+      padding-bottom: 0.125rem;
+    }
+
+    &-title--icon {      
+      @include themify($themes) {
+        color: themed('social-icon-color');
+      }
+    }
+  }
+}
+
+.pagination-list {
+  border-radius: 0.25rem;
+  margin: 2rem 1rem;
+  padding: 0.5rem 0;
+
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(space-around);  
+  @include themify($themes) {
+    background-color: themed('pagination-background-color');
+  }  
+
+  &__item {
+    font-size: 0.95rem; 
+    text-decoration: none !important;
+
+    @include flexbox();
+    @include align-items(center);  
+
+    &--number {
+      @include themify($themes) {
+        color: themed('pagination-number-color');
+      }
+    }
+
+    .enable {
+      padding: 0 0.125rem;
+      @include themify($themes) {
+        color: themed('pagination-link-color');
+      }
+      @include on-event {
+        cursor: pointer;
+        border-radius: 0.1rem;
+        text-decoration: underline;
+        @include themify($themes) {        
+          color: themed('link-hover');
+        }
+      }
+    }
+
+    .disabled {
+      cursor: default;
+      @include themify($themes) {
+        color: themed('pagination-disabled-color');        
+      }            
+    }
+  }
+
+  .icon {
+    @include flexbox();
+    @include align-items(stretch);
+    @include justify-content(center);    
+  }
+}

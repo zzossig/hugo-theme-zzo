@@ -1,0 +1,15 @@
+<div class="pagination-single">
+  {{ if .PrevPage }}
+    <a href="{{ .PrevPage.Permalink }}" class="pagination-single__left">
+      {{ partial "svgs/arrow/keyboard-arrow-left.svg" (dict "width" 25 "height" 25) }}
+      <span class="pagination-single__left-title p2">{{ .PrevPage.Title }}</span>      
+    </a>
+  {{ end }}
+  <div class="grow"></div>
+  {{ if .NextPage }}
+    <a href="{{ .NextPage.Permalink }}" class="pagination-single__right">
+      <span class="pagination-single__right-title p2">{{ .NextPage.Title }}</span>     
+      {{ partial "svgs/arrow/keyboard-arrow-right.svg" (dict "width" 25 "height" 25) }}
+    </a>
+  {{ end }}
+</div>

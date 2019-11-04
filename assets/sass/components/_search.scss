@@ -1,0 +1,110 @@
+.search {
+  position: relative;
+  border-radius: 0.25rem;
+  height: $search-height;
+  z-index: z('search');
+  
+  @include flexbox();
+  @include align-items(center);
+  @include themify($themes) {
+    background-color: themed("search-background-color");
+  }
+
+  .icon {
+    padding: 0.25rem;
+    @include flexbox();
+    @include align-items(center);
+    @include themify($themes) {
+      color: themed("search-icon-color");
+    }
+  }
+
+  .input {
+    height: 2rem;
+    width: 100%;
+    font-size: 0.9rem;
+    border: none;
+    outline: none;
+    padding-right: 1rem;
+
+    @include truncate(100%);
+    @include themify($themes) {
+      color: themed("search-color");
+      background-color: themed("search-background-color");
+      @include input-placeholder {
+        font-family: "Montserrat", sans-serif;
+        color: themed("search-placeholder-color");
+      }
+    }
+  }
+
+  &-content {
+    margin-top: 0.25rem;
+    a {
+      text-decoration: none !important;
+    }
+  }
+}
+
+.menu-item {
+  padding: 0.25rem;
+
+  &__title {
+    font-size: 1rem;
+    @include themify($themes) {
+      color: themed('search-color');
+    }
+  }
+
+  &__desc {
+    font-size: 0.8rem;
+    @include truncate(100%);
+    @include themify($themes) {
+      color: themed('search-color');
+    }
+  }
+}
+
+#search-results {
+  &.dropdown {
+    display: none;
+    &.is-active {
+      display: inline-block;
+      margin-top: 0.25rem;
+      position: absolute;
+      top: $search-height;
+      width: 100%;
+      border-radius: 0.1rem;
+      @include box-shadow(0, 1px, 3px, 0, rgba(0, 0, 0, 0.4));
+      @include themify($themes) {
+        color: themed('search-content-color');
+        background-color: themed('search-content-background-color');
+      }
+    }    
+  }  
+
+  .dropdown {
+    &-content {
+      @include flexbox();
+      @include flex-direction(column);
+    }
+
+    &-item {
+      font-size: 1rem;
+      padding: 0.125rem;
+      @include on-event {
+        @include themify($themes) {
+          background-color: themed('search-hover-background-color');
+        }
+        border-bottom-left-radius: 0.1rem;
+        border-bottom-right-radius: 0.1rem;        
+      }
+
+      &.is-active {
+        @include themify($themes) {
+          background-color: themed('search-hover-background-color');
+        }
+      }
+    }    
+  }
+}

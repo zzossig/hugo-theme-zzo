@@ -1,0 +1,9 @@
+#body {
+  @include themify($themes) {
+      color: themed('body-color');
+      background-color: themed('backdrop-background-color');
+      hr {
+        border-color: themed('hr-color');
+      }
+  }  
+}

@@ -1,0 +1,13 @@
+<div class="related">
+    {{ $related := .Site.RegularPages.Related . | first 5 }}
+    {{ with $related }}
+    <h1 class="title is-1 related-title">{{ i18n "single-related" }}</h1>
+    <ul class="related-ul">
+        {{ range . }}
+        <li>
+          <a href="{{ .RelPermalink }}" class="title is-5 related-link">{{ .Title }}</a>
+        </li>
+        {{ end }}
+    </ul>
+    {{ end }}
+</div>

@@ -1,0 +1,83 @@
+.terms {
+  @include flexbox();
+  @include align-items(center);
+  @include flex-direction(column);
+  width: 100%;
+  
+  &__title {
+    margin-top: 2rem;
+    @include themify($themes) {
+      color: themed('terms-title-color');
+      text-shadow: 1px 1px 0 darken(themed('terms-title-color'), 10%), 
+        2px 2px 0 darken(themed('terms-title-color'), 14%), 
+        3px 3px 0 darken(themed('terms-title-color'), 18%),
+        4px 4px 0 darken(themed('terms-title-color'), 22%); 
+    }    
+  }
+
+  &__list {
+    @include flexbox();
+    @include align-items(center);
+    @include flex-wrap(wrap);
+    width: 50%;
+  }
+
+  &__item {
+    display: inline-block;
+    margin-right: 1rem;  
+    text-decoration: none !important;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+
+    @include transition(all, 0.2s, ease);
+    @include on-event {
+      @include translateY(-0.25rem);
+    }
+  }
+
+  &__link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__tags {
+    @include themify($themes) {
+      color: themed('terms-tags-color');
+    }
+  }
+
+  &__categories {
+    @include themify($themes) {
+      color: themed('terms-categories-color');
+    }    
+  }
+
+  &__series {
+    @include themify($themes) {
+      color: themed('terms-series-color');
+    }
+  }
+
+  &__len {
+    @include themify($themes) {
+      color: themed('terms-len-color');
+    }
+  }
+
+  .is-small {
+    font-size: 1rem;
+  }
+
+  .is-normal {
+    font-size: 1.5rem;
+  }
+
+  .is-medium {
+    font-size: 2rem;
+  }
+
+  .is-large {
+    font-size: 2.5rem;
+  }
+}

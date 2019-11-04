@@ -1,0 +1,49 @@
+.breadcrumb {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  padding: auto;
+
+  @include truncate(100%);
+  @include themify($themes) {
+    background-color: themed('breadcrumb-background-color');
+  }   
+
+  ol {
+    @include flexbox();
+    @include align-items(center);
+  }
+
+  li {
+    display: inline;
+    font-size: 1rem;
+    
+    a {
+      font-size: 0.9rem;
+      @include themify($themes) {
+        color: themed('breadcrumb-item-color');
+        @include on-event {
+          color: themed('link-hover');
+        }
+      }      
+    }    
+
+    &:last-child {
+      a {
+        @include themify($themes) {
+          color: themed('breadcrumb-item-active-color');
+        }
+        text-decoration: none;
+        cursor: default;
+      }      
+    }       
+  }
+
+  li+li:before {
+    padding: 0.5rem;    
+    content: "/\00a0";
+    @include themify($themes) {
+      color: themed('breadcrumb-item-color');
+    }
+  }
+}

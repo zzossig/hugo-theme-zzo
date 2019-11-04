@@ -1,0 +1,20 @@
+{{ if $.Param "enableSidebarSeries" }}
+<div class="taxo">
+    <aside>
+        <span class="title p1">
+            <a href="{{ "/series/" | relLangURL }}" class="taxo__title">
+                {{ i18n "taxo-series" }}
+            </a>
+        </span>
+        {{ range $index, $element := .Site.Taxonomies.series }}
+        {{ if $index }}
+            <span class="tag">
+                <a href="{{ $element.Page.RelPermalink }}" class="is-series taxo__link">
+                    {{ $element.Page.Title }} · {{ printf "%#v" (len $element) }}
+                </a>
+            </span>
+        {{ end }}
+        {{ end }}
+    </aside>
+</div>
+{{ end }}

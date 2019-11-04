@@ -1,0 +1,12 @@
+.header {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-direction(column);
+  margin: 1rem;  
+
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+}

@@ -1,0 +1,15 @@
+{{ if $.Param "enableCustomScrollbar" }}
+
+{{ $customscrollbar := resources.Get `js/perfect-scrollbar.jquery.min.js` | fingerprint }}
+{{ $customScrollbarStyle := resources.Get "css/perfect-scrollbar.min.css" }}
+
+<script>  
+  fetchInject([      
+      "{{ $customscrollbar.RelPermalink }}",
+      "{{ $customScrollbarStyle.RelPermalink }}",      
+    ]).then(() => {      
+      var pre = $('pre');
+      pre.perfectScrollbar();
+    });    
+</script>
+{{ end }}

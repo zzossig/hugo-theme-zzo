@@ -1,0 +1,21 @@
+{{ $currentSection := .Section }}
+{{ $currentID := "" }}
+{{ with .File }}{{ $currentID = .UniqueID }}{{ end }}
+<div class="sidebar">    
+    {{ partial "sidebar/site-search" . }}
+    {{ range (and (where .Site.Sections "Type" "!=" "about") (where .Site.Sections "Type" "!=" "archive")) }}
+    <section class="sidebar-home">
+        <a href="{{ .RelPermalink }}" class="sidebar-home__title p2">{{ .Title }}</a>
+        <ul class="sidebar-home__ul">
+            {{ range .Pages }}
+            <li><a href="{{ .RelPermalink }}" class="sidebar-home__a p2">{{ .Title }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+    {{ end }}
+</div>
+
+{{ partial "taxonomy/taxonomy-tags" . }}
+{{ partial "taxonomy/taxonomy-categories" . }}
+{{ partial "taxonomy/taxonomy-series" . }}

@@ -1,0 +1,68 @@
+a.pswp__share--facebook:hover {
+    @include themify($themes) {
+        background: themed('photoswipe-hover-background-color');
+        color: themed('photoswipe-hover-color');
+    }
+}
+
+a.pswp__share--facebook:hover:before {
+    @include themify($themes) {
+        border-bottom-color: themed('photoswipe-hover-background-color');
+    }
+}
+
+a.pswp__share--twitter:hover {
+    @include themify($themes) {
+        background: themed('photoswipe-hover-background-color');
+        color: themed('photoswipe-hover-color');
+    }
+}
+
+a.pswp__share--pinterest:hover {
+    @include themify($themes) {
+        background: themed('photoswipe-hover-background-color');
+        color: themed('photoswipe-hover-color');
+    }
+}
+
+a.pswp__share--download:hover {
+    @include themify($themes) {
+        background: themed('photoswipe-hover-background-color');
+        color: themed('photoswipe-hover-color');
+    }
+}
+
+.pswp__share-tooltip {
+    @include themify($themes) {
+        background: themed('photoswipe-background-color');
+    }
+}
+
+.pswp__share-tooltip a {
+    @include themify($themes) {
+        color: themed('photoswipe-color');
+    }
+}
+
+.pswp__share-tooltip a:hover {
+    text-decoration: none;
+    @include themify($themes) {
+        color: themed('photoswipe-color');
+    }
+}
+
+a.pswp__share--facebook:before {
+    @include themify($themes) {
+        border-bottom-color: themed('photoswipe-background-color');
+    }    
+}
+
+
+.pswp__button--arrow--left:before,
+.pswp__button--arrow--right:before {
+    background-color: rgba(189, 189, 189, 0.3);
+}
+
+.pswp__bg {
+    background: rgba(0, 0, 0, 0.8);
+}

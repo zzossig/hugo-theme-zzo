@@ -1,0 +1,73 @@
+.taxo {
+  padding: 0.25rem;
+  margin: 1.5rem 0;
+
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    @include themify($themes) {
+      color: themed('taxo-title-color');
+      &:hover {
+        color: themed('link-hover');
+      }
+    }
+  }
+
+  &__link {
+       
+  }
+
+  .title {
+    display: block;
+    margin: 0rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .tag {
+    margin: 0;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;        
+    font-size: 0.8rem;    
+    display: inline-block;
+
+    @include themify($themes) {
+      color: themed('taxo-title-color');
+    }
+  }
+
+  .is-tags {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    @include themify($themes) {
+      color: themed('taxo-tags-color');
+      background-color: themed('taxo-tags-background-color');
+      @include on-event {
+        background-color: themed('taxo-background-color-hover');
+      }
+    }
+  }  
+
+  .is-categories {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    @include themify($themes) {
+      color: themed('taxo-categories-color');
+      background-color: themed('taxo-categories-background-color');
+      @include on-event {
+        background-color: themed('taxo-background-color-hover');
+      }
+    }
+  }
+
+  .is-series {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    @include themify($themes) {
+      color: themed('taxo-series-color');
+      background-color: themed('taxo-series-background-color');
+      @include on-event {
+        background-color: themed('taxo-background-color-hover');
+      }
+    }
+  }
+}

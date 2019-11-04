@@ -1,0 +1,139 @@
+baseURL = "/"
+
+archetypeDir = "archetypes"
+assetDir = "assets"
+contentDir = "content"
+dataDir = "data"
+layoutDir = "layouts"
+publishDir = "public"
+staticDir = "static"
+themesDir = "themes"
+
+languageCode = "en-us"
+languageName = "English"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+hasCJKLanguage = false
+
+summaryLength = 70
+
+googleAnalytics = ""
+copyright = "MIT©zzossig"
+timeout = 10000
+
+buildDrafts = false
+buildExpired = false
+buildFuture = false
+canonifyURLs = false
+disableAliases = false
+disableHugoGeneratorInject = false
+disableKinds = []
+disableLiveReload = false
+disablePathToLower  = false
+enableEmoji = true
+enableGitInfo = false
+enableInlineShortcodes = true
+enableMissingTranslationPlaceholders = false
+enableRobotsTXT = true
+footnoteAnchorPrefix = ""
+footnoteReturnLinkContents = ""
+log = false
+logFile = ""
+newContentEditor = ""
+noChmod = false
+noTimes = false
+paginate = 7
+paginatePath = "page"
+pluralizeListTitles = true
+pygmentsCodeFencesGuessSyntax = true
+pygmentsUseClasses = true
+pygmentsStyle = "monokai"
+relativeURLs = false
+refLinksErrorLevel = "ERROR"
+rssLimit = 100
+sectionPagesMenu = ""
+titleCaseStyle = "AP"
+uglyURLs = false
+verbose = false
+verboseLog = false
+watch = false
+
+[outputs]
+  home = [ "HTML", "RSS", "JSON" ]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+[blackfriday]
+  taskLists = true
+  smartypants = true
+  smartypantsQuotesNBSP = false
+  angledQuotes = false
+  fractions = true
+  smartDashes = true
+  latexDashes = true
+  hrefTargetBlank = false
+  nofollowLinks = false
+  noreferrerLinks = false
+  plainIDAnchors = true
+  # enable extensions
+  extensions = ["noIntraEmphasis", "tables", "fencedCode", "autolink", "strikethrough", "spaceHeaders", "footnotes", "headerIds", "autoHeaderIds", "backslashLineBreak", "definitionLists", "joinLines"]
+  # disable extensions
+  extensionsmask = ["laxHtmlBlocks", "hardLineBreak", "tabSizeEight", "noEmptyLineBeforeBlock", "titleblock"]
+  skipHTML = false
+
+[caches]
+
+  [caches.getjson]
+    dir = ":cacheDir/:project"
+    maxAge = -1
+
+  [caches.getcsv]
+    dir = ":cacheDir/:project"
+    maxAge = -1
+
+  [caches.images]
+    dir = ":resourceDir/_gen"
+    maxAge = -1
+
+  [caches.assets]
+    dir = ":resourceDir/_gen"
+    maxAge = -1
+
+  [caches.modules]
+    dir = ":cacheDir/modules"
+    maxAge = -1
+
+[frontmatter]
+  date = ["date", "publishDate", "lastmod"]
+  lastmod = [":git", "lastmod", "date", "publishDate"]
+  publishDate = ["publishDate", "date"]
+  expiryDate = ["expiryDate"]
+
+[imaging]
+  resampleFilter = "box"
+  quality = 75
+  anchor = "smart"
+
+  [imaging.exif]
+    includeFields = ""
+    excludeFields = ""
+    disableDate = false
+    disableLatLong = false
+
+[module]
+  noProxy = "none"
+  private = "*.*"
+  proxy = "direct"
+
+  [module.hugoVersion]
+    extended = false
+    max = ""
+    min = ""
+
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5

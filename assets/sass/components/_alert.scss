@@ -1,0 +1,30 @@
+.alert {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.125rem;
+
+    &-info {
+        background-color: #d7eef9;
+        border: 2px solid #b2def4;
+        color: rgba(26, 128, 180, 0.9925);
+    }
+
+    &-success {
+        background-color: #d9efd6;
+        border: 2px solid #bce3b5;
+        color: rgba(70, 149, 57, 0.9925);
+    }
+
+    &-warning {
+        background-color: #fbf6e1;
+        border: 2px solid #f6ecbe;
+        color: rgba(180, 154, 26, 0.9925);
+    }
+
+    &-danger {
+        background-color: #f5dddd;
+        border: 2px solid #ecbdbd;
+        color: rgba(159, 46, 46, 0.9925);
+    }
+}

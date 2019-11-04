@@ -1,0 +1,11 @@
+@import 'dark';
+@import 'light';
+@import 'hacker';
+@import 'solarized';
+
+$themes: (
+  dark: $dark,
+  light: $light,
+  hacker: $hacker,  
+  solarized: $solarized,
+);

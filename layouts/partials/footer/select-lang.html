@@ -1,0 +1,24 @@
+<label class="label p2">{{ i18n "footer-language" }}</label>
+<div class="dropdown">
+  <button class="dropdown-trigger">
+    <span class="select-lang__label caption">{{ .Site.Language.LanguageName }}</span>
+    {{ partial "svgs/arrow/keyboard-arrow-up.svg" (dict "width" 20 "height" 20) }}
+  </button>
+  <div class="dropdown-content">
+    {{ $siteLanguages := .Site.Languages}}
+    {{ $pageLang := .Page.Lang}}
+    {{ range .Page.AllTranslations }}
+    {{ $translation := .}}
+    {{ range $siteLanguages }}
+    {{ if eq $translation.Lang .Lang }}
+    {{ $selected := false }}
+    {{ if eq $pageLang .Lang}}
+    <a href="{{ $translation.Permalink }}" data-lang="{{ .Lang }}" class="dropdown-item is-active">{{ .LanguageName }}</a>
+    {{ else }}
+    <a href="{{ $translation.Permalink }}" data-lang="{{ .Lang }}" class="dropdown-item">{{ .LanguageName }}</a>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+  </div>
+</div>

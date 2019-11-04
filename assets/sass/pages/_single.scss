@@ -1,0 +1,204 @@
+.single {
+  padding: 1rem;
+  position: relaitve;
+  width: 100%;
+
+  &__title {
+    font-weight: 900;
+    font-family: "Montserrat", sans-serif;
+    line-height: 3rem;
+    @include themify($themes) {
+      color: themed("single-header-title-color");
+    }
+  }
+
+  &__meta {
+    @include flexbox();
+    @include align-items(center);
+  }
+
+  &__contents {
+    font-size: 1rem;
+    font-family: "Merriweather", serif;
+    margin: 1rem 0;
+    line-height: 1.7rem;
+    width: inheirt;
+    max-width: inherit;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      position: relative;
+      @include themify($themes) {
+        color: themed("single-contents-title-color");
+      }
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin: 3.5rem 0 1.75rem 0;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 3.2rem 0 1.5rem 0;
+      padding: 0;
+      color: inherit;
+      font-weight: 900;
+      text-rendering: optimizeLegibility;
+      line-height: 1.1;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      margin: 2.8rem 0 1.25rem 0;
+    }
+
+    h4 {
+      font-size: 1.5rem;
+      margin: 2.4rem 0 1rem 0;
+    }
+
+    h5 {
+      font-size: 1.2rem;
+      margin: 2rem 0 0.8rem 0;
+    }
+
+    h6 {
+      font-size: 1rem;
+      margin: 1.5rem 0 0.5rem 0;
+    }
+
+    pre {
+      @include themify($themes) {        
+        background-color: themed("content-pre-background-color") !important;
+      }
+      border-radius: 0.5rem;
+      position: relative;
+      padding: 1rem;
+      margin: 2rem 0 2rem 0;
+      width: 100%;
+      line-height: 1rem;
+      overflow-x: auto;
+      white-space: pre;
+      word-wrap: normal;
+
+      code {        
+        @include themify($themes) {
+          color: themed('content-code-color');
+          background-color: transparent;
+        }
+      }
+    }
+
+    code {
+      border-radius: 0.25rem;
+      font-size: 0.9rem;
+      padding: 0.2rem;
+      overflow-x: auto;
+      @include themify($themes) {
+        background-color: themed("content-code-background-color");
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+
+    code + .copy-to-clipboard {
+      margin-left: -1px;
+      border-left: 0 !important;
+      font-size: inherit !important;
+      vertical-align: middle;
+      height: 21px;
+      top: 0;
+    }
+
+    .copy-to-clipboard {
+      background-image: url(/images/clippy.svg);
+      background-position: 50% 50%;
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      width: 27px;
+      height: 1.45rem;
+      top: -1px;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;      
+      margin-left: -0.2rem;
+      cursor: pointer;
+      border-radius: 0 2px 2px 0;
+      margin-bottom: 1px;
+      @include transition(all, 0.2s, ease);
+    }
+    .copy-to-clipboard:hover {
+      @include translateY(-0.1rem);
+    }
+    pre .copy-to-clipboard {
+      position: absolute;
+      right: 4px;
+      top: 4px;      
+      border-radius: 2px;
+      @include transition(all, 0.2s, ease);
+    }
+    pre .copy-to-clipboard:hover {
+      @include translateY(-0.1rem);
+    }
+
+    blockquote {
+      margin: 0 1.75rem 1.75rem 1.5rem;
+      padding: 0 0 0 1.42188rem;
+      font-size: 1.20112rem;
+      line-height: 1.75rem;
+      color: inherit;
+      font-style: italic;
+      opacity: 0.8;
+      @include themify($themes) {
+        border-left: 0.32813rem solid themed("single-blockquote-border-color");
+      }
+    }
+
+    img {
+      display: block;
+      border-radius: 0.25rem;
+      margin: 0 auto;
+    }
+
+    p {
+      margin: 0 0 1.75rem 0;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    ul {
+      margin-right: 0;
+      margin-top: 0;
+      padding: 0;
+      margin-bottom: 1.75rem;
+      list-style: disc outside none;
+    }
+
+    li {
+      margin-left: 2rem;
+      margin-bottom: calc(1.75rem / 2);
+    }
+
+    hr {
+      margin: 0 0 calc(1.75rem - 1px) 0;
+      padding: 0;
+      border: none;
+      height: 1px;
+      @include themify($themes) {
+        background: themed("single-hr-background-color");
+      }
+    }
+
+    .anchor {
+      cursor: pointer;
+    }
+  }
+}

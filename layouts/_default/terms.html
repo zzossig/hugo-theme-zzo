@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ $title := .Title }}
+<header class="header">
+  <h3 class="h3 terms__title">{{ $title }}</h3>
+</header>
+<main class="terms main">  
+  <div class="terms__list">
+    {{ range $index, $element := .Data.Terms }}
+    {{ if $index }}
+      <a href="{{ .Page.RelPermalink }}" class="terms__item {{ if lt (len $element) 5 }}is-small{{ else if lt (len $element) 10 }}is-normal{{ else if lt (len $element) 20 }}is-medium{{ else if ge (len $element) 20 }}is-large{{ end }}">
+        <span class="terms__{{ lower  $title }}">
+          {{ $element.Page.Title }}
+        </span>
+        <span class="terms__len">({{ printf "%#v" (len $element) }})</span>
+      </a>  
+    {{ end }}
+    {{ end }}
+  </div>
+</main>
+{{ end }}

@@ -1,0 +1,98 @@
+{{ define "main" }}
+<header class="header">
+  <h3 class="terms__title h3">{{ .Title }}</h3>
+  <div class="gallery__contents">
+    {{ .Content }}
+  </div>
+</header>
+<main class="gallery main">
+  <div class="grid single__contents">
+    <div class="grid-sizer"></div>
+    {{ $basename := (replace .File.Dir "\\" "/") }}
+    {{ range (readDir (print "./static/" $basename)) }}
+    <div class="grid-item">
+      <img data-src="{{ $basename | absURL }}{{ .Name }}" alt="{{ .Name }}" class="lazyload">
+    </div>
+    {{ end }}
+  </div>
+  {{ partial "pagination/pagination-single" . }}
+</main>
+{{ partial "body/photoswipe" . }}
+
+{{ $masonry := resources.Get `js/masonry.pkgd.min.js` | fingerprint }}
+{{ $enquire := resources.Get `js/enquire.min.js` | fingerprint }}
+{{ $imagesloaded := resources.Get `js/imagesloaded.pkgd.min.js` | fingerprint }}
+
+<script>
+  fetchInject([
+    "{{ $masonry.RelPermalink }}",
+    "{{ $imagesloaded.RelPermalink }}",
+    "{{ $enquire.RelPermalink }}",
+  ]).then(() => {
+    var $grid = $('.grid').masonry({
+      itemSelector: '.grid-item',
+      columnWidth: '.grid-sizer',
+      percentPosition: true,
+    });
+    $grid.imagesLoaded().progress(function () {
+      $grid.masonry();
+    });
+
+    enquire.register("screen and (max-width:500px)", {
+      match: function () {
+        $('.grid-item').addClass('full');
+        $('.grid-sizer').addClass('full');
+        $('.grid-item').removeClass('half');
+        $('.grid-sizer').removeClass('half');
+      },
+      unmatch: function () {   
+        $('.grid-item').addClass('half');
+        $('.grid-sizer').addClass('half');
+        $('.grid-item').removeClass('full');
+        $('.grid-sizer').removeClass('full');
+      },
+    }).register("screen and (max-width:700px)", {
+      match: function () {
+        $('.grid-item').addClass('half');
+        $('.grid-sizer').addClass('half');
+        $('.grid-item').removeClass('third');
+        $('.grid-sizer').removeClass('third');
+      },
+      unmatch: function () {
+        $('.grid-item').addClass('third');
+        $('.grid-sizer').addClass('third');
+        $('.grid-item').removeClass('half');
+        $('.grid-sizer').removeClass('half');
+      },
+    }).register("screen and (max-width:900px)", {
+      match: function () {
+        $('.grid-item').addClass('third');
+        $('.grid-sizer').addClass('third');
+        $('.grid-item').removeClass('quarter');
+        $('.grid-sizer').removeClass('quarter');
+      },
+      unmatch: function () {
+        $('.grid-item').addClass('quarter');
+        $('.grid-sizer').addClass('quarter');
+        $('.grid-item').removeClass('third');
+        $('.grid-sizer').removeClass('third');
+      },
+    }).register("screen and (max-width:1200px)", {
+      match: function () {
+        $('.grid-item').addClass('quarter');
+        $('.grid-sizer').addClass('quarter');
+        $('.grid-item').removeClass('fifth');
+        $('.grid-sizer').removeClass('fifth');
+      },
+      unmatch: function () {
+        $('.grid-item').addClass('fifth');
+        $('.grid-sizer').addClass('fifth');
+        $('.grid-item').removeClass('quarter');
+        $('.grid-sizer').removeClass('quarter');
+      },
+    });
+
+  });    
+</script>
+
+{{ end }}

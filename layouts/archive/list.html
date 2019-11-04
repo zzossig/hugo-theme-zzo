@@ -1,0 +1,27 @@
+{{ define "main" }}
+<header class="header">
+  <h3 class="h3 terms__title">
+    {{ .Title }}
+  </h3>
+  <div>
+    {{ .Content }}
+  </div>
+</header>
+</span>
+<main class="main archive">
+  <div>
+    {{ range (and (where .Site.RegularPages "Type" "!=" "about") (where .Site.RegularPages "Type" "!=" "archive")).GroupByDate "2006-01" }}
+    <span class="archive__key">{{ .Key }}</span>
+    <ul class="archive__ul">
+      {{ range .Pages }}
+      <li class="archive__li">
+        <span class="archive__type">{{ .Type }}</span>
+        <a href="{{ .Permalink }}" class="archive__title">{{ .Title }}</a>
+        <span class="meta archive__date">{{ .Date.Format (i18n "single-dateformat") }}</span>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

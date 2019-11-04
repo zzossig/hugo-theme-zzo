@@ -1,0 +1,64 @@
+.toc {
+  width: 100%;
+  max-width: 250px;
+  position: fixed;
+  top: 4.5rem;
+  font-size: 0.85rem;
+  padding-left: 0.5rem;
+  
+  #toc {
+    position: relative;
+  }
+
+  &__title {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    @include themify($themes) {
+      color: themed('toc-label-color');
+    }
+  }
+
+  a {
+    color: inherit;     
+    position: relative;
+    &::before {
+      @include themify($themes) {        
+        background-color: themed('toc-vertical-line');
+      }      
+      content: '';
+      height: 100%;
+      left: -1rem;
+      margin-top: -1px;
+      position: absolute;
+      width: 2px;            
+      &:last-child {
+        background-color: transparent;
+      }
+    }    
+  }
+
+  ul {
+    @include themify($themes) {
+      li {        
+        li {
+          margin-left: 1rem;
+          color: themed('sidebar-li-color');      
+        }  
+      }
+      
+      a {
+        color: themed('toc-title-color');
+      }
+    }
+  }
+
+  .active {
+    @include themify($themes) {
+      color: themed('link-hover');
+      font-weight: 700;
+      &::before {        
+        background-color: themed('toc-vertical-line-active');
+      }
+    }
+  }
+}

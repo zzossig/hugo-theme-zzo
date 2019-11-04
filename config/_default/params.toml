@@ -1,0 +1,35 @@
+description = "The Zzo theme for Hugo example site."
+
+# body
+enableToc = true
+enableBreadcrumb = true
+enableCustomScrollbar = true
+enablePhotoSwipe = true
+enableSearch = true
+enableMark = true
+
+# sidebar
+enableSidebarTags = true
+enableSidebarSeries = true
+enableSidebarCategories = true
+
+# footer
+showPoweredBy = true
+showFeedLinks = true
+showSocialLinks = true
+enableLangChange = true
+enableThemeChange = true
+themeOptions = ["dark", "light", "hacker", "solarized"]
+[socialOptions]
+  facebook = "http://example.org/"
+  twitter = "http://example.org/"
+  github = "http://example.org/"
+  stack-overflow = ""
+  instagram = ""
+  google-plus = ""
+  youtube = ""
+  medium = ""
+  tumblr = ""
+  linkedin = ""
+  pinterest = "http://example.org/"
+  stack-exchange = ""

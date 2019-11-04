@@ -1,0 +1,24 @@
+{{ define "main" }}
+<main class="main-main">
+  {{ if eq .Site.Params.enableBreadcrumb true }}
+  {{ partial "body/breadcrumb" . }}
+  {{ end }}
+  <div class="single">
+    <h2 class="h4 single__title">{{ .Title }}</h2>
+    <div class="single__meta">
+      <div class="caption">🕓 {{ .Date.Format (i18n "single-dateformat") }} · ☕{{ .ReadingTime }} min read</div>
+    </div>
+    <article class="single__contents">
+      {{ .Content }}
+    </article>
+
+    {{ partial "body/related" . }}
+    {{ partial "pagination/pagination-single" . }}
+    {{ partial "body/photoswipe" . }}
+  </div>
+  {{ partial "body/perfectscrollbar" . }}
+</main>
+<aside class="main-side">
+  {{ partial "sidebar/sidebar-single" . }}
+</aside>
+{{ end }}

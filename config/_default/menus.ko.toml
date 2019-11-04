@@ -1,0 +1,39 @@
+[[main]]
+  identifier = "about"
+  name = "about"
+  url = "/ko/about/"
+  weight = 1
+
+[[main]]
+    identifier = "archive"
+    name = "archive"
+    url = "/ko/archive/"
+    weight = 2
+
+[[main]]
+  identifier = "gallery"
+  name = "gallery"
+  url = "/ko/gallery/"
+  weight = 3
+    
+[[main]]
+    parent = "gallery"
+    name = "cartoon"
+    url = "/ko/gallery/cartoon/"
+
+[[main]]
+    parent = "gallery"
+    name = "photo"
+    url = "/ko/gallery/photo/"
+
+[[main]]
+    identifier = "posts"
+    name = "posts"
+    url = "/ko/posts/"
+    weight = 4
+    
+[[main]]
+  identifier = "notes"
+  name = "notes"
+  url = "/ko/notes/"
+  weight = 5

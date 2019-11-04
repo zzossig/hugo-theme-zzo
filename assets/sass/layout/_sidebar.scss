@@ -1,0 +1,55 @@
+.sidebar {
+  margin-top: 1rem;
+  margin-right: 1rem;
+
+  &-home {
+    padding: 0.5rem;
+
+    &__title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      @include themify($themes) {
+        color: themed('sidebar-title-color');
+        &:hover {
+          color: themed('link-hover');
+        }
+      }    
+    }
+
+    &__ul {
+      margin-left: 1rem;
+    }
+
+    &__a {    
+      @include themify($themes) {
+        color: themed('sidebar-li-color');
+      }
+    }
+  }
+
+  &-list {
+    padding: 0.5rem;
+
+    &__title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      @include themify($themes) {
+        color: themed('sidebar-title-color');
+        &:hover {
+          color: themed('link-hover');
+        } 
+      }    
+    }
+
+    &__ul {
+      margin-left: 1rem;
+    }
+
+    &__a {
+      font-family: "Montserrat", sans-serif;
+      @include themify($themes) {
+        color: themed('sidebar-li-color');
+      }
+    }
+  }
+}

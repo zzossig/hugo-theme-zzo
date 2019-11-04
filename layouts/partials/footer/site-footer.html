@@ -1,0 +1,33 @@
+<footer class="footer">
+    <div class="footer__wrapper">
+        {{ if $.Param "enableThemeChange" }}
+        <div class="footer__theme">
+            {{ partial "footer/select-theme" . }}
+        </div>            
+        {{ end }}
+        {{ if $.Param "enableLangChange" }}
+        <div class="footer__lang">
+            {{ partial "footer/select-lang" . }}
+        </div>
+        {{ end }}
+        {{ if $.Param "showFeedLinks" }}
+        <div class="footer__feed">
+            {{ partial "footer/links-feed.html" . }}
+        </div>
+        {{ end }}
+        {{ if $.Param "showSocialLinks" }}
+        <div class="footer__social">
+            {{ partial "footer/links-social.html" . }}
+        </div>
+        {{ end }}
+    </div>
+    <hr />
+
+    {{ if $.Param "showPoweredBy" }}
+    <div class="footer__poweredby">        
+        <p class="caption">MIT©<a href="https://gohugo.io/">zzossig</a></p>
+        <p class="caption">Powered by <a href="https://gohugo.io/">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zzo">Zzo theme</a></p>
+    </div>
+    {{ end }}
+    </div>    
+</footer>

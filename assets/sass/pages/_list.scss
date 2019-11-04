@@ -1,0 +1,22 @@
+.list {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+
+    &--title {
+      @include themify($themes) {
+        color: themed('list-header-title-color');
+      }
+    }
+
+    &--desc {
+      font-family: 'Merriweather', serif;
+      font-weight: italic;
+      padding: 1rem;
+      line-height: 1.7rem;      
+    }
+  }
+}

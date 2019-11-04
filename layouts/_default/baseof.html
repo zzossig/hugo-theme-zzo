@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" dir="{{ $.Param "languagedir" | default "ltr" }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{{ block "title" . }}{{ .Title }} – {{ .Site.Title }}{{ end }}</title>
+    {{ partialCached "head/scripts" . }}
+    {{ partialCached "head/styles" . }}
+    {{ partial "head/meta" . }}
+    {{ partial "head/meta_json_ld" . }}
+</head>
+
+<body id="root">
+    <div id="body">        
+        <div class="container wrapper">
+            {{ partial "navbar/site-nav" . }}
+            {{ partial "header/site-header" . }}
+            {{ block "main" . }}{{ end }}
+            {{ partial "footer/site-footer" . }}
+        </div>    
+    </div>
+</body>
+
+</html>
+
+{{ $defaultTheme := (index .Site.Params.themeOptions 0) }}
+<script>    
+    var defaultTheme = JSON.parse({{ $defaultTheme | jsonify }});
+    var localTheme = localStorage.getItem('theme');
+
+    if (localTheme) {
+        $('#root').attr('class', `theme__${localTheme}`);
+    } else {
+        $('#root').attr('class', `theme__${defaultTheme}`);
+    }
+    
+</script>

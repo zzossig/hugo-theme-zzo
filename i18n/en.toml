@@ -1,0 +1,35 @@
+[search-placeholder]
+other = "Search..."
+
+[summary-dateformat]
+other = "Jan 2, 2006"
+
+[taxo-tags]
+other = "Tags"
+
+[taxo-categories]
+other = "Categories"
+
+[taxo-series]
+other = "Series"
+
+[footer-theme]
+other = "Theme"
+
+[footer-language]
+other = "Language"
+
+[footer-subscribe]
+other = "Subscribe"
+
+[footer-social]
+other = "Social"
+
+[single-dateformat]
+other = "Jan 2, 2006"
+
+[single-related]
+other = "See Also"
+
+[toc-label]
+other = "What's on this Page"

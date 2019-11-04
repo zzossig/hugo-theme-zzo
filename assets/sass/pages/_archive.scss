@@ -1,0 +1,110 @@
+.archive {
+  position: relative;
+  margin-bottom: 5rem;
+  padding: 2rem;
+  width: 100%;
+  @include flexbox();
+  @include justify-content(flex-start);
+
+  &__ul {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 2.25rem;
+      top: 0;
+      width: 0.25rem;
+      height: 100%;
+      @include themify($themes) {
+        background-color: themed('toc-vertical-line');
+      }
+    }
+
+    @include respond-to(sm) {
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  &__li {
+    margin-bottom: 0.5rem;
+    margin-left: 4rem;    
+    @include transition(margin-left, 0.1s, ease);
+    @include flexbox();
+    @include align-items(center);
+    @include respond-to(sm) {
+      margin-left: 0;
+    }
+  }
+
+  &__key {
+    margin-right: 0.5rem;
+    border-radius: 2px;
+    height: 28px;
+    width: 75px;
+    padding: 0;
+    font-size: 0.8rem;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    @include themify($themes) {
+      color: themed('archive-key-color');
+      background-color: themed('archive-key-background-color');
+    }
+
+    &:not(:first-child) {
+      margin: 4rem 0 1rem 0;
+    }
+    &:first-child {
+      margin: 1rem 0;
+    }
+  }
+
+  &__type {
+    margin-right: 0.5rem;
+    border-radius: 2px;
+    height: 18px;
+    width: 75px;
+    padding: 0;
+    font-size: 0.8rem;
+    @include flexbox();
+    @include align-items(stretch);
+    @include justify-content(center);
+    @include themify($themes) {
+      color: themed('archive-type-color');
+      background-color: themed('archive-type-background-color');
+    }
+  }
+
+  &__title {
+    margin-right: 0.5rem;    
+
+    @include on-event {      
+      &::before {
+        content: '';
+        position: absolute;
+        left: 2.25rem;        
+        top: inherit;
+        width: 0.25rem;
+        height: 23px;
+        @include themify($themes) {
+          background-color: themed('archive-hover-line-color');
+        }
+      }
+
+      @include respond-to(sm) {
+        &::before {
+          content: none;
+        }
+      }
+    }
+  }
+
+  &__date {
+    font-size: 12px;
+    @include themify($themes) {
+      color: themed('archive-meta-color');
+    }
+  }
+}

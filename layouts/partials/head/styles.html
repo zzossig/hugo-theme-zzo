@@ -1,0 +1,4 @@
+{{ $main_options := (dict "targetPath" "css/zzo.css" "outputStyle" "compressed") }}
+{{ $main_template := resources.Get "sass/main.scss" }}
+{{ $main_style := $main_template | resources.ExecuteAsTemplate "main_parsed.scss" . | toCSS $main_options | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $main_style.RelPermalink }}">

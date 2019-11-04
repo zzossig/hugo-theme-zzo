@@ -1,0 +1,20 @@
+{{ define "main" }}
+<main class="main-main">
+    <article class="{{ with .Section }}section-{{ . | urlize }} {{ end }}single-view">
+        <div class="content">
+            {{ .Content }}
+        </div>
+    </article>
+
+    <div class="summary__container">
+        {{ range (.Paginator).Pages }}
+        {{ .Render "summary" }}
+        {{ end }}
+    </div>
+
+    {{ partial "pagination/pagination-list" . }}
+</main>
+<aside class="main-side">
+    {{ partial "sidebar/sidebar-home" . }}
+</aside>
+{{ end }}

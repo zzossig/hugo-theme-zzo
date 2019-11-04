@@ -1,0 +1,47 @@
+<label class="label p2">{{ i18n "footer-theme" }}</label>
+<div class="dropdown">
+  <button class="dropdown-trigger">
+    <span class="select-theme__label caption">{{ index .Site.Params.themeOptions 0 }}</span>
+    {{ partial "svgs/arrow/keyboard-arrow-up.svg" (dict "width" 20 "height" 20) }}
+  </button>
+  <div class="dropdown-content select-theme">
+    {{ range $index, $value := .Site.Params.themeOptions }}
+    <a href="#" class="dropdown-item select-theme__item {{ if (eq $index 0) }}is-active{{ end }}">
+      {{ . }}
+    </a>
+    {{ end }}
+  </div>
+</div>
+<script>
+  // theme change
+  var localTheme = localStorage.getItem('theme');
+  if (localTheme) {
+    $('.select-theme__label').text(localTheme);
+    $('.select-theme__item').each(function() {
+      $(this).removeClass('is-active');
+    });
+    $(`.select-theme a:contains("${localTheme}")`).addClass('is-active');
+  }
+
+  $('.select-theme__item').click(function (e) {
+    var selectedThemeVariant = $(e.target).text().trim();
+    var currentThemeVariant = $('.select-theme__label').text().trim();    
+    localStorage.setItem('theme', selectedThemeVariant);
+
+    $('.select-theme__label').text(selectedThemeVariant);
+    $('#root').removeClass(`theme__${currentThemeVariant}`).addClass(`theme__${selectedThemeVariant}`);
+    var nodes = $('.select-theme').children('.dropdown-item');
+
+    nodes.each(function () {
+      if ($(this).text().trim() === selectedThemeVariant) {
+        if (!$(this).hasClass('is-active')) {
+          $(this).addClass('is-active');          
+        }
+      } else {
+        if ($(this).hasClass('is-active')) {
+          $(this).removeClass('is-active');
+        }
+      }
+    });
+  });
+</script>

@@ -1,0 +1,178 @@
+.footer {
+  padding: 0 0.5rem;
+
+  @include themify($themes) {
+    color: themed('footer-color');
+    background-color: themed('footer-background-color');
+  }
+
+  &__wrapper {
+    @include flexbox();        
+    @include flex-direction(row);
+    @include respond-to(sm) {
+      @include flex-direction(column);
+    }
+  }
+
+  &__theme {
+    padding: 0.5rem 0;
+    @include flex-grow(1);
+    @include flexbox();
+    @include align-items(center);
+    @include flex-direction(column);
+  }
+
+  &__lang {
+    padding: 0.5rem 0;
+    @include flex-grow(1);
+    @include flexbox();
+    @include align-items(center);
+    @include flex-direction(column);
+  }
+
+  &__feed {
+    padding: 0.5rem 0;
+    @include flex-grow(1);
+    @include flexbox();
+    @include align-items(center);
+    @include flex-direction(column);
+  }
+
+  &__social {
+    padding: 0.5rem 0;
+    @include flex-grow(1);
+    @include flexbox();
+    @include align-items(center);
+    @include flex-direction(column);
+  }
+
+  &__poweredby {
+    @include flexbox();
+    @include align-items(center);
+    @include flex-direction(column);
+    padding: 0.5rem 0;
+
+    p {
+      padding: 0.125rem;
+    }
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;        
+    border-radius: 0.125rem;  
+    @include themify($themes) {
+      border: 1px solid themed('dropdown-border-color');
+    }
+
+    &-trigger {
+      border: none;
+      border-radius: 0.15rem;
+
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(center);      
+      @include themify($themes) {
+        color: themed('dropdown-footer-item-color');
+        background-color: themed('dropdown-title-background-color');
+      }
+    }
+
+    &-content {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      display: none;
+      width: inherit;
+      height: auto;
+      z-index: z("dropdown");      
+      border-top-left-radius: 0.15rem;
+      border-top-right-radius: 0.15rem;
+
+      a {
+        font-size: 0.9rem;
+      }
+
+      @include box-shadow(0, 1px, 3px, 0, rgba(0, 0, 0, 0.4));
+      @include themify($themes) {
+        border-bottom: 4px solid themed("dropdown-border-top-color");
+        background-color: themed("dropdown-content-background-color");
+      }
+
+      .is-active {
+        @include themify($themes) {
+        background-color: themed("dropdown-item-active-background-color");
+      }
+      }
+    }
+
+    &-item {
+      padding: 0.25rem 0.75rem;
+      height: 100%;
+      text-decoration: none;
+      display: block;
+      font-size: 1rem;
+
+      @include themify($themes) {
+        color: themed("dropdown-item-color");
+        @include on-event {
+          color: themed("dropdown-item-hover-color");
+          background-color: themed("dropdown-item-hover-background-color");
+          text-decoration: none;
+
+          &:first-child {
+            border-top-left-radius: 0.15rem;
+            border-top-right-radius: 0.15rem;
+          }
+        }
+      }
+    }
+  }
+
+  .label {
+    margin: 0.25rem;
+  }
+
+  .content {
+    font-family: "Montserrat", sans-serif;
+    //font-size: 0.8rem;
+  }
+
+  .select-theme {    
+    &__label {      
+      color: inherit;
+      text-transform: capitalize;            
+    }
+
+    &__item {
+      text-transform: capitalize;
+    }
+  }
+
+  .select-lang {
+    &__label {
+      color: inherit;
+      text-transform: capitalize;
+    }
+  }
+
+  .feed {
+  }
+
+  .social {
+    a {
+      @include themify($themes) {        
+        text-decoration: none;
+        color: themed('social-icon-color');
+        &:hover {
+          color: themed('social-icon-hover-color');
+          transition: color 0.2s ease;
+        }        
+      }   
+    }
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}

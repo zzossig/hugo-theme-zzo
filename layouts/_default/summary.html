@@ -1,0 +1,40 @@
+<article class="summary">
+  <header>
+    <h4 class="title h5"><a href='{{ .Permalink }}'> {{ .Title }}</a> </h2>
+      <h6 class="subtitle caption">🕓 {{ .Date.Format (i18n "summary-dateformat") }} · ☕{{ .ReadingTime }} min read</h6>
+  </header>
+  <!-- <img src="blog/post-1/1.png"/> -->
+  {{ $params := .Params }}
+  <div class="summary__content">
+    <div class="summary__text p2">
+      {{ with $params.Desc }}
+      {{ . }}
+      {{ else }}
+      {{ .Summary }}
+      {{ end }}
+    </div>
+    {{ if $params.featured_image }}      
+      <div class="summary__image-wrapper">
+        {{ with (print "/images/" $params.featured_image) }}
+        <img data-src="{{ . | absURL }}" alt="{{ print $params.featured_image }}" class="lazyload summary__image">
+        {{ end }}
+      </div>
+    {{ else if $params.featured_video }}      
+      {{ with (print "/videos/poster/" $params.featured_video_poster) }}
+      <div class="video">
+        <video class='video-js' controls preload='none' poster='{{ . | absURL }}' data-setup='{"fluid": true}'>
+          {{ with (print "/videos/" $params.featured_video) }}
+            <source src="{{ . | absURL }}" type='video/mp4'>
+          {{ end }}
+          <p class='vjs-no-js'>
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href='https://videojs.com/html5-video-support/' target='_blank' rel="noopener">supports HTML5 video</a>
+          </p>
+        </video>
+      </div>
+      {{ end }}
+    {{ end }}    
+  </div>
+
+  <hr/>
+</article>

@@ -1,0 +1,25 @@
+.expand {
+  position: relative;
+  &-label {
+    cursor: pointer;
+    @include flexbox();
+    @include align-items(center);
+  }
+
+  &-content {
+    display: none;
+  }
+
+  &-icon {    
+    padding-top: 0.4rem;
+    padding-right: 0.125rem;
+    @include transition(all, 0.1s, ease);
+    &__down {     
+      @include rotate(90);
+    }
+
+    &__right {
+      @include rotate(0);
+    }
+  }
+}

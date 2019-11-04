@@ -1,0 +1,11 @@
+<label class="label p2">{{ i18n "footer-subscribe" }}</label>
+<div class="feed">
+  {{ $list := .AlternativeOutputFormats }}
+  {{ $length := (len $list) }}
+  {{ if $list }}
+    {{ range $index, $element := $list }}
+    <a rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" class="caption">
+      {{ .Name }}</a>{{ if ne (add $index 1) $length }} | {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
