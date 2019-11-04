@@ -168,48 +168,15 @@ rssLimit = 100
 
 4. menus.en.toml
 
-This example file is the zzo theme's default menu options. You should edit yours.
+You shoud make your own menu.
 
 ```bash
 [[main]]
-  identifier = "about"
-  name = "about"
-  url = "/about/"
-  weight = 1
-
-[[main]]
-    identifier = "archive"
-    name = "archive"
-    url = "/archive/"
-    weight = 2
-
-[[main]]
-  identifier = "gallery"
-  name = "gallery"
-  url = "/gallery"
-  weight = 3
-
-[[main]]
-    parent = "gallery"
-    name = "cartoon"
-    url = "/gallery/cartoon"
-
-[[main]]
-    parent = "gallery"
-    name = "photo"
-    url = "/gallery/photo"
-
-[[main]]
-    identifier = "posts"
-    name = "posts"
-    url = "/posts/"
-    weight = 4
-
-[[main]]
-  identifier = "notes"
-  name = "notes"
-  url = "/notes/"
-  weight = 5
+  identifier = "home"
+  name = "home"
+  url = "/"
+  weight = 0
+...
 ```
 
 5. params.toml
