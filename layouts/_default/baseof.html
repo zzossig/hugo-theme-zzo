@@ -24,9 +24,13 @@
 
 </html>
 
+{{ $defaultTheme := "" }}
+{{ if .Site.Params.themeOptions }}
 {{ $defaultTheme := (index .Site.Params.themeOptions 0) }}
+{{ end }}
+
 <script>    
-    var defaultTheme = JSON.parse({{ $defaultTheme | jsonify }});
+    var defaultTheme = JSON.parse({{ $defaultTheme | jsonify }}) || "dark";
     var localTheme = localStorage.getItem('theme');
 
     if (localTheme) {

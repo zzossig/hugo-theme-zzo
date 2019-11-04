@@ -101,20 +101,10 @@ git submodule update --remote --merge
 
 ## Run example site
 
-1. Add this folder to your project static folder
+From the root of themes/zen/exampleSite:
 
 ```bash
-root
-├── static
-│   ├── gallery
-│   │   ├── cartoon
-│   │   ├── photo
-```
-
-2. From the root of your project, type this command:
-
-```bash
-hugo server --contentDir themes/zzo/exampleSite/content
+hugo server --themesDir ../..
 ```
 
 ## Configuration
@@ -362,13 +352,13 @@ config/_default/menus.ko.toml
 [[main]]
   identifier = "about"
   name = "about"
-  url = "/ko/about/"
+  url = "/about/"
   weight = 1
 
 [[main]]
     identifier = "archive"
     name = "archive"
-    url = "/ko/archive/"
+    url = "/archive/"
     weight = 2
 ...
 ```

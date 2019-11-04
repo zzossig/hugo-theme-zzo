@@ -1,14 +1,20 @@
 <label class="label p2">{{ i18n "footer-theme" }}</label>
 <div class="dropdown">
   <button class="dropdown-trigger">
-    <span class="select-theme__label caption">{{ index .Site.Params.themeOptions 0 }}</span>
+    <span class="select-theme__label caption">
+      {{ if .Site.Params.themeOptions }}
+        {{ index .Site.Params.themeOptions 0 }}
+      {{ end }}
+    </span>
     {{ partial "svgs/arrow/keyboard-arrow-up.svg" (dict "width" 20 "height" 20) }}
   </button>
   <div class="dropdown-content select-theme">
-    {{ range $index, $value := .Site.Params.themeOptions }}
-    <a href="#" class="dropdown-item select-theme__item {{ if (eq $index 0) }}is-active{{ end }}">
-      {{ . }}
-    </a>
+    {{ if .Site.Params.themeOptions }}
+      {{ range $index, $value := .Site.Params.themeOptions }}
+      <a href="#" class="dropdown-item select-theme__item {{ if (eq $index 0) }}is-active{{ end }}">
+        {{ . }}
+      </a>
+      {{ end }}
     {{ end }}
   </div>
 </div>
