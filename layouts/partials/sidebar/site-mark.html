@@ -1,6 +1,6 @@
 {{ if $.Param "enableMark" }}
 {{ $mark := resources.Get "js/jquery.mark.min.js" | resources.Fingerprint }}
-<script defer src="{{ $mark.RelPermalink }}"></script>
+<script src="{{ $mark.RelPermalink }}"></script>
 
 <script>
   var mark = function () {

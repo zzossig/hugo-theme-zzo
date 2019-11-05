@@ -13,7 +13,7 @@
 
 {{ partial "sidebar/site-mark" . }}
 {{ $lunr := resources.Get "js/lunr.min.js" | resources.Fingerprint }}
-<script defer src="{{ $lunr.RelPermalink }}"></script>
+<script src="{{ $lunr.RelPermalink }}"></script>
 
 <script>
   {{ if .Site.IsMultiLingual }}
