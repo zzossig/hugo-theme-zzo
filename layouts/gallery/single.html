@@ -11,7 +11,7 @@
     {{ $basename := (replace .File.Dir "\\" "/") }}
     {{ range (readDir (print "./static/" $basename)) }}
     <div class="grid-item">
-      <img data-src="{{ $basename | absURL }}{{ .Name }}" alt="{{ .Name }}" class="lazyload">
+      <img data-src="{{ $basename | relURL }}{{ .Name }}" alt="{{ .Name }}" class="lazyload">
     </div>
     {{ end }}
   </div>

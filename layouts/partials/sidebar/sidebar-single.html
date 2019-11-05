@@ -8,7 +8,7 @@
 </div>
 
 {{ $toc := resources.Get `js/jquery.toc.min.js` | fingerprint }}
-<script defer src="{{ $toc.RelPermalink }}"></script>
+<script src="{{ $toc.RelPermalink }}"></script>
 
 <script>
   var navbar = $('.navbar');

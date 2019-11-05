@@ -68,13 +68,13 @@
 </div>
 
 {{ $photoSwipe := resources.Get `js/photoswipe.min.js` | fingerprint }}
-<script defer src="{{ $photoSwipe.RelPermalink }}"></script>
+<script src="{{ $photoSwipe.RelPermalink }}"></script>
 {{ $photoSwipeUi := resources.Get `js/photoswipe-ui-default.min.js` | fingerprint }}
-<script defer src="{{ $photoSwipeUi.RelPermalink }}"></script>
+<script src="{{ $photoSwipeUi.RelPermalink }}"></script>
 {{ $photoSwipeStyle := resources.Get "css/photoswipe/photoswipe.css" }}
-<script defer src="{{ $photoSwipeStyle.RelPermalink }}"></script>
+<script src="{{ $photoSwipeStyle.RelPermalink }}"></script>
 {{ $photoSwipeSkin := resources.Get "css/photoswipe/custom-skin.css" }}
-<script defer src="{{ $photoSwipeSkin.RelPermalink }}"></script>
+<script src="{{ $photoSwipeSkin.RelPermalink }}"></script>
 
 <script>
   var pswpElement = $('.pswp')[0];

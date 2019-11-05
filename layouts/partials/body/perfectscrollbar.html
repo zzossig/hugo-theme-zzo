@@ -1,9 +1,9 @@
 {{ if $.Param "enableCustomScrollbar" }}
 
 {{ $customscrollbar := resources.Get `js/perfect-scrollbar.jquery.min.js` | fingerprint }}
-<script defer src="{{ $customscrollbar.RelPermalink }}"></script>
+<script src="{{ $customscrollbar.RelPermalink }}"></script>
 {{ $customScrollbarStyle := resources.Get "css/perfect-scrollbar.min.css" }}
-<script defer src="{{ $customScrollbarStyle.RelPermalink }}"></script>
+<script src="{{ $customScrollbarStyle.RelPermalink }}"></script>
 
 <script>  
   var pre = $('pre');

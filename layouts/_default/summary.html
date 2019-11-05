@@ -16,15 +16,15 @@
     {{ if $params.featured_image }}      
       <div class="summary__image-wrapper">
         {{ with (print "/images/" $params.featured_image) }}
-        <img data-src="{{ . | absURL }}" alt="{{ print $params.featured_image }}" class="lazyload summary__image">
+        <img data-src="{{ . | relURL }}" alt="{{ print $params.featured_image }}" class="lazyload summary__image">
         {{ end }}
       </div>
     {{ else if $params.featured_video }}      
       {{ with (print "/videos/poster/" $params.featured_video_poster) }}
       <div class="video">
-        <video class='video-js' controls preload='none' poster='{{ . | absURL }}' data-setup='{"fluid": true}'>
+        <video class='video-js' controls preload='none' poster='{{ . | relURL }}' data-setup='{"fluid": true}'>
           {{ with (print "/videos/" $params.featured_video) }}
-            <source src="{{ . | absURL }}" type='video/mp4'>
+            <source src="{{ . | relURL }}" type='video/mp4'>
           {{ end }}
           <p class='vjs-no-js'>
             To view this video please enable JavaScript, and consider upgrading to a web browser that
