@@ -71,41 +71,41 @@ rssLimit = 100
 [[languages.en.menu.main]]  
   identifier = "about"
   name = "about"  
-  url = "/about"
+  url = "about"
   weight = 10
 
 [[languages.en.menu.main]]
   identifier = "archive"
   name = "archive"
-  url = "/archive"
+  url = "archive"
   weight = 11
 
 [[languages.en.menu.main]]
   identifier = "gallery"
   name = "gallery"
-  url = "/gallery"
+  url = "gallery"
   weight = 12
     
 [[languages.en.menu.main]]
   parent = "gallery"
   name = "cartoon"
-  url = "/gallery/cartoon"
+  url = "gallery/cartoon"
 
 [[languages.en.menu.main]]
   parent = "gallery"
   name = "photo"
-  url = "/gallery/photo"
+  url = "gallery/photo"
 
 [[languages.en.menu.main]]
   identifier = "posts"
   name = "posts"
-  url = "/posts"
+  url = "posts"
   weight = 13
 
 [[languages.en.menu.main]]
   identifier = "notes"
   name = "notes"
-  url = "/notes"
+  url = "notes"
   weight = 14
 
 [languages.ko]
@@ -116,39 +116,39 @@ rssLimit = 100
 [[languages.ko.menu.main]]
   identifier = "about"
   name = "about"
-  url = "/about"
+  url = "about"
   weight = 20
 
 [[languages.ko.menu.main]]
   identifier = "archive"
   name = "archive"
-  url = "/archive"
+  url = "archive"
   weight = 21
 
 [[languages.ko.menu.main]]
   identifier = "gallery"
   name = "gallery"
-  url = "/gallery"
+  url = "gallery"
   weight = 22
     
 [[languages.ko.menu.main]]
   parent = "gallery"
   name = "cartoon"
-  url = "/gallery/cartoon"
+  url = "gallery/cartoon"
 
 [[languages.ko.menu.main]]
   parent = "gallery"
   name = "photo"
-  url = "/gallery/photo"
+  url = "gallery/photo"
 
 [[languages.ko.menu.main]]
   identifier = "posts"
   name = "posts"
-  url = "/posts"
+  url = "posts"
   weight = 23
     
 [[languages.ko.menu.main]]
   identifier = "notes"
   name = "notes"
-  url = "/notes"
+  url = "notes"
   weight = 24
