@@ -1,5 +1,5 @@
 {{ $jquery := resources.Get "js/jquery.min.js" | resources.Fingerprint }}
-<script async src="{{ $jquery.RelPermalink }}"></script>
+<script src="{{ $jquery.RelPermalink }}"></script>
 {{ $clipboard := resources.Get "js/clipboard.min.js" | resources.Fingerprint }}
 <script defer src="{{ $clipboard.RelPermalink }}"></script>
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}

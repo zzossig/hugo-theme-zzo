@@ -1,6 +1,10 @@
-
-
 $(document).ready(function() {  
+  // theme
+  var localTheme = localStorage.getItem('theme');
+  if (localTheme) {
+      $('#root').attr('class', `theme__${localTheme}`);
+  }
+  
   // scroll
   var position = $(window).scrollTop();
   $(window).scroll(function () {

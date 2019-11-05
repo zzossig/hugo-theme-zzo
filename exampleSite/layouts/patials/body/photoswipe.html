@@ -78,7 +78,7 @@
 <link rel="stylesheet" href="{{ $photoSwipeSkin.RelPermalink }}">
 
 <script>
-  $(document).ready(function () {
+  window.onload(function() {
     var pswpElement = $('.pswp')[0];
     var imgElements = $('.single__contents').find('img');
     var items = [];
@@ -88,6 +88,7 @@
         initGallery(i);
       });
       $(this).css('cursor', 'pointer');
+      console.log(v['src'])
       items.push({
         src: v['src'],
         w: 0,

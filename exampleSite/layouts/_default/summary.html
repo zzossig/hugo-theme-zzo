@@ -19,11 +19,11 @@
         {{ end }}
       </div>
     {{ else if $params.featured_video }}      
-      {{ with print ("videos/poster/" | relURL) $params.featured_video_poster }}
+      {{ with print ("theme/hugo-theme-zzo/videos/poster/" | relURL) $params.featured_video_poster }}
       <div class="video">
-        <video class='video-js' controls preload='none' poster='{{ . | relURL }}' data-setup='{"fluid": true}'>
+        <video class='video-js' controls preload='none' poster='{{ . }}' data-setup='{"fluid": true}'>
           {{ with print ("videos/" | relURL) $params.featured_video }}
-            <source src="{{ . | relURL }}" type='video/mp4'>
+            <source src="{{ . }}" type='video/mp4'>
           {{ end }}
           <p class='vjs-no-js'>
             To view this video please enable JavaScript, and consider upgrading to a web browser that
