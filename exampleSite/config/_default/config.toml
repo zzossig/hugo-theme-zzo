@@ -1,0 +1,25 @@
+baseURL = "http://example.org"
+title = "Hugo Zzo Theme"
+theme = "zzo"
+themesdir = "../.."
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+hasCJKLanguage = false
+
+summaryLength = 70
+
+googleAnalytics = ""
+copyright = "MIT©zzossig"
+timeout = 10000
+enableEmoji = true
+paginate = 7
+rssLimit = 100
+
+[outputs]
+  home = [ "HTML", "RSS", "JSON" ]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
