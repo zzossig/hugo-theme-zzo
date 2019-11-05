@@ -77,7 +77,7 @@
 {{ $photoSwipeSkin := resources.Get "css/photoswipe/custom-skin.css" | minify }}
 <link rel="stylesheet" href="{{ $photoSwipeSkin.RelPermalink }}">
 
-<script defer>
+<script>
   var pswpElement = $('.pswp')[0];
   var imgElements = $('.single__contents').find('img');
   var items = [];
@@ -88,10 +88,10 @@
     });
     $(this).css('cursor', 'pointer');
     items.push({
-      src: v.src,
+      src: v['data-src'] | v['src'],
       w: 0,
       h: 0,
-      title: filename(v.src),
+      title: filename(v['data-src'] | v['src']),
     });
   });
 
