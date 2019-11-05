@@ -1,7 +1,7 @@
 {{ $fetchinject := resources.Get "js/fetch-inject.umd.min.js" }}
-<script src="{{ $fetchinject.RelPermalink }}"></script>
+<script src="{{ $fetchinject.RelPermalink | relLangURL }}"></script>
 {{ $jquery := resources.Get "js/jquery.min.js" }}
-<script src="{{ $jquery.RelPermalink }}"></script>
+<script src="{{ $jquery.RelPermalink | relLangURL }}"></script>
 
 {{ $enquire := resources.Get "js/enquire.min.js" }}
 {{ $prism := resources.Get "js/prism.min.js" | minify }}
@@ -12,13 +12,13 @@
 {{ $zzo := resources.Get "js/zzo.js" | minify }}
 <script>
   fetchInject([
-    "{{ $enquire.RelPermalink }}",
-    "{{ $prism.RelPermalink }}",
-    "{{ $lunr.RelPermalink }}",
-    "{{ $lazysizes.RelPermalink }}",
-    "{{ $clipboard.RelPermalink }}",
-    "{{ $shave.RelPermalink }}",
-    "{{ $zzo.RelPermalink }}",
+    "{{ $enquire.RelPermalink | relLangURL }}",
+    "{{ $prism.RelPermalink | relLangURL }}",
+    "{{ $lunr.RelPermalink | relLangURL }}",
+    "{{ $lazysizes.RelPermalink | relLangURL }}",
+    "{{ $clipboard.RelPermalink | relLangURL }}",
+    "{{ $shave.RelPermalink | relLangURL }}",
+    "{{ $zzo.RelPermalink | relLangURL }}",
   ]).then(() => {
   });    
 </script>
