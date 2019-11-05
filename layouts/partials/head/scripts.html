@@ -1,5 +1,3 @@
-{{ $fetchinject := resources.Get "js/fetch-inject.umd.min.js" | resources.Fingerprint }}
-<script src="{{ $fetchinject.RelPermalink }}"></script>
 {{ $jquery := resources.Get "js/jquery.min.js" | resources.Fingerprint }}
 <script src="{{ $jquery.RelPermalink }}"></script>
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}

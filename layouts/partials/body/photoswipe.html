@@ -68,58 +68,55 @@
 </div>
 
 {{ $photoSwipe := resources.Get `js/photoswipe.min.js` | fingerprint }}
+<script defer src="{{ $photoSwipe.RelPermalink }}"></script>
 {{ $photoSwipeUi := resources.Get `js/photoswipe-ui-default.min.js` | fingerprint }}
+<script defer src="{{ $photoSwipeUi.RelPermalink }}"></script>
 {{ $photoSwipeStyle := resources.Get "css/photoswipe/photoswipe.css" }}
+<script defer src="{{ $photoSwipeStyle.RelPermalink }}"></script>
 {{ $photoSwipeSkin := resources.Get "css/photoswipe/custom-skin.css" }}
+<script defer src="{{ $photoSwipeSkin.RelPermalink }}"></script>
 
 <script>
-  fetchInject([
-    "{{ $photoSwipe.RelPermalink }}",
-    "{{ $photoSwipeUi.RelPermalink }}",
-    "{{ $photoSwipeStyle.RelPermalink }}",
-    "{{ $photoSwipeSkin.RelPermalink }}",
-  ]).then(() => {
-    var pswpElement = $('.pswp')[0];
-    var imgElements = $('.single__contents').find('img');
-    var items = [];
+  var pswpElement = $('.pswp')[0];
+  var imgElements = $('.single__contents').find('img');
+  var items = [];
 
-    imgElements.each(function (i, v) {
-      $(this).click(function(e) {
-        initGallery(i);
-      });
-      $(this).css('cursor', 'pointer');
-      items.push({
-        src: v.src,
-        w: 0,
-        h: 0,
-        title: filename(v.src),
-      });
-    });    
+  imgElements.each(function (i, v) {
+    $(this).click(function (e) {
+      initGallery(i);
+    });
+    $(this).css('cursor', 'pointer');
+    items.push({
+      src: v.src,
+      w: 0,
+      h: 0,
+      title: filename(v.src),
+    });
+  });
 
-    function filename(str) {
-      var s = str.replace(/\\/g, '/');
-      s = s.substring(s.lastIndexOf('/') + 1);
-      return str ? s.replace(/[?#].+$/, '') : s.split('.')[0];
-    }
+  function filename(str) {
+    var s = str.replace(/\\/g, '/');
+    s = s.substring(s.lastIndexOf('/') + 1);
+    return str ? s.replace(/[?#].+$/, '') : s.split('.')[0];
+  }
 
-    function initGallery(index) {
-      var options = { index: index };
-      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-      gallery.listen('imageLoadComplete', function (index, item) {
-        if (item.h < 1 || item.w < 1) {
-          let img = new Image();
-          img.onload = () => {
-            item.w = img.width;
-            item.h = img.height;
-            gallery.invalidateCurrItems();
-            gallery.updateSize(true);
-          }
-          img.src = item.src;
+  function initGallery(index) {
+    var options = { index: index };
+    var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.listen('imageLoadComplete', function (index, item) {
+      if (item.h < 1 || item.w < 1) {
+        let img = new Image();
+        img.onload = () => {
+          item.w = img.width;
+          item.h = img.height;
+          gallery.invalidateCurrItems();
+          gallery.updateSize(true);
         }
-      })
-      gallery.init();
-    }
-  });    
+        img.src = item.src;
+      }
+    })
+    gallery.init();
+  }  
 </script>
 
 {{ end }}
