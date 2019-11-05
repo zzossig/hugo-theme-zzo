@@ -1,7 +1,7 @@
 {{ $jquery := resources.Get "js/jquery.min.js" | resources.Fingerprint }}
-<script src="{{ $jquery.RelPermalink }}"></script>
+<script async src="{{ $jquery.RelPermalink }}"></script>
 {{ $clipboard := resources.Get "js/clipboard.min.js" | resources.Fingerprint }}
-<script src="{{ $clipboard.RelPermalink }}"></script>
+<script defer src="{{ $clipboard.RelPermalink }}"></script>
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
 <script defer src="{{ $enquire.RelPermalink }}"></script>
 {{ $prism := resources.Get "js/prism.min.js" | minify | resources.Fingerprint }}

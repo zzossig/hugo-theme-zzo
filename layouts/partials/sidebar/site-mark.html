@@ -1,38 +1,40 @@
 {{ if $.Param "enableMark" }}
 {{ $mark := resources.Get "js/jquery.mark.min.js" | resources.Fingerprint }}
-<script src="{{ $mark.RelPermalink }}"></script>
+<script defer src="{{ $mark.RelPermalink }}"></script>
 
 <script>
-  var mark = function () {
-    var keyword = $("#search").val();
-    var options = {
-      "element": "mark",
-      "className": "",
-      "exclude": [],
-      "iframes": false,
-      "iframesTimeout": 5000,
-      "acrossElements": false,
-      "ignoreGroups": 0,
-      "each": function (node) {
-      },
-      "filter": function (textNode, foundTerm, totalCounter) {
-        return true;
-      },
-      "noMatch": function (term) {
-      },
-      "done": function (counter) {
-      },
-      "debug": false,
-      "log": window.console
+  $(document).ready(function () {
+    var mark = function () {
+      var keyword = $("#search").val();
+      var options = {
+        "element": "mark",
+        "className": "",
+        "exclude": [],
+        "iframes": false,
+        "iframesTimeout": 5000,
+        "acrossElements": false,
+        "ignoreGroups": 0,
+        "each": function (node) {
+        },
+        "filter": function (textNode, foundTerm, totalCounter) {
+          return true;
+        },
+        "noMatch": function (term) {
+        },
+        "done": function (counter) {
+        },
+        "debug": false,
+        "log": window.console
+      };
+
+      $(".container").unmark({
+        done: function () {
+          $(".container").mark(keyword, options);
+        }
+      });
     };
 
-    $(".container").unmark({
-      done: function () {
-        $(".container").mark(keyword, options);
-      }
-    });
-  };
-
-  $("#search").on("input", mark);
+    $("#search").on("input", mark);
+  }  
 </script>
 {{ end }}
