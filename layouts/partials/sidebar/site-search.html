@@ -12,7 +12,7 @@
 </div>
 
 {{ partial "sidebar/site-mark" . }}
-{{ $lunr := resources.Get "js/lunr.min.js" | fingerprint }}
+{{ $lunr := resources.Get "js/lunr.min.js" | resources.Fingerprint }}
 <script defer src="{{ $lunr.RelPermalink }}"></script>
 
 <script>

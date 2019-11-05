@@ -7,10 +7,10 @@
   </div>
 </div>
 
-{{ $toc := resources.Get `js/jquery.toc.min.js` | fingerprint }}
-<script src="{{ $toc.RelPermalink }}"></script>
+{{ $toc := resources.Get `js/jquery.toc.min.js` | resources.Fingerprint }}
+<script defer src="{{ $toc.RelPermalink }}"></script>
 
-<script>
+<script defer>
   var navbar = $('.navbar');
 
   $("#toc").toc({ content: ".single__contents", headings: "h1,h2,h3,h4" });

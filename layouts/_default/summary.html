@@ -15,15 +15,15 @@
     </div>
     {{ if $params.featured_image }}      
       <div class="summary__image-wrapper">
-        {{ with (print "/images/" $params.featured_image) }}
+        {{ with (print "images/" $params.featured_image) }}
         <img data-src="{{ . | relURL }}" alt="{{ print $params.featured_image }}" class="lazyload summary__image">
         {{ end }}
       </div>
     {{ else if $params.featured_video }}      
-      {{ with (print "/videos/poster/" $params.featured_video_poster) }}
+      {{ with (print "videos/poster/" $params.featured_video_poster) }}
       <div class="video">
-        <video class='video-js' controls preload='none' poster='{{ . | relURL }}' data-setup='{"fluid": true}'>
-          {{ with (print "/videos/" $params.featured_video) }}
+        <video class='video-js' controls preload='none' poster='{{ print (. | relURL) }}' data-setup='{"fluid": true}'>
+          {{ with (print "videos/" $params.featured_video) }}
             <source src="{{ . | relURL }}" type='video/mp4'>
           {{ end }}
           <p class='vjs-no-js'>

@@ -67,16 +67,16 @@
 
 </div>
 
-{{ $photoSwipe := resources.Get `js/photoswipe.min.js` | fingerprint }}
-<script src="{{ $photoSwipe.RelPermalink }}"></script>
-{{ $photoSwipeUi := resources.Get `js/photoswipe-ui-default.min.js` | fingerprint }}
-<script src="{{ $photoSwipeUi.RelPermalink }}"></script>
-{{ $photoSwipeStyle := resources.Get "css/photoswipe/photoswipe.css" }}
-<script src="{{ $photoSwipeStyle.RelPermalink }}"></script>
-{{ $photoSwipeSkin := resources.Get "css/photoswipe/custom-skin.css" }}
-<script src="{{ $photoSwipeSkin.RelPermalink }}"></script>
+{{ $photoSwipe := resources.Get `js/photoswipe.min.js` | resources.Fingerprint }}
+<script defer src="{{ $photoSwipe.RelPermalink }}"></script>
+{{ $photoSwipeUi := resources.Get `js/photoswipe-ui-default.min.js` | resources.Fingerprint }}
+<script defer src="{{ $photoSwipeUi.RelPermalink }}"></script>
+{{ $photoSwipeStyle := resources.Get "css/photoswipe/photoswipe.css" | resources.Fingerprint }}
+<script defer src="{{ $photoSwipeStyle.RelPermalink }}"></script>
+{{ $photoSwipeSkin := resources.Get "css/photoswipe/custom-skin.css" | resources.Fingerprint }}
+<script defer src="{{ $photoSwipeSkin.RelPermalink }}"></script>
 
-<script>
+<script defer>
   var pswpElement = $('.pswp')[0];
   var imgElements = $('.single__contents').find('img');
   var items = [];

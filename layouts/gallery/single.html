@@ -19,9 +19,9 @@
 </main>
 {{ partial "body/photoswipe" . }}
 
-{{ $masonry := resources.Get `js/masonry.pkgd.min.js` | fingerprint }}
+{{ $masonry := resources.Get `js/masonry.pkgd.min.js` | resources.Fingerprint }}
 <script defer src="{{ $masonry.RelPermalink }}"></script>
-{{ $imagesloaded := resources.Get `js/imagesloaded.pkgd.min.js` | fingerprint }}
+{{ $imagesloaded := resources.Get `js/imagesloaded.pkgd.min.js` | resources.Fingerprint }}
 <script defer src="{{ $imagesloaded.RelPermalink }}"></script>
 
 <script>
