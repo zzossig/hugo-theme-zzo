@@ -1,0 +1,154 @@
+baseURL = "http://example.org"
+title = "Hugo Zzo Theme"
+theme = "zzo"
+themesdir = "../.."
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+hasCJKLanguage = false
+
+summaryLength = 70
+
+googleAnalytics = ""
+copyright = "MIT©zzossig"
+timeout = 10000
+enableEmoji = true
+paginate = 7
+rssLimit = 100
+
+[outputs]
+  home = [ "HTML", "RSS", "JSON" ]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+[params]
+  description = "The Zzo theme for Hugo example site."
+
+  # body
+  enableToc = true
+  enableBreadcrumb = true
+  enableCustomScrollbar = true
+  enablePhotoSwipe = true
+  enableSearch = true
+  enableMark = true
+
+  # sidebar
+  enableSidebarTags = true
+  enableSidebarSeries = true
+  enableSidebarCategories = true
+
+  # footer
+  showPoweredBy = true
+  showFeedLinks = true
+  showSocialLinks = true
+  enableLangChange = true
+  enableThemeChange = true
+  themeOptions = ["dark", "light", "hacker", "solarized"]
+
+  [params.socialOptions]
+    facebook = "http://example.org"
+    twitter = "http://example.org"
+    github = "http://example.org"
+    stack-overflow = ""
+    instagram = ""
+    google-plus = ""
+    youtube = ""
+    medium = ""
+    tumblr = ""
+    linkedin = ""
+    pinterest = "http://example.org"
+    stack-exchange = ""
+
+[languages]
+[languages.en]
+  title = "Hugo Zzo Theme"
+  languageName = "English"
+  weight = 1
+
+[[languages.en.menu.main]]  
+  identifier = "about"
+  name = "about"  
+  url = "about"
+  weight = 10
+
+[[languages.en.menu.main]]
+  identifier = "archive"
+  name = "archive"
+  url = "archive"
+  weight = 11
+
+[[languages.en.menu.main]]
+  identifier = "gallery"
+  name = "gallery"
+  url = "gallery"
+  weight = 12
+    
+[[languages.en.menu.main]]
+  parent = "gallery"
+  name = "cartoon"
+  url = "gallery/cartoon"
+
+[[languages.en.menu.main]]
+  parent = "gallery"
+  name = "photo"
+  url = "gallery/photo"
+
+[[languages.en.menu.main]]
+  identifier = "posts"
+  name = "posts"
+  url = "posts"
+  weight = 13
+
+[[languages.en.menu.main]]
+  identifier = "notes"
+  name = "notes"
+  url = "notes"
+  weight = 14
+
+[languages.ko]
+  title = "Hugo Zzo Theme"
+  languageName = "한국어"
+  weight = 2
+
+[[languages.ko.menu.main]]
+  identifier = "about"
+  name = "about"
+  url = "about"
+  weight = 20
+
+[[languages.ko.menu.main]]
+  identifier = "archive"
+  name = "archive"
+  url = "archive"
+  weight = 21
+
+[[languages.ko.menu.main]]
+  identifier = "gallery"
+  name = "gallery"
+  url = "gallery"
+  weight = 22
+    
+[[languages.ko.menu.main]]
+  parent = "gallery"
+  name = "cartoon"
+  url = "gallery/cartoon"
+
+[[languages.ko.menu.main]]
+  parent = "gallery"
+  name = "photo"
+  url = "gallery/photo"
+
+[[languages.ko.menu.main]]
+  identifier = "posts"
+  name = "posts"
+  url = "posts"
+  weight = 23
+    
+[[languages.ko.menu.main]]
+  identifier = "notes"
+  name = "notes"
+  url = "notes"
+  weight = 24
