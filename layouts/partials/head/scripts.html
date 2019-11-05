@@ -1,24 +1,24 @@
-{{ $fetchinject := resources.Get "js/fetch-inject.umd.min.js" }}
+{{ $fetchinject := resources.Get "js/fetch-inject.umd.min.js" | fingerprint -}}
 <script src="{{ $fetchinject.RelPermalink | relLangURL }}"></script>
-{{ $jquery := resources.Get "js/jquery.min.js" }}
+{{ $jquery := resources.Get "js/jquery.min.js" | fingerprint -}}
 <script src="{{ $jquery.RelPermalink | relLangURL }}"></script>
 
-{{ $enquire := resources.Get "js/enquire.min.js" }}
-{{ $prism := resources.Get "js/prism.min.js" | minify }}
-{{ $lunr := resources.Get "js/lunr.min.js" }}
-{{ $lazysizes := resources.Get "js/lazysizes.min.js" }}
-{{ $clipboard := resources.Get "js/clipboard.min.js" }}
-{{ $shave := resources.Get "js/jquery.shave.min.js" }}
-{{ $zzo := resources.Get "js/zzo.js" | minify }}
+{{ $enquire := resources.Get "js/enquire.min.js" | fingerprint -}}
+{{ $prism := resources.Get "js/prism.min.js" | minify | fingerprint -}}
+{{ $lunr := resources.Get "js/lunr.min.js" | fingerprint -}}
+{{ $lazysizes := resources.Get "js/lazysizes.min.js" | fingerprint -}}
+{{ $clipboard := resources.Get "js/clipboard.min.js" | fingerprint -}}
+{{ $shave := resources.Get "js/jquery.shave.min.js" | fingerprint -}}
+{{ $zzo := resources.Get "js/zzo.js" | minify | fingerprint -}}
 <script>
   fetchInject([
-    "{{ $enquire.RelPermalink | relLangURL }}",
-    "{{ $prism.RelPermalink | relLangURL }}",
-    "{{ $lunr.RelPermalink | relLangURL }}",
-    "{{ $lazysizes.RelPermalink | relLangURL }}",
-    "{{ $clipboard.RelPermalink | relLangURL }}",
-    "{{ $shave.RelPermalink | relLangURL }}",
-    "{{ $zzo.RelPermalink | relLangURL }}",
+    "{{ $enquire.RelPermalink }}",
+    "{{ $prism.RelPermalink }}",
+    "{{ $lunr.RelPermalink }}",
+    "{{ $lazysizes.RelPermalink }}",
+    "{{ $clipboard.RelPermalink }}",
+    "{{ $shave.RelPermalink }}",
+    "{{ $zzo.RelPermalink }}",
   ]).then(() => {
   });    
 </script>
