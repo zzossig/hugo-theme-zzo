@@ -20,10 +20,10 @@
         {{ end }}
       </div>
     {{ else if $params.featured_video }}      
-      {{ with (print "videos/poster/" $params.featured_video_poster) }}
+      {{ with (print "videos/poster/" $params.featured_video_poster | relURL) }}
       <div class="video">
-        <video class='video-js' controls preload='none' poster='{{ print (. | relURL) }}' data-setup='{"fluid": true}'>
-          {{ with (print "videos/" $params.featured_video) }}
+        <video class='video-js' controls preload='none' poster='{{ . }}' data-setup='{"fluid": true}'>
+          {{ with (print "videos/" $params.featured_video | relURL) }}
             <source src="{{ . | relURL }}" type='video/mp4'>
           {{ end }}
           <p class='vjs-no-js'>

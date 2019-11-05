@@ -2,8 +2,9 @@
 
 {{ $customscrollbar := resources.Get `js/perfect-scrollbar.jquery.min.js` | resources.Fingerprint }}
 <script defer src="{{ $customscrollbar.RelPermalink }}"></script>
-{{ $customScrollbarStyle := resources.Get "css/perfect-scrollbar.min.css" }}
-<script defer src="{{ $customScrollbarStyle.RelPermalink }}"></script>
+
+{{ $customScrollbarStyle := resources.Get "css/perfect-scrollbar.min.css" | minify }}
+<link rel="stylesheet" href="{{ $customScrollbarStyle.RelPermalink }}">
 
 <script>
   $(document).ready(function () {

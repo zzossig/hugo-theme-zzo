@@ -71,10 +71,11 @@
 <script defer src="{{ $photoSwipe.RelPermalink }}"></script>
 {{ $photoSwipeUi := resources.Get `js/photoswipe-ui-default.min.js` | resources.Fingerprint }}
 <script defer src="{{ $photoSwipeUi.RelPermalink }}"></script>
-{{ $photoSwipeStyle := resources.Get "css/photoswipe/photoswipe.css" | resources.Fingerprint }}
-<script defer src="{{ $photoSwipeStyle.RelPermalink }}"></script>
-{{ $photoSwipeSkin := resources.Get "css/photoswipe/custom-skin.css" | resources.Fingerprint }}
-<script defer src="{{ $photoSwipeSkin.RelPermalink }}"></script>
+
+{{ $photoSwipeStyle := resources.Get "css/photoswipe/photoswipe.css" | minify }}
+<link rel="stylesheet" href="{{ $photoSwipeStyle.RelPermalink }}">
+{{ $photoSwipeSkin := resources.Get "css/photoswipe/custom-skin.css" | minify }}
+<link rel="stylesheet" href="{{ $photoSwipeSkin.RelPermalink }}">
 
 <script defer>
   var pswpElement = $('.pswp')[0];
