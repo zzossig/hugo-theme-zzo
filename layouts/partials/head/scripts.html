@@ -1,7 +1,7 @@
 {{ $fetchinject := resources.Get "js/fetch-inject.umd.min.js" | fingerprint -}}
-<script src="{{ $fetchinject.RelPermalink | relLangURL }}"></script>
+<script src="{{ $fetchinject.RelPermalink | relURL }}"></script>
 {{ $jquery := resources.Get "js/jquery.min.js" | fingerprint -}}
-<script src="{{ $jquery.RelPermalink | relLangURL }}"></script>
+<script src="{{ $jquery.RelPermalink | relURL }}"></script>
 
 {{ $enquire := resources.Get "js/enquire.min.js" | fingerprint -}}
 {{ $prism := resources.Get "js/prism.min.js" | minify | fingerprint -}}
