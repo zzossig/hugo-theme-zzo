@@ -101,7 +101,7 @@ git submodule update --remote --merge
 
 ## Run example site
 
-From the root of themes/zen/exampleSite:
+From the root of themes/zzo/exampleSite:
 
 ```bash
 hugo server --themesDir ../..

@@ -2,9 +2,11 @@ baseURL = "http://example.org"
 title = "Hugo Zzo Theme"
 theme = "zzo"
 themesdir = "../.."
+assetDir = "../assets"
+layoutDir = "../layouts"
 
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
+defaultContentLanguageInSubdir = true
 hasCJKLanguage = false
 
 summaryLength = 70
