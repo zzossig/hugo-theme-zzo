@@ -1,11 +1,10 @@
 baseURL = "http://example.org"
 title = "Hugo Zzo Theme"
 theme = "zzo"
-themesdir = "../.."
 
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
-hasCJKLanguage = false
+hasCJKLanguage = true
 
 summaryLength = 70
 
