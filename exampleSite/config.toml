@@ -9,7 +9,6 @@ hasCJKLanguage = false
 
 summaryLength = 70
 
-googleAnalytics = ""
 copyright = "MIT©zzossig"
 timeout = 10000
 enableEmoji = true
@@ -52,15 +51,7 @@ rssLimit = 100
     facebook = "http://example.org"
     twitter = "http://example.org"
     github = "http://example.org"
-    stack-overflow = ""
-    instagram = ""
-    google-plus = ""
-    youtube = ""
-    medium = ""
-    tumblr = ""
-    linkedin = ""
     pinterest = "http://example.org"
-    stack-exchange = ""
 
 [languages]
 [languages.en]
