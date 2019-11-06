@@ -174,10 +174,44 @@ You shoud make your own menu.
 
 ```bash
 [[main]]
-  identifier = "home"
-  name = "home"
-  url = "/"
+  identifier = "about"
+  name = "about"
+  url = "about"
   weight = 0
+
+[[main]]
+  identifier = "archive"
+  name = "archive"
+  url = "archive"
+  weight = 1
+
+[[main]]
+  identifier = "gallery"
+  name = "gallery"
+  url = "gallery"
+  weight = 2
+    
+[[main]]
+  parent = "gallery"
+  name = "cartoon"
+  url = "gallery/cartoon"
+
+[[main]]
+  parent = "gallery"
+  name = "photo"
+  url = "gallery/photo"
+
+[[main]]
+  identifier = "posts"
+  name = "posts"
+  url = "posts"
+  weight = 3
+    
+[[main]]
+  identifier = "notes"
+  name = "notes"
+  url = "notes"
+  weight = 4
 ...
 ```
 
