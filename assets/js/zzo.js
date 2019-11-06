@@ -12,6 +12,10 @@ $(document).ready(function() {
 
     var scroll = $(window).scrollTop();
     if (scroll > position) { // scroll down 
+      if (scroll < 45) {
+        return null;
+      }
+
       if (!navbar.hasClass('navbar--hide')) {
         navbar.addClass('navbar--hide');
       } else if (navbar.hasClass('navbar--show')) {

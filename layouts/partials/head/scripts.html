@@ -4,7 +4,7 @@
 <script defer src="{{ $clipboard.RelPermalink }}"></script>
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
 <script defer src="{{ $enquire.RelPermalink }}"></script>
-{{ $prism := resources.Get "js/prism.min.js" | minify | resources.Fingerprint }}
+{{ $prism := resources.Get "js/prism.min.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $prism.RelPermalink }}"></script>
 {{ $lunr := resources.Get "js/lunr.min.js" | resources.Fingerprint }}
 <script defer src="{{ $lunr.RelPermalink }}"></script>
@@ -12,5 +12,13 @@
 <script defer src="{{ $lazysizes.RelPermalink }}"></script>
 {{ $shave := resources.Get "js/jquery.shave.min.js" | resources.Fingerprint }}
 <script defer src="{{ $shave.RelPermalink }}"></script>
-{{ $zzo := resources.Get "js/zzo.js" | minify | resources.Fingerprint }}
+{{ $zzo := resources.Get "js/zzo.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $zzo.RelPermalink }}"></script>
+
+{{ range .Site.Params.custom_js -}}
+  {{ $custom_template := resources.Get . }}
+  {{ if $custom_template }}
+    {{ $custom_js := $custom_template | resources.Minify | resources.Fingerprint }}
+    <script defer src="{{ $custom_js.RelPermalink }}"></script>
+  {{ end }}
+{{- end }}
