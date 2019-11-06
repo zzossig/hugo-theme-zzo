@@ -75,7 +75,7 @@ Hugo version 0.58.0 or higher is required.
 First of all, You need to add config files.
 Follow the [Configuration](#configuration) step.
 
-You can download and unpack the theme manually from Github but it's easier to use git to clone the repo.
+Then, You can download and unpack the theme manually from Github but it's easier to use git to clone the repo.
 
 From the root of your site:
 
@@ -136,7 +136,7 @@ hasCJKLanguage = false
 summaryLength = 70
 
 googleAnalytics = ""
-copyright = "MIT©zzossig"
+copyright = "©yourcopyright"
 timeout = 10000
 enableEmoji = true
 paginate = 7
@@ -286,7 +286,7 @@ root
 3. Make a index.md file under the sub folder using this command
 
 ```bash
-hugo new content/gallery/mygallery/index.md
+hugo new gallery/mygallery/index.md
 ```
 
 4. Put your images in static folder
