@@ -109,16 +109,7 @@ hugo server --themesDir ../..
 
 ## Configuration
 
-0. From the root of your site: edit config.toml file
-
-```bash
-
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "zzo"
-
-```
+0. From the root of your site: delete config.toml file and add the files below
 
 1. config folder structure
 
