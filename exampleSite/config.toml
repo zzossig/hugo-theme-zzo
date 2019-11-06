@@ -25,6 +25,7 @@ rssLimit = 100
 
 [params]
   description = "The Zzo theme for Hugo example site."
+  custom_css = []
 
   # body
   enableToc = true

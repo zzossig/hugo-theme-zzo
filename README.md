@@ -219,6 +219,7 @@ You shoud make your own menu.
 
 ```bash
 description = "The Zzo theme for Hugo example site."
+custom_css = ["css/foo.css", "css/bar.css"]
 
 # body
 enableToc = true
