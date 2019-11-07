@@ -132,8 +132,8 @@ title = "Hugo Zzo Theme"
 theme = "zzo"
 
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
-hasCJKLanguage = false
+defaultContentLanguageInSubdir = true
+hasCJKLanguage = true
 
 summaryLength = 70
 
@@ -177,19 +177,19 @@ You shoud make your own menu.
   identifier = "about"
   name = "about"
   url = "about"
-  weight = 0
+  weight = 1
 
 [[main]]
   identifier = "archive"
   name = "archive"
   url = "archive"
-  weight = 1
+  weight = 2
 
 [[main]]
   identifier = "gallery"
   name = "gallery"
   url = "gallery"
-  weight = 2
+  weight = 3
     
 [[main]]
   parent = "gallery"
@@ -205,13 +205,13 @@ You shoud make your own menu.
   identifier = "posts"
   name = "posts"
   url = "posts"
-  weight = 3
+  weight = 4
     
 [[main]]
   identifier = "notes"
   name = "notes"
   url = "notes"
-  weight = 4
+  weight = 5
 ...
 ```
 
@@ -219,7 +219,9 @@ You shoud make your own menu.
 
 ```bash
 description = "The Zzo theme for Hugo example site."
-custom_css = ["css/foo.css", "css/bar.css"]
+custom_css = ["css/custom.css", "css/custom.css"]
+custom_js = ["js/custom.js"]
+custom_skin = "custom"
 
 # body
 enableToc = true

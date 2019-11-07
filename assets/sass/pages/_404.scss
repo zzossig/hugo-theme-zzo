@@ -1,0 +1,19 @@
+.not-found {
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-direction(column);
+
+  @include themify($themes) {
+    .title {
+      color: themed('title-color');
+    }
+
+    .subtitle {
+      color: themed('meta-color');
+    }
+  }
+}

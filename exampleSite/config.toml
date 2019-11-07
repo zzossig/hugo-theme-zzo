@@ -62,6 +62,10 @@ rssLimit = 100
     pinterest = "http://example.org"
     stack-exchange = ""
 
+[marketing]
+  google_analytics = ""
+  google_tag_manager = ""
+
 [languages]
 [languages.en]
   title = "Hugo Zzo Theme"

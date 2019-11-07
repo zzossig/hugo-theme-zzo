@@ -1,3 +1,5 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
 {{ define "main" }}
 <main class="main-main">
     <article class="{{ with .Section }}section-{{ . | urlize }} {{ end }}single-view">

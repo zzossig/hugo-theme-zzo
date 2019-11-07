@@ -89,6 +89,14 @@ $(document).ready(function() {
       $('.navbar__menu').addClass('is-active');
     }
   });
+  $('.navbar__menu-item').each(function() {
+    var menu = $(this).text().trim().toLowerCase();
+    if (location.pathname.includes(menu)) {
+      $(this).addClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+  });
 
   // truncate
   $('.summary__text').shave(160);

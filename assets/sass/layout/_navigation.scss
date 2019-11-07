@@ -147,11 +147,15 @@
       @include align-items(center);
       @include justify-content(center);
       @include themify($themes) {
-        color: themed('navbar-title-color');
+        color: themed('navbar-title-color');        
         @include on-event {
           color: themed('navbar-title-hover-color');
           background-color: themed('navbar-menu-hover-background-color');
           text-decoration: none;
+          border-bottom: 1px solid themed('navbar-border-bottom-color');
+        }
+        &.active {
+          color: themed('navbar-title-active-color') !important;
         }
       }
 
