@@ -2,10 +2,12 @@
 @import 'light';
 @import 'hacker';
 @import 'solarized';
+@import 'custom';
 
 $themes: (
   dark: $dark,
   light: $light,
   hacker: $hacker,  
   solarized: $solarized,
+  custom: $custom,
 );
