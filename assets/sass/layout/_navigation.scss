@@ -141,7 +141,7 @@
       height: $nav-height;      
       padding: 0.5rem;
       font-size: 1rem;
-      font-family: 'Montserrat', sans-serif;
+      font-family: $navbar_item_font;
       font-weight: 400;
       @include flexbox();
       @include align-items(center);

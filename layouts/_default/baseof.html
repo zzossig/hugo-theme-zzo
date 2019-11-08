@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>{{ block "title" . }}{{ .Title }} – {{ .Site.Title }}{{ end }}</title>
-    {{ partial "head/scripts" . }}
+    {{ partial "head/scripts" . }}    
     {{ partial "head/styles" . }}
     {{ partial "head/meta" . }}
     {{ partial "head/meta_json_ld" . }}
+    {{ partial "head/service" }}
 </head>
 
 <body id="root" class="theme__{{ index .Site.Params.themeOptions 0 }}">

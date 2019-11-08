@@ -6,7 +6,7 @@
     padding: 0.5rem;
 
     &__title {
-      font-family: "Montserrat", sans-serif;
+      font-family: $sidebar_title_font;
       font-weight: 700;
       @include themify($themes) {
         color: themed('sidebar-title-color');
@@ -17,10 +17,19 @@
     }
 
     &__ul {
-      margin-left: 1rem;
+      margin-left: 0.5rem;
+
+      li {
+        &::before {
+          padding-right: 0.5rem;
+          font-size: 1rem;
+          display: inline-block;
+          content: "\2022";
+        }
+      }
     }
 
-    &__a {    
+    &__a {          
       @include themify($themes) {
         color: themed('sidebar-li-color');
       }
@@ -31,7 +40,7 @@
     padding: 0.5rem;
 
     &__title {
-      font-family: "Montserrat", sans-serif;
+      font-family: $sidebar_title_font;
       font-weight: 700;
       @include themify($themes) {
         color: themed('sidebar-title-color');
@@ -46,7 +55,7 @@
     }
 
     &__a {
-      font-family: "Montserrat", sans-serif;
+      font-family: $sidebar_list_font;
       @include themify($themes) {
         color: themed('sidebar-li-color');
       }

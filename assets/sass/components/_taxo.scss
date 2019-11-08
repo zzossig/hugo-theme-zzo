@@ -3,7 +3,7 @@
   margin: 1.5rem 0;
 
   &__title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $taxo_titie_font;
     @include themify($themes) {
       color: themed('taxo-title-color');
       &:hover {

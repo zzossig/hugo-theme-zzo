@@ -1,6 +1,6 @@
 .not-found {
   height: 100%;
-  font-family: "Montserrat", sans-serif;
+  font-family: $page_not_found_font;
 
   @include flexbox();
   @include align-items(center);

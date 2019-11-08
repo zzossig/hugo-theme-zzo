@@ -47,6 +47,7 @@ I have referenced:
 * [zen theme](https://github.com/frjo/hugo-theme-zen)
 * [docdock theme](https://github.com/vjeantet/hugo-theme-docdock)
 * [learn theme](https://github.com/matcornic/hugo-theme-learn/)
+* [academic theme](https://sourcethemes.com/academic/)
 * [overreacted.io](https://github.com/gaearon/overreacted.io)
 
 ## Dependency
@@ -120,7 +121,6 @@ root
 │   │   ├── config.toml
 │   │   ├── languages.toml
 │   │   ├── menus.en.toml
-│   │   ├── menus.ko.toml
 │   │   ├── params.toml
 ```
 
@@ -447,7 +447,31 @@ assets/js/custom.js
 
 ### custom skin(sub theme)
 
+1. Make a skin.toml file in data folder. (data/skin.toml)
 
+2. Copy the contents of themes/zzo/data/skin.toml file and paste it into the skin.toml file you created above.
+
+3. Change the color you want.
+
+4. Edit config/_default/params.toml file. The option name must be custom.
+
+```bash
+...
+themeOptions = ["custom", "dark", ...]
+...
+```
+
+5. Once you change the skin.toml file, restart hugo.
+
+### custom font
+
+1. Make a font.toml file in data folder. (data/font.toml)
+
+2. Copy the contents of themes/zzo/data/font.toml file and paste it into the font.toml file you created above.
+
+3. Change the font you want. Make sure that you have imported that font.
+
+4. Once you change the font.toml file, restart hugo.
 
 ## Shortcodes
 

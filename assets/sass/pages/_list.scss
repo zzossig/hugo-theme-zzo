@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     margin: 0.5rem;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $list_title_font;
 
     &--title {
       @include themify($themes) {
@@ -13,7 +13,7 @@
     }
 
     &--desc {
-      font-family: 'Merriweather', serif;
+      font-family: $list_desc_font;
       font-weight: italic;
       padding: 1rem;
       line-height: 1.7rem;      

@@ -32,7 +32,7 @@
       color: themed("search-color");
       background-color: themed("search-background-color");
       @include input-placeholder {
-        font-family: "Montserrat", sans-serif;
+        font-family: $search_placeholder_font;
         color: themed("search-placeholder-color");
       }
     }

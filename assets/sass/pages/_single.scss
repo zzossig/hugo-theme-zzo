@@ -5,7 +5,7 @@
 
   &__title {
     font-weight: 900;
-    font-family: "Montserrat", sans-serif;
+    font-family: $single_title_font;
     line-height: 3rem;
     @include themify($themes) {
       color: themed("single-header-title-color");
@@ -19,7 +19,7 @@
 
   &__contents {
     font-size: 1rem;
-    font-family: "Merriweather", serif;
+    font-family: $single_contents_font;
     margin: 1rem 0;
     line-height: 1.7rem;
     width: inheirt;
