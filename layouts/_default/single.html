@@ -11,12 +11,13 @@
     <article class="single__contents">
       {{ .Content }}
     </article>
+    {{ partial "body/whoami" . }}    
+    {{ partial "comments/comments.html" . }}
 
     {{ partial "body/related" . }}
     {{ partial "pagination/pagination-single" . }}
     {{ partial "body/photoswipe" . }}
   </div>
-  {{ partial "body/perfectscrollbar" . }}
 </main>
 <aside class="main-side">
   {{ partial "sidebar/sidebar-single" . }}

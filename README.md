@@ -1,6 +1,6 @@
 # Zzo theme for Hugo
 
-**Zzo** theme made for bloggers.
+**Zzo** is a blog theme for Hugo with many features.
 
 It uses HTML5 with a modern CSS grid and flex layout. Recent versions of all the mayor browsers support it, see [Can I use css grid](http://caniuse.com/#search=grid).
 
@@ -221,20 +221,27 @@ You shoud make your own menu.
 description = "The Zzo theme for Hugo example site."
 custom_css = ["css/custom.css", "css/custom.css"]
 custom_js = ["js/custom.js"]
-custom_skin = "custom"
+myname = "yourname"
+whoami = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet cursus massa. Vestibulum eu posuere est. Suspendisse erat purus, mollis in leo quis, hendrerit fringilla felis."
 
 # body
 enableToc = true
 enableBreadcrumb = true
-enableCustomScrollbar = true
 enablePhotoSwipe = true
 enableSearch = true
 enableMark = true
+enableGoToTop = true
+enableWhoami = true
 
 # sidebar
 enableSidebarTags = true
 enableSidebarSeries = true
 enableSidebarCategories = true
+
+# comment
+enableComment = false
+disqus_shortname = ""
+commento = false
 
 # footer
 showPoweredBy = true
@@ -244,6 +251,7 @@ enableLangChange = true
 enableThemeChange = true
 themeOptions = ["dark", "light", "hacker", "solarized"]
 [socialOptions]
+  email = "mailto:your@email.com"
   facebook = "http://example.org/"
   twitter = "http://example.org/"
   github = "http://example.org/"
@@ -254,7 +262,7 @@ themeOptions = ["dark", "light", "hacker", "solarized"]
   medium = ""
   tumblr = ""
   linkedin = ""
-  pinterest = "http://example.org/"
+  pinterest = ""
   stack-exchange = ""
 ```
 

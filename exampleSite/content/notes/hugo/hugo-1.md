@@ -1,7 +1,7 @@
 ---
 title: "Hugo 1"
 date: 2017-10-11T10:33:41+09:00
-desc: "Hugo 1 Description"
+description: "Hugo 1 Description"
 tags:
 - hugo
 series:

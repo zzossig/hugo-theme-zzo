@@ -2,7 +2,7 @@
   <div class="navbar__brand">
     {{ if $.Param "logo" | default true }}
     <a href="{{ "/" | relLangURL }}" title="Home" rel="home" class="navbar__logo-link">
-      <img src="{{ "/logo.png" | relURL }}" alt="Home" class="navbar__logo">
+      <img data-src="{{ "/logo.png" | relURL }}" alt="Home" class="lazyload navbar__logo">
     </a>
     {{ end }}
     <a href="{{ "/" | relLangURL }}" title="Home" rel="home" class="navbar__title-link">

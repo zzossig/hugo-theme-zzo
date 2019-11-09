@@ -30,7 +30,7 @@
     @include truncate(100%);
     @include themify($themes) {
       color: themed("search-color");
-      background-color: themed("search-background-color");
+      background-color: inherit;
       @include input-placeholder {
         font-family: $search_placeholder_font;
         color: themed("search-placeholder-color");

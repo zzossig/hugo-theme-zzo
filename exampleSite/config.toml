@@ -25,16 +25,20 @@ rssLimit = 100
 
 [params]
   description = "The Zzo theme for Hugo example site."
-  custom_css = []
+  custom_css = ["css/custom.css", "scss/custom.scss"]
+  custom_js = ["js/custom.js"]
+  myname = "yourname"
+  whoami = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet cursus massa. Vestibulum eu posuere est. Suspendisse erat purus, mollis in leo quis, hendrerit fringilla felis."
 
   # body
   enableToc = true
   enableBreadcrumb = true
-  enableCustomScrollbar = true
   enablePhotoSwipe = true
   enableSearch = true
   enableMark = true
-
+  enableGoToTop = true
+  enableWhoami = true
+  
   # sidebar
   enableSidebarTags = true
   enableSidebarSeries = true
@@ -46,9 +50,15 @@ rssLimit = 100
   showSocialLinks = true
   enableLangChange = true
   enableThemeChange = true
-  themeOptions = ["dark", "light", "hacker", "solarized"]
+  themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
+
+  # comment
+  enableComment = false
+  disqus_shortname = ""
+  commento = false
 
   [params.socialOptions]
+    email = "mailto:your@email.com"
     facebook = "http://example.org"
     twitter = "http://example.org"
     github = "http://example.org"
@@ -59,7 +69,7 @@ rssLimit = 100
     medium = ""
     tumblr = ""
     linkedin = ""
-    pinterest = "http://example.org"
+    pinterest = ""
     stack-exchange = ""
 
 [marketing]

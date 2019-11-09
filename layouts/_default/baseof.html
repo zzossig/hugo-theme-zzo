@@ -9,7 +9,7 @@
     {{ partial "head/styles" . }}
     {{ partial "head/meta" . }}
     {{ partial "head/meta_json_ld" . }}
-    {{ partial "head/service" }}
+    {{ partial "head/service" . }}
 </head>
 
 <body id="root" class="theme__{{ index .Site.Params.themeOptions 0 }}">
@@ -21,6 +21,7 @@
             {{ partial "footer/site-footer" . }}
         </div>    
     </div>
+    {{ partial "etc/go-to-top" . }}
 </body>
 
 </html>

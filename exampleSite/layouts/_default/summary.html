@@ -6,7 +6,7 @@
   {{ $params := .Params }}
   <div class="summary__content">
     <div class="summary__text p2">
-      {{ with $params.Desc }}
+      {{ with $params.Description }}
       {{ . }}
       {{ else }}
       {{ .Summary }}

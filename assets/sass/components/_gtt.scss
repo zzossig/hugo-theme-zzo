@@ -1,0 +1,22 @@
+.gtt {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  @include themify($themes) {
+    color: themed('gtt-color');  
+    background-color: themed('gtt-background-color');
+
+    @include on-event {
+      color: themed('gtt-hover-color');  
+      background-color: themed('gtt-hover-background-color');
+    }
+  }
+}

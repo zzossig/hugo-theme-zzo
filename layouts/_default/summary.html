@@ -1,12 +1,12 @@
 <article class="summary">
   <header>
-    <h4 class="title h5"><a href='{{ .Permalink }}'> {{ .Title }}</a> </h2>
+    <h5 class="title h5"><a href='{{ .Permalink }}'> {{ .Title }}</a> </h5>
       <h6 class="subtitle caption">🕓 {{ .Date.Format (i18n "summary-dateformat") }} · ☕{{ .ReadingTime }} min read</h6>
   </header>
   {{ $params := .Params }}
   <div class="summary__content">
     <div class="summary__text p2">
-      {{ with $params.Desc }}
+      {{ with $params.Description }}
       {{ . }}
       {{ else }}
       {{ .Summary }}
@@ -20,20 +20,15 @@
       </div>
     {{ else if $params.featured_video }}      
       {{ with print ("videos/poster/" | relURL) $params.featured_video_poster }}
-      <div class="video">
-        <video class='video-js' controls preload='none' poster='{{ . | relURL }}' data-setup='{"fluid": true}'>
+      <div class="video-wrapper">
+        <video class="video" controls preload='none' poster='{{ . | relURL }}' data-setup='{"fluid": true}'>
           {{ with print ("videos/" | relURL) $params.featured_video }}
             <source src="{{ . | relURL }}" type='video/mp4'>
           {{ end }}
-          <p class='vjs-no-js'>
-            To view this video please enable JavaScript, and consider upgrading to a web browser that
-            <a href='https://videojs.com/html5-video-support/' target='_blank' rel="noopener">supports HTML5 video</a>
-          </p>
         </video>
       </div>
       {{ end }}
     {{ end }}    
   </div>
-
   <hr/>
 </article>

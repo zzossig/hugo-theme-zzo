@@ -12,7 +12,7 @@ categories:
 - cTest
 featured_video: "1.mp4"
 featured_video_poster: "1.jpg"
-desc: "this is description"
+description: "this is description"
 ---
 
 post-1 content

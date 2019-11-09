@@ -9,7 +9,7 @@ $solarized: (
     title-color: $primary-color,
     meta-color: lighten($primary-color, 5%),
     body-color: #424242,
-    hr-color: #ffb300,
+    hr-color: $secondary-color,
     body-background-color: #FDF7E3,
     backdrop-background-color: #DDD6C7,
     dropdown-border-color: $primary-color,
@@ -90,4 +90,9 @@ $solarized: (
     archive-key-background-color: $primary-color,
     archive-type-background-color: $secondary-color,
     archive-hover-line-color: #FF6188,
+    gtt-color: $secondary-color,
+    gtt-background-color: #FBF1D1,
+    gtt-hover-color: $primary-color,
+    gtt-hover-background-color: darken(#FBF1D1, 5%),
+    whoami-border-color: $primary-color,
 );

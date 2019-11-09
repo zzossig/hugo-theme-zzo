@@ -5,7 +5,6 @@ custom_js = ["js/custom.js"]
 # body
 enableToc = true
 enableBreadcrumb = true
-enableCustomScrollbar = true
 enablePhotoSwipe = true
 enableSearch = true
 enableMark = true
@@ -21,13 +20,14 @@ showFeedLinks = true
 showSocialLinks = true
 enableLangChange = true
 enableThemeChange = true
-themeOptions = ["custom", "dark", "light", "hacker", "solarized"]
+themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
 
 [marketing]
   google_analytics = ""
   google_tag_manager = ""
 
 [socialOptions]
+  email = "mailto:your@email.com"
   facebook = "http://example.org/"
   twitter = "http://example.org/"
   github = "http://example.org/"
@@ -38,5 +38,5 @@ themeOptions = ["custom", "dark", "light", "hacker", "solarized"]
   medium = ""
   tumblr = ""
   linkedin = ""
-  pinterest = "http://example.org/"
+  pinterest = ""
   stack-exchange = ""

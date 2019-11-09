@@ -1,7 +1,7 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-desc: 
+description: 
 type: gallery
 tags:
 -

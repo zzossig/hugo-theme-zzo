@@ -1,7 +1,7 @@
 ---
 title: "Go 1"
 date: 2012-11-01T10:33:41+09:00
-desc: "Go 1 Description"
+description: "Go 1 Description"
 tags:
 - 
 series:

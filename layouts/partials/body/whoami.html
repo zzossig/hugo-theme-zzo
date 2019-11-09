@@ -1,0 +1,16 @@
+{{ if $.Param "enableWhoami" }}
+
+<div class="whoami">
+  <div class="whoami__image-wrapper">
+    <img data-src="{{ "/images/whoami/photo.png" | relURL }}" alt="{{ .Site.Params.myname }}" class="lazyload whoami__image">
+  </div>
+  <div>
+    <div class="whoami__title h6">
+      {{ .Site.Params.myname }}
+    </div>
+    <div class="whoami__desc p2">
+      {{ .Site.Params.whoami }}
+    </div>
+  </div>
+</div>
+{{ end }}

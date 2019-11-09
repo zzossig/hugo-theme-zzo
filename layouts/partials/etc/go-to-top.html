@@ -1,0 +1,15 @@
+{{ if $.Param "enableGoToTop" }}
+<div id="gtt" class="hide">
+  <div class="gtt">
+    {{ partial "svgs/arrow/keyboard-arrow-up.svg" (dict "width" 25 "height" 25) }}
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.gtt').click(function() {
+      $("html, body").animate({ scrollTop: 0 }, 250);
+    });
+  });
+  </script>
+{{ end }}

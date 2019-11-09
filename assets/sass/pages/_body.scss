@@ -1,4 +1,5 @@
 #body {
+  position: relative;
   @include themify($themes) {
       color: themed('body-color');
       background-color: themed('backdrop-background-color');
