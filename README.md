@@ -249,7 +249,7 @@ showFeedLinks = true
 showSocialLinks = true
 enableLangChange = true
 enableThemeChange = true
-themeOptions = ["dark", "light", "hacker", "solarized", "cusom"]
+themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
 [socialOptions]
   email = "mailto:your@email.com"
   facebook = "http://example.org/"
