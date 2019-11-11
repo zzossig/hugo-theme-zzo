@@ -1,8 +1,6 @@
 # Zzo theme for Hugo
 
-**Zzo** is a blog theme for Hugo with many features.
-
-It uses HTML5 with a modern CSS grid and flex layout. Recent versions of all the mayor browsers support it, see [Can I use css grid](http://caniuse.com/#search=grid).
+Thank you for click this theme. Zzo theme is free(always), and has many features. If you find any bugs, or wanna share your custom color skin, or have some good idea to share with me and others that use this theme, feel free to open [github](https://github.com/zzossig/hugo-theme-zzo/issues) issue or pull request so that I can make this theme better.
 
 ## Table of contents
 
@@ -57,7 +55,6 @@ Zzo theme is using this library.
 * jquery@3.4.1
 * mark.js
 * clipboard.js
-* fetch-inject
 * lazysizes
 * masonry
 * lunr
@@ -65,7 +62,6 @@ Zzo theme is using this library.
 * photoswipe
 * prism
 * shave.js
-* perfect-scrollbar
 
 ## Minimum Hugo version
 
@@ -218,6 +214,7 @@ You shoud make your own menu.
 5. params.toml
 
 ```bash
+logoText = "Zzo"
 description = "The Zzo theme for Hugo example site."
 custom_css = ["css/custom.css", "css/custom.css"]
 custom_js = ["js/custom.js"]
@@ -237,6 +234,7 @@ enableWhoami = true
 enableSidebarTags = true
 enableSidebarSeries = true
 enableSidebarCategories = true
+itemsPerCategory = 5
 
 # comment
 enableComment = false
@@ -404,6 +402,8 @@ other = "태그"
 
 ## Customizing
 
+It's better idea not to modify zzo theme's folder if you wanna future support and upgrade. (You can modify if it doesn't matter) If you want more customizing options, open an issue.
+
 ### custom css
 
 1. Add this line of code to your params.toml file
@@ -480,6 +480,21 @@ themeOptions = ["custom", "dark", ...]
 3. Change the font you want. Make sure that you have imported that font.
 
 4. Once you change the font.toml file, restart hugo.
+
+### custom header
+
+You may want to change home page header. To do this, just make a file at layouts/partials/header/site-header.html
+and edit this file. Don't forget adding grid class. That's it.
+
+```bash
+{{ if .IsHome }}
+<header class="header">
+    ...
+    Your custom header here.
+    ...
+</header>
+{{ end }}
+```
 
 ## Shortcodes
 

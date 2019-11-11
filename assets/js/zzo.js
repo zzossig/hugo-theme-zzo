@@ -23,8 +23,8 @@ $(document).ready(function() {
         navbar.removeClass('navbar--show');
       }
 
-      if (scroll > 500 && gtt.hasClass('hide')) {
-        gtt.removeClass('hide');
+      if (scroll > 500) {
+        gtt.show(200);
       }
       
       $(".single__contents :header").each(function () {
@@ -47,8 +47,8 @@ $(document).ready(function() {
         navbar.addClass('navbar--show');
       }
 
-      if (scroll < 500 && !gtt.hasClass('hide')) {
-        gtt.addClass('hide');
+      if (scroll < 500) {
+        gtt.hide(200);
       }
 
       $(".single__contents :header").each(function () {
@@ -72,7 +72,7 @@ $(document).ready(function() {
   enquire.register("screen and (max-width: 769px)", {
     match: function () {
       $('main').removeClass('main-main').removeClass('main').addClass('main');
-      $('aside').removeClass('main-side').removeClass('hide').addClass('hide');      
+      $('aside').removeClass('main-side').removeClass('hide').addClass('hide');     
     },
     unmatch: function () {      
       if ($('aside').length > 0) {
@@ -85,12 +85,13 @@ $(document).ready(function() {
     setup: function () { },
     deferSetup: true,
     destroy: function () { },
-  }).register("screen and (max-width: 1120px)", {
-    match: function () {
-      $('#gtt').removeClass('hide').addClass('hide');
+  })
+  enquire.register("screen and (min-width: 1120px)", {
+    match: function () {  
+      $('#gtt').show(200);
     },
-    unmatch: function () {
-      $('#gtt').removeClass('hide');
+    unmatch: function () {      
+      $('#gtt').hide(200); 
     },
     setup: function () { },
     deferSetup: true,

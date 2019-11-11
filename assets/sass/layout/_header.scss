@@ -1,12 +1,33 @@
 .header {
+  padding: 1rem;
+
   @include flexbox();
   @include align-items(center);
   @include justify-content(center);
   @include flex-direction(column);
-  margin: 1rem;  
 
   .title {
     font-family: $header_title_font;
     font-weight: 900;
+  }
+
+  &__whoami {    
+    @include flexbox();
+    @include flex-direction(column);
+    @include align-items(center);
+    width: 100%;
+
+    &--image {
+      max-width: 64px;
+      max-height: 64px;
+    }
+
+    &--name {
+      
+    }
+
+    &--desc {
+      margin: 0.25rem 0;
+    }
   }
 }

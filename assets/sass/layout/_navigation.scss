@@ -116,12 +116,16 @@
   &__title {
     height: $nav-height;
     @include flexbox();
-    @include align-items(center);
-
+    @include align-items(center);    
+    
     &-link {
       @include themify($themes) {
         color: themed("navbar-title-color");
-      }
+        @include on-event {
+            text-decoration: none;
+            color: themed("navbar-title-color");
+        }
+      }      
     }
   }
 

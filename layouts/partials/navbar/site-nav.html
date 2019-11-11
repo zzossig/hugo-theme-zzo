@@ -2,11 +2,11 @@
   <div class="navbar__brand">
     {{ if $.Param "logo" | default true }}
     <a href="{{ "/" | relLangURL }}" title="Home" rel="home" class="navbar__logo-link">
-      <img data-src="{{ "/logo.png" | relURL }}" alt="Home" class="lazyload navbar__logo">
+      <img src="{{ "/logo.png" | relURL }}" alt="Home" class="navbar__logo">
     </a>
     {{ end }}
     <a href="{{ "/" | relLangURL }}" title="Home" rel="home" class="navbar__title-link">
-      <h6 class="navbar__title h6">{{ .Site.Title }}</h6>
+      <h6 class="navbar__title h6">{{ .Site.Params.logoText }}</h6>
     </a>    
   </div>
   <a role="button" class="navbar__burger" aria-label="menu" aria-expanded="false">
