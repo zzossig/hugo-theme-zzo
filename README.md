@@ -272,7 +272,7 @@ Modern CSS grid is the easiest and cleanest way to layout your pages.
 
 The CSS grid layout are in `assets/sass/layout/_grid.scss`. A lot can be done by just reordering "grid-template-rows". 
 
-#### grid structure
+### grid structure
 
 |  left 	|  right 	|
 |---	|---	|
@@ -481,6 +481,28 @@ themeOptions = ["custom", "dark", ...]
 
 4. Once you change the font.toml file, restart hugo.
 
+```toml
+data/font.toml example
+
+search_placeholder = "'Montserrat', sans-serif"
+summary_title = "'Montserrat', sans-serif"
+summary_subtitle = "'Merriweather', serif"
+summary_text = "'Merriweather', serif"
+taxo_titie = "'Montserrat', sans-serif"
+footer_content = "'Montserrat', sans-serif"
+header_title = "'Montserrat', sans-serif"
+navbar_item = "'Montserrat', sans-serif"
+sidebar_title = "'Montserrat', sans-serif"
+sidebar_list = "inherit"
+page_not_found = "'Montserrat', sans-serif"
+gallery_contents = "'Merriweather', serif"
+list_title = "'Montserrat', sans-serif"
+list_desc = "'Merriweather', serif"
+single_title = "'Montserrat', sans-serif"
+single_contents = "'Merriweather', serif"
+
+```
+
 ### custom header
 
 You may want to change home page header. To do this, just make a file at layouts/partials/header/site-header.html
@@ -494,6 +516,29 @@ and edit this file. Don't forget adding grid class. That's it.
     ...
 </header>
 {{ end }}
+```
+
+### custom grid
+
+1. Make a grid.toml file in data folder. (data/grid.toml)
+
+2. Copy the contents of themes/zzo/data/grid.toml file and paste it into the grid.toml file you created above.
+
+3. Change the grid you want.
+
+4. Once you change the grid.toml file, restart hugo.
+
+```toml
+data/grid.toml example
+
+grid_max_width = "960px"
+grid_main_main_width = "5"
+grid_main_main_unit = "fr"
+grid_main_side_width = "2"
+grid_main_side_unit = "fr"
+grid_navbar_height = "50px"
+grid_column_gap = "1.5rem"
+grid_row_gap = "0"
 ```
 
 ## Shortcodes

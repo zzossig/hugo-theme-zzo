@@ -1,0 +1,8 @@
+grid_max_width = "960px"
+grid_main_main_width = "5"
+grid_main_main_unit = "fr"
+grid_main_side_width = "2"
+grid_main_side_unit = "fr"
+grid_navbar_height = "50px"
+grid_column_gap = "1.5rem"
+grid_row_gap = "0"

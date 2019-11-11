@@ -2,7 +2,7 @@
   margin: auto;
   width: inherit;
   max-width: inherit;
-  height: $nav-height;
+  height: $grid_navbar_height;
   z-index: z('navbar');
   position: fixed;
   left: 0;
@@ -18,7 +18,7 @@
   }
 
   &--hide {
-    top: -$nav-height;
+    top: -$grid_navbar_height;
   }
 
   &--show {
@@ -29,7 +29,7 @@
     @include flexbox();
     @include align-items(center);
     @include flex-shrink(0);
-    height: $nav-height;
+    height: $grid_navbar_height;
   }
 
   &__burger {        
@@ -40,8 +40,8 @@
       cursor: pointer;
       margin-left: auto;
       position: relative;
-      height: $nav-height;    
-      width: $nav-height;
+      height: $grid_navbar_height;    
+      width: $grid_navbar_height;
 
       @include flexbox();
       @include align-items(center);
@@ -114,7 +114,7 @@
   }
 
   &__title {
-    height: $nav-height;
+    height: $grid_navbar_height;
     @include flexbox();
     @include align-items(center);    
     
@@ -134,7 +134,7 @@
     @include flexbox();
     @include align-items(center);
     @include justify-content(flex-end);
-    height: $nav-height;
+    height: $grid_navbar_height;
     position: relative;
     
     @include respond-to(sm) {
@@ -142,7 +142,7 @@
     }
 
     &-item {            
-      height: $nav-height;      
+      height: $grid_navbar_height;      
       padding: 0.5rem;
       font-size: 1rem;
       font-family: $navbar_item_font;
@@ -192,7 +192,7 @@
 
   &__dropdown {
     display: inline-block;
-    height: $nav-height;
+    height: $grid_navbar_height;
     @include respond-to(sm) {
       width: 100%;
       height: auto;

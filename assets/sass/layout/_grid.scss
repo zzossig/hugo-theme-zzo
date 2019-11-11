@@ -1,9 +1,14 @@
+$grid_main_main: $grid_main_main_width + $grid_main_main_unit;
+$grid_main_side: $grid_main_side_width + $grid_main_side_unit;
+
 .wrapper {
     display: grid;
-    grid-template-columns: minmax(350px, 5fr) minmax(0PX, 2fr);
-    grid-template-rows: 50px auto 1fr auto;
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 0px;
+    max-width: $grid_max_width;
+    justify-content: center;
+    grid-template-columns: minmax(350px, $grid_main_main) minmax(0PX, $grid_main_side);
+    grid-template-rows: $grid_navbar_height auto 1fr auto;
+    grid-column-gap: $grid_column_gap;
+    grid-row-gap: $grid_row_gap;
 }
 
 .header-main {

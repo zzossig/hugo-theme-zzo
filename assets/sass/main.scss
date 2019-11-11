@@ -1,6 +1,16 @@
 {{- partial "functions/parse_theme" . -}}
 {{- partial "functions/parse_fonts" . -}}
+{{- partial "functions/parse_grid" . -}}
 {{- $scr := .Scratch -}}
+
+$grid_max_width: {{ $scr.Get "grid_max_width" }};
+$grid_main_main_width: {{ $scr.Get "grid_main_main_width" }};
+$grid_main_main_unit: {{ $scr.Get "grid_main_main_unit" }};
+$grid_main_side_width: {{ $scr.Get "grid_main_side_width" }};
+$grid_main_side_unit: {{ $scr.Get "grid_main_side_unit" }};
+$grid_navbar_height: {{ $scr.Get "grid_navbar_height" }};
+$grid_column_gap: {{ $scr.Get "grid_column_gap" }};
+$grid_row_gap: {{ $scr.Get "grid_row_gap" }};
 
 $search_placeholder_font: {{ $scr.Get "search_placeholder" }};
 $summary_title_font: {{ $scr.Get "summary_title" }};
@@ -127,7 +137,6 @@ $whoami_border_color: {{ $scr.Get "whoami_border_color" }};
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/sidebar';
-@import 'layout/forms';
 
 @import 'components/summary';
 @import 'components/toc';

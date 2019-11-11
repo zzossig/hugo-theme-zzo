@@ -1,0 +1,11 @@
+{{- $scr := .Scratch -}}
+{{ $grid := .Site.Data.grid }}
+
+{{- $scr.Set "grid_max_width" $grid.grid_max_width -}}
+{{- $scr.Set "grid_main_main_width" $grid.grid_main_main_width -}}
+{{- $scr.Set "grid_main_main_unit" $grid.grid_main_main_unit -}}
+{{- $scr.Set "grid_main_side_width" $grid.grid_main_side_width -}}
+{{- $scr.Set "grid_main_side_unit" $grid.grid_main_side_unit -}}
+{{- $scr.Set "grid_navbar_height" $grid.grid_navbar_height -}}
+{{- $scr.Set "grid_column_gap" $grid.grid_column_gap -}}
+{{- $scr.Set "grid_row_gap" $grid.grid_row_gap -}}
