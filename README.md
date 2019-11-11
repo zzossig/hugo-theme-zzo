@@ -1,6 +1,6 @@
 # Zzo theme for Hugo
 
-Thank you for click this theme. Zzo theme is free(always), and has many features. If you find any bugs, or wanna share your custom color skin, or have some good idea to share with me and others that use this theme, feel free to open [github](https://github.com/zzossig/hugo-theme-zzo/issues) issue or pull request so that I can make this theme better.
+Thank you for click me!. Zzo theme is a blog theme for Hugo with free(always), and many features. If you find any bugs, or wanna share your custom color skin, or have some good idea to share with me and others who use this theme, feel free to open [github](https://github.com/zzossig/hugo-theme-zzo/issues) issue or pull request so that I can make this theme better.
 
 ## Table of contents
 
