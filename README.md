@@ -21,6 +21,7 @@ Thank you for click me!. Zzo theme is a blog theme for Hugo with free(always), a
 
 ## Features
 
+* Grid customizing
 * Multiple sub themes(dark, light, solarized, hacker)
 * A mobile menu
 * CSS grid and flex for layout
