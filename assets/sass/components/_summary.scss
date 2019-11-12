@@ -1,4 +1,4 @@
-.summary {  
+.summary-card {
   padding: 0 1rem;
   .title {    
     a {
@@ -45,7 +45,7 @@
     }
   }
 
-  .video {
+  &__video {
     width: 100%;
     max-height: 500px;
     object-fit: contain;
@@ -67,6 +67,69 @@
   &:last-child {
     hr {
       margin-bottom: 2rem;
+    }
+  }
+}
+
+.summary-classic {
+  padding: 0 1rem;
+  .title {
+    font-size: 24px;    
+    a {
+      font-family: $summary_title_font;
+      font-weight: 700;
+      @include themify($themes) {
+          color: themed('title-color');
+          @include on-event {
+            color: themed('link-hover');
+          }
+      }
+    }
+  }
+
+  .subtitle {
+    font-family: $summary_subtitle_font;
+    @include themify($themes) {
+      color: themed('meta-color');
+    }
+  }
+
+  &__flex-box {
+    @include flexbox();
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__content {
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(flex-start);
+    padding-left: 1rem;
+  }
+
+  &__text {
+    margin-top: 1rem;
+    line-height: 1.7rem;
+    font-family: $summary_text_font;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    
+    &-wrapper {
+      max-height: 170px;
+      max-width: 170px;
+      min-width: 170px;
+      @include align-self(center);
+    }
+  }
+
+  hr {
+    border-radius: 5rem;
+    @include themify($themes) {      
+      border-top: 1px solid themed('hr-color');
     }
   }
 }

@@ -9,7 +9,7 @@ $solarized: (
     title-color: $primary-color,
     meta-color: lighten($primary-color, 5%),
     body-color: #424242,
-    hr-color: $secondary-color,
+    hr-color: lighten($secondary-color, 25%),
     body-background-color: #FDF7E3,
     backdrop-background-color: #DDD6C7,
     dropdown-border-color: $primary-color,

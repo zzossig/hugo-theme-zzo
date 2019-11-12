@@ -13,6 +13,7 @@ enableSearch = true
 enableMark = true
 enableGoToTop = true
 enableWhoami = true
+summaryShape = "classic" # card, classic
 
 # sidebar
 enableSidebarTags = true

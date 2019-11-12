@@ -39,6 +39,7 @@ rssLimit = 100
   enableMark = true
   enableGoToTop = true
   enableWhoami = true
+  summaryShape = "card" # card, classic
   
   # sidebar
   enableSidebarTags = true

@@ -1,6 +1,7 @@
 # Zzo theme for Hugo
 
 Thank you for click me!. Zzo theme is a blog theme for Hugo with free(always), and many features. If you find any bugs, or wanna share your custom color skin, or have some good idea to share with me and others who use this theme, feel free to open [github](https://github.com/zzossig/hugo-theme-zzo/issues) issue or pull request so that I can make this theme better.
+![zzo theme for Hugo](https://user-images.githubusercontent.com/52706977/68638044-ace72a80-0543-11ea-94d9-329ef0228f4f.gif)
 
 ## Table of contents
 
@@ -229,6 +230,7 @@ enableSearch = true
 enableMark = true
 enableGoToTop = true
 enableWhoami = true
+summaryShape = "classic" # card, classic
 
 # sidebar
 enableSidebarTags = true
