@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 250px;
   position: fixed;
-  top: 6.5rem;
+  top: 7rem;
   font-size: 0.85rem;
   padding-left: 0.5rem;
   z-index: z('toc');
@@ -14,6 +14,7 @@
   &__flexbox {
     @include flexbox();
     @include align-items(center);
+    position: fixed;
   }
 
   &__title {

@@ -121,6 +121,9 @@ $gtt_background_color: {{ $scr.Get "gtt_background_color" }};
 $gtt_hover_color: {{ $scr.Get "gtt_hover_color" }};
 $gtt_hover_background_color: {{ $scr.Get "gtt_hover_background_color" }};
 $whoami_border_color: {{ $scr.Get "whoami_border_color" }};
+$switch_background_color: {{ $scr.Get "switch_background_color" }};
+$switch_button_color: {{ $scr.Get "switch_button_color" }};
+$switch_active_color: {{ $scr.Get "switch_active_color" }};
 
 @import 'abstracts/variables';
 @import 'abstracts/mixins';

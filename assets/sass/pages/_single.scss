@@ -116,7 +116,7 @@
     }
 
     .copy-to-clipboard {
-      background-image: url(images/clippy.svg);
+      @include clippy();
       background-position: 50% 50%;
       background-size: 16px 16px;
       background-repeat: no-repeat;
@@ -133,7 +133,7 @@
       @include transition(all, 0.2s, ease);
     }
     .copy-to-clipboard:hover {
-      @include translateY(-0.1rem);
+      @include translateY(-0.05rem);
     }
     pre .copy-to-clipboard {
       position: absolute;
@@ -143,7 +143,7 @@
       @include transition(all, 0.2s, ease);
     }
     pre .copy-to-clipboard:hover {
-      @include translateY(-0.1rem);
+      @include translateY(-0.05rem);
     }
 
     blockquote {

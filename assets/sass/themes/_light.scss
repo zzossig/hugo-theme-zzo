@@ -6,7 +6,7 @@ $light: (
     title-color: #607d8b,
     meta-color: #424242,
     body-color: #424242,
-    hr-color: #eeeeee,
+    hr-color: #dbdbdb,
     body-background-color: #fafafa,
     backdrop-background-color: #e0e0e0,
     dropdown-border-color: #bdbdbd,
@@ -92,4 +92,7 @@ $light: (
     gtt-hover-color: #607d8b,
     gtt-hover-background-color: darken(#eeeeee, 10%),
     whoami-border-color: #607d8b,
+    switch-background-color: #bdbdbd,
+    switch-button-color: #FCFCFA,
+    switch-active-color: #FF6188,
 );

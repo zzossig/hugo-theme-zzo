@@ -9,7 +9,7 @@ $solarized: (
     title-color: $primary-color,
     meta-color: lighten($primary-color, 5%),
     body-color: #424242,
-    hr-color: lighten($secondary-color, 25%),
+    hr-color: $primary-color,
     body-background-color: #FDF7E3,
     backdrop-background-color: #DDD6C7,
     dropdown-border-color: $primary-color,
@@ -95,4 +95,7 @@ $solarized: (
     gtt-hover-color: $primary-color,
     gtt-hover-background-color: darken(#EEE8D5, 5%),
     whoami-border-color: $primary-color,
+    switch-background-color: darken(#EEE8D5, 10%),
+    switch-button-color: #FCFCFA,
+    switch-active-color: #FF6188,
 );
