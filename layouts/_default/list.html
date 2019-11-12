@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main class="main-main">
+<main class="{{ if $.Param "enableSidebar" }}main-main{{ else }}main{{ end }}">
     {{ partial "body/breadcrumb" . }}
     <article class="list">
         <header class="list__header">
@@ -20,7 +20,10 @@
 
     {{ partial "pagination/pagination-list" . }}
 </main>
-<aside class="main-side">
-    {{ partial "sidebar/sidebar-list" . }}
-</aside>
+
+{{ if $.Param "enableSidebar" }}
+    <aside class="main-side">
+        {{ partial "sidebar/sidebar-list" . }}
+    </aside>
+{{ end }}
 {{ end }}

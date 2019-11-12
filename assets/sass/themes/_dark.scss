@@ -6,7 +6,7 @@ $dark: (
     title-color: #ffd866,
     meta-color: #FCFCFA,
     body-color: #FCFCFA,
-    hr-color: #403E41,
+    hr-color: #595B5C,
     body-background-color: #2D2A2E,
     backdrop-background-color: #212121,
     dropdown-border-color: #212121,
@@ -92,4 +92,7 @@ $dark: (
     gtt-hover-color: #82aaff,
     gtt-hover-background-color: lighten(#403E41, 5%),
     whoami-border-color: #90a4ae,
+    switch-background-color: #403E41,
+    switch-button-color: #FCFCFA,
+    switch-active-color: #FF6188,
 );

@@ -1,6 +1,7 @@
 .taxo {
   padding: 0.25rem;
   margin: 2.5rem 0;
+  z-index: z('taxo');
 
   &__title {
     font-weight: 700;

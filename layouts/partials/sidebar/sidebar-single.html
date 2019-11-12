@@ -1,8 +1,15 @@
+{{ if $.Param "enableSidebar" }}
 {{ if $.Param "enableToc" }}
 
 <div class="sidebar">
-  <div class="toc">
+  <div class="toc__flexbox">
     <h6 class="toc__title">{{ i18n "toc-label" }}</h6>
+    <label class="switch">
+      <input id="toggle-toc" type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <div class="toc">    
     <ul id="toc"></ul>
   </div>
 </div>
@@ -14,6 +21,7 @@
   $(document).ready(function () {
     var navbar = $('.navbar');
 
+    // toc
     $("#toc").toc({ content: ".single__contents", headings: "h1,h2,h3,h4" });
     $('#toc > li').each(function () {
       $(this).find('ul').css('display', 'none');
@@ -104,7 +112,17 @@
         });
       }
     });
+
+    // toc visibility
+    $("#toggle-toc").change(function() {
+      if (this.checked) {
+        $('.toc').removeClass('hide');
+      } else {
+        $('.toc').removeClass('hide').addClass('hide');
+      }
+    });
   });   
 </script>
 
+{{ end }}
 {{ end }}

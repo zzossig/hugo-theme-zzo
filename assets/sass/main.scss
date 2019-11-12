@@ -153,6 +153,7 @@ $whoami_border_color: {{ $scr.Get "whoami_border_color" }};
 @import 'components/tooltip';
 @import 'components/gtt';
 @import 'components/whoami';
+@import 'components/switch';
 
 @import 'pages/body';
 @import 'pages/home';

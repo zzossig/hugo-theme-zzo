@@ -1,9 +1,11 @@
+{{ if $.Param "enableSidebar" }}
+
 {{ $currentSection := .Section }}
 {{ $currentID := "" }}
 {{ with .File }}{{ $currentID = .UniqueID }}{{ end }}
 <div class="sidebar">
     {{ partial "sidebar/site-search" . }}
-    {{ range .Pages }}
+    {{ range first .Site.Params.itemsPerCategory .Pages }}
     <section class="sidebar-list">
         <a href="{{ .RelPermalink }}" class="sidebar-list__title p1 {{ if eq $currentSection .Section }}active{{ end }}">{{ .Title }}</a>
         <ul class="sidebar-list__ul">
@@ -19,3 +21,5 @@
 {{ partial "taxonomy/taxonomy-tags" . }}
 {{ partial "taxonomy/taxonomy-categories" . }}
 {{ partial "taxonomy/taxonomy-series" . }}
+
+{{ end }}

@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main class="main-main">
+<main class="{{ if $.Param "enableSidebar" }}main-main{{ else }}main{{ end }}">
   {{ if eq .Site.Params.enableBreadcrumb true }}
   {{ partial "body/breadcrumb" . }}
   {{ end }}
@@ -19,7 +19,10 @@
     {{ partial "body/photoswipe" . }}
   </div>
 </main>
+
+{{ if $.Param "enableSidebar" }}
 <aside class="main-side">
   {{ partial "sidebar/sidebar-single" . }}
 </aside>
+{{ end }}
 {{ end }}

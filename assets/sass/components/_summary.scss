@@ -58,6 +58,9 @@
 
   hr {
     margin-top: 1.5rem;
+    @include themify($themes) {
+        border-top: 1px solid themed('hr-color');
+    }
   }
   &:not(:last-child) {
     hr {
@@ -96,7 +99,7 @@
 
   &__flex-box {
     @include flexbox();
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
   }
 
@@ -127,9 +130,27 @@
   }
 
   hr {
-    border-radius: 5rem;
-    @include themify($themes) {      
-      border-top: 1px solid themed('hr-color');
+    @include themify($themes) {
+        border-top: 1px solid themed('hr-color');
+    }
+  }
+}
+
+.summary-compact {
+  padding: 0 1rem;
+  &__flexbox {
+    @include flexbox();
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__meta {
+    padding: 1rem 0;
+  }
+
+  hr {
+    @include themify($themes) {
+        border-top: 1px solid themed('hr-color');
     }
   }
 }

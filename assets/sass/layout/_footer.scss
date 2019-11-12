@@ -174,4 +174,10 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  hr {
+    @include themify($themes) {
+      border-top: 1px solid themed('hr-color') !important;
+    }
+  }
 }

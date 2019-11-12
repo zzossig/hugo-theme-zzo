@@ -2,17 +2,23 @@
   width: 100%;
   max-width: 250px;
   position: fixed;
-  top: 4.5rem;
+  top: 6.5rem;
   font-size: 0.85rem;
   padding-left: 0.5rem;
+  z-index: z('toc');
   
   #toc {
     position: relative;
   }
 
+  &__flexbox {
+    @include flexbox();
+    @include align-items(center);
+  }
+
   &__title {
     font-size: 0.9rem;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
     @include themify($themes) {
       color: themed('toc-label-color');
     }

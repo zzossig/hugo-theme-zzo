@@ -28,6 +28,10 @@ $(document).ready(function() {
       }
       
       $(".single__contents :header").each(function () {
+        if (!$("#toggle-toc").is(":checked")) {
+            return null;
+        }
+
         if ($(window).scrollTop() >= $(this).position().top) {
           var id = $(this).attr('id');
           $('.toc a').removeClass('active');
@@ -52,6 +56,10 @@ $(document).ready(function() {
       }
 
       $(".single__contents :header").each(function () {
+        if (!$("#toggle-toc").is(":checked")) {
+            return null;
+        }
+        
         if ($(window).scrollTop() >= $(this).position().top) {
           var id = $(this).attr('id');
           $('.toc a').removeClass('active');
