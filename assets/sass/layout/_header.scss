@@ -4,6 +4,7 @@
   @include flexbox();
   @include align-items(center);
   @include justify-content(center);
+  @include flex-direction(column);
 
   .title {
     font-family: $header_title_font;
