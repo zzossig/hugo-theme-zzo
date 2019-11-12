@@ -1,39 +1,9 @@
-<article class="summary">
-  <header>
-    <h4 class="title h5"><a href='{{ .Permalink }}'> {{ .Title }}</a> </h2>
-      <h6 class="subtitle caption">🕓 {{ .Date.Format (i18n "summary-dateformat") }} · ☕{{ .ReadingTime }} min read</h6>
-  </header>
-  {{ $params := .Params }}
-  <div class="summary__content">
-    <div class="summary__text p2">
-      {{ with $params.Description }}
-      {{ . }}
-      {{ else }}
-      {{ .Summary }}
-      {{ end }}
-    </div>
-    {{ if $params.featured_image }}      
-      <div class="summary__image-wrapper">
-        {{ with (print "images/" $params.featured_image) }}
-        <img data-src="{{ . | relURL }}" alt="{{ print $params.featured_image }}" class="lazyload summary__image">
-        {{ end }}
-      </div>
-    {{ else if $params.featured_video }}      
-      {{ with print ("theme/hugo-theme-zzo/videos/poster/" | relURL) $params.featured_video_poster }}
-      <div class="video">
-        <video class='video-js' controls preload='none' poster='{{ . }}' data-setup='{"fluid": true}'>
-          {{ with print ("videos/" | relURL) $params.featured_video }}
-            <source src="{{ . }}" type='video/mp4'>
-          {{ end }}
-          <p class='vjs-no-js'>
-            To view this video please enable JavaScript, and consider upgrading to a web browser that
-            <a href='https://videojs.com/html5-video-support/' target='_blank' rel="noopener">supports HTML5 video</a>
-          </p>
-        </video>
-      </div>
-      {{ end }}
-    {{ end }}    
-  </div>
-
-  <hr/>
-</article>
+{{ if eq (lower .Site.Params.summaryShape) "card" }}
+{{ partial "summary/card" . }}
+{{ else if eq (lower .Site.Params.summaryShape) "classic" }}
+{{ partial "summary/classic" . }}
+{{ else if eq (lower .Site.Params.summaryShape) "compact" }}
+{{ partial "summary/compact" . }}
+{{ else }}
+{{ printf "%#v" "Not supported shape. Please edit config params(summaryShape)." }}
+{{ end }}

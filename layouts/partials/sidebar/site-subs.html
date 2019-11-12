@@ -1,0 +1,17 @@
+{{ if $.Param "enableSideSubscribe" }}
+<div class="subs">
+  <aside>
+    <div class="title p2 subs__title">
+      {{ i18n "subs-label" }}
+    </div>
+    <div class="subs__form">
+      <input type="text" class="subs__input" placeholder="{{ T "subs-placeholder" }}"/>      
+    </div>
+    <button class="subs__button">{{ T "subs-button" }}</button>
+  </aside>
+</div>
+
+<script>
+
+</script>
+{{ end }}

@@ -33,3 +33,12 @@ other = "See Also"
 
 [toc-label]
 other = "What's on this Page"
+
+[subs-label]
+other = "Subscribe"
+
+[subs-placeholder]
+other = "Your email address"
+
+[subs-button]
+other = "Join"

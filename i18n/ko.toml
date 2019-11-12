@@ -33,3 +33,12 @@ other = "관련글"
 
 [toc-label]
 other = "목차"
+
+[subs-label]
+other = "구독"
+
+[subs-placeholder]
+other = "이메일 주소 입력"
+
+[subs-button]
+other = "구독하기"

@@ -22,7 +22,7 @@ $(document).ready(function() {
       } else if (navbar.hasClass('navbar--show')) {
         navbar.removeClass('navbar--show');
       }
-
+      
       if (scroll > 500) {
         gtt.show(200);
       }
@@ -89,17 +89,6 @@ $(document).ready(function() {
       }
       $('.navbar__burger').removeClass('is-active');
       $('.navbar__menu').removeClass('is-active');
-    },
-    setup: function () { },
-    deferSetup: true,
-    destroy: function () { },
-  })
-  enquire.register("screen and (min-width: 1120px)", {
-    match: function () {  
-      $('#gtt').show(200);
-    },
-    unmatch: function () {      
-      $('#gtt').hide(200); 
     },
     setup: function () { },
     deferSetup: true,

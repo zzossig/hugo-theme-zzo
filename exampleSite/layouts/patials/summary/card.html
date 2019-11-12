@@ -1,0 +1,34 @@
+<article class="summary-card">
+  <header>
+    <h5 class="title h5"><a href='{{ .Permalink }}'> {{ .Title }}</a> </h5>
+    <h6 class="subtitle caption">🕓 {{ .Date.Format (i18n "summary-dateformat") }} · ☕{{ .ReadingTime }} min read</h6>
+  </header>
+  {{ $params := .Params }}
+  <div class="summary-card__content">
+    <div class="summary-card__text p2">
+      {{ with $params.Description }}
+      {{ . }}
+      {{ else }}
+      {{ .Summary }}
+      {{ end }}
+    </div>
+    {{ if $params.featured_image }}
+    <div class="summary-card__image-wrapper">
+      {{ with (print "images/" $params.featured_image) }}
+      <img data-src="{{ . | relURL }}" alt="{{ print $params.featured_image }}" class="lazyload summary-card__image">
+      {{ end }}
+    </div>
+    {{ else if $params.featured_video }}
+    {{ with print ("videos/poster/" | relURL) $params.featured_video_poster }}
+    <div class="summary-card__video-wrapper">
+      <video class="summary-card__video" controls preload='none' poster='{{ . | relURL }}' data-setup='{"fluid": true}'>
+        {{ with print ("videos/" | relURL) $params.featured_video }}
+        <source src="{{ . | relURL }}" type='video/mp4'>
+        {{ end }}
+      </video>
+    </div>
+    {{ end }}
+    {{ end }}
+  </div>
+  <hr />
+</article>

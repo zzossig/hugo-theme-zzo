@@ -152,11 +152,11 @@ $switch_active_color: {{ $scr.Get "switch_active_color" }};
 @import 'components/notice';
 @import 'components/expand';
 @import 'components/alert';
-@import 'components/attachment';
 @import 'components/tooltip';
 @import 'components/gtt';
 @import 'components/whoami';
 @import 'components/switch';
+@import 'components/subs';
 
 @import 'pages/body';
 @import 'pages/home';

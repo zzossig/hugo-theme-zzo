@@ -1,0 +1,36 @@
+.subs {
+  padding: 0.25rem;
+  margin: 2.5rem 0;
+  z-index: z('taxo');
+
+  &__title {
+    font-weight: 700;
+    font-family: $taxo_titie_font;
+    margin-bottom: 0.5rem;
+    @include themify($themes) {
+      color: themed('taxo-title-color');
+    }
+  }
+
+  &__form {
+    @include flexbox();
+    @include align-items(center);
+  }
+
+  &__input {
+    height: 32px;
+    width: 100%;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    margin-right: 1rem;
+    background-color: #212121;
+    border: 1px solid #212121;
+    color: red;
+    border-left: none;
+    outline: none;
+  }
+
+  &__button {
+
+  }
+}

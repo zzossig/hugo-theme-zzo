@@ -1,0 +1,13 @@
+<article class="summary-compact">
+  <div class="summary-compact__flex-box">
+    {{ $params := .Params }}
+    <div class="summary-compact__meta">
+      <header>
+        <h5 class="title h6"><a href='{{ .Permalink }}'> {{ .Title }}</a> </h5>
+        <h6 class="subtitle caption">🕓 {{ .Date.Format (i18n "summary-dateformat") }} · ☕{{ .ReadingTime }} min read
+        </h6>
+      </header>
+    </div>
+  </div>
+  <hr />
+</article>
