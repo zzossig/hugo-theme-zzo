@@ -22,6 +22,7 @@ enableSidebarSeries = true
 enableSidebarCategories = true
 enableToc = true
 itemsPerCategory = 5
+enableSideSubscribe = false
 
 # footer
 showPoweredBy = true

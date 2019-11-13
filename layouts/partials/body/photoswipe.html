@@ -82,17 +82,28 @@
     var pswpElement = $('.pswp')[0];
     var imgElements = $('.single__contents').find('img');
     var items = [];
-  
+
+    {{ $mode:= .Params.Mode }}
+    var mode = JSON.parse({{ $mode | jsonify }});    
+
     imgElements.each(function (i, v) {
-      $(this).click(function (e) {
+      $(this).siblings().click(function (e) {
         initGallery(i);
       });
       $(this).css('cursor', 'pointer');
+
+      var caption = null;
+      if (mode && mode.toLowerCase().includes('one')) {        
+        caption = $(this).attr('alt');
+      } else {
+        caption = filename(v['src']);
+      }
+
       items.push({
         src: v['src'],
         w: 0,
         h: 0,
-        title: filename(v['src']),
+        title: caption,
       });
     });
   

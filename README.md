@@ -238,6 +238,7 @@ enableSidebarSeries = true
 enableSidebarCategories = true
 enableToc = true
 itemsPerCategory = 5
+enableSideSubscribe = false
 
 # comment
 enableComment = false
@@ -312,7 +313,34 @@ The CSS grid layout are in `assets/sass/layout/_grid.scss`. A lot can be done by
 
 ## Gallery
 
-Follow the steps below if you want to make gallery
+There are two ways to make gallery. You can specify **mode** at frontmatter.
+
+```bash
+content/gallery/mygallery/index.md
+
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+description: 
+type: gallery
+mode: one-by-one # at-once or one-by-one
+tags:
+-
+series:
+-
+categories:
+-
+images: # when mode is one-by-one, images front matter works
+  - image: image1.jpg
+    caption: caption1
+  - image: image2.jpg
+    caption: caption2
+    ...
+---
+
+```
+
+If you set the mode to one-by-one, list.html page will use images frontmatter above. If you set the mode to at-once, list.html page will not use images frontmatter and just read all files under the static/gallery/mygallery folder.
 
 1. Make a gallery folder under the content folder
 

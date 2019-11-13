@@ -5,6 +5,7 @@
 {{ with .File }}{{ $currentID = .UniqueID }}{{ end }}
 <div class="sidebar">
     {{ partial "sidebar/site-search" . }}
+    {{ if .Site.Params.itemsPerCategory }}
     {{ range first .Site.Params.itemsPerCategory .Pages }}
     <section class="sidebar-list">
         <a href="{{ .RelPermalink }}" class="sidebar-list__title p1 {{ if eq $currentSection .Section }}active{{ end }}">{{ .Title }}</a>
@@ -15,6 +16,7 @@
             {{ end }}
         </ul>
     </section>
+    {{ end }}
     {{ end }}
 </div>
 

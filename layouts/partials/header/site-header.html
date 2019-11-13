@@ -1,7 +1,7 @@
 {{ if .IsHome }}
 <header class="header">
     <div class="header__whoami">
-        <img src="{{ "/images/whoami/photo.png" | relURL }}" alt="{{ .Site.Params.myname }}" class="header__whoami--image">
+        <img src="{{ "/images/whoami/photo.png" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ end }}" class="header__whoami--image">
         <div class="header__whoami--name h6">
             Hi, I'm {{ .Site.Params.myname }}
         </div>

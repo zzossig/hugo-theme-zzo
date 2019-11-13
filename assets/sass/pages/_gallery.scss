@@ -35,20 +35,16 @@
 .grid-sizer,
 .grid-item {
   width: 33.333%;
-  padding: 0.25rem;
-  
-  img {
-      border-radius: 0.25rem;
-  }
+  padding: 0.5rem;  
 }
 
 .grid-item {
-  float: left;
+  float: left;    
 }
 
 .grid-item img {
   display: block;
-  max-width: 100%;
+  max-width: 100%;  
 }
 
 
@@ -61,5 +57,38 @@
       font-family: $gallery_contents_font;
       font-size: 1rem;
       text-align: center;
+  }
+
+  .grid-item {
+    position: relative;
+    opacity: 1;
+    height: auto;
+    cursor: pointer;
+
+    &__desc {
+      position: absolute;
+      display: none;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      padding: 0.5rem;
+      width: calc(100% - 1rem);
+      height: calc(100% - 1rem);
+      border-radius: 0.25rem;      
+      z-index: z('gallery-mask');
+      font-family: $single_title_font;
+      font-weight: 700;
+      cursor: pointer;      
+
+      @include box-shadow(0, 4px, 4px, 0, rgba(0, 0, 0, 0.4));
+      @include on-event {
+        @include themify($themes) {
+          color: themed('gallery-mask-color');
+          background-color: themed('gallery-mask-background-color');
+        }
+      }
+    }
   }
 }

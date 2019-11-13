@@ -5,13 +5,18 @@
       {{ i18n "subs-label" }}
     </div>
     <div class="subs__form">
-      <input type="text" class="subs__input" placeholder="{{ T "subs-placeholder" }}"/>      
+      <span class="subs__icon">
+        {{ partial "svgs/etc/person.svg" (dict "width" 22 "height" 22) }}
+      </span>
+      <input id="subs-name" type="text" class="subs__input" placeholder="{{ T "subs-placeholder-name" }}"/>
     </div>
-    <button class="subs__button">{{ T "subs-button" }}</button>
+    <div class="subs__form">
+      <span class="subs__icon">
+        {{ partial "svgs/social/email.svg" (dict "width" 22 "height" 22) }}
+      </span>
+      <input id="subs-email" type="text" class="subs__input" placeholder="{{ T "subs-placeholder-email" }}"/>      
+    </div>
+    <button id="subs-button" class="subs__button">{{ T "subs-button" }}</button>
   </aside>
 </div>
-
-<script>
-
-</script>
 {{ end }}

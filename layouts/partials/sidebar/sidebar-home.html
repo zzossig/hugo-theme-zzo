@@ -9,9 +9,11 @@
     <section class="sidebar-home">
         <a href="{{ .RelPermalink }}" class="sidebar-home__title p2">{{ .Title }}</a>
         <ul class="sidebar-home__ul">
+            {{ if .Site.Params.itemsPerCategory }}
             {{ range first .Site.Params.itemsPerCategory .Pages }}
             <li><a href="{{ .RelPermalink }}" class="sidebar-home__a p2">{{ .Title }}</a>
             </li>
+            {{ end }}
             {{ end }}
         </ul>
     </section>

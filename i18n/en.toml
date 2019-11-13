@@ -37,8 +37,11 @@ other = "What's on this Page"
 [subs-label]
 other = "Subscribe"
 
-[subs-placeholder]
+[subs-placeholder-email]
 other = "Your email address"
+
+[subs-placeholder-name]
+other = "Your name"
 
 [subs-button]
 other = "Join"

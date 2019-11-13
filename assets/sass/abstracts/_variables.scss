@@ -6,7 +6,7 @@ $code-font-stack: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "
   "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier,
   monospace !default;
 
-$z-indexes: ("modal", "navbar", "dropdown", "header", "grid", "search", "content", "footer", "taxo", "toc");
+$z-indexes: ("modal", "navbar", "dropdown", "header", "grid", "search", "content", "footer", "taxo", "toc", "gallery-mask");
 $ls: (
   base: -10,
   heading: 10,

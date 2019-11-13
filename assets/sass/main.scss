@@ -124,6 +124,11 @@ $whoami_border_color: {{ $scr.Get "whoami_border_color" }};
 $switch_background_color: {{ $scr.Get "switch_background_color" }};
 $switch_button_color: {{ $scr.Get "switch_button_color" }};
 $switch_active_color: {{ $scr.Get "switch_active_color" }};
+$subs_button_color: {{ $scr.Get "subs_button_color" }};
+$subs_button_background_color: {{ $scr.Get "subs_button_background_color" }};
+$subs_button_hover_background_color: {{ $scr.Get "subs_button_hover_background_color" }};
+$gallery_mask_color: {{ $scr.Get "gallery_mask_color" }};
+$gallery_mask_background_color: {{ $scr.Get "gallery_mask_background_color" }};
 
 @import 'abstracts/variables';
 @import 'abstracts/mixins';

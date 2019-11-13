@@ -5,18 +5,45 @@
     {{ .Content }}
   </div>
 </header>
+
+{{ if in (lower .Params.Mode) "one" }}
+
 <main class="gallery main">
   <div class="grid single__contents">
     <div class="grid-sizer"></div>
-    {{ $basename := (replace .File.Dir "\\" "/") }}
-    {{ range (readDir (print "./static/" $basename)) }}
-    <div class="grid-item">
-      <img src="{{ $basename | relURL }}{{ .Name }}" alt="{{ .Name }}">
-    </div>
+    {{ if .File.Dir }}
+      {{ $basename := (replace .File.Dir "\\" "/") }}
+      {{ range .Params.Images }}
+      <div class="grid-item">
+        <img src="{{ $basename | relURL }}{{ .image }}" alt="{{ print .caption }}"/>
+        <div class="grid-item__desc hide">{{ .caption }}</div>
+      </div>
+      {{ end }}
     {{ end }}
   </div>
   {{ partial "pagination/pagination-single" . }}
 </main>
+
+{{ else }}
+
+<main class="gallery main">
+  <div class="grid single__contents">
+    <div class="grid-sizer"></div>
+    {{ if .File.Dir }}
+      {{ $basename := (replace .File.Dir "\\" "/") }}
+      {{ range (readDir (print "./static/" $basename)) }}
+      <div class="grid-item">
+        <img src="{{ $basename | relURL }}{{ .Name }}" alt="{{ index (split .Name ".") 0 }}"/>
+        <div class="grid-item__desc hide">{{ index (split .Name ".") 0 }}</div>
+      </div>
+      {{ end }}
+    {{ end }}
+  </div>
+  {{ partial "pagination/pagination-single" . }}
+</main>
+
+{{ end }}
+
 {{ partial "body/photoswipe" . }}
 
 {{ $masonry := resources.Get `js/masonry.pkgd.min.js` | resources.Fingerprint }}
@@ -33,6 +60,14 @@
     });
     $grid.imagesLoaded().progress(function () {
       $grid.masonry();
+    });
+
+    $('.grid-item').mouseenter(function () {
+      $(this).children('.grid-item__desc').show();
+    });
+
+    $('.grid-item').mouseleave(function () {
+      $(this).children('.grid-item__desc').hide();
     });
 
     enquire.register("screen and (max-width:500px)", {
