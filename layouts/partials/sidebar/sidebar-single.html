@@ -4,10 +4,12 @@
 <div class="sidebar">
   <div class="toc__flexbox">
     <h6 class="toc__title">{{ i18n "toc-label" }}</h6>
-    <label class="switch">
-      <input id="toggle-toc" type="checkbox" checked>
-      <span class="slider round"></span>
-    </label>
+    {{ if $.Param "enableTocSwitch" }}
+      <label class="switch">
+        <input id="toggle-toc" type="checkbox" checked>
+        <span class="slider round"></span>
+      </label>
+    {{ end }}
   </div>
   <div class="toc">    
     <ul id="toc"></ul>

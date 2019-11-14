@@ -7,7 +7,7 @@
     <h2 class="h4 single__title">{{ .Title }}</h2>
     <div class="single__meta">
       <div class="caption">🕓 {{ .Date.Format (i18n "single-dateformat") }} · ☕{{ .ReadingTime }} min read</div>
-    </div>
+    </div>    
     <article class="single__contents">
       {{ .Content }}
     </article>
@@ -17,6 +17,7 @@
     {{ partial "body/related" . }}
     {{ partial "pagination/pagination-single" . }}
     {{ partial "body/photoswipe" . }}
+    {{ partial "body/lib" . }}
   </div>
 </main>
 

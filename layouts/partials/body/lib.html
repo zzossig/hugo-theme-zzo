@@ -1,0 +1,55 @@
+{{ $js := .Site.Data.lib.js }}
+{{ $css := .Site.Data.lib.css }}
+
+{{ if in .Params.Libraries "mermaid" }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mermaid\"></script>" $js.mermaid.url $js.mermaid.sri | safeHTML }}
+  <script>
+    {{ $themeVariant := (index .Site.Params.themeOptions 0) }}
+    var themeVariant = localStorage.getItem('theme') || JSON.parse({{ $themeVariant | jsonify }});
+
+    if (themeVariant === "dark" || themeVariant === "hacker") {
+      mermaid.initialize({ theme: 'dark' });
+    } else {
+      mermaid.initialize({ theme: 'default' });
+    }   
+
+    // mermaid Fix Mermaid.js clash with Highlight.js.  
+    let mermaids = [];
+    [].push.apply(mermaids, document.getElementsByClassName('language-mermaid'));
+    for (i = 0; i < mermaids.length; i++) {
+      $(mermaids[i]).unwrap('pre');  // Remove <pre> wrapper.
+      $(mermaids[i]).replaceWith(function () {
+        // Convert <code> block to <div> and add `mermaid` class so that Mermaid will parse it.
+        return $("<div />").append($(this).contents()).addClass('mermaid');
+      });
+    }
+</script>
+{{ end }}
+
+{{ if in .Params.Libraries "katex" }}
+  {{ printf "<link rel=\"stylesheet\" href=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\">" $css.katex.url $css.katex.sri | safeHTML }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"katex\"></script>" $js.katex.url $js.katex.sri | safeHTML }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"katex\"></script>" $js.katex_auto_render.url $js.katex_auto_render.sri | safeHTML }}
+  <script>
+    var mathElements = document.getElementsByClassName('math');
+    var options = [
+      { left: "$$", right: "$$", display: true },
+      { left: "\\(", right: "\\)", display: false },
+      { left: "\\[", right: "\\]", display: true }
+    ];
+
+    renderMathInElement(document.getElementsByClassName('single__contents')[0], options);
+  </script>
+{{ end }}
+
+{{ if in .Params.Libraries "flowchartjs" }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"flowchartjs\"></script>" $js.flowchartjs.url $js.flowchartjs.sri | safeHTML }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"raphael\"></script>" $js.raphael.url $js.raphael.sri | safeHTML }}
+  <script>
+    var diagramContent = $('#diagram').text().trim();
+    $('#diagram').text('');
+
+    // var diagram = flowchart.parse(diagramContent);
+    // diagram.drawSVG('diagram');    
+  </script>
+{{ end }}

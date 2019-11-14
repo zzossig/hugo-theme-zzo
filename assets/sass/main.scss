@@ -162,6 +162,7 @@ $gallery_mask_background_color: {{ $scr.Get "gallery_mask_background_color" }};
 @import 'components/whoami';
 @import 'components/switch';
 @import 'components/subs';
+@import 'components/mermaid';
 
 @import 'pages/body';
 @import 'pages/home';

@@ -49,5 +49,16 @@
         }
       }
     });
+
+    if (mermaid) {
+      if (selectedThemeVariant === "dark" || selectedThemeVariant === "hacker") {
+        mermaid.initialize({ theme: 'dark' });
+        location.reload();
+      } else {
+        mermaid.initialize({ theme: 'default' });
+        location.reload();
+      }
+      
+    }
   });
 </script>
