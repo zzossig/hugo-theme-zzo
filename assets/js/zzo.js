@@ -113,7 +113,4 @@ $(document).ready(function() {
       $(this).removeClass('active');
     }
   });
-
-  // truncate
-  $('.summary__text').shave(160);
 });

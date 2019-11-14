@@ -61,7 +61,6 @@ Zzo theme is using this library.
 * jquery.toc
 * photoswipe
 * prism
-* shave.js
 
 ## Minimum Hugo version
 
@@ -218,8 +217,11 @@ logoText = "Zzo"
 description = "The Zzo theme for Hugo example site."
 custom_css = ["css/custom.css", "css/custom.css"]
 custom_js = ["js/custom.js"]
-myname = "yourname"
+
+# home
+myname = "zzossig"
 whoami = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet cursus massa. Vestibulum eu posuere est. Suspendisse erat purus, mollis in leo quis, hendrerit fringilla felis."
+swiperCount = 3
 
 # body
 enableBreadcrumb = true

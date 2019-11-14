@@ -1,13 +1,31 @@
 {{ if .IsHome }}
 <header class="header">
-    <div class="header__whoami">
-        <img src="{{ "/images/whoami/photo.png" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ end }}" class="header__whoami--image">
-        <div class="header__whoami--name h6">
-            Hi, I'm {{ .Site.Params.myname }}
+    <!-- Slider main container -->
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            {{ if .Site.Params.swiperCount }}
+            {{ range $idx, $seq :=  (seq .Site.Params.swiperCount) }}
+                <div class="swiper-slide">
+                    {{ partial (print "header/slide-" $seq) . }}
+                </div>
+            {{ end }}
+            {{ end }}
         </div>
-        <div class="header__whoami--desc p2">
-            
-        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
     </div>
 </header>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
+<script>
+    {{ $swiper := .Site.Data.swiper }}
+    var options = JSON.parse({{ $swiper | jsonify }});
+
+    var mySwiper = new Swiper('.swiper-container', options);
+</script>
+
 {{ end }}
