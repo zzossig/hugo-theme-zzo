@@ -43,13 +43,20 @@
 {{ end }}
 
 {{ if in .Params.Libraries "flowchartjs" }}
-  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"flowchartjs\"></script>" $js.flowchartjs.url $js.flowchartjs.sri | safeHTML }}
   {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"raphael\"></script>" $js.raphael.url $js.raphael.sri | safeHTML }}
-  <script>
-    var diagramContent = $('#diagram').text().trim();
-    $('#diagram').text('');
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"flowchartjs\"></script>" $js.flowchartjs.url $js.flowchartjs.sri | safeHTML }}  
+  
+  <script>        
+    {{ $flowchartjs := .Site.Data.flowchartjs }}
+    var options = JSON.parse({{ $flowchartjs | jsonify }});
 
-    // var diagram = flowchart.parse(diagramContent);
-    // diagram.drawSVG('diagram');    
+    $('.diagram').each(function() {
+      var diagramContent = $(this).text(); 
+      $(this).text('');
+
+      var diagram = flowchart.parse(diagramContent);
+      diagram.drawSVG('diagram', options);
+    });    
+
   </script>
 {{ end }}

@@ -24,6 +24,7 @@ enableToc = true
 enableTocSwitch = true
 itemsPerCategory = 5
 enableSideSubscribe = false
+searchLanguages = ['en']
 
 # footer
 showPoweredBy = true

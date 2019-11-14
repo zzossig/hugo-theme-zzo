@@ -10,7 +10,7 @@
 </span>
 <main class="main archive">
   <div>
-    {{ range (and (where .Site.RegularPages "Type" "!=" "about") (where .Site.RegularPages "Type" "!=" "archive")).GroupByDate (.Site.Params.archiveGroupByDate | default 2006) }}
+    {{ range (and (where .Site.RegularPages "Type" "!=" "about") (where .Site.RegularPages "Type" "!=" "archive")).GroupByDate (.Site.Params.archiveGroupByDate | default "2006") }}
     <span class="archive__key">{{ .Key }}</span>
     <ul class="archive__ul">
       {{ range .Pages }}

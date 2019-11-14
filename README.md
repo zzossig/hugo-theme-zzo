@@ -240,6 +240,7 @@ enableToc = true
 enableTocSwitch = true
 itemsPerCategory = 5
 enableSideSubscribe = false
+searchLanguages = ['en'] # checkout lunr.js supported language
 
 # comment
 enableComment = false

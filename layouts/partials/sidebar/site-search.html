@@ -12,17 +12,35 @@
 </div>
 
 {{ partial "sidebar/site-mark" . }}
+
 {{ $lunr := resources.Get "js/lunr.min.js" | resources.Fingerprint }}
 <script defer src="{{ $lunr.RelPermalink }}"></script>
+
+{{ $stemmer := .Site.Data.lib.js.stemmer }}
+{{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" $stemmer.url $stemmer.sri $stemmer.code | safeHTML }}
+
+{{ $multi := .Site.Data.lib.js.multi_language }}
+{{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" $multi.url $multi.sri $multi.code | safeHTML }}
+
+{{ range .Site.Data.lib.lunr }}
+  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" .url .sri .code | safeHTML }}
+{{ end }}
 
 <script>
   {{ if .Site.IsMultiLingual }}
       var baseurl = "{{.Site.BaseURL}}{{.Site.LanguagePrefix}}";
   {{ else }}
       var baseurl = "{{.Site.BaseURL}}";
-  {{ end }}
+  {{ end }}  
   
   $(document).ready(function () {
+    {{ $searchLanguages := .Site.Params.searchLanguages }}
+    var searchLanguages = JSON.parse({{ $searchLanguages | jsonify }});
+
+    if (!searchLanguages) {
+      searchLanguages = ['en'];
+    }
+    
     var lunrIndex = null;
     var pagesIndex = null;
     var searchResults = null;
@@ -41,10 +59,11 @@
         .done(function (index) {
           pagesIndex = index;
           lunrIndex = lunr(function () {
+            this.use(lunr.multiLanguage(...searchLanguages));
             this.ref('uri');
             this.field('title');
             this.field('description');
-            //this.field('content');
+            this.field('content');
             //this.field('tags');
             //this.field('series');
             //this.field('categories');
