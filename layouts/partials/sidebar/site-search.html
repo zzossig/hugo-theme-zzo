@@ -22,8 +22,11 @@
 {{ $multi := .Site.Data.lib.js.multi_language }}
 {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" $multi.url $multi.sri $multi.code | safeHTML }}
 
+{{ $searchLanguages := .Site.Params.searchLanguages }}
 {{ range .Site.Data.lib.lunr }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" .url .sri .code | safeHTML }}
+  {{ if in $searchLanguages .code }}
+    {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" .url .sri .code | safeHTML }}
+  {{ end }}
 {{ end }}
 
 <script>
