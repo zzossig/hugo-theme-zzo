@@ -9,5 +9,5 @@ series:
 categories:
 -
 libraries:
-- katex
+- katex # katex, mathjax
 ---

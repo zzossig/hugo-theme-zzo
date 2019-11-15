@@ -16,6 +16,7 @@ Thank you for click me!. Zzo theme is a blog theme for Hugo with free(always), a
 * [Gallery](#gallery)
 * [Multi Language](#multi-language)
 * [Customizing](#customizing)
+* [Marmaid, Katex, MathJax, Flowchart.js](#external-library)
 * [Shortcodes](#shortcodes)
 
 
@@ -542,18 +543,35 @@ single_contents = "'Merriweather', serif"
 
 ### custom header
 
-You may want to change home page header. To do this, just make a file at layouts/partials/header/site-header.html
-and edit this file. Don't forget adding grid class. That's it.
+You may want to change home page header. There are 4 options which is slider, image, text, empty.
 
-```bash
-{{ if .IsHome }}
-<header class="header">
-    ...
-    Your custom header here.
-    ...
-</header>
-{{ end }}
-```
+* Empty
+
+  1. Set params at config/_default/params.toml(homeHeaderType=""). Empty string or just delete it.
+
+* Slider
+This project use swiper library for slider header component.
+  
+  1. Set params at config/_default/params.toml(homeHeaderType="slide", swiperCount).
+
+  2. Make slide-{number}.html file to layouts/partials/header folder.
+
+  3. Make swiper.json file that contains options to data folder.
+
+* Image
+
+  1. Set homeHeaderType param to "img"
+
+  2. Add image to static/images/header/background.jpg. Filename must be background
+
+  3. If you want add some contents, make a file at layouts/partials/header/header-img-content.html and edit as you want.
+
+* Text
+
+  1. Make a file at layouts/partials/header/header-text.html
+
+  2. Edit the file as you want.
+
 
 ### custom grid
 
@@ -577,6 +595,25 @@ grid_navbar_height = "50px"
 grid_column_gap = "1.5rem"
 grid_row_gap = "0"
 ```
+
+## External Library
+
+If you want use external libraries, this theme currently supporting Katex, MathJax, Mermaid, Flowchart.js. Just add some front matter.
+
+```bash
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+...
+libraries:
+- katex
+- mathjax
+- flowchartjs
+- mermaid
+---
+
+```
+You can add some config option parameters at data/flowchartjs.json
 
 ## Shortcodes
 
