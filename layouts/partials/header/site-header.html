@@ -1,23 +1,24 @@
 {{ if .IsHome }}
 <header class="header">
+    {{ if .Site.Params.swiperCount }}
     <!-- Slider main container -->
     <div class="swiper-container">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-            {{ if .Site.Params.swiperCount }}
             {{ range $idx, $seq :=  (seq .Site.Params.swiperCount) }}
                 <div class="swiper-slide">
                     {{ partial (print "header/slide-" $seq) . }}
                 </div>
             {{ end }}
-            {{ end }}
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
     </div>
+    {{ end }}
 </header>
 
+{{ if .Site.Params.swiperCount }}
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
@@ -27,5 +28,6 @@
 
     var mySwiper = new Swiper('.swiper-container', options);
 </script>
+{{ end }}
 
 {{ end }}
