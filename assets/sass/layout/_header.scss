@@ -9,23 +9,13 @@
     font-weight: 900;
   }
 
-  &__whoami {    
-    @include flexbox();
-    @include justify-content(center);
-    @include align-items(center);
+  &__image {
+    background-image: url("../images/header/background.jpg");
     width: 100%;
-
-    &--image {
-      max-width: 64px;
-      max-height: 64px;
-    }
-
-    &--name {
-      
-    }
-
-    &--desc {
-      margin: 0.25rem 0;
-    }
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    margin-bottom: 2rem;
   }
 }

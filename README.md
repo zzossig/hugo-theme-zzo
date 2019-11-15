@@ -133,7 +133,7 @@ hasCJKLanguage = true
 summaryLength = 70
 
 googleAnalytics = ""
-copyright = "©yourcopyright"
+copyright = "&copy;{year}, All Rights Reserved"
 timeout = 10000
 enableEmoji = true
 paginate = 7
@@ -218,10 +218,9 @@ description = "The Zzo theme for Hugo example site."
 custom_css = ["css/custom.css", "css/custom.css"]
 custom_js = ["js/custom.js"]
 
-# home
-myname = "zzossig"
-whoami = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet cursus massa. Vestibulum eu posuere est. Suspendisse erat purus, mollis in leo quis, hendrerit fringilla felis."
-swiperCount = 3
+# header
+homeHeaderType = "slide" # text, img, slide
+swiperCount = 3 # only works homeHeaderType = slide
 
 # body
 enableBreadcrumb = true
@@ -232,8 +231,11 @@ enableGoToTop = true
 enableWhoami = true
 summaryShape = "card" # card, classic, compact
 archiveGroupByDate = "2006-01" # "2006-01": group by month, "2006": group by year
+myname = "zzossig"
+whoami = "Let me introduce my self"
 
 # sidebar
+enableBio = true
 enableSidebar = true
 enableSidebarTags = true
 enableSidebarSeries = true

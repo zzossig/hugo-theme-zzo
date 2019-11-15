@@ -9,7 +9,7 @@ hasCJKLanguage = true
 summaryLength = 70
 
 googleAnalytics = ""
-copyright = "©yourcopyright"
+copyright = "&copy;{year}, All Rights Reserved"
 timeout = 10000
 enableEmoji = true
 paginate = 7

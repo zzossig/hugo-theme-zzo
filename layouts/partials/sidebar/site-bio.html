@@ -1,0 +1,23 @@
+<div class="bio">
+  <div class="bio__photo-wrapper">
+    <img src="{{ "/images/whoami/photo.png" | relURL }}"
+      alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ end }}" class="bio__photo" />
+  </div>
+  <div class="bio__name h6">
+    {{ .Site.Params.myname }}
+  </div>
+  <div class="bio__desc p2">
+    {{ .Site.Params.whoami }}
+  </div>
+  <div class="bio__social">
+    <div class="social">
+      {{ range $name, $path := $.Param "socialOptions" }}
+      {{ if $path }}
+      <a href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}">
+        {{ partial (print "svgs/social/" $name ".svg") (dict "width" 25 "height" 25) }}
+      </a>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>

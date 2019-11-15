@@ -1,10 +1,12 @@
 {{ if $.Param "enableSidebar" }}
 
-{{ $currentSection := .Section }}
-{{ $currentID := "" }}
-{{ with .File }}{{ $currentID = .UniqueID }}{{ end }}
 <div class="sidebar">    
     {{ partial "sidebar/site-search" . }}
+
+    {{ if $.Param "enableBio" }}
+        {{ partial "sidebar/site-bio" . }}
+    {{ end }}
+
     {{ range (and (where .Site.Sections "Type" "!=" "about") (where .Site.Sections "Type" "!=" "archive")) }}
     <section class="sidebar-home">
         <a href="{{ .RelPermalink }}" class="sidebar-home__title p2">{{ .Title }}</a>

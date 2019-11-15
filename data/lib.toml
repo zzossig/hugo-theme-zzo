@@ -19,6 +19,9 @@
   sri = "sha256-TabprKdeNXbSesCWLMrcbWSDzUhpAdcNPe5Q53rn9Yg="
   url = "https://cdn.jsdelivr.net/npm/raphael@2.3.0/raphael.min.js"
 
+[js.mathjax]
+  sri = "sha256-3Fdoa5wQb+JYfEmTpQHx9sc/GuwpfC/0R9EpBki+mf8="
+  url = "https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-chtml.js"
 
 
 

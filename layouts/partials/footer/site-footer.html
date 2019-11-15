@@ -26,7 +26,9 @@
     {{ if $.Param "showPoweredBy" }}
     <div class="footer__poweredby">
         {{ if $.Site.Copyright }}
-            <p class="caption">{{ $.Site.Copyright }}</p>
+            <p class="caption">
+                {{ with $.Site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}{{ end }}
+            </p>
         {{ end }}
         <p class="caption">Powered by <a href="https://gohugo.io/">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zzo">Zzo theme</a></p>
     </div>

@@ -1,0 +1,12 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {{ if .Site.Params.swiperCount }}
+    {{ range $idx, $seq :=  (seq .Site.Params.swiperCount) }}
+    <div class="swiper-slide">
+      {{ partial (print "header/slide-" $seq) . }}
+    </div>
+    {{ end }}
+    {{ end }}
+  </div>
+  <div class="swiper-pagination"></div>
+</div>

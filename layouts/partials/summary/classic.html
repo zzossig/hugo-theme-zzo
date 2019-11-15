@@ -3,15 +3,16 @@
     {{ $params := .Params }}
     {{ if $params.featured_image }}
     <div class="summary-classic__image-wrapper">
-      {{ with (print "images/" $params.featured_image) }}
-      <img data-src="{{ . | relURL }}" alt="{{ print $params.featured_image }}" class="lazyload summary-classic__image">
-      {{ end }}
+      <a href="{{ .Permalink }}">
+        <img data-src="{{ (print "images/" $params.featured_image) | relURL }}" alt="{{ print $params.featured_image }}"
+          class="lazyload summary-classic__image" />
+      </a>
     </div>
     {{ end }}
     <div class="summary-classic__content">
       <header>
         <h5 class="title h5"><a href='{{ .Permalink }}'> {{ .Title }}</a> </h5>
-        <h6 class="subtitle caption">🕓 {{ .Date.Format (i18n "summary-dateformat") }} · ☕{{ .ReadingTime }} min read
+        <h6 class="subtitle caption">🕓 {{ .Date.Format (i18n "summary-dateformat") }} &middot ☕{{ .ReadingTime }} min read
         </h6>
       </header>
       <div>
