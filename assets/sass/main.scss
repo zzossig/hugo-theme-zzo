@@ -4,12 +4,14 @@
 {{- $scr := .Scratch -}}
 
 $grid_max_width: {{ $scr.Get "grid_max_width" }};
+$grid_max_unit: {{ $scr.Get "grid_max_unit" }};
 $grid_main_main_width: {{ $scr.Get "grid_main_main_width" }};
 $grid_main_main_unit: {{ $scr.Get "grid_main_main_unit" }};
 $grid_main_side_width: {{ $scr.Get "grid_main_side_width" }};
 $grid_main_side_unit: {{ $scr.Get "grid_main_side_unit" }};
+$grid_column_gap_width: {{ $scr.Get "grid_column_gap_width" }};
+$grid_column_gap_unit: {{ $scr.Get "grid_column_gap_unit" }};
 $grid_navbar_height: {{ $scr.Get "grid_navbar_height" }};
-$grid_column_gap: {{ $scr.Get "grid_column_gap" }};
 $grid_row_gap: {{ $scr.Get "grid_row_gap" }};
 
 $search_placeholder_font: {{ $scr.Get "search_placeholder" }};
@@ -129,6 +131,7 @@ $subs_button_background_color: {{ $scr.Get "subs_button_background_color" }};
 $subs_button_hover_background_color: {{ $scr.Get "subs_button_hover_background_color" }};
 $gallery_mask_color: {{ $scr.Get "gallery_mask_color" }};
 $gallery_mask_background_color: {{ $scr.Get "gallery_mask_background_color" }};
+$avatar_background_color: {{ $scr.Get "avatar_background_color" }};
 
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
@@ -167,6 +170,7 @@ $gallery_mask_background_color: {{ $scr.Get "gallery_mask_background_color" }};
 @import 'components/bio';
 @import 'components/features';
 @import 'components/mathjax';
+@import 'components/hr';
 
 @import 'pages/body';
 @import 'pages/home';

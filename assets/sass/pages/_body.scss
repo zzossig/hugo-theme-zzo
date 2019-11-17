@@ -1,5 +1,6 @@
 #body {
   position: relative;
+  overflow-x: hidden;
   @include themify($themes) {
       color: themed('body-color');
       background-color: themed('backdrop-background-color');

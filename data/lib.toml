@@ -23,7 +23,9 @@
   sri = "sha256-3Fdoa5wQb+JYfEmTpQHx9sc/GuwpfC/0R9EpBki+mf8="
   url = "https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-chtml.js"
 
-
+[js.swiper]
+  sri = "sha256-ZATCxHgcbalqi3AxHm7sPmwbfs3oZ4feGmCARVDmXig="
+  url = "https://cdn.jsdelivr.net/npm/swiper@5.2.0/js/swiper.min.js"
 
 
 
@@ -32,7 +34,9 @@
   sri = "sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung="
   url = "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
 
-
+[css.swiper]
+  sri = "sha256-s2QA0JtYEOOqRUyzKN+k2a/RxcimDuF2HZBdsosQRbM="
+  url = "https://cdn.jsdelivr.net/npm/swiper@5.2.0/css/swiper.min.css"
 
 
 

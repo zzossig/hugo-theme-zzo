@@ -25,6 +25,9 @@ other = "구독"
 [footer-social]
 other = "소셜"
 
+[archive-dateformat]
+other = "01월 02일"
+
 [single-dateformat]
 other = "2006년 01월 02일"
 

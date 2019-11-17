@@ -2,10 +2,7 @@
 
 <div class="sidebar">    
     {{ partial "sidebar/site-search" . }}
-
-    {{ if $.Param "enableBio" }}
-        {{ partial "sidebar/site-bio" . }}
-    {{ end }}
+    {{ partial "sidebar/site-bio" . }}
 
     {{ range (and (where .Site.Sections "Type" "!=" "about") (where .Site.Sections "Type" "!=" "archive")) }}
     <section class="sidebar-home">
@@ -22,9 +19,13 @@
     {{ end }}
 </div>
 
+<hr class="fade-1 sidebar-hr" />
+<div class="taxo-root">
 {{ partial "taxonomy/taxonomy-tags" . }}
 {{ partial "taxonomy/taxonomy-categories" . }}
 {{ partial "taxonomy/taxonomy-series" . }}
+</div>
+<hr class="fade-1 sidebar-hr" />
 {{ partial "sidebar/site-subs" . }}
 
 {{ end }}

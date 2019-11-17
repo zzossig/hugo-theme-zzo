@@ -1,23 +1,72 @@
+{{ if $.Param "enableBio" }}
 <div class="bio">
   <div class="bio__photo-wrapper">
-    <img src="{{ "/images/whoami/photo.png" | relURL }}"
-      alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ end }}" class="bio__photo" />
+    {{ $src := "" }}
+    {{ if site.Params.useGravatar }}    
+      {{ $src = printf "https://s.gravatar.com/avatar/%s?s=200" (md5 .Site.Params.email) }}
+      <img src="{{ $src }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="bio__photo"/>
+    {{ else }}
+      {{ if (fileExists "static/images/whoami/avatar.png") }}
+        <img src="{{ "images/whoami/avatar.png" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="bio__photo"/>
+      {{ else if (fileExists "static/images/whoami/avatar.jpg") }}
+        <img src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="bio__photo"/>
+      {{ else }}
+        <img src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="bio__photo"/>
+      {{ end }}      
+    {{ end }}
   </div>
-  <div class="bio__name h6">
+  <div class="bio__name">
     {{ .Site.Params.myname }}
   </div>
-  <div class="bio__desc p2">
+  <div class="bio__desc">
     {{ .Site.Params.whoami }}
   </div>
+  
+  {{ if .Site.Params.organization }}
+  <div class="bio__info">
+    <div class="bio__info--icon">
+      {{ partial "svgs/etc/people.svg" (dict "width" 20 "height" 20) }}
+    </div>
+    {{ .Site.Params.organization }}
+  </div>
+  {{ end }}
+
+  {{ if .Site.Params.organization }}
+  <div class="bio__info">
+    <div class="bio__info--icon">
+      {{ partial "svgs/etc/location.svg" (dict "width" 20 "height" 20) }}
+    </div>
+    {{ .Site.Params.location }}
+  </div>
+  {{ end }}
+
+  {{ if .Site.Params.email }}
+  <div class="bio__info">
+    <div class="bio__info--icon">      
+      {{ partial "svgs/social/email.svg" (dict "width" 20 "height" 20) }}
+    </div>
+    <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>    
+  </div>
+  {{ end }}
+
+  {{ if .Site.Params.link }}
+  <div class="bio__info">
+    <div class="bio__info--icon">
+      {{ partial "svgs/etc/link.svg" (dict "width" 20 "height" 20) }}
+    </div>
+    <a href="{{ .Site.Params.link }}" target="_blank" rel="noreferrer">{{ .Site.Params.link }}</a>    
+  </div>
+  {{ end }}
+
   <div class="bio__social">
-    <div class="social">
-      {{ range $name, $path := $.Param "socialOptions" }}
-      {{ if $path }}
+    {{ range $name, $path := $.Param "socialOptions" }}
+      {{ if (and $path (ne $name "email")) }}
       <a href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}">
         {{ partial (print "svgs/social/" $name ".svg") (dict "width" 25 "height" 25) }}
       </a>
       {{ end }}
-      {{ end }}
-    </div>
+    {{ end }}
   </div>
 </div>
+<hr class="fade-1 sidebar-hr"/>
+{{ end }}

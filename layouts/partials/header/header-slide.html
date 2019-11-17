@@ -10,3 +10,16 @@
   </div>
   <div class="swiper-pagination"></div>
 </div>
+
+{{ $js := .Site.Data.lib.js }}
+{{ $css := .Site.Data.lib.css }}
+
+{{ printf "<link rel=\"stylesheet\" href=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\">" $css.swiper.url $css.swiper.sri | safeHTML }}
+{{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"swiper\"></script>" $js.swiper.url $js.swiper.sri | safeHTML }}
+
+<script>
+  {{ $swiper:= .Site.Data.swiper }}
+  var options = JSON.parse({{ $swiper | jsonify }});
+
+  var mySwiper = new Swiper('.swiper-container', options);
+</script>

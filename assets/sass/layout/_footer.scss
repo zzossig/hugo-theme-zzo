@@ -1,5 +1,6 @@
 .footer {
   padding: 0 0.5rem;
+  position: relative;
 
   @include themify($themes) {
     color: themed('footer-color');

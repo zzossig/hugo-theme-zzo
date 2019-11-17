@@ -1,11 +1,11 @@
 logoText = "Zzo"
 description = "The Zzo theme for Hugo example site."
-custom_css = ["css/custom.css", "scss/custom.scss"]
-custom_js = ["js/custom.js"]
+custom_css = []
+custom_js = []
 
 # header
 homeHeaderType = "slide" # text, img, slide
-swiperCount = 3 # only works homeHeaderType = slide
+swiperCount = 3 # only works when homeHeaderType = slide
 
 # body
 enableBreadcrumb = true
@@ -15,9 +15,18 @@ enableMark = true
 enableGoToTop = true
 enableWhoami = true
 summaryShape = "card" # card, classic, compact
-archiveGroupByDate = "2006-01" # "2006-01": group by month, "2006": group by year
+archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
+archivePaginate = 20
+paginateWindow = 1
+
+# whoami
 myname = "zzossig"
-whoami = "Let me introduce my self"
+email = "zzossig@gmail.com"
+whoami = "Web Developer"
+useGravatar = false
+location = "Seoul, Korea"
+organization = "Hugo"
+link = "https://github.com/zzossig/hugo-theme-zzo"
 
 # sidebar
 enableBio = true

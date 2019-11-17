@@ -9,19 +9,23 @@
 </header>
 </span>
 <main class="main archive">
-  <div>
-    {{ range (and (where .Site.RegularPages "Type" "!=" "about") (where .Site.RegularPages "Type" "!=" "archive")).GroupByDate (.Site.Params.archiveGroupByDate | default "2006") }}
+  <div class="archive__container">
+    {{ $paginator := .Paginate (.Site.RegularPages.GroupByDate (.Site.Params.archiveGroupByDate | default "2006")) .Site.Params.archivePaginate }}
+    
+    {{ range ($paginator).PageGroups }}
     <span class="archive__key">{{ .Key }}</span>
     <ul class="archive__ul">
       {{ range .Pages }}
       <li class="archive__li">
         <span class="archive__type">{{ .Type }}</span>
         <a href="{{ .Permalink }}" class="archive__title">{{ .Title }}</a>
-        <span class="meta archive__date">{{ .Date.Format (i18n "single-dateformat") }}</span>
+        <span class="meta archive__date">{{ .Date.Format (i18n "archive-dateformat") }}</span>
       </li>
       {{ end }}
     </ul>
     {{ end }}
+    
+    {{ partial "pagination/pagination-list" . }}
   </div>
 </main>
 {{ end }}

@@ -1,14 +1,20 @@
 .features {
   max-width: $grid-max-width;
+  height: 200px;
   font-family: 'Montserrat', sans-serif;
-  padding: 1rem;
-  margin: 0 4rem;
+  padding: 0.5rem;
+  margin: 0 4rem;  
+
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
   @include respond-to(sm) {
     margin: 0 1rem;
   }
 
   &__title {
-    font-size: 45px;
+    font-size: 32px;
     font-weight: 700;
   }
 
@@ -20,7 +26,8 @@
 
   li {
     padding: 0.125rem 0.5rem;
-    width: 43%;
+    width: 30%;
+    font-size: 16px;
     @include truncate(350px);
 
     &::before {
@@ -32,12 +39,12 @@
 
 .features-text {
   max-width: $grid-max-width;
-  height: 100%;
+  height: 200px;
+  padding: 0.5rem;
+  margin: 0 4rem;
+  text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 45px;
   font-weight: 700;
-  padding-bottom: 3.2rem;
-  margin: 0 4rem;  
 
   @include flexbox();
   @include flex-direction(column);
@@ -51,66 +58,35 @@
 
 .features-intro {
   max-width: $grid-max-width;  
-  margin-right: auto;
-  margin-left: auto;
-  height: 100%;
-  margin: 2rem 8rem;
+  height: 200px;
+  padding: 0.5rem;
+  margin: 0 4rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
 
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
   @include respond-to(sm) {
       margin:  1rem;
   }
 
-  &__logo {
-    width: 140px;
-    height: 140px;
-    border-radius: 100%;
-    margin: 0 auto;
-    display: block;
-    float: left;
-    transform-style: preserve-3d;
-    &-img {
-      width: 100%;
-      height: 100%;
-    }
+  &__title {    
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1.5rem;
   }
 
-  &__titles {
-    margin-left: 160px;
-    text-align: left;    
-    position: relative;
-
-    .title {
-      margin: 25px 0 0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 65px;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .subtitle {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 44px;
-      margin: 10px 0 40px 0;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-  }
-
-  &__links {    
-    margin: 20px 0;
-    text-align: left;
-    font-size: 16px;
-    font-weight: 400;
-
+  &__links {
     a {
-      margin-right: 0.4rem;
+      padding: 0.4rem;
+      font-size: 16px;
     }
   }
 
   &__release-info {
-    margin: 20px 160px 0;
-    font-weight: 400;
-    text-align: left;
-    font-size: 12px; 
+    margin-top: 0.25rem;
+    font-size: 11px;
   }
 }

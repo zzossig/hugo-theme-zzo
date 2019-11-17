@@ -1,10 +1,13 @@
 .archive {
   position: relative;
-  margin-bottom: 5rem;
-  padding: 2rem;
+  padding: 2rem 2rem 0;
   width: 100%;
   @include flexbox();
   @include justify-content(flex-start);
+
+  &__container {
+    width: 100%;
+  }
 
   &__ul {
     position: relative;
@@ -13,7 +16,7 @@
       position: absolute;
       left: 2.25rem;
       top: 0;
-      width: 0.25rem;
+      width: 0.125rem;
       height: 100%;
       @include themify($themes) {
         background-color: themed('toc-vertical-line');
@@ -29,13 +32,44 @@
 
   &__li {
     margin-bottom: 0.5rem;
-    margin-left: 4rem;    
+    margin-left: 4rem;
+    z-index: 0;    
+
     @include transition(margin-left, 0.1s, ease);
     @include flexbox();
     @include align-items(center);
     @include respond-to(sm) {
       margin-left: 0;
-    }
+      position: relative;
+
+      &:not(:last-child) {
+        &::before {
+          content: '';
+          left: 2.25rem;
+          top: -0.03rem;
+          height: 45px;
+          position: absolute;
+          z-index: -1;
+          @include themify($themes) {
+            border-left: 0.125rem solid themed('toc-vertical-line');
+          }       
+        }        
+      }
+      
+      &:last-child {
+        &::before {
+          content: '';
+          left: 2.25rem;
+          top: -0.03rem;
+          height: 28px;
+          position: absolute;
+          z-index: -1;
+          @include themify($themes) {
+            border-left: 0.125rem solid themed('toc-vertical-line');
+          }
+        }
+      }
+    }    
   }
 
   &__key {
@@ -80,13 +114,14 @@
   &__title {
     margin-right: 0.5rem;    
 
+    @include truncate($grid-max-width);
     @include on-event {      
       &::before {
         content: '';
         position: absolute;
         left: 2.25rem;        
         top: inherit;
-        width: 0.25rem;
+        width: 0.125rem;
         height: 23px;
         @include themify($themes) {
           background-color: themed('archive-hover-line-color');

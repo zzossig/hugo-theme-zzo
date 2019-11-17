@@ -8,7 +8,6 @@ hasCJKLanguage = true
 
 summaryLength = 70
 
-googleAnalytics = ""
 copyright = "&copy;{year}, All Rights Reserved"
 timeout = 10000
 enableEmoji = true

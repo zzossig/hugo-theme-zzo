@@ -133,7 +133,6 @@ hasCJKLanguage = true
 
 summaryLength = 70
 
-googleAnalytics = ""
 copyright = "&copy;{year}, All Rights Reserved"
 timeout = 10000
 enableEmoji = true
@@ -216,12 +215,12 @@ You shoud make your own menu.
 ```bash
 logoText = "Zzo"
 description = "The Zzo theme for Hugo example site."
-custom_css = ["css/custom.css", "css/custom.css"]
-custom_js = ["js/custom.js"]
+custom_css = []
+custom_js = []
 
 # header
 homeHeaderType = "slide" # text, img, slide
-swiperCount = 3 # only works homeHeaderType = slide
+swiperCount = 3 # only works when homeHeaderType = slide
 
 # body
 enableBreadcrumb = true
@@ -231,9 +230,18 @@ enableMark = true
 enableGoToTop = true
 enableWhoami = true
 summaryShape = "card" # card, classic, compact
-archiveGroupByDate = "2006-01" # "2006-01": group by month, "2006": group by year
+archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
+archivePaginate = 20
+paginateWindow = 1
+
+# whoami
 myname = "zzossig"
-whoami = "Let me introduce my self"
+email = "zzossig@gmail.com"
+whoami = "Web Developer"
+useGravatar = false
+location = "Seoul, Korea"
+organization = "Hugo"
+link = "https://github.com/zzossig/hugo-theme-zzo"
 
 # sidebar
 enableBio = true
@@ -586,13 +594,15 @@ This project use swiper library for slider header component.
 ```toml
 data/grid.toml example
 
-grid_max_width = "960px"
+grid_max_width = "960"
+grid_max_unit = "px" #  "px", "\"%\""  Using% is limited to using full width.
 grid_main_main_width = "5"
-grid_main_main_unit = "fr"
+grid_main_main_unit = "fr" # "fr", "px"
 grid_main_side_width = "2"
-grid_main_side_unit = "fr"
-grid_navbar_height = "50px"
-grid_column_gap = "1.5rem"
+grid_main_side_unit = "fr" # "fr", "px"
+grid_column_gap_width = "32"
+grid_column_gap_unit = "px" # "px"
+grid_navbar_height = "50px" # "px"
 grid_row_gap = "0"
 ```
 

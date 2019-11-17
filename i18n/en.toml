@@ -25,6 +25,9 @@ other = "Subscribe"
 [footer-social]
 other = "Social"
 
+[archive-dateformat]
+other = "Jan 2"
+
 [single-dateformat]
 other = "Jan 2, 2006"
 

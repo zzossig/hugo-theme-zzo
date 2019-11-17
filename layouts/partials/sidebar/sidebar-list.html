@@ -10,7 +10,7 @@
     <section class="sidebar-list">
         <a href="{{ .RelPermalink }}" class="sidebar-list__title p1 {{ if eq $currentSection .Section }}active{{ end }}">{{ .Title }}</a>
         <ul class="sidebar-list__ul">
-            {{ range .Pages }}
+            {{ range first .Site.Params.itemsPerCategory .Pages }}
             <li><a href="{{ .RelPermalink }}" class="sidebar-list__a p2 {{ if eq $currentID .File.UniqueID }}active{{ end }}">{{ .Title }}</a>
             </li>
             {{ end }}
@@ -20,8 +20,10 @@
     {{ end }}
 </div>
 
+<div class="taxo-root">
 {{ partial "taxonomy/taxonomy-tags" . }}
 {{ partial "taxonomy/taxonomy-categories" . }}
 {{ partial "taxonomy/taxonomy-series" . }}
+</div>
 
 {{ end }}

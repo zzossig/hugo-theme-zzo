@@ -34,6 +34,7 @@
       @include themify($themes) {
         color: themed("single-contents-title-color");
       }
+      line-height: 1.25;
     }
 
     h1 {
@@ -47,8 +48,7 @@
       padding: 0;
       color: inherit;
       font-weight: 900;
-      text-rendering: optimizeLegibility;
-      line-height: 1.1;
+      text-rendering: optimizeLegibility;      
     }
 
     h3 {

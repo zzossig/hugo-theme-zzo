@@ -9,15 +9,4 @@
     {{ else }}
     {{ end }}
 </header>
-
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-
-<script>
-    {{ $swiper := .Site.Data.swiper }}
-    var options = JSON.parse({{ $swiper | jsonify }});
-
-    var mySwiper = new Swiper('.swiper-container', options);
-</script>
-
 {{ end }}

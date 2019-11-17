@@ -1,3 +1,55 @@
+.pagination {
+  border-radius: 0.25rem;
+  margin: 2rem 1rem;
+  padding: 0.5rem 0;
+
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  @include themify($themes) {
+    background-color: themed('pagination-background-color');
+  }
+
+  li {
+    border-radius: 0.25rem;
+    &.disabled {
+      a {
+        @include on-event {
+          @include themify($themes) {
+            color: themed('pagination-number-color');
+            text-decoration: none;
+          }      
+        }
+      }
+    }
+    
+    &.active {
+      a {
+        @include themify($themes) {
+          color: themed('link-hover');
+        }      
+      }
+    }
+  }
+
+  a {
+    font-size: 1.25rem;
+    padding: 0.5rem 0.75rem;    
+    @include themify($themes) {
+      color: themed('pagination-number-color');
+      @include on-event {
+        color: themed('link-hover');
+      }
+    }
+  }
+
+  .active {
+    @include themify($themes) {
+      background-color: themed('pagination-background-color');
+    }
+  }
+}
+
 .pagination-single {
   @include flexbox();
   @include align-items(center);
@@ -61,7 +113,7 @@
 
   @include flexbox();
   @include align-items(center);
-  @include justify-content(space-around);  
+  @include justify-content(space-around);
   @include themify($themes) {
     background-color: themed('pagination-background-color');
   }  

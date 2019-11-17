@@ -13,8 +13,7 @@
         {{ .Render "summary" }}
         {{ end }}
     </div>
-
-    {{ partial "pagination/pagination-list" . }}
+    {{ partial "pagination/pagination" . }}
 </main>
 
 {{ if $.Param "enableSidebar" }}

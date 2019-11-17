@@ -3,6 +3,14 @@
   margin: 2.5rem 0;
   z-index: z('taxo');
 
+  &-root {
+    position: sticky;
+    top: $grid_navbar_height;
+    @include themify($themes) {
+      background-color: themed('body-background-color');
+    }    
+  }
+
   &__title {
     font-weight: 700;
     font-family: $taxo_titie_font;

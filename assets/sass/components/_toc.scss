@@ -1,6 +1,6 @@
 .toc {
   width: 100%;
-  max-width: 250px;
+  max-width: calcSideWidth();
   position: fixed;
   top: 7rem;
   font-size: 0.85rem;
@@ -54,7 +54,7 @@
       }
       
       a {
-        color: themed('toc-title-color');
+        color: themed('toc-title-color');        
         &.active {
           color: themed('toc-vertical-line-active');
         }
