@@ -124,9 +124,8 @@
     object-fit: contain;
     
     &-wrapper {
-      max-height: 170px;
-      max-width: 170px;
-      min-width: 170px;
+      max-width: 130px;
+      min-width: 130px;
       @include align-self(center);
     }
   }

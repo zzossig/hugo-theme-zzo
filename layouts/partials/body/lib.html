@@ -62,18 +62,18 @@
 {{ end }}
 
 {{ if in .Params.Libraries "mathjax" }}
-  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mathjax\"></script>" $js.mathjax.url $js.mathjax.sri | safeHTML }}
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: false,
-        packages: {'[+]': ['noerrors']}
-      },
-      loader: {
-        load: ['[tex]/noerrors']
-      }
-    };
-  </script>
+{{ printf "<script async src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mathjax\"></script>" $js.mathjax.url $js.mathjax.sri | safeHTML }}
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: false,
+      packages: { '[+]': ['noerrors'] }
+    },
+    loader: {
+      load: ['[tex]/noerrors']
+    },
+  };
+</script>
 {{ end }}

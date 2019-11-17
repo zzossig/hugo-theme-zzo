@@ -1,8 +1,19 @@
 {{ if $.Param "enableWhoami" }}
-
 <div class="whoami">
   <div class="whoami__image-wrapper">
-    <img data-src="{{ "/images/whoami/avatar.png" | relURL }}" alt="{{ .Site.Params.myname }}" class="lazyload whoami__image">
+    {{ $src := "" }}
+    {{ if site.Params.useGravatar }}    
+      {{ $src = printf "https://s.gravatar.com/avatar/%s?s=200" (md5 .Site.Params.email) }}
+      <img src="{{ $src }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="whoami__image"/>
+    {{ else }}
+      {{ if (fileExists "static/images/whoami/avatar.png") }}
+        <img src="{{ "images/whoami/avatar.png" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="whoami__image"/>
+      {{ else if (fileExists "static/images/whoami/avatar.jpg") }}
+        <img src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="whoami__image"/>
+      {{ else }}
+        <img src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="whoami__image"/>
+      {{ end }}      
+    {{ end }}
   </div>
   <div>
     <div class="whoami__title h6">

@@ -1,6 +1,5 @@
 #body {
   position: relative;
-  overflow-x: hidden;
   @include themify($themes) {
       color: themed('body-color');
       background-color: themed('backdrop-background-color');
@@ -8,4 +7,8 @@
         border-color: themed('hr-color');
       }
   }  
+}
+
+html {
+  overflow-x: hidden;
 }

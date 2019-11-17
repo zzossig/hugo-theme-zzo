@@ -3,6 +3,7 @@
   padding: 2rem 2rem 0;
   width: 100%;
   @include flexbox();
+  @include flex-direction(column);
   @include justify-content(flex-start);
 
   &__container {

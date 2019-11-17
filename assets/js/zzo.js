@@ -9,7 +9,6 @@ $(document).ready(function() {
   var position = $(window).scrollTop();
   $(window).scroll(function () {
     var navbar = $('.navbar');
-    var gtt = $('#gtt');    
 
     var scroll = $(window).scrollTop();
     if (scroll > position) { // scroll down 
@@ -22,11 +21,7 @@ $(document).ready(function() {
       } else if (navbar.hasClass('navbar--show')) {
         navbar.removeClass('navbar--show');
       }
-      
-      if (scroll > 500) {
-        gtt.show(200);
-      }
-      
+            
       $(".single__contents :header").each(function () {
         if (!$("#toggle-toc").is(":checked")) {
             return null;
@@ -49,10 +44,6 @@ $(document).ready(function() {
         navbar.removeClass('navbar--hide');
       } else if (!navbar.hasClass('navbar--show')) {
         navbar.addClass('navbar--show');
-      }
-
-      if (scroll < 500) {
-        gtt.hide(200);
       }
 
       $(".single__contents :header").each(function () {

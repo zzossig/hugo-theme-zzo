@@ -60,3 +60,7 @@
 .hide {
   display: none;
 }
+
+.grow {
+  @include flex-grow(1);
+}

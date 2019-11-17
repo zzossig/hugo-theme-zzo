@@ -4,8 +4,12 @@
   {{ $length := (len $list) }}
   {{ if $list }}
     {{ range $index, $element := $list }}
-    <a rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" class="caption">
-      {{ .Name }}</a>{{ if ne (add $index 1) $length }} | {{ end }}
+    {{ if ne .Name "webappmanifest" }}
+      {{ if eq $index 1 }} &middot; {{ end }}
+      <a rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" class="caption">
+        {{ .Name }}
+      </a>      
+    {{ end }}
     {{ end }}
   {{ end }}
 </div>

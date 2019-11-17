@@ -165,11 +165,11 @@ $avatar_background_color: {{ $scr.Get "avatar_background_color" }};
 @import 'components/whoami';
 @import 'components/switch';
 @import 'components/subs';
-@import 'components/mermaid';
+@import 'components/diagram';
 @import 'components/swiper';
 @import 'components/bio';
 @import 'components/features';
-@import 'components/mathjax';
+@import 'components/math';
 @import 'components/hr';
 
 @import 'pages/body';

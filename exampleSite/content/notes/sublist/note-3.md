@@ -1,6 +1,7 @@
 ---
-title: "Post-3"
-date: 2019-10-09T11:44:14+09:00
+title: "Note-3"
+date: 2016-10-09T11:44:14+09:00
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget enim lobortis,"
 series:
 - Go Web Dev
 tags:

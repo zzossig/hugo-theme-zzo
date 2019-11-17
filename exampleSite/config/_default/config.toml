@@ -1,0 +1,30 @@
+baseURL = "http://example.org/"
+title = "Hugo Zzo Theme"
+theme = "zzo"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+hasCJKLanguage = true
+
+summaryLength = 70
+
+copyright = "&copy;{year}, All Rights Reserved"
+timeout = 10000
+enableEmoji = true
+paginate = 13
+rssLimit = 100
+
+[outputs]
+  home = ["HTML", "RSS", "JSON", "WebAppManifest"]
+
+[mediaTypes."application/manifest+json"]
+  suffixes = ["webmanifest"]
+
+[outputFormats.WebAppManifest]
+  mediaType = "application/manifest+json"
+  rel = "manifest"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"

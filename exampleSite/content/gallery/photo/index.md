@@ -5,6 +5,8 @@ type: "gallery"
 mode: "one-by-one"
 description: "photo gallery"
 images:
-  - image: owl.jpg
-    caption: owl caption
+  - image: albatross.png
+    caption: albatross caption
+  - image: teddy.png
+    caption: teddy caption
 ---

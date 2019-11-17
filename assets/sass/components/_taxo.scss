@@ -4,6 +4,7 @@
   z-index: z('taxo');
 
   &-root {
+    position: -webkit-sticky;
     position: sticky;
     top: $grid_navbar_height;
     @include themify($themes) {
