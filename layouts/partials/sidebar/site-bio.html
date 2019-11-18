@@ -7,11 +7,11 @@
       <img src="{{ $src }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="bio__photo"/>
     {{ else }}
       {{ if (fileExists "static/images/whoami/avatar.png") }}
-        <img src="{{ "images/whoami/avatar.png" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="bio__photo"/>
+        <img data-src="{{ "images/whoami/avatar.png" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="lazyload bio__photo"/>
       {{ else if (fileExists "static/images/whoami/avatar.jpg") }}
-        <img src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="bio__photo"/>
+        <img data-src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="lazyload bio__photo"/>
       {{ else }}
-        <img src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="bio__photo"/>
+        <img data-src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="lazyload bio__photo"/>
       {{ end }}      
     {{ end }}
   </div>

@@ -4,6 +4,7 @@
   width: 100%;
 
   &__title {
+    font-size: 2.5rem;
     font-weight: 900;
     font-family: $single_title_font;
     line-height: 3rem;
@@ -73,7 +74,7 @@
 
     pre {
       @include themify($themes) {        
-        background-color: themed("content-pre-background-color") !important;
+        background-color: themed("content-pre-background-color");
       }
       border-radius: 0.5rem;
       position: relative;

@@ -3,6 +3,7 @@
 
 {{ if in .Params.Libraries "mermaid" }}
   {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mermaid\"></script>" $js.mermaid.url $js.mermaid.sri | safeHTML }}
+  
   <script>
     {{ $themeVariant := (index .Site.Params.themeOptions 0) }}
     var themeVariant = localStorage.getItem('theme') || JSON.parse({{ $themeVariant | jsonify }});
@@ -30,6 +31,7 @@
   {{ printf "<link rel=\"stylesheet\" href=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\">" $css.katex.url $css.katex.sri | safeHTML }}
   {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"katex\"></script>" $js.katex.url $js.katex.sri | safeHTML }}
   {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"katex\"></script>" $js.katex_auto_render.url $js.katex_auto_render.sri | safeHTML }}
+  
   <script>
     var mathElements = document.getElementsByClassName('math');
     var options = [
@@ -62,18 +64,143 @@
 {{ end }}
 
 {{ if in .Params.Libraries "mathjax" }}
-{{ printf "<script async src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mathjax\"></script>" $js.mathjax.url $js.mathjax.sri | safeHTML }}
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: false,
-      packages: { '[+]': ['noerrors'] }
-    },
-    loader: {
-      load: ['[tex]/noerrors']
-    },
-  };
-</script>
+  {{ printf "<script async src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mathjax\"></script>" $js.mathjax.url $js.mathjax.sri | safeHTML }}
+  
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: false,
+        packages: { '[+]': ['noerrors'] }
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      },
+    };
+  </script>
+{{ end }}
+
+{{ if in .Params.Libraries "msc" }}  
+  {{ printf "<script src=\"%s\" crossorigin=\"anonymous\" title=\"webfont\"></script>" $js.webfont.url | safeHTML }}
+  {{ printf "<script src=\"%s\" crossorigin=\"anonymous\" title=\"snap_svg\"></script>" $js.snap_svg.url | safeHTML }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"lodash\"></script>" $js.lodash.url $js.lodash.sri | safeHTML }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"sequence_diagram\"></script>" $js.sequence_diagram.url $js.sequence_diagram.sri | safeHTML }}
+  {{ printf "<link rel=\"stylesheet\" href=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\">" $css.sequence_diagram.url $css.sequence_diagram.sri | safeHTML }}
+  
+  <script>
+    {{ $msc := .Site.Data.msc }}
+    var options = JSON.parse({{ $msc | jsonify }});
+    var chartPrefix = "language-msc";
+
+    var index = 0;
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function (x) {
+      x.style.display = 'none'
+      x.parentNode.style.backgroundColor = "transparent"
+      jsonContent = x.innerText;
+
+      node0 = document.createElement('div');
+      node0.id = 'msc' + index;
+      x.parentNode.insertBefore(node0, x);
+
+      var diagram = Diagram.parse(jsonContent);
+      diagram.drawSVG("msc" + index, options);
+
+      index += 1;
+    });
+  </script>
+{{ end }}
+
+{{ if in .Params.Libraries "chart" }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"chart\"></script>" $js.chart.url $js.chart.sri | safeHTML }}
+  <script>
+    var chartPrefix = "language-chart";
+    // setting defaults
+    var borderColor = "#666";
+    var bgColor = "#ddd";
+    var borderWidth = 2;
+
+    Chart.defaults.global.elements.rectangle.borderWidth = borderWidth;
+    Chart.defaults.global.elements.rectangle.borderColor = borderColor;
+    Chart.defaults.global.elements.rectangle.backgroundColor = bgColor;
+
+    Chart.defaults.global.elements.line.borderWidth = borderWidth;
+    Chart.defaults.global.elements.line.borderColor = borderColor;
+    Chart.defaults.global.elements.line.backgroundColor = bgColor;
+
+    Chart.defaults.global.elements.point.borderWidth = borderWidth;
+    Chart.defaults.global.elements.point.borderColor = borderColor;
+    Chart.defaults.global.elements.point.backgroundColor = bgColor;
+
+    var index = 0;
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function(x){
+      x.style.display = 'none'
+      x.parentNode.style.backgroundColor = "transparent"
+      jsonContent = x.innerText;
+
+      node0 = document.createElement('canvas');
+      node0.height = 200;
+      node0.style.height=200;
+      node0.id = 'myChart' + index;
+      source = JSON.parse(jsonContent);
+      x.parentNode.insertBefore(node0, x);
+      var ctx = document.getElementById('myChart' + index).getContext('2d');
+      var myChart = new Chart(ctx, source);
+
+      index +=1;
+    });
+  </script>
+{{ end }}
+
+{{ if in .Params.Libraries "wavedrom" }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"wavedrom\"></script>" $js.wavedrom.url $js.wavedrom.sri | safeHTML }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"wavedrom_skin\"></script>" $js.wavedrom_skin.url $js.wavedrom_skin.sri | safeHTML }}
+
+  <script>
+    var wavePrefix = "language-wave";
+
+    var index = 0;
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + wavePrefix + "]"), function(x){
+      x.style.display = 'none'
+      x.parentNode.style.backgroundColor = "transparent"
+      jsonContent = x.innerText;
+
+      node0 = document.createElement('div');
+      node0.id = 'WaveDrom_Display_' + index;
+      source = JSON.parse(jsonContent);
+      x.parentNode.insertBefore(node0, x);
+
+      WaveDrom.RenderWaveForm(index, source, "WaveDrom_Display_");
+      index += 1;
+    });
+  </script>
+{{ end }}
+
+{{ if in .Params.Libraries "viz" }}
+  {{ printf "<script src=\"%s\" crossorigin=\"anonymous\" title=\"viz\"></script>" $js.viz.url | safeHTML }}
+  {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"viz_render\"></script>" $js.viz_render.url $js.viz_render.sri | safeHTML }}
+  
+  <script>
+  (function(){
+    var vizPrefix = "language-viz-";
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + vizPrefix + "]"), function(x){
+      x.style.display = 'none'
+      x.parentNode.style.backgroundColor = "transparent"
+
+      var engine;
+      x.getAttribute("class").split(" ").forEach(function(cls){
+          if (cls.startsWith(vizPrefix)) {
+              engine = cls.substr(vizPrefix.length);
+          }
+      });
+
+      var viz = new Viz();
+      viz.renderSVGElement(x.innerText, {engine:engine})
+      .then(function(element) {
+          element.style.width = "100%";
+          x.parentNode.insertBefore(element, x);
+      })
+    });
+  })();
+  </script>
 {{ end }}

@@ -27,6 +27,44 @@
   sri = "sha256-ZATCxHgcbalqi3AxHm7sPmwbfs3oZ4feGmCARVDmXig="
   url = "https://cdn.jsdelivr.net/npm/swiper@5.2.0/js/swiper.min.js"
 
+[js.webfont]
+  sri = "" # no sri
+  url = "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js"
+
+[js.snap_svg]
+  sri = "" # no sri
+  url = "https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg.min.js"
+
+[js.lodash]
+  sri = "sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ="
+  url = "https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"
+
+[js.sequence_diagram]
+  sri = "sha256-eadHf9g1REH9Wvp2FLV/D9vKNvQUFKuVPgWFvmMQxBE="
+  url = "https://cdn.jsdelivr.net/npm/@rokt33r/js-sequence-diagrams@2.0.6-2/dist/sequence-diagram-min.js"
+
+[js.chart]
+  sri = "sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="
+  url = "https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"
+
+[js.wavedrom]
+  sri = "sha256-IDuClDzRPosOM4bqD2e6ANDjqDwqNJrQxvXvegg47eI="
+  url = "https://cdn.jsdelivr.net/npm/wavedrom@2.1.6/wavedrom.min.js"
+
+[js.wavedrom_skin]
+  sri = "sha256-AcH/tECvCrfgPUHK98GALAPyAE7XpAYyEsbpmQrniFo="
+  url = "https://cdn.jsdelivr.net/npm/wavedrom@2.1.6/skins/default.js"
+
+[js.viz]
+  sri = "" # no sri
+  url = "https://cdn.jsdelivr.net/npm/viz.js@2.1.2/viz.min.js"
+
+[js.viz_render]
+  sri = "sha256-Ogqs510LFnekr9o7OLdpelaaAmNss9egQRTyzCqV2NQ="
+  url = "https://cdn.jsdelivr.net/npm/viz.js@2.1.2/full.render.js"
+
+
+
 
 
 # css
@@ -38,6 +76,9 @@
   sri = "sha256-s2QA0JtYEOOqRUyzKN+k2a/RxcimDuF2HZBdsosQRbM="
   url = "https://cdn.jsdelivr.net/npm/swiper@5.2.0/css/swiper.min.css"
 
+[css.sequence_diagram]
+  sri = "sha256-On01v36B8LRDuL2tqhqs7Gb3Cm/NIpsLFy4OarOodUA="
+  url = "https://cdn.jsdelivr.net/npm/@rokt33r/js-sequence-diagrams@2.0.6-2/dist/sequence-diagram-min.css"
 
 
 

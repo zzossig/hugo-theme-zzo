@@ -104,4 +104,7 @@ $(document).ready(function() {
       $(this).removeClass('active');
     }
   });
+
+  // highlight
+  $("pre[class*='language-']").removeAttr("style");
 });

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>{{ block "title" . }}{{ .Title }} – {{ .Site.Title }}{{ end }}</title>
-    {{ partial "head/scripts" . }}    
-    {{ partial "head/styles" . }}
+    {{ partialCached "head/scripts" . }}    
+    {{ partialCached "head/styles" . }}
     {{ partial "head/meta" . }}
     {{ partial "head/meta_json_ld" . }}
     {{ partial "head/service" . }}
