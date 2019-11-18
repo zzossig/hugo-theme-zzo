@@ -1,15 +1,48 @@
+{{ if $.Params.header }}
 <div class="swiper-container">
   <div class="swiper-wrapper">
-    {{ if .Site.Params.swiperCount }}
-    {{ range $idx, $seq :=  (seq .Site.Params.swiperCount) }}
-    <div class="swiper-slide">
-      {{ partial (print "header/slide-" $seq) . }}
-    </div>
+  {{ range $.Params.header }}
+    {{ if eq .type "slide" }}
+      {{ $height := .height }}
+      {{ range .slide }}
+        <div class="swiper-slide custom-header custom-header__align-{{ .align }}" style="background-image: url('{{.image | relURL }}'); height: {{ $height }}px;">
+          {{ $header := . }}
+          {{ if .title }}            
+            {{ range .title }}
+            <div class="custom-header__title" style="font-size: {{ $header.titleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
+              {{ . }}
+            </div>
+            {{ end }}      
+          {{ end }}
+          {{ if .spaceBetweenTitleSubtitle }}
+            <div style="height: {{ .spaceBetweenTitleSubtitle }}px"></div>
+          {{ end }}
+          {{ if .subtitle }}
+            {{ range .subtitle }} 
+            <div class="custom-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
+              {{ . }}
+            </div>
+            {{ end }}      
+          {{ end }}
+        </div>
+      {{ end }}
     {{ end }}
+  {{ end }}
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+{{ else }}
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {{ range $idx, $seq :=  (seq 3) }}
+      <div class="swiper-slide">
+        {{ partial (print "header/slide-" $seq) . }}
+      </div>
     {{ end }}
   </div>
   <div class="swiper-pagination"></div>
 </div>
+{{ end }}
 
 {{ $js := .Site.Data.lib.js }}
 {{ $css := .Site.Data.lib.css }}
@@ -18,7 +51,7 @@
 {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"swiper\"></script>" $js.swiper.url $js.swiper.sri | safeHTML }}
 
 <script>
-  {{ $swiper:= .Site.Data.swiper }}
+  {{ $swiper := .Site.Data.swiper }}
   var options = JSON.parse({{ $swiper | jsonify }});
 
   var mySwiper = new Swiper('.swiper-container', options);

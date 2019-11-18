@@ -1,6 +1,6 @@
 # Zzo theme for Hugo
 
-Thank you for click me!. Zzo theme is a blog theme for Hugo with free(always), and many features. If you find any bugs, or wanna share your custom color skin, or have some good idea to share with me and others who use this theme, feel free to open [github](https://github.com/zzossig/hugo-theme-zzo/issues) issue or pull request so that I can make this theme better.
+Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(always), and many features. 
 
 ## Table of contents
 
@@ -219,8 +219,7 @@ custom_css = []
 custom_js = []
 
 # header
-homeHeaderType = "slide" # text, img, slide
-swiperCount = 3 # only works when homeHeaderType = slide
+homeHeaderType = "img" # text, img, slide
 
 # body
 enableBreadcrumb = true
@@ -235,13 +234,13 @@ archivePaginate = 20
 paginateWindow = 1
 
 # whoami
-myname = "zzossig"
-email = "zzossig@gmail.com"
-whoami = "Web Developer"
+myname = ""
+email = ""
+whoami = ""
 useGravatar = false
-location = "Seoul, Korea"
-organization = "Hugo"
-link = "https://github.com/zzossig/hugo-theme-zzo"
+location = ""
+organization = ""
+link = ""
 
 # sidebar
 enableBio = true
@@ -553,33 +552,86 @@ single_contents = "'Merriweather', serif"
 
 You may want to change home page header. There are 4 options which is slider, image, text, empty.
 
-* Empty
+1. Set param at config/_default/params.toml(homeHeaderType)
 
-  1. Set params at config/_default/params.toml(homeHeaderType=""). Empty string or just delete it.
+2. Make _index.md file at root/content/_index.md and copy & paste below.
 
-* Slider
-This project use swiper library for slider header component.
+```yaml
+---
+header:
+  - type: text
+    height: 235
+    paddingX: 50
+    paddingY: 0
+    align: left
+    title:
+      - header title1
+      - header title2
+    subtitle:
+      - header subtitle1
+      - header subtitle2
+    titleFontSize: 44
+    subtitleFontSize: 16
+    spaceBetweenTitleSubtitle: 20
   
-  1. Set params at config/_default/params.toml(homeHeaderType="slide", swiperCount).
+  - type: img
+    image: images/header/background.png
+    height: 235
+    paddingX: 50
+    paddingY: 0
+    align: center
+    title:
+      - header title1
+      - header title2
+    subtitle:
+      - header subtitle1
+      - header subtitle2
+    titleFontSize: 44
+    subtitleFontSize: 16
+    spaceBetweenTitleSubtitle: 20
 
-  2. Make slide-{number}.html file to layouts/partials/header folder.
+  - type: slide
+    height: 235
+    slide:
+      - paddingX: 50
+        paddingY: 0
+        align: left
+        image: images/header/background.png
+        title:
+          - header title1
+        subtitle:
+          - header subtitle1
+        titleFontSize: 44
+        subtitleFontSize: 16
+        spaceBetweenTitleSubtitle: 20
 
-  3. Make swiper.json file that contains options to data folder.
+      - paddingX: 50
+        paddingY: 0
+        align: center
+        image: images/header/background.png
+        title:
+          - header title2
+        subtitle:
+          - header subtitle2
+        titleFontSize: 44
+        subtitleFontSize: 16
+        spaceBetweenTitleSubtitle: 20
 
-* Image
+      - paddingX: 50
+        paddingY: 0
+        align: right
+        image: images/header/background.png
+        title:
+          - header title3
+        subtitle:
+          - header subtitle3
+        titleFontSize: 44
+        subtitleFontSize: 16
+        spaceBetweenTitleSubtitle: 20
+---
+```
 
-  1. Set homeHeaderType param to "img"
-
-  2. Add image to static/images/header/background.jpg. Filename must be background
-
-  3. If you want add some contents, make a file at layouts/partials/header/header-img-content.html and edit as you want.
-
-* Text
-
-  1. Make a file at layouts/partials/header/header-text.html
-
-  2. Edit the file as you want.
-
+3. Edit params as you wish.
 
 ### custom grid
 

@@ -5,7 +5,6 @@ custom_js = []
 
 # header
 homeHeaderType = "slide" # text, img, slide
-swiperCount = 3 # only works when homeHeaderType = slide
 
 # body
 enableBreadcrumb = true

@@ -12,7 +12,7 @@ $grid_column_gap: $grid_column_gap_width + $grid_column_gap_unit;
     grid-column-gap: $grid_column_gap;
     grid-row-gap: $grid_row_gap;
     @include respond-to(sm) {
-        grid-template-columns: minmax(350px, $grid_main_main) minmax(0, $grid_main_side);
+        grid-template-columns: minmax(0, $grid_main_main) minmax(0, $grid_main_side);
     }
 }
 

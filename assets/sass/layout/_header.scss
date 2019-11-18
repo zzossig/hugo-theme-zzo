@@ -13,10 +13,39 @@
     background-image: url("../images/header/background.jpg"),
     url("../images/header/background.png");
     width: 100%;
-    height: 300px;
+    height: 235px;
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.custom-header {
+  @include flexbox();  
+  @include justify-content(center);
+  @include flex-direction(column);
+
+  &__title {
+    line-height: 1.1;
+    font-weight: 700;
+    font-family: $header_title_font;
+  }
+
+  &__subtitle {
+    line-height: 1.2;
+    font-family: $header_title_font;
+  }
+
+  &__align-left {
+    @include align-items(flex-start);
+  }
+
+  &__align-center {
+    @include align-items(center);
+  }
+
+  &__align-right {
+    @include align-items(flex-end);
   }
 }
