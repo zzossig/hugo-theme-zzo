@@ -25,11 +25,42 @@
     top: 0;
   }
 
+  &__mobile {
+    &--search {
+      display: none;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% - 50px);
+      height: $grid_navbar_height;
+      padding: 0 1rem;
+      font-size: 0.95rem;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      
+      @include respond-to(sm) {
+        @include flexbox();
+        @include align-items(center);        
+      }
+
+      &-icon {
+        @include flexbox();
+        @include align-items(center);
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
   &__brand {
+    height: $grid_navbar_height;
+
     @include flexbox();
     @include align-items(center);
-    @include flex-shrink(0);
-    height: $grid_navbar_height;
+    @include flex-shrink(0);    
+    @include respond-to(sm) {
+      display: none;
+    }
   }
 
   &__burger {        
@@ -126,7 +157,7 @@
             text-decoration: none;
             color: themed("navbar-title-color");
         }
-      }      
+      }
     }
   }
 

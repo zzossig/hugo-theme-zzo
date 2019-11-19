@@ -1,5 +1,4 @@
 .taxo {
-  padding: 0.25rem;
   margin: 2.5rem 0;
   z-index: z('taxo');
 
@@ -24,7 +23,30 @@
   }
 
   &__link {
-       
+    text-decoration: none !important;   
+  }
+
+  &__text {
+    padding: 0.125rem 0.25rem;
+
+    @include on-event {        
+      text-decoration: underline !important;   
+    }
+    @include themify($themes) {
+      color: inherit;
+      background-color: themed('taxo-tags-background-color');
+    }
+  }
+
+  &__num {
+    border-top-right-radius: 0.175rem;
+    border-bottom-right-radius: 0.175rem;
+    padding: 0.125rem 0.25rem;
+
+    @include themify($themes) {
+      color: themed('taxo-num-color');
+      background-color: themed('taxo-num-background-color');    
+    }
   }
 
   .title {
@@ -47,38 +69,26 @@
   }
 
   .is-tags {
-    padding: 0.25rem;
-    border-radius: 0.25rem;
+    border-radius: 0.175rem;
     @include themify($themes) {
       color: themed('taxo-tags-color');
       background-color: themed('taxo-tags-background-color');
-      @include on-event {
-        background-color: themed('taxo-background-color-hover');
-      }
     }
   }  
 
   .is-categories {
-    padding: 0.25rem;
-    border-radius: 0.25rem;
+    border-radius: 0.175rem;
     @include themify($themes) {
       color: themed('taxo-categories-color');
       background-color: themed('taxo-categories-background-color');
-      @include on-event {
-        background-color: themed('taxo-background-color-hover');
-      }
     }
   }
 
   .is-series {
-    padding: 0.25rem;
-    border-radius: 0.25rem;
+    border-radius: 0.175rem;
     @include themify($themes) {
       color: themed('taxo-series-color');
       background-color: themed('taxo-series-background-color');
-      @include on-event {
-        background-color: themed('taxo-background-color-hover');
-      }
     }
   }
 }

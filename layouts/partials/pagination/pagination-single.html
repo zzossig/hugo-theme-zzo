@@ -1,14 +1,17 @@
 <div class="pagination-single">
   {{ if .PrevPage }}
+  <hr class="hr-vertical-lines" />
     <a href="{{ .PrevPage.Permalink }}" class="pagination-single__left">
-      {{ partial "svgs/arrow/keyboard-arrow-left.svg" (dict "width" 25 "height" 25) }}
+      {{ partial "svgs/arrow/arrow-back.svg" (dict "width" 30 "height" 30) }}
       <div class="pagination-single__left-title p1">{{ .PrevPage.Title }}</div>      
     </a>
+    <hr class="hr-vertical-lines"/>
   {{ end }}
   {{ if .NextPage }}
     <a href="{{ .NextPage.Permalink }}" class="pagination-single__right">      
       <div class="pagination-single__right-title p1">{{ .NextPage.Title }}</div>    
-      {{ partial "svgs/arrow/keyboard-arrow-right.svg" (dict "width" 25 "height" 25) }}
+      {{ partial "svgs/arrow/arrow-forward.svg" (dict "width" 30 "height" 30) }}
     </a>
+    <hr class="hr-vertical-lines" />
   {{ end }}
 </div>

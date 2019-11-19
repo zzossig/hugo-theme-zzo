@@ -1,5 +1,7 @@
 {{ if $.Param "enableWhoami" }}
-<div class="whoami">
+<div class="whoami__gutter"></div>
+<hr class="hr-slash"/>
+<div class="whoami">  
   <div class="whoami__image-wrapper">
     {{ $src := "" }}
     {{ if site.Params.useGravatar }}    
@@ -20,8 +22,18 @@
       {{ .Site.Params.myname }}
     </div>
     <div class="whoami__desc">
-      {{ .Site.Params.whoami }}
+      {{ .Site.Params.whoami }}      
+    </div>
+    <div class="whoami__social">
+      {{ range $name, $path := $.Param "socialOptions" }}
+      {{ if $path }}
+      <a href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}">
+        {{ partial (print "svgs/social/" $name ".svg") (dict "width" 25 "height" 25) }}
+      </a>
+      {{ end }}
+      {{ end }}
     </div>
   </div>
 </div>
+<hr class="hr-slash" />
 {{ end }}

@@ -59,13 +59,13 @@
   margin: 1rem 0;
 
   &__left,
-  &__right {    
+  &__right {
     @include truncate($grid_max_width + $grid_max_unit);
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);
-
-    padding: 0.125rem;  
+    
+    padding: 0.25rem;
     border-radius: 0.125rem;
     &-title {
       padding-bottom: 0.3rem;

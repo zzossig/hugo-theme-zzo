@@ -2,12 +2,13 @@
   margin: 5rem 0;
   padding: 0.5rem;
   width: 100%;
+  position: relative;
+
   @include flexbox();
   @include align-items(center);
   @include flex-direction(column);
 
-  &-title {
-    @include align-self(center);
+  &__title {
     @include themify($themes) {
       color: themed('related-header-title-color');
     }
@@ -18,7 +19,7 @@
     list-style-type: disc;
   }
 
-  &-link {
+  &__link {
     @include themify($themes) {
       color: themed('related-link-color');
     }

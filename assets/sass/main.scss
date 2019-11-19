@@ -61,11 +61,12 @@ $navbar_dropdown_item_hover_background_color: {{ $scr.Get "navbar_dropdown_item_
 $sidebar_title_color: {{ $scr.Get "sidebar_title_color" }};
 $sidebar_li_color: {{ $scr.Get "sidebar_li_color" }};
 $taxo_title_color: {{ $scr.Get "taxo_title_color" }};
+$taxo_num_color: {{ $scr.Get "taxo_num_color" }};
+$taxo_num_background_color: {{ $scr.Get "taxo_num_background_color" }};
 $taxo_tags_background_color: {{ $scr.Get "taxo_tags_background_color" }};
 $taxo_tags_color: {{ $scr.Get "taxo_tags_color" }};
 $taxo_series_background_color: {{ $scr.Get "taxo_series_background_color" }};
 $taxo_series_color: {{ $scr.Get "taxo_series_color" }};
-$taxo_background_color_hover: {{ $scr.Get "taxo_background_color_hover" }};
 $taxo_categories_background_color: {{ $scr.Get "taxo_categories_background_color" }};
 $taxo_categories_color: {{ $scr.Get "taxo_categories_color" }};
 $breadcrumb_item_color: {{ $scr.Get "breadcrumb_item_color" }};
@@ -144,6 +145,7 @@ $avatar_background_color: {{ $scr.Get "avatar_background_color" }};
 @import 'base/fonts';
 @import 'base/helpers';
 @import 'base/typography';
+@import 'base/animation';
 
 @import 'layout/navigation';
 @import 'layout/grid';

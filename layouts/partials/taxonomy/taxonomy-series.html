@@ -10,7 +10,12 @@
         {{ if $index }}
             <span class="tag">
                 <a href="{{ $element.Page.RelPermalink }}" class="is-series taxo__link">
-                    {{ $element.Page.Title }} · {{ printf "%#v" (len $element) }}
+                    <span class="taxo__text">
+                        {{ $element.Page.Title }}
+                    </span>
+                    <span class="taxo__num">
+                        {{ printf "%#v" (len $element) }}
+                    </span>
                 </a>
             </span>
         {{ end }}

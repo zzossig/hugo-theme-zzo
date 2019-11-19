@@ -71,7 +71,7 @@ $(document).ready(function() {
   enquire.register("screen and (max-width: 769px)", {
     match: function () {
       $('main').removeClass('main-main').removeClass('main').addClass('main');
-      $('aside').removeClass('main-side').removeClass('hide').addClass('hide');     
+      $('aside').removeClass('main-side').removeClass('hide').addClass('hide');      
     },
     unmatch: function () {      
       if ($('aside').length > 0) {
@@ -79,7 +79,7 @@ $(document).ready(function() {
         $('aside').removeClass('main-side').removeClass('hide').addClass('main-side');
       }
       $('.navbar__burger').removeClass('is-active');
-      $('.navbar__menu').removeClass('is-active');
+      $('.navbar__menu').removeClass('is-active');      
     },
     setup: function () { },
     deferSetup: true,
@@ -116,5 +116,11 @@ $(document).ready(function() {
     if (!$(this).attr('data-content')) {
       $(this).attr('data-content', 'Code');
     }
+  });
+
+  // mobile search
+  $('.mobile-search').hide();
+  $('#mobileSearchBtn').click(function() {
+    $('#mobileSearchContainer').show();
   });
 });
