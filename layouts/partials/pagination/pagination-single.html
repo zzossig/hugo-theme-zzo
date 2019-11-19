@@ -2,13 +2,12 @@
   {{ if .PrevPage }}
     <a href="{{ .PrevPage.Permalink }}" class="pagination-single__left">
       {{ partial "svgs/arrow/keyboard-arrow-left.svg" (dict "width" 25 "height" 25) }}
-      <span class="pagination-single__left-title p1">{{ .PrevPage.Title }}</span>      
+      <div class="pagination-single__left-title p1">{{ .PrevPage.Title }}</div>      
     </a>
   {{ end }}
-  <div class="grow"></div>
   {{ if .NextPage }}
-    <a href="{{ .NextPage.Permalink }}" class="pagination-single__right">
-      <span class="pagination-single__right-title p1">{{ .NextPage.Title }}</span>     
+    <a href="{{ .NextPage.Permalink }}" class="pagination-single__right">      
+      <div class="pagination-single__right-title p1">{{ .NextPage.Title }}</div>    
       {{ partial "svgs/arrow/keyboard-arrow-right.svg" (dict "width" 25 "height" 25) }}
     </a>
   {{ end }}

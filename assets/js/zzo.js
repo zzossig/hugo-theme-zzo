@@ -105,6 +105,16 @@ $(document).ready(function() {
     }
   });
 
-  // highlight
-  $("pre[class*='language-']").removeAttr("style");
+  // highlight  
+  $("pre[class*='language-']").each(function () {
+    $(this).removeAttr('style');
+    var langName = $(this).attr('class').replace('chroma language-', '').toUpperCase();
+    $(this).closest('table').attr('data-content', langName);
+  });
+  
+  $('.lntable').each(function() {
+    if (!$(this).attr('data-content')) {
+      $(this).attr('data-content', 'Code');
+    }
+  });
 });

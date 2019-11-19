@@ -1,6 +1,9 @@
 {{ $js := .Site.Data.lib.js }}
 {{ $css := .Site.Data.lib.css }}
 
+{{ $prism := resources.Get "js/prism.min.js" | resources.Minify | resources.Fingerprint }}
+<script defer src="{{ $prism.RelPermalink }}"></script>
+
 {{ if in .Params.Libraries "mermaid" }}
   {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mermaid\"></script>" $js.mermaid.url $js.mermaid.sri | safeHTML }}
   
@@ -13,17 +16,29 @@
     } else {
       mermaid.initialize({ theme: 'default' });
     }   
-
+    
     // mermaid Fix Mermaid.js clash with Highlight.js.  
-    let mermaids = [];
+    $('code.language-mermaid:odd').each(function() {
+      $(this).unwrap('pre');
+      $(this).replaceWith(function () {
+        return $("<div />").append($(this).contents()).addClass('mermaid').css('padding', '30px 8px 8px');
+      });
+    });
+
+    $('code.language-mermaid').each(function (index, node) {
+      $(this).css('display', 'none');
+    });
+
+    /*let mermaids = [];
     [].push.apply(mermaids, document.getElementsByClassName('language-mermaid'));
+    console.log(mermaids);
     for (i = 0; i < mermaids.length; i++) {
-      $(mermaids[i]).unwrap('pre');  // Remove <pre> wrapper.
+      $(mermaids[i]).unwrap('pre');  // Remove <pre> wrapper.      
       $(mermaids[i]).replaceWith(function () {
         // Convert <code> block to <div> and add `mermaid` class so that Mermaid will parse it.
         return $("<div />").append($(this).contents()).addClass('mermaid');
       });
-    }
+    }*/
 </script>
 {{ end }}
 
@@ -90,10 +105,26 @@
   
   <script>
     {{ $msc := .Site.Data.msc }}
-    var options = JSON.parse({{ $msc | jsonify }});
-    var chartPrefix = "language-msc";
+    var options = JSON.parse({{ $msc | jsonify }});    
 
+    $('code.language-msc:odd').each(function() {
+      $(this).unwrap('pre');
+      $(this).replaceWith(function () {
+        return $("<div />").append($(this).contents()).addClass('diagram').css('padding', '30px 8px 8px');
+      });
+
+      
+    });
+    $(".diagram").sequenceDiagram(options);
+
+    $('code.language-msc').each(function (index, node) {
+      $(this).css('display', 'none');
+    });
+
+    
+    /*
     var index = 0;
+    var chartPrefix = "language-msc";
     Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function (x) {
       x.style.display = 'none'
       x.parentNode.style.backgroundColor = "transparent"
@@ -107,14 +138,13 @@
       diagram.drawSVG("msc" + index, options);
 
       index += 1;
-    });
+    });*/
   </script>
 {{ end }}
 
 {{ if in .Params.Libraries "chart" }}
   {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"chart\"></script>" $js.chart.url $js.chart.sri | safeHTML }}
-  <script>
-    var chartPrefix = "language-chart";
+  <script>    
     // setting defaults
     var borderColor = "#666";
     var bgColor = "#ddd";
@@ -132,8 +162,29 @@
     Chart.defaults.global.elements.point.borderColor = borderColor;
     Chart.defaults.global.elements.point.backgroundColor = bgColor;
 
+    $('code.language-chart:odd').each(function(index, node) {
+      $(this).unwrap('pre');
+
+      node0 = document.createElement('canvas');
+      node0.height = 200;
+      node0.style.height = 200;
+      node0.id = 'myChart' + index;
+      source = JSON.parse(node.innerText);
+      node.parentNode.insertBefore(node0, node);
+      var ctx = document.getElementById('myChart' + index).getContext('2d');
+      var myChart = new Chart(ctx, source);
+
+      $(this).closest('td').css('padding', '40px 8px 8px');
+      $(this).hide();
+    });
+
+    $('code.language-chart:even').each(function (index, node) {
+      $(this).css('display', 'none');
+    });
+
+    /*var chartPrefix = "language-chart";
     var index = 0;
-    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function(x){
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function(x) {
       x.style.display = 'none'
       x.parentNode.style.backgroundColor = "transparent"
       jsonContent = x.innerText;
@@ -148,7 +199,7 @@
       var myChart = new Chart(ctx, source);
 
       index +=1;
-    });
+    });*/
   </script>
 {{ end }}
 
@@ -157,10 +208,27 @@
   {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"wavedrom_skin\"></script>" $js.wavedrom_skin.url $js.wavedrom_skin.sri | safeHTML }}
 
   <script>
-    var wavePrefix = "language-wave";
+    $('code.language-wave:odd').each(function(index, node) {
+      $(this).unwrap('pre');
+      
+      node0 = document.createElement('div');
+      node0.id = 'WaveDrom_Display_' + index;
+      source = JSON.parse(node.innerText);
+      node.parentNode.insertBefore(node0, node);
 
+      WaveDrom.RenderWaveForm(index, source, "WaveDrom_Display_");
+
+      $(this).closest('td').css('padding', '40px 8px 8px');
+      $(this).hide();
+    });
+
+    $('code.language-wave').each(function (index, node) {
+      $(this).css('display', 'none');
+    });
+
+    /*var wavePrefix = "language-wave";
     var index = 0;
-    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + wavePrefix + "]"), function(x){
+    Array.prototype.forEach.call(document.querySelectorAll("[class^=" + wavePrefix + "]"), function(x) {
       x.style.display = 'none'
       x.parentNode.style.backgroundColor = "transparent"
       jsonContent = x.innerText;
@@ -172,7 +240,7 @@
 
       WaveDrom.RenderWaveForm(index, source, "WaveDrom_Display_");
       index += 1;
-    });
+    });*/
   </script>
 {{ end }}
 
@@ -183,6 +251,32 @@
   <script>
   (function(){
     var vizPrefix = "language-viz-";
+    $('code[class^="language-viz-"]:odd').each(function(index, node) {
+      $(this).unwrap('pre');
+      
+      var engine;
+      node.getAttribute("class").split(" ").forEach(function(cls){
+        if (cls.startsWith(vizPrefix)) {
+          engine = cls.substr(vizPrefix.length);
+        }
+      });
+
+      var viz = new Viz();
+      viz.renderSVGElement(node.innerText, {engine:engine})
+      .then(function(element) {
+        element.style.width = "100%";
+        node.parentNode.insertBefore(element, node);
+      });
+
+      $(this).closest('td').css('padding', '40px 0 16px 0');
+      $(this).hide();
+    });
+
+    $('code[class^="language-viz-"]:even').each(function (index, node) {
+      $(this).hide();
+    });
+
+    /*var vizPrefix = "language-viz-";
     Array.prototype.forEach.call(document.querySelectorAll("[class^=" + vizPrefix + "]"), function(x){
       x.style.display = 'none'
       x.parentNode.style.backgroundColor = "transparent"
@@ -200,7 +294,7 @@
           element.style.width = "100%";
           x.parentNode.insertBefore(element, x);
       })
-    });
+    });*/
   })();
   </script>
 {{ end }}

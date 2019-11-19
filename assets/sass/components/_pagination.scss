@@ -53,58 +53,22 @@
 .pagination-single {
   @include flexbox();
   @include align-items(center);
-  @include justify-content(space-between);
+  @include justify-content(center);
+  @include flex-direction(column);
   width: 100%;
   margin: 1rem 0;
 
   &__left,
   &__right {    
-    @include flex-basis(auto);
-    @include flex-grow(0);
-    @include flex-shrink(0);
+    @include truncate($grid_max_width + $grid_max_unit);
     @include flexbox();
     @include align-items(center);
+    @include justify-content(center);
 
+    padding: 0.125rem;  
     border-radius: 0.125rem;
-  }
-
-  &__left {
-    @include align-items(center);
-    @include justify-content(center);
-    padding: 0 0.5rem 0 0.25rem;
-
     &-title {
-      @include truncate(250px);
-      @include respond-to(sm) {
-        @include truncate(150px);
-      }
       padding-bottom: 0.3rem;
-    }
-
-    &-title--icon {      
-      @include themify($themes) {
-        color: themed('social-icon-color');
-      }      
-    }
-  }
-
-  &__right {
-    @include align-items(center);
-    @include justify-content(center);
-    padding: 0 0.25rem 0 0.5rem;
-
-    &-title {
-      @include truncate(250px);
-      @include respond-to(sm) {
-        @include truncate(150px);
-      }
-      padding-bottom: 0.3rem;
-    }
-
-    &-title--icon {      
-      @include themify($themes) {
-        color: themed('social-icon-color');
-      }
     }
   }
 }

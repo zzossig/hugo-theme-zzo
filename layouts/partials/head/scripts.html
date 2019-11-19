@@ -4,8 +4,6 @@
 <script defer src="{{ $clipboard.RelPermalink }}"></script>
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
 <script defer src="{{ $enquire.RelPermalink }}"></script>
-{{ $prism := resources.Get "js/prism.min.js" | resources.Minify | resources.Fingerprint }}
-<script defer src="{{ $prism.RelPermalink }}"></script>
 {{ $lazysizes := resources.Get "js/lazysizes.min.js" | resources.Fingerprint }}
 <script defer src="{{ $lazysizes.RelPermalink }}"></script>
 {{ $zzo := resources.Get "js/zzo.js" | resources.Minify | resources.Fingerprint }}

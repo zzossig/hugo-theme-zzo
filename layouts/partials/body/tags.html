@@ -1,0 +1,14 @@
+<div class="single__tags caption">
+{{ range $index, $value := .Params.Tags }}
+  {{ if and (eq $index 0) (ne (len $value) 0) }}
+    🏷️
+  {{ end }}
+  {{ if $value }}
+  <li>
+    <a href="{{ "/tags/" | relLangURL }}{{ $value | urlize }}" class="single__tag">
+      #{{ $value }}
+    </a>
+  </li>
+  {{ end }}  
+{{ end }}
+</div>

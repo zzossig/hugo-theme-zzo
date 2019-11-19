@@ -10,6 +10,8 @@
     word-wrap: normal;
     line-height: 1;
     min-width: 100%;
+    font-size: 14px;
+    line-height: 1.5em;
 
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -206,7 +208,6 @@
     position: absolute;
     pointer-events: none;
     top: 0;
-    font-size: 100%;
     left: -3.8em;
     width: 3em;
     /* works for line-numbers below 1000 lines */
@@ -275,7 +276,6 @@
   div.code-toolbar > .toolbar button,
   div.code-toolbar > .toolbar span {
     color: #ccc;
-    font-size: 1em;
     padding: 0.5em;
     background: rgba(98, 114, 164, 1);
     border-radius: 0.5em;

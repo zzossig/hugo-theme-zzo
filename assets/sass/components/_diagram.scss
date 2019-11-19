@@ -9,42 +9,13 @@
 // flowchart.js
 .diagram {
     overflow: auto;
+    background-color: #FCFCFA;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
 }
 
-// js-sequence-diagram
-.language-msc {
-    background: #fcfcfa !important;
+div[id^=WaveDrom_Display] {
+    background-color: #FCFCFA;
+    border-radius: 0.25rem;
 }
-
-// .sequence text {
-//     @include themify($themes) {
-//         fill: themed('body-color');
-//     }
-// }
-
-// .sequence path {
-//     @include themify($themes) {
-//         fill: themed('body-background-color');
-//     }
-// }
-
-// chart.js
-.language-chart {
-    background: #fcfcfa !important;
-}
-
-// wavedrom
-.language-wave {    
-    background: #fcfcfa !important;
-}
-
-// div[id^=WaveDrom_Display] {
-//     background-color: #FCFCFA;
-//     border-radius: 0.25rem;
-// }
-
-// viz.js
-.language-viz-dot {
-    background: transparent !important;
-}
-

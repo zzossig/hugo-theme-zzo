@@ -7,6 +7,7 @@
     <h2 class="single__title">{{ .Title }}</h2>
     <div class="single__meta">
       <div class="caption">🕓 {{ .Date.Format (i18n "single-dateformat") }} · ☕{{ .ReadingTime }} min read</div>
+      {{ partial "body/tags" . }}
     </div>    
     <article class="single__contents">
       {{ .Content }}

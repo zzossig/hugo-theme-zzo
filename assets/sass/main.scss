@@ -82,6 +82,8 @@ $related_header_title_color: {{ $scr.Get "related_header_title_color" }};
 $related_link_color: {{ $scr.Get "related_link_color" }};
 $content_pre_main_color: {{ $scr.Get "content_pre_main_color" }};
 $content_pre_background_color: {{ $scr.Get "content_pre_background_color" }};
+$content_pre_header_background_color: {{ $scr.Get "content_pre_header_background_color" }};
+$content_diagram_background_color: {{ $scr.Get "content_diagram_background_color" }};
 $content_code_color: {{ $scr.Get "content_code_color" }};
 $content_code_background_color: {{ $scr.Get "content_code_background_color" }};
 $burger_menu_color: {{ $scr.Get "burger_menu_color" }};

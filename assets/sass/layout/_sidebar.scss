@@ -18,8 +18,9 @@
 
     &__ul {
       margin-left: 0.5rem;
-
       li {
+        text-indent: -0.35em;
+        padding-left: 0.5em;
         &::before {
           padding-right: 0.5rem;
           font-size: 1rem;
