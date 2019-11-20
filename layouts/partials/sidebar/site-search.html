@@ -122,6 +122,28 @@
       searchMenu.appendChild(content);
     }
 
+    function renderSearchResultsMobile(results) {
+      searchResults = document.getElementById('search-mobile-results');
+
+      var content = document.createElement('div');
+      content.setAttribute('class', 'mobile-search__content');
+
+      if (results.length > 0) {
+        results.forEach(function (result) {
+          var item = document.createElement('a');
+          item.setAttribute('href', result.uri);
+          item.innerHTML = `<div class="mobile-search__item"><div class="mobile-search__item--title">» ${result.title}</div><div class="mobile-search__item--desc">${result.description ? result.description : result.content}</div></div>`;
+          content.appendChild(item);
+        });
+      } else {
+        var item = document.createElement('span');
+        content.appendChild(item);
+      }
+
+      $('#search-mobile-results').empty();
+      searchResults.appendChild(content);
+    }
+
     initLunr();
 
     $("#search").on('input', function (e) {
@@ -129,17 +151,28 @@
         $('#search-results').attr('class', 'dropdown');
         return null;
       }
+
+      if ($(window).width() < 770) {
+        return null;
+      } 
+
       var results = search(e.target.value);
       renderSearchResults(results);
     });
 
     $('#search').on('blur', function () {
+      if ($(window).width() < 770) {
+        return null;
+      }
       setTimeout(function () {
         $('#search-results').attr('class', 'dropdown');
       }, 100);
     });
 
     $('#search').on('click', function (e) {
+      if ($(window).width() < 770) {
+        return null;
+      }
       if (!e.target.value) {
         $('#search-results').attr('class', 'dropdown');
         return null;
@@ -149,6 +182,9 @@
     });
 
     $('#search').on('keydown', function (e) {
+      if ($(window).width() < 770) {
+        return null;
+      }
       var items = $('#search-menu .dropdown-item');
       var activeIndex = $('#search-menu .dropdown-item.is-active').index();
 
@@ -164,6 +200,17 @@
         }
       }
     });
+
+    $("#search-mobile").on('input', function(e) {
+      if (!e.target.value) {
+        $('#search-mobile-results').empty();
+        return null;
+      }
+
+      var results = search(e.target.value);
+      renderSearchResultsMobile(results);
+    });
+
   });
 </script>
 {{ end }}

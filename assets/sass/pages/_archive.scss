@@ -100,7 +100,7 @@
     margin-right: 0.5rem;
     border-radius: 2px;
     height: 18px;
-    width: 75px;
+    min-width: 75px;
     padding: 0;
     font-size: 0.8rem;
     @include flexbox();

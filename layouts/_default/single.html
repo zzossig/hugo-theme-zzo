@@ -12,11 +12,10 @@
     <article class="single__contents">
       {{ .Content }}
     </article>
-    {{ partial "body/whoami" . }}    
-    {{ partial "comments/comments.html" . }}
-
+    {{ partial "body/whoami" . }}
     {{ partial "body/related" . }}
     {{ partial "pagination/pagination-single" . }}
+    {{ partial "comments/comments.html" . }}
     {{ partial "body/photoswipe" . }}
     {{ partial "body/lib" . }}
   </div>

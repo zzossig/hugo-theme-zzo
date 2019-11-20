@@ -50,6 +50,8 @@
 
 .gallery {
   padding: 1rem;
+  @include flexbox();
+  @include flex-direction(column);
   
   &__contents {
       padding: 1rem;
