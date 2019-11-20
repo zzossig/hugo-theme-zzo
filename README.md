@@ -6,7 +6,6 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 
 * [Features](#features)
 * [Reference](#reference)
-* [Dependency](#dependency)
 * [Minimum Hugo version](#minimum-hugo-version)
 * [Installation](#installation)
 * [Updating](#updating)
@@ -22,7 +21,7 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 
 ## Features
 
-* Multiple sub themes(dark, light, solarized, hacker)
+* Multiple Skins(dark, light, solarized, hacker)
 * A mobile menu
 * CSS grid and flex for layout
 * HTML5
@@ -43,25 +42,13 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 
 I have referenced:
 
+* [engimo](https://github.com/achary/engimo)
+* [even theme](https://github.com/olOwOlo/hugo-theme-even)
 * [zen theme](https://github.com/frjo/hugo-theme-zen)
 * [docdock theme](https://github.com/vjeantet/hugo-theme-docdock)
 * [learn theme](https://github.com/matcornic/hugo-theme-learn/)
 * [academic theme](https://sourcethemes.com/academic/)
 * [overreacted.io](https://github.com/gaearon/overreacted.io)
-
-## Dependency
-
-Zzo theme is using this library.
-
-* jquery@3.4.1
-* mark.js
-* clipboard.js
-* lazysizes
-* masonry
-* lunr
-* jquery.toc
-* photoswipe
-* prism
 
 ## Minimum Hugo version
 
@@ -136,17 +123,28 @@ summaryLength = 70
 copyright = "&copy;{year}, All Rights Reserved"
 timeout = 10000
 enableEmoji = true
-paginate = 7
+paginate = 13
 rssLimit = 100
 
+pygmentsOptions = "linenos=table"
+pygmentsCodefences = true
+pygmentsUseClasses = true
+pygmentsCodefencesGuessSyntax = true
+
 [outputs]
-  home = [ "HTML", "RSS", "JSON" ]
+  home = ["HTML", "RSS", "JSON", "WebAppManifest"]
+
+[mediaTypes."application/manifest+json"]
+  suffixes = ["webmanifest"]
+
+[outputFormats.WebAppManifest]
+  mediaType = "application/manifest+json"
+  rel = "manifest"
 
 [taxonomies]
   category = "categories"
   tag = "tags"
   series = "series"
-
 ```
 
 3. languages.toml
@@ -219,7 +217,7 @@ custom_css = []
 custom_js = []
 
 # header
-homeHeaderType = "img" # text, img, slide
+homeHeaderType = "slide" # text, img, slide
 
 # body
 enableBreadcrumb = true
@@ -228,19 +226,19 @@ enableSearch = true
 enableMark = true
 enableGoToTop = true
 enableWhoami = true
-summaryShape = "card" # card, classic, compact
+summaryShape = "classic" # card, classic, compact
 archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
-archivePaginate = 20
+archivePaginate = 13
 paginateWindow = 1
 
 # whoami
-myname = ""
-email = ""
-whoami = ""
+myname = "zzossig"
+email = "zzossig@gmail.com"
+whoami = "Web Developer"
 useGravatar = false
-location = ""
-organization = ""
-link = ""
+location = "Seoul, Korea"
+organization = "Hugo"
+link = "https://github.com/zzossig/hugo-theme-zzo"
 
 # sidebar
 enableBio = true
@@ -252,12 +250,7 @@ enableToc = true
 enableTocSwitch = true
 itemsPerCategory = 5
 enableSideSubscribe = false
-searchLanguages = ['en'] # checkout lunr.js supported language
-
-# comment
-enableComment = false
-disqus_shortname = ""
-commento = false
+searchLanguages = ['en']
 
 # footer
 showPoweredBy = true
@@ -266,11 +259,63 @@ showSocialLinks = true
 enableLangChange = true
 enableThemeChange = true
 themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
+
+# comment
+enableComment = true
+disqus_shortname = ""
+commento = false
+
+[gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
+  owner = ""              # Your GitHub ID
+  repo = ""               # The repo to store comments
+  clientId = ""           # Your client ID
+  clientSecret = ""       # Your client secret
+
+[utterances]       # https://utteranc.es/
+  owner = ""              # Your GitHub ID
+  repo = ""               # The repo to store comments
+
+[gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
+  owner = ""              # Your GitHub ID
+  repo = ""               # The repo to store comments
+  clientId = ""           # Your client ID
+  clientSecret = ""       # Your client secret
+
+# Valine.
+# You can get your appid and appkey from https://leancloud.cn
+# more info please open https://valine.js.org
+[valine]
+  enable = false
+  appId = '你的appId'
+  appKey = '你的appKey'
+  notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
+  verify = false # Verification code
+  avatar = 'mm' 
+  placeholder = '说点什么吧...'
+  visitor = false
+
+[changyan]
+  changyanAppid = ""        # Changyan app id             # 畅言
+  changyanAppkey = ""       # Changyan app key
+
+[livere]
+  livereUID = ""            # LiveRe UID                  # 来必力
+
+# Isso: https://posativ.org/isso/
+[isso]
+  enable = false
+  scriptSrc = "" # "https://isso.example.com/js/embed.min.js"
+  dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
+
+[marketing]
+  google_analytics = ""
+  google_tag_manager = ""
+
 [socialOptions]
   email = "mailto:your@email.com"
   facebook = "http://example.org/"
   twitter = "http://example.org/"
-  github = "http://example.org/"
+  github = "https://github.com/zzossig/hugo-theme-zzo"
   stack-overflow = ""
   instagram = ""
   google-plus = ""
@@ -330,7 +375,7 @@ The CSS grid layout are in `assets/sass/layout/_grid.scss`. A lot can be done by
 There are two ways to make gallery. You can specify **mode** at frontmatter.
 
 ```bash
-content/gallery/mygallery/index.md
+content/gallery/anygalleryname/index.md
 
 ---
 title: "{{ replace .Name "-" " " | title }}"
@@ -354,7 +399,7 @@ images: # when mode is one-by-one, images front matter works
 
 ```
 
-If you set the mode to one-by-one, list.html page will use images frontmatter above. If you set the mode to at-once, list.html page will not use images frontmatter and just read all files under the static/gallery/mygallery folder.
+If you set the mode to one-by-one, list.html page will use images frontmatter above. If you set the mode to at-once, list.html page will not use images frontmatter and just read all files under the static/gallery/anygalleryname folder.
 
 1. Make a gallery folder under the content folder
 
@@ -370,13 +415,13 @@ root
 root
 ├── content
 │   ├── gallery
-│   │   ├── mygallery
+│   │   ├── anygalleryname
 ```
 
 3. Make a index.md file under the sub folder using this command
 
 ```bash
-hugo new gallery/mygallery/index.md
+hugo new --kind gallery gallery/anygalleryname/index.md
 ```
 
 4. Put your images in static folder
@@ -385,7 +430,7 @@ hugo new gallery/mygallery/index.md
 root
 ├── static
 │   ├── gallery
-│   │   ├── mygallery
+│   │   ├── anygalleryname
 │   │   │   ├── ...your images here
 ```
 
@@ -660,7 +705,7 @@ grid_row_gap = "0"
 
 ## External Library
 
-If you want use external libraries, this theme currently supporting Katex, MathJax, Mermaid, Flowchart.js. Just add some front matter.
+If you want use external libraries, this theme currently supporting Katex, MathJax, Mermaid, Flowchart.js, chart.js, viz-graph, wavedrom, js-sequence-diagram. Just add some front matter.
 
 ```bash
 ---
@@ -668,10 +713,15 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 ...
 libraries:
-- katex
+- katex 
 - mathjax
+- chart
 - flowchartjs
+- msc
+- katex
 - mermaid
+- viz
+- wavedrom
 ---
 
 ```
