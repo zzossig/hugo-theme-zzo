@@ -15,9 +15,9 @@
     &::before {
       content: '';
       position: absolute;
-      left: 2.25rem;
+      left: 3rem;
       top: 0;
-      width: 0.125rem;
+      width: 0.25rem;
       height: 100%;
       @include themify($themes) {
         background-color: themed('toc-vertical-line');
@@ -42,44 +42,17 @@
     @include respond-to(sm) {
       margin-left: 0;
       position: relative;
-
-      &:not(:last-child) {
-        &::before {
-          content: '';
-          left: 2.25rem;
-          top: -0.03rem;
-          height: 45px;
-          position: absolute;
-          z-index: -1;
-          @include themify($themes) {
-            border-left: 0.125rem solid themed('toc-vertical-line');
-          }       
-        }        
-      }
-      
-      &:last-child {
-        &::before {
-          content: '';
-          left: 2.25rem;
-          top: -0.03rem;
-          height: 28px;
-          position: absolute;
-          z-index: -1;
-          @include themify($themes) {
-            border-left: 0.125rem solid themed('toc-vertical-line');
-          }
-        }
-      }
     }    
   }
 
   &__key {
     margin-right: 0.5rem;
-    border-radius: 2px;
-    height: 28px;
-    width: 75px;
-    padding: 0;
-    font-size: 0.8rem;
+    border-radius: 0.25rem;
+    height: 32px;
+    width: 100px;
+    padding: 0.125rem;
+    font-size: 0.95rem;
+    font-weight: 700;
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);
@@ -96,51 +69,75 @@
     }
   }
 
-  &__type {
-    margin-right: 0.5rem;
-    border-radius: 2px;
-    height: 18px;
-    min-width: 75px;
-    padding: 0;
-    font-size: 0.8rem;
+  &__meta {
+    border-radius: 0.25rem;
+    min-width: 100px;
+    max-width: 100px;    
+
     @include flexbox();
-    @include align-items(stretch);
-    @include justify-content(center);
+    @include align-items(center);
+  }
+
+  &__type {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    font-size: 0.8rem;
+    width: 50%;
+    height: 20px;
+    text-align: center;
+
+    @include truncate(50px);
     @include themify($themes) {
       color: themed('archive-type-color');
       background-color: themed('archive-type-background-color');
+
+      @include respond-to(sm) {
+        border-right: 2px solid themed('toc-vertical-line');
+      }
+    }
+  }
+
+  &__date {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    font-size: 0.8rem;
+    width: 50%;
+    height: 20px;
+    text-align: center;        
+
+    @include truncate(50px);
+    @include themify($themes) {
+      color: themed('archive-meta-color');
+      background-color: themed('archive-type-background-color');
+
+      @include respond-to(sm) {
+        border-left: 2px solid themed('toc-vertical-line');
+      }      
     }
   }
 
   &__title {
     margin-right: 0.5rem;    
+    margin-left: 1rem;
 
     @include truncate($grid-max-width);
     @include on-event {      
       &::before {
         content: '';
         position: absolute;
-        left: 2.25rem;        
-        top: inherit;
-        width: 0.125rem;
-        height: 23px;
+        left: 3rem;                
+        width: 0.25rem;
+        height: 20px;
+        
         @include themify($themes) {
           background-color: themed('archive-hover-line-color');
         }
-      }
 
-      @include respond-to(sm) {
-        &::before {
-          content: none;
+        @include respond-to(sm) {
+          top: 50%;
+          @include translateY(-50%);
         }
       }
-    }
-  }
-
-  &__date {
-    font-size: 12px;
-    @include themify($themes) {
-      color: themed('archive-meta-color');
     }
   }
 }

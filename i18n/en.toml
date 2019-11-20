@@ -34,6 +34,9 @@ other = "Jan 2, 2006"
 [single-related]
 other = "See Also"
 
+[single-writtenBy]
+other = "WRITTEN BY"
+
 [toc-label]
 other = "What's on this Page"
 

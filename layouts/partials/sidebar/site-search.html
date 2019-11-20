@@ -57,7 +57,7 @@
       if (!endsWith(baseurl, "/")) {
         baseurl = baseurl + '/';
       };
-
+      
       $.getJSON(baseurl + "index.json")
         .done(function (index) {
           pagesIndex = index;

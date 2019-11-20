@@ -17,15 +17,20 @@
     <ul class="archive__ul">
       {{ range .Pages }}
       <li class="archive__li">
-        <span class="archive__type">{{ .Type }}</span>
-        <a href="{{ .Permalink }}" class="archive__title">{{ .Title }}</a>
-        <span class="meta archive__date">{{ .Date.Format (i18n "archive-dateformat") }}</span>
+        <span class="archive__meta">
+          <span class="archive__type">{{ .Type }}</span>
+          <span class="archive__date">{{ .Date.Format (i18n "archive-dateformat") }}</span>
+        </span>        
+        <a href="{{ .Permalink }}" class="archive__title">{{ .Title }}</a>        
       </li>
       {{ end }}
     </ul>
     {{ end }}    
   </div>
   <div class="grow"></div>
-  {{ partial "pagination/pagination-list" . }}
+  {{ partial "pagination/pagination" . }}
+  <div class="hide">
+    {{ partial "sidebar/site-search" . }}
+  </div>
 </main>
 {{ end }}

@@ -1,5 +1,5 @@
 .related {
-  margin: 5rem 0;
+  margin: 2rem 0;
   padding: 0.5rem;
   width: 100%;
   position: relative;
@@ -9,6 +9,7 @@
   @include flex-direction(column);
 
   &__title {
+    font-size: 32px;
     @include themify($themes) {
       color: themed('related-header-title-color');
     }
@@ -20,6 +21,7 @@
   }
 
   &__link {
+    font-size: 16.8px;
     @include themify($themes) {
       color: themed('related-link-color');
     }

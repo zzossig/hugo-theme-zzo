@@ -44,6 +44,9 @@
 
 {{ end }}
 
+<div class="hide">
+  {{ partial "sidebar/site-search" . }}
+</div>
 {{ partial "body/photoswipe" . }}
 
 {{ $masonry := resources.Get `js/masonry.pkgd.min.js` | resources.Fingerprint }}

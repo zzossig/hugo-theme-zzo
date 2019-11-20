@@ -1,22 +1,20 @@
 <div class="grow"></div>
 <div class="pagination-single">
   {{ if .PrevPage }}
-  <hr class="hr-vertical-lines" />
     <a href="{{ .PrevPage.Permalink }}" class="pagination-single__left">
       <div class="pagination-single__icon">
-        {{ partial "svgs/arrow/arrow-back.svg" (dict "width" 27 "height" 27) }}
+        {{ partial "svgs/arrow/arrow-back.svg" (dict "width" 25 "height" 25) }}
       </div>
-      <div class="pagination-single__left-title p1">{{ .PrevPage.Title }}</div>      
+      <div class="pagination-single__left-title">{{ .PrevPage.Title }}</div>      
     </a>
-    <hr class="hr-vertical-lines"/>
   {{ end }}
+  <div class="grow"></div>
   {{ if .NextPage }}
     <a href="{{ .NextPage.Permalink }}" class="pagination-single__right">      
-      <div class="pagination-single__right-title p1">{{ .NextPage.Title }}</div>
+      <div class="pagination-single__right-title">{{ .NextPage.Title }}</div>
       <div class="pagination-single__icon">
-        {{ partial "svgs/arrow/arrow-forward.svg" (dict "width" 27 "height" 27) }}
+        {{ partial "svgs/arrow/arrow-forward.svg" (dict "width" 25 "height" 25) }}
       </div>
     </a>
-    <hr class="hr-vertical-lines" />
   {{ end }}
 </div>

@@ -26,13 +26,16 @@ other = "구독"
 other = "소셜"
 
 [archive-dateformat]
-other = "01월 02일"
+other = "01-02"
 
 [single-dateformat]
 other = "2006년 01월 02일"
 
 [single-related]
 other = "관련글"
+
+[single-writtenBy]
+other = "글쓴이"
 
 [toc-label]
 other = "목차"

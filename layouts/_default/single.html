@@ -6,7 +6,7 @@
   <div class="single">
     <h2 class="single__title">{{ .Title }}</h2>
     <div class="single__meta">
-      <div class="caption">🕓 {{ .Date.Format (i18n "single-dateformat") }} · ☕{{ .ReadingTime }} min read</div>
+      🕓 {{ .Date.Format (i18n "single-dateformat") }} · ☕{{ .ReadingTime }} min read
       {{ partial "body/tags" . }}
     </div>    
     <article class="single__contents">
@@ -18,6 +18,10 @@
     {{ partial "comments/comments.html" . }}
     {{ partial "body/photoswipe" . }}
     {{ partial "body/lib" . }}
+
+    <div class="hide">
+      {{ partial "sidebar/site-search" . }}
+    </div>
   </div>
 </main>
 

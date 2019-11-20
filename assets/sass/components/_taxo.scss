@@ -28,6 +28,8 @@
 
   &__text {
     padding: 0.125rem 0.25rem;
+    border-top-left-radius: 0.175rem;
+    border-bottom-left-radius: 0.175rem;
 
     @include on-event {        
       text-decoration: underline !important;   

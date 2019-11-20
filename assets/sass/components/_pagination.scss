@@ -54,7 +54,7 @@
   @include flexbox();
   @include align-items(center);
   @include justify-content(center);
-  @include flex-direction(column);
+  @include flex-wrap(wrap);
   width: 100%;
   margin: 1rem 0;
 
@@ -68,7 +68,9 @@
     padding: 0.25rem;
     border-radius: 0.125rem;
     &-title {
+      font-size: 16.8px;
       padding-bottom: 0.3rem;
+      @include truncate($grid_max_width + $grid_max_unit);
     }
 
     @include on-event {
@@ -82,8 +84,8 @@
   }
 
   &__icon {
-    width: 30px;
-    height :30px;
+    width: 28px;
+    height: 28px;
     border-radius: 100%;
     margin: 0 0.5rem;
 

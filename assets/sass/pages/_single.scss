@@ -1,19 +1,23 @@
 .single {
   padding: 1rem;
-  position: relaitve;
-  width: 100%;
+  position: relative;
+  width: 100%;  
 
   &__title {
     font-size: 2.5rem;
     font-weight: 900;
     font-family: $single_title_font;
     line-height: 3rem;
+
+    @include animation('slide-in-down .5s 0s 1 ease both');    
     @include themify($themes) {
       color: themed("single-header-title-color");
     }
   }
 
   &__meta {
+    font-size: 0.8rem;
+    //@include animation(0.5s, 0.5s, animation-slide-in-left, ease);
     @include flexbox();
     @include align-items(center);
   }
