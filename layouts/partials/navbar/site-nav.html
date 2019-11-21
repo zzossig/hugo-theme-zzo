@@ -21,7 +21,7 @@
     </div>
     {{ range .Site.Menus.main -}}
     {{ if .HasChildren }}
-    <div class="navbar__dropdown">
+    <div class="navbar__dropdown navbar__slide-down">
       <a href="{{ .URL | relLangURL }}" class="navbar__menu-item">
         {{ safeHTML .Name }}
         <span class="navbar__menu-icon">
@@ -35,7 +35,7 @@
       </div>
     </div>
     {{ else }}
-    <a href="{{ .URL | relLangURL }}" class="navbar__menu-item">{{ safeHTML .Name }}</a>
+    <a href="{{ .URL | relLangURL }}" class="navbar__menu-item navbar__slide-down">{{ safeHTML .Name }}</a>
     {{ end }}
     {{ end }}
   </div>

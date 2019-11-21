@@ -124,14 +124,23 @@ $(document).ready(function() {
   $('#mobileSearchBtn').click(function() {
     $('#search-mobile-container').fadeIn(250);
     $('#search-mobile').focus();
+    $('html').css('overflow-y', 'hidden');
   });
   $('#search-mobile-close').click(function() {
     $('#search-mobile-container').fadeOut(250);
+    $('#search-mobile').val('');
+    $('#search-mobile-results').empty();
+    $('html').css('overflow-y', 'visible');
   });
   $('#search-mobile').keydown(function(e) {
     // e.key === "Enter"
     if (e.key === "Escape") {
       $('#search-mobile-container').fadeOut(250);
+      $('#search-mobile').val('');
+      $('#search-mobile-results').empty();
+      $('html').css('overflow-y', 'visible');
     }
   });
+
+  // animation
 });

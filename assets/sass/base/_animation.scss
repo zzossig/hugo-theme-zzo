@@ -8,7 +8,7 @@
   }
 
   100% {
-    transform: translate(0,-24%);
+    transform: translate(0,-12%);
     opacity: 1;
   }
 }
@@ -20,7 +20,7 @@
   }
 
   100% {
-    transform: translate(0,24%);
+    transform: translate(0,12%);
     opacity: 1;
   }
 }
@@ -33,7 +33,7 @@
   }
 
   100% {
-    transform: translate(-24%,0);
+    transform: translate(-12%,0);
     opacity: 1;
   }
 }
@@ -46,14 +46,14 @@
   }
 
   100% {
-    transform: translate(24%,0);
+    transform: translate(12%,0);
     opacity: 1;
   }
 }
 
 @include keyframes(slide-in-up) {
   0% {
-    transform: translate(0,24%);
+    transform: translate(0,12%);
     opacity: 0;
   }
 
@@ -65,7 +65,7 @@
 
 @include keyframes(slide-in-down) {
   0% {
-    transform: translate(0,-24%);
+    transform: translate(0,-12%);
     opacity: 0;
   }
 
@@ -78,7 +78,7 @@
 // Slide in Left to Center
 @include keyframes(slide-in-left) {
   0% {
-    transform: translate(-24%,0);
+    transform: translate(-12%,0);
     opacity: 0;
   }
 
@@ -91,7 +91,31 @@
 // Slide in Right to Center
 @include keyframes(slide-in-right) {
   0% {
-    transform: translate(24%,0);
+    transform: translate(12%,0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+
+@include keyframes(slide-in-down-2) {
+  0% {
+    transform: translate(0,-6%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+
+@include keyframes(slide-in-down-3) {
+  0% {
+    transform: translate(0,-2%);
     opacity: 0;
   }
 

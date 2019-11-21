@@ -9,13 +9,13 @@
 {{ if in (lower .Params.Mode) "one" }}
 
 <main class="gallery main">
-  <div class="grid single__contents">
+  <div class="grid single__contents single__contents--gallery">
     <div class="grid-sizer"></div>
     {{ if .File.Dir }}
       {{ $basename := (replace .File.Dir "\\" "/") }}
       {{ range .Params.Images }}
       <div class="grid-item">
-        <img src="{{ $basename | relURL }}{{ .image }}" alt="{{ print .caption }}"/>
+        <a data-alt="{{ print .caption }}" data-fancybox="gallery" href="{{ $basename | relURL }}{{ .image }}"><img src="{{ $basename | relURL }}{{ .image }}" alt="{{ print .caption }}"/></a>        
         <div class="grid-item__desc hide">{{ .caption }}</div>
       </div>
       {{ end }}
@@ -27,13 +27,13 @@
 {{ else }}
 
 <main class="gallery main">
-  <div class="grid single__contents">
+  <div class="grid single__contents single__contents--gallery">
     <div class="grid-sizer"></div>
     {{ if .File.Dir }}
       {{ $basename := (replace .File.Dir "\\" "/") }}
       {{ range (readDir (print "./static/" $basename)) }}
       <div class="grid-item">
-        <img src="{{ $basename | relURL }}{{ .Name }}" alt="{{ index (split .Name ".") 0 }}"/>
+        <a data-alt="{{ index (split .Name ".") 0 }}" data-fancybox="gallery" href="{{ $basename | relURL }}{{ .Name }}"><img src="{{ $basename | relURL }}{{ .Name }}" alt="{{ index (split .Name ".") 0 }}"/></a>        
         <div class="grid-item__desc hide">{{ index (split .Name ".") 0 }}</div>
       </div>
       {{ end }}
@@ -47,7 +47,7 @@
 <div class="hide">
   {{ partial "sidebar/site-search" . }}
 </div>
-{{ partial "body/photoswipe" . }}
+{{ partial "body/fancybox" . }}
 
 {{ $masonry := resources.Get `js/masonry.pkgd.min.js` | resources.Fingerprint }}
 <script defer src="{{ $masonry.RelPermalink }}"></script>
@@ -71,6 +71,10 @@
 
     $('.grid-item').mouseleave(function () {
       $(this).children('.grid-item__desc').hide();
+    });
+
+    $('.grid-item').click(function() {
+      $(this).children('a').get(0).click();
     });
 
     enquire.register("screen and (max-width:500px)", {

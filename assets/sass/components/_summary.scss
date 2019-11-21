@@ -1,4 +1,10 @@
 .summary-card {
+  @for $i from 1 through 8 {
+    &:nth-child(#{$i}) {
+      @include animation('slide-in-down-2 .3s #{$i * .15}s 1 ease both');
+    }
+  }
+
   margin: 0 0.5rem;
   padding: 0 0.5rem;
   
@@ -77,6 +83,12 @@
 }
 
 .summary-classic {
+  @for $i from 1 through 13 {
+    &:nth-child(#{$i}) {
+      @include animation('slide-in-left .25s #{$i * .15}s 1 ease both');
+    }
+  }
+
   padding: 0 1rem;
   .title {
     font-size: 24px;    
@@ -138,6 +150,12 @@
 }
 
 .summary-compact {
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      @include animation('slide-in-left .25s #{$i * .15}s 1 ease both');
+    }
+  }
+
   padding: 0 1rem;
   &__flexbox {
     @include flexbox();

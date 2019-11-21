@@ -1,0 +1,30 @@
+{{ if $.Param "enablePhotoSwipe" }}
+
+{{ $fancyboxjs := resources.Get `js/jquery.fancybox.min.js` | resources.Fingerprint }}
+<script defer src="{{ $fancyboxjs.RelPermalink }}"></script>
+{{ $fancyboxcss := resources.Get "css/jquery.fancybox.min.css" | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $fancyboxcss.RelPermalink }}">
+
+<script>
+  $(document).ready(function() {
+    $('[data-fancybox="gallery"]').fancybox({
+      loop: true,
+      keyboard: true,
+      clickContent: true,
+      buttons: [
+        "zoom",
+        "slideShow",
+        "fullScreen",
+        "download",
+        "thumbs",
+        "close",
+      ],
+      caption: function (instance, item) {
+        console.log($(this).data('alt'));
+        return $(this).data('alt') || '111';
+      }
+    });
+  });
+</script>
+
+{{ end }}

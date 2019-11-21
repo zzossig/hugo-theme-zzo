@@ -24,6 +24,14 @@
   &--show {
     top: 0;
   }
+
+  &__slide-down {
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        @include animation('slide-in-down .25s #{$i * .1}s 1 ease both');
+      }
+    }
+  }
   
   &__brand {
     height: $grid_navbar_height;
@@ -118,7 +126,7 @@
     height: $grid_navbar_height;
     font-size: 1.5rem;
     @include flexbox();
-    @include align-items(center);    
+    @include align-items(center);        
     
     &-link {
       @include themify($themes) {
@@ -149,6 +157,7 @@
       font-size: 1rem;
       font-family: $navbar_item_font;
       font-weight: 400;
+
       @include flexbox();
       @include align-items(center);
       @include justify-content(center);
@@ -158,7 +167,6 @@
           color: themed('navbar-title-hover-color');
           background-color: themed('navbar-menu-hover-background-color');
           text-decoration: none;
-          border-bottom: 1px solid themed('navbar-border-bottom-color');
         }
         &.active {
           color: themed('navbar-title-active-color') !important;
@@ -231,6 +239,12 @@
       text-decoration: none;
       display: block;
       font-size: 1rem;
+
+      // @for $i from 1 through 4 {        
+      //   &:nth-child(#{$i}) {
+      //     @include animation('slide-in-down .25s #{$i * .1}s 1 ease both');
+      //   }
+      // }
 
       @include themify($themes) {
         color: themed("dropdown-item-color");

@@ -110,7 +110,7 @@
     $('code.language-msc:odd').each(function() {
       $(this).unwrap('pre');
       $(this).replaceWith(function () {
-        return $("<div />").append($(this).contents()).addClass('diagram').css('padding', '30px 8px 8px');
+        return $("<div />").append($(this).contents()).addClass('diagram').css('padding', '30px 8px 8px').css('margin-top', '40px');
       });
 
       
@@ -218,7 +218,7 @@
 
       WaveDrom.RenderWaveForm(index, source, "WaveDrom_Display_");
 
-      $(this).closest('td').css('padding', '40px 8px 8px');
+      $(this).closest('td').css('padding', '40px 12px 12px 0');
       $(this).hide();
     });
 
