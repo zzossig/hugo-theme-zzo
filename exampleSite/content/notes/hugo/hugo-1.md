@@ -11,3 +11,6 @@ categories:
 ---
 
 Dolore in consectetur irure qui laborum. Adipisicing cillum ad laboris dolor. Quis consectetur ullamco esse ad mollit anim sint nostrud esse. Irure voluptate ex fugiat voluptate ea fugiat laboris.
+
+{{% img src="/images/feature1/wave.png" title="Image4" caption="Image description" alt="image alt" %}}
+![image](/images/feature1/markdown.png)

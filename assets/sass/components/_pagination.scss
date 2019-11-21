@@ -64,6 +64,7 @@
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);
+    @include transition(all, 0.2s, ease-out);
     
     padding: 0.25rem;
     border-radius: 0.125rem;
@@ -81,6 +82,18 @@
         }
       }
     }
+  }
+
+  &__left {
+    @include on-event {
+      @include translateX(-0.25rem);
+    }    
+  }
+
+  &__right {
+    @include on-event {
+      @include translateX(0.25rem);
+    }    
   }
 
   &__icon {

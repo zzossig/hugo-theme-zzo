@@ -4,8 +4,8 @@
     {{ if $params.featured_image }}
     <div class="summary-classic__image-wrapper">
       <a href="{{ .Permalink }}">
-        <img data-src="{{ (print "images/" $params.featured_image) | relURL }}" alt="{{ print $params.featured_image }}"
-          class="lazyload summary-classic__image" />
+        <img src="{{ (print "images/" $params.featured_image) | relURL }}" alt="{{ print $params.featured_image }}"
+          class="summary-classic__image" />
       </a>
     </div>
     {{ end }}

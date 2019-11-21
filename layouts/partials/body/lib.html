@@ -67,13 +67,34 @@
     {{ $flowchartjs := .Site.Data.flowchartjs }}
     var options = JSON.parse({{ $flowchartjs | jsonify }});
 
-    $('.diagram').each(function() {
-      var diagramContent = $(this).text(); 
-      $(this).text('');
+    /*
+      $('.diagram').each(function() {
+        var diagramContent = $(this).text();
+        $(this).text('');
 
-      var diagram = flowchart.parse(diagramContent);
-      diagram.drawSVG('diagram', options);
+        var diagram = flowchart.parse(diagramContent);
+        diagram.drawSVG('diagram', options);
+      });
+    */ 
+    $('code.language-flowchart:odd').each(function (index, node) {
+      var diagramContent = $(this).contents();
+      $(this).closest('table').attr('data-content', 'FLOWCHART');
+      $(this).unwrap('pre');
+      $(this).replaceWith(function () {
+        return $("<div id='diagram' data-content='flowchart'></div>").append(diagramContent.text()).addClass('diagram').css('padding', '30px 8px 8px').css('margin-top', '40px');
+      });      
+
+      var diagram = flowchart.parse(diagramContent.text());      
+      $('#diagram').empty();
+      diagram.drawSVG('diagram', options);      
     });    
+
+    $('code.language-flowchart').each(function (index, node) {      
+      $(this).unwrap('pre');
+      $(this).replaceWith(function () {
+        return $("<div></div>");
+      });      
+    });
 
   </script>
 {{ end }}
@@ -112,8 +133,6 @@
       $(this).replaceWith(function () {
         return $("<div />").append($(this).contents()).addClass('diagram').css('padding', '30px 8px 8px').css('margin-top', '40px');
       });
-
-      
     });
     $(".diagram").sequenceDiagram(options);
 

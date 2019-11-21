@@ -14,7 +14,7 @@ libraries:
 featured_image: "feature1/flowchart.png"
 ---
 
-{{< flowchartjs >}}
+```flowchart
 st=>start: Start|past:>http://www.google.com[blank]
 e=>end: End|future:>http://www.google.com
 op1=>operation: My Operation|past
@@ -30,4 +30,4 @@ cond(yes, right)->c2
 cond(no)->sub1(left)->op1
 c2(yes)->io->e
 c2(no)->op2->e
-{{< /flowchartjs >}}
+```

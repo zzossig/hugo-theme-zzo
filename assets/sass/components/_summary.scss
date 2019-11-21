@@ -43,7 +43,7 @@
   &__image {
     width: 100%;
     height: 100%;
-    
+   
     &-wrapper {
       height: 100%;
       width: auto;
@@ -134,10 +134,11 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    
+        
     &-wrapper {
       max-width: 130px;
       min-width: 130px;
+      overflow: hidden;
       @include align-self(center);
     }
   }

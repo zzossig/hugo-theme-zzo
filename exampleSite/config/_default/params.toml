@@ -21,7 +21,7 @@ paginateWindow = 1
 # whoami
 myname = "zzossig"
 email = "zzossig@gmail.com"
-whoami = "Web Developer"
+whoami = "Web DeveloperWeb"
 useGravatar = false
 location = "Seoul, Korea"
 organization = "Hugo"
