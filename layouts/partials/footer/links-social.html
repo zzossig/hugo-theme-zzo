@@ -1,6 +1,5 @@
 {{ if $.Param "showSocialLinks" }}
 <div class="footer__social">
-  <label class="label p2">{{ i18n "footer-social" }}</label>
   <div class="social">
     {{ range $name, $path := $.Param "socialOptions" }}
       {{ if $path }}

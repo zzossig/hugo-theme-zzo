@@ -1,0 +1,18 @@
+{{ if $.Param "enableThemeChange" }}
+<div class="theme">
+  <div class="dropdown">
+    <button class="dropdown-trigger navbar__slide-down">
+      {{ partial "svgs/etc/invert-colors.svg" (dict "width" 22 "height" 22) }}      
+    </button>
+    <div class="dropdown-content select-theme">
+      {{ if .Site.Params.themeOptions }}
+        {{ range $index, $value := .Site.Params.themeOptions }}
+        <a href="#" class="dropdown-item select-theme__item {{ if (eq $index 0) }}is-active{{ end }}">
+          {{ . }}
+        </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

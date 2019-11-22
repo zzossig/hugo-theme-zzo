@@ -15,22 +15,6 @@
     }
   }
 
-  &__theme {
-    padding: 0.5rem 0;
-    @include flex-grow(1);
-    @include flexbox();
-    @include align-items(center);
-    @include flex-direction(column);
-  }
-
-  &__lang {
-    padding: 0.5rem 0;
-    @include flex-grow(1);
-    @include flexbox();
-    @include align-items(center);
-    @include flex-direction(column);
-  }
-
   &__feed {
     padding: 0.5rem 0;
     @include flex-grow(1);
@@ -59,24 +43,33 @@
   }
 
   .dropdown {
-    position: relative;
-    display: inline-block;        
-    border-radius: 0.125rem;  
+    position: absolute;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);    
     @include themify($themes) {
-      border: 1px solid themed('dropdown-border-color');
+      color: themed('gtt-color'); 
+      background-color: themed('gtt-background-color');
+      @include on-event {
+        color: themed('gtt-hover-color');  
+        background-color: themed('gtt-hover-background-color');
+      }
     }
 
     &-trigger {
+      border-radius: 50%;
+      cursor: pointer;
       border: none;
-      border-radius: 0.15rem;
-
-      @include flexbox();
-      @include align-items(center);
-      @include justify-content(center);      
-      @include themify($themes) {
-        color: themed('dropdown-footer-item-color');
-        background-color: themed('dropdown-title-background-color');
-      }
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      background-color: inherit;
     }
 
     &-content {
@@ -84,7 +77,6 @@
       bottom: 100%;
       left: 0;
       display: none;
-      width: inherit;
       height: auto;
       z-index: z("dropdown");      
       border-top-left-radius: 0.15rem;
@@ -102,8 +94,8 @@
 
       .is-active {
         @include themify($themes) {
-        background-color: themed("dropdown-item-active-background-color");
-      }
+          background-color: themed("dropdown-item-active-background-color");
+        }
       }
     }
 
@@ -160,6 +152,7 @@
   }
 
   .social {
+    margin: 0.25rem;
     a {
       @include themify($themes) {        
         text-decoration: none;

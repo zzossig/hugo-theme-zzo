@@ -45,7 +45,7 @@ showFeedLinks = true
 showSocialLinks = true
 enableLangChange = true
 enableThemeChange = true
-themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
+themeOptions = ["dark", "light", "hacker", "solarized"]
 
 # comment
 enableComment = true
