@@ -24,10 +24,10 @@
       }
     });
 
-    var imgElements = $('.single__contents:not(".single__contents--gallery")').find('img');    
-    imgElements.each(function(i,  v) {      
+    var imgElements = $('.single__contents:not(".single__contents--gallery")').find('img');
+    imgElements.each(function(i,  v) {
       $(this).css('cursor', 'pointer');
-      $(this).wrap(`<a data-fancybox="gallery" href="${ $(this).attr('src') }" alt="${ $(this).attr('alt') }" data-caption="${ $(this).attr('alt') }"></a>`);
+      $(this).wrap(`<a data-fancybox="gallery" href="${ $(this).attr('src') }" data-alt="${ $(this).attr('alt') }" data-caption="${ $(this).attr('alt') }"></a>`);
     });
   });
 </script>

@@ -6,8 +6,8 @@
   </div>
 </header>
 
+{{ $root := . }}
 {{ if in (lower .Params.Mode) "one" }}
-
 <main class="gallery main">
   <div class="grid single__contents single__contents--gallery">
     <div class="grid-sizer"></div>
@@ -15,7 +15,7 @@
       {{ $basename := (replace .File.Dir "\\" "/") }}
       {{ range .Params.Images }}
       <div class="grid-item">
-        <a data-alt="{{ print .caption }}" data-fancybox="gallery" href="{{ $basename | relURL }}{{ .image }}"><img src="{{ $basename | relURL }}{{ .image }}" alt="{{ print .caption }}"/></a>        
+        <a data-fancybox="gallery" href="{{ $basename | relURL }}{{ .image }}" data-alt="{{ print .caption }}"><img src="{{ $basename | relURL }}{{ .image }}" alt="{{ print .caption }}"/></a>    
         <div class="grid-item__desc hide">{{ .caption }}</div>
       </div>
       {{ end }}
@@ -33,7 +33,7 @@
       {{ $basename := (replace .File.Dir "\\" "/") }}
       {{ range (readDir (print "./static/" $basename)) }}
       <div class="grid-item">
-        <a data-alt="{{ index (split .Name ".") 0 }}" data-fancybox="gallery" href="{{ $basename | relURL }}{{ .Name }}"><img src="{{ $basename | relURL }}{{ .Name }}" alt="{{ index (split .Name ".") 0 }}"/></a>        
+        <a data-fancybox="gallery" href="{{ $basename | relURL }}{{ .Name }}" data-alt="{{ index (split .Name ".") 0 }}"><img src="{{ $basename | relURL }}{{ .Name }}" alt="{{ index (split .Name ".") 0 }}"/></a>
         <div class="grid-item__desc hide">{{ index (split .Name ".") 0 }}</div>
       </div>
       {{ end }}

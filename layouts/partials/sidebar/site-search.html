@@ -30,16 +30,11 @@
 {{ end }}
 
 <script>
-  {{ if .Site.IsMultiLingual }}
-      var baseurl = "{{.Site.BaseURL}}{{.Site.LanguagePrefix}}";
-  {{ else }}
-      var baseurl = "{{.Site.BaseURL}}";
-  {{ end }}  
-  
   $(document).ready(function () {
     {{ $searchLanguages := .Site.Params.searchLanguages }}
     var searchLanguages = JSON.parse({{ $searchLanguages | jsonify }});
-
+    var baseurl = "{{ "/" | relLangURL }}";
+    
     if (!searchLanguages) {
       searchLanguages = ['en'];
     }

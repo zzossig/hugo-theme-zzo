@@ -1,11 +1,5 @@
 {{ if $.Param "showFeedLinks" }}
-  {{ if .Site.LanguagePrefix -}}
-  <a href="{{ .Site.LanguagePrefix | absURL }}/index.xml" type="application/rss+xml" title="rss">
+  <a href="{{ "/" | relLangURL }}/index.xml" type="application/rss+xml" title="rss">
     {{ partial "svgs/etc/rss.svg" (dict "width" 32 "height" 32) }}
   </a>
-  {{ else }}
-  <a href="{{ .Site.RSSLink }}" type="application/rss+xml" title="rss">
-    {{ partial "svgs/etc/rss.svg" (dict "width" 32 "height" 32) }}
-  </a>
-  {{ end }}
 {{ end }}
