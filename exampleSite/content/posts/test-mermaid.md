@@ -3,7 +3,7 @@ title: "Mermaid support"
 date: 2019-11-17T12:00:06+09:00
 description: "Generate diagrams, charts, graphs or flows from markdown-like text via javascript."
 tags:
--
+- diagram
 series:
 -
 categories:

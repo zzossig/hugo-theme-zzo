@@ -1,23 +1,27 @@
-<label class="label p2">{{ i18n "footer-theme" }}</label>
-<div class="dropdown">
-  <button class="dropdown-trigger">
-    <span class="select-theme__label caption">
+{{ if $.Param "enableThemeChange" }}
+<div class="footer__theme">
+  <label class="label p2">{{ i18n "footer-theme" }}</label>
+  <div class="dropdown">
+    <button class="dropdown-trigger">
+      <span class="select-theme__label caption">
+        {{ if .Site.Params.themeOptions }}
+          {{ index .Site.Params.themeOptions 0 }}
+        {{ end }}
+      </span>
+      {{ partial "svgs/arrow/keyboard-arrow-up.svg" (dict "width" 20 "height" 20) }}
+    </button>
+    <div class="dropdown-content select-theme">
       {{ if .Site.Params.themeOptions }}
-        {{ index .Site.Params.themeOptions 0 }}
+        {{ range $index, $value := .Site.Params.themeOptions }}
+        <a href="#" class="dropdown-item select-theme__item {{ if (eq $index 0) }}is-active{{ end }}">
+          {{ . }}
+        </a>
+        {{ end }}
       {{ end }}
-    </span>
-    {{ partial "svgs/arrow/keyboard-arrow-up.svg" (dict "width" 20 "height" 20) }}
-  </button>
-  <div class="dropdown-content select-theme">
-    {{ if .Site.Params.themeOptions }}
-      {{ range $index, $value := .Site.Params.themeOptions }}
-      <a href="#" class="dropdown-item select-theme__item {{ if (eq $index 0) }}is-active{{ end }}">
-        {{ . }}
-      </a>
-      {{ end }}
-    {{ end }}
+    </div>
   </div>
-</div>
+</div>            
+{{ end }}
 <script>
   // theme change
   var localTheme = localStorage.getItem('theme');

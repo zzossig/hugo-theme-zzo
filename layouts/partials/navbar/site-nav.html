@@ -15,10 +15,7 @@
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
   </a>
-  <div class="navbar__menu">
-    <div id="mobileSearchBtn" class="mobile-search__btn">
-      {{ partial "svgs/etc/search.svg" (dict "width" 22 "height" 22) }}
-    </div>
+  <div class="navbar__menu">    
     {{ range .Site.Menus.main -}}
     {{ if .HasChildren }}
     <div class="navbar__dropdown navbar__slide-down">

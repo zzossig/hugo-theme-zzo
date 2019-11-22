@@ -151,7 +151,7 @@
       display: none;
     }
 
-    &-item {            
+    &-item {
       height: $grid_navbar_height;      
       padding: 0.5rem;
       font-size: 1rem;
@@ -161,12 +161,18 @@
       @include flexbox();
       @include align-items(center);
       @include justify-content(center);
+      @include no-select;
       @include themify($themes) {
         color: themed('navbar-title-color');        
         @include on-event {
           color: themed('navbar-title-hover-color');
           background-color: themed('navbar-menu-hover-background-color');
           text-decoration: none;
+          border-bottom: 1px solid themed('navbar-border-bottom-color');
+          @include respond-to(sm) {
+            border-bottom: none;
+          }
+
         }
         &.active {
           color: themed('navbar-title-active-color') !important;

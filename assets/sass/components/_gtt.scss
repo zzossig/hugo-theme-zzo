@@ -4,7 +4,7 @@
   bottom: 0.5rem;
   width: 40px;
   height: 40px;
-  border-radius: 50%;  
+  border-radius: 50%;
   cursor: pointer;
 
   @include flexbox();
@@ -18,5 +18,8 @@
       color: themed('gtt-hover-color');  
       background-color: themed('gtt-hover-background-color');
     }
+  }
+  @include respond-to(sm) {
+    position: fixed;
   }
 }

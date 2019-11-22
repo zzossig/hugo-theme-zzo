@@ -4,7 +4,7 @@ custom_css = []
 custom_js = []
 
 # header
-homeHeaderType = "slide" # text, img, slide
+homeHeaderType = "text" # text, img, slide
 
 # body
 enableBreadcrumb = true
@@ -21,7 +21,7 @@ paginateWindow = 1
 # whoami
 myname = "zzossig"
 email = "zzossig@gmail.com"
-whoami = "Web DeveloperWeb"
+whoami = "Web Developer"
 useGravatar = false
 location = "Seoul, Korea"
 organization = "Hugo"

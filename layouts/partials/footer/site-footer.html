@@ -1,25 +1,8 @@
 <footer class="footer">
-    <div class="footer__wrapper">
-        {{ if $.Param "enableThemeChange" }}
-        <div class="footer__theme">
-            {{ partial "footer/select-theme" . }}
-        </div>            
-        {{ end }}
-        {{ if $.Param "enableLangChange" }}
-        <div class="footer__lang">
-            {{ partial "footer/select-lang" . }}
-        </div>
-        {{ end }}
-        {{ if $.Param "showFeedLinks" }}
-        <div class="footer__feed">
-            {{ partial "footer/links-feed.html" . }}
-        </div>
-        {{ end }}
-        {{ if $.Param "showSocialLinks" }}
-        <div class="footer__social">
-            {{ partial "footer/links-social.html" . }}
-        </div>
-        {{ end }}
+    <div class="footer__wrapper">        
+        {{ partial "footer/select-theme" . }}
+        {{ partial "footer/select-lang" . }}
+        {{ partial "footer/links-social.html" . }}        
     </div>
     <hr />
 

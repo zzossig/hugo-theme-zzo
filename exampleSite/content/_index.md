@@ -4,13 +4,11 @@ header:
     height: 235
     paddingX: 50
     paddingY: 0
-    align: left
+    align: center
     title:
-      - header title1
-      - header title2
+      - HUGO
     subtitle:
-      - header subtitle1
-      - header subtitle2
+      - The world’s fastest framework for building websites
     titleFontSize: 44
     subtitleFontSize: 16
     spaceBetweenTitleSubtitle: 20

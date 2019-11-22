@@ -5,6 +5,18 @@
   width: 100%;
 
   @include flexbox();
+  @include respond-to(sm) {
+    @include align-items(center);
+    @include flex-direction(column);
+  }
+
+  &__contents {
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-items(center);
+    margin-top: 0.5rem;
+  }
 
   &__image {    
     width: 100%;
@@ -20,7 +32,7 @@
       margin-right: 1rem;
       
       @include flexbox();
-      @include flex-direction(column);
+      @include flex-direction(column);      
     }
   }
 
@@ -32,12 +44,16 @@
 
     @include themify($themes) {
       text-decoration: underline double themed('content-pre-main-color');
-    }    
+    }
   }
   
   &__desc {
     font-size: 1rem;
     padding-left: 0.25rem;
+
+    @include respond-to(sm) {
+      width: 75%;
+    }
   }
 
   &__gutter {

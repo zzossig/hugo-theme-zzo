@@ -4,7 +4,16 @@ $(document).ready(function() {
   if (localTheme) {
       $('#root').attr('class', `theme__${localTheme}`);
   }
-  
+
+  // go-to-top  
+  if ($(window).scrollTop() === 0) {
+    $('.gtt').hide();
+  } else if ($(this).scrollTop() > $(document).height() - $(window).height() - 250) { // near the bottom
+    $('.gtt').show();
+  } else {
+    $('.gtt').hide();
+  }
+
   // scroll
   var position = $(window).scrollTop();
   $(window).scroll(function () {
@@ -12,9 +21,15 @@ $(document).ready(function() {
 
     var scroll = $(window).scrollTop();
     if (scroll > position) { // scroll down 
-      if (scroll < 45) {
+      if (scroll < 250) {
+        $('.gtt').hide();
+      } else {
+        $('.gtt').show();
+      } 
+
+      if (scroll < 45) {        
         return null;
-      }
+      }      
 
       if (!navbar.hasClass('navbar--hide')) {
         navbar.addClass('navbar--hide');
@@ -40,6 +55,10 @@ $(document).ready(function() {
         }
       });
     } else { // scroll up
+      if (scroll < 250) {
+        $('.gtt').hide();
+      }
+
       if (navbar.hasClass('navbar--hide')) {
         navbar.removeClass('navbar--hide');
       } else if (!navbar.hasClass('navbar--show')) {
@@ -66,17 +85,17 @@ $(document).ready(function() {
     }
     position = scroll;
   });
-  
+
   // media query
   enquire.register("screen and (max-width: 769px)", {
     match: function () {
       $('main').removeClass('main-main').removeClass('main').addClass('main');
-      $('aside').removeClass('main-side').removeClass('hide').addClass('hide');      
+      $('aside').removeClass('main-side').removeClass('hide').addClass('hide');
     },
     unmatch: function () {      
       if ($('aside').length > 0) {
         $('main').removeClass('main-main').removeClass('main').addClass('main-main');
-        $('aside').removeClass('main-side').removeClass('hide').addClass('main-side');
+        $('aside').removeClass('main-side').removeClass('hide').addClass('main-side');        
       }
       $('.navbar__burger').removeClass('is-active');
       $('.navbar__menu').removeClass('is-active');

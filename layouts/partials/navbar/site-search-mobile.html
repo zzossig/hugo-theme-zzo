@@ -1,4 +1,8 @@
 {{ if $.Param "enableSearch" }}
+<div id="mobileSearchBtn" class="mobile-search__btn">
+  {{ partial "svgs/etc/search.svg" (dict "width" 22 "height" 22) }}
+</div>
+
 <div id="search-mobile-container" class="mobile-search hide">
   <div class="mobile-search__top">
     <input id="search-mobile" type="text" placeholder="{{T "search-placeholder"}}" class="mobile-search__top--input"/>

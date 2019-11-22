@@ -184,9 +184,10 @@
   &__btn {
     position: absolute;
     top: 0;
-    right: 0;
-    width: 50px;
+    right: $grid_navbar_height;
+    width: $grid_navbar_height;
     height: $grid_navbar_height;
+    padding: 0.25rem;
     cursor: pointer;
     display: none;
     z-index: z('search-btn');
@@ -194,7 +195,7 @@
     @include respond-to(sm) {
       @include flexbox();
       @include align-items(center);
-      @include justify-content(center);
+      @include justify-content(flex-end);
     }
     
     @include themify($themes) {
