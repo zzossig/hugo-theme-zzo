@@ -11,6 +11,7 @@
     {{ $searchLanguages := .Site.Params.searchLanguages }}
     var searchLanguages = JSON.parse({{ $searchLanguages | jsonify }});
     var baseurl = "{{ "/" | relLangURL }}";
+
     if (!searchLanguages) {
       searchLanguages = ['en'];
     }
@@ -23,16 +24,13 @@
     function endsWith(str, suffix) {
       return str.indexOf(suffix, str.length - suffix.length) !== -1;
     }
-    
+
     function initLunr() {
       if (!endsWith(baseurl, "/")) {
         baseurl = baseurl + '/';
-      }
-      if (baseurl.charAt(0) === '/') {
-        baseurl = baseurl.slice(1);
-      }
+      };
 
-      $.getJSON(baseurl + "index.json")
+      $.getJSON("/theme/hugo-theme-zzo" + baseurl + "index.json")
         .done(function (index) {
           pagesIndex = index;
           lunrIndex = lunr(function () {

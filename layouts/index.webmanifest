@@ -5,11 +5,11 @@
   "theme_color": "#FF6188",
   "background_color": "#2D2A2E",
   "icons": [{
-    "src": "logo-192.png",
+    "src": "{{ "logo-192.png" | relURL }}",
     "sizes": "192x192",
     "type": "image/png"
     }, {
-    "src": "logo-512.png",
+    "src": "{{ "logo-512.png" | relURL }}",
     "sizes": "512x512",
     "type": "image/png"
      }],

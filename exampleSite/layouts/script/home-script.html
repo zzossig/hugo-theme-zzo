@@ -31,11 +31,8 @@
       if (!endsWith(baseurl, "/")) {
         baseurl = baseurl + '/';
       };
-      if (baseurl.charAt(0) === '/') {
-        baseurl = baseurl.slice(1);
-      }
       
-      $.getJSON(baseurl + "index.json")
+      $.getJSON("/theme/hugo-theme-zzo" + baseurl + "index.json")
         .done(function (index) {
           pagesIndex = index;
           lunrIndex = lunr(function () {
