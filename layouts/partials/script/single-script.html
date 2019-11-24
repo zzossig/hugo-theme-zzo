@@ -84,7 +84,11 @@
     // search
     {{ $searchLanguages := .Site.Params.searchLanguages }}
     var searchLanguages = JSON.parse({{ $searchLanguages | jsonify }});
-    var baseurl = "{{ "/" | relLangURL }}";
+    {{ if .Site.IsMultiLingual }}
+        var baseurl = "{{.Site.BaseURL}}{{.Site.LanguagePrefix}}";
+    {{ else }}
+        var baseurl = "{{.Site.BaseURL}}";
+    {{ end }}
 
     if (!searchLanguages) {
       searchLanguages = ['en'];
