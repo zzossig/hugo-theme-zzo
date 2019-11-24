@@ -11,6 +11,8 @@
         <img data-src="{{ "images/whoami/avatar.png" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="lazyload bio__photo"/>
       {{ else if (fileExists "static/images/whoami/avatar.jpg") }}
         <img data-src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="lazyload bio__photo"/>
+      {{ else if (fileExists "static/images/whoami/avatar.svg") }}
+        <img data-src="{{ "images/whoami/avatar.svg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="lazyload bio__photo"/>
       {{ else }}
         <img data-src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="lazyload bio__photo"/>
       {{ end }}      

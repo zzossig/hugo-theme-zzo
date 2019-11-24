@@ -52,6 +52,10 @@
   padding: 1rem;
   @include flexbox();
   @include flex-direction(column);
+
+  img {
+    border-radius: 0.25rem;
+  }
   
   &__contents {
       padding: 1rem;

@@ -12,6 +12,8 @@
         <img src="{{ "images/whoami/avatar.png" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="whoami__image"/>
       {{ else if (fileExists "static/images/whoami/avatar.jpg") }}
         <img src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="whoami__image"/>
+      {{ else if (fileExists "static/images/whoami/avatar.svg") }}
+        <img src="{{ "images/whoami/avatar.svg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="whoami__image"/>
       {{ else }}
         <img src="{{ "images/whoami/avatar.jpg" | relURL }}" alt="{{ if .Site.Params.myname }}{{ .Site.Params.myname }}{{ else }}Avatar{{ end }}" class="whoami__image"/>
       {{ end }}      

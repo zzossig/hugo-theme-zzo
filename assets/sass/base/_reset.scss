@@ -109,16 +109,10 @@ th {
   }
 }
 
-mark {
-  @include themify($themes) {
-    color: themed("mark-color");
-    background-color: themed("mark-background-color");
-  }
-}
-
 figcaption {  
   font-style: italic;
   font-size: 0.9rem;
+  margin-bottom: 1rem;
   @include themify($themes) {
     color: themed("figcaption-color");
     strong {
@@ -130,14 +124,14 @@ figcaption {
 ::-moz-selection {
   /* Code for Firefox */
   @include themify($themes) {
-    color: themed("mark-color");
-    background: themed("mark-background-color");
+    color: themed("selection-color");
+    background: themed("selection-background-color");
   }
 }
 
 ::selection {
   @include themify($themes) {
-    color: themed("mark-color");
-    background: themed("mark-background-color");
+    color: themed("selection-color");
+    background: themed("selection-background-color");
   }
 }

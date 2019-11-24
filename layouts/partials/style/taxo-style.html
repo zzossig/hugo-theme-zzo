@@ -1,0 +1,4 @@
+{{ $taxo_options := (dict "targetPath" "css/main-taxo.css" "outputStyle" "compressed") }}
+{{ $taxo_template := resources.Get "sass/main-taxo.scss" }}
+{{ $taxo_style := $taxo_template | resources.ExecuteAsTemplate "taxo_parsed.scss" . | toCSS $taxo_options | resources.Minify }}
+<link rel="stylesheet" href="{{ $taxo_style.RelPermalink }}">

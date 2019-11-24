@@ -16,11 +16,9 @@
     {{ partial "body/related" . }}
     {{ partial "pagination/pagination-single" . }}
     {{ partial "comments/comments.html" . }}
-    {{ partial "body/lib" . }}
-    {{ partial "body/fancybox" . }}
 
     <div class="hide">
-    {{ partial "sidebar/site-search" . }}
+    {{ partial "search/site-search" . }}
     </div>
   </div>
 </main>
@@ -30,4 +28,6 @@
   {{ partial "sidebar/sidebar-single" . }}
 </aside>
 {{ end }}
+{{ partial "script/single-script" . }}
+{{ partial "style/single-style" . }}
 {{ end }}

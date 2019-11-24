@@ -30,7 +30,9 @@
   <div class="grow"></div>
   {{ partial "pagination/pagination" . }}
   <div class="hide">
-    {{ partial "sidebar/site-search" . }}
+    {{ partial "search/site-search" . }}
   </div>
+  {{ partial "script/archive-script" . }}
+  {{ partial "style/archive-style" . }}
 </main>
 {{ end }}

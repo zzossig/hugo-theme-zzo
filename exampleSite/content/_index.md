@@ -1,7 +1,7 @@
 ---
 header:
   - type: text
-    height: 235
+    height: 200
     paddingX: 50
     paddingY: 0
     align: center

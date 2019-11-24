@@ -2,6 +2,7 @@
     <div class="footer__wrapper">
         {{ partial "footer/select-lang" . }}
         {{ partial "footer/links-social.html" . }}        
+        {{ partial "footer/go-to-top" . }}
     </div>
     <hr />
 
@@ -14,6 +15,5 @@
         {{ end }}
         <p class="caption">Powered by <a href="https://gohugo.io/" rel="noreferrer">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zzo" rel="noreferrer">Zzo theme</a></p>
     </div>
-    {{ end }}
-    {{ partial "footer/go-to-top" . }}
+    {{ end }}    
 </footer>

@@ -1,0 +1,4 @@
+{{ $list_options := (dict "targetPath" "css/main-list.css" "outputStyle" "compressed") }}
+{{ $list_template := resources.Get "sass/main-list.scss" }}
+{{ $list_style := $list_template | resources.ExecuteAsTemplate "list_parsed.scss" . | toCSS $list_options | resources.Minify }}
+<link rel="stylesheet" href="{{ $list_style.RelPermalink }}">

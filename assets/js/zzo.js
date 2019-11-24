@@ -1,11 +1,53 @@
-$(document).ready(function() {  
-  // theme
+$(document).ready(function() { 
+  // theme change
   var localTheme = localStorage.getItem('theme');
   if (localTheme) {
-      $('#root').attr('class', `theme__${localTheme}`);
+    $('#root').attr('class', `theme__${localTheme}`);
+    $('.select-theme__item').each(function () {
+      $(this).removeClass('is-active');
+    });
+    $(`.select-theme a:contains("${localTheme}")`).addClass('is-active');
   }
 
-  // go-to-top  
+  $('.select-theme__item').click(function (e) {
+    var selectedThemeVariant = $(e.target).text().trim();
+    localStorage.setItem('theme', selectedThemeVariant);
+
+    if ($(this).attr('class').trim() === selectedThemeVariant) {
+      return null;
+    }
+
+    $('#root').removeAttr('class').addClass(`theme__${selectedThemeVariant}`);
+    var nodes = $('.select-theme').children('.dropdown-item');
+
+    nodes.each(function () {
+      if ($(this).text().trim() === selectedThemeVariant) {
+        if (!$(this).hasClass('is-active')) {
+          $(this).addClass('is-active');
+        }
+      } else {
+        if ($(this).hasClass('is-active')) {
+          $(this).removeClass('is-active');
+        }
+      }
+    });
+
+    if (window.mermaid) {
+      if (selectedThemeVariant === "dark" || selectedThemeVariant === "hacker") {
+        mermaid.initialize({ theme: 'dark' });
+        location.reload();
+      } else {
+        mermaid.initialize({ theme: 'default' });
+        location.reload();
+      }
+    }
+  });
+  
+  // go to top
+  $('.gtt').click(function () {
+    $("html, body").animate({ scrollTop: 0 }, 250);
+  });
+
   if ($(window).scrollTop() === 0) {
     $('.gtt').hide(200);
   } else if ($(this).scrollTop() > $(document).height() - $(window).height() - 250) { // near the bottom
@@ -125,19 +167,6 @@ $(document).ready(function() {
     }
   });
 
-  // highlight  
-  $("pre[class*='language-']").each(function () {
-    $(this).removeAttr('style');
-    var langName = $(this).attr('class').replace('chroma language-', '').toUpperCase();
-    $(this).closest('table').attr('data-content', langName);
-  });
-  
-  $('.lntable').each(function() {
-    if (!$(this).attr('data-content')) {
-      $(this).attr('data-content', 'Code');
-    }
-  });
-
   // mobile search
   $('.mobile-search').hide(200);
   $('#mobileSearchBtn').click(function() {
@@ -160,6 +189,4 @@ $(document).ready(function() {
       $('html').css('overflow-y', 'visible');
     }
   });
-
-  // animation
 });

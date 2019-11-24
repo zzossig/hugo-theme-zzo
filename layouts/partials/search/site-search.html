@@ -1,0 +1,30 @@
+{{ if $.Param "enableSearch" }}
+
+<div class="search">
+  <span class="icon">
+    {{ partial "svgs/etc/search.svg" (dict "width" 22 "height" 22) }}
+  </span>
+  <input id="search" aria-label="Site Search" class="input" type="text" placeholder="{{T "search-placeholder"}}" autocomplete="off">
+  <div id="search-results" class="dropdown">
+    <div id="search-menu" class="dropdown-menu" role="menu">
+    </div>
+  </div>
+</div>
+
+{{ $lunr := resources.Get "js/lunr.min.js" | resources.Fingerprint }}
+<script defer src="{{ $lunr.RelPermalink }}"></script>
+
+{{ $stemmer := .Site.Data.lib.js.stemmer }}
+{{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" $stemmer.url $stemmer.sri $stemmer.code | safeHTML }}
+
+{{ $multi := .Site.Data.lib.js.multi_language }}
+{{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" $multi.url $multi.sri $multi.code | safeHTML }}
+
+{{ $searchLanguages := .Site.Params.searchLanguages }}
+{{ range .Site.Data.lib.lunr }}
+  {{ if in $searchLanguages .code }}
+    {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" .url .sri .code | safeHTML }}
+  {{ end }}
+{{ end }}
+
+{{ end }}

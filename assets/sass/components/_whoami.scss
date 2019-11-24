@@ -10,12 +10,15 @@
     @include flex-direction(column);
   }
 
-  &__contents {
-    @include flexbox();
-    @include flex-direction(column);
-    @include justify-content(center);
-    @include align-items(center);
+  &__contents {    
     margin-top: 0.5rem;
+
+    @include respond-to(sm) {
+      @include flexbox();
+      @include flex-direction(column);
+      @include justify-content(center);
+      @include align-items(center);
+    }
   }
 
   &__image {    

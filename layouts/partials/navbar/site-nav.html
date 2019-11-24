@@ -11,7 +11,7 @@
   </div>
   
   {{ partial "navbar/select-theme-mobile" . }}
-  {{ partial "navbar/site-search-mobile" . }}
+  {{ partial "search/site-search-mobile" . }}
   
   <a role="button" class="navbar__burger" aria-label="menu" aria-expanded="false">
     <span aria-hidden="true"></span>
@@ -42,48 +42,3 @@
     {{ end }}
   </div>
 </nav>
-
-<script>
-  // theme change
-  var localTheme = localStorage.getItem('theme');
-  if (localTheme) {
-    $('.select-theme__item').each(function() {
-      $(this).removeClass('is-active');
-    });
-    $(`.select-theme a:contains("${localTheme}")`).addClass('is-active');
-  }
-
-  $('.select-theme__item').click(function (e) {
-    var selectedThemeVariant = $(e.target).text().trim();
-    localStorage.setItem('theme', selectedThemeVariant);   
-
-    if ($(this).attr('class').trim() === selectedThemeVariant) {
-      return null;
-    }
-
-    $('#root').removeAttr('class').addClass(`theme__${selectedThemeVariant}`);
-    var nodes = $('.select-theme').children('.dropdown-item');
-
-    nodes.each(function () {
-      if ($(this).text().trim() === selectedThemeVariant) {
-        if (!$(this).hasClass('is-active')) {
-          $(this).addClass('is-active');          
-        }
-      } else {
-        if ($(this).hasClass('is-active')) {
-          $(this).removeClass('is-active');
-        }
-      }
-    });
-
-    if (window.mermaid) {
-      if (selectedThemeVariant === "dark" || selectedThemeVariant === "hacker") {
-        mermaid.initialize({ theme: 'dark' });
-        location.reload();
-      } else {
-        mermaid.initialize({ theme: 'default' });
-        location.reload();
-      }      
-    }
-  });
-</script>

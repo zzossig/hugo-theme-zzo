@@ -8,6 +8,7 @@
     font-weight: 900;
     font-family: $single_title_font;
     line-height: 3rem;
+    overflow-wrap: break-word;
 
     @include animation('slide-in-down .5s .2s 1 ease both');
     @include themify($themes) {
@@ -20,6 +21,15 @@
     @include flexbox();
     @include align-items(center);
     @include animation('slide-in-down .5s .4s 1 ease both');
+
+    @include respond-to(sm) {
+      @include flexbox();
+      @include flex-direction(column);
+      @include align-items(flex-start);
+    }
+    @include themify($themes) {
+      color: themed('meta-color');
+    }    
   }
 
   &__contents {
@@ -190,6 +200,10 @@
     @include flexbox();
     @include align-items(center);
     @include flex-wrap(wrap);
+
+    @include respond-to(sm) {
+      margin: 0;
+    }
   }
 
   &__tag {
@@ -242,7 +256,7 @@ code {
       font-family: 'Montserrat', sans-serif;
       font-weight: bold;
       @include themify($themes) {
-        color: themed('content-code-color');
+        color: themed('content-pre-header-color');
         background: themed('content-pre-header-background-color');
       }
       content: attr(data-content);

@@ -2,7 +2,7 @@
   margin-top: 1rem;
   margin-right: 1rem;
 
-  &-home {
+  &-recent {
     padding: 0.5rem;
 
     &__title {
@@ -31,31 +31,6 @@
     }
 
     &__a {          
-      @include themify($themes) {
-        color: themed('sidebar-li-color');
-      }
-    }
-  }
-
-  &-list {
-    padding: 0.5rem;
-
-    &__title {
-      font-family: $sidebar_title_font;
-      font-weight: 700;
-      @include themify($themes) {
-        color: themed('sidebar-title-color');
-        &:hover {
-          color: themed('link-hover');
-        } 
-      }    
-    }
-
-    &__ul {
-      margin-left: 1rem;
-    }
-
-    &__a {
       font-family: $sidebar_list_font;
       @include themify($themes) {
         color: themed('sidebar-li-color');

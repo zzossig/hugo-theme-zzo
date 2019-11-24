@@ -25,6 +25,10 @@
 
   &__social {
     padding: 0.5rem 0;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 70px;
+
     @include flex-grow(1);
     @include flexbox();
     @include align-items(center);
@@ -48,7 +52,7 @@
     bottom: 0.5rem;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 0.25rem;
 
     @include flexbox();
     @include align-items(center);
@@ -63,7 +67,8 @@
     }
 
     &-trigger {
-      border-radius: 50%;
+      outline: none;
+      border-radius: 0.25rem;
       cursor: pointer;
       border: none;
       width: 100%;

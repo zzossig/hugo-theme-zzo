@@ -1,0 +1,4 @@
+{{ $about_options := (dict "targetPath" "css/main-about.css" "outputStyle" "compressed") }}
+{{ $about_template := resources.Get "sass/main-about.scss" }}
+{{ $about_style := $about_template | resources.ExecuteAsTemplate "about_parsed.scss" . | toCSS $about_options | resources.Minify }}
+<link rel="stylesheet" href="{{ $about_style.RelPermalink }}">

@@ -1,0 +1,4 @@
+{{ $gallery_options := (dict "targetPath" "css/main-gallery.css" "outputStyle" "compressed") }}
+{{ $gallery_template := resources.Get "sass/main-gallery.scss" }}
+{{ $gallery_style := $gallery_template | resources.ExecuteAsTemplate "gallery_parsed.scss" . | toCSS $gallery_options | resources.Minify }}
+<link rel="stylesheet" href="{{ $gallery_style.RelPermalink }}">

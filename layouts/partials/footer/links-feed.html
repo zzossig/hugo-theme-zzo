@@ -1,5 +1,5 @@
 {{ if $.Param "showFeedLinks" }}
-  <a href="{{ "/" | relLangURL }}/index.xml" type="application/rss+xml" title="rss">
+  <a href="{{ "/" | relLangURL }}/index.xml" type="application/rss+xml" title="rss" aria-label="RSS Feed Link">
     {{ partial "svgs/etc/rss.svg" (dict "width" 32 "height" 32) }}
   </a>
 {{ end }}

@@ -223,7 +223,6 @@ homeHeaderType = "slide" # text, img, slide
 enableBreadcrumb = true
 enablePhotoSwipe = true
 enableSearch = true
-enableMark = true
 enableGoToTop = true
 enableWhoami = true
 summaryShape = "classic" # card, classic, compact
@@ -249,7 +248,6 @@ enableSidebarCategories = true
 enableToc = true
 enableTocSwitch = true
 itemsPerCategory = 5
-enableSideSubscribe = false
 searchLanguages = ['en']
 
 # footer

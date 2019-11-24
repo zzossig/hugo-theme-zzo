@@ -4,7 +4,7 @@ Author: Simurai, adapted from DuoTone themes for Atom (http://simurai.com/projec
 Conversion: Bram de Haan (http://atelierbram.github.io/Base2Tone-prism/output/prism/prism-base2tone-morning-light.css)
 Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
 */
-.theme__light {
+.theme__light, .theme__custom {
   code[class*="language-"],
   pre[class*="language-"] {
     font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
@@ -24,8 +24,10 @@ Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-    background: #F5F2F0;
     color: #728fcb;
+    @include themify($themes) {
+      background: themed('content-pre-background-color');
+    }
   }
 
   pre > code[class*="language-"] {
@@ -35,14 +37,13 @@ Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
   pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
   code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
     text-shadow: none;
-    background: #f5ede9;
     color: #FF6188;
   }
 
   pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
   code[class*="language-"]::selection, code[class*="language-"] ::selection {
     text-shadow: none;
-    background: #f5ede9;
+    background: rgba(255,97,137,0.2);
     color: #FF6188;
   }
 

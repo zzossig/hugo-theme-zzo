@@ -1,0 +1,4 @@
+{{ $home_options := (dict "targetPath" "css/main-home.css" "outputStyle" "compressed") }}
+{{ $home_template := resources.Get "sass/main-home.scss" }}
+{{ $home_style := $home_template | resources.ExecuteAsTemplate "home_parsed.scss" . | toCSS $home_options | resources.Minify }}
+<link rel="stylesheet" href="{{ $home_style.RelPermalink }}">

@@ -13,18 +13,6 @@ other = "카테고리"
 [taxo-series]
 other = "시리즈"
 
-[footer-theme]
-other = "테마"
-
-[footer-language]
-other = "언어"
-
-[footer-subscribe]
-other = "구독"
-
-[footer-social]
-other = "소셜"
-
 [archive-dateformat]
 other = "01-02"
 
@@ -39,15 +27,3 @@ other = "글쓴이"
 
 [toc-label]
 other = "목차"
-
-[subs-label]
-other = "구독"
-
-[subs-placeholder-email]
-other = "이메일 주소"
-
-[subs-placeholder-name]
-other = "이름"
-
-[subs-button]
-other = "구독하기"

@@ -1,0 +1,72 @@
+{{- partial "functions/parse_theme" . -}}
+{{- partial "functions/parse_fonts" . -}}
+{{- partial "functions/parse_grid" . -}}
+{{- $scr := .Scratch -}}
+
+$grid_max_width: {{ $scr.Get "grid_max_width" }};
+$grid_max_unit: {{ $scr.Get "grid_max_unit" }};
+$grid_main_main_width: {{ $scr.Get "grid_main_main_width" }};
+$grid_main_main_unit: {{ $scr.Get "grid_main_main_unit" }};
+$grid_main_side_width: {{ $scr.Get "grid_main_side_width" }};
+$grid_main_side_unit: {{ $scr.Get "grid_main_side_unit" }};
+$grid_column_gap_width: {{ $scr.Get "grid_column_gap_width" }};
+$grid_column_gap_unit: {{ $scr.Get "grid_column_gap_unit" }};
+$grid_navbar_height: {{ $scr.Get "grid_navbar_height" }};
+$grid_row_gap: {{ $scr.Get "grid_row_gap" }};
+
+$search_placeholder_font: {{ $scr.Get "search_placeholder" }};
+$summary_title_font: {{ $scr.Get "summary_title" }};
+$summary_subtitle_font: {{ $scr.Get "summary_subtitle" }};
+$summary_text_font: {{ $scr.Get "summary_text" }};
+$taxo_titie_font: {{ $scr.Get "taxo_titie" }};
+$footer_content_font: {{ $scr.Get "footer_content" }};
+$header_title_font: {{ $scr.Get "header_title" }};
+$navbar_item_font: {{ $scr.Get "navbar_item" }};
+$sidebar_title_font: {{ $scr.Get "sidebar_title" }};
+$sidebar_list_font: {{ $scr.Get "sidebar_list" }};
+$page_not_found_font: {{ $scr.Get "page_not_found" }};
+$gallery_contents_font: {{ $scr.Get "gallery_contents" }};
+$list_title_font: {{ $scr.Get "list_title" }};
+$list_desc_font: {{ $scr.Get "list_desc" }};
+$single_title_font: {{ $scr.Get "single_title" }};
+$single_contents_font: {{ $scr.Get "single_contents" }};
+
+$primary_color: {{ $scr.Get "primary_color" }};
+
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+@import 'abstracts/flexbox';
+
+@import 'base/reset';
+@import 'base/fonts';
+@import 'base/helpers';
+@import 'base/typography';
+@import 'base/animation';
+
+@import 'layout/navigation';
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+
+@import 'components/toc';
+@import 'components/pagination';
+@import 'components/search';
+@import 'components/breadcrumb';
+@import 'components/related';
+@import 'components/notice';
+@import 'components/expand';
+@import 'components/alert';
+@import 'components/tooltip';
+@import 'components/gtt';
+@import 'components/whoami';
+@import 'components/switch';
+@import 'components/diagram';
+@import 'components/math';
+@import 'components/hr';
+
+@import 'pages/body';
+@import 'pages/single';
+
+@import 'prism/prism';

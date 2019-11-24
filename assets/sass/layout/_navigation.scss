@@ -197,10 +197,10 @@
       top: 100%;
       width: 100%;
       height: auto;      
-      overflow: hidden; 
+      overflow: hidden;
       @include themify($themes) {        
-        border-top: 1px solid themed('navbar-dropdown-item-hover-background-color');
-        background-color: themed('navbar-background-color');
+        border-top: 1px solid themed('navbar-border-bottom-color');
+        background-color: themed('navbar-mobile-background-color');
       }
     }
   }
@@ -232,7 +232,7 @@
         box-shadow: none;
         @include themify($themes) {
           border-top: none;
-          background-color: themed("navbar-background-color");          
+          background-color: themed("navbar-mobile-background-color");
         }
       }      
     }
@@ -279,7 +279,7 @@
     display: none;
   }
 
-  .dropdown {
+  .dropdown {    
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);    
@@ -288,7 +288,6 @@
       @include on-event {
         color: themed('navbar-title-hover-color');
         background-color: themed('navbar-menu-hover-background-color');
-        border-bottom: 1px solid themed('navbar-border-bottom-color');
       }      
     }
 
@@ -298,7 +297,7 @@
       border: none;
       outline: none;
       width: $grid_navbar_height;
-      height: $grid_navbar_height;
+      height: $grid_navbar_height - 2px;
       color: inherit;
       background-color: inherit;
     }
@@ -310,8 +309,8 @@
       display: none;
       height: auto;
       z-index: z("dropdown");      
-      border-top-left-radius: 0.15rem;
-      border-top-right-radius: 0.15rem;
+      border-bottom-left-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
 
       a {
         font-size: 0.9rem;
@@ -344,9 +343,9 @@
           background-color: themed("dropdown-item-hover-background-color");
           text-decoration: none;
 
-          &:first-child {
-            border-top-left-radius: 0.15rem;
-            border-top-right-radius: 0.15rem;
+          &:last-child {
+            border-bottom-left-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
           }
         }
       }
@@ -387,22 +386,23 @@
   }
 
   .dropdown {
+    border-bottom: 2px solid transparent;
     @include themify($themes) {
       color: themed('burger-menu-color');  
       @include on-event {
         color: themed('link-hover');
-        background-color: inherit;
-        border-bottom: none;
+        background-color: themed('navbar-menu-hover-background-color');
+        border-bottom: 2px solid themed('navbar-border-bottom-color');
       }      
     }
 
     &-trigger {      
-      padding: 0.25rem;
+      padding: 0.5rem;
       cursor: pointer;
-      border: none;
+      border: none;      
       outline: none;
       width: 35px;
-      height: $grid_navbar_height;      
+      height: $grid_navbar_height;
       color: inherit;
       background-color: inherit;
     }
@@ -413,7 +413,7 @@
       right: 0;
       display: none;
       height: auto;
-      z-index: z("dropdown");      
+      z-index: z("dropdown");
       border-top-left-radius: 0.15rem;
       border-top-right-radius: 0.15rem;
 

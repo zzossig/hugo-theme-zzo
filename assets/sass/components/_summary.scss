@@ -148,6 +148,18 @@
         border-top: 1px solid themed('hr-color');
     }
   }
+
+  &:not(:last-child) {
+    hr {
+      margin-bottom: 1.5rem;      
+    }
+  }
+  
+  &:last-child {
+    hr {
+      display: none;
+    }
+  }
 }
 
 .summary-compact {

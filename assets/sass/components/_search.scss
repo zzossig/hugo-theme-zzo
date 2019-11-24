@@ -28,7 +28,7 @@
     outline: none;
     padding-right: 1rem;
 
-    @include truncate(100%);
+    @include truncate($grid_main_side_width + $grid_main_side_unit);
     @include themify($themes) {
       color: themed("search-color");
       background-color: inherit;
@@ -62,7 +62,7 @@
 
   &__desc {
     font-size: 0.8rem;
-    @include truncate(100%);
+    @include truncate($grid_main_side_width + $grid_main_side_unit);
     @include themify($themes) {
       color: themed('search-color');
     }

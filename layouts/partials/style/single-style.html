@@ -1,0 +1,4 @@
+{{ $single_options := (dict "targetPath" "css/main-single.css" "outputStyle" "compressed") }}
+{{ $single_template := resources.Get "sass/main-single.scss" }}
+{{ $single_style := $single_template | resources.ExecuteAsTemplate "single_parsed.scss" . | toCSS $single_options | resources.Minify }}
+<link rel="stylesheet" href="{{ $single_style.RelPermalink }}">

@@ -13,18 +13,6 @@ other = "Categories"
 [taxo-series]
 other = "Series"
 
-[footer-theme]
-other = "Theme"
-
-[footer-language]
-other = "Language"
-
-[footer-subscribe]
-other = "Subscribe"
-
-[footer-social]
-other = "Social"
-
 [archive-dateformat]
 other = "Jan 2"
 
@@ -39,15 +27,3 @@ other = "WRITTEN BY"
 
 [toc-label]
 other = "What's on this Page"
-
-[subs-label]
-other = "Subscribe"
-
-[subs-placeholder-email]
-other = "Your email address"
-
-[subs-placeholder-name]
-other = "Your name"
-
-[subs-button]
-other = "Join"

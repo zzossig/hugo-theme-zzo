@@ -4,14 +4,14 @@
 {{ $currentID := "" }}
 {{ with .File }}{{ $currentID = .UniqueID }}{{ end }}
 <div class="sidebar">
-    {{ partial "sidebar/site-search" . }}
+    {{ partial "search/site-search" . }}
     {{ if .Site.Params.itemsPerCategory }}
     {{ range first .Site.Params.itemsPerCategory .Pages }}
-    <section class="sidebar-list">
-        <a href="{{ .RelPermalink }}" class="sidebar-list__title p1 {{ if eq $currentSection .Section }}active{{ end }}">{{ .Title }}</a>
-        <ul class="sidebar-list__ul">
+    <section class="sidebar-recent">
+        <a href="{{ .RelPermalink }}" class="sidebar-recent__title p1 {{ if eq $currentSection .Section }}active{{ end }}">{{ .Title }}</a>
+        <ul class="sidebar-recent__ul">
             {{ range first .Site.Params.itemsPerCategory .Pages }}
-            <li><a href="{{ .RelPermalink }}" class="sidebar-list__a p2 {{ if eq $currentID .File.UniqueID }}active{{ end }}">{{ .Title }}</a>
+            <li><a href="{{ .RelPermalink }}" class="sidebar-recent__a p2 {{ if eq $currentID .File.UniqueID }}active{{ end }}">{{ .Title }}</a>
             </li>
             {{ end }}
         </ul>

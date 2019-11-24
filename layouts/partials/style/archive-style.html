@@ -1,0 +1,4 @@
+{{ $archive_options := (dict "targetPath" "css/main-archive.css" "outputStyle" "compressed") }}
+{{ $archive_template := resources.Get "sass/main-archive.scss" }}
+{{ $archive_style := $archive_template | resources.ExecuteAsTemplate "archive_parsed.scss" . | toCSS $archive_options | resources.Minify }}
+<link rel="stylesheet" href="{{ $archive_style.RelPermalink }}">

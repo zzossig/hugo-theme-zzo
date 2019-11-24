@@ -1,7 +1,7 @@
 {{ if $.Param "enableThemeChange" }}
 <div class="theme-mobile">
   <div class="dropdown">
-    <button class="dropdown-trigger navbar__slide-down">
+    <button class="dropdown-trigger navbar__slide-down" aria-label="Select Language Button">
       {{ partial "svgs/etc/invert-colors.svg" (dict "width" 22 "height" 22) }}      
     </button>
     <div class="dropdown-content select-theme">
