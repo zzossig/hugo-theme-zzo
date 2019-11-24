@@ -1,0 +1,188 @@
+{{ $jquery := resources.Get "js/jquery.min.js" | resources.Fingerprint }}
+<script defer src="{{ $jquery.RelPermalink }}"></script>
+{{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
+<script defer src="{{ $enquire.RelPermalink }}"></script>
+{{ $zzo := resources.Get "js/zzo.js" | resources.Minify | resources.Fingerprint }}
+<script defer src="{{ $zzo.RelPermalink }}"></script>
+
+<script>
+  window.onload = function() {
+    // search
+    {{ $searchLanguages := .Site.Params.searchLanguages }}
+    var searchLanguages = JSON.parse({{ $searchLanguages | jsonify }});
+    var baseurl = "{{ "/" | relLangURL }}";
+    if (!searchLanguages) {
+      searchLanguages = ['en'];
+    }
+
+    var lunrIndex = null;
+    var pagesIndex = null;
+    var searchResults = null;
+    var searchMenu = null;
+
+    function endsWith(str, suffix) {
+      return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+    
+    function initLunr() {
+      if (!endsWith(baseurl, "/")) {
+        baseurl = baseurl + '/';
+      }
+      if (baseurl.charAt(0) === '/') {
+        baseurl = baseurl.slice(1);
+      }
+
+      $.getJSON(baseurl + "index.json")
+        .done(function (index) {
+          pagesIndex = index;
+          lunrIndex = lunr(function () {
+            this.use(lunr.multiLanguage(...searchLanguages));
+            this.ref('uri');
+            this.field('title');
+            this.field('description');
+            this.field('content');
+            //this.field('tags');
+            //this.field('series');
+            //this.field('categories');
+
+            var that = this;
+            index.forEach(function (page) {
+              that.add(page);
+            });
+          });
+        })
+        .fail(function (jqxhr, textStatus, error) {
+          var err = textStatus + ", " + error;
+          console.error("Error getting Hugo index file:", err);
+        });
+    }
+
+    function search(query) {
+      return lunrIndex.search(query).map(function (result) {
+        return pagesIndex.filter(function (page) {
+          return page.uri === result.ref;
+        })[0];
+      });
+    }
+
+    function renderSearchResults(results) {
+      searchResults = document.getElementById('search-results');
+      searchMenu = document.getElementById('search-menu');
+      searchResults.setAttribute('class', 'dropdown is-active');
+
+      var content = document.createElement('div');
+      content.setAttribute('class', 'dropdown-content search-content');
+
+      if (results.length > 0) {
+        results.forEach(function (result) {
+          var item = document.createElement('a');
+          item.setAttribute('href', result.uri);
+          item.setAttribute('class', 'dropdown-item');
+          item.innerHTML = `<div class="menu-item"><div class="menu-item__title">» ${result.title}</div><div class="menu-item__desc">${result.description ? result.description : result.content}</div></div>`;
+          content.appendChild(item);
+        });
+      } else {
+        var item = document.createElement('span');
+        item.setAttribute('class', 'dropdown-item');
+        item.innerText = 'No results found';
+        content.appendChild(item);
+      }
+
+      while (searchMenu.hasChildNodes()) {
+        searchMenu.removeChild(
+          searchMenu.lastChild
+        );
+      }
+      searchMenu.appendChild(content);
+    }
+
+    function renderSearchResultsMobile(results) {
+      searchResults = document.getElementById('search-mobile-results');
+
+      var content = document.createElement('div');
+      content.setAttribute('class', 'mobile-search__content');
+
+      if (results.length > 0) {
+        results.forEach(function (result) {
+          var item = document.createElement('a');
+          item.setAttribute('href', result.uri);
+          item.innerHTML = `<div class="mobile-search__item"><div class="mobile-search__item--title">» ${result.title}</div><div class="mobile-search__item--desc">${result.description ? result.description : result.content}</div></div>`;
+          content.appendChild(item);
+        });
+      } else {
+        var item = document.createElement('span');
+        content.appendChild(item);
+      }
+
+      $('#search-mobile-results').empty();
+      searchResults.appendChild(content);
+    }
+
+    initLunr();
+
+    $("#search").on('input', function (e) {
+      if (!e.target.value) {
+        $('#search-results').attr('class', 'dropdown');
+        return null;
+      }
+
+      if ($(window).width() < 770) {
+        return null;
+      } 
+
+      var results = search(e.target.value);
+      renderSearchResults(results);
+    });
+
+    $('#search').on('blur', function () {
+      if ($(window).width() < 770) {
+        return null;
+      }
+      setTimeout(function () {
+        $('#search-results').attr('class', 'dropdown');
+      }, 100);
+    });
+
+    $('#search').on('click', function (e) {
+      if ($(window).width() < 770) {
+        return null;
+      }
+      if (!e.target.value) {
+        $('#search-results').attr('class', 'dropdown');
+        return null;
+      }
+      var results = search(e.target.value);
+      renderSearchResults(results);
+    });
+
+    $('#search').on('keydown', function (e) {
+      if ($(window).width() < 770) {
+        return null;
+      }
+      var items = $('#search-menu .dropdown-item');
+      var activeIndex = $('#search-menu .dropdown-item.is-active').index();
+
+      items.removeClass('is-active');
+      if (e.key === 'ArrowDown') {
+        items.eq(activeIndex + 1).addClass('is-active');
+      } else if (e.key === 'ArrowUp') {
+        items.eq(activeIndex - 1).addClass('is-active');
+      } else if (e.key === 'Enter') {
+        var currentItemLink = items.eq(activeIndex).attr('href');
+        if (currentItemLink) {
+          location.href = currentItemLink;
+        }
+      }
+    });
+
+    $("#search-mobile").on('input', function(e) {
+      if (!e.target.value) {
+        $('#search-mobile-results').empty();
+        return null;
+      }
+
+      var results = search(e.target.value);
+      renderSearchResultsMobile(results);
+    });
+  }
+</script>
