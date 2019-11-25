@@ -13,10 +13,14 @@
 <script defer src="{{ $zzo.RelPermalink }}"></script>
 
 {{ if $.Param "enablePhotoSwipe" }}
-  {{ $fancyboxjs := resources.Get "js/jquery.fancybox.min.js" | resources.Fingerprint }}
-  <script defer src="{{ $fancyboxjs.RelPermalink }}"></script>
-  {{ $fancyboxcss := resources.Get "css/jquery.fancybox.min.css" | resources.Fingerprint }}
-  <link rel="stylesheet" href="{{ $fancyboxcss.RelPermalink }}">
+  {{ $photoSwipe := resources.Get `js/photoswipe.min.js` | resources.Fingerprint }}
+  <script defer src="{{ $photoSwipe.RelPermalink }}"></script>
+  {{ $photoSwipeUi := resources.Get `js/photoswipe-ui-default.min.js` | resources.Fingerprint }}
+  <script defer src="{{ $photoSwipeUi.RelPermalink }}"></script>
+  {{ $photoSwipeStyle := resources.Get "css/photoswipe/photoswipe.css" | resources.Minify }}
+  <link rel="stylesheet" href="{{ $photoSwipeStyle.RelPermalink }}">
+  {{ $photoSwipeSkin := resources.Get "css/photoswipe/custom-skin.css" | resources.Minify }}
+  <link rel="stylesheet" href="{{ $photoSwipeSkin.RelPermalink }}">
 {{ end }}
 
 {{ if $.Param "enableToc" }}
@@ -369,33 +373,51 @@
       }
     });
 
-    // fancybox
+    // gallery
     {{ $enablePhotoSwipe := ($.Param "enablePhotoSwipe") }}
     var enablePhotoSwipe = JSON.parse({{ $enablePhotoSwipe | jsonify }});
     
     if (enablePhotoSwipe) {
-      $('[data-fancybox="gallery"]').fancybox({
-        loop: true,
-        keyboard: true,
-        clickContent: true,
-        buttons: [
-          "zoom",
-          "slideShow",
-          "fullScreen",
-          "download",
-          "thumbs",
-          "close",
-        ],
-        caption: function (instance, item) {
-          return $(this).data('alt') || '';
-        }
+      var pswpElement = $('.pswp')[0];
+      var imgElements = $('.single__contents').find('img');
+      var items = [];
+
+      imgElements.each(function (i, v) {
+        $(this).click(function (e) {
+          initGallery(i);
+        });
+        $(this).css('cursor', 'pointer');
+        items.push({
+          src: v['src'],
+          w: 0,
+          h: 0,
+          title: filename(v['src']),
+        });
       });
 
-      var imgElements = $('.single__contents:not(".single__contents--gallery")').find('img');
-      imgElements.each(function (i, v) {
-        $(this).css('cursor', 'pointer');
-        $(this).wrap(`<a data-fancybox="gallery" href="${$(this).attr('src')}" data-alt="${$(this).attr('alt')}" data-caption="${$(this).attr('alt')}"></a>`);
-      });
+      function filename(str) {
+        var s = str.replace(/\\/g, '/');
+        s = s.substring(s.lastIndexOf('/') + 1);
+        return str ? s.replace(/[?#].+$/, '') : s.split('.')[0];
+      }
+
+      function initGallery(index) {
+        var options = { index: index };
+        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.listen('imageLoadComplete', function (index, item) {
+          if (item.h < 1 || item.w < 1) {
+            let img = new Image();
+            img.onload = () => {
+              item.w = img.width;
+              item.h = img.height;
+              gallery.invalidateCurrItems();
+              gallery.updateSize(true);
+            }
+            img.src = item.src;
+          }
+        });
+        gallery.init();
+      }
     }
 
     // mermaid

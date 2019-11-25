@@ -15,14 +15,6 @@
     }
   }
 
-  &__feed {
-    padding: 0.5rem 0;
-    @include flex-grow(1);
-    @include flexbox();
-    @include align-items(center);
-    @include flex-direction(column);
-  }
-
   &__social {
     padding: 0.5rem 0;
     position: -webkit-sticky;
@@ -127,14 +119,6 @@
     }
   }
 
-  .label {
-    margin: 0.25rem;
-  }
-
-  .content {
-    font-family: $footer_content_font;
-  }
-
   .select-theme {    
     &__label {      
       color: inherit;
@@ -151,9 +135,6 @@
       color: inherit;
       text-transform: capitalize;
     }
-  }
-
-  .feed {
   }
 
   .social {

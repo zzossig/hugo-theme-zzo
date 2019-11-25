@@ -19,7 +19,6 @@ $summary_title_font: {{ $scr.Get "summary_title" }};
 $summary_subtitle_font: {{ $scr.Get "summary_subtitle" }};
 $summary_text_font: {{ $scr.Get "summary_text" }};
 $taxo_titie_font: {{ $scr.Get "taxo_titie" }};
-$footer_content_font: {{ $scr.Get "footer_content" }};
 $header_title_font: {{ $scr.Get "header_title" }};
 $navbar_item_font: {{ $scr.Get "navbar_item" }};
 $sidebar_title_font: {{ $scr.Get "sidebar_title" }};
@@ -54,6 +53,7 @@ $primary_color: {{ $scr.Get "primary_color" }};
 @import 'components/search';
 @import 'components/related';
 @import 'components/gtt';
+@import 'components/photoswipe';
 
 @import 'pages/body';
 @import 'pages/gallery';

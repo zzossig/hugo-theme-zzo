@@ -16,6 +16,7 @@
     {{ partial "body/related" . }}
     {{ partial "pagination/pagination-single" . }}
     {{ partial "comments/comments.html" . }}
+    {{ partial "body/photoswipe" . }}
 
     <div class="hide">
     {{ partial "search/site-search" . }}
@@ -29,5 +30,4 @@
 </aside>
 {{ end }}
 {{ partial "script/single-script" . }}
-{{ partial "style/single-style" . }}
 {{ end }}

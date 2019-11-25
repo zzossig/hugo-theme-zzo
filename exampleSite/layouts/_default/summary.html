@@ -1,9 +1,0 @@
-{{ if eq (lower .Site.Params.summaryShape) "card" }}
-{{ partial "summary/card" . }}
-{{ else if eq (lower .Site.Params.summaryShape) "classic" }}
-{{ partial "summary/classic" . }}
-{{ else if eq (lower .Site.Params.summaryShape) "compact" }}
-{{ partial "summary/compact" . }}
-{{ else }}
-{{ printf "%#v" "Not supported shape. Please edit config params(summaryShape)." }}
-{{ end }}
