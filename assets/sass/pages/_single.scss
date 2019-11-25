@@ -10,7 +10,7 @@
     line-height: 3rem;
     overflow-wrap: break-word;
 
-    @include animation('slide-in-down .5s .2s 1 ease both');
+    @include animation('slide-in-down .3s .1s 1 ease both');
     @include themify($themes) {
       color: themed("single-header-title-color");
     }
@@ -20,7 +20,7 @@
     font-size: 0.8rem;
     @include flexbox();
     @include align-items(center);
-    @include animation('slide-in-down .5s .4s 1 ease both');
+    @include animation('slide-in-down .3s .4s 1 ease both');
 
     @include respond-to(sm) {
       @include flexbox();
@@ -33,7 +33,7 @@
   }
 
   &__contents {
-    @include animation('slide-in-down-3 .6s .6s 1 ease both');
+    @include animation('slide-in-down-3 .3s .7s 1 ease both');
     &--gallery {
       overflow: hidden;
       @include animation('slide-in-down-3 .6s .0s 1 ease both');

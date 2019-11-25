@@ -80,7 +80,7 @@
           var item = document.createElement('a');
           item.setAttribute('href', result.uri);
           item.setAttribute('class', 'dropdown-item');
-          item.innerHTML = `<div class="menu-item"><div class="menu-item__title">» ${result.title}</div><div class="menu-item__desc">${result.description ? result.description : result.content}</div></div>`;
+          item.innerHTML = `<div class="menu-item"><div class="menu-item__title">📄 ${result.title}</div><div class="menu-item__desc">${result.description ? result.description : result.content}</div></div>`;
           content.appendChild(item);
         });
       } else {
@@ -108,7 +108,7 @@
         results.forEach(function (result) {
           var item = document.createElement('a');
           item.setAttribute('href', result.uri);
-          item.innerHTML = `<div class="mobile-search__item"><div class="mobile-search__item--title">» ${result.title}</div><div class="mobile-search__item--desc">${result.description ? result.description : result.content}</div></div>`;
+          item.innerHTML = `<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ${result.title}</div><div class="mobile-search__item--desc">${result.description ? result.description : result.content}</div></div>`;
           content.appendChild(item);
         });
       } else {

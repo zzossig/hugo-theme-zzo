@@ -41,6 +41,8 @@
 
   &-content {
     margin-top: 0.25rem;
+    max-height: 350px;
+    overflow: auto;
     a {
       text-decoration: none !important;
     }
@@ -50,11 +52,9 @@
 .menu-item {
   padding: 0.25rem;
 
+
   &__title {
     font-size: 1rem;
-    // @include themify($themes) {
-    //   color: themed('search-color');
-    // }
     @include themify($themes) {
       color: themed('body-color');
     }
@@ -65,6 +65,7 @@
     @include truncate($grid_main_side_width + $grid_main_side_unit);
     @include themify($themes) {
       color: themed('search-color');
+      opacity: 0.78;
     }
   }
 }

@@ -18,7 +18,6 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 * [Marmaid, Katex, MathJax, Flowchart.js](#external-library)
 * [Shortcodes](#shortcodes)
 
-
 ## Features
 
 * Multiple Skins(dark, light, solarized, hacker)
@@ -36,19 +35,6 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 * Search with Lunr
 * Gallery with Masonry, Photoswipe
 * Prism.js for highlight code
-* Lazy image load with lazysizes
-
-## Reference
-
-I have referenced:
-
-* [engimo](https://github.com/achary/engimo)
-* [even theme](https://github.com/olOwOlo/hugo-theme-even)
-* [zen theme](https://github.com/frjo/hugo-theme-zen)
-* [docdock theme](https://github.com/vjeantet/hugo-theme-docdock)
-* [learn theme](https://github.com/matcornic/hugo-theme-learn/)
-* [academic theme](https://sourcethemes.com/academic/)
-* [overreacted.io](https://github.com/gaearon/overreacted.io)
 
 ## Minimum Hugo version
 
