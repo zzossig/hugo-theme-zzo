@@ -2,7 +2,6 @@ $(document).ready(function() {
   // theme change
   var localTheme = localStorage.getItem('theme');
   if (localTheme) {
-    $('#root').attr('class', `theme__${localTheme}`);
     $('.select-theme__item').each(function () {
       $(this).removeClass('is-active');
     });

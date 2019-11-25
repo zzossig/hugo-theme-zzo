@@ -13,6 +13,12 @@
 </head>
 
 <body id="root" class="theme__{{ index .Site.Params.themeOptions 0 }}">
+    <script>
+        var localTheme = localStorage.getItem('theme');
+        if (localTheme) {
+            document.getElementById('root').className = `theme__${localTheme}`;
+        }
+    </script>
     <div id="body">        
         <div class="container wrapper">
             {{ partial "navbar/site-nav" . }}
