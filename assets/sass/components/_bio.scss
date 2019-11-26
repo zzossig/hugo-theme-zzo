@@ -10,10 +10,12 @@
 
   &__photo {
     border-radius: 0.25rem;
+    width: 100%;
+    height: auto;
     @include box-shadow(0, 8px, 6px, -6px, black);
 
     &-wrapper {
-      width: 100%;
+      width: 90%;
       height: 100%;
       border-radius: 0.25rem;  
       margin: 1rem auto;
