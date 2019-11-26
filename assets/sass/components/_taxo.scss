@@ -13,7 +13,7 @@
 
   &__title {
     font-weight: 700;
-    font-family: $taxo_titie_font;
+    font-family: $title-font;
     @include themify($themes) {
       color: themed('taxo-title-color');
       &:hover {

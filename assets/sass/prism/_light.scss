@@ -4,11 +4,11 @@ Author: Simurai, adapted from DuoTone themes for Atom (http://simurai.com/projec
 Conversion: Bram de Haan (http://atelierbram.github.io/Base2Tone-prism/output/prism/prism-base2tone-morning-light.css)
 Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
 */
-.theme__light, .theme__custom {
+@mixin theme-light {
   code[class*="language-"],
   pre[class*="language-"] {
     font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
-    font-size: 14px;    
+    font-size: $code-font-size;
     direction: ltr;
     text-align: left;
     white-space: pre;

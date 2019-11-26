@@ -60,7 +60,7 @@
   &__contents {
       padding: 1rem;
       width: 65%;
-      font-family: $gallery_contents_font;
+      font-family: $content-font;
       font-size: 1rem;
       text-align: center;
   }
@@ -84,7 +84,7 @@
       height: calc(100% - 1rem);
       border-radius: 0.25rem;      
       z-index: z('gallery-mask');
-      font-family: $single_title_font;
+      font-family: $title-font;
       font-weight: 700;
       cursor: pointer;      
 

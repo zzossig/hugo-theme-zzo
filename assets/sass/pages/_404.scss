@@ -1,6 +1,6 @@
 .not-found {
   height: 100%;
-  font-family: $page_not_found_font;
+  font-family: $title-font;
 
   @include flexbox();
   @include align-items(center);

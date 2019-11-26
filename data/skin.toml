@@ -1,1 +1,3 @@
-primary_color = "195" # 0 ~ 359, Colors HSL, restart hugo after change this value
+custom_theme_primary_color = "195" # 0 ~ 359, Colors HSL, restart hugo after change this value
+
+prism_theme = "default" # default, dark, light, solarized, hacker, dracula

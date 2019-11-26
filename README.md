@@ -545,38 +545,6 @@ themeOptions = ["custom", "dark", ...]
 
 5. Once you change the skin.toml file, restart hugo.
 
-### custom font
-
-1. Make a font.toml file in data folder. (data/font.toml)
-
-2. Copy the contents of themes/zzo/data/font.toml file and paste it into the font.toml file you created above.
-
-3. Change the font you want. Make sure that you have imported that font.
-
-4. Once you change the font.toml file, restart hugo.
-
-```toml
-data/font.toml example
-
-search_placeholder = "'Montserrat', sans-serif"
-summary_title = "'Montserrat', sans-serif"
-summary_subtitle = "'Merriweather', serif"
-summary_text = "'Merriweather', serif"
-taxo_titie = "'Montserrat', sans-serif"
-footer_content = "'Montserrat', sans-serif"
-header_title = "'Montserrat', sans-serif"
-navbar_item = "'Montserrat', sans-serif"
-sidebar_title = "'Montserrat', sans-serif"
-sidebar_list = "inherit"
-page_not_found = "'Montserrat', sans-serif"
-gallery_contents = "'Merriweather', serif"
-list_title = "'Montserrat', sans-serif"
-list_desc = "'Merriweather', serif"
-single_title = "'Montserrat', sans-serif"
-single_contents = "'Merriweather', serif"
-
-```
-
 ### custom header
 
 You may want to change home page header. There are 4 options which is slider, image, text, empty.

@@ -1,5 +1,4 @@
 {{- partial "functions/parse_theme" . -}}
-{{- partial "functions/parse_fonts" . -}}
 {{- partial "functions/parse_grid" . -}}
 {{- $scr := .Scratch -}}
 
@@ -14,23 +13,8 @@ $grid_column_gap_unit: {{ $scr.Get "grid_column_gap_unit" }};
 $grid_navbar_height: {{ $scr.Get "grid_navbar_height" }};
 $grid_row_gap: {{ $scr.Get "grid_row_gap" }};
 
-$search_placeholder_font: {{ $scr.Get "search_placeholder" }};
-$summary_title_font: {{ $scr.Get "summary_title" }};
-$summary_subtitle_font: {{ $scr.Get "summary_subtitle" }};
-$summary_text_font: {{ $scr.Get "summary_text" }};
-$taxo_titie_font: {{ $scr.Get "taxo_titie" }};
-$header_title_font: {{ $scr.Get "header_title" }};
-$navbar_item_font: {{ $scr.Get "navbar_item" }};
-$sidebar_title_font: {{ $scr.Get "sidebar_title" }};
-$sidebar_list_font: {{ $scr.Get "sidebar_list" }};
-$page_not_found_font: {{ $scr.Get "page_not_found" }};
-$gallery_contents_font: {{ $scr.Get "gallery_contents" }};
-$list_title_font: {{ $scr.Get "list_title" }};
-$list_desc_font: {{ $scr.Get "list_desc" }};
-$single_title_font: {{ $scr.Get "single_title" }};
-$single_contents_font: {{ $scr.Get "single_contents" }};
-
-$primary_color: {{ $scr.Get "primary_color" }};
+$custom_theme_primary_color: {{ $scr.Get "custom_theme_primary_color" }};
+$prism_theme: {{ $scr.Get "prism_theme" }};
 
 @import 'abstracts/variables';
 @import 'abstracts/mixins';

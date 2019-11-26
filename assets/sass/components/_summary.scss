@@ -10,7 +10,7 @@
   
   .title {    
     a {
-      font-family: $summary_title_font;
+      font-family: $title-font;
       font-weight: 700;
       @include themify($themes) {
           color: themed('title-color');
@@ -22,7 +22,6 @@
   }
 
   .subtitle {
-    font-family: $summary_subtitle_font;
     @include themify($themes) {
       color: themed('meta-color');
     }
@@ -37,7 +36,7 @@
   &__text {
     margin-top: 1rem;
     line-height: 1.7rem;
-    font-family: $summary_text_font;
+    font-family: $content-font;
   }
 
   &__image {
@@ -93,7 +92,7 @@
   .title {
     font-size: 24px;    
     a {
-      font-family: $summary_title_font;
+      font-family: $title-font;
       font-weight: 700;
       @include themify($themes) {
           color: themed('title-color');
@@ -105,7 +104,6 @@
   }
 
   .subtitle {
-    font-family: $summary_subtitle_font;
     @include themify($themes) {
       color: themed('meta-color');
     }
@@ -127,7 +125,7 @@
   &__text {
     margin-top: 1rem;
     line-height: 1.7rem;
-    font-family: $summary_text_font;
+    font-family: $content_font;
   }
 
   &__image {

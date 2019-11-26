@@ -333,6 +333,10 @@
       $(e.trigger).attr('aria-label', 'Link copied to clipboard!').addClass('tooltipped tooltipped-s');
     });
 
+    $('pre.chroma').not(':has(code)').each(function() {
+      $(this).not(':has(span)').wrap('<code style="font-size: 1rem;"></code>');
+    });
+
     // clipboard
     var clipInit = false;
     $('code').each(function () {

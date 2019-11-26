@@ -6,7 +6,7 @@
   @include animation('slide-in-down-2 .5s .2s 1 ease both');
 
   width: 100%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: $title-font;
 
   &__photo {
     border-radius: 0.25rem;

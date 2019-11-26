@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     margin: 0.5rem;
-    font-family: $list_title_font;
+    font-family: $title-font;
 
     &--title {
       @include themify($themes) {
@@ -13,7 +13,7 @@
     }
 
     &--desc {
-      font-family: $list_desc_font;
+      font-family: $content-font;
       font-weight: italic;
       padding: 1rem;
       line-height: 1.7rem;      

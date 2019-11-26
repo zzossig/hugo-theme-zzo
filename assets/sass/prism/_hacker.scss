@@ -1,4 +1,4 @@
-.theme__hacker {
+@mixin theme-hacker {
   code[class*="language-"],
   pre[class*="language-"] {
     text-align: left;
@@ -6,10 +6,9 @@
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
-    color: #fafafa !important;
-    background: #2f2f2f;
+    color: #fafafa;
     font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-    font-size: 14px;
+    font-size: $code-font-size;
     line-height: 1.5em;
 
     -moz-tab-size: 4;

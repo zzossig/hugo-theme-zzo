@@ -155,7 +155,7 @@
       height: $grid_navbar_height;      
       padding: 0.5rem;
       font-size: 1rem;
-      font-family: $navbar_item_font;
+      font-family: $title-font;
       font-weight: 400;
 
       @include flexbox();

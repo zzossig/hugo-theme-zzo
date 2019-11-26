@@ -6,7 +6,7 @@
     padding: 0.5rem;
 
     &__title {
-      font-family: $sidebar_title_font;
+      font-family: $title-font;
       font-weight: 700;
       @include themify($themes) {
         color: themed('sidebar-title-color');
@@ -30,8 +30,7 @@
       }
     }
 
-    &__a {          
-      font-family: $sidebar_list_font;
+    &__a {         
       @include themify($themes) {
         color: themed('sidebar-li-color');
       }

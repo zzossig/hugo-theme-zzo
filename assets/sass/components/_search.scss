@@ -33,7 +33,7 @@
       color: themed("search-color");
       background-color: inherit;
       @include input-placeholder {
-        font-family: $search_placeholder_font;
+        font-family: $title-font;
         color: themed("search-placeholder-color");
       }
     }
@@ -164,7 +164,7 @@
         background-color: themed('navbar-background-color');
 
         @include input-placeholder {
-          font-family: $search_placeholder_font;
+          font-family: $title-font;
           color: themed("search-placeholder-color");
         }
       }

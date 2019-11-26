@@ -6,7 +6,7 @@
   &__title {
     font-size: 2.5rem;
     font-weight: 900;
-    font-family: $single_title_font;
+    font-family: $title-font;
     line-height: 3rem;
     overflow-wrap: break-word;
 
@@ -48,7 +48,7 @@
     }
 
     font-size: 1rem;
-    font-family: $single_contents_font;
+    font-family: $content-font;
     margin: 1rem 0;
     line-height: 1.7rem;
     width: inheirt;
@@ -332,7 +332,7 @@ code {
       left: 0;
       padding: 2px 7px;
       font-size: $code-font-size;
-      font-family: 'Montserrat', sans-serif;
+      font-family: $title-font;
       font-weight: bold;
       @include themify($themes) {
         color: themed('content-pre-header-color');

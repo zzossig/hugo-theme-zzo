@@ -5,7 +5,7 @@
   @include flex-direction(column);
 
   .title {
-    font-family: $header_title_font;
+    font-family: $title-font;
     font-weight: 900;
   }
 
@@ -29,12 +29,12 @@
   &__title {
     line-height: 1.1;
     font-weight: 700;
-    font-family: $header_title_font;
+    font-family: $title-font;
   }
 
   &__subtitle {
     line-height: 1.2;
-    font-family: $header_title_font;
+    font-family: $title-font;
   }
 
   &__align-left {
