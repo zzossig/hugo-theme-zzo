@@ -20,9 +20,6 @@
       @include flexbox();
       @include align-items(center);
       @include justify-content(center);
-      @include themify($themes) {
-        background-color: themed('avatar-background-color');
-      }
     }
   }
 

@@ -432,9 +432,9 @@
         mermaid.initialize({ theme: 'dark' });
       } else {
         mermaid.initialize({ theme: 'default' });
-      }   
+      }
       
-      // mermaid Fix Mermaid.js clash with Highlight.js.  
+      // mermaid Fix Mermaid.js clash with Highlight.js.
       $('code.language-mermaid:odd').each(function() {
         $(this).unwrap('pre');
         $(this).replaceWith(function () {

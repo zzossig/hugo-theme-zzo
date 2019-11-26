@@ -188,4 +188,14 @@ $(document).ready(function() {
       $('html').css('overflow-y', 'visible');
     }
   });
+
+  // markdown table
+  const tables = document.querySelectorAll('.single__contents > table');
+  for (let i = 0; i < tables.length; i++) {
+    const table = tables[i];
+    const wrapper = document.createElement('div');
+    wrapper.className = 'table-wrapper';
+    table.parentElement.replaceChild(wrapper, table);
+    wrapper.appendChild(table);
+  }
 });

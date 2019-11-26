@@ -4,14 +4,14 @@
     {{ partial "svgs/etc/translate.svg" (dict "width" 24 "height" 24) }}
   </button>
   <div class="dropdown-content">
-    {{ $siteLanguages := .Site.Languages}}
-    {{ $pageLang := .Page.Lang}}
+    {{ $siteLanguages := .Site.Languages }}
+    {{ $pageLang := .Page.Lang }}
     {{ range .Page.AllTranslations }}
-      {{ $translation := .}}
+      {{ $translation := . }}
       {{ range $siteLanguages }}
         {{ if eq $translation.Lang .Lang }}
         {{ $selected := false }}
-          {{ if eq $pageLang .Lang}}
+          {{ if eq $pageLang .Lang }}
             <a href="{{ $translation.Permalink }}" data-lang="{{ .Lang }}" class="dropdown-item is-active">{{ .LanguageName }}</a>
           {{ else }}
             <a href="{{ $translation.Permalink }}" data-lang="{{ .Lang }}" class="dropdown-item">{{ .LanguageName }}</a>

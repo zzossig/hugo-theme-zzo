@@ -47,9 +47,12 @@ $custom: (
   related-header-title-color: hsl($primary_color, 100%, 10%),
   related-link-color: hsl($primary_color, 65%, 32%),
   content-pre-main-color: hsl($primary_color, 65%, 32%),
+  content-pre-color: hsl($primary_color, 100%, 10%),
+  content-pre-number-color: hsl($primary_color, 0%, 67%),
   content-pre-background-color: hsl($primary_color, 100%, 97%),
   content-pre-header-color: hsl($primary_color, 100%, 10%),
   content-pre-header-background-color: hsl($primary_color, 100%, 92%),
+  content-pre-border-background-color: hsl($primary_color, 100%, 86%),
   burger-menu-color: hsl($primary_color, 100%, 10%),
   social-icon-color: hsl($primary_color, 25%, 50%),
   social-icon-hover-color: hsl($primary_color, 25%, 60%),
@@ -91,5 +94,4 @@ $custom: (
   switch-active-color: hsl($primary_color, 80%, 60%),
   gallery-mask-color: hsl($primary_color, 100%, 10%),
   gallery-mask-background-color: hsla($primary_color, 100%, 90%, 0.7),
-  avatar-background-color: hsl($primary_color, 100%, 90%),
 ) !default;

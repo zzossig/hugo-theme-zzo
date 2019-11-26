@@ -1,7 +1,7 @@
 .single {
   padding: 1rem;
   position: relative;
-  width: 100%;  
+  width: 100%;
 
   &__title {
     font-size: 2.5rem;
@@ -10,7 +10,7 @@
     line-height: 3rem;
     overflow-wrap: break-word;
 
-    @include animation('slide-in-down .3s .1s 1 ease both');
+    //@include animation('slide-in-down .3s .1s 1 ease both');
     @include themify($themes) {
       color: themed("single-header-title-color");
     }
@@ -20,7 +20,7 @@
     font-size: 0.8rem;
     @include flexbox();
     @include align-items(center);
-    @include animation('slide-in-down .3s .4s 1 ease both');
+    //@include animation('slide-in-down .3s .4s 1 ease both');
 
     @include respond-to(sm) {
       @include flexbox();
@@ -33,16 +33,19 @@
   }
 
   &__contents {
-    @include animation('slide-in-down-3 .3s .7s 1 ease both');
+    //@include animation('slide-in-down-3 .3s .7s 1 ease both');
     &--gallery {
       overflow: hidden;
-      @include animation('slide-in-down-3 .6s .0s 1 ease both');
+      //@include animation('slide-in-down-3 .6s .0s 1 ease both');
     }
 
     &--about {
-      @include animation('slide-in-down-3 .6s .2s 1 ease both');
+      //@include animation('slide-in-down-3 .6s .2s 1 ease both');
     }
 
+    &>p>a {
+      text-decoration: underline;
+    }
 
     font-size: 1rem;
     font-family: $single_contents_font;
@@ -141,13 +144,18 @@
     blockquote {
       margin: 0 1.75rem 1.75rem 1.5rem;
       padding: 0 0 0 1.42188rem;
-      font-size: 1.20112rem;
+      font-size: 1.05rem;
       line-height: 1.75rem;
       color: inherit;
-      font-style: italic;
       opacity: 0.8;
+      position: relative;
+      
       @include themify($themes) {
-        border-left: 0.32813rem solid themed("single-blockquote-border-color");
+          border-left: 0.32813rem solid themed("single-blockquote-border-color");
+      }
+
+      code {
+        margin: 0 0.25rem;
       }
     }
 
@@ -159,28 +167,31 @@
 
     p {
       margin: 0 0 1.75rem 0;
-      padding: 0;
-    }
+      padding: 0;      
 
-    a {
-      text-decoration: underline;
+      code {
+        margin: 0 0.25rem;
+      }
     }
 
     ul {
       margin-right: 0;
       margin-top: 0;
       padding: 0;
-      margin-bottom: 1.75rem;
       list-style: disc outside none;
     }
 
     li {
       margin-left: 2rem;
-      margin-bottom: calc(1.75rem / 2);
+      margin-bottom: calc(1rem / 2);
+
+      code {
+        margin: 0 0.25rem;
+      }
     }
 
     hr {
-      margin: 0 0 calc(1.75rem - 1px) 0;
+      margin: 0 0 calc(1.25rem - 1px) 0;
       padding: 0;
       border: none;
       height: 1px;
@@ -189,8 +200,69 @@
       }
     }
 
+    dl dt::after {
+        content: ':';
+    }
+
+    dd {
+      display: block;
+      margin-inline-start: 40px;
+    }
+
     .anchor {
       cursor: pointer;
+    }
+
+    .footnote-ref {
+      a {
+        font-size: 0.75rem;
+        font-weight: bold;
+        margin-left: 3px;
+
+        &::before {
+          content: "[";
+        }
+
+        &::after {
+          content: "]";
+        }
+      }
+    }
+
+    .table-wrapper {
+      overflow-x: auto;      
+
+      > table {
+        max-width: 100%;
+        margin: 10px 0;
+        border-spacing: 0;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.125);
+
+        
+        @include themify($themes) {
+          thead {
+            background: themed('content-pre-header-background-color');
+          }
+
+          th {
+            color: themed('content-pre-header-color');            
+          }
+
+          th, td {
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            border: 1px double themed('content-pre-border-background-color');
+          }
+
+          tr:hover {
+            background-color: themed('content-pre-header-background-color');
+          }
+        }
+      }
+
+      code {
+        margin: 0 0.25rem;
+      }
     }
   }
 
@@ -213,15 +285,21 @@
 
 code, pre {
   padding: 7px;
+  line-height: 1.5em;
   font-size: $code-font-size;
-  font-family: $code-font-stack;
+  font-family: $code-font-stack;  
+  
   @include themify($themes) {
     background: themed('content-pre-background-color');
+  }
+
+  a {
+    text-decoration: none !important;
   }
 }
 
 code {
-  padding: 3px 5px;
+  padding: 3px 5px;  
   border-radius: 4px;
   @include themify($themes) {
     background: themed('content-pre-background-color');
@@ -236,6 +314,7 @@ code {
   box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
   position: relative;
   @include themify($themes) {
+    color: themed('content-pre-color');
     background: themed('content-pre-background-color');
   }
 
@@ -292,5 +371,12 @@ code {
     padding: 0;
     width: 100%;
     border-collapse: collapse;
+  }
+
+  /* LineNumbersTable */  
+  .lnt {
+    @include themify($themes) {
+      color: themed('content-pre-number-color');
+    }
   }
 }
