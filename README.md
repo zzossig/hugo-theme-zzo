@@ -545,12 +545,12 @@ themeOptions = ["custom", "dark", ...]
 
 ### custom syntax highlighting
 
-1. Make a skin.toml file at root/data folder. Set the chroma_theme value as you want. Refer this [link](https://xyproto.github.io/splash/docs/all.html).
-For example, if you want use monokai style, set the param like this.
+1. Make a skin.toml file at root/data folder. Set the chroma_theme value as you want. Refer this [link](https://xyproto.github.io/splash/docs/all.html). If chroma_theme include - or _ like special character, just delete it.
+For example, if you want use solarized-dark256 style, set the param like this.
 ```
 root/data/skin.toml
 
-chroma_theme = "monokai"
+chroma_theme = "solarizeddark256"
 ```
 
 2. Add a custom style file if you want to change specific colors. [[custom-css](#custom-css)]
