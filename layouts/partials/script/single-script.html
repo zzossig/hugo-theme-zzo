@@ -265,7 +265,7 @@
       $('code.language-mermaid:odd').each(function() {
         $(this).unwrap('pre');
         $(this).replaceWith(function () {
-          return $("<div />").append($(this).contents()).addClass('mermaid').css('padding', '30px 8px 8px');
+          return $("<div />").append($(this).contents()).addClass('mermaid').css('padding', '36px 8px 8px');
         });
       });
 
@@ -296,7 +296,7 @@
         $(this).closest('table').attr('data-content', 'FLOWCHART');
         $(this).unwrap('pre');
         $(this).replaceWith(function () {
-          return $("<div id='diagram' data-content='flowchart'></div>").append(diagramContent.text()).addClass('diagram').css('padding', '30px 8px 8px').css('margin-top', '40px');
+          return $("<div id='diagram' data-content='flowchart'></div>").append(diagramContent.text()).addClass('diagram').css('padding', '36px 8px 8px').css('margin-top', '40px');
         });      
 
         var diagram = flowchart.parse(diagramContent.text());      
@@ -335,7 +335,7 @@
       $('code.language-msc:odd').each(function() {
         $(this).unwrap('pre');
         $(this).replaceWith(function () {
-          return $("<div />").append($(this).contents()).addClass('diagram').css('padding', '30px 8px 8px').css('margin-top', '40px');
+          return $("<div />").append($(this).contents()).addClass('diagram').css('padding', '36px 8px 8px').css('margin-top', '40px');
         });
       });
       $(".diagram").sequenceDiagram(options);
