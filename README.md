@@ -25,16 +25,14 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 * CSS grid and flex for layout
 * HTML5
 * Hugo Pipes for js and sass
-* jQuery
 * Simple blog
-* Minify css
 * Meta tags and JSON-LD
 * Multilingual (i18n)
 * Responsive design
 * RSS and JSON feeds with full content
 * Search with Lunr
 * Gallery with Masonry, Photoswipe
-* Prism.js for highlight code
+* Fast code highlighting
 
 ## Minimum Hugo version
 
@@ -544,6 +542,30 @@ themeOptions = ["custom", "dark", ...]
 ```
 
 5. Once you change the skin.toml file, restart hugo.
+
+### custom syntax highlighting
+
+1. Make a skin.toml file at root/data folder. Set the chroma_theme value as you want. Refer this [link](https://xyproto.github.io/splash/docs/all.html).
+For example, if you want use monokai style, set the param like this.
+```
+root/data/skin.toml
+
+chroma_theme = "monokai"
+```
+
+2. Add a custom style file if you want to change specific colors. [[custom-css](#custom-css)]
+Then, override chroma class. You can find this class at themes/zzo/assets/sass/syntax folder.
+Example code is like this.
+
+```
+root/assets/scss/custom.scss
+
+.chroma {
+  background-color: #123456 !important;
+}
+```
+
+Make sure that !important is necessary. After you changed this param, restart hugo.
 
 ### custom header
 
