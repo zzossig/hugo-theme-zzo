@@ -14,7 +14,6 @@ enableEmoji = true
 paginate = 13
 rssLimit = 100
 
-#pygmentsStyle = "monokai"
 pygmentsOptions = "linenos=table"
 pygmentsCodefences = true
 pygmentsUseClasses = true

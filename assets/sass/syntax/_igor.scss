@@ -1,0 +1,39 @@
+@mixin chroma-igor {
+  /* Background */ .chroma { background-color: #ffffff }
+  /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+  /* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+  /* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #ffffcc }
+  /* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+  /* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+  /* Keyword */ .chroma .k { color: #0000ff }
+  /* KeywordConstant */ .chroma .kc { color: #0000ff }
+  /* KeywordDeclaration */ .chroma .kd { color: #0000ff }
+  /* KeywordNamespace */ .chroma .kn { color: #0000ff }
+  /* KeywordPseudo */ .chroma .kp { color: #0000ff }
+  /* KeywordReserved */ .chroma .kr { color: #0000ff }
+  /* KeywordType */ .chroma .kt { color: #0000ff }
+  /* NameClass */ .chroma .nc { color: #007575 }
+  /* NameDecorator */ .chroma .nd { color: #cc00a3 }
+  /* NameFunction */ .chroma .nf { color: #c34e00 }
+  /* LiteralString */ .chroma .s { color: #009c00 }
+  /* LiteralStringAffix */ .chroma .sa { color: #009c00 }
+  /* LiteralStringBacktick */ .chroma .sb { color: #009c00 }
+  /* LiteralStringChar */ .chroma .sc { color: #009c00 }
+  /* LiteralStringDelimiter */ .chroma .dl { color: #009c00 }
+  /* LiteralStringDoc */ .chroma .sd { color: #009c00 }
+  /* LiteralStringDouble */ .chroma .s2 { color: #009c00 }
+  /* LiteralStringEscape */ .chroma .se { color: #009c00 }
+  /* LiteralStringHeredoc */ .chroma .sh { color: #009c00 }
+  /* LiteralStringInterpol */ .chroma .si { color: #009c00 }
+  /* LiteralStringOther */ .chroma .sx { color: #009c00 }
+  /* LiteralStringRegex */ .chroma .sr { color: #009c00 }
+  /* LiteralStringSingle */ .chroma .s1 { color: #009c00 }
+  /* LiteralStringSymbol */ .chroma .ss { color: #009c00 }
+  /* Comment */ .chroma .c { color: #ff0000; font-style: italic }
+  /* CommentHashbang */ .chroma .ch { color: #ff0000; font-style: italic }
+  /* CommentMultiline */ .chroma .cm { color: #ff0000; font-style: italic }
+  /* CommentSingle */ .chroma .c1 { color: #ff0000; font-style: italic }
+  /* CommentSpecial */ .chroma .cs { color: #ff0000; font-style: italic }
+  /* CommentPreproc */ .chroma .cp { color: #ff0000; font-style: italic }
+  /* CommentPreprocFile */ .chroma .cpf { color: #ff0000; font-style: italic }
+}

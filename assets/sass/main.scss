@@ -14,7 +14,7 @@ $grid_navbar_height: {{ $scr.Get "grid_navbar_height" }};
 $grid_row_gap: {{ $scr.Get "grid_row_gap" }};
 
 $custom_theme_primary_color: {{ $scr.Get "custom_theme_primary_color" }};
-$prism_theme: {{ $scr.Get "prism_theme" }};
+$chroma_theme: {{ $scr.Get "chroma_theme" }};
 
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
@@ -64,5 +64,4 @@ $prism_theme: {{ $scr.Get "prism_theme" }};
 @import 'pages/single';
 @import 'pages/terms';
 
-@import 'prism/prism';
-
+@import 'syntax/syntax';

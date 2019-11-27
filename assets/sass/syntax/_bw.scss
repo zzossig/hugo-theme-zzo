@@ -1,0 +1,48 @@
+@mixin chroma-bw {
+  /* Background */ .chroma { background-color: #ffffff }
+  /* Error */ .chroma .err {  }
+  /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
+  /* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
+  /* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #ffffcc }
+  /* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+  /* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
+  /* Keyword */ .chroma .k { font-weight: bold }
+  /* KeywordConstant */ .chroma .kc { font-weight: bold }
+  /* KeywordDeclaration */ .chroma .kd { font-weight: bold }
+  /* KeywordNamespace */ .chroma .kn { font-weight: bold }
+  /* KeywordPseudo */ .chroma .kp {  }
+  /* KeywordReserved */ .chroma .kr { font-weight: bold }
+  /* KeywordType */ .chroma .kt {  }
+  /* NameClass */ .chroma .nc { font-weight: bold }
+  /* NameEntity */ .chroma .ni { font-weight: bold }
+  /* NameException */ .chroma .ne { font-weight: bold }
+  /* NameNamespace */ .chroma .nn { font-weight: bold }
+  /* NameTag */ .chroma .nt { font-weight: bold }
+  /* LiteralString */ .chroma .s { font-style: italic }
+  /* LiteralStringAffix */ .chroma .sa { font-style: italic }
+  /* LiteralStringBacktick */ .chroma .sb { font-style: italic }
+  /* LiteralStringChar */ .chroma .sc { font-style: italic }
+  /* LiteralStringDelimiter */ .chroma .dl { font-style: italic }
+  /* LiteralStringDoc */ .chroma .sd { font-style: italic }
+  /* LiteralStringDouble */ .chroma .s2 { font-style: italic }
+  /* LiteralStringEscape */ .chroma .se { font-weight: bold; font-style: italic }
+  /* LiteralStringHeredoc */ .chroma .sh { font-style: italic }
+  /* LiteralStringInterpol */ .chroma .si { font-weight: bold; font-style: italic }
+  /* LiteralStringOther */ .chroma .sx { font-style: italic }
+  /* LiteralStringRegex */ .chroma .sr { font-style: italic }
+  /* LiteralStringSingle */ .chroma .s1 { font-style: italic }
+  /* LiteralStringSymbol */ .chroma .ss { font-style: italic }
+  /* OperatorWord */ .chroma .ow { font-weight: bold }
+  /* Comment */ .chroma .c { font-style: italic }
+  /* CommentHashbang */ .chroma .ch { font-style: italic }
+  /* CommentMultiline */ .chroma .cm { font-style: italic }
+  /* CommentSingle */ .chroma .c1 { font-style: italic }
+  /* CommentSpecial */ .chroma .cs { font-style: italic }
+  /* CommentPreproc */ .chroma .cp {  }
+  /* CommentPreprocFile */ .chroma .cpf {  }
+  /* GenericEmph */ .chroma .ge { font-style: italic }
+  /* GenericHeading */ .chroma .gh { font-weight: bold }
+  /* GenericPrompt */ .chroma .gp { font-weight: bold }
+  /* GenericStrong */ .chroma .gs { font-weight: bold }
+  /* GenericSubheading */ .chroma .gu { font-weight: bold }
+}
