@@ -79,6 +79,7 @@
             element.setAttribute('data-lang', mapLang(sub.getAttribute('data-lang')));
           } else {
             element.setAttribute('data-lang', 'Code');
+            $(element).addClass('chroma');
           }
         }
       );
@@ -213,10 +214,23 @@
           clipInit = true;
         }
 
-        code.after('<span class="copy-to-clipboard" title="Copy to clipboard" />');
-        code.next('.copy-to-clipboard').on('mouseleave', function () {
-          $(this).attr('aria-label', null).removeClass('tooltipped tooltipped-s tooltipped-w');
-        });
+        var notAllowedClass = ['language-mermaid', 'language-viz', 'language-wave', 'language-chart', 'language-msc', 'language-flowchart'];
+        var isNotAllowedIncluded = false;
+        var curClassName = code.attr('class');
+
+        for (let str of notAllowedClass) {
+          if (curClassName && curClassName.startsWith(str)) {
+            isNotAllowedIncluded = true;
+            break;
+          } 
+        }
+
+        if (!isNotAllowedIncluded) {
+          code.after('<span class="copy-to-clipboard" title="Copy to clipboard" />');
+          code.next('.copy-to-clipboard').on('mouseleave', function () {
+            $(this).attr('aria-label', null).removeClass('tooltipped tooltipped-s tooltipped-w');
+          });
+        }        
       }
     });
 
@@ -281,8 +295,16 @@
         mermaid.initialize({ theme: 'default' });
       }
       
-      // mermaid Fix Mermaid.js clash with Highlight.js.
-      $('code.language-mermaid:odd').each(function() {
+      let mermaids = [];
+      [].push.apply(mermaids, document.getElementsByClassName('language-mermaid'));
+      for (i = 0; i < mermaids.length; i++) {
+        $(mermaids[i]).unwrap('pre');
+        $(mermaids[i]).replaceWith(function () {
+          return $("<div />").append($(this).contents()).addClass('mermaid').css('padding', '34px 4px 6px');
+        });
+      }
+
+      /*$('code.language-mermaid:odd').each(function() {
         $(this).unwrap('pre');
         $(this).replaceWith(function () {
           return $("<div />").append($(this).contents()).addClass('mermaid').css('padding', '34px 4px 6px');
@@ -291,7 +313,7 @@
 
       $('code.language-mermaid').each(function (index, node) {
         $(this).css('display', 'none');
-      });
+      });*/
     }
 
     // katex
@@ -303,7 +325,7 @@
         { left: "\\[", right: "\\]", display: true }
       ];
 
-      renderMathInElement(document.getElementsByClassName('single__contents')[0], options);
+      renderMathInElement(document.querySelector('.single__contents'), options);
     }
 
     // flowchart.js
@@ -311,7 +333,24 @@
       {{ $flowchartjs := .Site.Data.flowchartjs }}
       var options = JSON.parse({{ $flowchartjs | jsonify }});
 
-      $('code.language-flowchart:odd').each(function (index, node) {
+      var flowchartPrefix = "language-flowchart";
+      var index = 0;
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + flowchartPrefix + "]"), function(x){
+          x.style.display = 'none'
+          x.parentNode.style.backgroundColor = "transparent"
+          jsonContent = x.innerText;
+
+          node0 = document.createElement('div');
+          node0.id = 'flowchart' + index;
+          x.parentNode.insertBefore(node0, x);
+
+          var diagram = flowchart.parse(jsonContent);
+          diagram.drawSVG("flowchart"+index, options);
+
+          index +=1;
+      });
+      
+      /*$('code.language-flowchart:odd').each(function (index, node) {
         var diagramContent = $(this).contents();
         $(this).closest('table').attr('data-content', 'FLOWCHART');
         $(this).unwrap('pre');
@@ -329,7 +368,7 @@
         $(this).replaceWith(function () {
           return $("<div></div>");
         });      
-      });
+      });*/
     }
 
     // mathjax
@@ -352,17 +391,31 @@
       {{ $msc := .Site.Data.msc }}
       var options = JSON.parse({{ $msc | jsonify }});    
 
-      $('code.language-msc:odd').each(function() {
+      var index = 0;
+      var chartPrefix = "language-msc";
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        jsonContent = x.innerText;
+        node0 = document.createElement('div');
+        node0.id = 'msc' + index;
+        x.parentNode.insertBefore(node0, x);
+        var diagram = Diagram.parse(jsonContent);
+        diagram.drawSVG("msc" + index, options);
+        index += 1;
+      });
+
+      /*$('code.language-msc:odd').each(function() {
         $(this).unwrap('pre');
         $(this).replaceWith(function () {
-          return $("<div />").append($(this).contents()).addClass('diagram').css('padding', '34px 4px 6px').css('margin-top', '40px');
+          return $("<div />").append($(this).contents()).addClass('diagram');
         });
       });
       $(".diagram").sequenceDiagram(options);
 
       $('code.language-msc').each(function (index, node) {
         $(this).css('display', 'none');
-      });
+      });*/
     }
 
     // chart.js
@@ -383,7 +436,24 @@
       Chart.defaults.global.elements.point.borderColor = borderColor;
       Chart.defaults.global.elements.point.backgroundColor = bgColor;
 
-      $('code.language-chart:odd').each(function (index, node) {
+      var chartPrefix = "language-chart";
+      var index = 0;
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        jsonContent = x.innerText;
+        node0 = document.createElement('canvas');
+        node0.height = 200;
+        node0.style.height = 200;
+        node0.id = 'myChart' + index;
+        source = JSON.parse(jsonContent);
+        x.parentNode.insertBefore(node0, x);
+        var ctx = document.getElementById('myChart' + index).getContext('2d');
+        var myChart = new Chart(ctx, source);
+        index += 1;
+      });      
+
+      /*$('code.language-chart:odd').each(function (index, node) {
         $(this).unwrap('pre');
 
         node0 = document.createElement('canvas');
@@ -401,12 +471,13 @@
 
       $('code.language-chart:even').each(function (index, node) {
         $(this).css('display', 'none');
-      });
+      });*/
+      
     }
 
     // wavedrom
     if (lib && lib.includes('wavedrom')) {
-      $('code.language-wave:odd').each(function (index, node) {
+      /*$('code.language-wave:odd').each(function (index, node) {
         $(this).unwrap('pre');
 
         node0 = document.createElement('div');
@@ -422,12 +493,26 @@
 
       $('code.language-wave').each(function (index, node) {
         $(this).css('display', 'none');
+      });*/
+
+      var wavePrefix = "language-wave";
+      var index = 0;
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + wavePrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        jsonContent = x.innerText;
+        node0 = document.createElement('div');
+        node0.id = 'WaveDrom_Display_' + index;
+        source = JSON.parse(jsonContent);
+        x.parentNode.insertBefore(node0, x);
+        WaveDrom.RenderWaveForm(index, source, "WaveDrom_Display_");
+        index += 1;
       });
     }
 
     // viz diagram
     if (lib && lib.includes('viz')) {
-      var vizPrefix = "language-viz-";
+      /*var vizPrefix = "language-viz-";
       $('pre[class*="language-viz-"]:odd').each(function (index, node) {
         $(this).unwrap('pre');
 
@@ -448,6 +533,24 @@
       });
       $('code[class*="language-viz-"]:even').each(function (index, node) {
         $(this).hide();
+      });*/
+
+      var vizPrefix = "language-viz-";
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + vizPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        var engine;
+        x.getAttribute("class").split(" ").forEach(function (cls) {
+          if (cls.startsWith(vizPrefix)) {
+            engine = cls.substr(vizPrefix.length);
+          }
+        });
+        var viz = new Viz();
+        viz.renderSVGElement(x.innerText, { engine: engine })
+          .then(function (element) {
+            element.style.width = "100%";
+            x.parentNode.insertBefore(element, x);
+          })
       });
     }
   }

@@ -21,6 +21,8 @@ $chroma_theme: {{ $scr.Get "chroma_theme" }};
 @import 'abstracts/functions';
 @import 'abstracts/flexbox';
 
+@import 'syntax/syntax';
+
 @import 'base/reset';
 @import 'base/fonts';
 @import 'base/helpers';
@@ -63,5 +65,3 @@ $chroma_theme: {{ $scr.Get "chroma_theme" }};
 @import 'pages/list';
 @import 'pages/single';
 @import 'pages/terms';
-
-@import 'syntax/syntax';

@@ -15,9 +15,12 @@ paginate = 13
 rssLimit = 100
 
 pygmentsOptions = "linenos=table"
-pygmentsCodefences = true
 pygmentsUseClasses = true
-pygmentsCodefencesGuessSyntax = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [outputs]
   home = ["HTML", "RSS", "JSON", "WebAppManifest"]

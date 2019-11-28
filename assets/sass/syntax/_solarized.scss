@@ -1,5 +1,5 @@
 @mixin chroma-solarized {
-  /* Background */ .chroma { color: #344952; background-color: #faf5e6 }
+  /* Background */ .chroma { color: #dc322f; background-color: #ede9da }
   /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
   /* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
   /* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #ffffcc }
@@ -27,7 +27,7 @@
   /* NameNamespace */ .chroma .nn { color: #c47e00 }
   /* NameOther */ .chroma .nx { color: #c47e00 }
   /* NameProperty */ .chroma .py { color: #c47e00 }
-  /* NameTag */ .chroma .nt { color: #c47e00; font-weight: bold }
+  /* NameTag */ .chroma .nt { color: #268bd2; font-weight: bold }
   /* NameVariable */ .chroma .nv { color: #c47e00 }
   /* NameVariableClass */ .chroma .vc { color: #c47e00 }
   /* NameVariableGlobal */ .chroma .vg { color: #c47e00 }

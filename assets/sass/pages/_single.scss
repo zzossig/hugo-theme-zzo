@@ -283,23 +283,23 @@
   }
 }
 
-code, pre {
+code, pre {  
   padding: .5rem 0;
   line-height: 1.5em;
   font-size: $code-font-size;
   font-family: $code-font-stack;  
-  
-  // @include themify($themes) {
-  //   background: themed('content-pre-background-color');
-  // }
+
+  @include themify($themes) {
+    background: themed('content-pre-background-color');
+  }
 
   a {
     text-decoration: none !important;
   }
 }
 
-code {
-  //padding: 3px 5px;  
+code {  
+  padding: 3px 5px;  
   border-radius: 4px;
   // @include themify($themes) {
   //   background: themed('content-pre-background-color');
@@ -325,7 +325,7 @@ code {
   }
 
   code {
-    padding: 0;
+    padding: 0;    
   }
 
   table {

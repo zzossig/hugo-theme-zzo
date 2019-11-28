@@ -36,7 +36,7 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 
 ## Minimum Hugo version
 
-Hugo version 0.58.0 or higher is required.
+Hugo version 0.60.0 or higher is required.
 
 ## Installation
 

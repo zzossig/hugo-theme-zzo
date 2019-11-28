@@ -6,15 +6,27 @@
     overflow: auto;
 }
 
-// flowchart.js
-.diagram {
+.diagram {    
     overflow: auto;
     margin-right: 1rem;
     margin-bottom: 1rem;
     border-radius: 0.25rem;
+    @include flexbox();
+    @include justify-content(center);
 }
 
-div[id^=WaveDrom_Display] {
+[id^=msc] {
+    overflow: auto;
+    margin: 0.5rem 0;
+    text-align: center;    
+}
+
+[id^=flowchart] {
+    overflow: auto;
+}
+
+[id^=WaveDrom_Display] {
+    overflow: auto;
     background-color: #FCFCFA;
     border-radius: 0.25rem;
 }

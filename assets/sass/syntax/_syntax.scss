@@ -53,7 +53,11 @@
   
   .theme__solarized {
     @include chroma-solarized;
-  }  
+  } 
+
+  .theme__custom {
+    @include chroma-autumn;
+  }
 } @else if $chroma_theme == abap {
   @include chroma-abap;
 } @else if $chroma_theme == algol {
