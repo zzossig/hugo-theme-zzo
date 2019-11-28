@@ -15,15 +15,15 @@
     }
   }
 
-  &-ul {
-    @include align-self(center);
-    list-style-type: disc;
-  }
-
   &__link {
     font-size: 16.8px;
     @include themify($themes) {
       color: themed('related-link-color');
     }
+  }
+
+  &-ul {
+    @include align-self(center);
+    list-style-type: disc;
   }
 }

@@ -76,10 +76,7 @@
         .forEach((element) => {
           const sub = element.querySelector('code[data-lang]');
           if (sub) {
-            element.setAttribute('data-lang', mapLang(sub.getAttribute('data-lang')));
-          } else {
-            element.setAttribute('data-lang', 'Code');
-            $(element).addClass('chroma');
+            $(element).closest('div.chroma').attr('data-lang', mapLang(sub.getAttribute('data-lang')));
           }
         }
       );
@@ -91,8 +88,7 @@
           if (!$(element).attr('data-lang')) {
             $(element).parent().wrap('<div data-lang="Code" class="language-code"></div>');
           }
-        }
-        );
+        });
     })();
 
     function mapLang(name) {
@@ -187,7 +183,7 @@
       $(e.trigger).attr('aria-label', 'Link copied to clipboard!').addClass('tooltipped tooltipped-s');
     });
     
-    $('.language-code pre').each(function (i, node) {
+    $('.language-code').each(function (i, node) {
       $(node).append('<span class="copy-to-clipboard" title="Copy to clipboard"/>');
     });
 
@@ -201,7 +197,13 @@
         if (!clipInit) {
           var text, clip = new ClipboardJS('.copy-to-clipboard', {
             text: function (trigger) {
-              text = $(trigger).prev('code').text();
+              console.log();
+              if ($(trigger).prev().find('code').length > 1) {                
+                text = $(trigger).prev().find(`code[class^="language-"]`).text();
+              } else {
+                text = $(trigger).prev().find('code').text();
+              }
+               
               return text.replace(/^\$\s/gm, '');
             }
           });
@@ -234,18 +236,14 @@
             break;
           } 
         }
-
+        
         if (!isNotAllowedIncluded) {
           if (curClassName) {
-            code.after('<span class="copy-to-clipboard" title="Copy to clipboard" />');
+            code.closest('div.chroma').append('<span class="copy-to-clipboard" title="Copy to clipboard" />');
           }         
         }        
       }
     });
-
-    /*$('.language-code code').each(function(i, node) {
-      $(node).append('<span class="copy-to-clipboard" title="Copy to clipboard" />');    
-    });*/
 
     // gallery
     {{ $enablePhotoSwipe := ($.Param "enablePhotoSwipe") }}

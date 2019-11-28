@@ -2,7 +2,7 @@
     {{ $related := .Site.RegularPages.Related . | first 5 }}
     {{ with $related }}
     <h1 class="related__title">
-      <hr class="hr-dots" />
+      <hr class="hr-dots"/>
       <div>
         {{ i18n "single-related" }}
       </div>

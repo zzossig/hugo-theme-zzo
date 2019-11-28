@@ -135,7 +135,7 @@
     }
 
     .copy-to-clipboard {
-      @include clippy();
+      @include clippy();      
       background-position: 50% 50%;
       background-size: 16px 16px;
       background-repeat: no-repeat;
@@ -163,6 +163,17 @@
       @include transition(all, 0.2s, ease);
     }
     .chroma .copy-to-clipboard:hover {
+      @include translateY(-0.1rem);
+    }
+    .language-code .copy-to-clipboard {
+      position: absolute;
+      right: 4px;
+      top: 5px;      
+      border-radius: 2px;
+      z-index: 1;
+      @include transition(all, 0.2s, ease);
+    }
+    .language-code .copy-to-clipboard:hover {
       @include translateY(-0.1rem);
     }
 
@@ -332,7 +343,7 @@ pre:not(.chroma) {
 }
 
 .single__contents > .language-code {
-  overflow: auto;
+  overflow-x: auto;
   position: relative;
   margin: 1em 0;
 
@@ -354,45 +365,15 @@ pre:not(.chroma) {
         background: themed('content-pre-header-background-color');
     }
   }
-
-  .copy-to-clipboard {
-    position: absolute;
-    right: 4px;
-    top: 5px;
-    border-radius: 2px;
-    z-index: 1;
-    @include transition(all, 0.2s, ease);
-  }
-
-  .copy-to-clipboard:hover {
-    @include translateY(-0.1rem);
-  }
-
-  .chroma .copy-to-clipboard {
-    position: absolute;
-    right: 4px;
-    top: 5px;      
-    border-radius: 2px;
-    z-index: 1;
-    @include transition(all, 0.2s, ease);
-  }
-  
-  .chroma .copy-to-clipboard:hover {
-    @include translateY(-0.1rem);
-  }
-}
-
-// chroma
-div.chroma {
-  overflow: auto;
 }
 
 .highlight > .chroma {
   margin: 1em 0;
   border-radius: 5px;
-  overflow-x: auto;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
   position: relative;
+  overflow-x: auto;
+
   @include themify($themes) {
     color: themed('content-pre-color');
     background: themed('content-pre-background-color');
@@ -402,24 +383,20 @@ div.chroma {
     padding: 0;    
   }
 
-  table {
-    position: relative;
-
-    &::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      padding: 2px 7px;
-      font-size: $code-font-size;
-      font-family: $title-font;
-      font-weight: bold;
-      @include themify($themes) {
-        color: themed('content-pre-header-color');
-        background: themed('content-pre-header-background-color');
-      }
-      content: attr(data-lang);
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 2px 7px;
+    font-size: $code-font-size;
+    font-family: $title-font;
+    font-weight: bold;
+    @include themify($themes) {
+      color: themed('content-pre-header-color');
+      background: themed('content-pre-header-background-color');
     }
+    content: attr(data-lang);
   }
 
   .lntd {
@@ -443,20 +420,20 @@ div.chroma {
       pre {
         margin: 0;
         padding: 34px 4px 6px;
-        &::after {
-          content: 'Code';
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: 0;
-          height: 31px;
-          padding: 5px 7px;
-          font-size: $code-font-size;
-          font-family: $title-font;
-          font-weight: bold;
-          border-top-left-radius: 0.34rem;
-          border-top-right-radius: 0.34rem;
-        }
+        // &::after {
+        //   content: 'Code';
+        //   position: absolute;
+        //   top: 0;
+        //   right: 0;
+        //   left: 0;
+        //   height: 31px;
+        //   padding: 5px 7px;
+        //   font-size: $code-font-size;
+        //   font-family: $title-font;
+        //   font-weight: bold;
+        //   border-top-left-radius: 0.34rem;
+        //   border-top-right-radius: 0.34rem;
+        // }
       }
     }
   }
