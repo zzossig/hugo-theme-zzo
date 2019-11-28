@@ -72,7 +72,7 @@
   window.onload = function() {
     // syntax highlight
     (function () {
-      document.querySelectorAll('.chroma>table')
+      document.querySelectorAll('.chroma > table')
         .forEach((element) => {
           const sub = element.querySelector('code[data-lang]');
           if (sub) {
@@ -83,6 +83,16 @@
           }
         }
       );
+    })();
+
+    (function () {
+      document.querySelectorAll('.single__contents > pre > code')
+        .forEach((element) => {
+          if (!$(element).attr('data-lang')) {
+            $(element).parent().wrap('<div data-lang="Code" class="language-code"></div>');
+          }
+        }
+        );
     })();
 
     function mapLang(name) {
@@ -176,14 +186,14 @@
       e.clearSelection();
       $(e.trigger).attr('aria-label', 'Link copied to clipboard!').addClass('tooltipped tooltipped-s');
     });
-
-    $('pre.chroma').not(':has(code)').each(function() {
-      $(this).not(':has(span)').wrap('<code style="font-size: 1rem;"></code>');
+    
+    $('.language-code pre').each(function (i, node) {
+      $(node).append('<span class="copy-to-clipboard" title="Copy to clipboard"/>');
     });
 
     // clipboard
     var clipInit = false;
-    $('code').each(function () {
+    $('pre.chroma code, .language-code code').each(function () {
       var code = $(this),
         text = code.text();
 
@@ -226,13 +236,16 @@
         }
 
         if (!isNotAllowedIncluded) {
-          code.after('<span class="copy-to-clipboard" title="Copy to clipboard" />');
-          code.next('.copy-to-clipboard').on('mouseleave', function () {
-            $(this).attr('aria-label', null).removeClass('tooltipped tooltipped-s tooltipped-w');
-          });
+          if (curClassName) {
+            code.after('<span class="copy-to-clipboard" title="Copy to clipboard" />');
+          }         
         }        
       }
     });
+
+    /*$('.language-code code').each(function(i, node) {
+      $(node).append('<span class="copy-to-clipboard" title="Copy to clipboard" />');    
+    });*/
 
     // gallery
     {{ $enablePhotoSwipe := ($.Param "enablePhotoSwipe") }}

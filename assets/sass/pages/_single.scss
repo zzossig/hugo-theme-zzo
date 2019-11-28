@@ -100,13 +100,38 @@
       margin: 1.5rem 0 0.5rem 0;
     }
 
+    pre {
+      padding: 34px 12px 8px;
+      position: relative;
+      overflow: auto;
+      border-radius: 0.34rem;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        //padding: 50px 7px;
+        font-size: $code-font-size;
+        font-family: $title-font;
+        font-weight: bold;
+        content: attr(data-lang);
+
+        @include themify($themes) {
+          color: themed('content-pre-header-color');
+          background: themed('content-pre-header-background-color');
+        }
+      }
+    }
+
     code + .copy-to-clipboard {
-      margin-left: -1px;
-      border-left: 0 !important;
-      font-size: inherit !important;
-      vertical-align: middle;
-      height: 21px;
-      top: 0;
+      position: absolute;
+      right: 4px;
+      top: 5px;
+      border-radius: 2px;
+      z-index: 1;
+      @include transition(all, 0.2s, ease);
     }
 
     .copy-to-clipboard {
@@ -213,19 +238,17 @@
       cursor: pointer;
     }
 
-    .footnote-ref {
-      a {
-        font-size: 0.75rem;
-        font-weight: bold;
-        margin-left: 3px;
+    a.footnote-ref {
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-left: 3px;
 
-        &::before {
-          content: "[";
-        }
+      &::before {
+        content: "[";
+      }
 
-        &::after {
-          content: "]";
-        }
+      &::after {
+        content: "]";
       }
     }
 
@@ -287,8 +310,9 @@ code, pre {
   padding: .5rem 0;
   line-height: 1.5em;
   font-size: $code-font-size;
-  font-family: $code-font-stack;  
-
+  font-family: $code-font-stack;
+  position: relative;
+  
   @include themify($themes) {
     background: themed('content-pre-background-color');
   }
@@ -301,18 +325,68 @@ code, pre {
 code {  
   padding: 3px 5px;  
   border-radius: 4px;
-  // @include themify($themes) {
-  //   background: themed('content-pre-background-color');
-  // }
 }
 
-.highlight {
-  table {
-    //border-radius: 5.5rem !important;
+pre:not(.chroma) {
+  overflow: auto;
+}
+
+.single__contents > .language-code {
+  overflow: auto;
+  position: relative;
+  margin: 1em 0;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 2px 7px;
+    font-size: $code-font-size;
+    font-family: $title-font;
+    font-weight: bold;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    content: attr(data-lang);
+
+    @include themify($themes) {
+        color: themed('content-pre-header-color');
+        background: themed('content-pre-header-background-color');
+    }
+  }
+
+  .copy-to-clipboard {
+    position: absolute;
+    right: 4px;
+    top: 5px;
+    border-radius: 2px;
+    z-index: 1;
+    @include transition(all, 0.2s, ease);
+  }
+
+  .copy-to-clipboard:hover {
+    @include translateY(-0.1rem);
+  }
+
+  .chroma .copy-to-clipboard {
+    position: absolute;
+    right: 4px;
+    top: 5px;      
+    border-radius: 2px;
+    z-index: 1;
+    @include transition(all, 0.2s, ease);
+  }
+  
+  .chroma .copy-to-clipboard:hover {
+    @include translateY(-0.1rem);
   }
 }
 
 // chroma
+div.chroma {
+  overflow: auto;
+}
+
 .highlight > .chroma {
   margin: 1em 0;
   border-radius: 5px;
@@ -364,10 +438,25 @@ code {
 
     &:last-child {
       vertical-align: top;
+      position: relative;
 
       pre {
         margin: 0;
         padding: 34px 4px 6px;
+        &::after {
+          content: 'Code';
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 31px;
+          padding: 5px 7px;
+          font-size: $code-font-size;
+          font-family: $title-font;
+          font-weight: bold;
+          border-top-left-radius: 0.34rem;
+          border-top-right-radius: 0.34rem;
+        }
       }
     }
   }

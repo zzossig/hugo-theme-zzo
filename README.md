@@ -1,6 +1,6 @@
 # Zzo theme for Hugo
 
-🚨🚨🚨Minimum Hugo version changed to 0.60.0. This version changed the markdown rendering library, so if you are using an older version, it may not be compatible.
+🚨🚨🚨Minimum Hugo version changed to 0.60.0. This version changes the markdown rendering library, so if you are using an older version, it may not be compatible.
 Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(always), and many features. 
 
 ## Table of contents
