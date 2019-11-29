@@ -1,17 +1,17 @@
-baseURL = "http://example.org/"
-title = "Hugo Zzo Theme"
-theme = "zzo"
+baseURL = "http://example.org/" # The URL of your site.
+title = "Hugo Zzo Theme" # Title of your site
+theme = "zzo" # Name of Zzo theme folder in `themes/`.
 
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true
-hasCJKLanguage = true
+defaultContentLanguage = "en" # Default language to use (if you setup multilingual support)
+defaultContentLanguageInSubdir = true # baseURL/en/, baseURL/kr/ ...
+hasCJKLanguage = true # Set `true` for Chinese/Japanese/Korean languages.
 
 summaryLength = 70
 
-copyright = "&copy;{year}, All Rights Reserved"
+copyright = "&copy;{year}, All Rights Reserved" # copyright symbol: $copy; current year: {year}
 timeout = 10000
 enableEmoji = true
-paginate = 13
+paginate = 13 # Number of items per page in paginated lists.
 rssLimit = 100
 
 pygmentsOptions = "linenos=table"

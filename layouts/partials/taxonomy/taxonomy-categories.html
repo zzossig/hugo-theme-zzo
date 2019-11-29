@@ -1,6 +1,6 @@
 {{ if $.Param "enableSidebarCategories" }}
 <div class="taxo">
-    <aside>
+    <section>
         <span class="title p2">
             <a href="{{ "/categories/" | relLangURL }}" class="taxo__title">
                 {{ i18n "taxo-categories" }}
@@ -20,6 +20,6 @@
             </span>
         {{ end }}
         {{ end }}
-    </aside>
+    </section>
 </div>
 {{ end }}

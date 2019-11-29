@@ -1,7 +1,7 @@
 {{ if $.Param "enableWhoami" }}
 <div class="whoami__gutter"></div>
 <hr class="hr-slash whoami-hr"/>
-<div class="whoami">  
+<aside class="whoami">  
   <div class="whoami__image-wrapper">
     {{ $src := "" }}
     {{ if site.Params.useGravatar }}    
@@ -39,6 +39,6 @@
       {{ end }}
     </div>
   </div>
-</div>
+</aside>
 <hr class="hr-slash whoami-hr" />
 {{ end }}

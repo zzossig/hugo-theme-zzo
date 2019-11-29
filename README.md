@@ -1,6 +1,7 @@
 # Zzo theme for Hugo
 
-🚨🚨🚨Minimum Hugo version changed to 0.60.0. This version changes the markdown rendering library, so if you are using an older version, it may not be compatible.
+🚨🚨🚨Minimum Hugo version changed to 0.60.0. This version changed the markdown rendering library, so if you are using an older version, it may not be compatible.🚨🚨🚨
+
 Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(always), and many features. 
 
 ## Table of contents
@@ -95,26 +96,29 @@ root
 2. config.toml
 
 ```bash
-baseURL = "http://example.org/"
-title = "Hugo Zzo Theme"
-theme = "zzo"
+baseURL = "http://example.org/" # The URL of your site.
+title = "Hugo Zzo Theme" # Title of your site
+theme = "zzo" # Name of Zzo theme folder in `themes/`.
 
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true
-hasCJKLanguage = true
+defaultContentLanguage = "en" # Default language to use (if you setup multilingual support)
+defaultContentLanguageInSubdir = true # baseURL/en/, baseURL/kr/ ...
+hasCJKLanguage = true # Set `true` for Chinese/Japanese/Korean languages.
 
 summaryLength = 70
 
-copyright = "&copy;{year}, All Rights Reserved"
+copyright = "&copy;{year}, All Rights Reserved" # copyright symbol: $copy; current year: {year}
 timeout = 10000
 enableEmoji = true
-paginate = 13
+paginate = 13 # Number of items per page in paginated lists.
 rssLimit = 100
 
 pygmentsOptions = "linenos=table"
-pygmentsCodefences = true
 pygmentsUseClasses = true
-pygmentsCodefencesGuessSyntax = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [outputs]
   home = ["HTML", "RSS", "JSON", "WebAppManifest"]
@@ -196,26 +200,29 @@ You shoud make your own menu.
 5. params.toml
 
 ```bash
-logoText = "Zzo"
-description = "The Zzo theme for Hugo example site."
-custom_css = []
-custom_js = []
+logoText = "Zzo" # site navigation bar logo text.
+description = "The Zzo theme for Hugo example site." # for SEO
+custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
+custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
 
 # header
-homeHeaderType = "slide" # text, img, slide
+homeHeaderType = "text" # text, img, slide
+
+# navbar
+enableThemeChange = true # site color theme
 
 # body
-enableBreadcrumb = true
-enablePhotoSwipe = true
-enableSearch = true
-enableGoToTop = true
-enableWhoami = true
+enableBreadcrumb = true # breadcrumb for list, single page
+enablePhotoSwipe = true # image viewer for gallery, single page
+enableSearch = true # site search with lunr
+enableGoToTop = true # scroll to top
+enableWhoami = true # at the end of single page
 summaryShape = "classic" # card, classic, compact
 archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
-archivePaginate = 13
-paginateWindow = 1
+archivePaginate = 13 # items per page
+paginateWindow = 1 # setting it to 1 gives 7 buttons, 2 gives 9, etc. If set 1: [1 ... 4 5 6 ... 356] [1 2 3 4 5 ... 356] etc
 
-# whoami
+# whoami: usage - home page sidebar, single page bottom of post. all values can be empty
 myname = "zzossig"
 email = "zzossig@gmail.com"
 whoami = "Web Developer"
@@ -225,27 +232,26 @@ organization = "Hugo"
 link = "https://github.com/zzossig/hugo-theme-zzo"
 
 # sidebar
-enableBio = true
-enableSidebar = true
-enableSidebarTags = true
+enableBio = true # home page sidebar
+enableSidebar = true # if you want to make full width of contents
+enableSidebarTags = true # if you want to use tags.
 enableSidebarSeries = true
 enableSidebarCategories = true
-enableToc = true
-enableTocSwitch = true
-itemsPerCategory = 5
-searchLanguages = ['en']
+enableToc = true # single page table of contents
+enableTocSwitch = true # single page table of contents visibility switch
+itemsPerCategory = 5 # maximum number of posts shown in the sidebar.
+searchLanguages = ['en'] # lunr multilanguage search. https://github.com/MihaiValentin/lunr-languages
 
 # footer
-showPoweredBy = true
-showFeedLinks = true
-showSocialLinks = true
-enableLangChange = true
-enableThemeChange = true
-themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
+showPoweredBy = true # show footer text: Powered by Hugo and Zzo theme
+showFeedLinks = true # RSS Feed 
+showSocialLinks = true # email, facebook, twitter ...
+enableLangChange = true # show button at bottom left of footer.
+themeOptions = ["dark", "light", "hacker", "solarized", "custom"] # select options for site color theme
 
 # comment
 enableComment = true
-disqus_shortname = ""
+disqus_shortname = "" 
 commento = false
 
 [gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
@@ -294,7 +300,7 @@ commento = false
   google_analytics = ""
   google_tag_manager = ""
 
-[socialOptions]
+[socialOptions] # if set, social icons will show up.
   email = "mailto:your@email.com"
   facebook = "http://example.org/"
   twitter = "http://example.org/"
@@ -530,23 +536,15 @@ assets/js/custom.js
 
 1. Make a skin.toml file in data folder. (data/skin.toml)
 
-2. Copy the contents of themes/zzo/data/skin.toml file and paste it into the skin.toml file you created above.
+2. Set custom_theme_primary_color variable. The range of value that can be set is from "0" to "359".
 
-3. Change the color you want.
-
-4. Edit config/_default/params.toml file. The option name must be custom.
-
-```bash
-...
-themeOptions = ["custom", "dark", ...]
-...
-```
+3. Restart hugo.
 
 5. Once you change the skin.toml file, restart hugo.
 
 ### custom syntax highlighting
 
-1. Make a skin.toml file at root/data folder. Set the chroma_theme value as you want. Refer this [link](https://xyproto.github.io/splash/docs/all.html). If chroma_theme include - or _ like special character, just delete it.
+1. Make a skin.toml file at root/data folder. Set the chroma_theme value as you want. Refer this [link](https://xyproto.github.io/splash/docs/all.html). If chroma_theme value include - or _ like special character, just delete it.
 For example, if you want use solarized-dark256 style, set the param like this.
 ```
 root/data/skin.toml
@@ -722,13 +720,14 @@ You can add some config option parameters at data/flowchartjs.json
 ### img
 
 ```bash
-{{% img src="https://example.com" title="Image4" caption="Image description" alt="image alt" %}}
+// path: static/images/whoami/avatar.jpg
+{{% img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" %}}
 ```
 
 ### notice
 
 ```bash
-{{% notice note %}}
+{{% notice note %}} # note, info, tip, warning
 A notice disclaimer
 {{% /notice %}}
 ```

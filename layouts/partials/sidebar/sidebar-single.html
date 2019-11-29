@@ -1,7 +1,7 @@
 {{ if $.Param "enableSidebar" }}
 {{ if $.Param "enableToc" }}
 
-<div class="sidebar">
+<section class="sidebar">
   <div class="toc__flexbox">
     <h6 class="toc__title">{{ i18n "toc-label" }}</h6>
     {{ if $.Param "enableTocSwitch" }}
@@ -14,7 +14,7 @@
   <div class="toc">
     <ul id="toc"></ul>
   </div>
-</div>
+</section>
 
 {{ end }}
 {{ end }}

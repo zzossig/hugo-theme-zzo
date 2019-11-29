@@ -1,4 +1,4 @@
-<div class="related">
+<aside class="related">
     {{ $related := .Site.RegularPages.Related . | first 5 }}
     {{ with $related }}
     <h1 class="related__title">
@@ -16,4 +16,4 @@
         {{ end }}
     </ul>
     {{ end }}
-</div>
+</aside>

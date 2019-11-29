@@ -26,11 +26,13 @@
   }
 
   &__slide-down {
-    @for $i from 1 through 8 {
-      &:nth-child(#{$i}) {
-        @include animation('slide-in-down .25s #{$i * .1}s 1 ease both');
+    @include respond-up(sm) {
+      @for $i from 1 through 8 {
+        &:nth-child(#{$i}) {
+          @include animation('slide-in-down .25s #{$i * .1}s 1 ease both');
+        }
       }
-    }
+    }    
   }
   
   &__brand {
@@ -336,6 +338,7 @@
       display: block;
       font-size: 1rem;
 
+      @include no-select;
       @include themify($themes) {
         color: themed("dropdown-item-color");
         @include on-event {
@@ -382,7 +385,6 @@
     @include flexbox();
     @include align-items(center);
     @include justify-content(flex-end);
-    
   }
 
   .dropdown {
@@ -396,7 +398,7 @@
       }      
     }
 
-    &-trigger {      
+    &-trigger {
       padding: 0.5rem;
       cursor: pointer;
       border: none;      
@@ -441,6 +443,7 @@
       display: block;
       font-size: 1rem;
 
+      @include no-select;
       @include themify($themes) {
         color: themed("dropdown-item-color");
         @include on-event {
