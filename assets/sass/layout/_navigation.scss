@@ -128,6 +128,7 @@
   &__title {
     height: $grid_navbar_height;
     font-size: 1.5rem;
+    
     @include flexbox();
     @include align-items(center);        
     
@@ -158,7 +159,7 @@
       padding: 0.5rem;
       font-size: 1rem;
       font-family: $title-font;
-      font-weight: 400;
+      font-weight: 700;
 
       @include flexbox();
       @include align-items(center);
@@ -203,6 +204,7 @@
       @include themify($themes) {        
         border-top: 1px solid themed('navbar-border-bottom-color');
         background-color: themed('navbar-mobile-background-color');
+        border-bottom: 1px solid themed('navbar-border-bottom-color');
       }
     }
   }
@@ -246,6 +248,7 @@
       text-decoration: none;
       display: block;
       font-size: 1rem;
+      font-weight: 700;
 
       @include themify($themes) {
         color: themed("dropdown-item-color");

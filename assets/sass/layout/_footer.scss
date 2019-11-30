@@ -7,24 +7,14 @@
     background-color: themed('footer-background-color');
   }
 
-  &__wrapper {
-    @include flexbox();        
-    @include flex-direction(row);
-    @include respond-to(sm) {
-      @include flex-direction(column);
-    }
-  }
-
   &__social {
     padding: 0.5rem 0;
     position: -webkit-sticky;
     position: sticky;
     bottom: 70px;
-
-    @include flex-grow(1);
+    
     @include flexbox();
-    @include align-items(center);
-    @include flex-direction(column);
+    @include justify-content(center);
   }
 
   &__poweredby {

@@ -11,9 +11,9 @@
         </div>
 
         <div class="summary__container">
-            {{ $paginator := .Paginate (where .Pages "Type" .Type) }}            
+            {{ $paginator := .Paginate (where .Pages "Type" .Type) }}
             {{ range $paginator.Pages }}
-            {{ .Render "summary" }}
+                {{ .Render "summary" }}
             {{ end }}
         </div>
     </article>    

@@ -16,9 +16,10 @@
     </div>
   </article>
 
-  {{ partial "pagination/pagination-list" . }}
+  {{ partial "pagination/pagination" . }}
 </main>
 <aside class="main-side">
   {{ partial "sidebar/sidebar-list" . }}
 </aside>
+{{ partial "script/taxo-script" . }}
 {{ end }}

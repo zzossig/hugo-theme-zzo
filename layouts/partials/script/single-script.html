@@ -214,14 +214,14 @@
           clip.on('success', function (e) {
             e.clearSelection();
             inPre = $(e.trigger).parent().prop('tagName') == 'PRE';
-            $(e.trigger).attr('aria-label', 'Copied to clipboard!').addClass('tooltipped tooltipped-' + (inPre ? 'w' : 's'));
+            $(e.trigger).attr('aria-label', 'Copied to clipboard!').addClass('tooltipped tooltipped-w');
           });
 
           clip.on('error', function (e) {
             inPre = $(e.trigger).parent().prop('tagName') == 'PRE';
-            $(e.trigger).attr('aria-label', fallbackMessage(e.action)).addClass('tooltipped tooltipped-' + (inPre ? 'w' : 's'));
+            $(e.trigger).attr('aria-label', fallbackMessage(e.action)).addClass('tooltipped tooltipped-w');
             $(document).one('copy', function () {
-              $(e.trigger).attr('aria-label', 'Copied to clipboard!').addClass('tooltipped tooltipped-' + (inPre ? 'w' : 's'));
+              $(e.trigger).attr('aria-label', 'Copied to clipboard!').addClass('tooltipped tooltipped-w');
             });
           });
 

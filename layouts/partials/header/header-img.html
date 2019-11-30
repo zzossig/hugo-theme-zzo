@@ -1,7 +1,7 @@
 {{ if $.Params.header }}  
   {{ range $.Params.header }}
     {{ if eq .type "img" }}
-    <div class="custom-header custom-header__align-{{ .align }}" style="background-image: url('{{.image | relURL }}'); width: 100%; height: {{ .height }}px; padding: {{ .paddingY }}px {{ .paddingX }}px;">
+    <div class="custom-header custom-header__align-{{ .align }}" style="background-image: url('{{ .image | relURL }}'); width: 100%; height: {{ .height }}px; padding: {{ .paddingY }}px {{ .paddingX }}px;">
       {{ $header := . }}
       {{ if .title }}            
         {{ range .title }}
@@ -23,15 +23,4 @@
     </div>
     {{ end }}
   {{ end }}
-{{ else }}
-  {{ if (fileExists "static/images/header/background.png") }}
-    {{ $.Scratch.Set "header_background" "images/header/background.png" }}  
-  {{ else if (fileExists "static/images/header/background.jpg") }}
-    {{ $.Scratch.Set "header_background" "images/header/background.jpg" }}
-  {{ else }}
-    {{ $.Scratch.Set "header_background" "images/header/background.png" }}
-  {{ end }}
-  <div style="background-image: url('{{$.Scratch.Get "header_background" | relURL }}'); width: 100%; height: 235px;">
-    {{ partial "header/slide-1" . }}
-  </div>
 {{ end }}

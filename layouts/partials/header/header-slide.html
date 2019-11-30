@@ -31,17 +31,6 @@
   </div>
   <div class="swiper-pagination"></div>
 </div>
-{{ else }}
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    {{ range $idx, $seq :=  (seq 3) }}
-      <div class="swiper-slide">
-        {{ partial (print "header/slide-" $seq) . }}
-      </div>
-    {{ end }}
-  </div>
-  <div class="swiper-pagination"></div>
-</div>
 {{ end }}
 
 {{ $js := .Site.Data.lib.js }}

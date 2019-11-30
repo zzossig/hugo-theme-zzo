@@ -1,9 +1,7 @@
 <footer class="footer">
-    <div class="footer__wrapper">
-        {{ partial "footer/select-lang" . }}
-        {{ partial "footer/links-social.html" . }}        
-        {{ partial "footer/go-to-top" . }}
-    </div>
+    {{ partial "footer/select-lang" . }}
+    {{ partial "footer/links-social.html" . }}
+    {{ partial "footer/go-to-top" . }}
     <hr />
 
     {{ if $.Param "showPoweredBy" }}

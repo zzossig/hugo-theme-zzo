@@ -1,26 +1,23 @@
-logoText = "Zzo" # site navigation bar logo text.
-description = "The Zzo theme for Hugo example site." # for SEO
-custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
-custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
+logoText = "Zzo"
+description = "The Zzo theme for Hugo example site."
+custom_css = []
+custom_js = []
 
 # header
 homeHeaderType = "text" # text, img, slide
 
-# navbar
-enableThemeChange = true # site color theme
-
 # body
-enableBreadcrumb = true # breadcrumb for list, single page
-enablePhotoSwipe = true # image viewer for gallery, single page
-enableSearch = true # site search with lunr
-enableGoToTop = true # scroll to top
-enableWhoami = true # at the end of single page
+enableBreadcrumb = true
+enablePhotoSwipe = true
+enableSearch = true
+enableGoToTop = true
+enableWhoami = true
 summaryShape = "classic" # card, classic, compact
 archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
-archivePaginate = 13 # items per page
-paginateWindow = 1 # setting it to 1 gives 7 buttons, 2 gives 9, etc. If set 1: [1 ... 4 5 6 ... 356] [1 2 3 4 5 ... 356] etc
+archivePaginate = 13
+paginateWindow = 1
 
-# whoami: usage - home page sidebar, single page bottom of post. all values can be empty
+# whoami
 myname = "zzossig"
 email = "zzossig@gmail.com"
 whoami = "Web Developer"
@@ -30,26 +27,27 @@ organization = "Hugo"
 link = "https://github.com/zzossig/hugo-theme-zzo"
 
 # sidebar
-enableBio = true # home page sidebar
-enableSidebar = true # if you want to make full width of contents
-enableSidebarTags = true # if you want to use tags.
+enableBio = true
+enableSidebar = true
+enableSidebarTags = true
 enableSidebarSeries = true
 enableSidebarCategories = true
-enableToc = true # single page table of contents
-enableTocSwitch = true # single page table of contents visibility switch
-itemsPerCategory = 5 # maximum number of posts shown in the sidebar.
-searchLanguages = ['en'] # lunr multilanguage search. https://github.com/MihaiValentin/lunr-languages
+enableToc = true
+enableTocSwitch = true
+itemsPerCategory = 5
+searchLanguages = ['en']
 
 # footer
-showPoweredBy = true # show footer text: Powered by Hugo and Zzo theme
-showFeedLinks = true # RSS Feed 
-showSocialLinks = true # email, facebook, twitter ...
-enableLangChange = true # show button at bottom left of footer.
-themeOptions = ["dark", "light", "hacker", "solarized", "custom"] # select options for site color theme
+showPoweredBy = true
+showFeedLinks = true
+showSocialLinks = true
+enableLangChange = true
+enableThemeChange = true
+themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
 
 # comment
 enableComment = true
-disqus_shortname = "" 
+disqus_shortname = ""
 commento = false
 
 [gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
@@ -98,7 +96,7 @@ commento = false
   google_analytics = ""
   google_tag_manager = ""
 
-[socialOptions] # if set, social icons will show up.
+[socialOptions]
   email = "mailto:your@email.com"
   facebook = "http://example.org/"
   twitter = "http://example.org/"

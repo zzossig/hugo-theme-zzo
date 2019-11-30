@@ -5,13 +5,8 @@ $code-font-stack: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "
 $title-font: 'Montserrat', sans-serif;
 $content-font: 'Merriweather', serif;
 
-$z-indexes: ("modal", "navbar", "dropdown", "header", "grid", "search-btn", "search", "content", "footer", "taxo", "toc", "gallery-mask");
-$ls: (
-  base: -10,
-  heading: 10,
-  button: 5,
-  slogan: -100
-);
+$z-indexes: ("modal", "navbar", "dropdown", "header", "clipboard", "grid", "search-btn", "search", "content", "footer", "taxo", "toc", "gallery-mask");
+
 $breakpoints: (
   'xs': 0,
   'sm': 769px,

@@ -1,0 +1,33 @@
+{{ define "main" }}
+<header class="header">
+  <h3 class="h3 terms__title">
+    {{ .Title }}
+  </h3>
+  <div>
+    {{ .Content }}
+  </div>
+</header>
+</span>
+<main class="main">
+  <div class="pt">
+    <div class="pt__row">      
+      {{ $paginator := .Paginate (where .Pages "Type" "pt") }}
+        {{ range $paginator.Pages }}
+        <div class="pt__column">
+          <a href="{{ .Permalink }}">
+            <div class="pt__card">
+              {{ printf "%#v" .Title }}
+            </div>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+  <div class="grow"></div>
+  {{ partial "pagination/pagination" . }}
+  <div class="hide">
+    {{ partial "search/site-search" . }}
+  </div>
+  {{ partial "script/list-script" . }}
+</main>
+{{ end }}

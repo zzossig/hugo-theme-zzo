@@ -198,7 +198,7 @@
 .pswp__share-tooltip {
     z-index: 1620;
     position: absolute;
-    background: #FFF;
+    background: #403E41;
     top: 56px;
     border-radius: 2px;
     display: block;
@@ -218,7 +218,7 @@
 .pswp__share-tooltip a {
     display: block;
     padding: 8px 12px;
-    color: #000;
+    color: #FCFCFA;
     text-decoration: none;
     font-size: 14px;
     line-height: 18px;
@@ -226,7 +226,7 @@
 
 .pswp__share-tooltip a:hover {
     text-decoration: none;
-    color: #000;
+    color: #FCFCFA;
 }
 
 .pswp__share-tooltip a:first-child {
@@ -262,33 +262,34 @@ a.pswp__share--facebook:before {
     top: -12px;
     right: 15px;
     border: 6px solid transparent;
-    border-bottom-color: #FFF;
+    border-bottom-color: #403E41;
     -webkit-pointer-events: none;
     -moz-pointer-events: none;
     pointer-events: none;
 }
 
 a.pswp__share--facebook:hover {
-    background: #3E5C9A;
-    color: #FFF;
+    background: #727072;
+    color: #FCFCFA;
 }
 
 a.pswp__share--facebook:hover:before {
-    border-bottom-color: #3E5C9A;
+    border-bottom-color: #727072;
 }
 
 a.pswp__share--twitter:hover {
-    background: #55ACEE;
-    color: #FFF;
+    background: #727072;
+    color: #FCFCFA;
 }
 
 a.pswp__share--pinterest:hover {
-    background: #CCC;
-    color: #CE272D;
+    background: #727072;
+    color: #FCFCFA;
 }
 
 a.pswp__share--download:hover {
-    background: #DDD;
+    background: #727072;
+    color: #FCFCFA;
 }
 
 /*
@@ -578,4 +579,8 @@ a.pswp__share--download:hover {
 
 .pswp--minimal--dark .pswp__top-bar {
     background: none;
+}
+
+.pswp__bg {
+    background: rgba(0, 0, 0, 0.8);
 }

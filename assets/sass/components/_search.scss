@@ -15,7 +15,6 @@
   .icon {
     padding: 0.25rem;
     @include flexbox();
-    @include align-items(center);
     @include themify($themes) {
       color: themed("search-icon-color");
     }

@@ -7,11 +7,6 @@
   }
 }
 
-@function ls($name) {
-  $value: map_get($ls, $name);
-  @return $value / 1000 * 1em;
-}
-
 @function themed($key) {   
   @return map-get($theme-map, $key);
 }

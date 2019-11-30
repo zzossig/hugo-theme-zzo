@@ -11,10 +11,16 @@
   weight = 2
 
 [[main]]
+  identifier = "pt"
+  name = "pt"
+  url = "pt"
+  weight = 3
+
+[[main]]
   identifier = "gallery"
   name = "gallery"
   url = "gallery"
-  weight = 3
+  weight = 4
     
 [[main]]
   parent = "gallery"
@@ -30,10 +36,10 @@
   identifier = "posts"
   name = "posts"
   url = "posts"
-  weight = 4
+  weight = 5
     
 [[main]]
   identifier = "notes"
   name = "notes"
   url = "notes"
-  weight = 5
+  weight = 6
