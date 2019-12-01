@@ -1,24 +1,16 @@
-{{ $reveal_style := resources.Get "css/reveal/reveal.css" | resources.Minify| resources.Fingerprint }}
+{{ $reveal := .Site.Data.lib.reveal }}
+
+{{ $reveal_style := resources.Get "lib/reveal/reveal.css" | resources.Minify| resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $reveal_style.RelPermalink }}">
 
-<div class="reveal">
-  <div class="slides">
-    <section data-markdown>
-      <script type="text/template">
-    	<!-- .slide: data-background="#ff0000" -->
-    		Markdown content
-    	</script>
-    </section>
-    <section>Single Horizontal Slide</section>
-    <section>
-      <section>Vertical Slide 1</section>
-      <section>Vertical Slide 2</section>
-    </section>
-  </div>
-</div>
-
-{{ $reveal_script := resources.Get "js/reveal.js" | resources.Minify | resources.Fingerprint }}
+{{ $reveal_script := resources.Get "lib/reveal/reveal.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $reveal_script.RelPermalink }}"></script>
+
+{{ if in .Params.Plugins "markdown" }}
+  <script defer src="{{ $reveal.plugin.marked.url }}" integrity="{{ $reveal.plugin.marked.sri }}" crossorigin="anonymous"></script>
+  <script defer src="{{ $reveal.plugin.markdown.url }}" integrity="{{ $reveal.plugin.markdown.sri }}" crossorigin="anonymous"></script>  
+{{ end }}
+
 <script>
   window.onload = function() {
     Reveal.initialize();

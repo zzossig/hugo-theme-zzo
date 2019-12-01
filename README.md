@@ -297,8 +297,7 @@ commento = false
   dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
 
 [marketing]
-  google_analytics = ""
-  google_tag_manager = ""
+  googleAnalytics = ""
 
 [socialOptions] # if set, social icons will show up.
   email = "mailto:your@email.com"

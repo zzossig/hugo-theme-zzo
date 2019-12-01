@@ -13,13 +13,13 @@
 <script defer src="{{ $zzo.RelPermalink }}"></script>
 
 {{ if $.Param "enablePhotoSwipe" }}
-  {{ $photoSwipe := resources.Get `js/photoswipe.min.js` | resources.Fingerprint }}
+  {{ $photoSwipe := resources.Get "lib/photoswipe/photoswipe.min.js" | resources.Fingerprint }}
   <script defer src="{{ $photoSwipe.RelPermalink }}"></script>
-  {{ $photoSwipeUi := resources.Get `js/photoswipe-ui-default.min.js` | resources.Fingerprint }}
+  {{ $photoSwipeUi := resources.Get "lib/photoswipe/photoswipe-ui-default.min.js" | resources.Fingerprint }}
   <script defer src="{{ $photoSwipeUi.RelPermalink }}"></script>
-  {{ $photoSwipeStyle := resources.Get "css/photoswipe/photoswipe.css" | resources.Minify }}
+  {{ $photoSwipeStyle := resources.Get "lib/photoswipe/photoswipe.css" | resources.Minify }}
   <link rel="stylesheet" href="{{ $photoSwipeStyle.RelPermalink }}">
-  {{ $photoSwipeSkin := resources.Get "css/photoswipe/custom-skin.css" | resources.Minify }}
+  {{ $photoSwipeSkin := resources.Get "lib/photoswipe/custom-skin.css" | resources.Minify }}
   <link rel="stylesheet" href="{{ $photoSwipeSkin.RelPermalink }}">
 {{ end }}
 
@@ -29,44 +29,44 @@
 {{ end }}
 
 {{ if in .Params.Libraries "mermaid" }}
-  <script defer src="{{ $js.mermaid.url }}" integrity="{{ $js.mermaid.sri }}" crossorigin="anonymous" title="mermaid"></script>
+  <script defer src="{{ $js.mermaid.url }}" integrity="{{ $js.mermaid.sri }}" crossorigin="anonymous"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "katex" }}
   <link rel="stylesheet" href="{{ $css.katex.url }}" integrity="{{$css.katex.sri }}" crossorigin="anonymous">
-  <script defer src="{{ $js.katex.url }}" integrity="{{ $js.katex.sri }}" crossorigin="anonymous" title="katex"></script>
-  <script defer src="{{ $js.katex_auto_render.url }}" integrity="{{ $js.katex_auto_render.sri }}" crossorigin="anonymous" title="katex"></script>
+  <script defer src="{{ $js.katex.url }}" integrity="{{ $js.katex.sri }}" crossorigin="anonymous"></script>
+  <script defer src="{{ $js.katex_auto_render.url }}" integrity="{{ $js.katex_auto_render.sri }}" crossorigin="anonymous"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "flowchartjs" }}
-  <script defer src="{{ $js.raphael.url }}" integrity="{{ $js.raphael.sri }}" crossorigin="anonymous" title="raphael"></script>
-  <script defer src="{{ $js.flowchartjs.url }}" integrity="{{ $js.flowchartjs.sri }}" crossorigin="anonymous" title="flowchartjs"></script>
+  <script defer src="{{ $js.raphael.url }}" integrity="{{ $js.raphael.sri }}" crossorigin="anonymous"></script>
+  <script defer src="{{ $js.flowchartjs.url }}" integrity="{{ $js.flowchartjs.sri }}" crossorigin="anonymous"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "mathjax" }}
-  <script defer src="{{ $js.mathjax.url }}" integrity="{{ $js.mathjax.sri }}" crossorigin="anonymous" title="mathjax"></script>
+  <script defer src="{{ $js.mathjax.url }}" integrity="{{ $js.mathjax.sri }}" crossorigin="anonymous"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "msc" }}
-  <script defer src="{{ $js.webfont.url }}" crossorigin="anonymous" title="webfont"></script>
-  <script defer src="{{ $js.snap_svg.url }}" crossorigin="anonymous" title="snap_svg"></script>
-  <script defer src="{{ $js.lodash.url }}" integrity="{{ $js.lodash.sri }}" crossorigin="anonymous" title="lodash"></script>
-  <script defer src="{{ $js.sequence_diagram.url }}" integrity="{{ $js.sequence_diagram.sri }}" crossorigin="anonymous" title="sequence_diagram"></script>
+  <script defer src="{{ $js.webfont.url }}"></script>
+  <script defer src="{{ $js.snap_svg.url }}"></script>
+  <script defer src="{{ $js.lodash.url }}" integrity="{{ $js.lodash.sri }}" crossorigin="anonymous"></script>
+  <script defer src="{{ $js.sequence_diagram.url }}" integrity="{{ $js.sequence_diagram.sri }}" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{{ $css.sequence_diagram.url }}" integrity="{{ $css.sequence_diagram.sri }}" crossorigin="anonymous">
 {{ end }}
 
 {{ if in .Params.Libraries "chart" }}
-  <script defer src="{{ $js.chart.url }}" integrity="{{ $js.chart.sri }}" crossorigin="anonymous" title="chart"></script>
+  <script defer src="{{ $js.chart.url }}" integrity="{{ $js.chart.sri }}" crossorigin="anonymous"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "wavedrom" }}
-<script defer src="{{ $js.wavedrom.url }}" integrity="{{ $js.wavedrom.sri }}" crossorigin="anonymous" title="wavedrom"></script>
-<script defer src="{{ $js.wavedrom_skin.url }}" integrity="{{ $js.wavedrom_skin.sri }}" crossorigin="anonymous" title="wavedrom_skin"></script>
+<script defer src="{{ $js.wavedrom.url }}" integrity="{{ $js.wavedrom.sri }}" crossorigin="anonymous"></script>
+<script defer src="{{ $js.wavedrom_skin.url }}" integrity="{{ $js.wavedrom_skin.sri }}" crossorigin="anonymous"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "viz" }}
-  <script defer src="{{ $js.viz.url }}" crossorigin="anonymous" title="viz"></script>
-  <script defer src="{{ $js.viz_render.url }}" integrity="{{ $js.viz_render.sri }}" crossorigin="anonymous" title="viz_render"></script>
+  <script defer src="{{ $js.viz.url }}" crossorigin="anonymous"></script>
+  <script defer src="{{ $js.viz_render.url }}" integrity="{{ $js.viz_render.sri }}" crossorigin="anonymous"></script>
 {{ end }}
 
 

@@ -36,8 +36,8 @@
 {{ $js := .Site.Data.lib.js }}
 {{ $css := .Site.Data.lib.css }}
 
-{{ printf "<link rel=\"stylesheet\" href=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\">" $css.swiper.url $css.swiper.sri | safeHTML }}
-{{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"swiper\"></script>" $js.swiper.url $js.swiper.sri | safeHTML }}
+<link rel="stylesheet" href="{{  $css.swiper.url }}" integrity="{{ $css.swiper.sri }}" crossorigin="anonymous">
+<script src="{{ $js.swiper.url }}" integrity="{{ $js.swiper.sri }}" crossorigin="anonymous"></script>
 
 <script>
   {{ $swiper := .Site.Data.swiper }}

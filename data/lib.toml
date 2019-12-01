@@ -83,6 +83,24 @@
 
 
 
+
+# reveal.js
+[reveal.plugin.markdown]
+  sri = "sha256-Q226SEjQWoH6UcW77wOUeSd7GoqxW0RLceOPPB3zU5E="
+  url = "https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/plugin/markdown/markdown.js"
+
+[reveal.plugin.marked]
+  sri = "sha256-ypJ65b+4BwdfsQtz1URdUBhJ9L5ijdovxTOdG+x5hsE="
+  url = "https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/plugin/markdown/marked.js"
+
+
+
+
+
+
+
+
+
 # lunr languages
 [js.stemmer]
   code = "stemmer"

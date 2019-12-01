@@ -15,15 +15,15 @@
 <script defer src="{{ $lunr.RelPermalink }}"></script>
 
 {{ $stemmer := .Site.Data.lib.js.stemmer }}
-{{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" $stemmer.url $stemmer.sri $stemmer.code | safeHTML }}
+<script defer src="{{ $stemmer.url }}" integrity="{{ $stemmer.sri }}" crossorigin="anonymous"></script>
 
 {{ $multi := .Site.Data.lib.js.multi_language }}
-{{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" $multi.url $multi.sri $multi.code | safeHTML }}
+<script defer src="{{ $multi.url }}" integrity="{{ $multi.sri }}" crossorigin="anonymous"></script>
 
 {{ $searchLanguages := .Site.Params.searchLanguages }}
 {{ range .Site.Data.lib.lunr }}
   {{ if in $searchLanguages .code }}
-    {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"%s\"></script>" .url .sri .code | safeHTML }}
+    <script defer src="{{ .url }}" integrity="{{ .sri }}" crossorigin="anonymous"></script>
   {{ end }}
 {{ end }}
 

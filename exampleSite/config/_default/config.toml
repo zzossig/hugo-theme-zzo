@@ -20,14 +20,7 @@ pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON", "WebAppManifest"]
-
-[mediaTypes."application/manifest+json"]
-  suffixes = ["webmanifest"]
-
-[outputFormats.WebAppManifest]
-  mediaType = "application/manifest+json"
-  rel = "manifest"
+  home = ["HTML", "RSS", "JSON"]
 
 [taxonomies]
   category = "categories"

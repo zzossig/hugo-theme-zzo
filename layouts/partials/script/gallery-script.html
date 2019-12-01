@@ -10,13 +10,13 @@
 <script defer src="{{ $zzo.RelPermalink }}"></script>
 {{ $lazysizes := resources.Get "js/lazysizes.min.js" | resources.Fingerprint }}
 <script defer src="{{ $lazysizes.RelPermalink }}"></script>
-{{ $photoSwipe := resources.Get "js/photoswipe.min.js" | resources.Fingerprint }}
+{{ $photoSwipe := resources.Get "lib/photoswipe/photoswipe.min.js" | resources.Fingerprint }}
 <script defer src="{{ $photoSwipe.RelPermalink }}"></script>
-{{ $photoSwipeUi := resources.Get "js/photoswipe-ui-default.min.js" | resources.Fingerprint }}
+{{ $photoSwipeUi := resources.Get "lib/photoswipe/photoswipe-ui-default.min.js" | resources.Fingerprint }}
 <script defer src="{{ $photoSwipeUi.RelPermalink }}"></script>
-{{ $photoSwipeStyle := resources.Get "css/photoswipe/photoswipe.css" | resources.Minify }}
+{{ $photoSwipeStyle := resources.Get "lib/photoswipe/photoswipe.css" | resources.Minify }}
 <link rel="stylesheet" href="{{ $photoSwipeStyle.RelPermalink }}">
-{{ $photoSwipeSkin := resources.Get "css/photoswipe/custom-skin.css" | resources.Minify }}
+{{ $photoSwipeSkin := resources.Get "lib/photoswipe/custom-skin.css" | resources.Minify }}
 <link rel="stylesheet" href="{{ $photoSwipeSkin.RelPermalink }}">
 
 <script>
