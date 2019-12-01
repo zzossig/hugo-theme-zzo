@@ -29,44 +29,44 @@
 {{ end }}
 
 {{ if in .Params.Libraries "mermaid" }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mermaid\"></script>" $js.mermaid.url $js.mermaid.sri | safeHTML }}
+  <script defer src="{{ $js.mermaid.url }}" integrity="{{ $js.mermaid.sri }}" crossorigin="anonymous" title="mermaid"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "katex" }}
-  {{ printf "<link rel=\"stylesheet\" href=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\">" $css.katex.url $css.katex.sri | safeHTML }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"katex\"></script>" $js.katex.url $js.katex.sri | safeHTML }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"katex\"></script>" $js.katex_auto_render.url $js.katex_auto_render.sri | safeHTML }}
+  <link rel="stylesheet" href="{{ $css.katex.url }}" integrity="{{$css.katex.sri }}" crossorigin="anonymous">
+  <script defer src="{{ $js.katex.url }}" integrity="{{ $js.katex.sri }}" crossorigin="anonymous" title="katex"></script>
+  <script defer src="{{ $js.katex_auto_render.url }}" integrity="{{ $js.katex_auto_render.sri }}" crossorigin="anonymous" title="katex"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "flowchartjs" }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"raphael\"></script>" $js.raphael.url $js.raphael.sri | safeHTML }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"flowchartjs\"></script>" $js.flowchartjs.url $js.flowchartjs.sri | safeHTML }}
+  <script defer src="{{ $js.raphael.url }}" integrity="{{ $js.raphael.sri }}" crossorigin="anonymous" title="raphael"></script>
+  <script defer src="{{ $js.flowchartjs.url }}" integrity="{{ $js.flowchartjs.sri }}" crossorigin="anonymous" title="flowchartjs"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "mathjax" }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"mathjax\"></script>" $js.mathjax.url $js.mathjax.sri | safeHTML }}
+  <script defer src="{{ $js.mathjax.url }}" integrity="{{ $js.mathjax.sri }}" crossorigin="anonymous" title="mathjax"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "msc" }}
-  {{ printf "<script defer src=\"%s\" crossorigin=\"anonymous\" title=\"webfont\"></script>" $js.webfont.url | safeHTML }}
-  {{ printf "<script defer src=\"%s\" crossorigin=\"anonymous\" title=\"snap_svg\"></script>" $js.snap_svg.url | safeHTML }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"lodash\"></script>" $js.lodash.url $js.lodash.sri | safeHTML }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"sequence_diagram\"></script>" $js.sequence_diagram.url $js.sequence_diagram.sri | safeHTML }}
-  {{ printf "<link rel=\"stylesheet\" href=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\">" $css.sequence_diagram.url $css.sequence_diagram.sri | safeHTML }}
+  <script defer src="{{ $js.webfont.url }}" crossorigin="anonymous" title="webfont"></script>
+  <script defer src="{{ $js.snap_svg.url }}" crossorigin="anonymous" title="snap_svg"></script>
+  <script defer src="{{ $js.lodash.url }}" integrity="{{ $js.lodash.sri }}" crossorigin="anonymous" title="lodash"></script>
+  <script defer src="{{ $js.sequence_diagram.url }}" integrity="{{ $js.sequence_diagram.sri }}" crossorigin="anonymous" title="sequence_diagram"></script>
+  <link rel="stylesheet" href="{{ $css.sequence_diagram.url }}" integrity="{{ $css.sequence_diagram.sri }}" crossorigin="anonymous">
 {{ end }}
 
 {{ if in .Params.Libraries "chart" }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"chart\"></script>" $js.chart.url $js.chart.sri | safeHTML }}
+  <script defer src="{{ $js.chart.url }}" integrity="{{ $js.chart.sri }}" crossorigin="anonymous" title="chart"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "wavedrom" }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"wavedrom\"></script>" $js.wavedrom.url $js.wavedrom.sri | safeHTML }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"wavedrom_skin\"></script>" $js.wavedrom_skin.url $js.wavedrom_skin.sri | safeHTML }}
+<script defer src="{{ $js.wavedrom.url }}" integrity="{{ $js.wavedrom.sri }}" crossorigin="anonymous" title="wavedrom"></script>
+<script defer src="{{ $js.wavedrom_skin.url }}" integrity="{{ $js.wavedrom_skin.sri }}" crossorigin="anonymous" title="wavedrom_skin"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "viz" }}
-  {{ printf "<script defer src=\"%s\" crossorigin=\"anonymous\" title=\"viz\"></script>" $js.viz.url | safeHTML }}
-  {{ printf "<script defer src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" title=\"viz_render\"></script>" $js.viz_render.url $js.viz_render.sri | safeHTML }}
+  <script defer src="{{ $js.viz.url }}" crossorigin="anonymous" title="viz"></script>
+  <script defer src="{{ $js.viz_render.url }}" integrity="{{ $js.viz_render.sri }}" crossorigin="anonymous" title="viz_render"></script>
 {{ end }}
 
 
