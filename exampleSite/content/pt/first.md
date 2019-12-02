@@ -9,4 +9,14 @@ series:
 -
 categories:
 -
+featured_image: "feature2/owl.png"
+reveal: 
+  - main:
+    - sub: 
+      - |
+        test 1
+  - main:
+    - sub: 
+      - |
+        test 2
 ---

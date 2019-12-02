@@ -9,35 +9,67 @@ series:
 -
 categories:
 -
+featured_image: "feature1/golang.png"
 plugins:
-- highlight
 - zoom
-- notes
-- math
-highlightTheme: monokai
 revealTheme: bagie
 reveal: 
-  - main:
+  - main:    
     - sub: 
       - | 
-        # this is a very long sentence
-        ## hiasedyasywey
-        ### weqryojasodjyh
-        #### awes
-        ```javascript
-          var a = 1;
-          function abc() {
-            return 100;
-          }
-        ```
+        # Hugo
+        ## The world’s fastest framework for building websites
 
     - sub: 
       - | 
-        hey there?
-        how are
+        Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
   - main:
     - sub: 
       - |
-        - [robot-lung](https://github.com/dzello/revealjs-themes#robot-lung) (this one)
-        - [sunblind](https://github.com/dzello/revealjs-themes#sunblind)
+        # Reveal.js
+        ## A framework for easily creating beautiful presentations using HTML.
+        - [Check out the live demo](https://revealjs.com/#/)
+  - main:
+    - sub: 
+      - |
+        You can easily create presentation documents using Markdown.
+  - fragment:
+    - sub:
+      - |
+        # here
+    - sub:
+      - |
+        #### you
+    - sub:
+      - |
+        #### go
+  - main:
+    - sub: 
+      - |
+        # POINT OF VIEW
+
+        Press *ESC* to enter the slide overview.
+
+        Hold down the alt key (ctrl in Linux) and click on any element to zoom towards it using zoom.js. click again to zoom back out. 
+        
+        (NOTE\: Use ctrl + click in Linux)
+  - fragment: 
+    - sub:
+      - |
+        ## FRAGMENTS
+    - sub:
+      - |
+        Hit the next arrow...
+    - sub:
+      - |
+        ... to step through ...
+    - sub:
+      - |
+        .. a
+    - sub:
+      - |
+        .. a fragmented
+    - sub:
+      - |
+        .. a fragmented slide.
 ---

@@ -9,4 +9,14 @@ series:
 -
 categories:
 -
+featured_image: "feature1/reindeer.png"
+reveal: 
+  - main:
+    - sub: 
+      - |
+        test 1
+  - main:
+    - sub: 
+      - |
+        test 2
 ---

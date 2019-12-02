@@ -2,24 +2,40 @@
     <div class="slides">
         
         {{ range $.Params.reveal }}
-        <section class="pt">
-          {{ range .main }}
-              {{ range .sub }}                
-                <section data-markdown>
-                  <textarea data-template>
-                  {{ . }}          
-                  </textarea>
-                </section>
+        <section>
+          {{ range $k, $v := . }}
+            
+            {{ if eq $k "main" }}
+              {{ range $v }}
+                  {{ range .sub }}                
+                    <section data-markdown>
+                      <textarea data-template>
+                        {{ . }}          
+                      </textarea>
+                    </section>
+                  {{ end }}
               {{ end }}
+            
+            {{ else if eq $k "fragment" }}
+              
+              {{ $result := "" }}
+              {{ range $v }}                
+                {{ range .sub }}
+                  {{ $result = (print $result "<span class='fragment'>" (. | markdownify) "</span>") }}
+                {{ end }}                  
+              {{ end }}
+
+              <section data-markdown>
+                <textarea data-template>
+                  {{ $result }}
+                </textarea>
+              </section>
+            {{ end }}
+
           {{ end }}
         </section>
         {{ end }}
-
-        <section>Single Horizontal Slide</section>
-        <section>
-            <section>Vertical Slide 1</section>
-            <section>Vertical Slide 2</section>
-        </section>
+        
     </div>
 </div>
 

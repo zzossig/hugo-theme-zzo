@@ -92,9 +92,6 @@ commento = false
   scriptSrc = "" # "https://isso.example.com/js/embed.min.js"
   dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
 
-[marketing]
-  googleAnalytics = ""
-
 [socialOptions]
   email = "mailto:your@email.com"
   facebook = "http://example.org/"
@@ -109,3 +106,5 @@ commento = false
   linkedin = ""
   pinterest = ""
   stack-exchange = ""
+  telegram = ""
+  steam = ""
