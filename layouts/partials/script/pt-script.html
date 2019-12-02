@@ -3,16 +3,76 @@
 {{ $reveal_style := resources.Get "lib/reveal/reveal.css" | resources.Minify| resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $reveal_style.RelPermalink }}">
 
+{{ if eq .Params.revealTheme "bagie" }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/beige.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ else if eq .Params.revealTheme "black" }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/black.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ else if eq .Params.revealTheme "blood" }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/blood.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ else if eq .Params.revealTheme "league" }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/league.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ else if eq .Params.revealTheme "moon" }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/moon.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ else if eq .Params.revealTheme "night" }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/night.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ else if eq .Params.revealTheme "serif" }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/serif.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ else if eq .Params.revealTheme "sky" }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/sky.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ else if eq .Params.revealTheme "solarized" }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/solarized.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ else if eq .Params.revealTheme "white" }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/white.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ else }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/simple.css" | resources.Minify| resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
+{{ end }}
+
 {{ $reveal_script := resources.Get "lib/reveal/reveal.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $reveal_script.RelPermalink }}"></script>
+<script defer src="{{ $reveal.plugin.marked.url }}" integrity="{{ $reveal.plugin.marked.sri }}" crossorigin="anonymous"></script>
+<script defer src="{{ $reveal.plugin.markdown.url }}" integrity="{{ $reveal.plugin.markdown.sri }}" crossorigin="anonymous"></script>  
 
-{{ if in .Params.Plugins "markdown" }}
-  <script defer src="{{ $reveal.plugin.marked.url }}" integrity="{{ $reveal.plugin.marked.sri }}" crossorigin="anonymous"></script>
-  <script defer src="{{ $reveal.plugin.markdown.url }}" integrity="{{ $reveal.plugin.markdown.sri }}" crossorigin="anonymous"></script>  
+{{ if in .Params.Plugins "highlight" }}
+  
+{{ if eq .Params.highlightTheme "zenburn" }}
+    {{ $highlight_style := resources.Get "lib/reveal/highlight/zenburn.css" | resources.Minify| resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $highlight_style.RelPermalink }}">
+  {{ else }}
+    {{ $highlight_style := resources.Get "lib/reveal/highlight/monokai.css" | resources.Minify| resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $highlight_style.RelPermalink }}">
+  {{ end }}
+
+  <script defer src="{{ $reveal.plugin.highlight.url }}" integrity="{{ $reveal.plugin.highlight.sri }}" crossorigin="anonymous"></script>
+{{ end }}
+
+{{ if in .Params.Plugins "notes" }}
+  <script defer src="{{ $reveal.plugin.notes.url }}" integrity="{{ $reveal.plugin.notes.sri }}" crossorigin="anonymous"></script>
+{{ end }}
+
+{{ if in .Params.Plugins "zoom" }}
+  <script defer src="{{ $reveal.plugin.zoom.url }}" integrity="{{ $reveal.plugin.zoom.sri }}" crossorigin="anonymous"></script>
+{{ end }}
+
+{{ if in .Params.Plugins "math" }}
+  <script defer src="{{ $reveal.plugin.math.url }}" integrity="{{ $reveal.plugin.math.sri }}" crossorigin="anonymous"></script>
 {{ end }}
 
 <script>
   window.onload = function() {
-    Reveal.initialize();
-  }  
+    {{ $reveal_options:= .Site.Data.reveal }}
+    var revealOptions = JSON.parse({{ $reveal_options | jsonify }});
+
+    Reveal.initialize(revealOptions);
+  }
 </script>
