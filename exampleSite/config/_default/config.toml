@@ -8,7 +8,6 @@ hasCJKLanguage = true
 
 summaryLength = 70
 
-googleAnalytics = ""
 copyright = "&copy;{year}, All Rights Reserved"
 timeout = 10000
 enableEmoji = true
@@ -19,6 +18,8 @@ pygmentsOptions = "linenos=table"
 pygmentsCodefences = true
 pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
+
+googleAnalytics = ""
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
