@@ -313,6 +313,8 @@ commento = false
   linkedin = ""
   pinterest = ""
   stack-exchange = ""
+  telegram = ""
+  steam = ""
 ```
 
 ## Layout
@@ -501,7 +503,7 @@ assets/scss/custom.scss
 assets/css/custom.css
 ```
 
-3. If you want to modify zzo theme's default color, you should override the theme style. For example, if you want to change the body background-color, because I set the background-color in #body selector, not in body tag selector, you should override body background-color there. body tag selector won't work. And make sure to set !important.
+3. If you want to modify zzo theme's default color, you should override the theme style. For example, if you want to change the body background-color, because I set the background-color in #body selector, not in body tag selector, you should override body background-color there. body tag selector won't work. And make sure to set !important. After set the values, restart hugo.
 
 ```css
 assets/scss/custom.scss or assets/css/custom.css
