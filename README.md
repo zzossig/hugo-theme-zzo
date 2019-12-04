@@ -677,6 +677,49 @@ grid_navbar_height = "50px" # "px"
 grid_row_gap = "0"
 ```
 
+### custom font
+
+1. Add custom css file
+
+```bash
+config/_default/params.toml
+
+...
+custom_css = ["css/font.css"]
+...
+```
+
+Set the above param and add file to assets/css/font.css
+
+2. In your font.css file, add font-face something like this.
+
+```css
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-black.woff2') format('woff2'),
+         url('../fonts/montserrat-black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('../fonts/merriweather-regular.woff2') format('woff2'),
+         url('../fonts/merriweather-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+```
+
+3. Add your fonts file at root/static/fonts/myfont.xxx (If your url in step2 is ('../fonts/myfont.xxx')).
+
+4. Make a font.toml file at root/data/font.toml and make params as below.
+
+```toml
+title_font = "\"Montserrat\", sans-serif"
+content_font = "\"Merriweather\", serif"
+```
+
 ## External Library
 
 If you want use external libraries, this theme currently supporting Katex, MathJax, Mermaid, Flowchart.js, chart.js, viz-graph, wavedrom, js-sequence-diagram. Just add some front matter.
