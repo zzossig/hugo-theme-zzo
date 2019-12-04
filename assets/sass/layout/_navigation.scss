@@ -245,11 +245,14 @@
       padding: 0.25rem 0.75rem;
       height: auto;
       margin: auto;
+      min-width: 40px;
+      max-width: 150px;
       text-decoration: none;
       display: block;
       font-size: 1rem;
       font-weight: 700;
 
+      @include truncate(150px);
       @include themify($themes) {
         color: themed("dropdown-item-color");
         @include on-event {
@@ -266,6 +269,8 @@
 
       @include respond-to(sm) {
         padding-left: 2.5rem;
+        min-width: 100%;
+        max-width: 100%;
       }
     }
   }

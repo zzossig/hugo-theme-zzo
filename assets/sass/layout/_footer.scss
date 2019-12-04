@@ -89,10 +89,13 @@
     &-item {
       padding: 0.25rem 0.75rem;
       height: 100%;
+      min-width: 40px;
+      max-width: 150px;
       text-decoration: none;
       display: block;
       font-size: 1rem;
 
+      @include truncate(150px);
       @include themify($themes) {
         color: themed("dropdown-item-color");
         @include on-event {
