@@ -305,9 +305,6 @@ commento = false
   scriptSrc = "" # "https://isso.example.com/js/embed.min.js"
   dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
 
-[marketing]
-  googleAnalytics = ""
-
 [socialOptions] # if set, social icons will show up.
   email = "mailto:your@email.com"
   facebook = "http://example.org/"
