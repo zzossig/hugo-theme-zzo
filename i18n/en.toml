@@ -27,3 +27,15 @@ other = "WRITTEN BY"
 
 [toc-label]
 other = "What's on this Page"
+
+[counter-site-pv]
+other = "Total views"
+
+[counter-site-uv]
+other = "Total visitors"
+
+[counter-page-pv]
+other = "views"
+
+[donate-message]
+other = "Support the author with"

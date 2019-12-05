@@ -53,6 +53,8 @@ $content-font: {{ .Site.Data.font.content_font }};
 @import 'components/toc';
 @import 'components/tooltip';
 @import 'components/whoami';
+@import 'components/busuanzi';
+@import 'components/donation';
 
 @import 'pages/404';
 @import 'pages/about';

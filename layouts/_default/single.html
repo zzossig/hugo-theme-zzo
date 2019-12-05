@@ -6,12 +6,17 @@
   <div class="single">
     <h2 class="single__title">{{ .Title }}</h2>
     <div class="single__meta">
-      🕓 {{ .Date.Format (i18n "single-dateformat") }} · ☕{{ .ReadingTime }} min read
+      🕓 {{ .Date.Format (i18n "single-dateformat") }} · ☕{{ .ReadingTime }} min read 
+      {{ if (and .Site.Params.enableBusuanzi .Site.Params.busuanziPagePV) }}
+        · 👀 
+        <span id="busuanzi_value_page_pv"></span> {{ i18n "counter-page-pv" }}
+      {{ end }}
       {{ partial "body/tags" . }}
     </div>    
     <article class="single__contents">
       {{ .Content }}
     </article>
+    {{ partial "body/donation" . }}
     {{ partial "body/whoami" . }}
     {{ partial "body/related" . }}
     {{ partial "pagination/pagination-single" . }}

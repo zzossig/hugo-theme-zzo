@@ -45,6 +45,13 @@ enableLangChange = true
 enableThemeChange = true
 themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
 
+# service
+baiduAnalytics = ""
+enableBusuanzi = false
+busuanziSiteUV = true
+busuanziSitePV = true
+busuanziPagePV = true
+
 # comment
 enableComment = true
 disqus_shortname = ""
@@ -108,3 +115,11 @@ commento = false
   stack-exchange = ""
   telegram = ""
   steam = ""
+
+[donationOptions]
+  enable = false
+  alipay = "" 
+  wechat = ""
+  bitcoin = ""
+  paypal = ""
+  patreon = ""

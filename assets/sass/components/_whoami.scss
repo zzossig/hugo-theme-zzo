@@ -71,7 +71,7 @@
         color: themed('social-icon-color');
         &:hover {
           color: themed('social-icon-hover-color');
-          transition: color 0.2s ease;
+          @include transition(color, 0.2s, ease);
         }        
       }   
     }

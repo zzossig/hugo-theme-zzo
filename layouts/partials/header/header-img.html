@@ -1,11 +1,11 @@
 {{ if $.Params.header }}  
   {{ range $.Params.header }}
     {{ if eq .type "img" }}
-    <div class="custom-header custom-header__align-{{ .align }}" style="background-image: url('{{ .image | relURL }}'); width: 100%; height: {{ .height }}px; padding: {{ .paddingY }}px {{ .paddingX }}px;">
+    <div class="site-header site-header__align-{{ .align }}" style="background-image: url('{{ .image | relURL }}'); width: 100%; height: {{ .height }}px; padding: {{ .paddingY }}px {{ .paddingX }}px;">
       {{ $header := . }}
       {{ if .title }}            
         {{ range .title }}
-        <div class="custom-header__title" style="font-size: {{ $header.titleFontSize }}px;">
+        <div class="site-header__title" style="font-size: {{ $header.titleFontSize }}px;">
           {{ . }}
         </div>
         {{ end }}      
@@ -15,7 +15,7 @@
       {{ end }}
       {{ if .subtitle }}
         {{ range .subtitle }} 
-        <div class="custom-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px;">
+        <div class="site-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px;">
           {{ . }}
         </div>
         {{ end }}      

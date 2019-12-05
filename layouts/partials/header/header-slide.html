@@ -5,11 +5,11 @@
     {{ if eq .type "slide" }}
       {{ $height := .height }}
       {{ range .slide }}
-        <div class="swiper-slide custom-header custom-header__align-{{ .align }}" style="background-image: url('{{.image | relURL }}'); height: {{ $height }}px;">
+        <div class="swiper-slide site-header site-header__align-{{ .align }}" style="background-image: url('{{.image | relURL }}'); height: {{ $height }}px;">
           {{ $header := . }}
           {{ if .title }}            
             {{ range .title }}
-            <div class="custom-header__title" style="font-size: {{ $header.titleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
+            <div class="site-header__title" style="font-size: {{ $header.titleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
               {{ . }}
             </div>
             {{ end }}      
@@ -19,7 +19,7 @@
           {{ end }}
           {{ if .subtitle }}
             {{ range .subtitle }} 
-            <div class="custom-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
+            <div class="site-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
               {{ . }}
             </div>
             {{ end }}      

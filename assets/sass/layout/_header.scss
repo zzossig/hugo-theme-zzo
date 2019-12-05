@@ -21,7 +21,7 @@
   }
 }
 
-.custom-header {
+.site-header {
   @include flexbox();  
   @include justify-content(center);
   @include flex-direction(column);

@@ -120,13 +120,15 @@ pygmentsUseClasses = true
     [markup.goldmark.renderer]
       unsafe = true
 
-[outputs]
-  home = ["HTML", "RSS", "JSON", "WebAppManifest"]
+[outputs][outputs]
+  home = ["HTML", "RSS", "JSON", "WEBMANIFEST"]
 
 [mediaTypes."application/manifest+json"]
   suffixes = ["webmanifest"]
 
-[outputFormats.WebAppManifest]
+[outputFormats.webmanifest]
+  name = "webmanifest"
+  baseName = "webmanifest"
   mediaType = "application/manifest+json"
   rel = "manifest"
 
@@ -249,6 +251,13 @@ showSocialLinks = true # email, facebook, twitter ...
 enableLangChange = true # show button at bottom left of footer.
 themeOptions = ["dark", "light", "hacker", "solarized", "custom"] # select options for site color theme
 
+# service
+baiduAnalytics = "" # china, alternative of google analytics
+enableBusuanzi = false # if set true, total page view, total unique visitors show up in the sidebar.
+busuanziSiteUV = true # unique visitors (total number of visitors)
+busuanziSitePV = true # site total page view count
+busuanziPagePV = true # post view count
+
 # comment
 enableComment = true
 disqus_shortname = "" 
@@ -315,6 +324,14 @@ commento = false
   stack-exchange = ""
   telegram = ""
   steam = ""
+
+[donationOptions] 
+  enable = false # if set, donation button will show up in the single page.
+  alipay = "" # Alipay QR Code image (example path: images/donation/alipay-qrcode.png) and put your file at root/static/images/donation/
+  wechat = "" # Wechat pay QR Code image (example path: same as above)
+  bitcoin = "" # Bitcoin account?
+  paypal = "" # Paypal URL
+  patreon = "" # Patreon URL
 ```
 
 ## Layout

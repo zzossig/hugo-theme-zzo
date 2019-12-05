@@ -22,7 +22,16 @@ pygmentsCodefencesGuessSyntax = true
 googleAnalytics = ""
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON", "WEBMANIFEST"]
+
+[mediaTypes."application/manifest+json"]
+  suffixes = ["webmanifest"]
+
+[outputFormats.webmanifest]
+  name = "webmanifest"
+  baseName = "webmanifest"
+  mediaType = "application/manifest+json"
+  rel = "manifest"
 
 [taxonomies]
   category = "categories"

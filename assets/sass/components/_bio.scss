@@ -39,12 +39,15 @@
 
   &__info {
     font-size: 14px;
+    margin: 0.1rem 0;
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);
 
     &--icon {
       margin-right: 0.25rem;
+      @include flexbox();
+      @include align-items(center);
       @include themify($themes) {
         color: themed('social-icon-color');
       }      

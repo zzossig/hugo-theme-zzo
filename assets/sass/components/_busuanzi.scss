@@ -1,0 +1,23 @@
+.busuanzi {
+  @include flexbox();
+
+  &__item {
+    padding: 0.125rem;
+
+    @include flexbox();
+    @include flex-direction(column);
+    @include align-items(center);
+    @include flex-grow(1);
+
+    &--label {
+      font-size: 14px;
+      padding: .125rem 0;
+      font-family: $title-font;
+    }
+
+    &--number {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}

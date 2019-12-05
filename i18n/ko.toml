@@ -27,3 +27,15 @@ other = "글쓴이"
 
 [toc-label]
 other = "목차"
+
+[counter-site-pv]
+other = "총 조회수"
+
+[counter-site-uv]
+other = "총 방문자 수"
+
+[counter-page-pv]
+other = "조회수"
+
+[donate-message]
+other = "후원하기"

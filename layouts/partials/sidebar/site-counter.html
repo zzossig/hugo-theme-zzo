@@ -1,0 +1,24 @@
+{{ if $.Param "enableBusuanzi" }}
+  <div class="busuanzi">
+    
+    {{ if .Site.Params.busuanziSiteUV }}
+      <div class="busuanzi__item">
+        <span class="busuanzi__item--label">
+          {{ i18n "counter-site-uv" }}
+        </span>
+        <span id="busuanzi_value_site_uv" class="busuanzi__item--number">...</span>
+      </div>
+    {{ end }}
+
+    {{ if .Site.Params.busuanziSitePV }}
+      <div class="busuanzi__item">
+        <span class="busuanzi__item--label">
+          {{ i18n "counter-site-pv" }}
+        </span>
+        <span id="busuanzi_value_site_pv" class="busuanzi__item--number">...</span>
+      </div>
+    {{ end }}
+
+  </div>
+  <hr class="hr-fade sidebar-hr" />
+{{ end }}

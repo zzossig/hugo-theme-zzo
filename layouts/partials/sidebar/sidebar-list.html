@@ -5,6 +5,7 @@
 {{ with .File }}{{ $currentID = .UniqueID }}{{ end }}
 <div class="sidebar">
     {{ partial "search/site-search" . }}
+    {{ partial "sidebar/custom-list" . }}
     {{ if .Site.Params.itemsPerCategory }}
     {{ range first .Site.Params.itemsPerCategory .Pages }}
     <section class="sidebar-recent">
@@ -20,6 +21,7 @@
     {{ end }}
 </div>
 
+<hr class="hr-fade sidebar-hr" />
 <div class="taxo-root">
 {{ partial "taxonomy/taxonomy-tags" . }}
 {{ partial "taxonomy/taxonomy-categories" . }}

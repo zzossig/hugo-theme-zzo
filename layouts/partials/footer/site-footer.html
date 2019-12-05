@@ -6,7 +6,7 @@
 
     {{ if $.Param "showPoweredBy" }}
     <div class="footer__poweredby">
-        {{ if $.Site.Copyright }}
+        {{ if $.Site.Copyright }}        
             <p class="caption">
                 {{ with $.Site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}{{ end }}
             </p>

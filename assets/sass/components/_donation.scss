@@ -1,0 +1,72 @@
+.donation {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  
+  @include respond-to(sm) {
+    @include flex-direction(column);
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+
+  &__message {
+    padding: 0.5rem;
+    font-size: 18px;    
+    font-weight: bold;
+    font-family: $title-font;
+    
+    @include flexbox();
+    @include justify-content(center);
+  }
+
+  &__item {
+    font-size: 16px;
+    padding: 0.125rem;
+    padding-right: 0.25rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    margin: 0.25rem;
+    text-transform: capitalize;
+    
+    @include flexbox();
+    @include align-items(center);
+    @include themify($themes) {
+      text-decoration: none;
+      color: themed('social-icon-color');
+      border: 1px solid themed('social-icon-color');
+
+      &:hover {
+        color: themed('social-icon-hover-color');
+        border: 1px solid themed('social-icon-hover-color');
+        @include transition(color, 0.2s, ease);
+      }        
+    }
+  }
+
+  &__dropup {
+    position: relative;
+    height: 100%;
+    &--content {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      background-color: #fff;
+      z-index: 1;
+      min-width: 50px;
+      max-width: 350px;
+      height: auto;
+      margin-bottom: 0.25rem;
+      border-radius: 0.25rem;
+
+      @include themify($themes) {
+        background-color: themed('dropdown-content-background-color');
+      }
+    }
+  }
+}
+
+.donation__dropup:hover .donation__dropup--content {
+  display: block;
+}

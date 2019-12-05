@@ -117,6 +117,16 @@
     // search
     runSearch();
 
+    // counter
+    {{ $enableBusuanzi := .Site.Params.enableBusuanzi }}
+    {{ $busuanziPagePV := .Site.Params.busuanziPagePV }}
+    var enableBusuanzi = JSON.parse({{ $enableBusuanzi | jsonify }});
+    var busuanziPagePV = JSON.parse({{ $busuanziPagePV | jsonify }});
+    
+    if (enableBusuanzi && busuanziPagePV) {      
+      $('#busuanzi_value_page_pv').digits();
+    }    
+
     var navbar = $('.navbar');
 
     // toc

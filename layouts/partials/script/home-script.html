@@ -11,5 +11,13 @@
   window.onload = function() {
     // search
     runSearch();
+
+    // counter
+    {{ $enableBusuanzi := .Site.Params.enableBusuanzi }}
+    var enableBusuanzi = JSON.parse({{ $enableBusuanzi | jsonify }});
+    if (enableBusuanzi) {
+      $('#busuanzi_value_site_uv').digits();
+      $('#busuanzi_value_site_pv').digits();
+    }    
   }
 </script>

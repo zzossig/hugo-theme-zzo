@@ -198,4 +198,11 @@ $(document).ready(function() {
     table.parentElement.replaceChild(wrapper, table);
     wrapper.appendChild(table);
   }
+
+  // utils
+  $.fn.digits = function() {
+    return this.each(function() {
+      $(this).text($(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+    })
+  }
 });
