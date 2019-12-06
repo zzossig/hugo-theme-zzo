@@ -60,6 +60,10 @@
       margin-bottom: 0.25rem;
       border-radius: 0.25rem;
 
+      @include respond-to(sm) {
+        left: 50%;
+        transform: translate(-50%);
+      }
       @include themify($themes) {
         background-color: themed('dropdown-content-background-color');
       }
