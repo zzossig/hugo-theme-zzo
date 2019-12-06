@@ -31,6 +31,7 @@ $content-font: {{ .Site.Data.font.content_font }};
 @import 'layout/navigation';
 @import 'layout/grid';
 @import 'layout/header';
+@import 'layout/body';
 @import 'layout/footer';
 @import 'layout/sidebar';
 
@@ -59,7 +60,6 @@ $content-font: {{ .Site.Data.font.content_font }};
 @import 'pages/404';
 @import 'pages/about';
 @import 'pages/archive';
-@import 'pages/body';
 @import 'pages/gallery';
 @import 'pages/list';
 @import 'pages/single';

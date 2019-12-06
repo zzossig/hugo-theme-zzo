@@ -1,5 +1,6 @@
 .busuanzi {
   @include flexbox();
+  width: 250px;
 
   &__item {
     padding: 0.125rem;
@@ -10,13 +11,14 @@
     @include flex-grow(1);
 
     &--label {
-      font-size: 14px;
+      font-size: 12.8px;
       padding: .125rem 0;
       font-family: $title-font;
+      font-style: italic;
     }
 
     &--number {
-      font-size: 20px;
+      font-size: 16.8px;
       font-weight: bold;
     }
   }

@@ -8,17 +8,6 @@
     font-family: $title-font;
     font-weight: 900;
   }
-
-  &__image {
-    background-image: url("../images/header/background.jpg"),
-    url("../images/header/background.png");
-    width: 100%;
-    height: 235px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    margin-bottom: 0.5rem;
-  }
 }
 
 .site-header {

@@ -6,6 +6,8 @@
 
     {{ if $.Param "showPoweredBy" }}
     <div class="footer__poweredby">
+    {{ partial "footer/site-counter" . }}
+
         {{ if $.Site.Copyright }}        
             <p class="caption">
                 {{ with $.Site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}{{ end }}

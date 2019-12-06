@@ -5,7 +5,8 @@
     {{ if eq .type "slide" }}
       {{ $height := .height }}
       {{ range .slide }}
-        <div class="swiper-slide site-header site-header__align-{{ .align }}" style="background-image: url('{{.image | relURL }}'); height: {{ $height }}px;">
+        <div class="swiper-slide site-header site-header__align-{{ .align }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }};
+    background-repeat: {{ .imageRepeat }}; background-position: {{ .imagePosition }}; height: {{ $height }}px;">
           {{ $header := . }}
           {{ if .title }}            
             {{ range .title }}

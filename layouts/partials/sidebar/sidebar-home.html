@@ -1,8 +1,7 @@
 {{ if $.Param "enableSidebar" }}
 <div class="sidebar">    
     {{ partial "search/site-search" . }}
-    {{ partial "sidebar/site-bio" . }}
-    {{ partial "sidebar/site-counter" . }}
+    {{ partial "sidebar/site-bio" . }}    
     {{ partial "sidebar/custom-home" . }}
 
     {{ range (and (where .Site.Sections "Type" "!=" "about") (where .Site.Sections "Type" "!=" "archive")) }}

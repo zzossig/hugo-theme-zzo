@@ -19,12 +19,14 @@
             if (localTheme) {
                 document.getElementById('root').className = `theme__${localTheme}`;
             }
-    </script>
+    </script>    
     <div id="body">
+        {{ partial "body/custom-wrapper" . }}
         <div class="container wrapper">
             {{ partial "navbar/site-nav" . }}
             {{ partial "header/site-header" . }}
             {{ block "main" . }}{{ end }}
+            {{ partial "body/custom-body" . }}
             {{ partial "footer/site-footer" . }}
         </div>    
     </div>    

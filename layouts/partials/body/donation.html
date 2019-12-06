@@ -15,14 +15,6 @@
           {{ partial (print "svgs/donation/" $name ".svg") (dict "width" 22 "height" 22) }}
           {{ $name }}
         </a>
-      {{ else if in $name "bitcoin" }}
-        <div class="donation__item donation__dropup">
-          {{ partial (print "svgs/donation/" $name ".svg") (dict "width" 22 "height" 22) }}
-          {{ $name }}
-          <div class="donation__dropup--content">
-            {{ $path }}
-          </div>
-        </div>
       {{ else }}
         <div class="donation__item donation__dropup">
           {{ partial (print "svgs/donation/" $name ".svg") (dict "width" 22 "height" 22) }}
