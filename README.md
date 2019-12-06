@@ -794,7 +794,7 @@ You can add some config option parameters at data/flowchartjs.json
 
 ```bash
 // path: static/images/whoami/avatar.jpg
-{{< img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" >}}
+{{< img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" >}} // you can set width, height also
 ```
 
 ### notice
