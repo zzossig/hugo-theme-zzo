@@ -742,6 +742,12 @@ title_font = "\"Montserrat\", sans-serif"
 content_font = "\"Merriweather\", serif"
 ```
 
+5. Another approach
+Make a file at root/layouts/partials/head/custom.html and then load font style. 
+```html
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
+```
+
 ## External Library
 
 If you want use external libraries, this theme currently supporting Katex, MathJax, Mermaid, Flowchart.js, chart.js, viz-graph, wavedrom, js-sequence-diagram. Just add some front matter.
