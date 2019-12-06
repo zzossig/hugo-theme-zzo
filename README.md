@@ -115,12 +115,14 @@ rssLimit = 100
 pygmentsOptions = "linenos=table"
 pygmentsUseClasses = true
 
+googleAnalytics = ""
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
 
-[outputs][outputs]
+[outputs]
   home = ["HTML", "RSS", "JSON", "WEBMANIFEST"]
 
 [mediaTypes."application/manifest+json"]
@@ -326,7 +328,6 @@ commento = false
   enable = false # if set, donation button will show up in the single page.
   alipay = "" # Alipay QR Code image (example path: images/donation/alipay-qrcode.png) and put your file at root/static/images/donation/
   wechat = "" # Wechat pay QR Code image (example path: same as above)
-  bitcoin = "" # Bitcoin account?
   paypal = "" # Paypal URL
   patreon = "" # Patreon URL
 ```
@@ -793,7 +794,7 @@ You can add some config option parameters at data/flowchartjs.json
 
 ```bash
 // path: static/images/whoami/avatar.jpg
-{{% img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" %}}
+{{< img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" >}}
 ```
 
 ### notice
