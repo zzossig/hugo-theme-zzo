@@ -1,0 +1,41 @@
+[search-placeholder]
+other = "搜索"
+
+[summary-dateformat]
+other = "2006年 01月 02日"
+
+[taxo-tags]
+other = "标签"
+
+[taxo-categories]
+other = "分类"
+
+[taxo-series]
+other = "系列"
+
+[archive-dateformat]
+other = "01-02"
+
+[single-dateformat]
+other = "2006年 01月 02日"
+
+[single-related]
+other = "相关内容"
+
+[single-writtenBy]
+other = "撰写者"
+
+[toc-label]
+other = "目录"
+
+[counter-site-pv]
+other = "总浏览"
+
+[counter-site-uv]
+other = "总访客"
+
+[counter-page-pv]
+other = "views"
+
+[donate-message]
+other = "您的鼓励是我最大的动力"

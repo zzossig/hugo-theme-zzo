@@ -1,63 +1,59 @@
 # Zzo theme for Hugo
 
-English | 
-[한국어](https://github.com/zzossig/hugo-theme-zzo/blob/master/README.ko.md)
+🚨🚨🚨최소로 지원가능한 Hugo 버전이 0.60.0으로 변경되었습니다. 이전 버전과는 다르게 아예 마크다운 렌더링 라이브러리 자체가 변경되어(blackfridy에서 goldmark로), 혹여 이전버전을 사용하고 계시다면, 최신 Hugo 버전을 설치하시는걸 권장드립니다.🚨🚨🚨
 
-🚨🚨🚨The minimum Hugo version changed to 0.60.0. This version changed the markdown rendering library, so if you are using an older version, it may not be compatible.🚨🚨🚨
-
-Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(always), and many features. 
+클릭해 주셔서 감사합니다. Zzo theme은 많은 기능을 지원하고있고 있습니다. 기술 블로그를 운영하기에 최적화 되어있습니다!(적어도 제생각엔...)
+Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로 저와 소통할 수 있다는 점? 입니다. 
 
 ## Table of contents
 
-* [Features](#features)
-* [Minimum Hugo version](#minimum-hugo-version)
-* [Installation](#installation)
-* [Updating](#updating)
-* [Run example site](#run-example-site)
-* [Configuration](#configuration)
-* [Layout](#layout)
-* [Gallery](#gallery)
-* [Multi Language](#multi-language)
-* [Customizing](#customizing)
-* [External libraries](#external-library)
+* [기능](#features)
+* [최소 휴고 버전](#minimum-hugo-version)
+* [설치](#installation)
+* [업데이트](#updating)
+* [예제 사이트 돌리기](#run-example-site)
+* [설정](#configuration)
+* [레이아웃](#layout)
+* [갤러리](#gallery)
+* [다국어](#multi-language)
+* [커스터마이징](#customizing)
+* [외부 라이브러리 사용](#external-library)
 * [Shortcodes](#shortcodes)
 
 ## Features
 
-* Multiple Skins(dark, light, solarized, hacker)
-* A mobile menu
-* CSS grid and flex for layout
-* HTML5
-* Hugo Pipes for js and sass
-* Simple blog
-* Search Engine Optimization(SEO)
-* Multilingual (i18n)
-* Responsive design
-* RSS and JSON feeds with full content
-* Search with Lunr
-* Gallery with Masonry, Photoswipe
-* Fast code highlighting
+* 다양한 스킨 지원(dark, light, solarized, hacker)
+* 모바일 메뉴
+* 최신 HTML5, CSS 기술 이용
+* 심플한 블로그
+* 검색 엔진 최적화 (SEO)
+* 다국어 지원 (i18n)
+* 반응형 디자인
+* RSS feed 지원
+* 검색 (지원 예정)
+* 갤러리 지원
+* 코드 하이라이트
 
 ## Minimum Hugo version
 
-Hugo version 0.60.0 or higher is required.
+최소 요구 Hugo 버전은 0.60.0 입니다.
 
 ## Installation
 
-First of all, You need to add config files.
-Follow the [Configuration](#configuration) step.
+우선 설정 파일을 만드셔야 합니다. 설정파일이 없거나 설정값이 잘못 될 경우, 실행이 안되실 수 있습니다.
+[설정](#configuration) 링크를 참조하여 설정파일을 만들어주세요.
 
-Then, You can download and unpack the theme manually from Github but it's easier to use git to clone the repo.
-
-From the root of your site:
+설정 파일을 다 만드셨으면, theme 폴더에 zzo 폴더를 만들고, 그곳에 이 레포지토리를 다운로드 하신 파일을 복사 붙여넣기 하시면 됩니다.
+이렇게 파일을 복사 붙여넣기 하시면, 나중에 제가 여러가지 버그나 이슈를 업데이트 했을 때, 님이 만드신 블로그를 최신 Zzo theme으로
+업데이트 하고 싶으시면 해당 Zzo theme을 지우고 다시 다운로드 한 다음, 복붙하시면 되겠습니다.
 
 ```bash
 $ git clone https://github.com/zzossig/hugo-theme-zzo.git themes/zzo
 ```
 
-If you use git to version control your site, highly recommended, it's best to add the zzo theme as a submodule.
+깃헙을 이용하여 블로그를 관리하신다면, 섭모듈을 사용하여 Zzo theme을 쉽게 최신버전으로 유지하실 수 있습니다.
 
-From the root of your site:
+루트 폴더에서 다음 코드를 입력해주시면 submodule로써 Zzo theme이 설치됩니다:
 
 ```bash
 git submodule add https://github.com/zzossig/hugo-theme-zzo.git themes/zzo
@@ -81,9 +77,18 @@ hugo server --themesDir ../..
 
 ## Configuration
 
-0. From the root of your site: delete config.toml file and add the files below
+0. 저같은 경우, 디렉토리 하나를 만들고 그곳에 다음과같이 사이트를 만듭니다.
 
-1. config folder structure
+```bash
+hugo new site .
+```
+
+1. 0번 단계에서 만드신 디렉토리로 들어가주세요.
+config.toml 파일이 보이신다면, 과감하게 지워주세요. 아래 단계들은 제가 사용하는 config 파일들입니다.
+모두 그냥 복사, 붙여넣기 해서 파일을 만드시면 되는데, 귀찮으신 분들은 exampleSite 폴더에 있는 config 폴더를
+루트 디렉토리에 그냥 복사 붙여넣기 하셔도 됩니다.
+ 
+아래는 설정 파일 구조구요.
 
 ```bash
 root
@@ -338,9 +343,7 @@ commento = false
 
 ### CSS grid for layout
 
-Modern CSS grid is the easiest and cleanest way to layout your pages.
-
-The CSS grid layout are in `assets/sass/layout/_grid.scss`. A lot can be done by just reordering "grid-template-rows". 
+이 프로젝트의 레이아웃은 css의 grid란 걸 사용해서 잡았습니다. 혹시나 커스터마이징 하실 때 알아야 할 수도 있을 것 같아서 알려드립니다.
 
 ### grid structure
 
@@ -379,7 +382,7 @@ The CSS grid layout are in `assets/sass/layout/_grid.scss`. A lot can be done by
 
 ## Gallery
 
-There are two ways to make gallery. You can specify **mode** at front-matter.
+갤러리는 두가지 모두가 존재해요. 하나씩 올리거나 한번에 올리거나.
 
 ```bash
 content/gallery/anygalleryname/index.md
@@ -406,7 +409,9 @@ images: # when mode is one-by-one, images front-matter variable works
 
 ```
 
-If you set the mode to one-by-one, the list.html page will use images front-matter variable you set above. If you set the mode to at-once, list.html page will not use front-matter images variable and just read all files under the static/gallery/anygalleryname folder.
+갤러리를 만드시려면 우선 type을 갤러리로 하셔야 하구요, mode를 one-by-one으로 하시면 images에 이미지를 위와 같이 하나씩 입력해주셔야 해요. 
+그럼 이미지가 위에 적힌 순서대로 나타날거에요. mode를 at-once로 하시면, static 폴더에 있는 이미지를 전부 불러올거에요. 예를들어 위의 코드에서 mode를 at-once로 했다면,
+static/gallery/anygalleryname 폴더에 있는 이미지를 전부 읽어 갤러리 페이지에 나타날 거에요.
 
 1. Make a gallery folder under the content folder
 
@@ -443,9 +448,9 @@ root
 
 ## Multi Language
 
-The default language of this theme is English. If you want to use another language, follow these steps
+Zzo theme의 기본 언어는 영어입니다. 한국어로 바꾸시려면 다음과 같이 해주세요.
 
-1. Make a menu file.
+1. 우선 메뉴파일을 만듭니다.
 
 ```bash 
 root
@@ -472,7 +477,7 @@ config/_default/menus.ko.toml
 ...
 ```
 
-2. Make a content file. Add your language code before the md extension.
+2. content 폴더에 마크다운 파일을 작성하실 때, 확장자 앞에 ko를 붙여주세요!
 
 ```bash
 hugo new about/index.ko.md
@@ -480,7 +485,7 @@ hugo new posts/markdown-syntax.ko.md
 ...
 ```
 
-3. Make an i18n file.
+3. i18n 파일을 만듭니다.
 
 ```bash
 i18n/ko.toml
@@ -497,7 +502,7 @@ other = "태그"
 ...
 ```
 
-4. Edit config.toml file.
+4. 설정 파일에 기본언어 항목 값을 변경해줍니다.
 
 ```bash
 defaultContentLanguage = "ko"
@@ -507,11 +512,14 @@ hasCJKLanguage = true
 
 ## Customizing
 
-It's a better idea not to modify the Zzo theme's folder if you want future support and upgrade. (You can modify if it doesn't matter) If you want more customizing options, open a new issue.
+기본적으로 theme 폴더안에 있는 내용은 안건드시는게 좋지만, 건드신다면 나중에 theme을 업데이트 하는게 복잡해 질 수도 있습니다. 현재 상태로 별로 업데이트가 필요 없다고 느끼신다면 theme에 있는 파일을 마음대로 고치셔도 됩니다. 그게 아니라면 아래에 있는 방식으로 커스터마이징 하시기를 추천드립니다.
+
+추가로, custom css나 custom js를 아래의 방식대로 이용하시면, 페이지 로드 속도가 약간 더 느려지는 것을
+발견했습니다.
 
 ### custom css
 
-1. Add this line of code to your params.toml file
+1. config 폴더의 params.toml 파일에 아래와같이 커스텀 스타일 파일을 명시해주세요.
 
 ```bash
 config/_default/params.toml
@@ -521,14 +529,14 @@ custom_css = ["css/custom.css", "scss/custom.scss", ...]
 ...
 ```
 
-2. Add your file to assets folder. Filename must match with config params you set above.
+2. 위 설정파일에 명시한 대로 실제 파일을 만들어 주세요.
 
 ```bash
 assets/scss/custom.scss
 assets/css/custom.css
 ```
 
-3. If you want to modify the Zzo theme's default color, you should override the theme style. For example, if you're going to change the body background-color because I set the background-color in #body selector, not in the body tag selector, you should override body background-color there. Body tag selector won't work. And make sure to set !important. After setting the values, restart Hugo.
+3. 만약 특정 색상을 변경하고 싶으시면, 위에 만든 커스텀 스타일 파일에 해당 부분의 스타일을 오버라이드 해줘야 합니다. 예를들어 backdrop 색상을 변경하고자 하시면, 다음과 같이 해주셔야 합니다.
 
 ```css
 assets/scss/custom.scss or assets/css/custom.css
@@ -542,7 +550,7 @@ assets/scss/custom.scss or assets/css/custom.css
 
 ### custom js
 
-1. Add this line of code to your params.toml file
+1. config 폴더의 params.toml 파일에 아래와같이 커스텀 파일을 명시해주세요.
 
 ```bash
 config/_default/params.toml
@@ -552,7 +560,7 @@ custom_js = ["js/custom.js", ...]
 ...
 ```
 
-2. Add your file to assets folder. Filename must match with config params you set above.
+2. 실제 파일을 생성해 주시구요.
 
 ```bash
 assets/js/custom.js
@@ -560,18 +568,16 @@ assets/js/custom.js
 
 ### custom skin(sub theme)
 
-1. Make a skin.toml file in data folder. (data/skin.toml)
+1. data폴더에 skin.toml 파일을 만들어주세요. (data/skin.toml)
 
-2. Set custom_theme_primary_color variable. The range of value that can be set is from "0" to "359".
+2. custom_theme_primary_color항목의 값을 변경해주세요. 값의 범위는 "0" 부터 "359" 까지 입니다.
 
-3. Restart hugo.
-
-5. Once you change the skin.toml file, restart hugo.
+3. 변경 후, 휴고를 다시 시작해주세요. 안그러면 변경사항이 적용 안될 수도 있습니다.
 
 ### custom syntax highlighting
 
-1. Make a skin.toml file at root/data folder. Set the chroma_theme value as you want. Refer this [link](https://xyproto.github.io/splash/docs/all.html). If chroma_theme value include - or _ like special character, just delete it.
-For example, if you want use solarized-dark256 style, set the param like this.
+1. root/data 폴더에 skin.toml파일을 만들어주세요. chroma_theme항목의 값을 원하시는 코드 하이라이트 테마값으로 변경해주세요. [이 링크](https://xyproto.github.io/splash/docs/all.html)를 참조해서 값을 변경하시면 됩니다. 만약 chroma_theme 값에 - 나 _ 같은 특수문자가 있다면 지워주세요.
+예를들어, solarized-dark256 값을 입력하시려면, 다음과 같이 해주세요.
 
 ```
 root/data/skin.toml
@@ -579,9 +585,7 @@ root/data/skin.toml
 chroma_theme = "solarizeddark256"
 ```
 
-2. Add a custom style file if you want to change specific colors. [[custom-css](#custom-css)]
-Then, override chroma class. You can find this class at themes/zzo/assets/sass/syntax folder.
-Example code is like this.
+2. 특정 색상을 변경하고 싶으시다면, [[custom-css](#custom-css)]에서 만든 파일에 chroma class를 오버라이드 해야합니다. 잘 모르겠으면 문의주세요!
 
 ```
 root/assets/scss/custom.scss
@@ -591,15 +595,15 @@ root/assets/scss/custom.scss
 }
 ```
 
-Make sure that !important is necessary. After you changed this param, restart hugo.
-
 ### custom header
 
-You may want to change home page header. There are 4 options which is slider, image, text, empty.
+홈페이지에서 헤더 부분에 4가지 종류의 헤더를 입힐 수 있습니다. 슬라이더, 이미지, 텍스트, 그리고 아무것도 입력 안하시면 빈공간이 됩니다.
 
-1. Set param at config/_default/params.toml(homeHeaderType)
+1. config/_default/params.toml 설정파일에 homeHeaderType 값을 변경해주세요. 가능한 값은 slide, img, text입니다.
 
-2. Make _index.md file at root/content/_index.md and copy & paste below.
+2. root/content/_index.md에 _index.md 파일을 만들어주세요 그리고 아래 내용을 복붙해주세요.
+
+3. 변수의 이름만으로 의미가 전달된다고 생각합니다. 값을 하나씩 변경해보면서 원하시는 대로 커스터마이징 해주세요.
 
 ```yaml
 ---
@@ -684,17 +688,15 @@ header:
 ---
 ```
 
-3. Edit params as you wish.
-
 ### custom grid
 
-1. Make a grid.toml file in data folder. (data/grid.toml)
+1. 폴더에 grid.toml 파일을 만들어주세요. (data/grid.toml)
 
-2. Copy the contents of themes/zzo/data/grid.toml file and paste it into the grid.toml file you created above.
+2. themes/zzo/data/grid.toml 파일에 있는 내용을 위에서 만든 파일에 복붙해주세요.
 
-3. Change the grid as you want.
+3. 원하시는 대로 값을 변경해주세요.
 
-4. Once you change the grid.toml file, restart hugo.
+4. 변경 후, 휴고를 재시작 해주세요.
 
 ```toml
 data/grid.toml example
@@ -713,7 +715,7 @@ grid_row_gap = "0"
 
 ### custom font
 
-1. Add custom css file
+1. 커스텀 css 파일을 만들어주세요.
 
 ```bash
 config/_default/params.toml
@@ -723,9 +725,7 @@ custom_css = ["css/font.css"]
 ...
 ```
 
-Set the above param and add file to assets/css/font.css
-
-2. In your font.css file, add font-face something like this.
+2. font.css 파일에, font-face를 아래와 같이 만들어주세요.
 
 ```css
 @font-face {
@@ -745,18 +745,18 @@ Set the above param and add file to assets/css/font.css
 }
 ```
 
-3. Add your fonts file at root/static/fonts/myfont.xxx (If your url in step2 is ('../fonts/myfont.xxx')).
+3. root/static/fonts/myfont.xxx 폰트 파일을 static 폴더에 넣어주세요. (If your url in step2 is ('../fonts/myfont.xxx')).
 
-4. Make a font.toml file at root/data/font.toml and make variables as below.
+4. root/data/font.toml 에 font.toml 파일을 만들어주세요. 그리고 아래와 같이 내용을 입력해주세요.
 
 ```toml
 title_font = "\"Montserrat\", sans-serif"
 content_font = "\"Merriweather\", serif"
 ```
 
-5. Another approach
+5. 다른 방식
 
-Make a file at root/layouts/partials/head/custom-head.html and then load font style. 
+root/layouts/partials/head/custom-head.html 경로에 파일을 만드시고 폰트를 그곳에서 로드해주세요.
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
@@ -764,7 +764,7 @@ Make a file at root/layouts/partials/head/custom-head.html and then load font st
 
 ## External Library
 
-If you want use external libraries, this theme currently supporting Katex, MathJax, Mermaid, Flowchart.js, chart.js, viz-graph, wavedrom, js-sequence-diagram. Just add some variable to a front-matter.
+현재 지원하는 외부 라이브러리는 Katex, MathJax, Mermaid, Flowchart.js, chart.js, viz-graph, wavedrom, js-sequence-diagram 입니다. front-matter에 값을 넣어주시면 해당 라이브러리가 로드됩니다.
 
 ```bash
 ---
@@ -784,7 +784,6 @@ libraries:
 ---
 
 ```
-You can add some config option parameters at data/flowchartjs.json
 
 ## Shortcodes
 
