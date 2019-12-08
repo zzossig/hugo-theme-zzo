@@ -6,6 +6,7 @@
   height: 40px;
   border-radius: 0.25rem;
   cursor: pointer;
+  z-index: z('gtt');
 
   @include flexbox();
   @include align-items(center);
@@ -19,7 +20,8 @@
       background-color: themed('gtt-hover-background-color');
     }
   }
-  @include respond-to(sm) {
+
+  @media only screen and (max-width: 769px) {
     position: fixed;
   }
 }

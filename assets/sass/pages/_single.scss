@@ -22,15 +22,15 @@
     @include flexbox();
     @include align-items(center);
     @include flex-wrap(wrap);
-    @include flex-grow(1);
-    @include respond-to(sm) {
+    @include flex-grow(1);    
+    @include themify($themes) {
+      color: themed('meta-color');
+    }
+    @media only screen and (max-width: 769px) {
       @include flexbox();
       @include flex-direction(column);
       @include align-items(flex-start);
     }
-    @include themify($themes) {
-      color: themed('meta-color');
-    }    
   }
 
   &__infos {

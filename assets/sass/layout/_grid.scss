@@ -11,7 +11,8 @@ $grid_column_gap: $grid_column_gap_width + $grid_column_gap_unit;
     grid-template-rows: $grid_navbar_height auto 1fr auto;
     grid-column-gap: $grid_column_gap;
     grid-row-gap: $grid_row_gap;
-    @include respond-to(sm) {
+
+    @media only screen and (max-width: 769px) {
         grid-template-columns: minmax(0, $grid_main_main) minmax(0, $grid_main_side);
     }
 }

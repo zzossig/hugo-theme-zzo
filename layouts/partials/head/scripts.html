@@ -9,8 +9,8 @@
 {{ end }}
 
 <script>
-  var runSearch = function() {
-    // search
+  // search
+  var runSearch = function() {    
     {{ $searchLanguages := .Site.Params.searchLanguages }}
     var searchLanguages = JSON.parse({{ $searchLanguages | jsonify }});
     {{ if .Site.IsMultiLingual }}

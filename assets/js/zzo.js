@@ -126,27 +126,7 @@ $(document).ready(function() {
     }
     position = scroll;
   });
-
-  // media query
-  enquire.register("screen and (max-width: 769px)", {
-    match: function () {
-      $('main').removeClass('main-main').removeClass('main').addClass('main');
-      $('aside').removeClass('main-side').removeClass('hide').addClass('hide');
-    },
-    unmatch: function () {      
-      if ($('aside').length > 0) {
-        $('main').removeClass('main-main').removeClass('main').addClass('main-main');
-        $('aside').removeClass('main-side').removeClass('hide').addClass('main-side');        
-      }
-      $('.navbar__burger').removeClass('is-active');
-      $('.navbar__menu').removeClass('is-active');
-      $('.mobile-search').hide(200);
-    },
-    setup: function () { },
-    deferSetup: true,
-    destroy: function () { },
-  });
-
+  
   // navbar
   $('.navbar__burger').click(function() {
     if ($(this).hasClass('is-active')) {

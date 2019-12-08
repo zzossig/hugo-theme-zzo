@@ -24,11 +24,12 @@
       }
     }
 
-    @include respond-to(sm) {
+    @media only screen and (max-width: 769px) {
       &::before {
         content: none;
       }
     }
+
   }
 
   &__li {
@@ -39,10 +40,11 @@
     @include transition(margin-left, 0.1s, ease);
     @include flexbox();
     @include align-items(center);
-    @include respond-to(sm) {
+
+    @media only screen and (max-width: 769px) {
       margin-left: 0;
       position: relative;
-    }    
+    }   
   }
 
   &__key {
@@ -93,7 +95,7 @@
       color: themed('archive-type-color');
       background-color: themed('archive-type-background-color');
 
-      @include respond-to(sm) {
+      @media only screen and (max-width: 769px) {
         border-right: 2px solid themed('toc-vertical-line');
       }
     }
@@ -112,9 +114,9 @@
       color: themed('archive-meta-color');
       background-color: themed('archive-type-background-color');
 
-      @include respond-to(sm) {
+      @media only screen and (max-width: 769px) {
         border-left: 2px solid themed('toc-vertical-line');
-      }      
+      }
     }
   }
 
@@ -135,7 +137,7 @@
           background-color: themed('archive-hover-line-color');
         }
 
-        @include respond-to(sm) {
+        @media only screen and (max-width: 769px) {
           top: 50%;
           @include translateY(-50%);
         }

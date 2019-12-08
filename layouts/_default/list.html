@@ -1,4 +1,8 @@
 {{ define "main" }}
+
+{{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
+<script src="{{ $enquire.RelPermalink }}"></script>
+
 <main class="{{ if $.Param "enableSidebar" }}main-main{{ else }}main{{ end }}">
     {{ partial "body/breadcrumb" . }}
     <article class="list">
@@ -26,5 +30,31 @@
         {{ partial "sidebar/sidebar-list" . }}
     </aside>
 {{ end }}
+<script>
+    enquire.register("screen and (max-width: 769px)", {
+        match: function () {
+            if (document.getElementsByTagName('main')[0]) {
+                document.getElementsByTagName('main')[0].className = "main";
+            }
+            if (document.getElementsByTagName('aside')[0]) {
+                document.getElementsByTagName('aside')[0].className = "hide";
+            }
+        },
+        unmatch: function () {
+            if (document.getElementsByTagName('main')[0]) {
+                document.getElementsByTagName('main')[0].className = "main-main";
+            }
+            if (document.getElementsByTagName('aside')[0]) {
+                document.getElementsByTagName('aside')[0].className = "main-side";
+            }
+            document.getElementsByClassName('navbar__burger')[0].classList.remove('is-active');
+            document.getElementsByClassName('navbar__menu')[0].classList.remove('is-active');
+            document.getElementsByClassName('mobile-search')[0].classList.add('hide');
+        },
+        setup: function () { },
+        deferSetup: true,
+        destroy: function () { },
+    });
+</script>
 {{ partial "script/list-script" . }}
 {{ end }}

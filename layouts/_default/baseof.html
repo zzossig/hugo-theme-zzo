@@ -16,10 +16,11 @@
 <body id="root" class="theme__{{ index .Site.Params.themeOptions 0 }}">
     <script>
         var localTheme = localStorage.getItem('theme');
-            if (localTheme) {
-                document.getElementById('root').className = `theme__${localTheme}`;
-            }
+        if (localTheme) {
+            document.getElementById('root').className = `theme__${localTheme}`;
+        }        
     </script>    
+    
     <div id="body">
         {{ partial "body/custom-wrapper" . }}
         <div class="container wrapper">
@@ -29,7 +30,7 @@
             {{ partial "body/custom-body" . }}
             {{ partial "footer/site-footer" . }}
         </div>    
-    </div>    
+    </div>
 </body>
 
 </html>

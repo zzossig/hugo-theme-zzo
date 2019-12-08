@@ -193,17 +193,17 @@
     z-index: z('search-btn');
 
     @include animation('slide-in-down .5s .25s 1 ease both');
-    @include respond-to(sm) {
-      @include flexbox();
-      @include align-items(center);
-      @include justify-content(center);
-    }
-    
     @include themify($themes) {
       color: themed('burger-menu-color');  
       @include on-event {
         color: themed('link-hover');   
       }
+    }
+
+    @media only screen and (max-width: 769px) {
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(center);
     }
   }
 

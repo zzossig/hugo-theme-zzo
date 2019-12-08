@@ -26,13 +26,13 @@
   }
 
   &__slide-down {
-    @include respond-up(sm) {
+    @media only screen and (min-width: 769px) {
       @for $i from 1 through 8 {
         &:nth-child(#{$i}) {
           @include animation('slide-in-down .25s #{$i * .1}s 1 ease both');
         }
       }
-    }    
+    }   
   }
   
   &__brand {
@@ -48,7 +48,7 @@
     position: relative;
 
     @include animation('slide-in-down .5s .0s 1 ease both');
-    @include respond-to(sm) {
+    @media only screen and (max-width: 769px) {
       cursor: pointer;
       margin-left: auto;
       position: relative;
@@ -108,7 +108,7 @@
           }        
         }      
       }
-    }    
+    }
   }
 
   &__logo {
@@ -149,10 +149,10 @@
     @include align-items(center);
     @include justify-content(flex-end);
     height: $grid_navbar_height;
-    
-    @include respond-to(sm) {
+
+    @media only screen and (max-width: 769px) {
       display: none;
-    }
+    }    
 
     &-item {
       height: $grid_navbar_height;      
@@ -172,7 +172,7 @@
           background-color: themed('navbar-menu-hover-background-color');
           text-decoration: none;
           border-bottom: 1px solid themed('navbar-border-bottom-color');
-          @include respond-to(sm) {
+          @media only screen and (max-width: 769px) {
             border-bottom: none;
           }
         }
@@ -181,7 +181,7 @@
         }
       }
 
-      @include respond-to(sm) {
+      @media only screen and (max-width: 769px) {
         @include justify-content(flex-start);
         width: 100%;
         padding: 0 0.75rem;
@@ -212,7 +212,7 @@
   &__dropdown {
     display: inline-block;
     height: $grid_navbar_height;
-    @include respond-to(sm) {
+    @media only screen and (max-width: 769px) {
       width: 100%;
       height: auto;
     }
@@ -230,7 +230,8 @@
         border-top: 4px solid themed("dropdown-border-top-color");
         background-color: themed("dropdown-content-background-color");
       }
-      @include respond-to(sm) {
+
+      @media only screen and (max-width: 769px) {
         position: relative;
         display: block;
         box-shadow: none;
@@ -238,7 +239,7 @@
           border-top: none;
           background-color: themed("navbar-mobile-background-color");
         }
-      }      
+      }
     }
 
     &--item {
@@ -267,7 +268,7 @@
         }
       }
 
-      @include respond-to(sm) {
+      @media only screen and (max-width: 769px) {
         padding-left: 2.5rem;
         min-width: 100%;
         max-width: 100%;
@@ -285,7 +286,8 @@
   @include align-items(center);
   @include justify-content(flex-end);
   @include animation('slide-in-down .5s .0s 1 ease both');  
-  @include respond-to(sm) {
+
+  @media only screen and (max-width: 769px) {
     display: none;
   }
 
@@ -389,7 +391,8 @@
       border-bottom: none;
     }      
   }
-  @include respond-to(sm) {
+
+  @media only screen and (max-width: 769px) {
     @include flexbox();
     @include align-items(center);
     @include justify-content(flex-end);

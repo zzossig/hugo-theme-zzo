@@ -5,7 +5,7 @@
   width: 100%;
 
   @include flexbox();
-  @include respond-to(sm) {
+  @media only screen and (max-width: 769px) {
     @include align-items(center);
     @include flex-direction(column);
   }
@@ -13,7 +13,7 @@
   &__contents {    
     margin-top: 0.5rem;
 
-    @include respond-to(sm) {
+    @media only screen and (max-width: 769px) {
       @include flexbox();
       @include flex-direction(column);
       @include justify-content(center);
@@ -54,7 +54,7 @@
     font-size: 1rem;
     padding-left: 0.25rem;
 
-    @include respond-to(sm) {
+    @media only screen and (max-width: 769px) {
       width: 75%;
     }
   }

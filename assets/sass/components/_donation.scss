@@ -3,7 +3,7 @@
   @include align-items(center);
   @include justify-content(center);
   
-  @include respond-to(sm) {
+  @media only screen and (max-width: 769px) {
     @include flex-direction(column);
   }
 
@@ -60,10 +60,11 @@
       margin-bottom: 0.25rem;
       border-radius: 0.25rem;
 
-      @include respond-to(sm) {
+      @media only screen and (max-width: 769px) {
         left: 50%;
         transform: translate(-50%);
       }
+
       @include themify($themes) {
         background-color: themed('dropdown-content-background-color');
       }

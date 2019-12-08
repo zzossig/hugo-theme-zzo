@@ -1,7 +1,5 @@
 {{ $jquery := resources.Get "js/jquery.min.js" | resources.Fingerprint }}
 <script defer src="{{ $jquery.RelPermalink }}"></script>
-{{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
-<script defer src="{{ $enquire.RelPermalink }}"></script>
 {{ $lazysizes := resources.Get "js/lazysizes.min.js" | resources.Fingerprint }}
 <script defer src="{{ $lazysizes.RelPermalink }}"></script>
 {{ $zzo := resources.Get "js/zzo.js" | resources.Minify | resources.Fingerprint }}
@@ -18,6 +16,6 @@
     if (enableBusuanzi) {
       $('#busuanzi_value_site_uv').digits();
       $('#busuanzi_value_site_pv').digits();
-    }    
+    }
   }
 </script>
