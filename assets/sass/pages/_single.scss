@@ -52,7 +52,7 @@
     font-size: 1rem;
     font-family: $content-font;
     margin: 1rem 0;
-    line-height: 1.7rem;
+    line-height: 1.7;
     width: inheirt;
     max-width: inherit;
     h1,
@@ -182,7 +182,7 @@
       margin: 0 1.75rem 1.75rem 1.5rem;
       padding: 0 0 0 1.42188rem;
       font-size: 1.05rem;
-      line-height: 1.75rem;
+      line-height: 1.75;
       color: inherit;
       opacity: 0.8;
       position: relative;
@@ -316,7 +316,7 @@
 
 code, pre {  
   padding: .5rem 0;
-  line-height: 1.5em;
+  line-height: 1.4;
   font-size: $code-font-size;
   font-family: $code-font-stack;
   position: relative;
