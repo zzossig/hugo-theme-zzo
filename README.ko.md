@@ -225,7 +225,7 @@ enableThemeChange = true # site color theme
 # body
 enableBreadcrumb = true # breadcrumb for list, single page
 enablePhotoSwipe = true # image viewer for gallery, single page
-enableSearch = true # site search with lunr
+enableSearch = true # site search with fuse
 enableGoToTop = true # scroll to top
 enableWhoami = true # at the end of single page
 summaryShape = "classic" # card, classic, compact
@@ -251,7 +251,6 @@ enableSidebarCategories = true
 enableToc = true # single page table of contents
 enableTocSwitch = true # single page table of contents visibility switch
 itemsPerCategory = 5 # maximum number of posts shown in the sidebar.
-searchLanguages = ['en'] # lunr multilanguage search. https://github.com/MihaiValentin/lunr-languages
 
 # footer
 showPoweredBy = true # show footer text: Powered by Hugo and Zzo theme

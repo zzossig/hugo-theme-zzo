@@ -11,20 +11,4 @@
   </div>
 </div>
 
-{{ $lunr := resources.Get "js/lunr.min.js" | resources.Fingerprint }}
-<script defer src="{{ $lunr.RelPermalink }}"></script>
-
-{{ $stemmer := .Site.Data.lib.js.stemmer }}
-<script defer src="{{ $stemmer.url }}" integrity="{{ $stemmer.sri }}" crossorigin="anonymous"></script>
-
-{{ $multi := .Site.Data.lib.js.multi_language }}
-<script defer src="{{ $multi.url }}" integrity="{{ $multi.sri }}" crossorigin="anonymous"></script>
-
-{{ $searchLanguages := .Site.Params.searchLanguages }}
-{{ range .Site.Data.lib.lunr }}
-  {{ if in $searchLanguages .code }}
-    <script defer src="{{ .url }}" integrity="{{ .sri }}" crossorigin="anonymous"></script>
-  {{ end }}
-{{ end }}
-
 {{ end }}

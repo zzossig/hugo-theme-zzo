@@ -1,39 +1,34 @@
 [[main]]
   identifier = "about"
-  name = "about"
+  name = "어바웃"
   url = "about"
   weight = 1
 
 [[main]]
   identifier = "archive"
-  name = "archive"
+  name = "아카이브"
   url = "archive"
   weight = 2
 
 [[main]]
   identifier = "gallery"
-  name = "gallery"
+  name = "갤러리"
   url = "gallery"
-  weight = 4
+  weight = 3
     
 [[main]]
   parent = "gallery"
-  name = "cartoon"
-  url = "gallery/cartoon"
-
-[[main]]
-  parent = "gallery"
-  name = "photo"
-  url = "gallery/photo"
+  name = "fiverr"
+  url = "gallery/mine"
 
 [[main]]
   identifier = "posts"
-  name = "posts"
+  name = "포스트"
   url = "posts"
-  weight = 5
+  weight = 4
     
 [[main]]
   identifier = "notes"
-  name = "notes"
+  name = "노트"
   url = "notes"
-  weight = 6
+  weight = 5

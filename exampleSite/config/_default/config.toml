@@ -1,28 +1,48 @@
-baseURL = "http://example.org/"
-title = "Hugo Zzo Theme"
+baseURL = ""
 theme = "zzo"
 
-defaultContentLanguage = "en"
+defaultContentLanguage = "ko"
 defaultContentLanguageInSubdir = true
 hasCJKLanguage = true
 
 summaryLength = 70
 
-copyright = "&copy;{year}, All Rights Reserved"
+copyright = "&copy;{year}, ZZOSSIG All Rights Reserved"
 timeout = 10000
 enableEmoji = true
 paginate = 13
 rssLimit = 100
 
-pygmentsOptions = "linenos=table"
-pygmentsUseClasses = true
-
 googleAnalytics = ""
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
     [markup.goldmark.renderer]
+      hardWraps = true
       unsafe = true
+      xHTML = true
+  [markup.highlight]
+    codeFences = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    tabWidth = 4
+  [markup.tableOfContents]
+    endLevel = 3
+    startLevel = 2
 
 [outputs]
   home = ["HTML", "RSS", "JSON", "WEBMANIFEST"]
@@ -35,7 +55,7 @@ googleAnalytics = ""
   baseName = "webmanifest"
   mediaType = "application/manifest+json"
   rel = "manifest"
-
+  
 [taxonomies]
   category = "categories"
   tag = "tags"

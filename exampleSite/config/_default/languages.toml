@@ -1,9 +1,9 @@
-[en]
-  title = "Hugo Zzo Theme"
-  languageName = "English"
-  weight = 1
-
 [ko]
-  title = "Hugo Zzo Theme"
+  title = "쪼식이 블로그"
   languageName = "한국어"
+  weight = 1
+  
+[en]
+  title = "Zzossig's Blog"
+  languageName = "English"
   weight = 2

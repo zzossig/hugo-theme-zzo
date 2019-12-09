@@ -223,7 +223,8 @@
     }
 
     &--desc {
-      font-size: 0.9rem;      
+      font-size: 0.9rem;
+      @include truncate(960px);
       @include themify($themes) {
         color: themed('search-color');
         opacity: 0.65;

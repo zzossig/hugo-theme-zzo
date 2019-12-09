@@ -1,5 +1,5 @@
-logoText = "Zzo"
-description = "The Zzo theme for Hugo example site."
+logoText = ""
+description = "쪼식이 블로그"
 custom_css = []
 custom_js = []
 
@@ -18,12 +18,12 @@ archivePaginate = 13
 paginateWindow = 1
 
 # whoami
-myname = "zzossig"
+myname = "최성환"
 email = "zzossig@gmail.com"
-whoami = "Web Developer"
-useGravatar = false
+whoami = "성장중인 프로그래머"
+useGravatar = true
 location = "Seoul, Korea"
-organization = "Hugo"
+organization = ""
 link = "https://github.com/zzossig/hugo-theme-zzo"
 
 # sidebar
@@ -35,7 +35,6 @@ enableSidebarCategories = true
 enableToc = true
 enableTocSwitch = true
 itemsPerCategory = 5
-searchLanguages = ['en']
 
 # footer
 showPoweredBy = true
@@ -43,7 +42,7 @@ showFeedLinks = true
 showSocialLinks = true
 enableLangChange = true
 enableThemeChange = true
-themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
+themeOptions = ["light", "dark", "hacker", "solarized", "custom"]
 
 # service
 baiduAnalytics = ""
@@ -100,11 +99,11 @@ commento = false
   dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
 
 [socialOptions]
-  email = "mailto:your@email.com"
-  facebook = "http://example.org/"
-  twitter = "http://example.org/"
+  email = "mailto:zzossig@gmail.com"
+  facebook = ""
+  twitter = "https://twitter.com/zzossig"
   github = "https://github.com/zzossig/hugo-theme-zzo"
-  stack-overflow = ""
+  stack-overflow = "https://stackoverflow.com/users/11747951/zzossig"
   instagram = ""
   google-plus = ""
   youtube = ""

@@ -8,66 +8,46 @@
 {{ end }}
 {{ end }}
 
+{{ $fuse := resources.Get "js/fuse.min.js" | resources.Fingerprint }}
+<script defer src="{{ $fuse.RelPermalink }}"></script>
+
 <script>
   // search
-  var runSearch = function() {    
-    {{ $searchLanguages := .Site.Params.searchLanguages }}
-    var searchLanguages = JSON.parse({{ $searchLanguages | jsonify }});
+  var runSearch = function() {
     {{ if .Site.IsMultiLingual }}
         var baseurl = "{{.Site.BaseURL}}{{.Site.LanguagePrefix}}";
     {{ else }}
         var baseurl = "{{.Site.BaseURL}}";
     {{ end }}
 
-    if (!searchLanguages) {
-      searchLanguages = ['en'];
-    }
-
-    var lunrIndex = null;
-    var pagesIndex = null;
     var searchResults = null;
     var searchMenu = null;
+    var fuse = null;
 
     function endsWith(str, suffix) {
       return str.indexOf(suffix, str.length - suffix.length) !== -1;
     }
 
-    function initLunr() {
+    function initFuse() {
       if (!endsWith(baseurl, "/")) {
         baseurl = baseurl + '/';
       };
 
-      $.getJSON(baseurl + "index.json")
+      $.ajax({
+        type: "GET",
+        url: baseurl + "index.json",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+      })
         .done(function (index) {
-          pagesIndex = index;
-          lunrIndex = lunr(function () {
-            this.use(lunr.multiLanguage(...searchLanguages));
-            this.ref('uri');
-            this.field('title');
-            this.field('description');
-            this.field('content');
-            //this.field('tags');
-            //this.field('series');
-            //this.field('categories');
-
-            var that = this;
-            index.forEach(function (page) {
-              that.add(page);
-            });
+          fuse = new Fuse(index, {
+            keys: ['title', 'description', 'content']
           });
         })
         .fail(function (jqxhr, textStatus, error) {
           var err = textStatus + ", " + error;
           console.error("Error getting Hugo index file:", err);
         });
-    }
-
-    function search(query) {
-      return lunrIndex.search(query).map(function (result) {
-        return pagesIndex.filter(function (page) {
-          return page.uri === result.ref;
-        })[0];
-      });
     }
 
     function renderSearchResults(results) {
@@ -123,7 +103,7 @@
       searchResults.appendChild(content);
     }
 
-    initLunr();
+    initFuse();
 
     $("#search").on('input', function (e) {
       if (!e.target.value) {
@@ -135,7 +115,7 @@
         return null;
       } 
 
-      var results = search(e.target.value);
+      var results = fuse.search(e.target.value);
       renderSearchResults(results);
     });
 
@@ -156,7 +136,7 @@
         $('#search-results').attr('class', 'dropdown');
         return null;
       }
-      var results = search(e.target.value);
+      var results = fuse.search(e.target.value);
       renderSearchResults(results);
     });
 
@@ -186,7 +166,7 @@
         return null;
       }
 
-      var results = search(e.target.value);
+      var results = fuse.search(e.target.value);
       renderSearchResultsMobile(results);
     });
   }
