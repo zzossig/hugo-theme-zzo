@@ -114,15 +114,19 @@ enableEmoji = true
 paginate = 13 # Number of items per page in paginated lists.
 rssLimit = 100
 
-pygmentsOptions = "linenos=table"
-pygmentsUseClasses = true
-
 googleAnalytics = ""
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
+      hardWraps = true
       unsafe = true
+      xHTML = true
+  [markup.highlight]
+    codeFences = true
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
 
 [outputs]
   home = ["HTML", "RSS", "JSON", "WEBMANIFEST"]
