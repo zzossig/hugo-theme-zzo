@@ -62,10 +62,14 @@
     h5,
     h6 {
       position: relative;
+      line-height: 1.25;
+    }
+
+    h1,
+    h2 {
       @include themify($themes) {
         color: themed("single-contents-title-color");
       }
-      line-height: 1.25;
     }
 
     h1 {
