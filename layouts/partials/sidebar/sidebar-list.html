@@ -1,18 +1,15 @@
 {{ if $.Param "enableSidebar" }}
 
-{{ $currentSection := .Section }}
-{{ $currentID := "" }}
-{{ with .File }}{{ $currentID = .UniqueID }}{{ end }}
 <div class="sidebar">
     {{ partial "search/site-search" . }}
     {{ partial "sidebar/custom-list" . }}
     {{ if .Site.Params.itemsPerCategory }}
     {{ range first .Site.Params.itemsPerCategory .Pages }}
     <section class="sidebar-recent">
-        <a href="{{ .RelPermalink }}" class="sidebar-recent__title p1 {{ if eq $currentSection .Section }}active{{ end }}">{{ .Title }}</a>
+        <a href="{{ .RelPermalink }}" class="sidebar-recent__title p1">{{ .Title }}</a>
         <ul class="sidebar-recent__ul">
             {{ range first .Site.Params.itemsPerCategory .Pages }}
-            <li><a href="{{ .RelPermalink }}" class="sidebar-recent__a p2 {{ if eq $currentID .File.UniqueID }}active{{ end }}">{{ .Title }}</a>
+            <li><a href="{{ .RelPermalink }}" class="sidebar-recent__a p2">{{ .Title }}</a>
             </li>
             {{ end }}
         </ul>

@@ -14,7 +14,7 @@
 	"progress": true,
 	"slideNumber": false,
 	"hash": false,
-	"history": false,
+	"history": true,
 	"keyboard": true,
 	"overview": true,
 	"center": true,

@@ -15,11 +15,11 @@
   // search
   var runSearch = function() {
     {{ if .Site.IsMultiLingual }}
-        var baseurl = "{{.Site.BaseURL}}{{.Site.LanguagePrefix}}";
+        var baseurl = location.origin + "/{{.Site.Language.Lang}}";
     {{ else }}
-        var baseurl = "{{.Site.BaseURL}}";
+        var baseurl = location.origin;
     {{ end }}
-
+    
     var searchResults = null;
     var searchMenu = null;
     var fuse = null;
