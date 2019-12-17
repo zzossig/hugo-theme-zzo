@@ -1,0 +1,23 @@
+{{ define "main" }}
+<header class="header">
+  <h3 class="h3 terms__title">
+    {{ .Title }}
+  </h3>
+</header>
+<main class="main">
+  <div class="contact">
+    <article class="single__contents contact__desc">
+      {{ .Content }}
+    </article>
+    {{ if eq .Params.service "formspree" }}
+      {{ partial "contact/formspree" . }}
+    {{ else }}
+      {{ partial "contact/formspree" . }}
+    {{ end }}
+  </div>  
+</main>
+<div class="hide">
+  {{ partial "search/site-search" . }}
+</div>
+{{ partial "script/contact-script" . }}
+{{ end }}

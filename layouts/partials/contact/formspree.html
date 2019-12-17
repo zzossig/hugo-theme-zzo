@@ -1,0 +1,23 @@
+<form action="https://formspree.io/{{ with .Params.formId }}{{ . }}{{ end }}" method="POST" class="contact__form">
+  <div class="contact__input--container">
+    <div class="contact__input--wrapper">
+      <label class="contact__label">
+        {{ i18n "contact-name" }}    
+      </label>
+      <input type="text" name="name" class="contact__input" aria-label="{{ i18n "contact-name" }}">
+    </div>
+    <div class="contact__input--wrapper">
+      <label class="contact__label">
+        {{ i18n "contact-email" }}    
+      </label>
+      <input type="email" name="_replyto" class="contact__input" aria-label="{{ i18n "contact-email" }}">
+    </div>
+  </div>
+  <div class="contact__message--wrapper">
+    <label class="contact__label">
+      {{ i18n "contact-message" }}    
+    </label>
+    <textarea name="message" class="contact__message" aria-label="{{ i18n "contact-message" }}"></textarea>
+  </div>
+  <input type="submit" value="{{ i18n "contact-send" }}" class="contact__send">
+</form>

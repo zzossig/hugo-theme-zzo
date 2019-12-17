@@ -39,3 +39,15 @@ other = "views"
 
 [donate-message]
 other = "Support the author with"
+
+[contact-name]
+other = "Name"
+
+[contact-email]
+other = "Email"
+
+[contact-message]
+other = "Message"
+
+[contact-send]
+other = "Send"

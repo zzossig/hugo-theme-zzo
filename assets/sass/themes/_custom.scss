@@ -94,4 +94,7 @@ $custom: (
   switch-active-color: hsl($custom_theme_primary_color, 80%, 60%),
   gallery-mask-color: hsl($custom_theme_primary_color, 100%, 10%),
   gallery-mask-background-color: hsla($custom_theme_primary_color, 100%, 90%, 0.7),
+  contact-input-color: hsl($custom_theme_primary_color, 100%, 28.5%),
+  contact-input-background-color: hsl($custom_theme_primary_color, 100%, 94.5%),
+  contact-button-background-color: hsl($custom_theme_primary_color, 100%, 94.5%),
 ) !default;

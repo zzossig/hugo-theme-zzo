@@ -39,3 +39,15 @@ other = "조회수"
 
 [donate-message]
 other = "후원하기"
+
+[contact-name]
+other = "이름"
+
+[contact-email]
+other = "이메일"
+
+[contact-message]
+other = "내용"
+
+[contact-send]
+other = "보내기"

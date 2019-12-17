@@ -39,3 +39,15 @@ other = "views"
 
 [donate-message]
 other = "您的鼓励是我最大的动力"
+
+[contact-name]
+other = "Name"
+
+[contact-email]
+other = "Email"
+
+[contact-message]
+other = "Message"
+
+[contact-send]
+other = "Send"
