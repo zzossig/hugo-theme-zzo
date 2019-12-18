@@ -1,0 +1,7 @@
+{
+  "manifest_version": 2,
+  "name": "Zzo",
+  "version": "1.0.0",
+  "default_locale": "en",
+  "description": "Hugo blog theme"
+}
