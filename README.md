@@ -130,16 +130,7 @@ googleAnalytics = ""
     noClasses = false
 
 [outputs]
-  home = ["HTML", "RSS", "JSON", "WEBMANIFEST"]
-
-[mediaTypes."application/manifest+json"]
-  suffixes = ["webmanifest"]
-
-[outputFormats.webmanifest]
-  name = "webmanifest"
-  baseName = "webmanifest"
-  mediaType = "application/manifest+json"
-  rel = "manifest"
+  home = ["HTML", "RSS", "JSON"]
 
 [taxonomies]
   category = "categories"

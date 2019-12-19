@@ -15,6 +15,7 @@ Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로
 * [설정](#configuration)
 * [레이아웃](#layout)
 * [갤러리](#gallery)
+* [컨택 페이지](#contact-page)
 * [다국어](#multi-language)
 * [커스터마이징](#customizing)
 * [외부 라이브러리 사용](#external-library)
@@ -134,16 +135,7 @@ googleAnalytics = ""
     noClasses = false
 
 [outputs]
-  home = ["HTML", "RSS", "JSON", "WEBMANIFEST"]
-
-[mediaTypes."application/manifest+json"]
-  suffixes = ["webmanifest"]
-
-[outputFormats.webmanifest]
-  name = "webmanifest"
-  baseName = "webmanifest"
-  mediaType = "application/manifest+json"
-  rel = "manifest"
+  home = ["HTML", "RSS", "JSON"]
 
 [taxonomies]
   category = "categories"
@@ -447,6 +439,36 @@ root
 │   ├── gallery
 │   │   ├── anygalleryname
 │   │   │   ├── ...your images here
+```
+
+## Contact Page
+
+현재 이용 가능한 서비스: [formspree]. 다른 서비스를 이용하고 싶으시면 새 이슈를 만들어주세요.
+
+1. 파일을 다음 경로에 만들어줍니다. root/contact/index.md
+
+```yaml
+---
+title: "Contact"
+date: 2019-12-17T23:58:33+09:00
+description: Contact page
+type: contact
+service: formspree
+formId: "your@email.com"
+---
+
+This is contact page.
+```
+
+2. 컨택트 메뉴를 다음 경로에 추가해줍니다. root/config/_default/menus.en.toml.
+
+```toml
+...
+[[main]]
+  identifier = "contact"
+  name = "contact"
+  url = "contact"
+  weight = 6
 ```
 
 ## Multi Language
