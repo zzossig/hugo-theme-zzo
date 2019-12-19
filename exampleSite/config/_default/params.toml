@@ -1,4 +1,4 @@
-logoText = "Zzo"
+logoText = "Zzo theme"
 description = "The Zzo theme for Hugo example site."
 custom_css = []
 custom_js = []
@@ -24,7 +24,7 @@ whoami = "Web Developer"
 useGravatar = false
 location = "Seoul, Korea"
 organization = "Hugo"
-link = "https://github.com/zzossig/hugo-theme-zzo"
+link = "https://zzossig.io/ko"
 
 # sidebar
 enableBio = true
