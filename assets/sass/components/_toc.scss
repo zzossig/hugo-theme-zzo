@@ -11,10 +11,16 @@
     position: relative;
   }
 
-  &__flexbox {
+  &__flexbox[data-position="fixed"] {
     @include flexbox();
     @include align-items(center);
     position: fixed;
+  }
+
+  &__flexbox[data-position="absolute"] {
+    @include flexbox();
+    @include align-items(center);
+    position: absolute;
   }
 
   &__title {

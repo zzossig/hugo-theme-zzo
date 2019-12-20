@@ -63,6 +63,7 @@
     h6 {
       position: relative;      
       line-height: 1.25;
+      font-family: $title-font;
     }
 
     h1,
@@ -225,10 +226,6 @@
     li {
       margin-left: 2rem;
       margin-bottom: calc(1rem / 2);
-
-      code {
-        margin: 0 0.25rem;
-      }
     }
 
     hr {

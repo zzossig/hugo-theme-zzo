@@ -161,8 +161,14 @@
       $("#toggle-toc").change(function () {
         if (this.checked) {
           $('.toc').fadeIn(200);
+          $('main').removeClass('main-main').removeClass('main').addClass('main-main');
+          $('side').removeClass('main-side');
+          $('.toc__flexbox').attr('data-position', 'fixed');
         } else {
           $('.toc').fadeOut(200);
+          $('main').removeClass('main-main').removeClass('main').addClass('main');
+          $('side').removeClass('main-side');
+          $('.toc__flexbox').attr('data-position', 'absolute');
         }
       });
     }    
@@ -326,17 +332,6 @@
           return $("<div />").append($(this).contents()).addClass('mermaid').css('padding', '34px 4px 6px');
         });
       }
-
-      /*$('code.language-mermaid:odd').each(function() {
-        $(this).unwrap('pre');
-        $(this).replaceWith(function () {
-          return $("<div />").append($(this).contents()).addClass('mermaid').css('padding', '34px 4px 6px');
-        });
-      });
-
-      $('code.language-mermaid').each(function (index, node) {
-        $(this).css('display', 'none');
-      });*/
     }
 
     // katex
@@ -371,27 +366,7 @@
           diagram.drawSVG("flowchart"+index, options);
 
           index +=1;
-      });
-      
-      /*$('code.language-flowchart:odd').each(function (index, node) {
-        var diagramContent = $(this).contents();
-        $(this).closest('table').attr('data-content', 'FLOWCHART');
-        $(this).unwrap('pre');
-        $(this).replaceWith(function () {
-          return $("<div id='diagram' data-content='flowchart'></div>").append(diagramContent.text()).addClass('diagram').css('padding', '34px 4px 6px').css('margin-top', '40px');
-        });      
-
-        var diagram = flowchart.parse(diagramContent.text());      
-        $('#diagram').empty();
-        diagram.drawSVG('diagram', options);      
-      });    
-
-      $('code.language-flowchart').each(function (index, node) {      
-        $(this).unwrap('pre');
-        $(this).replaceWith(function () {
-          return $("<div></div>");
-        });      
-      });*/
+      });      
     }
 
     // mathjax
@@ -427,18 +402,6 @@
         diagram.drawSVG("msc" + index, options);
         index += 1;
       });
-
-      /*$('code.language-msc:odd').each(function() {
-        $(this).unwrap('pre');
-        $(this).replaceWith(function () {
-          return $("<div />").append($(this).contents()).addClass('diagram');
-        });
-      });
-      $(".diagram").sequenceDiagram(options);
-
-      $('code.language-msc').each(function (index, node) {
-        $(this).css('display', 'none');
-      });*/
     }
 
     // chart.js
@@ -474,50 +437,11 @@
         var ctx = document.getElementById('myChart' + index).getContext('2d');
         var myChart = new Chart(ctx, source);
         index += 1;
-      });      
-
-      /*$('code.language-chart:odd').each(function (index, node) {
-        $(this).unwrap('pre');
-
-        node0 = document.createElement('canvas');
-        node0.height = 200;
-        node0.style.height = 200;
-        node0.id = 'myChart' + index;
-        source = JSON.parse(node.innerText);
-        node.parentNode.insertBefore(node0, node);
-        var ctx = document.getElementById('myChart' + index).getContext('2d');
-        var myChart = new Chart(ctx, source);
-
-        $(this).closest('td').css('padding', '40px 8px 8px');
-        $(this).hide();
-      });
-
-      $('code.language-chart:even').each(function (index, node) {
-        $(this).css('display', 'none');
-      });*/
-      
+      });            
     }
 
     // wavedrom
     if (lib && lib.includes('wavedrom')) {
-      /*$('code.language-wave:odd').each(function (index, node) {
-        $(this).unwrap('pre');
-
-        node0 = document.createElement('div');
-        node0.id = 'WaveDrom_Display_' + index;
-        source = JSON.parse(node.innerText);
-        node.parentNode.insertBefore(node0, node);
-
-        WaveDrom.RenderWaveForm(index, source, "WaveDrom_Display_");
-
-        $(this).closest('td').css('padding', '40px 12px 12px 0');
-        $(this).hide();
-      });
-
-      $('code.language-wave').each(function (index, node) {
-        $(this).css('display', 'none');
-      });*/
-
       var wavePrefix = "language-wave";
       var index = 0;
       Array.prototype.forEach.call(document.querySelectorAll("[class^=" + wavePrefix + "]"), function (x) {
@@ -535,29 +459,6 @@
 
     // viz diagram
     if (lib && lib.includes('viz')) {
-      /*var vizPrefix = "language-viz-";
-      $('pre[class*="language-viz-"]:odd').each(function (index, node) {
-        $(this).unwrap('pre');
-
-        var engine;
-        node.getAttribute("class").split(" ").forEach(function (cls) {
-          if (cls.startsWith(vizPrefix)) {
-            engine = cls.substr(vizPrefix.length);
-          }
-        });
-        var viz = new Viz();
-        viz.renderSVGElement(node.innerText, { engine: engine })
-          .then(function (element) {
-            element.style.width = "100%";
-            node.parentNode.insertBefore(element, node);
-          });
-        $(this).closest('td').css('padding', '40px 0 16px 0');
-        $(this).hide();
-      });
-      $('code[class*="language-viz-"]:even').each(function (index, node) {
-        $(this).hide();
-      });*/
-
       var vizPrefix = "language-viz-";
       Array.prototype.forEach.call(document.querySelectorAll("[class^=" + vizPrefix + "]"), function (x) {
         x.style.display = 'none'

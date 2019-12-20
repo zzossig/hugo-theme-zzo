@@ -40,6 +40,14 @@ $(document).ready(function() {
         location.reload();
       }
     }
+
+    var utterances = document.querySelector('iframe');
+    if (utterances) {
+      utterances.contentWindow.postMessage({
+        type: 'set-theme',
+        theme: selectedThemeVariant === "dark" || selectedThemeVariant === "hacker" ? 'photon-dark' : 'github-light',
+      }, 'https://utteranc.es');
+    }
   });
   
   // go to top

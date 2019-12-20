@@ -2,7 +2,7 @@
 {{ if $.Param "enableToc" }}
 
 <section class="sidebar">
-  <div class="toc__flexbox">
+  <div class="toc__flexbox" data-position="fixed">
     <h6 class="toc__title">{{ i18n "toc-label" }}</h6>
     {{ if $.Param "enableTocSwitch" }}
       <label class="switch">
