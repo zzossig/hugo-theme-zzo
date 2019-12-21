@@ -1,7 +1,7 @@
 ---
 author: Hugo Authors
 title: Math Typesetting
-date = 2019-12-17T12:00:06+09:00
+date: 2019-12-17T12:00:06+09:00
 description: A brief guide to setup KaTeX
 libraries:
 - katex
