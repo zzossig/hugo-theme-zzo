@@ -325,6 +325,7 @@ commento = false
   stack-exchange = ""
   telegram = ""
   steam = ""
+  weibo = ""
 
 [donationOptions] 
   enable = false # if set, the donation button will show up on the single page.
@@ -830,8 +831,8 @@ libraries:
 ### img
 
 ```bash
-// path: static/images/whoami/avatar.jpg
-{{< img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" >}} // you can set width, height also
+// path: static/images/whoami/avatar.jpg, you can set width, height also
+{{< img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" >}}
 ```
 
 ### notice
@@ -840,4 +841,10 @@ libraries:
 {{% notice note %}} # note, info, tip, warning
 A notice disclaimer
 {{% /notice %}}
+```
+
+### color
+
+```bash
+{{< color "#0000ff" >}}*text*{{< /color >}}
 ```

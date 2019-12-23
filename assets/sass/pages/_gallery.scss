@@ -86,10 +86,12 @@
       z-index: z('gallery-mask');
       font-family: $title-font;
       font-weight: 700;
-      cursor: pointer;      
+      cursor: pointer;
 
+      @include truncate(350px);
       @include box-shadow(0, 4px, 4px, 0, rgba(0, 0, 0, 0.4));
       @include on-event {
+        @include transition(all, 0.25s, ease);
         @include themify($themes) {
           color: themed('gallery-mask-color');
           background-color: themed('gallery-mask-background-color');

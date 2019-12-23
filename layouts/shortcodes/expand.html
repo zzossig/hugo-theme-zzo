@@ -5,12 +5,7 @@
             {{ partial "svgs/arrow/keyboard-arrow-right.svg" (dict "width" 20 "height" 20) }}            
         </span>        
         <span>
-            {{$expandMessage := T "Expand-title"}}
-            {{ if .IsNamedParams }}
-            {{.Get "default" | default $expandMessage}}
-            {{else}}
-            {{.Get 0 | default $expandMessage}}
-            {{end}}
+            {{.Get 0}}
         </span>
     </div>
     <div class="expand-content">
