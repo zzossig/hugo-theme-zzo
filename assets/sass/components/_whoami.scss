@@ -26,7 +26,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: 0.25rem;
-    @include box-shadow(0, 8px, 6px, -6px, black);
+    @include box-shadow(0, 2px, 3px, 0, rgba(0, 0, 0, 0.25));
 
     &-wrapper {
       min-width: 100px;

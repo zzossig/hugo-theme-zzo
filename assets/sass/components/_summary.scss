@@ -76,7 +76,7 @@
 }
 
 .summary-classic {
-  padding: 0 1rem;
+  padding: 0 1rem;  
   .title {
     font-size: 24px;    
     a {
@@ -125,7 +125,12 @@
       max-width: 130px;
       min-width: 130px;
       overflow: hidden;
+      border-radius: 0.25rem;
       @include align-self(center);
+      @include on-event {
+        @include box-shadow(1px, 1px, 3px, 0px, rgba(0, 0, 0, 0.25));
+        background-color: rgba(125, 125, 125, 0.1);
+      }
     }
   }
 
