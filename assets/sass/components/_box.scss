@@ -1,0 +1,13 @@
+.box {
+  font-size: 0.925rem;
+  font-family: $title-font;
+  word-break: keep-all;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+
+  @include themify($themes) {
+    border: 1px solid themed('content-box-border-color');
+    background-color: themed('content-box-background-color');
+  }
+}

@@ -1,6 +1,6 @@
 <div class="single__infos">
-  🕓 {{ .Date.Format (i18n "single-dateformat") }} · ☕{{ .ReadingTime }} min read
-  {{ if (and .Site.Params.enableBusuanzi .Site.Params.busuanziPagePV) }}        
-  · 👀 <span id="busuanzi_value_page_pv">...</span> {{ i18n "counter-page-pv" }}
-  {{ end }}
+  🕓 {{ .Date.Format (i18n "single-dateformat") }} {{ if .GitInfo }} &middot <span class="single__info"> 📝 {{ .Lastmod.Format (i18n "summary-dateformat") }} </span> {{ end }} &middot <span class="single__info"> ☕ {{ .ReadingTime }} min read </span>
+  <span class="single__info">
+    {{ if (and .Site.Params.enableBusuanzi .Site.Params.busuanziPagePV) }} &middot 👀<span id="busuanzi_value_page_pv">...</span> {{ i18n "counter-page-pv" }}{{ end }}
+  </span>
 </div>

@@ -1,6 +1,6 @@
 # Zzo theme for Hugo
 
-🚨🚨🚨최소로 지원가능한 Hugo 버전이 0.60.0으로 변경되었습니다. 이전 버전과는 다르게 아예 마크다운 렌더링 라이브러리 자체가 변경되어(blackfridy에서 goldmark로), 혹여 이전버전을 사용하고 계시다면, 최신 Hugo 버전을 설치하시는걸 권장드립니다.🚨🚨🚨
+🎄🎄🎄🎅최소로 지원가능한 Hugo 버전이 0.60.0으로 변경되었습니다. 이전 버전과는 다르게 아예 마크다운 렌더링 라이브러리 자체가 변경되어(blackfridy에서 goldmark로), 혹여 이전버전을 사용하고 계시다면, 최신 Hugo 버전을 설치하시는걸 권장드립니다.🎄🎄🎄
 
 클릭해 주셔서 감사합니다. Zzo theme은 많은 기능을 지원하고있고 있습니다. 기술 블로그를 운영하기에 최적화 되어있습니다!(적어도 제생각엔...)
 Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로 저와 소통할 수 있다는 점? 입니다. 
@@ -120,6 +120,7 @@ enableEmoji = true
 paginate = 13 # Number of items per page in paginated lists.
 rssLimit = 100
 
+enableGitInfo = false # When true, the modified date will appear on a summary and single page. Since GitHub info needs to be fetched, this feature will slow down to build depending on a page number you have
 googleAnalytics = ""
 
 [markup]

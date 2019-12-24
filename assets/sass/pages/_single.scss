@@ -37,7 +37,12 @@
     margin-right: 0.5rem;
 
     @include flexbox();
-    @include flex-wrap(nowrap);
+    @include flex-wrap(wrap);
+  }
+
+  &__info {
+    word-break: keep-all;
+    padding: 0 0.125rem;
   }
 
   &__contents {

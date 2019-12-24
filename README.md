@@ -3,7 +3,7 @@
 English | 
 [한국어](https://github.com/zzossig/hugo-theme-zzo/blob/master/README.ko.md)
 
-🚨🚨🚨The minimum Hugo version changed to 0.60.0. This version changed the markdown rendering library, so if you are using an older version, it may not be compatible.🚨🚨🚨
+🎄🎄🎄🎅The minimum Hugo version changed to 0.60.0. This version changed the markdown rendering library, so if you are using an older version, it may not be compatible.🎄🎄🎄
 
 Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(always), and many features. 
 
@@ -115,6 +115,7 @@ enableEmoji = true
 paginate = 13 # Number of items per page in paginated lists.
 rssLimit = 100
 
+enableGitInfo = false # When true, the modified date will appear on a summary and single page. Since GitHub info needs to be fetched, this feature will slow down to build depending on a page number you have
 googleAnalytics = ""
 
 [markup]
