@@ -4,6 +4,9 @@ other = "搜索"
 [summary-dateformat]
 other = "2006年 01月 02日"
 
+[reading-time]
+other = "分钟"
+
 [taxo-tags]
 other = "标签"
 

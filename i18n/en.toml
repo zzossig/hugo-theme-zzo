@@ -4,6 +4,9 @@ other = "Search"
 [summary-dateformat]
 other = "Jan 2, 2006"
 
+[reading-time]
+other = "min read"
+
 [taxo-tags]
 other = "Tags"
 

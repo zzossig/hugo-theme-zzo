@@ -4,6 +4,9 @@ other = "검색"
 [summary-dateformat]
 other = "2006년 01월 02일"
 
+[reading-time]
+other = "min read"
+
 [taxo-tags]
 other = "태그"
 
