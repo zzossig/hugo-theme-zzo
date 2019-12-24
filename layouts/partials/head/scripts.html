@@ -13,13 +13,19 @@
 
 <script>
   // search
+  var baseurl = null;
   var runSearch = function() {
     {{ if .Site.IsMultiLingual }}
-        var baseurl = location.origin + "/{{.Site.Language.Lang}}";
+        var isSubDirDisabled = location.pathname.startsWith("/{{.Site.Language.Lang}}");
+        if (isSubDirDisabled) {          
+          baseurl = location.origin + "/{{.Site.Language.Lang}}";          
+        } else {
+          baseurl = location.origin;
+        }
     {{ else }}
-        var baseurl = location.origin;
+        baseurl = location.origin;
     {{ end }}
-    
+
     var searchResults = null;
     var searchMenu = null;
     var fuse = null;
