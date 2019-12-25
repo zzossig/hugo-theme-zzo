@@ -2,7 +2,7 @@
 other = "搜索"
 
 [summary-dateformat]
-other = "2006年 01月 02日"
+other = "2006年01月02日"
 
 [reading-time]
 other = "分钟"
@@ -20,7 +20,7 @@ other = "系列"
 other = "01-02"
 
 [single-dateformat]
-other = "2006年 01月 02日"
+other = "2006年01月02日"
 
 [single-related]
 other = "相关内容"
@@ -44,13 +44,13 @@ other = "阅读"
 other = "您的鼓励是我最大的动力"
 
 [contact-name]
-other = "Name"
+other = "姓名"
 
 [contact-email]
-other = "Email"
+other = "电子邮件"
 
 [contact-message]
-other = "Message"
+other = "消息"
 
 [contact-send]
-other = "Send"
+other = "发送"
