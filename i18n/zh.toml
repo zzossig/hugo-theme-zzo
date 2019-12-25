@@ -38,7 +38,7 @@ other = "总浏览"
 other = "总访客"
 
 [counter-page-pv]
-other = "views"
+other = "阅读"
 
 [donate-message]
 other = "您的鼓励是我最大的动力"

@@ -327,6 +327,9 @@ commento = false
   telegram = ""
   steam = ""
   weibo = ""
+  douban = ""
+  csdn = ""
+  zhihu = ""
 
 [donationOptions] 
   enable = false # if set, the donation button will show up on the single page.

@@ -13,11 +13,11 @@
     </article>
 
     <div class="summary__container">
-        {{ range (.Paginator).Pages }}
+        {{ $paginator := .Paginate (where (where (where .Site.RegularPages "Type" "!=" "contact") "Type" "!=" "archive") "Type" "!=" "about") }}
+        {{ range $paginator.Pages }}
         {{ .Render "summary" }}
         {{ end }}
-    </div>
-    {{ partial "pagination/pagination" . }}
+    </div>    {{ partial "pagination/pagination" . }}
 </main>
 
 {{ if $.Param "enableSidebar" }}
