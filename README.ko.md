@@ -330,6 +330,8 @@ commento = false
   douban = ""
   csdn = ""
   zhihu = ""
+  gitlab = ""
+  mastodon = ""
 
 [donationOptions] 
   enable = false # if set, the donation button will show up on the single page.

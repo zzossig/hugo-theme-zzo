@@ -114,6 +114,12 @@ commento = false
   stack-exchange = ""
   telegram = ""
   steam = ""
+  weibo = ""
+  douban = ""
+  csdn = ""
+  zhihu = ""
+  gitlab = ""
+  mastodon = ""
 
 [donationOptions]
   enable = false
