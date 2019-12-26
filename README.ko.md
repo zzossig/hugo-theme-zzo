@@ -615,13 +615,13 @@ assets/js/custom.js
 
 ### custom syntax highlighting
 
-1. root/data 폴더에 skin.toml파일을 만들어주세요. chroma_theme항목의 값을 원하시는 코드 하이라이트 테마값으로 변경해주세요. [이 링크](https://xyproto.github.io/splash/docs/all.html)를 참조해서 값을 변경하시면 됩니다. 만약 chroma_theme 값에 - 나 _ 같은 특수문자가 있다면 지워주세요.
+1. root/data 폴더에 skin.toml파일을 만들어주세요. theme_dark_chroma, theme_light_chroma, ... 파라미터의 항목의 값을 원하시는 코드 하이라이트 테마값으로 변경해주세요. [이 링크](https://xyproto.github.io/splash/docs/all.html)를 참조해서 값을 변경하시면 됩니다. 만약 theme_[xxxx]_chroma 값에 - 나 _ 같은 특수문자가 있다면 지워주세요.
 예를들어, solarized-dark256 값을 입력하시려면, 다음과 같이 해주세요.
 
 ```
 root/data/skin.toml
 
-chroma_theme = "solarizeddark256"
+theme_dark_chroma = "solarizeddark256"
 ```
 
 2. 특정 색상을 변경하고 싶으시다면, [[custom-css](#custom-css)]에서 만든 파일에 chroma class를 오버라이드 해야합니다. 잘 모르겠으면 문의주세요!

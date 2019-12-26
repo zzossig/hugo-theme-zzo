@@ -326,14 +326,18 @@ code, pre {
   font-size: $code-font-size;
   font-family: $code-font-stack;
   position: relative;
-  
-  @include themify($themes) {
-    background: themed('content-pre-background-color');
-  }
 
   a {
     text-decoration: none !important;
   }
+}
+
+*:not(.chroma) {
+  code, pre {
+    @include themify($themes) {
+      background: themed('content-pre-background-color');
+    }
+  }  
 }
 
 code {  

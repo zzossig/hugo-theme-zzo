@@ -1,3 +1,9 @@
 custom_theme_primary_color = "195" # 0 ~ 359, Colors HSL, restart hugo after change this value
 
-chroma_theme = "default" # https://xyproto.github.io/splash/docs/longer/all.html
+# https://xyproto.github.io/splash/docs/longer/all.html
+# restart hugo after change this value
+theme_light_chroma = "default"
+theme_dark_chroma = "default"
+theme_hacker_chroma = "default"
+theme_solarized_chroma = "default"
+theme_custom_chroma = "default"

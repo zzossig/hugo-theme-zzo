@@ -10,7 +10,11 @@ $grid_navbar_height: {{ .Site.Data.grid.grid_navbar_height }};
 $grid_row_gap: {{ .Site.Data.grid.grid_row_gap }};
 
 $custom_theme_primary_color: {{ .Site.Data.skin.custom_theme_primary_color }};
-$chroma_theme: {{ .Site.Data.skin.chroma_theme }};
+$theme_light_chroma: {{ .Site.Data.skin.theme_light_chroma }};
+$theme_dark_chroma: {{ .Site.Data.skin.theme_dark_chroma }};
+$theme_hacker_chroma: {{ .Site.Data.skin.theme_hacker_chroma }};
+$theme_solarized_chroma: {{ .Site.Data.skin.theme_solarized_chroma }};
+$theme_custom_chroma: {{ .Site.Data.skin.theme_custom_chroma }};
 
 $title-font: {{ .Site.Data.font.title_font }};
 $content-font: {{ .Site.Data.font.content_font }};

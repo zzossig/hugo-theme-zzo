@@ -5,7 +5,7 @@
   {{ end }}
   {{ if $value }}
   <li>
-    <a href="{{ "/tags/" | relLangURL }}{{ $value | urlize }}" class="single__tag">
+    <a href="{{ "/tags/" | relLangURL }}{{ $value | urlize }}" class="single__tag" title="{{ $value }}">
       #{{ $value }}
     </a>
   </li>

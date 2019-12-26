@@ -38,100 +38,412 @@
 @import 'vs';
 @import 'xcode';
 
-@if $chroma_theme == default {
-  .theme__light {
+.theme__light {
+  @if $theme_light_chroma == default {
+    @include chroma-duotonelight;
+  } @else if $theme_light_chroma == abap {
+    @include chroma-abap;
+  } @else if $theme_light_chroma == algol {
+    @include chroma-algol;
+  } @else if $theme_light_chroma == algolnu {
+    @include chroma-algolnu;
+  } @else if $theme_light_chroma == api {
+    @include chroma-api;
+  } @else if $theme_light_chroma == arduino {
+    @include chroma-arduino;
+  } @else if $theme_light_chroma == autumn {
+    @include chroma-autumn;
+  } @else if $theme_light_chroma == borland {
+    @include chroma-borland;
+  } @else if $theme_light_chroma == bw {
+    @include chroma-bw;
+  } @else if $theme_light_chroma == colorful {
+    @include chroma-colorful;
+  } @else if $theme_light_chroma == dracula {
+    @include chroma-dracula;
+  } @else if $theme_light_chroma == emacs {
+    @include chroma-emacs;
+  } @else if $theme_light_chroma == friendly {
+    @include chroma-friendly;
+  } @else if $theme_light_chroma == fruity {
+    @include chroma-fruity;
+  } @else if $theme_light_chroma == github {
+    @include chroma-github;
+  } @else if $theme_light_chroma == igor {
+    @include chroma-igor;
+  } @else if $theme_light_chroma == lovelace {
+    @include chroma-lovelace;
+  } @else if $theme_light_chroma == manni {
+    @include chroma-manni;
+  } @else if $theme_light_chroma == monokai {
+    @include chroma-monokai;
+  } @else if $theme_light_chroma == monokailight {
+    @include chroma-monokailight;
+  } @else if $theme_light_chroma == murphy {
+    @include chroma-murphy;
+  } @else if $theme_light_chroma == native {
+    @include chroma-native;
+  } @else if $theme_light_chroma == paraisodark {
+    @include chroma-paraisodark;
+  } @else if $theme_light_chroma == paraisolight {
+    @include chroma-paraisolight;
+  } @else if $theme_light_chroma == pastie {
+    @include chroma-pastie;
+  } @else if $theme_light_chroma == perldoc {
+    @include chroma-perldoc;
+  } @else if $theme_light_chroma == pygments {
+    @include chroma-pygments;
+  } @else if $theme_light_chroma == rainbowdash {
+    @include chroma-rainbowdash;
+  } @else if $theme_light_chroma == rrt {
+    @include chroma-rrt;
+  } @else if $theme_light_chroma == solarizeddark {
+    @include chroma-solarizeddark;
+  } @else if $theme_light_chroma == solarizeddark256 {
+    @include chroma-solarizeddark256;
+  } @else if $theme_light_chroma == solarizedlight {
+    @include chroma-solarizedlight;
+  } @else if $theme_light_chroma == swapoff {
+    @include chroma-swapoff;
+  } @else if $theme_light_chroma == tango {
+    @include chroma-tango;
+  } @else if $theme_light_chroma == trac {
+    @include chroma-trac;
+  } @else if $theme_light_chroma == vim {
+    @include chroma-vim;
+  } @else if $theme_light_chroma == vs {
+    @include chroma-vs;
+  } @else if $theme_light_chroma == xcode {
+    @include chroma-xcode;
+  } @else {
     @include chroma-duotonelight;
   }
-  
-  .theme__dark {
+}
+
+.theme__dark {
+  @if $theme_dark_chroma == default {
+    @include chroma-monokai;
+  } @else if $theme_dark_chroma == abap {
+    @include chroma-abap;
+  } @else if $theme_dark_chroma == algol {
+    @include chroma-algol;
+  } @else if $theme_dark_chroma == algolnu {
+    @include chroma-algolnu;
+  } @else if $theme_dark_chroma == api {
+    @include chroma-api;
+  } @else if $theme_dark_chroma == arduino {
+    @include chroma-arduino;
+  } @else if $theme_dark_chroma == autumn {
+    @include chroma-autumn;
+  } @else if $theme_dark_chroma == borland {
+    @include chroma-borland;
+  } @else if $theme_dark_chroma == bw {
+    @include chroma-bw;
+  } @else if $theme_dark_chroma == colorful {
+    @include chroma-colorful;
+  } @else if $theme_dark_chroma == dracula {
+    @include chroma-dracula;
+  } @else if $theme_dark_chroma == emacs {
+    @include chroma-emacs;
+  } @else if $theme_dark_chroma == friendly {
+    @include chroma-friendly;
+  } @else if $theme_dark_chroma == fruity {
+    @include chroma-fruity;
+  } @else if $theme_dark_chroma == github {
+    @include chroma-github;
+  } @else if $theme_dark_chroma == igor {
+    @include chroma-igor;
+  } @else if $theme_dark_chroma == lovelace {
+    @include chroma-lovelace;
+  } @else if $theme_dark_chroma == manni {
+    @include chroma-manni;
+  } @else if $theme_dark_chroma == monokai {
+    @include chroma-monokai;
+  } @else if $theme_dark_chroma == monokailight {
+    @include chroma-monokailight;
+  } @else if $theme_dark_chroma == murphy {
+    @include chroma-murphy;
+  } @else if $theme_dark_chroma == native {
+    @include chroma-native;
+  } @else if $theme_dark_chroma == paraisodark {
+    @include chroma-paraisodark;
+  } @else if $theme_dark_chroma == paraisolight {
+    @include chroma-paraisolight;
+  } @else if $theme_dark_chroma == pastie {
+    @include chroma-pastie;
+  } @else if $theme_dark_chroma == perldoc {
+    @include chroma-perldoc;
+  } @else if $theme_dark_chroma == pygments {
+    @include chroma-pygments;
+  } @else if $theme_dark_chroma == rainbowdash {
+    @include chroma-rainbowdash;
+  } @else if $theme_dark_chroma == rrt {
+    @include chroma-rrt;
+  } @else if $theme_dark_chroma == solarizeddark {
+    @include chroma-solarizeddark;
+  } @else if $theme_dark_chroma == solarizeddark256 {
+    @include chroma-solarizeddark256;
+  } @else if $theme_dark_chroma == solarizedlight {
+    @include chroma-solarizedlight;
+  } @else if $theme_dark_chroma == swapoff {
+    @include chroma-swapoff;
+  } @else if $theme_dark_chroma == tango {
+    @include chroma-tango;
+  } @else if $theme_dark_chroma == trac {
+    @include chroma-trac;
+  } @else if $theme_dark_chroma == vim {
+    @include chroma-vim;
+  } @else if $theme_dark_chroma == vs {
+    @include chroma-vs;
+  } @else if $theme_dark_chroma == xcode {
+    @include chroma-xcode;
+  } @else {
     @include chroma-monokai;
   }
-  
-  .theme__hacker {
+}
+
+.theme__hacker {
+  @if $theme_hacker_chroma == default {
+    @include chroma-dracula;
+  } @else if $theme_hacker_chroma == abap {
+    @include chroma-abap;
+  } @else if $theme_hacker_chroma == algol {
+    @include chroma-algol;
+  } @else if $theme_hacker_chroma == algolnu {
+    @include chroma-algolnu;
+  } @else if $theme_hacker_chroma == api {
+    @include chroma-api;
+  } @else if $theme_hacker_chroma == arduino {
+    @include chroma-arduino;
+  } @else if $theme_hacker_chroma == autumn {
+    @include chroma-autumn;
+  } @else if $theme_hacker_chroma == borland {
+    @include chroma-borland;
+  } @else if $theme_hacker_chroma == bw {
+    @include chroma-bw;
+  } @else if $theme_hacker_chroma == colorful {
+    @include chroma-colorful;
+  } @else if $theme_hacker_chroma == dracula {
+    @include chroma-dracula;
+  } @else if $theme_hacker_chroma == emacs {
+    @include chroma-emacs;
+  } @else if $theme_hacker_chroma == friendly {
+    @include chroma-friendly;
+  } @else if $theme_hacker_chroma == fruity {
+    @include chroma-fruity;
+  } @else if $theme_hacker_chroma == github {
+    @include chroma-github;
+  } @else if $theme_hacker_chroma == igor {
+    @include chroma-igor;
+  } @else if $theme_hacker_chroma == lovelace {
+    @include chroma-lovelace;
+  } @else if $theme_hacker_chroma == manni {
+    @include chroma-manni;
+  } @else if $theme_hacker_chroma == monokai {
+    @include chroma-monokai;
+  } @else if $theme_hacker_chroma == monokailight {
+    @include chroma-monokailight;
+  } @else if $theme_hacker_chroma == murphy {
+    @include chroma-murphy;
+  } @else if $theme_hacker_chroma == native {
+    @include chroma-native;
+  } @else if $theme_hacker_chroma == paraisodark {
+    @include chroma-paraisodark;
+  } @else if $theme_hacker_chroma == paraisolight {
+    @include chroma-paraisolight;
+  } @else if $theme_hacker_chroma == pastie {
+    @include chroma-pastie;
+  } @else if $theme_hacker_chroma == perldoc {
+    @include chroma-perldoc;
+  } @else if $theme_hacker_chroma == pygments {
+    @include chroma-pygments;
+  } @else if $theme_hacker_chroma == rainbowdash {
+    @include chroma-rainbowdash;
+  } @else if $theme_hacker_chroma == rrt {
+    @include chroma-rrt;
+  } @else if $theme_hacker_chroma == solarizeddark {
+    @include chroma-solarizeddark;
+  } @else if $theme_hacker_chroma == solarizeddark256 {
+    @include chroma-solarizeddark256;
+  } @else if $theme_hacker_chroma == solarizedlight {
+    @include chroma-solarizedlight;
+  } @else if $theme_hacker_chroma == swapoff {
+    @include chroma-swapoff;
+  } @else if $theme_hacker_chroma == tango {
+    @include chroma-tango;
+  } @else if $theme_hacker_chroma == trac {
+    @include chroma-trac;
+  } @else if $theme_hacker_chroma == vim {
+    @include chroma-vim;
+  } @else if $theme_hacker_chroma == vs {
+    @include chroma-vs;
+  } @else if $theme_hacker_chroma == xcode {
+    @include chroma-xcode;
+  } @else {
     @include chroma-dracula;
   }
-  
-  .theme__solarized {
-    @include chroma-solarized;
-  } 
+}
 
-  .theme__custom {
+.theme__solarized {
+  @if $theme_solarized_chroma == default {
+    @include chroma-solarized;
+  } @else if $theme_solarized_chroma == abap {
+    @include chroma-abap;
+  } @else if $theme_solarized_chroma == algol {
+    @include chroma-algol;
+  } @else if $theme_solarized_chroma == algolnu {
+    @include chroma-algolnu;
+  } @else if $theme_solarized_chroma == api {
+    @include chroma-api;
+  } @else if $theme_solarized_chroma == arduino {
+    @include chroma-arduino;
+  } @else if $theme_solarized_chroma == autumn {
+    @include chroma-autumn;
+  } @else if $theme_solarized_chroma == borland {
+    @include chroma-borland;
+  } @else if $theme_solarized_chroma == bw {
+    @include chroma-bw;
+  } @else if $theme_solarized_chroma == colorful {
+    @include chroma-colorful;
+  } @else if $theme_solarized_chroma == dracula {
+    @include chroma-dracula;
+  } @else if $theme_solarized_chroma == emacs {
+    @include chroma-emacs;
+  } @else if $theme_solarized_chroma == friendly {
+    @include chroma-friendly;
+  } @else if $theme_solarized_chroma == fruity {
+    @include chroma-fruity;
+  } @else if $theme_solarized_chroma == github {
+    @include chroma-github;
+  } @else if $theme_solarized_chroma == igor {
+    @include chroma-igor;
+  } @else if $theme_solarized_chroma == lovelace {
+    @include chroma-lovelace;
+  } @else if $theme_solarized_chroma == manni {
+    @include chroma-manni;
+  } @else if $theme_solarized_chroma == monokai {
+    @include chroma-monokai;
+  } @else if $theme_solarized_chroma == monokailight {
+    @include chroma-monokailight;
+  } @else if $theme_solarized_chroma == murphy {
+    @include chroma-murphy;
+  } @else if $theme_solarized_chroma == native {
+    @include chroma-native;
+  } @else if $theme_solarized_chroma == paraisodark {
+    @include chroma-paraisodark;
+  } @else if $theme_solarized_chroma == paraisolight {
+    @include chroma-paraisolight;
+  } @else if $theme_solarized_chroma == pastie {
+    @include chroma-pastie;
+  } @else if $theme_solarized_chroma == perldoc {
+    @include chroma-perldoc;
+  } @else if $theme_solarized_chroma == pygments {
+    @include chroma-pygments;
+  } @else if $theme_solarized_chroma == rainbowdash {
+    @include chroma-rainbowdash;
+  } @else if $theme_solarized_chroma == rrt {
+    @include chroma-rrt;
+  } @else if $theme_solarized_chroma == solarizeddark {
+    @include chroma-solarizeddark;
+  } @else if $theme_solarized_chroma == solarizeddark256 {
+    @include chroma-solarizeddark256;
+  } @else if $theme_solarized_chroma == solarizedlight {
+    @include chroma-solarizedlight;
+  } @else if $theme_solarized_chroma == swapoff {
+    @include chroma-swapoff;
+  } @else if $theme_solarized_chroma == tango {
+    @include chroma-tango;
+  } @else if $theme_solarized_chroma == trac {
+    @include chroma-trac;
+  } @else if $theme_solarized_chroma == vim {
+    @include chroma-vim;
+  } @else if $theme_solarized_chroma == vs {
+    @include chroma-vs;
+  } @else if $theme_solarized_chroma == xcode {
+    @include chroma-xcode;
+  } @else {
+    @include chroma-solarized;
+  }
+}
+
+.theme__custom {
+  @if $theme_custom_chroma == default {
+    @include chroma-autumn;
+  } @else if $theme_custom_chroma == abap {
+    @include chroma-abap;
+  } @else if $theme_custom_chroma == algol {
+    @include chroma-algol;
+  } @else if $theme_custom_chroma == algolnu {
+    @include chroma-algolnu;
+  } @else if $theme_custom_chroma == api {
+    @include chroma-api;
+  } @else if $theme_custom_chroma == arduino {
+    @include chroma-arduino;
+  } @else if $theme_custom_chroma == autumn {
+    @include chroma-autumn;
+  } @else if $theme_custom_chroma == borland {
+    @include chroma-borland;
+  } @else if $theme_custom_chroma == bw {
+    @include chroma-bw;
+  } @else if $theme_custom_chroma == colorful {
+    @include chroma-colorful;
+  } @else if $theme_custom_chroma == dracula {
+    @include chroma-dracula;
+  } @else if $theme_custom_chroma == emacs {
+    @include chroma-emacs;
+  } @else if $theme_custom_chroma == friendly {
+    @include chroma-friendly;
+  } @else if $theme_custom_chroma == fruity {
+    @include chroma-fruity;
+  } @else if $theme_custom_chroma == github {
+    @include chroma-github;
+  } @else if $theme_custom_chroma == igor {
+    @include chroma-igor;
+  } @else if $theme_custom_chroma == lovelace {
+    @include chroma-lovelace;
+  } @else if $theme_custom_chroma == manni {
+    @include chroma-manni;
+  } @else if $theme_custom_chroma == monokai {
+    @include chroma-monokai;
+  } @else if $theme_custom_chroma == monokailight {
+    @include chroma-monokailight;
+  } @else if $theme_custom_chroma == murphy {
+    @include chroma-murphy;
+  } @else if $theme_custom_chroma == native {
+    @include chroma-native;
+  } @else if $theme_custom_chroma == paraisodark {
+    @include chroma-paraisodark;
+  } @else if $theme_custom_chroma == paraisolight {
+    @include chroma-paraisolight;
+  } @else if $theme_custom_chroma == pastie {
+    @include chroma-pastie;
+  } @else if $theme_custom_chroma == perldoc {
+    @include chroma-perldoc;
+  } @else if $theme_custom_chroma == pygments {
+    @include chroma-pygments;
+  } @else if $theme_custom_chroma == rainbowdash {
+    @include chroma-rainbowdash;
+  } @else if $theme_custom_chroma == rrt {
+    @include chroma-rrt;
+  } @else if $theme_custom_chroma == solarizeddark {
+    @include chroma-solarizeddark;
+  } @else if $theme_custom_chroma == solarizeddark256 {
+    @include chroma-solarizeddark256;
+  } @else if $theme_custom_chroma == solarizedlight {
+    @include chroma-solarizedlight;
+  } @else if $theme_custom_chroma == swapoff {
+    @include chroma-swapoff;
+  } @else if $theme_custom_chroma == tango {
+    @include chroma-tango;
+  } @else if $theme_custom_chroma == trac {
+    @include chroma-trac;
+  } @else if $theme_custom_chroma == vim {
+    @include chroma-vim;
+  } @else if $theme_custom_chroma == vs {
+    @include chroma-vs;
+  } @else if $theme_custom_chroma == xcode {
+    @include chroma-xcode;
+  } @else {
     @include chroma-autumn;
   }
-} @else if $chroma_theme == abap {
-  @include chroma-abap;
-} @else if $chroma_theme == algol {
-  @include chroma-algol;
-} @else if $chroma_theme == algolnu {
-  @include chroma-algolnu;
-} @else if $chroma_theme == api {
-  @include chroma-api;
-} @else if $chroma_theme == arduino {
-  @include chroma-arduino;
-} @else if $chroma_theme == autumn {
-  @include chroma-autumn;
-} @else if $chroma_theme == borland {
-  @include chroma-borland;
-} @else if $chroma_theme == bw {
-  @include chroma-bw;
-} @else if $chroma_theme == colorful {
-  @include chroma-colorful;
-} @else if $chroma_theme == dracula {
-  @include chroma-dracula;
-} @else if $chroma_theme == emacs {
-  @include chroma-emacs;
-} @else if $chroma_theme == friendly {
-  @include chroma-friendly;
-} @else if $chroma_theme == fruity {
-  @include chroma-fruity;
-} @else if $chroma_theme == github {
-  @include chroma-github;
-} @else if $chroma_theme == igor {
-  @include chroma-igor;
-} @else if $chroma_theme == lovelace {
-  @include chroma-lovelace;
-} @else if $chroma_theme == manni {
-  @include chroma-manni;
-} @else if $chroma_theme == monokai {
-  @include chroma-monokai;
-} @else if $chroma_theme == monokailight {
-  @include chroma-monokailight;
-} @else if $chroma_theme == murphy {
-  @include chroma-murphy;
-} @else if $chroma_theme == native {
-  @include chroma-native;
-} @else if $chroma_theme == paraisodark {
-  @include chroma-paraisodark;
-} @else if $chroma_theme == paraisolight {
-  @include chroma-paraisolight;
-} @else if $chroma_theme == pastie {
-  @include chroma-pastie;
-} @else if $chroma_theme == perldoc {
-  @include chroma-perldoc;
-} @else if $chroma_theme == pygments {
-  @include chroma-pygments;
-} @else if $chroma_theme == rainbowdash {
-  @include chroma-rainbowdash;
-} @else if $chroma_theme == rrt {
-  @include chroma-rrt;
-} @else if $chroma_theme == solarizeddark {
-  @include chroma-solarizeddark;
-} @else if $chroma_theme == solarizeddark256 {
-  @include chroma-solarizeddark256;
-} @else if $chroma_theme == solarizedlight {
-  @include chroma-solarizedlight;
-} @else if $chroma_theme == swapoff {
-  @include chroma-swapoff;
-} @else if $chroma_theme == tango {
-  @include chroma-tango;
-} @else if $chroma_theme == trac {
-  @include chroma-trac;
-} @else if $chroma_theme == vim {
-  @include chroma-vim;
-} @else if $chroma_theme == vs {
-  @include chroma-vs;
-} @else if $chroma_theme == xcode {
-  @include chroma-xcode;
-} @else {
-  @include chroma-dracula;
 }
