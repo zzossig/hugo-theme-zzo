@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="{{ $photoSwipeSkin.RelPermalink }}">
 {{ end }}
 
-{{ if $.Param "enableToc" }}
+{{ if or ($.Param "enableToc") ($.Param "toc") }}
   {{ $toc := resources.Get "js/jquery.toc.min.js" | resources.Fingerprint }}
   <script defer src="{{ $toc.RelPermalink }}"></script>
 {{ end }}
@@ -131,9 +131,13 @@
 
     // toc
     {{ $enableToc := ($.Param "enableToc") }}
+    {{ $toc := ($.Param "toc") }}
+    {{ $hideToc := ($.Param "hideToc") }}
     var enableToc = JSON.parse({{ $enableToc | jsonify }});
+    var toc = JSON.parse({{ $toc | jsonify }});
+    var hideToc = JSON.parse({{ $hideToc | jsonify }});
     
-    if (enableToc) {
+    if (enableToc || toc) {
       $("#toc").toc({ content: ".single__contents", headings: "h1,h2,h3,h4" });
       $('#toc > li').each(function () {
         $(this).find('ul').css('display', 'none');

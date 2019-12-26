@@ -246,6 +246,7 @@ enableSidebarTags = true # if you want to use tags.
 enableSidebarSeries = true
 enableSidebarCategories = true
 enableToc = true # single page table of contents
+hideToc = false # Hide or Show toc
 enableTocSwitch = true # single page table of contents visibility switch
 itemsPerCategory = 5 # maximum number of posts shown in the sidebar.
 
