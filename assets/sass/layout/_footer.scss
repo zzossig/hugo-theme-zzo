@@ -28,6 +28,16 @@
     }
   }
 
+  &__copyright {
+    &--img {
+      margin-bottom: 0.25rem; 
+      
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(center);
+    }
+  }
+
   .dropdown {
     position: absolute;
     left: 0.5rem;

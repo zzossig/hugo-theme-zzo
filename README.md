@@ -109,7 +109,7 @@ hasCJKLanguage = true # Set `true` for Chinese/Japanese/Korean languages.
 
 summaryLength = 70 # The length of a post description on a list page.
 
-copyright = "&copy;{year}, All Rights Reserved" # copyright symbol: $copy; current year: {year}
+copyright = "©{year}, All Rights Reserved" # copyright symbol: $copy; current year: {year}
 timeout = 10000
 enableEmoji = true
 paginate = 13 # Number of items per page in paginated lists.
@@ -240,7 +240,7 @@ enableSidebar = true # Set to false to create the full width of the content.
 enableSidebarTags = true # if you want to use tags.
 enableSidebarSeries = true
 enableSidebarCategories = true
-enableToc = true # single page table of contents
+enableToc = true # single page table of contents, you can replace this param to toc(toc = true)
 hideToc = false # Hide or Show toc
 enableTocSwitch = true # single page table of contents visibility switch
 itemsPerCategory = 5 # maximum number of posts shown in the sidebar.
@@ -335,6 +335,12 @@ commento = false
   wechat = "" # Wechat pay QR Code image (example path: same as above)
   paypal = "" # Paypal URL
   patreon = "" # Patreon URL
+
+[copyrightOptions]
+  enableCopyrightLink = false # if set, you can add copyright link
+  copyrightLink = ""
+  copyrightLinkImage = ""
+  copyrightLinkText = ""
 ```
 
 ## Layout
@@ -793,6 +799,28 @@ Make a file at root/layouts/partials/head/custom-head.html and then load font st
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
+```
+
+### custom copyright
+
+If you want to add a link to the footer copyright, not just a text, you can customize it.
+
+1. In your config.toml file, set the copyright param like this.
+```toml
+...
+copyright = This is my {} copyright text
+...
+```
+The {} part will be your copyright link.
+2. In your params.toml file, set the copyrightOptions params
+
+```toml
+...
+[copyrightOptions]
+  enableCopyrightLink = false
+  copyrightLink = "https://..."
+  copyrightLinkImage = "https://..."
+  copyrightLinkText = "copyright link text"
 ```
 
 ## External Library

@@ -10,7 +10,18 @@
 
         {{ if $.Site.Copyright }}        
             <p class="caption">
-                {{ with $.Site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}{{ end }}
+                {{ if $.Site.Params.copyrightOptions.enableCopyrightLink }}
+                    {{ $leftString := replace (index (split $.Site.Copyright "{}") 0) "{year}" now.Year }}
+                    {{ $rightString := replace (index (split $.Site.Copyright "{}") 1) "{year}" now.Year }}
+
+                    {{ if and ($.Site.Params.copyrightOptions.copyrightLinkImage) ($.Site.Params.copyrightOptions.copyrightLinkText) }}
+                        <a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}" class="footer__copyright--img"><img alt="{{ $.Site.Params.copyrightOptions.copyrightLinkText }}" style="border-width:0" src="{{ $.Site.Params.copyrightOptions.copyrightLinkImage }}"/></a>{{ $leftString }}{{ $rightString }}
+                    {{ else }}
+                        {{ $leftString }}<a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}">{{ $.Site.Params.copyrightOptions.copyrightLinkText }}</a>{{ $rightString }}
+                    {{ end }}
+                {{ else }}
+                    {{ with $.Site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}{{ end }}
+                {{ end }}
             </p>
         {{ end }}
         <p class="caption">Powered by <a href="https://gohugo.io/" rel="noreferrer">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zzo" rel="noreferrer">Zzo theme</a></p>

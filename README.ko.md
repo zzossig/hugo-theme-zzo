@@ -114,7 +114,7 @@ hasCJKLanguage = true # Set `true` for Chinese/Japanese/Korean languages.
 
 summaryLength = 70 # The length of a post description on a list page.
 
-copyright = "&copy;{year}, All Rights Reserved" # copyright symbol: $copy; current year: {year}
+copyright = "©{year}, All Rights Reserved" # copyright symbol: $copy; current year: {year}
 timeout = 10000
 enableEmoji = true
 paginate = 13 # Number of items per page in paginated lists.
@@ -245,7 +245,7 @@ enableSidebar = true # Set to false to create the full width of the content.
 enableSidebarTags = true # if you want to use tags.
 enableSidebarSeries = true
 enableSidebarCategories = true
-enableToc = true # single page table of contents
+enableToc = true # single page table of contents, you can replace this param to toc(toc = true)
 hideToc = false # Hide or Show toc
 enableTocSwitch = true # single page table of contents visibility switch
 itemsPerCategory = 5 # maximum number of posts shown in the sidebar.
@@ -340,6 +340,12 @@ commento = false
   wechat = "" # Wechat pay QR Code image (example path: same as above)
   paypal = "" # Paypal URL
   patreon = "" # Patreon URL
+
+[copyrightOptions]
+  enableCopyrightLink = false # if set, you can add copyright link
+  copyrightLink = ""
+  copyrightLinkImage = ""
+  copyrightLinkText = ""
 ```
 
 ## Layout
@@ -793,6 +799,28 @@ root/layouts/partials/head/custom-head.html 경로에 파일을 만드시고 폰
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
+```
+
+### custom copyright
+
+footer의 저작권 텍스트에 링크를 넣고 싶으면 다음과 같이 커스터마이징 하면 됩니다.
+
+1. 설정 파일인 config.toml 에서 copyright 파라미터 값을 설정해주세요.
+```toml
+...
+copyright = This is my {} copyright text
+...
+```
+{} 로 쓰여진 부분이 링크가 들어갈 부분입니다.
+2. 설정 파일인 params.toml 에서 copyrightOptions 파라미터 값을 설정해주세요.
+
+```toml
+...
+[copyrightOptions]
+  enableCopyrightLink = false
+  copyrightLink = "https://..."
+  copyrightLinkImage = "https://..."
+  copyrightLinkText = "copyright link text"
 ```
 
 ## External Library
