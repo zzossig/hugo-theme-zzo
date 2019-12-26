@@ -3,7 +3,7 @@
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
 <script src="{{ $enquire.RelPermalink }}"></script>
 
-<main class="{{ if $.Param "enableSidebar" }}main-main{{ else }}main{{ end }}">
+<main class="{{ if $.Param "enableToc" }}main-main{{ else }}main{{ end }}">
   {{ if eq .Site.Params.enableBreadcrumb true }}
   {{ partial "body/breadcrumb" . }}
   {{ end }}
@@ -30,7 +30,7 @@
 </main>
 
 {{ if $.Param "enableSidebar" }}
-<aside class="main-side">
+<aside class="{{ if $.Param "enableToc" }}main-side{{ end }}">
   {{ partial "sidebar/sidebar-single" . }}
 </aside>
 {{ end }}
