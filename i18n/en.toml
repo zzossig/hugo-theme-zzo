@@ -54,3 +54,15 @@ other = "Message"
 
 [contact-send]
 other = "Send"
+
+[tooltip-home]
+other = "Home"
+
+[tooltip-written]
+other = "Written At"
+
+[tooltip-modified]
+other = "Modified At"
+
+[tooltip-reading-time]
+other = "Reading Time"

@@ -11,7 +11,7 @@
     <div class="summary-classic__content">
       <header>
         <h5 class="title h5"><a href='{{ .Permalink }}'> {{ .Title }}</a> </h5>
-        <h6 class="subtitle caption"><span title="written">🕓 {{ .Date.Format (i18n "summary-dateformat") }} </span> {{ if .GitInfo }} <span title="modified"> &middot; 📝 {{ .Lastmod.Format (i18n "summary-dateformat") }} </span> {{ end }} <span title="reading time"> &middot; ☕{{ .ReadingTime }} {{ i18n "reading-time" }} </span></h6>
+        <h6 class="subtitle caption"><span title="{{ i18n "tooltip-written" }}">🕓 {{ .Date.Format (i18n "summary-dateformat") }} </span> {{ if .GitInfo }} <span title="{{ i18n "tooltip-modified" }}"> &middot; 📝 {{ .Lastmod.Format (i18n "summary-dateformat") }} </span> {{ end }} <span title="{{ i18n "tooltip-reading-time" }}"> &middot; ☕{{ .ReadingTime }} {{ i18n "reading-time" }} </span></h6>
       </header>
       <div>
         <div class="summary-classic__text p2">

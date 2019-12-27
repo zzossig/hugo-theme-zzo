@@ -54,3 +54,15 @@ other = "내용"
 
 [contact-send]
 other = "보내기"
+
+[tooltip-home]
+other = "홈페이지"
+
+[tooltip-written]
+other = "작성일"
+
+[tooltip-modified]
+other = "수정일"
+
+[tooltip-reading-time]
+other = "읽는 시간"

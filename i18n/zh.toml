@@ -54,3 +54,15 @@ other = "消息"
 
 [contact-send]
 other = "发送"
+
+[tooltip-home]
+other = "Home"
+
+[tooltip-written]
+other = "Written At"
+
+[tooltip-modified]
+other = "Modified At"
+
+[tooltip-reading-time]
+other = "Reading Time"

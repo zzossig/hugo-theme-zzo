@@ -3,7 +3,7 @@
 English | 
 [한국어](https://github.com/zzossig/hugo-theme-zzo/blob/master/README.ko.md)
 
-🎄🎄🎄🎅The minimum Hugo version changed to 0.60.0. This version changed the markdown rendering library, so if you are using an older version, it may not be compatible.🎄🎄🎄
+🔥🔥🔥🤓The minimum Hugo version changed to 0.60.0. This version changed the markdown rendering library, so if you are using an older version, it may not be compatible.🔥🔥🔥
 
 Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(always), and many features. 
 
