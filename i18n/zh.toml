@@ -56,13 +56,13 @@ other = "消息"
 other = "发送"
 
 [tooltip-home]
-other = "Home"
+other = "主页"
 
 [tooltip-written]
-other = "Written At"
+other = "创建日期"
 
 [tooltip-modified]
-other = "Modified At"
+other = "更新日期"
 
 [tooltip-reading-time]
-other = "Reading Time"
+other = "阅读时长"

@@ -372,6 +372,10 @@ pre:not(.chroma) {
         background: themed('content-pre-header-background-color');
     }
   }
+  
+  code {
+    padding: 0;
+  }
 }
 
 .highlight > .chroma {
