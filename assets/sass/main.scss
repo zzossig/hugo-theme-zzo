@@ -16,6 +16,12 @@ $theme_hacker_chroma: {{ .Site.Data.skin.theme_hacker_chroma }};
 $theme_solarized_chroma: {{ .Site.Data.skin.theme_solarized_chroma }};
 $theme_custom_chroma: {{ .Site.Data.skin.theme_custom_chroma }};
 
+$theme_light_chroma_background: {{ .Site.Data.skin.theme_light_chroma_background }};
+$theme_dark_chroma_background: {{ .Site.Data.skin.theme_dark_chroma_background }};
+$theme_hacker_chroma_background: {{ .Site.Data.skin.theme_hacker_chroma_background }};
+$theme_solarized_chroma_background: {{ .Site.Data.skin.theme_solarized_chroma_background }};
+$theme_custom_chroma_background: {{ .Site.Data.skin.theme_custom_chroma_background }};
+
 $title-font: {{ .Site.Data.font.title_font }};
 $content-font: {{ .Site.Data.font.content_font }};
 

@@ -7,3 +7,11 @@ theme_dark_chroma = "default"
 theme_hacker_chroma = "default"
 theme_solarized_chroma = "default"
 theme_custom_chroma = "default"
+
+# possible value: default, dark, light, hacker, solarized, custom
+# restart hugo after change this value
+theme_light_chroma_background = "default"
+theme_dark_chroma_background = "default"
+theme_hacker_chroma_background = "default"
+theme_solarized_chroma_background = "default"
+theme_custom_chroma_background = "default"

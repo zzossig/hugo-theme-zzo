@@ -45,7 +45,7 @@
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;
 
-    @include themify($themes) {
+    @include themify($codeblock) {
       text-decoration: underline double themed('content-pre-main-color');
     }
   }

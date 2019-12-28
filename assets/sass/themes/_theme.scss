@@ -4,10 +4,24 @@
 @import 'solarized';
 @import 'custom';
 
+@import 'darkcode';
+@import 'lightcode';
+@import 'hackercode';
+@import 'solarizedcode';
+@import 'customcode';
+
 $themes: (
   dark: $dark,
   light: $light,
   hacker: $hacker,  
   solarized: $solarized,
   custom: $custom,
+);
+
+$codeblock: (
+  dark: $darkcode,
+  light: $lightcode,
+  hacker: $hackercode,  
+  solarized: $solarizedcode,
+  custom: $customcode,
 );

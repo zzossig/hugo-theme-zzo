@@ -114,26 +114,50 @@
 
     pre {
       padding: 34px 12px 8px;
-      position: relative;
       overflow: auto;
       border-radius: 0.34rem;
+    }
+
+    pre:not(.chroma) {
+      position: relative;
+    }
+
+    div.chroma {
       position: relative;
 
-      &::after {
+      @include on-event {
+        .copy-to-clipboard {
+          opacity: 1;
+        }
+      }
+    }
+    
+    pre > code:not([class^=language]) {
+      &::before {
         position: absolute;
         top: 0;
-        right: 0;
         left: 0;
+        padding: 2px 7px;
+        width: 100%;
+        height: 30px;
+        z-index: 1;
+        line-height: 30px;
         font-size: $code-font-size;
         font-family: $title-font;
         font-weight: bold;
-        content: attr(data-lang);
+        display: inline-block;
+        text-transform: capitalize;      
+        content: 'Code';
 
-        @include themify($themes) {
+        @include themify($codeblock) {
           color: themed('content-pre-header-color');
           background: themed('content-pre-header-background-color');
         }
       }
+    }
+
+    p > code {
+      padding: 0.25rem 0.5rem;
     }
 
     code + .copy-to-clipboard {
@@ -146,20 +170,21 @@
     }
 
     .copy-to-clipboard {
-      @include clippy();      
       background-position: 50% 50%;
       background-size: 16px 16px;
       background-repeat: no-repeat;
       width: 27px;
       height: 1.45rem;
       top: -1px;
-      display: inline-block;
       vertical-align: middle;
       position: relative;      
       margin-left: -0.2rem;
       cursor: pointer;
       border-radius: 0 2px 2px 0;
       margin-bottom: 1px;
+      opacity: 0;
+
+      @include clippy();
       @include transition(all, 0.2s, ease);
     }
     .copy-to-clipboard:hover {
@@ -280,7 +305,7 @@
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.125);
 
         
-        @include themify($themes) {
+        @include themify($codeblock) {
           thead {
             background: themed('content-pre-header-background-color');
           }
@@ -325,7 +350,6 @@ code, pre {
   line-height: 1.4;
   font-size: $code-font-size;
   font-family: $code-font-stack;
-  position: relative;
 
   a {
     text-decoration: none !important;
@@ -334,10 +358,14 @@ code, pre {
 
 *:not(.chroma) {
   code, pre {
-    @include themify($themes) {
+    @include themify($codeblock) {
       background: themed('content-pre-background-color');
     }
-  }  
+  }
+
+  code {
+    padding: 0;
+  }
 }
 
 code {  
@@ -354,27 +382,29 @@ pre:not(.chroma) {
   position: relative;
   margin: 1em 0;
 
+  @include on-event {
+    .copy-to-clipboard {
+      opacity: 1;
+    }
+  }
+
   &::after {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     padding: 2px 7px;
-    font-size: $code-font-size;
-    font-family: $title-font;
-    font-weight: bold;
+    width: 100%;
+    height: 30px;
+    z-index: 0;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
-    content: attr(data-lang);
+    content: '';
 
-    @include themify($themes) {
+    @include themify($codeblock) {
         color: themed('content-pre-header-color');
         background: themed('content-pre-header-background-color');
     }
-  }
-  
-  code {
-    padding: 0;
   }
 }
 
@@ -382,32 +412,40 @@ pre:not(.chroma) {
   margin: 1em 0;
   border-radius: 5px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
-  position: relative;
+  z-index: 1;
   overflow-x: auto;
 
-  @include themify($themes) {
+  @include themify($codeblock) {
     color: themed('content-pre-color');
     background: themed('content-pre-background-color');
   }
 
   code {
-    padding: 0;    
+    padding: 0;
   }
+  
+  code[data-lang] {
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      padding: 2px 7px;
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      font-size: $code-font-size;
+      font-family: $title-font;
+      font-weight: bold;
+      display: inline-block;
+      text-transform: capitalize;      
+      content: attr(data-lang);
 
-  &::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    padding: 2px 7px;
-    font-size: $code-font-size;
-    font-family: $title-font;
-    font-weight: bold;
-    @include themify($themes) {
-      color: themed('content-pre-header-color');
-      background: themed('content-pre-header-background-color');
+      @include themify($codeblock) {
+        color: themed('content-pre-header-color');
+        background: themed('content-pre-header-background-color');
+      }
     }
-    content: attr(data-lang);
   }
 
   .lntd {
@@ -426,7 +464,6 @@ pre:not(.chroma) {
 
     &:last-child {
       vertical-align: top;
-      position: relative;
 
       pre {
         margin: 0;
@@ -444,7 +481,7 @@ pre:not(.chroma) {
 
   /* LineNumbersTable */  
   .lnt {
-    @include themify($themes) {
+    @include themify($codeblock) {
       color: themed('content-pre-number-color');
     }
   }

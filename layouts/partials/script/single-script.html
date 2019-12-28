@@ -72,18 +72,6 @@
 
 <script>
   window.onload = function() {
-    // syntax highlight
-    (function () {
-      document.querySelectorAll('.chroma > table')
-        .forEach((element) => {
-          const sub = element.querySelector('code[data-lang]');
-          if (sub) {
-            $(element).closest('div.chroma').attr('data-lang', mapLang(sub.getAttribute('data-lang')));
-          }
-        }
-      );
-    })();
-
     (function () {
       document.querySelectorAll('.single__contents > pre > code')
         .forEach((element) => {
@@ -98,19 +86,11 @@
         coffeescript: 'CoffeeScript',
         cpp: 'C++',
         cs: 'C#',
-        css: 'CSS',
-        html: 'HTML',
-        http: 'HTTP',
         js: 'JavaScript',
         json: 'JSON',
         objectivec: 'Objective-C',
-        php: 'PHP',
-        sql: 'SQL',
-        toml: 'TOML',
         ts: 'TypeScript',
         typescript: 'TypeScript',
-        xml: 'XML',
-        yaml: 'YAML',
       }[name] || name.toUpperCase();
     }
 
