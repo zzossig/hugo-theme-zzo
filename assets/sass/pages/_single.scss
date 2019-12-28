@@ -158,6 +158,9 @@
 
     p > code {
       padding: 0.25rem 0.5rem;
+      @include themify($codeblock) {
+        color: themed('content-code-color');
+      }
     }
 
     code + .copy-to-clipboard {
