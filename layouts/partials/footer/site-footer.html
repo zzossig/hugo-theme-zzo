@@ -4,10 +4,8 @@
     {{ partial "footer/go-to-top" . }}
     <hr />
 
-    {{ if $.Param "showPoweredBy" }}
     <div class="footer__poweredby">
-    {{ partial "footer/site-counter" . }}
-
+        {{ partial "footer/site-counter" . }}
         {{ if $.Site.Copyright }}        
             <p class="caption">
                 {{ if $.Site.Params.copyrightOptions.enableCopyrightLink }}
@@ -24,7 +22,9 @@
                 {{ end }}
             </p>
         {{ end }}
-        <p class="caption">Powered by <a href="https://gohugo.io/" rel="noreferrer">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zzo" rel="noreferrer">Zzo theme</a></p>
-    </div>
-    {{ end }}    
+
+        {{ if $.Param "showPoweredBy" }}
+            <p class="caption">Powered by <a href="https://gohugo.io/" rel="noreferrer">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zzo" rel="noreferrer">Zzo theme</a></p>
+        {{ end }}
+    </div> 
 </footer>
