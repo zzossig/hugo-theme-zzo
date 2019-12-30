@@ -10,7 +10,7 @@
   {{ end }}
   <li {{ if eq .p1 .p2 }} class="is-active" {{ end }}>    
     {{ if eq (len .p1.Title) 0 }}
-      <a href="{{ .p1.Permalink }}">{{ .p1.Site.Title }}</a>            
+      <a href="{{ .p1.Permalink }}">{{ .p1.Site.Title }}</a>
     {{ else }}
       <a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a>
     {{ end }}    

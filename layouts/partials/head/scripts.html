@@ -28,6 +28,11 @@
 
     var searchResults = null;
     var searchMenu = null;
+    var searchText = null;
+    
+    {{ $enableSearchHighlight := ($.Param "enableSearchHighlight") }}
+    var enableSearchHighlight = JSON.parse({{ $enableSearchHighlight | jsonify }});
+
     var fuse = null;
 
     function endsWith(str, suffix) {
@@ -47,7 +52,14 @@
       })
         .done(function (index) {
           fuse = new Fuse(index, {
-            keys: ['title', 'description', 'content']
+            keys: ['title', 'description', 'content'],
+            includeMatches: enableSearchHighlight,
+            shouldSort: true,
+            threshold: 0.8,
+            location: 0,
+            distance: 100,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
           });
         })
         .fail(function (jqxhr, textStatus, error) {
@@ -56,7 +68,7 @@
         });
     }
 
-    function renderSearchResults(results) {
+    function renderSearchResults(results) { // [{}, {}, ...] or [{item: {}, matches: []}, ...]
       searchResults = document.getElementById('search-results');
       searchMenu = document.getElementById('search-menu');
       searchResults.setAttribute('class', 'dropdown is-active');
@@ -70,6 +82,37 @@
           item.setAttribute('href', result.uri);
           item.setAttribute('class', 'dropdown-item');
           item.innerHTML = `<div class="menu-item"><div class="menu-item__title">📄 ${result.title}</div><div class="menu-item__desc">${result.description ? result.description : result.content}</div></div>`;
+          content.appendChild(item);
+        });
+      } else {
+        var item = document.createElement('span');
+        item.setAttribute('class', 'dropdown-item');
+        item.innerText = 'No results found';
+        content.appendChild(item);
+      }
+
+      while (searchMenu.hasChildNodes()) {
+        searchMenu.removeChild(
+          searchMenu.lastChild
+        );
+      }
+      searchMenu.appendChild(content);
+    }
+
+    function renderSearchHighlightResults(results) {      
+      searchResults = document.getElementById('search-results');
+      searchMenu = document.getElementById('search-menu');
+      searchResults.setAttribute('class', 'dropdown is-active');
+
+      var content = document.createElement('div');
+      content.setAttribute('class', 'dropdown-content search-content');
+
+      if (results.length > 0) {
+        results.forEach(function (result) {
+          var item = document.createElement('a');
+          item.setAttribute('href', result.item.uri);
+          item.setAttribute('class', 'dropdown-item');
+          item.innerHTML = `<div class="menu-item"><div class="menu-item__title">📄 ${generateHighlightedText(result.item.title, result.matches[0].indices)}</div><div class="menu-item__desc">${result.matches[1] ? generateHighlightedText(result.item.description, result.matches[1].indices) : result.matches[2] ? generateHighlightedText(result.item.content, result.matches[2].indices) : ''}</div></div>`;
           content.appendChild(item);
         });
       } else {
@@ -109,6 +152,48 @@
       searchResults.appendChild(content);
     }
 
+    function renderSearchHighlightResultsMobile(results) {
+      searchResults = document.getElementById('search-mobile-results');
+
+      var content = document.createElement('div');
+      content.setAttribute('class', 'mobile-search__content');
+
+      if (results.length > 0) {
+        results.forEach(function (result) {
+          var item = document.createElement('a');
+          item.setAttribute('href', result.item.uri);
+          item.innerHTML = `<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ${generateHighlightedText(result.item.title, result.matches[0].indices)}</div><div class="mobile-search__item--desc">${result.matches[1] ? generateHighlightedText(result.item.description, result.matches[1].indices) : result.matches[2] ? generateHighlightedText(result.item.content, result.matches[2].indices) : ''}</div></div>`;
+          content.appendChild(item);
+        });
+      } else {
+        var item = document.createElement('span');
+        content.appendChild(item);
+      }
+
+      $('#search-mobile-results').empty();
+      searchResults.appendChild(content);
+    }
+
+    function generateHighlightedText(text, regions) {
+      if(!regions) return text;
+      
+      var content = '', nextUnhighlightedRegionStartingIndex = 0;
+
+      regions.forEach(function(region) {
+        content += '' +
+          text.substring(nextUnhighlightedRegionStartingIndex, region[0]) +
+          '<span class="search__highlight">' +
+            text.substring(region[0], region[1] + 1) +
+          '</span>' +
+        '';
+        nextUnhighlightedRegionStartingIndex = region[1] + 1;
+      });
+
+      content += text.substring(nextUnhighlightedRegionStartingIndex);
+
+      return content;
+    };
+
     initFuse();
 
     $("#search").on('input', function (e) {
@@ -121,8 +206,13 @@
         return null;
       } 
 
+      searchText = e.target.value;
       var results = fuse.search(e.target.value);
-      renderSearchResults(results);
+      if (enableSearchHighlight) {
+        renderSearchHighlightResults(results);
+      } else {
+        renderSearchResults(results);
+      }
     });
 
     $('#search').on('blur', function () {
@@ -142,8 +232,14 @@
         $('#search-results').attr('class', 'dropdown');
         return null;
       }
+      
+      searchText = e.target.value;
       var results = fuse.search(e.target.value);
-      renderSearchResults(results);
+      if (enableSearchHighlight) {
+        renderSearchHighlightResults(results);
+      } else {
+        renderSearchResults(results);
+      }
     });
 
     $('#search').on('keydown', function (e) {
@@ -172,8 +268,14 @@
         return null;
       }
 
+      searchText = e.target.value;
       var results = fuse.search(e.target.value);
       renderSearchResultsMobile(results);
+      if (enableSearchHighlight) {
+        renderSearchHighlightResultsMobile(results);
+      } else {
+        renderSearchResultsMobile(results);
+      }
     });
   }
 </script>

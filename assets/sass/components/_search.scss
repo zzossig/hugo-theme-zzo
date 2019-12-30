@@ -46,6 +46,12 @@
       text-decoration: none !important;
     }
   }
+
+  &__highlight {
+    @include themify($themes) {
+      color: themed('search-highlight-color');
+    }
+  }
 }
 
 .menu-item {
@@ -61,10 +67,11 @@
 
   &__desc {
     font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+
     @include truncate($grid_main_side_width + $grid_main_side_unit);
     @include themify($themes) {
       color: themed('search-color');
-      opacity: 0.78;
     }
   }
 }
@@ -224,10 +231,11 @@
 
     &--desc {
       font-size: 0.9rem;
+      padding: 0.25rem 0.5rem;
+      
       @include truncate(960px);
       @include themify($themes) {
         color: themed('search-color');
-        opacity: 0.65;
       }
     }
     
