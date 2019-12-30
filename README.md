@@ -823,6 +823,9 @@ The {} part will be your copyright link.
   copyrightLinkText = "copyright link text"
 ```
 
+### Custom favicon
+Drop your own `favicon.ico` and `favicon.png` files inside `static/images` folder. Take a look at the [`exampleSite` folder for reference](/exampleSite/static/images)
+
 ## External Library
 
 If you want use external libraries, this theme currently supporting Katex, MathJax, Mermaid, Flowchart.js, chart.js, viz-graph, wavedrom, js-sequence-diagram. Just add some variable to a front-matter.
