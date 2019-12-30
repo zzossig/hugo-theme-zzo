@@ -17,8 +17,13 @@
 <meta name="theme-color" content="{{ $.Param "themecolor" | default "#ffffff" }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
-<link rel="shortcut icon" href="{{ "images/favicon.png" | relURL }}" type="image/x-icon">
-<link rel="shortcut icon" href="{{ "images/favicon.ico" | relURL }}" type="image/x-icon">
+
+{{ if (fileExists "static/images/favicon.png") }}
+    <link rel="shortcut icon" href="{{ "images/favicon.png" | relURL }}" type="image/x-icon">
+{{ else if (fileExists "static/images/favicon.ico") }}
+    <link rel="shortcut icon" href="{{ "images/favicon.ico" | relURL }}" type="image/x-icon">
+{{ end }}
+
 <link rel="icon" href="{{ "logo.svg" | relURL }}" sizes="any" type="image/svg+xml" />
 <link rel="manifest" href="{{ "manifest.json" | relURL }}">
 
