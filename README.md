@@ -526,6 +526,7 @@ links:
     title: "Event Link Title"
     type: "event"
 ---
+```
 
 3. Finally, make a menu at your root/config/_default/menus.en.toml file
 
