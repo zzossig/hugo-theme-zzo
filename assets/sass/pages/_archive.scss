@@ -88,6 +88,7 @@
     font-size: 0.8rem;
     width: 50%;
     height: 20px;
+    line-height: 20px;
     text-align: center;
 
     @include truncate(50px);
@@ -107,6 +108,7 @@
     font-size: 0.8rem;
     width: 50%;
     height: 20px;
+    line-height: 20px;
     text-align: center;        
 
     @include truncate(50px);

@@ -19,6 +19,9 @@ other = "시리즈"
 [archive-dateformat]
 other = "01-02"
 
+[talks-dateformat]
+other = "01월 02일"
+
 [single-dateformat]
 other = "2006년 01월 02일"
 

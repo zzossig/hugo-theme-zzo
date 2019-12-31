@@ -101,10 +101,10 @@
 }
 
 @mixin truncate($truncation-boundary) {
-  max-width: $truncation-boundary;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: $truncation-boundary;
 }
 
 @mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {

@@ -19,6 +19,9 @@ other = "Series"
 [archive-dateformat]
 other = "Jan 2"
 
+[talks-dateformat]
+other = "Jan 2"
+
 [single-dateformat]
 other = "Jan 2, 2006"
 

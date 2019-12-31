@@ -65,15 +65,16 @@
     margin-top: 0.5rem;
     
     @include flexbox();
-    a {      
+    @include flex-wrap(wrap);
+    a {
       text-decoration: none !important;
-      width: 100%;
       padding: 0.5rem;
       border-radius: 0.125rem;
       
-      @include flexbox();    
+      @include flexbox();
+      @include flex-grow(1);
       @include align-items(center);
-      @include justify-content(space-around);
+      @include justify-content(flex-start);
       @include themify($themes) {
         color: themed('social-icon-color');
         @include on-event {

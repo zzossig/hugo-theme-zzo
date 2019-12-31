@@ -19,6 +19,9 @@ other = "系列"
 [archive-dateformat]
 other = "01-02"
 
+[talks-dateformat]
+other = "01月02日"
+
 [single-dateformat]
 other = "2006年01月02日"
 

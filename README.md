@@ -18,6 +18,7 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 * [Layout](#layout)
 * [Gallery](#gallery)
 * [Contact Page](#contact-page)
+* [Talks Page](#talks-page)
 * [Multi Language](#multi-language)
 * [Customizing](#customizing)
 * [External libraries](#external-library)
@@ -38,6 +39,7 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 * Search with Fuse
 * Gallery with Masonry, Photoswipe
 * Fast code highlighting
+* Talks page for external links
 
 ## Minimum Hugo version
 
@@ -225,6 +227,7 @@ summaryShape = "classic" # card, classic, compact
 archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 archivePaginate = 13 # items per page
 paginateWindow = 1 # setting it to 1 gives 7 buttons, 2 gives 9, etc. If set 1: [1 ... 4 5 6 ... 356] [1 2 3 4 5 ... 356] etc
+talksGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 
 # whoami: usage - home page sidebar, single page bottom of post. all values can be empty
 myname = "zzossig"
@@ -482,6 +485,57 @@ This is contact page.
   url = "contact"
   weight = 6
 ```
+
+## Talks Page
+
+Talks page is a listing page of links(video, ppt, event, ...). UI is similar to the archive page. Follow the below steps to make it.
+
+1. Make a file at root/content/talks/_index.md.
+
+```yaml
+---
+title: "Talks"
+date: 2019-12-30T11:14:14+09:00
+description: Talks Page
+---
+```
+
+2. Next, make some files under the `talks` folder you have created in step 1.(root/content/talks/myLinks.md). If you want to make other links block, then make another file under the `talks` folder.
+
+```yaml
+---
+title: "My Awesome links"
+date: 2019-12-31T00:04:50+09:00
+description:
+tags:
+-
+series:
+-
+categories:
+-
+links:
+  - link: "https://google.com"
+    title: "Video Link Title"
+    type: "video"
+  - link: "https://naver.com"
+    title: "PPT Link Title"
+    type: "ppt"
+  - link: "https://yahoo.com"
+    title: "Event Link Title"
+    type: "event"
+---
+
+3. Finally, make a menu at your root/config/_default/menus.en.toml file
+
+```toml
+[[main]]
+  identifier = "talks"
+  name = "talks"
+  url = "talks"
+  weight = 6
+```
+
+And we are good to go.
 
 ## Multi Language
 

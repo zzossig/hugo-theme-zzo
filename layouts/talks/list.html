@@ -1,0 +1,51 @@
+{{ define "main" }}
+<header class="header">
+  <h3 class="h3 terms__title">
+    {{ .Title }}
+  </h3>
+  <div>
+    {{ .Content }}
+  </div>
+</header>
+</span>
+<main class="main archive">
+  <div class="archive__container">
+    {{ $pages := (where .Site.RegularPages "Section" "talks") }}
+    {{ $paginator := .Paginate ($pages.GroupByDate (.Site.Params.archiveGroupByDate | default "2006")) .Site.Params.archivePaginate }}
+
+    {{ range ($paginator).PageGroups }}
+    <span class="archive__key">{{ .Key }}</span>
+    <ul class="archive__ul">
+      {{ range .Pages }}
+      <li class="talk__li">
+        <span class="talk__date">
+          {{ .Date.Format (i18n "talks-dateformat") }}
+        </span>
+        <ul>
+          <li>
+            <a href="{{ .Permalink }}" class="talk__title talk__title--margin">{{ .Title }}</a>
+          </li>
+          <li class="talk__links">
+            <ul>
+              {{ range .Params.links }}
+                <li class="talk__links--li">           
+                  <span class="talk__type">{{ .type | default "talks" }}</span>
+                  <a href="{{ .link | safeURL }}" title="{{ .link }}" target="_blank" rel="noreferrer" class="talk__title talk__title--margin p2">{{ .title | default .link }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          </li>
+        </ul>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+  <div class="grow"></div>
+  {{ partial "pagination/pagination" . }}
+  <div class="hide">
+    {{ partial "search/site-search" . }}
+  </div>
+  {{ partial "script/archive-script" . }}
+</main>
+{{ end }}

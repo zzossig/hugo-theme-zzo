@@ -233,6 +233,7 @@ summaryShape = "classic" # card, classic, compact
 archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 archivePaginate = 13 # items per page
 paginateWindow = 1 # setting it to 1 gives 7 buttons, 2 gives 9, etc. If set 1: [1 ... 4 5 6 ... 356] [1 2 3 4 5 ... 356] etc
+talksGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 
 # whoami: usage - home page sidebar, single page bottom of post. all values can be empty
 myname = "zzossig"
@@ -490,6 +491,61 @@ This is contact page.
   url = "contact"
   weight = 6
 ```
+
+## Talks Page
+
+Talks 페이지는 아카이브 페이지와 유사한 UI의 페이지입니다. 비디오, 피티 등등의 링크를 모아서 보여주는 용도로 씁니다. Talks 페이지를 추가하려면 아래의 순서대로 따라해주세요.
+
+1. 파일을 root/content/talks/_index.md. 경로에 다음과 같이 만듭니다.
+
+```yaml
+---
+title: "Talks"
+date: 2019-12-30T11:14:14+09:00
+description: Talks Page
+---
+```
+
+2. 또 다른 파일을 만들어 줍니다. 이곳에 링크 값을 넣을 겁니다. 
+
+root/content/talks/myLinks.md
+
+```yaml
+---
+title: "My Awesome links"
+date: 2019-12-31T00:04:50+09:00
+description:
+tags:
+-
+series:
+-
+categories:
+-
+links:
+  - link: "https://google.com"
+    title: "Video Link Title"
+    type: "video"
+  - link: "https://naver.com"
+    title: "PPT Link Title"
+    type: "ppt"
+  - link: "https://yahoo.com"
+    title: "Event Link Title"
+    type: "event"
+---
+
+3. 마지막으로 메뉴만 다음 과 같이 만들어 주면 됩니다. 
+
+root/config/_default/menus.en.toml file
+
+```toml
+[[main]]
+  identifier = "talks"
+  name = "talks"
+  url = "talks"
+  weight = 6
+```
+
+And we are good to go.
 
 ## Multi Language
 
