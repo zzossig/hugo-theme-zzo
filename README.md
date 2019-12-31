@@ -500,7 +500,9 @@ description: Talks Page
 ---
 ```
 
-2. Next, make some files under the `talks` folder you have created in step 1.(root/content/talks/myLinks.md). If you want to make other links block, then make another file under the `talks` folder.
+2. Next, make some files under the `talks` folder you have created in step 1. If you want to make other links block, then make another file under the `talks` folder.
+
+root/content/talks/myLinks.md
 
 ```yaml
 ---
