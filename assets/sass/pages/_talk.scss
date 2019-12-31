@@ -50,7 +50,7 @@
   }
 
   &__title {
-    @include truncate($grid-max-width);
+    @include truncate2($grid-max-width);
 
     &--margin {
       margin-right: 0.5rem;  
@@ -68,10 +68,10 @@
 
       @include flexbox();
       @include align-items(center);
-      @include truncate(650px);
+      @include truncate2(650px);
       @media only screen and (max-width: 769px) {
         margin-left: -6.8rem;
-        @include truncate(350px);
+        @include truncate2(350px);
       }
     }
 

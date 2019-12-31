@@ -104,6 +104,13 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: $truncation-boundary;
+}
+
+@mixin truncate2($truncation-boundary) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   width: $truncation-boundary;
 }
 
