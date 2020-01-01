@@ -16,6 +16,7 @@ summaryShape = "classic" # card, classic, compact
 archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 archivePaginate = 13
 paginateWindow = 1
+talksGroupByDate = "2006"
 
 # whoami
 myname = "zzossig"
@@ -33,6 +34,7 @@ enableSidebarTags = true
 enableSidebarSeries = true
 enableSidebarCategories = true
 enableToc = true
+hideToc = false
 enableTocSwitch = true
 itemsPerCategory = 5
 
