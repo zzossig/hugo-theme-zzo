@@ -23,7 +23,7 @@
     line-height: 26px;
     text-align: center;
     
-    @include animation('slide-in-left .2s .5s 1 ease both');
+    @include animation('slide-in-left .2s .4s 1 ease both');
     @include themify($themes) {
       color: themed('archive-meta-color');
       background-color: themed('archive-type-background-color');
@@ -40,6 +40,7 @@
     line-height: 20px;
     text-align: center;
 
+    @include animation('slide-in-left .2s .6s 1 ease both');
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);
