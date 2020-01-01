@@ -13,7 +13,7 @@
     </article>
 
     <div class="summary__container">
-        {{ $paginator := .Paginate (where (where (where (where .Site.RegularPages "Type" "!=" "talks") "Type" "!=" "contact") "Type" "!=" "archive") "Type" "!=" "about") }}
+        {{ $paginator := .Paginate (where (where (where .Site.RegularPages "Type" "!=" "contact") "Type" "!=" "archive") "Type" "!=" "about") }}
         {{ range $paginator.Pages }}
         {{ .Render "summary" }}
         {{ end }}
