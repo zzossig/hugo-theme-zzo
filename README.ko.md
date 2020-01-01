@@ -547,7 +547,27 @@ root/config/_default/menus.en.toml file
   weight = 6
 ```
 
-And we are good to go.
+4. 추가적으로, date를 미래의 날짜를 쓰고 싶으시면 다음 단계를 따라서 해주세요.
+
+    - 다음 경로의 설정파일(root/config/_default/config.toml)에서 `buildFuture`를 추가해주세요.
+
+    ```toml
+    ...
+    buildFuture = true
+    ...
+    ```
+
+    - talks폴더의 마크다운 파일에 `publishDate`를 추가해주세요. root/content/talks/myLinks.md
+
+    ```yaml
+    ---
+    title:
+    date:
+    publishDate: 2020-02-20
+    ...
+    ---
+    ...
+    ```
 
 ## Multi Language
 

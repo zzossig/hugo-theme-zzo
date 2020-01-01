@@ -542,6 +542,28 @@ links:
 
 And we are good to go.
 
+4. Additionally, if you want to use a future date for the talks page, you need more things to do.
+
+    - add config variable named `buildFuture` at root/config/_default/config.toml
+
+    ```toml
+    ...
+    buildFuture = true
+    ...
+    ```
+
+    - add publishDate front matter to your md file at root/content/talks/myLinks.md
+
+    ```yaml
+    ---
+    title:
+    date:
+    publishDate: 2020-02-20
+    ...
+    ---
+    ...
+    ```
+
 ## Multi Language
 
 The default language of this theme is English. If you want to use another language, follow these steps
