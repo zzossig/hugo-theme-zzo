@@ -10,12 +10,14 @@ homeHeaderType = "text" # text, img, slide
 enableBreadcrumb = true
 enablePhotoSwipe = true
 enableSearch = true
+enableSearchHighlight = true
 enableGoToTop = true
 enableWhoami = true
 summaryShape = "classic" # card, classic, compact
 archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 archivePaginate = 13
 paginateWindow = 1
+talksPaginate = 5
 talksGroupByDate = "2006"
 
 # whoami

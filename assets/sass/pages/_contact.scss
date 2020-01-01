@@ -15,6 +15,7 @@
 
     @include themify($themes) {
       color: themed('contact-input-color');
+      border: 1px solid themed('search-border-color');
       background-color: themed('contact-input-background-color');
     }
 
@@ -46,6 +47,7 @@
 
     @include themify($themes) {
       color: themed('contact-input-color');
+      border: 1px solid themed('search-border-color');
       background-color: themed('contact-input-background-color');
     }
 
@@ -65,16 +67,16 @@
   }
 
   &__desc {
-    width: 55%; 
+    width: 65%; 
     font-family: $content-font;
 
     @media only screen and (max-width: 769px) {
       width: 100%;
-    }    
+    }
   }
 
   &__form {
-    width: 55%;
+    width: 65%;
 
     @include flexbox(); 
     @include flex-direction(column);
@@ -93,6 +95,7 @@
 
     @include themify($themes) {
       color: inherit;
+      border: 1px solid themed('search-border-color');
       background-color: themed('contact-button-background-color');
     }
   }

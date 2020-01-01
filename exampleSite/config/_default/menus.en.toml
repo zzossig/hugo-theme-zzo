@@ -33,13 +33,19 @@
   url = "gallery/photo"
 
 [[main]]
+  identifier = "talks"
+  name = "talks"
+  url = "talks"
+  weight = 5
+
+[[main]]
   identifier = "posts"
   name = "posts"
   url = "posts"
-  weight = 5
+  weight = 6
     
 [[main]]
-  identifier = "notes"
-  name = "notes"
-  url = "notes"
-  weight = 6
+  identifier = "contact"
+  name = "contact"
+  url = "contact"
+  weight = 7

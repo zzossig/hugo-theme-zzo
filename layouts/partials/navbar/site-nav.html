@@ -21,24 +21,28 @@
 
   <div class="navbar__menu">
     {{ partial "navbar/select-theme" . }}
-    {{ range .Site.Menus.main -}}
-    {{ if .HasChildren }}
-    <div class="navbar__dropdown navbar__slide-down">
-      <a href="{{ .URL | relLangURL }}" class="navbar__menu-item">
-        {{ safeHTML .Name }}
-        <span class="navbar__menu-icon">
-          {{ partial "svgs/arrow/keyboard-arrow-down.svg" (dict "width" 18 "height" 18) }}
-        </span>
-      </a>        
-      <div class="navbar__dropdown--content">
-        {{ range .Children }}
-        <a href="{{ .URL | relLangURL }}" class="navbar__dropdown--item">{{ safeHTML .Name }}</a>        
-        {{ end }}
-      </div>
-    </div>
-    {{ else }}
-    <a href="{{ .URL | relLangURL }}" class="navbar__menu-item navbar__slide-down">{{ safeHTML .Name }}</a>
-    {{ end }}
+    {{ $current := . }}
+    {{ range .Site.Menus.main }}
+      {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+      {{ $active = or $active (eq .Name $current.Title) }}
+      {{ $active = or $active (eq (lower .URL) (lower $current.Title)) }}
+      {{ if .HasChildren }}
+        <div class="navbar__dropdown navbar__slide-down">
+          <a href="{{ .URL | relLangURL }}" class="navbar__menu-item {{ if $active }}active{{ end }}">
+            {{ safeHTML .Name }}
+            <span class="navbar__menu-icon">
+              {{ partial "svgs/arrow/keyboard-arrow-down.svg" (dict "width" 18 "height" 18) }}
+            </span>
+          </a>        
+          <div class="navbar__dropdown--content">
+            {{ range .Children }}
+            <a href="{{ .URL | relLangURL }}" class="navbar__dropdown--item">{{ safeHTML .Name }}</a>        
+            {{ end }}
+          </div>
+        </div>
+      {{ else }}
+        <a href="{{ .URL | relLangURL }}" class="navbar__menu-item navbar__slide-down {{ if $active }}active{{ end }}">{{ safeHTML .Name }}</a>
+      {{ end }}
     {{ end }}
   </div>
 </nav>

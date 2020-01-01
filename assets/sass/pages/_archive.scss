@@ -127,7 +127,7 @@
     margin-left: 1rem;
 
     @include truncate($grid-max-width);
-    @include on-event {      
+    @include on-event {
       &::before {
         content: '';
         position: absolute;

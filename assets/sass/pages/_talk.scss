@@ -57,6 +57,27 @@
       margin-right: 0.5rem;  
       margin-left: 0.75rem;
     }
+
+    @include on-event {
+      @media only screen and (min-width: 769px) {
+        &::before {
+          content: '';
+          position: absolute;
+          left: 3rem;                
+          width: 0.25rem;
+          height: 20px;
+          
+          @include themify($themes) {
+            background-color: themed('archive-hover-line-color');
+          }
+
+          @media only screen and (max-width: 769px) {
+            top: 50%;
+            @include translateY(-50%);
+          }
+        }
+      }
+    }
   }
 
   &__links {
