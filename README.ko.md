@@ -138,6 +138,10 @@ googleAnalytics = ""
     lineNos = true
     lineNumbersInTable = true
     noClasses = false
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

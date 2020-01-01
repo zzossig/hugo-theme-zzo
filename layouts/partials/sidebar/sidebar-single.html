@@ -12,7 +12,7 @@
     {{ end }}
   </div>
   <div class="toc {{ if $.Param "hideToc" }}hide{{ end }}">
-    <ul id="toc"></ul>
+    {{ .TableOfContents }}
   </div>
 </section>
 

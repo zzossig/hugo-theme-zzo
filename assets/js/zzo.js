@@ -96,11 +96,11 @@ $(document).ready(function() {
           $('.toc a').removeClass('active');
           $('.toc a[href="#' + id + '"]').addClass('active');
 
-          $('#toc > li').each(function () {
+          $('#TableOfContents > ul > li').each(function () {
             $(this).find('ul').css('display', 'none');
           });
-          $(`#toc [href="#${id}"]`).next().css('display', 'block');
-          $(`#toc [href="#${id}"]`).parents('ul').css('display', 'block');
+          $(`#TableOfContents [href="#${id}"]`).next().css('display', 'block');
+          $(`#TableOfContents [href="#${id}"]`).parents('ul').css('display', 'block');
         }
       });
     } else { // scroll up
@@ -124,11 +124,11 @@ $(document).ready(function() {
           $('.toc a').removeClass('active');
           $('.toc a[href="#' + id + '"]').addClass('active');
 
-          $('#toc > li').each(function () {
+          $('#TableOfContents > ul > li').each(function () {
             $(this).find('ul').css('display', 'none');
           });
-          $(`#toc [href="#${id}"]`).next().css('display', 'block');
-          $(`#toc [href="#${id}"]`).parents('ul').css('display', 'block');
+          $(`#TableOfContents [href="#${id}"]`).next().css('display', 'block');
+          $(`#TableOfContents [href="#${id}"]`).parents('ul').css('display', 'block');
         }
       });
     }

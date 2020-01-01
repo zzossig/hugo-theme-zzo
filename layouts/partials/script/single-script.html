@@ -23,11 +23,6 @@
   <link rel="stylesheet" href="{{ $photoSwipeSkin.RelPermalink }}">
 {{ end }}
 
-{{ if or ($.Param "enableToc") ($.Param "toc") }}
-  {{ $toc := resources.Get "js/jquery.toc.min.js" | resources.Fingerprint }}
-  <script defer src="{{ $toc.RelPermalink }}"></script>
-{{ end }}
-
 {{ if in .Params.Libraries "mermaid" }}
   <script defer src="{{ $js.mermaid.url }}" integrity="{{ $js.mermaid.sri }}" crossorigin="anonymous"></script>
 {{ end }}
@@ -118,11 +113,10 @@
     var hideToc = JSON.parse({{ $hideToc | jsonify }});
     
     if (enableToc || toc) {
-      $("#toc").toc({ content: ".single__contents", headings: "h1,h2,h3,h4" });
-      $('#toc > li').each(function () {
+      $('#TableOfContents > ul > li').each(function () {
         $(this).find('ul').css('display', 'none');
       });
-      $('#toc a').each(function () {
+      $('#TableOfContents a').each(function () {
         $(this).click(function () {
           navbar.removeClass('navbar--show');
           navbar.removeClass('navbar--hide');
@@ -133,7 +127,7 @@
           });
           $(this).addClass('active');
 
-          $('#toc > li').each(function () {
+          $('#TableOfContents > ul > li').each(function () {
             $(this).find('ul').css('display', 'none');
           });
           $(this).next().css('display', 'block');
@@ -155,7 +149,7 @@
           $('.toc__flexbox').attr('data-position', 'absolute');
         }
       });
-    }    
+    }
 
     // Add link button for every
     var text, clip = new ClipboardJS('.anchor');
