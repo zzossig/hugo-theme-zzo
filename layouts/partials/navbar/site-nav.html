@@ -26,6 +26,7 @@
       {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
       {{ $active = or $active (eq .Name $current.Title) }}
       {{ $active = or $active (eq (lower .URL) (lower $current.Title)) }}
+      {{ $active = or $active (eq (lower .URL) (lower $current.Type)) }}
       {{ if .HasChildren }}
         <div class="navbar__dropdown navbar__slide-down">
           <a href="{{ .URL | relLangURL }}" class="navbar__menu-item {{ if $active }}active{{ end }}">
