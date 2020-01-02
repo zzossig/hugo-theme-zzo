@@ -216,7 +216,7 @@ custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/a
 custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
 
 themeOptions = ["dark", "light", "hacker", "solarized", "custom"] # select options for site color theme
-notAllowedTypesInHome = ["contact", "talks", "about"] # not allowed page types in home page
+notAllowedTypesInHome = ["contact", "talks", "about"] # not allowed page types in home page. type can be set in front matter or default to folder name.
 
 # header
 homeHeaderType = "text" # text, img, slide
