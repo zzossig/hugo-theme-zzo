@@ -14,16 +14,33 @@
 <script>
   // search
   var baseurl = null;
+  {{ $siteBaseURL := .Site.BaseURL }}
+  var siteBaseURL = JSON.parse({{ $siteBaseURL | jsonify }});
+  var siteBaseChecker = /\/\w+\//i;
+  var isSlug = siteBaseChecker.test(siteBaseURL);
+  
   var runSearch = function() {
     {{ if .Site.IsMultiLingual }}
-        var isSubDirDisabled = location.pathname.startsWith("/{{.Site.Language.Lang}}");
-        if (isSubDirDisabled) {          
-          baseurl = location.origin + "/{{.Site.Language.Lang}}";          
+        var hasLangPostfix = location.pathname.includes("/{{.Site.Language.Lang}}");
+        if (hasLangPostfix) {
+          if (isSlug) {
+            baseurl = location.origin + siteBaseURL.match(siteBaseChecker)[0] + "{{.Site.Language.Lang}}";
+          } else {
+            baseurl = location.origin + "/{{.Site.Language.Lang}}";
+          }
         } else {
-          baseurl = location.origin;
+          if (isSlug) {
+            baseurl = location.origin + siteBaseURL.match(siteBaseChecker)[0];
+          } else {
+            baseurl = location.origin;
+          }
         }
     {{ else }}
-        baseurl = location.origin;
+        if (isSlug) {
+          baseurl = location.origin + siteBaseURL.match(siteBaseChecker)[0];
+        } else {
+          baseurl = location.origin;
+        } 
     {{ end }}
 
     var searchResults = null;
