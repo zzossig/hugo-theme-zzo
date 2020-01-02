@@ -13,9 +13,13 @@
     </article>
 
     <div class="summary__container">
-        {{ $paginator := .Paginate (where (where (where .Site.RegularPages "Type" "!=" "contact") "Type" "!=" "archive") "Type" "!=" "about") }}
+        {{ $filteredPages := .Site.RegularPages }}
+        {{ range .Site.Params.notAllowedTypesInHome }}
+            {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
+        {{ end }}
+        {{ $paginator := .Paginate $filteredPages }}
         {{ range $paginator.Pages }}
-        {{ .Render "summary" }}
+            {{ .Render "summary" }}
         {{ end }}
     </div>    {{ partial "pagination/pagination" . }}
 </main>

@@ -221,6 +221,9 @@ description = "The Zzo theme for Hugo example site." # for SEO
 custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
 custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
 
+themeOptions = ["dark", "light", "hacker", "solarized", "custom"] # select options for site color theme
+notAllowedTypesInHome = ["contact", "talks", "about"] # not allowed page types in home page
+
 # header
 homeHeaderType = "text" # text, img, slide
 
@@ -266,7 +269,6 @@ showPoweredBy = true # show footer text: Powered by Hugo and Zzo theme
 showFeedLinks = true # RSS Feed 
 showSocialLinks = true # email, facebook, twitter ...
 enableLangChange = true # show button at bottom left of footer.
-themeOptions = ["dark", "light", "hacker", "solarized", "custom"] # select options for site color theme
 
 # service
 baiduAnalytics = "" # alternative of google analytics
