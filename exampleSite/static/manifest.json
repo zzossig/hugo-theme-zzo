@@ -1,7 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Zzo",
+  "name": "Hugo Zzo theme",
+  "short_name": "Hugo Zzo theme",
   "version": "1.0.0",
   "default_locale": "en",
-  "description": "Hugo blog theme"
+  "description": "Hugo blog theme with rich features",
+  "start_url": "https://themes.gohugo.io/theme/hugo-theme-zzo/",
+  "theme_color": "#FF6188",
+  "background_color": "#2D2A2E",
+  "display": "standalone"
 }
