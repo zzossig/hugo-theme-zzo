@@ -3,6 +3,9 @@ description = "The Zzo theme for Hugo example site."
 custom_css = []
 custom_js = []
 
+themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
+notAllowedTypesInHome = ["contact", "talks", "about"]
+
 # header
 homeHeaderType = "text" # text, img, slide
 
@@ -46,7 +49,6 @@ showFeedLinks = true
 showSocialLinks = true
 enableLangChange = true
 enableThemeChange = true
-themeOptions = ["dark", "light", "hacker", "solarized", "custom"]
 
 # service
 baiduAnalytics = ""
