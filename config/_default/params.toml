@@ -1,5 +1,5 @@
-logoText = "Zzo theme"
-description = "The Zzo theme for Hugo example site."
+logoText = ""
+description = "Live Life"
 custom_css = []
 custom_js = []
 
@@ -24,13 +24,13 @@ talksPaginate = 5
 talksGroupByDate = "2006"
 
 # whoami
-myname = "zzossig"
-email = "zzossig@gmail.com"
-whoami = "Web Developer"
-useGravatar = false
-location = "Seoul, Korea"
-organization = "Hugo"
-link = "https://zzossig.io/ko"
+myname = "Paul"
+email = "me@paulapplegate.com"
+whoami = "Photographer"
+useGravatar = true
+location = "US"
+organization = "NA"
+link = "https://paulapplegate.com"
 
 # sidebar
 enableBio = true
@@ -59,7 +59,7 @@ busuanziPagePV = true
 
 # comment
 enableComment = true
-disqus_shortname = ""
+disqus_shortname = "paulapplegate-com"
 commento = false
 
 [gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
