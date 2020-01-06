@@ -1,34 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "My Extension",
-  "short_name": "My Extension",
-  "version": "versionString",
+  "name": "Hugo Zzo theme",
+  "short_name": "Hugo Zzo theme",
+  "version": "1.0.0",
   "default_locale": "en",
-  "description": "A plain text description",
-  "icons": [
-    {
-      "src": "favicon.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    }, {
-      "src": "logo.png",
-      "sizes": "48x48",
-      "type": "image/png"
-    }, {
-      "src": "logo-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }, {
-      "src": "logo-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "background": {
-    "persistent": false
-  },
-  "start_url": "https://exampleSite.com/",
-  "theme_color": "#fff",
-  "background_color": "#fff",
+  "description": "Hugo blog theme with rich features",
+  "start_url": "https://themes.gohugo.io/theme/hugo-theme-zzo/",
+  "theme_color": "#FF6188",
+  "background_color": "#2D2A2E",
   "display": "standalone"
 }
