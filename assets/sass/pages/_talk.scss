@@ -17,7 +17,6 @@
     border-radius: 0.25rem;
     min-width: 100px;
     max-width: 100px;
-    margin-top: 0.25rem;
     font-size: 16px;
     height: 26px;
     line-height: 26px;
@@ -65,7 +64,7 @@
           position: absolute;
           left: 3rem;                
           width: 0.25rem;
-          height: 20px;
+          height: 30px;
           
           @include themify($themes) {
             background-color: themed('archive-hover-line-color');
