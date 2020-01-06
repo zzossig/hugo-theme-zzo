@@ -1,5 +1,5 @@
 baseURL = "https://elated-lumiere-225c1a.netlify.com"
-title = "Hugo Zzo Theme"
+title = "Living Life"
 theme = "zzo"
 
 defaultContentLanguage = "en"
@@ -15,8 +15,8 @@ enableEmoji = true
 paginate = 13
 rssLimit = 100
 
-enableGitInfo = false
-googleAnalytics = ""
+enableGitInfo = true
+googleAnalytics = "UA-147090349-5"
 
 [markup]
   [markup.goldmark]
