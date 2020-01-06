@@ -37,3 +37,8 @@
   name = "posts"
   url = "posts"
   weight = 5
+[[main]]
+  identifier = "contact"
+  name = "contact"
+  url = "contact"
+  weight = 6
