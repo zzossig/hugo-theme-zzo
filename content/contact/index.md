@@ -1,7 +1,7 @@
 ---
 title: "Contact"
 date: 2020-01-06T14:05:33+09:00
-description:
+description: Contact form
 service: formspree
 formId: "maywgyww"
 ---
