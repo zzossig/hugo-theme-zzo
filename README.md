@@ -20,6 +20,7 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 * [Contact Page](#contact-page)
 * [Talks Page](#talks-page)
 * [Multi Language](#multi-language)
+* [Author](#author)
 * [Customizing](#customizing)
 * [External libraries](#external-library)
 * [Shortcodes](#shortcodes)
@@ -36,8 +37,8 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 * Multilingual (i18n)
 * Responsive design
 * RSS and JSON feeds with full content
-* Search with Fuse
-* Gallery with Masonry, Photoswipe
+* Search
+* Gallery
 * Fast code highlighting
 * Talks page for external links
 
@@ -226,7 +227,6 @@ enableThemeChange = true # site color theme
 
 # body
 enableBreadcrumb = true # breadcrumb for list, single page
-enablePhotoSwipe = true # image viewer for gallery, single page
 enableSearch = true # site search with Fuse
 enableSearchHighlight = true # when true, search keyword will be highlighted
 enableGoToTop = true # scroll to top
@@ -917,6 +917,25 @@ The {} part will be your copyright link.
 ### custom favicon
 
 Override the default favicon by adding your favicon at root/static folder
+
+## Author
+
+We have some front matters for specifying the author.
+
+```yaml
+---
+title:
+...
+author: # author name
+authorEmoji: 🤖 # emoji for subtitle, summary meta data
+authorImage: "/images/whoami/avatar.jpg" # image path in the static folder
+authorDesc: # author description
+socialOptions: # override params.toml file socialOptions
+  email: ""
+  facebook: ""
+  ...
+---
+```
 
 ## External Library
 

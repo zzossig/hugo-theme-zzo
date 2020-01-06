@@ -67,6 +67,7 @@ $content-font: {{ .Site.Data.font.content_font }};
 @import 'components/busuanzi';
 @import 'components/donation';
 @import 'components/box';
+@import 'components/modal';
 
 @import 'pages/404';
 @import 'pages/about';

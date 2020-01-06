@@ -32,14 +32,18 @@
 
 /* ---- .grid-item ---- */
 
+.grid-sizer {
+  padding: 0.5rem;
+}
+
 .grid-sizer,
 .grid-item {
   width: 33.333%;
-  padding: 0.5rem;  
 }
 
 .grid-item {
-  float: left;    
+  float: left;
+  border-radius: 0.25rem;
 }
 
 .grid-item img {
@@ -78,10 +82,9 @@
       right: 0;
       top: 0;
       bottom: 0;
-      margin: auto;
       padding: 0.5rem;
-      width: calc(100% - 1rem);
-      height: calc(100% - 1rem);
+      width: 100%;
+      height: 100%;
       border-radius: 0.25rem;      
       z-index: z('gallery-mask');
       font-family: $title-font;

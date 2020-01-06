@@ -1,5 +1,6 @@
+{{ $params := .Params }}
 <div class="single__infos">
-  <span class="single__info" title="{{ i18n "tooltip-written" }}">📅 {{ .Date.Format (i18n "single-dateformat") }} </span> {{ if .GitInfo }} &nbsp;&nbsp; <span class="single__info" title="{{ i18n "tooltip-modified" }}"> 📝{{ .Lastmod.Format (i18n "single-dateformat") }} </span> {{ end }} &middot; <span class="single__info" title="{{ i18n "tooltip-reading-time" }}"> ☕{{ .ReadingTime }} {{ i18n "reading-time" }} </span>
+  <span class="single__info" title="{{ i18n "tooltip-written" }}">📅&nbsp;{{ .Date.Format (i18n "single-dateformat") }} </span> {{ if .GitInfo }} &nbsp;&nbsp; <span class="single__info" title="{{ i18n "tooltip-modified" }}"> 📝{{ .Lastmod.Format (i18n "single-dateformat") }} </span> {{ end }} &middot; <span class="single__info" title="{{ i18n "tooltip-reading-time" }}"> ☕{{ .ReadingTime }} {{ i18n "reading-time" }} </span>{{ with .Params.Author }}&middot; <span class="single__info" title="{{ i18n "single-writtenBy" }}">{{if $params.AuthorEmoji }}{{ $params.AuthorEmoji }}{{ else }}✍️{{ end }}&nbsp;{{ . }}</span>{{ end }}
   <span class="single__info">
     {{ if (and .Site.Params.enableBusuanzi .Site.Params.busuanziPagePV) }} &middot; 👀<span id="busuanzi_value_page_pv">...</span> {{ i18n "counter-page-pv" }}{{ end }}
   </span>

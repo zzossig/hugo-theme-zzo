@@ -1,6 +1,7 @@
 {
   "manifest_version": 2,
   "name": "My Extension",
+  "short_name": "My Extension",
   "version": "versionString",
   "default_locale": "en",
   "description": "A plain text description",
@@ -25,5 +26,9 @@
   ],
   "background": {
     "persistent": false
-  }
+  },
+  "start_url": "https://exampleSite.com/",
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "display": "standalone"
 }

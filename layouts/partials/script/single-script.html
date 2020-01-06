@@ -1,27 +1,22 @@
 {{ $js := .Site.Data.lib.js }}
 {{ $css := .Site.Data.lib.css }}
 
-{{ $jquery := resources.Get "js/jquery.min.js" | resources.Fingerprint }}
-<script defer src="{{ $jquery.RelPermalink }}"></script>
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
 <script defer src="{{ $enquire.RelPermalink }}"></script>
 {{ $clipboard := resources.Get "js/clipboard.min.js" | resources.Fingerprint }}
 <script defer src="{{ $clipboard.RelPermalink }}"></script>
 {{ $lazysizes := resources.Get "js/lazysizes.min.js" | resources.Fingerprint }}
 <script defer src="{{ $lazysizes.RelPermalink }}"></script>
-{{ $zzo := resources.Get "js/zzo.js" | resources.Minify | resources.Fingerprint }}
-<script defer src="{{ $zzo.RelPermalink }}"></script>
-
-{{ if $.Param "enablePhotoSwipe" }}
-  {{ $photoSwipe := resources.Get "lib/photoswipe/photoswipe.min.js" | resources.Fingerprint }}
-  <script defer src="{{ $photoSwipe.RelPermalink }}"></script>
-  {{ $photoSwipeUi := resources.Get "lib/photoswipe/photoswipe-ui-default.min.js" | resources.Fingerprint }}
-  <script defer src="{{ $photoSwipeUi.RelPermalink }}"></script>
-  {{ $photoSwipeStyle := resources.Get "lib/photoswipe/photoswipe.css" | resources.Minify }}
-  <link rel="stylesheet" href="{{ $photoSwipeStyle.RelPermalink }}">
-  {{ $photoSwipeSkin := resources.Get "lib/photoswipe/custom-skin.css" | resources.Minify }}
-  <link rel="stylesheet" href="{{ $photoSwipeSkin.RelPermalink }}">
-{{ end }}
+{{ $getParents := resources.Get "js/helper/getParents.js" | resources.Minify }}
+<script defer src="{{ $getParents.RelPermalink }}"></script>
+{{ $closest := resources.Get "js/helper/closest.js" | resources.Minify }}
+<script defer src="{{ $closest.RelPermalink }}"></script>
+{{ $prev := resources.Get "js/helper/prev.js" | resources.Minify }}
+<script defer src="{{ $prev.RelPermalink }}"></script>
+{{ $prop := resources.Get "js/helper/prop.js" | resources.Minify }}
+<script defer src="{{ $prop.RelPermalink }}"></script>
+{{ $fadeinout := resources.Get "js/helper/fadeinout.js" | resources.Minify }}
+<script defer src="{{ $fadeinout.RelPermalink }}"></script>
 
 {{ if in .Params.Libraries "mermaid" }}
   <script defer src="{{ $js.mermaid.url }}" integrity="{{ $js.mermaid.sri }}" crossorigin="anonymous"></script>
@@ -66,45 +61,54 @@
 
 
 <script>
+  'use strict';
+
   window.onload = function() {
+    var navbar = document.querySelector('.navbar');
+
+    // ====================== markdown code block ======================
+    function wrap(el, wrapper) {
+      el.parentNode.insertBefore(wrapper, el);
+      wrapper.appendChild(el);
+    }
+
     (function () {
       document.querySelectorAll('.single__contents > pre > code')
-        .forEach((element) => {
-          if (!$(element).attr('data-lang')) {
-            $(element).parent().wrap('<div data-lang="Code" class="language-code"></div>');
+        .forEach((elem) => {
+          var dataLang = elem.getAttribute('data-lang');
+          if (!dataLang) {
+            var dataLangWrapper = document.createElement('div');
+            dataLangWrapper.setAttribute('data-lang', 'Code');
+            dataLangWrapper.className = 'language-code';
+            wrap(elem.parentNode, dataLangWrapper);
           }
         });
     })();
 
-    function mapLang(name) {
-      return {
-        coffeescript: 'CoffeeScript',
-        cpp: 'C++',
-        cs: 'C#',
-        js: 'JavaScript',
-        json: 'JSON',
-        objectivec: 'Objective-C',
-        ts: 'TypeScript',
-        typescript: 'TypeScript',
-      }[name] || name.toUpperCase();
-    }
+    var langCodeElem = document.querySelectorAll('.language-code');
+    langCodeElem ? langCodeElem.forEach(function (elem) {
+      var newElem = document.createElement('span');
+      newElem.className = 'copy-to-clipboard';
+      newElem.setAttribute('title', 'Copy to clipboard');
+      elem.append(newElem);
+    }) : null;
+    // =================================================================
 
-    // search
-    runSearch();
 
-    // counter
+    // ======================= busuanzi counter ========================
     {{ $enableBusuanzi := .Site.Params.enableBusuanzi }}
     {{ $busuanziPagePV := .Site.Params.busuanziPagePV }}
     var enableBusuanzi = JSON.parse({{ $enableBusuanzi | jsonify }});
     var busuanziPagePV = JSON.parse({{ $busuanziPagePV | jsonify }});
     
-    if (enableBusuanzi && busuanziPagePV) {      
-      $('#busuanzi_value_page_pv').digits();
+    if (enableBusuanzi && busuanziPagePV) {
+      var pagePvElem = document.querySelector('#busuanzi_value_page_pv');
+      pagePvElem.textContent = pagePvElem.textContent.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
     }    
+    // =================================================================
 
-    var navbar = $('.navbar');
 
-    // toc
+    // ============================== toc ==============================
     {{ $enableToc := ($.Param "enableToc") }}
     {{ $toc := ($.Param "toc") }}
     {{ $hideToc := ($.Param "hideToc") }}
@@ -113,93 +117,174 @@
     var hideToc = JSON.parse({{ $hideToc | jsonify }});
     
     if (enableToc || toc) {
-      $('#TableOfContents > ul > li').each(function () {
-        $(this).find('ul').css('display', 'none');
+      var tableOfContentsElem = document.getElementById('TableOfContents');
+      tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
+        liElem.querySelectorAll('ul').forEach(function (ulElem) {
+          ulElem.style.display = 'none';
+        });
       });
-      $('#TableOfContents a').each(function () {
-        $(this).click(function () {
-          navbar.removeClass('navbar--show');
-          navbar.removeClass('navbar--hide');
-          navbar.addClass('navbar--hide');
 
-          $(".single__contents :header").each(function () {
-            $('.toc a').removeClass('active');
-          });
-          $(this).addClass('active');
+      tableOfContentsElem.querySelectorAll('a').forEach(function(elem) {
+        elem.addEventListener('click', function() {
+          var id = elem.getAttribute('id');
+          navbar.classList.remove('navbar--show');
+          navbar.classList.remove('navbar--hide');
+          navbar.classList.add('navbar--hide');
 
-          $('#TableOfContents > ul > li').each(function () {
-            $(this).find('ul').css('display', 'none');
+          document.querySelector('.toc').querySelectorAll('a').forEach(function(elem) {
+            elem.classList.remove('active');
           });
-          $(this).next().css('display', 'block');
-          $(this).parents('ul').css('display', 'block');
+          elem.classList.add('active');
+
+          tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
+            liElem.querySelectorAll('ul').forEach(function(ulElem) {
+              ulElem.style.display = 'none';
+            });
+          });
+
+          var curElem = tableOfContentsElem.querySelector(`[href="#${id}"]`);
+          if (curElem && curElem.nextElementSibling) {
+            curElem.nextElementSibling.style.display = 'block';
+          }
+          if (curElem) {
+            getParents(curElem, 'ul').forEach(function (elem) {
+              elem.style.display = 'block';
+            });
+          }
         });
       });
 
       // toc visibility
-      $("#toggle-toc").change(function () {
-        if (this.checked) {
-          $('.toc').fadeIn(200);
-          $('main').removeClass('main-main').removeClass('main').addClass('main-main');
-          $('side').removeClass('main-side');
-          $('.toc__flexbox').attr('data-position', 'fixed');
+      var toggleTocElem = document.querySelector("#toggle-toc");
+      var tocElem = document.querySelector('.toc');
+      var mainElem = document.querySelector('main');
+      var sideElem = document.querySelector('side');
+      var tocFlexboxElem = document.querySelector('.toc__flexbox');
+
+      toggleTocElem ? 
+      toggleTocElem.addEventListener('change', function(e) {
+        if (e.target.checked) {
+          if (tocElem) {
+            fadeIn(tocElem, 200);
+          }
+          if (tocFlexboxElem) {
+            tocFlexboxElem.setAttribute('data-position', 'fixed');
+          }
+
+          if (mainElem) {
+            mainElem.classList.remove('main-main');
+            mainElem.classList.remove('main');
+            mainElem.classList.add('main-main');
+          }
+          if (sideElem) {
+            sideElem.classList.remove('main-side');
+          }
         } else {
-          $('.toc').fadeOut(200);
-          $('main').removeClass('main-main').removeClass('main').addClass('main');
-          $('side').removeClass('main-side');
-          $('.toc__flexbox').attr('data-position', 'absolute');
+          if (tocElem) {
+            fadeOut(tocElem, 200);
+          }
+          if (tocFlexboxElem) {
+            tocFlexboxElem.setAttribute('data-position', 'absolute');
+          }
+
+          if (mainElem) {
+            mainElem.classList.remove('main-main');
+            mainElem.classList.remove('main');
+            mainElem.classList.add('main');
+          }
+          if (sideElem) {
+            sideElem.classList.remove('main-side');
+          }
         }
-      });
+      }) : null;
     }
+    // =================================================================
 
-    // Add link button for every
+
+    // ======================== markdown table =========================
+    var tables = document.querySelectorAll('.single__contents > table');
+    for (let i = 0; i < tables.length; i++) {
+      var table = tables[i];
+      var wrapper = document.createElement('div');
+      wrapper.className = 'table-wrapper';
+      table.parentElement.replaceChild(wrapper, table);
+      wrapper.appendChild(table);
+    }
+    // =================================================================
+
+
+    // ==================== add links in all titles ====================
     var text, clip = new ClipboardJS('.anchor');
-    var headers = $('.single__contents :header').not('h6').not('h5');
-    headers.append(function (index, html) {
-      var element = $(this);
+    var singleContentsElem = document.querySelector('.single__contents');
+    var headers = singleContentsElem.querySelectorAll("h1, h2, h3, h4");
+    
+    headers ? 
+    headers.forEach(function (elem) {
       var url = encodeURI(document.location.origin + document.location.pathname);
-      var link = url + "#" + element[0].id;
-      return " <span class='anchor hide' data-clipboard-text='" + link + "' style='position: relative;'>" +
-        "<span style='font-size: 1rem; position: absolute; right: -2rem; top: 50%; transform: translateY(-50%)'>🔗</span>" +
-        "</span>"
-        ;
-    });
-    headers.on('mouseenter', function () {
-      $(this).find('.anchor').attr('class', 'anchor');
-    });
-    headers.on('mouseleave', function () {
-      $(this).find('.anchor').attr('class', 'anchor hide');
-    });
+      var link = url + "#" + elem.getAttribute('id');
+      
+      var newElemOuter = document.createElement('span');
+      newElemOuter.classList.add('anchor');
+      newElemOuter.classList.add('hide');
+      newElemOuter.setAttribute('data-clipboard-text', link);
+      newElemOuter.style.position = 'relative';
 
-    $(".anchor").on('mouseleave', function (e) {
-      $(this).attr('aria-label', null).removeClass('tooltipped tooltipped-s tooltipped-w');
+      var newElemInner = document.createElement('span');
+      newElemInner.style.fontSize = '1rem';
+      newElemInner.style.position = 'absolute';
+      newElemInner.style.right = '-2rem';
+      newElemInner.style.top = '50%';
+      newElemInner.style.transform = 'translateY(-50%)';
+      newElemInner.innerText = "🔗";
+
+      newElemOuter.append(newElemInner);
+      elem.append(newElemOuter);
+
+      elem.addEventListener('mouseenter', function() {
+        this.querySelector('.anchor').classList.remove('hide');
+      });
+      elem.addEventListener('mouseleave', function () {
+        this.querySelector('.anchor').classList.add('hide');
+      });
+    }) : null;
+
+    document.querySelectorAll('.anchor').forEach(function(elem) {
+      elem.addEventListener('mouseleave', function() {
+        elem.setAttribute('aria-label', null);
+        elem.classList.remove('tooltipped');
+        elem.classList.remove('tooltipped-s');
+        elem.classList.remove('tooltipped-w');
+      });
     });
 
     clip.on('success', function (e) {
       e.clearSelection();
-      $(e.trigger).attr('aria-label', 'Link copied to clipboard!').addClass('tooltipped tooltipped-s');
+      e.trigger.setAttribute('aria-label', 'Link copied to clipboard!');
+      e.trigger.classList.add('tooltipped');
+      e.trigger.classList.add('tooltipped-s');
     });
-    
-    $('.language-code').each(function (i, node) {
-      $(node).append('<span class="copy-to-clipboard" title="Copy to clipboard"/>');
-    });
+    // =================================================================
 
-    // clipboard
+
+    // =========================== clipboard ===========================
     var clipInit = false;
-    $('pre.chroma code, .language-code code').each(function () {
-      var code = $(this),
-        text = code.text();
+    var preChromaElem = document.querySelectorAll('pre.chroma');
+    var langCodeElem = document.querySelectorAll('.language-code');
+    var makeClipboard = function(elem) {
+      var code = elem,
+        text = elem.textContent;
 
       if (text.length > 30) {
         if (!clipInit) {
           var text, clip = new ClipboardJS('.copy-to-clipboard', {
             text: function (trigger) {
-              console.log();
-              if ($(trigger).prev().find('code').length > 1) {                
-                text = $(trigger).prev().find(`code[class^="language-"]`).text();
+              var codeElem = prev(trigger).querySelectorAll('code');
+              if (codeElem.length > 1) {
+                text = prev(trigger).querySelector('code[class^="language-"]').textContent;
               } else {
-                text = $(trigger).prev().find('code').text();
+                text = prev(trigger).querySelector('code').textContent;
               }
-               
+
               return text.replace(/^\$\s/gm, '');
             }
           });
@@ -207,16 +292,17 @@
           var inPre;
           clip.on('success', function (e) {
             e.clearSelection();
-            inPre = $(e.trigger).parent().prop('tagName') == 'PRE';
-            $(e.trigger).attr('aria-label', 'Copied to clipboard!').addClass('tooltipped tooltipped-w');
+            inPre = prop(e.trigger.parentNode, 'tagName') == 'PRE';
+            e.trigger.setAttribute('aria-label', 'Copied to clipboard!');
+            e.trigger.classList.add('tooltipped');
+            e.trigger.classList.add('tooltipped-w');
           });
 
           clip.on('error', function (e) {
-            inPre = $(e.trigger).parent().prop('tagName') == 'PRE';
-            $(e.trigger).attr('aria-label', fallbackMessage(e.action)).addClass('tooltipped tooltipped-w');
-            $(document).one('copy', function () {
-              $(e.trigger).attr('aria-label', 'Copied to clipboard!').addClass('tooltipped tooltipped-w');
-            });
+            inPre = prop(e.trigger.parentNode, 'tagName') == 'PRE';
+            e.trigger.setAttribute('aria-label', e.action.toString());
+            e.trigger.classList.add('tooltipped');
+            e.trigger.classList.add('tooltipped-w');
           });
 
           clipInit = true;
@@ -224,71 +310,43 @@
 
         var notAllowedClass = ['language-mermaid', 'language-viz', 'language-wave', 'language-chart', 'language-msc', 'language-flowchart'];
         var isNotAllowedIncluded = false;
-        var curClassName = code.attr('class');
+        var curClassName = code.getAttribute('class');
 
         for (let str of notAllowedClass) {
           if (curClassName && curClassName.startsWith(str)) {
             isNotAllowedIncluded = true;
             break;
-          } 
+          }
         }
-        
+
         if (!isNotAllowedIncluded) {
           if (curClassName) {
-            code.closest('div.chroma').append('<span class="copy-to-clipboard" title="Copy to clipboard" />');
-          }         
-        }        
-      }
-    });
-
-    // gallery
-    {{ $enablePhotoSwipe := ($.Param "enablePhotoSwipe") }}
-    var enablePhotoSwipe = JSON.parse({{ $enablePhotoSwipe | jsonify }});
-    
-    if (enablePhotoSwipe) {
-      var pswpElement = $('.pswp')[0];
-      var imgElements = $('.single__contents').find('img');
-      var items = [];
-
-      imgElements.each(function (i, v) {
-        $(this).click(function (e) {
-          initGallery(i);
-        });
-        $(this).css('cursor', 'pointer');
-        items.push({
-          src: v['src'],
-          w: 0,
-          h: 0,
-          title: filename(v['src']),
-        });
-      });
-
-      function filename(str) {
-        var s = str.replace(/\\/g, '/');
-        s = s.substring(s.lastIndexOf('/') + 1);
-        return str ? s.replace(/[?#].+$/, '') : s.split('.')[0];
-      }
-
-      function initGallery(index) {
-        var options = { index: index };
-        var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-        gallery.listen('imageLoadComplete', function (index, item) {
-          if (item.h < 1 || item.w < 1) {
-            let img = new Image();
-            img.onload = () => {
-              item.w = img.width;
-              item.h = img.height;
-              gallery.invalidateCurrItems();
-              gallery.updateSize(true);
-            }
-            img.src = item.src;
+            var newClipboardElem = document.createElement('span');
+            newClipboardElem.setAttribute('class', 'copy-to-clipboard');
+            newClipboardElem.setAttribute('title', 'Copy to clipboard');
+            closest(code, 'div.chroma').append(newClipboardElem);
           }
-        });
-        gallery.init();
+        }
       }
     }
 
-    // mermaid
+    preChromaElem ? 
+    preChromaElem.forEach(function(elem) {
+      elem.querySelectorAll('code').forEach(function(codeElem) {
+        makeClipboard(codeElem);
+      });
+    }) : null;
+    
+    langCodeElem ? 
+    langCodeElem.forEach(function(elem) {
+      elem.querySelectorAll('code').forEach(function (codeElem) {
+        makeClipboard(codeElem);
+      });
+    }) : null;
+    // =================================================================
+
+
+    // ============================ mermaid ============================
     {{ $lib := .Params.libraries }}
     var lib = JSON.parse({{ $lib | jsonify }});
 
@@ -302,17 +360,27 @@
         mermaid.initialize({ theme: 'default' });
       }
       
-      let mermaids = [];
+      var mermaids = [];
       [].push.apply(mermaids, document.getElementsByClassName('language-mermaid'));
-      for (i = 0; i < mermaids.length; i++) {
-        $(mermaids[i]).unwrap('pre');
-        $(mermaids[i]).replaceWith(function () {
-          return $("<div />").append($(this).contents()).addClass('mermaid').css('padding', '34px 4px 6px');
-        });
-      }
-    }
+      mermaids.forEach(function(elem) {
+        var elemParentNode = elem.parentNode;
 
-    // katex
+        if (elemParentNode !== document.body) {
+          elemParentNode.parentNode.insertBefore(elem, elemParentNode);
+          elemParentNode.parentNode.removeChild(elemParentNode);
+        }
+
+        var newElemWrapper = document.createElement('div');
+        newElemWrapper.classList.add('mermaid');
+        newElemWrapper.style.padding = '34px 4px 6px';
+        newElemWrapper.innerHTML = elem.innerHTML;
+        elem.replaceWith(newElemWrapper);
+      });
+    }
+    // =================================================================
+    
+
+    // ============================= katex =============================
     if (lib && lib.includes('katex')) {
       var mathElements = document.getElementsByClassName('math');
       var options = [
@@ -323,8 +391,10 @@
 
       renderMathInElement(document.querySelector('.single__contents'), options);
     }
+    // =================================================================
 
-    // flowchart.js
+
+    // ========================= flowchart.js ==========================
     if (lib && lib.includes('flowchartjs')) {
       {{ $flowchartjs := .Site.Data.flowchartjs }}
       var options = JSON.parse({{ $flowchartjs | jsonify }});
@@ -346,8 +416,10 @@
           index +=1;
       });      
     }
+    // =================================================================
 
-    // mathjax
+
+    // ============================ mathjax ============================
     if (lib && lib.includes('mathjax')) {
       window.MathJax = {
         tex: {
@@ -361,8 +433,10 @@
         },
       };
     }
+    // =================================================================
 
-    // js-sequence-diagram
+
+    // ====================== js-sequence-diagram ======================
     if (lib && lib.includes('msc')) {
       {{ $msc := .Site.Data.msc }}
       var options = JSON.parse({{ $msc | jsonify }});    
@@ -381,8 +455,10 @@
         index += 1;
       });
     }
+    // =================================================================
 
-    // chart.js
+
+    // =========================== chart.js ============================
     if (lib && lib.includes('chart')) {
       var borderColor = "#666";
       var bgColor = "#ddd";
@@ -417,8 +493,10 @@
         index += 1;
       });            
     }
+    // =================================================================
 
-    // wavedrom
+
+    // =========================== wavedrom ============================
     if (lib && lib.includes('wavedrom')) {
       var wavePrefix = "language-wave";
       var index = 0;
@@ -434,8 +512,10 @@
         index += 1;
       });
     }
+    // =================================================================
 
-    // viz diagram
+
+    // ========================== viz diagram ==========================
     if (lib && lib.includes('viz')) {
       var vizPrefix = "language-viz-";
       Array.prototype.forEach.call(document.querySelectorAll("[class^=" + vizPrefix + "]"), function (x) {
@@ -455,5 +535,7 @@
           })
       });
     }
+    // =================================================================
+    
   }
 </script>

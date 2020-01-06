@@ -1,7 +1,7 @@
 {{ if $.Param "enableThemeChange" }}
 <div class="theme-mobile">
   <div class="dropdown">
-    <button class="dropdown-trigger navbar__slide-down" aria-label="Invert Colors" style="{{ if .Site.Params.enableSearch }}{{ else }}position: absolute; top: 0;{{ end }}">
+    <button class="dropdown-trigger navbar__slide-down" aria-label="Select Theme Button" style="{{ if .Site.Params.enableSearch }}{{ else }}position: absolute; top: 0;{{ end }}">
       {{ partial "svgs/etc/invert-colors.svg" (dict "width" 22 "height" 22) }}      
     </button>
     <div class="dropdown-content select-theme">

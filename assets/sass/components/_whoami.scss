@@ -24,7 +24,7 @@
   &__image {    
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 0.25rem;
     @include box-shadow(0, 2px, 3px, 0, rgba(0, 0, 0, 0.25));
 

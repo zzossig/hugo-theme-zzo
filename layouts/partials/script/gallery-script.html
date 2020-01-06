@@ -1,153 +1,122 @@
-{{ $jquery := resources.Get "js/jquery.min.js" | resources.Fingerprint }}
-<script defer src="{{ $jquery.RelPermalink }}"></script>
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
 <script defer src="{{ $enquire.RelPermalink }}"></script>
 {{ $masonry := resources.Get "js/masonry.pkgd.min.js" | resources.Fingerprint }}
 <script defer src="{{ $masonry.RelPermalink }}"></script>
 {{ $imagesloaded := resources.Get "js/imagesloaded.pkgd.min.js" | resources.Fingerprint }}
 <script defer src="{{ $imagesloaded.RelPermalink }}"></script>
-{{ $zzo := resources.Get "js/zzo.js" | resources.Minify | resources.Fingerprint }}
-<script defer src="{{ $zzo.RelPermalink }}"></script>
 {{ $lazysizes := resources.Get "js/lazysizes.min.js" | resources.Fingerprint }}
 <script defer src="{{ $lazysizes.RelPermalink }}"></script>
-{{ $photoSwipe := resources.Get "lib/photoswipe/photoswipe.min.js" | resources.Fingerprint }}
-<script defer src="{{ $photoSwipe.RelPermalink }}"></script>
-{{ $photoSwipeUi := resources.Get "lib/photoswipe/photoswipe-ui-default.min.js" | resources.Fingerprint }}
-<script defer src="{{ $photoSwipeUi.RelPermalink }}"></script>
-{{ $photoSwipeStyle := resources.Get "lib/photoswipe/photoswipe.css" | resources.Minify }}
-<link rel="stylesheet" href="{{ $photoSwipeStyle.RelPermalink }}">
-{{ $photoSwipeSkin := resources.Get "lib/photoswipe/custom-skin.css" | resources.Minify }}
-<link rel="stylesheet" href="{{ $photoSwipeSkin.RelPermalink }}">
 
 <script>
   window.onload = function() {
-    // search
-    runSearch();
-    
-    // masonry
-    var $grid = $('.grid').masonry({
+    // ========================= masonry =========================
+    var grid = document.querySelector('.grid');
+    var msnry = new Masonry(grid, {
       itemSelector: '.grid-item',
       columnWidth: '.grid-sizer',
       percentPosition: true,
     });
-    $grid.imagesLoaded().progress(function () {
-      $grid.masonry();
+    imagesLoaded(grid).on('progress', function () {
+      msnry.layout();
     });
 
-    $('.grid-item').mouseenter(function () {
-      $(this).children('.grid-item__desc').show();
-    });
-
-    $('.grid-item').mouseleave(function () {
-      $(this).children('.grid-item__desc').hide();
+    document.querySelectorAll('.grid-item').forEach(function(elem) {
+      elem.addEventListener('mouseenter', function() {
+        elem.querySelector('.grid-item__desc').style.display = 'block';
+        elem.querySelector('.grid-item__desc').onclick = function(e) {
+          e.target.previousElementSibling.click();
+        }
+      });
+      elem.addEventListener('mouseleave', function () {
+        elem.querySelector('.grid-item__desc').style.display = 'none';
+      });
     });
 
     enquire.register("screen and (max-width:1200px)", {
       match: function () {
-        $('.grid-item').addClass('quarter');
-        $('.grid-sizer').addClass('quarter');
-        $('.grid-item').removeClass('fifth');
-        $('.grid-sizer').removeClass('fifth');
+        document.querySelectorAll('.grid-item').forEach(function(elem) {
+          elem.classList.add('quarter');
+          elem.classList.remove('fifth');
+        });
+        document.querySelectorAll('.grid-sizer').forEach(function (elem) {
+          elem.classList.add('quarter');
+          elem.classList.remove('fifth');
+        });
       },
       unmatch: function () {
-        $('.grid-item').addClass('fifth');
-        $('.grid-sizer').addClass('fifth');
-        $('.grid-item').removeClass('quarter');
-        $('.grid-sizer').removeClass('quarter');
+        document.querySelectorAll('.grid-item').forEach(function (elem) {
+          elem.classList.add('fifth');
+          elem.classList.remove('quarter');
+        });
+        document.querySelectorAll('.grid-sizer').forEach(function (elem) {
+          elem.classList.add('fifth');
+          elem.classList.remove('quarter');
+        });
       },
     }).register("screen and (max-width:900px)", {
       match: function () {
-        $('.grid-item').addClass('third');
-        $('.grid-sizer').addClass('third');
-        $('.grid-item').removeClass('quarter');
-        $('.grid-sizer').removeClass('quarter');
+        document.querySelectorAll('.grid-item').forEach(function (elem) {
+          elem.classList.add('third');
+          elem.classList.remove('quarter');
+        });
+        document.querySelectorAll('.grid-sizer').forEach(function (elem) {
+          elem.classList.add('third');
+          elem.classList.remove('quarter');
+        });
       },
       unmatch: function () {
-        $('.grid-item').addClass('quarter');
-        $('.grid-sizer').addClass('quarter');
-        $('.grid-item').removeClass('third');
-        $('.grid-sizer').removeClass('third');
+        document.querySelectorAll('.grid-item').forEach(function (elem) {
+          elem.classList.add('quarter');
+          elem.classList.remove('third');
+        });
+        document.querySelectorAll('.grid-sizer').forEach(function (elem) {
+          elem.classList.add('quarter');
+          elem.classList.remove('third');
+        });
       },
     }).register("screen and (max-width:700px)", {
       match: function () {
-        $('.grid-item').addClass('half');
-        $('.grid-sizer').addClass('half');
-        $('.grid-item').removeClass('third');
-        $('.grid-sizer').removeClass('third');
+        document.querySelectorAll('.grid-item').forEach(function (elem) {
+          elem.classList.add('half');
+          elem.classList.remove('third');
+        });
+        document.querySelectorAll('.grid-sizer').forEach(function (elem) {
+          elem.classList.add('half');
+          elem.classList.remove('third');
+        });
       },
       unmatch: function () {
-        $('.grid-item').addClass('third');
-        $('.grid-sizer').addClass('third');
-        $('.grid-item').removeClass('half');
-        $('.grid-sizer').removeClass('half');
+        document.querySelectorAll('.grid-item').forEach(function (elem) {
+          elem.classList.add('third');
+          elem.classList.remove('half');
+        });
+        document.querySelectorAll('.grid-sizer').forEach(function (elem) {
+          elem.classList.add('third');
+          elem.classList.remove('half');
+        });
       },
     }).register("screen and (max-width:500px)", {
       match: function () {
-        $('.grid-item').addClass('full');
-        $('.grid-sizer').addClass('full');
-        $('.grid-item').removeClass('half');
-        $('.grid-sizer').removeClass('half');
+        document.querySelectorAll('.grid-item').forEach(function (elem) {
+          elem.classList.add('full');
+          elem.classList.remove('half');
+        });
+        document.querySelectorAll('.grid-sizer').forEach(function (elem) {
+          elem.classList.add('full');
+          elem.classList.remove('half');
+        });
       },
       unmatch: function () {
-        $('.grid-item').addClass('half');
-        $('.grid-sizer').addClass('half');
-        $('.grid-item').removeClass('full');
-        $('.grid-sizer').removeClass('full');
+        document.querySelectorAll('.grid-item').forEach(function (elem) {
+          elem.classList.add('half');
+          elem.classList.remove('full');
+        });
+        document.querySelectorAll('.grid-sizer').forEach(function (elem) {
+          elem.classList.add('half');
+          elem.classList.remove('full');
+        });
       },
     });
-
-    // gallery
-    var pswpElement = $('.pswp')[0];
-    var imgElements = $('.single__contents').find('img');
-    var items = [];
-
-    {{ $mode:= .Params.Mode }}
-    var mode = JSON.parse({{ $mode | jsonify }});    
-
-    imgElements.each(function (i, v) {
-      $(this).parent().click(function (e) {
-        initGallery(i);
-      });
-      $(this).css('cursor', 'pointer');
-
-      var caption = null;
-      if (mode && mode.toLowerCase().includes('one')) {        
-        caption = $(this).attr('alt');
-      } else {
-        caption = filename(v['src']);
-      }
-
-      items.push({
-        src: v['src'],
-        w: 0,
-        h: 0,
-        title: caption,
-      });
-    });
-  
-    function filename(str) {
-      var s = str.replace(/\\/g, '/');
-      s = s.substring(s.lastIndexOf('/') + 1);
-      return str ? s.replace(/[?#].+$/, '') : s.split('.')[0];
-    }
-  
-    function initGallery(index) {
-      var options = { index: index };
-      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-      gallery.listen('imageLoadComplete', function (index, item) {
-        if (item.h < 1 || item.w < 1) {
-          let img = new Image();
-          img.onload = () => {
-            item.w = img.width;
-            item.h = img.height;
-            gallery.invalidateCurrItems();
-            gallery.updateSize(true);
-          }
-          img.src = item.src;
-        }
-      });
-
-      gallery.init();
-    }  
+    // ===========================================================
   }
 </script>

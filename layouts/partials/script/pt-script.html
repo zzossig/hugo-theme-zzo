@@ -1,40 +1,40 @@
 {{ $reveal := .Site.Data.lib.reveal }}
 
-{{ $reveal_style := resources.Get "lib/reveal/reveal.css" | resources.Minify| resources.Fingerprint }}
+{{ $reveal_style := resources.Get "lib/reveal/reveal.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $reveal_style.RelPermalink }}">
 
 {{ if eq .Params.revealTheme "bagie" }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/beige.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/beige.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ else if eq .Params.revealTheme "black" }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/black.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/black.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ else if eq .Params.revealTheme "blood" }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/blood.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/blood.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ else if eq .Params.revealTheme "league" }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/league.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/league.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ else if eq .Params.revealTheme "moon" }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/moon.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/moon.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ else if eq .Params.revealTheme "night" }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/night.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/night.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ else if eq .Params.revealTheme "serif" }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/serif.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/serif.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ else if eq .Params.revealTheme "sky" }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/sky.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/sky.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ else if eq .Params.revealTheme "solarized" }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/solarized.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/solarized.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ else if eq .Params.revealTheme "white" }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/white.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/white.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ else }}
-  {{ $theme_style := resources.Get "lib/reveal/theme/simple.css" | resources.Minify| resources.Fingerprint }}
+  {{ $theme_style := resources.Get "lib/reveal/theme/simple.css" | resources.Minify | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $theme_style.RelPermalink }}">
 {{ end }}
 
@@ -46,10 +46,10 @@
 {{ if in .Params.Plugins "highlight" }}
   
 {{ if eq .Params.highlightTheme "zenburn" }}
-    {{ $highlight_style := resources.Get "lib/reveal/highlight/zenburn.css" | resources.Minify| resources.Fingerprint }}
+    {{ $highlight_style := resources.Get "lib/reveal/highlight/zenburn.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $highlight_style.RelPermalink }}">
   {{ else }}
-    {{ $highlight_style := resources.Get "lib/reveal/highlight/monokai.css" | resources.Minify| resources.Fingerprint }}
+    {{ $highlight_style := resources.Get "lib/reveal/highlight/monokai.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $highlight_style.RelPermalink }}">
   {{ end }}
 

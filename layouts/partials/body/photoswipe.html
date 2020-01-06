@@ -1,70 +1,272 @@
-{{ if $.Param "enablePhotoSwipe" }}
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-  <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-  <div class="pswp__bg"></div>
-
-  <!-- Slides wrapper with overflow:hidden. -->
-  <div class="pswp__scroll-wrap">
-
-    <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-    <div class="pswp__container">
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-    </div>
-
-    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-    <div class="pswp__ui pswp__ui--hidden">
-
-      <div class="pswp__top-bar">
-
-        <!--  Controls are self-explanatory. Order can be changed. -->
-
-        <div class="pswp__counter"></div>
-
-        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-        <button class="pswp__button pswp__button--share" title="Share"></button>
-
-        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-        <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-        <!-- element will get class pswp__preloader--active when preloader is running -->
-        <div class="pswp__preloader">
-          <div class="pswp__preloader__icn">
-            <div class="pswp__preloader__cut">
-              <div class="pswp__preloader__donut"></div>
-            </div>
+{{ printf "%#v" .Params.Type }}
+<div class="modal micromodal-slide" id="modal" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      
+      <div class="modal__content" id="modal-content">
+        <div id="mySwipe" class="swipe">
+          <div class="swipe-wrap">
           </div>
         </div>
       </div>
 
-      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-        <div class="pswp__share-tooltip"></div>
-      </div>
+      <span class="modal__items">
+        
+        <span class="modal__header">
+          <div class="modal__paging" title="Page Info" aria-label="Current Page">
+          </div>
+          <div class="modal__icon modal__toolbar modal__toolbar--close" title="Close" aria-label="Close Button" data-micromodal-close>
+            {{ partial "svgs/etc/close.svg" (dict "width" 25 "height" 25) }}
+          </div>
+          <div class="modal__icon modal__toolbar modal__toolbar--full" title="Full Screen" aria-label="Full Screen Button">
+            {{ partial "svgs/etc/full-screen.svg" (dict "width" 25 "height" 25) }}
+          </div>
+          <div class="modal__icon modal__toolbar modal__toolbar--normal" title="Normal Screen" aria-label="Normal Screen Button">
+            {{ partial "svgs/etc/normal-screen.svg" (dict "width" 25 "height" 25) }}
+          </div>
+        </span>
+        
+        <div class="modal__icon modal__arrow modal__arrow--left" title="Arrow Left" aria-label="Arrow Left Button">
+          {{ partial "svgs/arrow/arrow-left.svg" (dict "width" 28 "height" 28) }}
+        </div>
+        
+        <div class="modal__icon modal__arrow modal__arrow--right" title="Arrow Right" aria-label="Arrow Right Button">
 
-      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-      </button>
+          {{ partial "svgs/arrow/arrow-right.svg" (dict "width" 28 "height" 28) }}
+        </div>
 
-      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-      </button>
+        <div class="modal__caption">
+          <div class="modal__caption--text">
+          </div>
+        </div>
 
-      <div class="pswp__caption">
-        <div class="pswp__caption__center"></div>
-      </div>
-
+      </span>
     </div>
-
   </div>
-
 </div>
 
-{{ end }}
+{{ $swipe := resources.Get "js/swipe.js" | resources.Minify | resources.Fingerprint }}
+<script defer src="{{ $swipe.RelPermalink }}"></script>
+{{ $micromodal := resources.Get "js/micromodal.min.js" | resources.Fingerprint }}
+<script defer src="{{ $micromodal.RelPermalink }}"></script>
+{{ $fadeinout := resources.Get "js/helper/fadeinout.js" | resources.Minify }}
+<script defer src="{{ $fadeinout.RelPermalink }}"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // ============================ gallery ============================
+  /* Get the documentElement (<html>) to display the page in fullscreen */
+  var docElem = document.documentElement;
+
+  /* View in fullscreen */
+  function openFullscreen() {
+    if (docElem.requestFullscreen) {
+      docElem.requestFullscreen();
+    } else if (docElem.mozRequestFullScreen) { /* Firefox */
+      docElem.mozRequestFullScreen();
+    } else if (docElem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      docElem.webkitRequestFullscreen();
+    } else if (docElem.msRequestFullscreen) { /* IE/Edge */
+      docElem.msRequestFullscreen();
+    }
+  }
+
+  /* Close fullscreen */
+  function closeFullscreen() {
+    if (document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement) {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) { /* Firefox */
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { /* IE/Edge */
+        document.msExitFullscreen();
+      }
+    }
+  }
+
+  var singleContentsElem = document.querySelector('.single__contents');
+  var swipeWrapElem = document.querySelector('.swipe-wrap');
+  var mySwipeElem = document.getElementById('mySwipe');
+  var arrowLeftElem = document.querySelector('.modal__arrow--left');
+  var arrowRightElem = document.querySelector('.modal__arrow--right');
+  var closeElem = document.querySelector('.modal__toolbar--close');
+  var fullElem = document.querySelector('.modal__toolbar--full');
+  var normalElem = document.querySelector('.modal__toolbar--normal');
+  var captionElem = document.querySelector('.modal__caption');
+  var pagingElem = document.querySelector('.modal__paging');
+  var itemsElem = document.querySelector('.modal__items');
+  var imgTotalNum = singleContentsElem.querySelectorAll('img').length;
+  var myFadeTimeout = null;
+  var mySwipe = null;
+  var keydownFunction = function (e) {
+    if (e.key === 'ArrowRight') {
+      mySwipe.next();
+    } else if (e.key === 'ArrowLeft') {
+      mySwipe.prev();
+    }
+  }
+
+  MicroModal.init({
+    onClose: () => {
+      if (mySwipe) {
+        mySwipe.kill();
+        mySwipe = null;
+        closeFullscreen();
+      }
+      window.removeEventListener('keydown', keydownFunction);
+    },
+    disableScroll: true,
+    disableFocus: true,
+    awaitOpenAnimation: false,
+    awaitCloseAnimation: false,
+    debugMode: false,
+  });
+
+  singleContentsElem.querySelectorAll('img').forEach(function (elem, idx) {
+    elem.style.cursor = 'pointer';
+
+    var clonedElem = elem.cloneNode(true);
+    clonedElem.style.maxHeight = '100vh';
+    clonedElem.onclick = function (e) {
+      e.stopPropagation();
+    }
+
+    var wrapper = document.createElement('div');
+    wrapper.style.width = '100%';
+    wrapper.style.height = '100vh';
+    wrapper.setAttribute('data-micromodal-close', '');
+    wrapper.onclick = function () {
+      if (mySwipe) {
+        mySwipe.kill();
+        mySwipe = null;
+      }
+    }
+    wrapper.onmouseenter = function () {
+      clearTimeout(myFadeTimeout);
+      fadeIn(itemsElem, 200);
+    };
+    wrapper.onmouseleave = function () {
+      myFadeTimeout = setTimeout(function () {
+        fadeOut(itemsElem, 200);
+      }, 1000);
+    }
+    wrapper.append(clonedElem);
+    swipeWrapElem.append(wrapper);
+
+    elem.addEventListener('click', function (e) {
+      MicroModal.show('modal');
+      if (mySwipe) {
+        mySwipe.kill();
+        mySwipe = null;
+      }
+
+      // swipe initialize
+      mySwipe = new Swipe(mySwipeElem, {
+        startSlide: idx,
+        draggable: true,
+        autoRestart: false,
+        continuous: false,
+        disableScroll: true,
+        stopPropagation: true,
+        callback: function (index, element) {
+          // caption
+          var imgElem = element.querySelector('img');
+          if (captionElem && imgElem) {
+            var caption = null;
+            if (imgElem.getAttribute('data-caption')) {
+              caption = imgElem.getAttribute('data-caption');
+            } else if (imgElem.getAttribute('title')) {
+              caption = imgElem.getAttribute('title');
+            } else if (imgElem.getAttribute('alt')) {
+              caption = imgElem.getAttribute('alt');
+            } else {
+              caption = imgElem.getAttribute('src');
+            }
+
+            captionElem.querySelector('.modal__caption--text').innerText = caption;
+            pagingElem.innerText = (index + 1) + ' / ' + imgTotalNum;
+          }
+        },
+      });
+
+      fadeIn(itemsElem);
+
+      // caption
+      if (captionElem) {
+        var caption = null;
+        if (e.target.getAttribute('data-caption')) {
+          caption = e.target.getAttribute('data-caption');
+        } else if (e.target.getAttribute('title')) {
+          caption = e.target.getAttribute('title');
+        } else if (e.target.getAttribute('alt')) {
+          caption = e.target.getAttribute('alt');
+        } else {
+          caption = e.target.getAttribute('src');
+        }
+
+        captionElem.querySelector('.modal__caption--text').innerText = caption;
+        pagingElem.innerText = (idx + 1) + ' / ' + imgTotalNum;
+      }
+
+      if (normalElem && fullElem) {
+        normalElem.style.zIndex = -1;
+        normalElem.style.opacity = 0;
+        fullElem.style.zIndex = 25;
+        fullElem.style.opacity = 1;
+      }
+    });
+
+    window.addEventListener('keydown', keydownFunction);
+  });
+
+  arrowLeftElem ?
+    arrowLeftElem.addEventListener('click', function () {
+      if (mySwipe) {
+        mySwipe.prev();
+      }
+    }) : null;
+  arrowRightElem ?
+    arrowRightElem.addEventListener('click', function () {
+      if (mySwipe) {
+        mySwipe.next();
+      }
+    }) : null;
+
+  closeElem ?
+    closeElem.addEventListener('click', function () {
+      if (mySwipe) {
+        mySwipe.kill();
+        mySwipe = null;
+      }
+      closeFullscreen();
+      MicroModal.close('modal');
+    }) : null;
+
+  fullElem ?
+    fullElem.addEventListener('click', function (e) {
+      openFullscreen();
+      if (normalElem) {
+        normalElem.style.zIndex = 25;
+        normalElem.style.opacity = 1;
+        fullElem.style.zIndex = -1;
+        fullElem.style.opacity = 0;
+      }
+    }) : null;
+
+  normalElem ?
+    normalElem.addEventListener('click', function (e) {
+      closeFullscreen();
+      if (fullElem) {
+        fullElem.style.zIndex = 25;
+        fullElem.style.opacity = 1;
+        normalElem.style.zIndex = -1;
+        normalElem.style.opacity = 0;
+      }
+    }) : null;
+  // =================================================================
+});
+</script>

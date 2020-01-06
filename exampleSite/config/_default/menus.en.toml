@@ -33,13 +33,7 @@
   url = "gallery/photo"
 
 [[main]]
-  identifier = "talks"
-  name = "talks"
-  url = "talks"
-  weight = 5
-
-[[main]]
   identifier = "posts"
   name = "posts"
   url = "posts"
-  weight = 6
+  weight = 5

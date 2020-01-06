@@ -18,3 +18,24 @@
     background: themed('navbar-title-active-color') !important;
   }
 }
+
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;  
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float: left;
+  position: relative;
+  overflow: hidden;
+  object-fit: contain;
+
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+}

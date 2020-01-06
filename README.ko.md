@@ -20,6 +20,7 @@ Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로
 * [갤러리](#gallery)
 * [컨택 페이지](#contact-page)
 * [다국어](#multi-language)
+* [저자](#author)
 * [커스터마이징](#customizing)
 * [외부 라이브러리 사용](#external-library)
 * [Shortcodes](#shortcodes)
@@ -232,7 +233,6 @@ enableThemeChange = true # site color theme
 
 # body
 enableBreadcrumb = true # breadcrumb for list, single page
-enablePhotoSwipe = true # image viewer for gallery, single page
 enableSearch = true # site search with fuse
 enableSearchHighlight = true # when true, search keyword will be highlighted
 enableGoToTop = true # scroll to top
@@ -917,6 +917,25 @@ copyright = This is my {} copyright text
 ### custom favicon
 
 root/static 폴더에 파비콘을 넣어서 테마의 favicon을 overriding 하시면 됩니다.
+
+## Author
+
+포스트의 저자에 대한 정보를 front matter를 통해서 명시할 수 있습니다.
+
+```yaml
+---
+title:
+...
+author: # author name
+authorEmoji: 🤖 # emoji for subtitle, summary meta data
+authorImage: "/images/whoami/avatar.jpg" # image path in the static folder
+authorDesc: # author description
+socialOptions: # override params.toml file socialOptions
+  email: ""
+  facebook: ""
+  ...
+---
+```
 
 ## External Library
 
