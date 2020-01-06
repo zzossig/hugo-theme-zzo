@@ -102,7 +102,7 @@ root
 2. config.toml
 
 ```bash
-baseURL = "http://example.org/" # The URL of your site.
+baseURL = "https://example.org/" # The URL of your site.
 title = "Hugo Zzo Theme" # Title of your site
 theme = "zzo" # Name of Zzo theme folder in `themes/`.
 
@@ -320,8 +320,8 @@ commento = false
 
 [socialOptions] # if set, social icons will show up.
   email = "mailto:your@email.com"
-  facebook = "http://example.org/"
-  twitter = "http://example.org/"
+  facebook = "https://example.org/"
+  twitter = "https://example.org/"
   github = "https://github.com/zzossig/hugo-theme-zzo"
   stack-overflow = ""
   instagram = ""
