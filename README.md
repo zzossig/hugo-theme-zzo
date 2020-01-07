@@ -688,16 +688,6 @@ custom_js = ["js/custom.js", ...]
 assets/js/custom.js
 ```
 
-### custom skin(sub theme)
-
-1. Make a skin.toml file in data folder. (data/skin.toml)
-
-2. Set custom_theme_primary_color variable. The range of value that can be set is from "0" to "359".
-
-3. Restart hugo.
-
-5. Once you change the skin.toml file, restart hugo.
-
 ### custom syntax highlighting
 
 1. Make a skin.toml file at root/data folder. Set the theme_dark_chroma, theme_light_chroma, ... params value as you want. Refer this [link](https://xyproto.github.io/splash/docs/all.html). If theme_[xxxx]_chroma value include - or _ like special character, just delete it.
@@ -997,4 +987,12 @@ A notice disclaimer
 
 ```bash
 {{< color "#0000ff" >}}*text*{{< /color >}}
+```
+
+### box
+
+```bash
+{{< box >}}
+Some markdown contents
+{{< /box >}}
 ```

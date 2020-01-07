@@ -9,18 +9,17 @@ $grid_column_gap_unit: {{ .Site.Data.grid.grid_column_gap_unit }};
 $grid_navbar_height: {{ .Site.Data.grid.grid_navbar_height }};
 $grid_row_gap: {{ .Site.Data.grid.grid_row_gap }};
 
-$custom_theme_primary_color: {{ .Site.Data.skin.custom_theme_primary_color }};
 $theme_light_chroma: {{ .Site.Data.skin.theme_light_chroma }};
 $theme_dark_chroma: {{ .Site.Data.skin.theme_dark_chroma }};
 $theme_hacker_chroma: {{ .Site.Data.skin.theme_hacker_chroma }};
 $theme_solarized_chroma: {{ .Site.Data.skin.theme_solarized_chroma }};
-$theme_custom_chroma: {{ .Site.Data.skin.theme_custom_chroma }};
+$theme_kimbie_chroma: {{ .Site.Data.skin.theme_kimbie_chroma }};
 
 $theme_light_chroma_background: {{ .Site.Data.skin.theme_light_chroma_background }};
 $theme_dark_chroma_background: {{ .Site.Data.skin.theme_dark_chroma_background }};
 $theme_hacker_chroma_background: {{ .Site.Data.skin.theme_hacker_chroma_background }};
 $theme_solarized_chroma_background: {{ .Site.Data.skin.theme_solarized_chroma_background }};
-$theme_custom_chroma_background: {{ .Site.Data.skin.theme_custom_chroma_background }};
+$theme_kimbie_chroma_background: {{ .Site.Data.skin.theme_kimbie_chroma_background }};
 
 $title-font: {{ .Site.Data.font.title_font }};
 $content-font: {{ .Site.Data.font.content_font }};

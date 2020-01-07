@@ -165,7 +165,7 @@
       }
     }
 
-    p > code {
+    p > code:not([class^=language]) {
       padding: 0.25rem 0.5rem;
       @include themify($codeblock) {
         color: themed('content-code-color');
@@ -241,6 +241,9 @@
       code:not([class^=language]) {
         padding: 3px 5px;
         margin: 0 0.25rem;
+        @include themify($codeblock) {
+          color: themed('content-code-color');
+        }
       }
     }
 
@@ -257,6 +260,9 @@
       code:not([class^=language]) {
         padding: 3px 5px;
         margin: 0 0.25rem;
+        @include themify($codeblock) {
+          color: themed('content-code-color');
+        }
       }
     }
 
@@ -274,6 +280,9 @@
       code:not([class^=language]) {
         padding: 3px 5px;
         margin: 0 0.25rem;
+        @include themify($codeblock) {
+          color: themed('content-code-color');
+        }
       }
     }
 
@@ -344,6 +353,9 @@
       code:not([class^=language]) {
         padding: 3px 5px;
         margin: 0 0.25rem;
+        @include themify($codeblock) {
+          color: themed('content-code-color');
+        }
       }
     }
   }
@@ -387,6 +399,9 @@ code, pre {
 code:not([class^=language]) {  
   padding: 3px 5px;  
   border-radius: 4px;
+  @include themify($codeblock) {
+    color: themed('content-code-color');
+  }
 }
 
 pre:not(.chroma) {

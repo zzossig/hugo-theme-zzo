@@ -125,11 +125,23 @@ document.addEventListener('DOMContentLoaded', function () {
     debugMode: false,
   });
 
+  var imageLoad = function(src) {
+    return new Promise(function(resolve, reject) {
+      var newImg = new Image;
+      newImg.onload = function() {
+        resolve(newImg);
+      }
+      newImg.onerror = reject;
+      newImg.src = src;
+    });
+  }
+
   singleContentsElem.querySelectorAll('img').forEach(function (elem, idx) {
     elem.style.cursor = 'pointer';
 
     var clonedElem = elem.cloneNode(true);
-    clonedElem.style.maxHeight = '100vh';
+    clonedElem.style.maxHeight = '100%';
+    clonedElem.style.maxWidth = '100%';
     clonedElem.onclick = function (e) {
       e.stopPropagation();
     }
@@ -151,18 +163,23 @@ document.addEventListener('DOMContentLoaded', function () {
     wrapper.onmouseleave = function () {
       myFadeTimeout = setTimeout(function () {
         fadeOut(itemsElem, 200);
-      }, 1000);
+      }, 2500);
     }
     wrapper.append(clonedElem);
     swipeWrapElem.append(wrapper);
 
-    elem.addEventListener('click', function (e) {
+    elem.addEventListener('click', async function (e) {
       MicroModal.show('modal');
       if (mySwipe) {
         mySwipe.kill();
         mySwipe = null;
       }
 
+      var imgSrc = e.target.getAttribute('data-src') || e.target.getAttribute('src');
+      var img = await imageLoad(imgSrc);
+      clonedElem.style.width = img.width + 'px';
+      clonedElem.style.height = img.height + 'px';
+      
       // swipe initialize
       mySwipe = new Swipe(mySwipeElem, {
         startSlide: idx,
@@ -171,9 +188,15 @@ document.addEventListener('DOMContentLoaded', function () {
         continuous: false,
         disableScroll: true,
         stopPropagation: true,
-        callback: function (index, element) {
-          // caption
+        callback: async function (index, element) {
+          // original image size
           var imgElem = element.querySelector('img');
+          var imgSrc = imgElem.getAttribute('data-src') || imgElem.getAttribute('src');
+          var img = await imageLoad(imgSrc);
+          imgElem.style.width = img.width + 'px';
+          imgElem.style.height = img.height + 'px';
+
+          // caption
           if (captionElem && imgElem) {
             var caption = null;
             if (imgElem.getAttribute('data-caption')) {
@@ -188,6 +211,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             captionElem.querySelector('.modal__caption--text').innerText = caption;
             pagingElem.innerText = (index + 1) + ' / ' + imgTotalNum;
+
+            clearTimeout(myFadeTimeout);
+            fadeIn(itemsElem, 200);
           }
         },
       });
@@ -223,13 +249,13 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   arrowLeftElem ?
-    arrowLeftElem.addEventListener('click', function () {
+    arrowLeftElem.addEventListener('click', function (e) {
       if (mySwipe) {
         mySwipe.prev();
       }
     }) : null;
   arrowRightElem ?
-    arrowRightElem.addEventListener('click', function () {
+    arrowRightElem.addEventListener('click', function (e) {
       if (mySwipe) {
         mySwipe.next();
       }

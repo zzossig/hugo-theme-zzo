@@ -696,14 +696,6 @@ custom_js = ["js/custom.js", ...]
 assets/js/custom.js
 ```
 
-### custom skin(sub theme)
-
-1. data폴더에 skin.toml 파일을 만들어주세요. (data/skin.toml)
-
-2. custom_theme_primary_color항목의 값을 변경해주세요. 값의 범위는 "0" 부터 "359" 까지 입니다.
-
-3. 변경 후, 휴고를 다시 시작해주세요. 안그러면 변경사항이 적용 안될 수도 있습니다.
-
 ### custom syntax highlighting
 
 1. root/data 폴더에 skin.toml파일을 만들어주세요. theme_dark_chroma, theme_light_chroma, ... 파라미터의 항목의 값을 원하시는 코드 하이라이트 테마값으로 변경해주세요. [이 링크](https://xyproto.github.io/splash/docs/all.html)를 참조해서 값을 변경하시면 됩니다. 만약 theme_[xxxx]_chroma 값에 - 나 _ 같은 특수문자가 있다면 지워주세요.
@@ -996,4 +988,12 @@ A notice disclaimer
 
 ```bash
 {{< color "#0000ff" >}}*text*{{< /color >}}
+```
+
+### box
+
+```bash
+{{< box >}}
+Some markdown contents
+{{< /box >}}
 ```

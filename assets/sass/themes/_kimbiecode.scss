@@ -1,7 +1,7 @@
-$hackercode: '';
+$kimbiecode: '';
 
-@if $theme_hacker_chroma_background == dark {
-  $hackercode: (
+@if $theme_kimbie_chroma_background == dark {
+  $kimbiecode: (
     content-code-color: #fcfcfa,
     content-pre-main-color: #FFA7C4,
     content-pre-color: #eee,
@@ -11,8 +11,8 @@ $hackercode: '';
     content-pre-border-background-color: #3a3a3a,
     content-pre-header-color: #FCFCFA,
   );
-} @else if $theme_hacker_chroma_background == light {
-  $hackercode: (
+} @else if $theme_kimbie_chroma_background == light {
+  $kimbiecode: (
     content-code-color: #26a69a,
     content-pre-main-color: #607d8b,
     content-pre-color: #344952,
@@ -22,8 +22,8 @@ $hackercode: '';
     content-pre-header-background-color: darken(#F5F2F0, 3%),
     content-pre-header-color: #344952,
   );
-} @else if $theme_hacker_chroma_background == hacker {
-  $hackercode: (
+} @else if $theme_kimbie_chroma_background == hacker {
+  $kimbiecode: (
     content-code-color: #E3CD26,
     content-pre-main-color: #1FFF2A,
     content-pre-color: #d1d1d1,
@@ -33,8 +33,8 @@ $hackercode: '';
     content-pre-header-background-color: darken(#202420, 1.5%),
     content-pre-header-color: #f3ff6e,
   );
-} @else if $theme_hacker_chroma_background == solarized {
-  $hackercode: (
+} @else if $theme_kimbie_chroma_background == solarized {
+  $kimbiecode: (
     content-code-color: #268bd2,
     content-pre-main-color: #B58900,
     content-pre-color: #344952,
@@ -44,8 +44,8 @@ $hackercode: '';
     content-pre-header-background-color: darken(#FBF1D1, 6%),
     content-pre-header-color: #344952,
   );
-} @else if $theme_hacker_chroma_background == kimbie {
-  $hackercode: (
+} @else if $theme_kimbie_chroma_background == kimbie {
+  $kimbiecode: (
     content-code-color: #f06431,
     content-pre-main-color: #dc3958,
     content-pre-color: #d3af86,
@@ -56,14 +56,14 @@ $hackercode: '';
     content-pre-border-background-color: #e3b583,
   );
 } @else {
-  $hackercode: (
-    content-code-color: #E3CD26,
-    content-pre-main-color: #1FFF2A,
-    content-pre-color: #d1d1d1,
+  $kimbiecode: (
+    content-code-color: #f06431,
+    content-pre-main-color: #dc3958,
+    content-pre-color: #d3af86,
     content-pre-number-color: #666,
-    content-pre-background-color: #282a36,
-    content-pre-border-background-color: #f3ff6e,
-    content-pre-header-background-color: darken(#202420, 1.5%),
-    content-pre-header-color: #f3ff6e,
+    content-pre-background-color: #423523,
+    content-pre-header-color: #8ab1b0,
+    content-pre-header-background-color: #362712,
+    content-pre-border-background-color: #e3b583,
   );
 }

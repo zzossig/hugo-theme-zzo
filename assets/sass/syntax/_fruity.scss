@@ -38,13 +38,13 @@
   /* LiteralNumberInteger */ .chroma .mi { color: #0086f7; font-weight: bold }
   /* LiteralNumberIntegerLong */ .chroma .il { color: #0086f7; font-weight: bold }
   /* LiteralNumberOct */ .chroma .mo { color: #0086f7; font-weight: bold }
-  /* Comment */ .chroma .c { color: #008800; background-color: #0f140f; font-style: italic }
-  /* CommentHashbang */ .chroma .ch { color: #008800; background-color: #0f140f; font-style: italic }
-  /* CommentMultiline */ .chroma .cm { color: #008800; background-color: #0f140f; font-style: italic }
-  /* CommentSingle */ .chroma .c1 { color: #008800; background-color: #0f140f; font-style: italic }
-  /* CommentSpecial */ .chroma .cs { color: #008800; background-color: #0f140f; font-style: italic }
-  /* CommentPreproc */ .chroma .cp { color: #ff0007; background-color: #0f140f; font-weight: bold; font-style: italic }
-  /* CommentPreprocFile */ .chroma .cpf { color: #ff0007; background-color: #0f140f; font-weight: bold; font-style: italic }
+  /* Comment */ .chroma .c { color: #008800; font-style: italic }
+  /* CommentHashbang */ .chroma .ch { color: #008800; font-style: italic }
+  /* CommentMultiline */ .chroma .cm { color: #008800; font-style: italic }
+  /* CommentSingle */ .chroma .c1 { color: #008800; font-style: italic }
+  /* CommentSpecial */ .chroma .cs { color: #008800; font-style: italic }
+  /* CommentPreproc */ .chroma .cp { color: #ff0007; font-weight: bold; font-style: italic }
+  /* CommentPreprocFile */ .chroma .cpf { color: #ff0007; font-weight: bold; font-style: italic }
   /* GenericHeading */ .chroma .gh { font-weight: bold }
   /* GenericOutput */ .chroma .go { color: #444444; background-color: #222222 }
   /* GenericSubheading */ .chroma .gu { font-weight: bold }

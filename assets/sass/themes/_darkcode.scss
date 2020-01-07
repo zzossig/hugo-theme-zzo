@@ -13,7 +13,7 @@ $darkcode: '';
   );
 } @else if $theme_dark_chroma_background == light {
   $darkcode: (
-    content-code-color: #827d70,
+    content-code-color: #26a69a,
     content-pre-main-color: #607d8b,
     content-pre-color: #344952,
     content-pre-number-color: #aaa,
@@ -24,7 +24,7 @@ $darkcode: '';
   );
 } @else if $theme_dark_chroma_background == hacker {
   $darkcode: (
-    content-code-color: #1fff2a,
+    content-code-color: #E3CD26,
     content-pre-main-color: #1FFF2A,
     content-pre-color: #d1d1d1,
     content-pre-number-color: #666,
@@ -35,7 +35,7 @@ $darkcode: '';
   );
 } @else if $theme_dark_chroma_background == solarized {
   $darkcode: (
-    content-code-color: #424242,
+    content-code-color: #268bd2,
     content-pre-main-color: #B58900,
     content-pre-color: #344952,
     content-pre-number-color: #aaa,
@@ -44,16 +44,16 @@ $darkcode: '';
     content-pre-header-background-color: darken(#FBF1D1, 6%),
     content-pre-header-color: #344952,
   );
-} @else if $theme_dark_chroma_background == custom {
+} @else if $theme_dark_chroma_background == kimbie {
   $darkcode: (
-    content-code-color: #002633,
-    content-pre-main-color: hsl($custom_theme_primary_color, 65%, 32%),
-    content-pre-color: hsl($custom_theme_primary_color, 100%, 10%),
-    content-pre-number-color: hsl($custom_theme_primary_color, 0%, 67%),
-    content-pre-background-color: hsl($custom_theme_primary_color, 100%, 97%),
-    content-pre-header-color: hsl($custom_theme_primary_color, 100%, 10%),
-    content-pre-header-background-color: hsl($custom_theme_primary_color, 100%, 92%),
-    content-pre-border-background-color: hsl($custom_theme_primary_color, 100%, 86%),
+    content-code-color: #f06431,
+    content-pre-main-color: #dc3958,
+    content-pre-color: #d3af86,
+    content-pre-number-color: #666,
+    content-pre-background-color: #423523,
+    content-pre-header-color: #8ab1b0,
+    content-pre-header-background-color: #362712,
+    content-pre-border-background-color: #e3b583,
   );
 } @else {
   $darkcode: (

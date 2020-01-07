@@ -366,84 +366,84 @@
   }
 }
 
-.theme__custom {
-  @if $theme_custom_chroma == default {
-    @include chroma-autumn;
-  } @else if $theme_custom_chroma == abap {
-    @include chroma-abap;
-  } @else if $theme_custom_chroma == algol {
-    @include chroma-algol;
-  } @else if $theme_custom_chroma == algolnu {
-    @include chroma-algolnu;
-  } @else if $theme_custom_chroma == api {
-    @include chroma-api;
-  } @else if $theme_custom_chroma == arduino {
-    @include chroma-arduino;
-  } @else if $theme_custom_chroma == autumn {
-    @include chroma-autumn;
-  } @else if $theme_custom_chroma == borland {
-    @include chroma-borland;
-  } @else if $theme_custom_chroma == bw {
-    @include chroma-bw;
-  } @else if $theme_custom_chroma == colorful {
-    @include chroma-colorful;
-  } @else if $theme_custom_chroma == dracula {
-    @include chroma-dracula;
-  } @else if $theme_custom_chroma == emacs {
-    @include chroma-emacs;
-  } @else if $theme_custom_chroma == friendly {
-    @include chroma-friendly;
-  } @else if $theme_custom_chroma == fruity {
-    @include chroma-fruity;
-  } @else if $theme_custom_chroma == github {
-    @include chroma-github;
-  } @else if $theme_custom_chroma == igor {
-    @include chroma-igor;
-  } @else if $theme_custom_chroma == lovelace {
-    @include chroma-lovelace;
-  } @else if $theme_custom_chroma == manni {
-    @include chroma-manni;
-  } @else if $theme_custom_chroma == monokai {
-    @include chroma-monokai;
-  } @else if $theme_custom_chroma == monokailight {
+.theme__kimbie {
+  @if $theme_kimbie_chroma == default {
     @include chroma-monokailight;
-  } @else if $theme_custom_chroma == murphy {
+  } @else if $theme_kimbie_chroma == abap {
+    @include chroma-abap;
+  } @else if $theme_kimbie_chroma == algol {
+    @include chroma-algol;
+  } @else if $theme_kimbie_chroma == algolnu {
+    @include chroma-algolnu;
+  } @else if $theme_kimbie_chroma == api {
+    @include chroma-api;
+  } @else if $theme_kimbie_chroma == arduino {
+    @include chroma-arduino;
+  } @else if $theme_kimbie_chroma == autumn {
+    @include chroma-autumn;
+  } @else if $theme_kimbie_chroma == borland {
+    @include chroma-borland;
+  } @else if $theme_kimbie_chroma == bw {
+    @include chroma-bw;
+  } @else if $theme_kimbie_chroma == colorful {
+    @include chroma-colorful;
+  } @else if $theme_kimbie_chroma == dracula {
+    @include chroma-dracula;
+  } @else if $theme_kimbie_chroma == emacs {
+    @include chroma-emacs;
+  } @else if $theme_kimbie_chroma == friendly {
+    @include chroma-friendly;
+  } @else if $theme_kimbie_chroma == fruity {
+    @include chroma-fruity;
+  } @else if $theme_kimbie_chroma == github {
+    @include chroma-github;
+  } @else if $theme_kimbie_chroma == igor {
+    @include chroma-igor;
+  } @else if $theme_kimbie_chroma == lovelace {
+    @include chroma-lovelace;
+  } @else if $theme_kimbie_chroma == manni {
+    @include chroma-manni;
+  } @else if $theme_kimbie_chroma == monokai {
+    @include chroma-monokai;
+  } @else if $theme_kimbie_chroma == monokailight {
+    @include chroma-monokailight;
+  } @else if $theme_kimbie_chroma == murphy {
     @include chroma-murphy;
-  } @else if $theme_custom_chroma == native {
+  } @else if $theme_kimbie_chroma == native {
     @include chroma-native;
-  } @else if $theme_custom_chroma == paraisodark {
+  } @else if $theme_kimbie_chroma == paraisodark {
     @include chroma-paraisodark;
-  } @else if $theme_custom_chroma == paraisolight {
+  } @else if $theme_kimbie_chroma == paraisolight {
     @include chroma-paraisolight;
-  } @else if $theme_custom_chroma == pastie {
+  } @else if $theme_kimbie_chroma == pastie {
     @include chroma-pastie;
-  } @else if $theme_custom_chroma == perldoc {
+  } @else if $theme_kimbie_chroma == perldoc {
     @include chroma-perldoc;
-  } @else if $theme_custom_chroma == pygments {
+  } @else if $theme_kimbie_chroma == pygments {
     @include chroma-pygments;
-  } @else if $theme_custom_chroma == rainbowdash {
+  } @else if $theme_kimbie_chroma == rainbowdash {
     @include chroma-rainbowdash;
-  } @else if $theme_custom_chroma == rrt {
+  } @else if $theme_kimbie_chroma == rrt {
     @include chroma-rrt;
-  } @else if $theme_custom_chroma == solarizeddark {
+  } @else if $theme_kimbie_chroma == solarizeddark {
     @include chroma-solarizeddark;
-  } @else if $theme_custom_chroma == solarizeddark256 {
+  } @else if $theme_kimbie_chroma == solarizeddark256 {
     @include chroma-solarizeddark256;
-  } @else if $theme_custom_chroma == solarizedlight {
+  } @else if $theme_kimbie_chroma == solarizedlight {
     @include chroma-solarizedlight;
-  } @else if $theme_custom_chroma == swapoff {
+  } @else if $theme_kimbie_chroma == swapoff {
     @include chroma-swapoff;
-  } @else if $theme_custom_chroma == tango {
+  } @else if $theme_kimbie_chroma == tango {
     @include chroma-tango;
-  } @else if $theme_custom_chroma == trac {
+  } @else if $theme_kimbie_chroma == trac {
     @include chroma-trac;
-  } @else if $theme_custom_chroma == vim {
+  } @else if $theme_kimbie_chroma == vim {
     @include chroma-vim;
-  } @else if $theme_custom_chroma == vs {
+  } @else if $theme_kimbie_chroma == vs {
     @include chroma-vs;
-  } @else if $theme_custom_chroma == xcode {
+  } @else if $theme_kimbie_chroma == xcode {
     @include chroma-xcode;
   } @else {
-    @include chroma-autumn;
+    @include chroma-monokailight;
   }
 }
