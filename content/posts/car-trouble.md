@@ -1,13 +1,10 @@
 +++
-author = "Hugo Authors"
+author =“Hugo Authors”
 title = "Car trouble = less moeny for me"
 date: "2020-01-07T00:14:14Z"
 description = "An adventure in buying a serpentine belt"
-tags = [
-    "car",
-    "repair"]
-categories = [
-    "Automotive"]
+tags = ["car","repair"]
+categories = ["Automotive"]
 featured_image = "feature1/car.png"
 +++
 Our car suddenly lost power steering yesterday and we took it today to get it looked at.
