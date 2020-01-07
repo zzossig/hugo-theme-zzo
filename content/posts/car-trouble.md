@@ -1,4 +1,4 @@
----
++++
 title: "Car trouble"
 date: "2020-01-07T00:14:14Z"
 description: "The price of owning an old car"
@@ -10,7 +10,7 @@ series:
 categories:
 - Complain
 featured_image = "feature1/car.png"
----
++++
 Our car suddenly lost power steering yesterday and we took it today to get it looked at.
 It was diagnosed as a bad serpentine belt which came loose. So is bad the right word for a broken belt?
 At a relatively low cost of $175, we were on our way. I should have been a mechanic.
