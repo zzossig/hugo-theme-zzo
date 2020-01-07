@@ -1,14 +1,13 @@
 +++
-title: "Car trouble"
+author = "Hugo Authors"
+title = "Car trouble = less moeny for me"
 date: "2020-01-07T00:14:14Z"
-description: "The price of owning an old car"
-tags:
-- Car
-- MoneyPit
-series:
--
-categories:
-- Complain
+description = "An adventure in buying a serpentine belt"
+tags = [
+    "car",
+    "repair"]
+categories = [
+    "Automotive"]
 featured_image = "feature1/car.png"
 +++
 Our car suddenly lost power steering yesterday and we took it today to get it looked at.
