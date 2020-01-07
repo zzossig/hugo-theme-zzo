@@ -46,10 +46,30 @@
     // ============================================================
 
 
+    // ========================== expand ==========================
+    var expandBtn = document.querySelectorAll('.expand__button');
+
+    for (let i = 0; i < expandBtn.length; i++) {
+      expandBtn[i].addEventListener("click", function () {
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+          this.querySelector('svg').classList.add('expand-icon__right');
+          this.querySelector('svg').classList.remove('expand-icon__down');
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+          this.querySelector('svg').classList.remove('expand-icon__right');
+          this.querySelector('svg').classList.add('expand-icon__down');
+        }
+      });
+    }
+    // ============================================================
+
+
     // ========================== scroll ==========================
     var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    var tableOfContentsElem = document.getElementById('TableOfContents');
     var tocElem = document.querySelector('.toc');
+    var tableOfContentsElem = tocElem ? tocElem.querySelector('#TableOfContents') : null;
     var toggleTocElem = document.getElementById('toggle-toc');
     var singleContentsElem = document.querySelector('.single__contents');
     var navbar = document.querySelector('.navbar');
@@ -82,25 +102,27 @@
           }
           
           if (document.documentElement.scrollTop >= elem.offsetTop) {
-            var id = elem.getAttribute('id');
-            tocElem.querySelectorAll('a').forEach(function (elem) {
-              elem.classList.remove('active');
-            });
-            tocElem.querySelector('a[href="#' + id + '"]').classList.add('active');
-
-            document.querySelectorAll('#TableOfContents > ul > li').forEach(function(liElem) {
-              liElem.querySelectorAll('ul').forEach(function(ulElem) {
-                ulElem.style.display = 'none';
+            if (tableOfContentsElem) {
+              var id = elem.getAttribute('id');
+              tocElem.querySelectorAll('a').forEach(function (elem) {
+                elem.classList.remove('active');
               });
-            });
+              tocElem.querySelector('a[href="#' + id + '"]').classList.add('active');
 
-            var curElem = tableOfContentsElem.querySelector(`[href="#${id}"]`);
-            if (curElem.nextElementSibling) {
-              curElem.nextElementSibling.style.display = 'block';
+              tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
+                liElem.querySelectorAll('ul').forEach(function (ulElem) {
+                  ulElem.style.display = 'none';
+                });
+              });
+
+              var curElem = tableOfContentsElem.querySelector(`[href="#${id}"]`);
+              if (curElem.nextElementSibling) {
+                curElem.nextElementSibling.style.display = 'block';
+              }
+              getParents(curElem, 'ul').forEach(function (elem) {
+                elem.style.display = 'block';
+              }); 
             }
-            getParents(curElem, 'ul').forEach(function(elem) {
-              elem.style.display = 'block';
-            });
           }
         }) : null;
       } else { // scroll up
@@ -121,25 +143,27 @@
           }
 
           if (document.documentElement.scrollTop >= elem.offsetTop) {
-            var id = elem.getAttribute('id');
-            tocElem.querySelectorAll('a').forEach(function (elem) {
-              elem.classList.remove('active');
-            });
-            tocElem.querySelector('a[href="#' + id + '"]').classList.add('active');
-
-            document.querySelectorAll('#TableOfContents > ul > li').forEach(function (liElem) {
-              liElem.querySelectorAll('ul').forEach(function (ulElem) {
-                ulElem.style.display = 'none';
+            if (tableOfContentsElem) {
+              var id = elem.getAttribute('id');
+              tocElem.querySelectorAll('a').forEach(function (elem) {
+                elem.classList.remove('active');
               });
-            });
+              tocElem.querySelector('a[href="#' + id + '"]').classList.add('active');
 
-            var curElem = tableOfContentsElem.querySelector(`[href="#${id}"]`);
-            if (curElem.nextElementSibling) {
-              curElem.nextElementSibling.style.display = 'block';
+              tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
+                liElem.querySelectorAll('ul').forEach(function (ulElem) {
+                  ulElem.style.display = 'none';
+                });
+              });
+
+              var curElem = tableOfContentsElem.querySelector(`[href="#${id}"]`);
+              if (curElem.nextElementSibling) {
+                curElem.nextElementSibling.style.display = 'block';
+              }
+              getParents(curElem, 'ul').forEach(function (elem) {
+                elem.style.display = 'block';
+              });
             }
-            getParents(curElem, 'ul').forEach(function (elem) {
-              elem.style.display = 'block';
-            });
           }
         }) : null;
 
@@ -597,7 +621,7 @@
 
         let overflowedPixel = items[activeIndex].offsetTop + items[activeIndex].clientHeight - searchContainerMaxHeight;
         if (overflowedPixel > 0) {
-          document.querySelector(".search-content").scrollTop = overflowedPixel;
+          document.querySelector(".search-content").scrollTop += items[activeIndex].getBoundingClientRect().height;
         } else if (activeIndex === 0) {
           document.querySelector(".search-content").scrollTop = 0;
         }
@@ -612,11 +636,20 @@
         items[activeIndex].classList.add('is-active');
         
         let overflowedPixel = items[activeIndex].offsetTop + items[activeIndex].clientHeight - searchContainerMaxHeight;
-        document.querySelector(".search-content").scrollTop = items[activeIndex].offsetTop;
+        if (overflowedPixel < 0) {
+          document.querySelector(".search-content").scrollTop -= items[activeIndex].getBoundingClientRect().height;
+        } else {
+          document.querySelector(".search-content").scrollTop = overflowedPixel + items[activeIndex].getBoundingClientRect().height;
+        }
       } else if (e.key === 'Enter') {
         var currentItemLink = items[activeIndex].getAttribute('href');
         if (currentItemLink) {
           location.href = currentItemLink;
+        }
+      } else if (e.key === 'Escape') {
+        e.target.value = null;
+        if (searchResults) {
+          searchResults.classList.remove('is-active');
         }
       }
     });

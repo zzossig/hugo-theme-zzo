@@ -78,6 +78,15 @@
       }
     }
 
+    h3,
+    h4,
+    h5,
+    h6 {
+      @include themify($themes) {
+        color: themed("single-contents-subtitle-color");
+      }
+    }
+
     h1 {
       font-size: 2.6rem;
       margin: 3.5rem 0 1.75rem 0;
@@ -229,7 +238,7 @@
           border-left: 0.32813rem solid themed("single-blockquote-border-color");
       }
 
-      code {
+      code:not([class^=language]) {
         padding: 3px 5px;
         margin: 0 0.25rem;
       }
@@ -245,7 +254,7 @@
       margin: 0 0 1.75rem 0;
       padding: 0;      
 
-      code {
+      code:not([class^=language]) {
         padding: 3px 5px;
         margin: 0 0.25rem;
       }
@@ -262,7 +271,7 @@
       margin-left: 2rem;
       margin-bottom: calc(1rem / 2);
 
-      code {
+      code:not([class^=language]) {
         padding: 3px 5px;
         margin: 0 0.25rem;
       }
@@ -329,14 +338,10 @@
             font-size: 0.9rem;
             border: 1px double themed('content-pre-border-background-color');
           }
-
-          tr:hover {
-            background-color: themed('content-pre-header-background-color');
-          }
         }
       }
 
-      code {
+      code:not([class^=language]) {
         padding: 3px 5px;
         margin: 0 0.25rem;
       }
@@ -379,7 +384,7 @@ code, pre {
   }
 }
 
-code {  
+code:not([class^=language]) {  
   padding: 3px 5px;  
   border-radius: 4px;
 }
@@ -388,7 +393,7 @@ pre:not(.chroma) {
   overflow: auto;
 }
 
-.single__contents > .language-code {
+.single__contents > .language-code, li > .language-code {
   overflow-x: auto;
   position: relative;
   margin: 1em 0;
@@ -496,5 +501,14 @@ pre:not(.chroma) {
     @include themify($codeblock) {
       color: themed('content-pre-number-color');
     }
+  }
+}
+
+li .highlight > .chroma {
+  .lnt:first-child {
+    padding: 0;
+  }
+  .lnt:not(:first-child) {
+    padding-left: 0.5rem;
   }
 }

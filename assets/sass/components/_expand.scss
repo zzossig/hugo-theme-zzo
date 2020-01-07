@@ -1,25 +1,61 @@
 .expand {
   position: relative;
+
+  &__content {
+    padding: 0 18px;
+    overflow: hidden;
+    max-height: 0;
+    border-radius: 0.25rem;
+
+    @include transition(all, 0.2s, ease);
+    @include themify($themes) {
+      background-color: themed('toc-body-background-color');
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 100%;
+    margin: auto 0;
+    text-align: left;
+    outline: none;
+    border: none;
+    padding: 0.125rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.125rem;
+    font-size: 1rem;
+    font-family: $title-font;
+    border-radius: 0.25rem;
+
+    @include flexbox();
+    @include align-items(center);
+    @include themify($themes) {
+      color: inherit;
+      background-color: themed('toc-header-background-color');
+      @include on-event {
+        background-color: themed('toc-header-background-color-hover');
+      }
+    }
+  }
+
   &-label {
     cursor: pointer;
     @include flexbox();
     @include align-items(center);
   }
 
-  &-content {
-    display: none;
-  }
-
-  &-icon {    
-    padding-top: 0.4rem;
-    padding-right: 0.125rem;
-    @include transition(all, 0.1s, ease);
-    &__down {     
+  &-icon {
+    padding-top: 0.125rem;
+    padding-right: 0.5rem;
+    
+    &__down {
       @include rotate(90);
+      @include transition(all, 0.15s, ease);
     }
 
     &__right {
       @include rotate(0);
+      @include transition(all, 0.15s, ease);
     }
   }
 }

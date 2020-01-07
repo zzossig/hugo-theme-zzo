@@ -65,6 +65,7 @@
 
   window.onload = function() {
     var navbar = document.querySelector('.navbar');
+    var singleContentsElem = document.querySelector('.single__contents');
 
     // ====================== markdown code block ======================
     function wrap(el, wrapper) {
@@ -73,16 +74,15 @@
     }
 
     (function () {
-      document.querySelectorAll('.single__contents > pre > code')
-        .forEach((elem) => {
-          var dataLang = elem.getAttribute('data-lang');
-          if (!dataLang) {
-            var dataLangWrapper = document.createElement('div');
-            dataLangWrapper.setAttribute('data-lang', 'Code');
-            dataLangWrapper.className = 'language-code';
-            wrap(elem.parentNode, dataLangWrapper);
-          }
-        });
+      singleContentsElem.querySelectorAll('pre > code').forEach(function(elem) {
+        var dataLang = elem.getAttribute('data-lang');
+        if (!dataLang) {
+          var dataLangWrapper = document.createElement('div');
+          dataLangWrapper.setAttribute('data-lang', 'Code');
+          dataLangWrapper.className = 'language-code';
+          wrap(elem.parentNode, dataLangWrapper);
+        }
+      });
     })();
 
     var langCodeElem = document.querySelectorAll('.language-code');
@@ -117,7 +117,7 @@
     var hideToc = JSON.parse({{ $hideToc | jsonify }});
     
     if (enableToc || toc) {
-      var tableOfContentsElem = document.getElementById('TableOfContents');
+      var tableOfContentsElem = document.querySelector('.toc').querySelector('#TableOfContents');
       tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
         liElem.querySelectorAll('ul').forEach(function (ulElem) {
           ulElem.style.display = 'none';
@@ -215,7 +215,6 @@
 
     // ==================== add links in all titles ====================
     var text, clip = new ClipboardJS('.anchor');
-    var singleContentsElem = document.querySelector('.single__contents');
     var headers = singleContentsElem.querySelectorAll("h1, h2, h3, h4");
     
     headers ? 
@@ -398,6 +397,7 @@
     if (lib && lib.includes('flowchartjs')) {
       {{ $flowchartjs := .Site.Data.flowchartjs }}
       var options = JSON.parse({{ $flowchartjs | jsonify }});
+      var jsonContent = null;
 
       var flowchartPrefix = "language-flowchart";
       var index = 0;
@@ -406,7 +406,7 @@
           x.parentNode.style.backgroundColor = "transparent"
           jsonContent = x.innerText;
 
-          node0 = document.createElement('div');
+          var node0 = document.createElement('div');
           node0.id = 'flowchart' + index;
           x.parentNode.insertBefore(node0, x);
 
@@ -439,7 +439,8 @@
     // ====================== js-sequence-diagram ======================
     if (lib && lib.includes('msc')) {
       {{ $msc := .Site.Data.msc }}
-      var options = JSON.parse({{ $msc | jsonify }});    
+      var options = JSON.parse({{ $msc | jsonify }});
+      var jsonContent = null;
 
       var index = 0;
       var chartPrefix = "language-msc";
@@ -447,7 +448,7 @@
         x.style.display = 'none'
         x.parentNode.style.backgroundColor = "transparent"
         jsonContent = x.innerText;
-        node0 = document.createElement('div');
+        var node0 = document.createElement('div');
         node0.id = 'msc' + index;
         x.parentNode.insertBefore(node0, x);
         var diagram = Diagram.parse(jsonContent);
@@ -478,11 +479,14 @@
 
       var chartPrefix = "language-chart";
       var index = 0;
+      var jsonContent = null;
+
       Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function (x) {
         x.style.display = 'none'
         x.parentNode.style.backgroundColor = "transparent"
         jsonContent = x.innerText;
-        node0 = document.createElement('canvas');
+        var node0 = document.createElement('canvas');
+        var source = null;
         node0.height = 200;
         node0.style.height = 200;
         node0.id = 'myChart' + index;
@@ -500,11 +504,14 @@
     if (lib && lib.includes('wavedrom')) {
       var wavePrefix = "language-wave";
       var index = 0;
+      var jsonContent = null;
+      
       Array.prototype.forEach.call(document.querySelectorAll("[class^=" + wavePrefix + "]"), function (x) {
         x.style.display = 'none'
         x.parentNode.style.backgroundColor = "transparent"
         jsonContent = x.innerText;
-        node0 = document.createElement('div');
+        var node0 = document.createElement('div');
+        var source = null;
         node0.id = 'WaveDrom_Display_' + index;
         source = JSON.parse(jsonContent);
         x.parentNode.insertBefore(node0, x);
