@@ -324,12 +324,12 @@
         if (utterances) {
           utterances.contentWindow.postMessage({
             type: 'set-theme',
-            theme: selectedThemeVariant === "dark" || selectedThemeVariant === "hacker" ? 'photon-dark' : 'github-light',
+            theme: selectedThemeVariant === "dark" || selectedThemeVariant === "hacker" ? 'photon-dark' : selectedThemeVariant === 'kimbie' ? 'github-dark-orange' : 'github-light',
           }, 'https://utteranc.es');
         }
       });
     }) : null;
-  // ============================================================
+  // ============================================================  
 
 
   // ========================== search ==========================

@@ -16,7 +16,11 @@
       {{ range .Params.Images }}
       <div class="grid-item">
         <img src="{{ $basename | relURL }}{{ .image }}" alt="{{ print .caption }}" />
-        <div class="grid-item__desc hide">{{ .caption }}</div>
+        <div class="grid-item__desc hide">
+          <span class="grid-item__desc--text">
+            {{ .caption }}
+          </span>
+        </div>
       </div>
       {{ end }}
     {{ end }}
@@ -34,7 +38,11 @@
       {{ range (readDir (print "./static/" $basename)) }}
       <div class="grid-item">
         <img src="{{ $basename | relURL }}{{ .Name }}" alt="{{ index (split .Name ".") 0 }}"/>
-        <div class="grid-item__desc hide">{{ index (split .Name ".") 0 }}</div>
+        <div class="grid-item__desc hide">
+          <span class="grid-item__desc--text">
+            {{ index (split .Name ".") 0 }}
+          </span>
+        </div>
       </div>
       {{ end }}
     {{ end }}

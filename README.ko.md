@@ -27,7 +27,7 @@ Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로
 
 ## Features
 
-* 다양한 스킨 지원(dark, light, solarized, hacker)
+* 다양한 스킨 지원(dark, light, solarized, ...)
 * 모바일 메뉴
 * 최신 HTML5, CSS 기술 이용
 * 심플한 블로그
@@ -222,7 +222,7 @@ description = "The Zzo theme for Hugo example site." # for SEO
 custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
 custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
 
-themeOptions = ["dark", "light", "hacker", "solarized"] # select options for site color theme
+themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"] # select options for site color theme
 notAllowedTypesInHome = ["contact", "talks", "about"] # not allowed page types in home page. type can be set in front matter or default to folder name.
 
 # header
@@ -424,9 +424,9 @@ series:
 categories:
 -
 images: # when mode is one-by-one, images front-matter variable works
-  - image: image1.jpg
+  - image: image1.jpg # image path: static/gallery/anygalleryname/image1.jpg
     caption: caption1
-  - image: image2.jpg
+  - image: image2.jpg # image path: static/gallery/anygalleryname/image2.jpg
     caption: caption2
     ...
 ---
@@ -954,34 +954,33 @@ libraries:
 
 ## Shortcodes
 
-### warning
+### alert
 
 ```bash
-{{% alert theme="info" %}}**this** is a text{{% /alert %}}
-{{% alert theme="success" %}}**Yeahhh !** is a text{{% /alert %}}
-{{% alert theme="warning" %}}**Be carefull** is a text{{% /alert %}}
-{{% alert theme="danger" %}}**Beware !** is a text{{% /alert %}}
+{{< alert theme="warning" >}} # warning, success, info, danger
+**this** is a text
+{{< /alert >}}
 ```
 
 ### expand
 
 ```bash
-{{%expand "Expand me" %}}Good job{{% /expand%}}
+{{< expand "Expand me" >}}Some Markdown Contents{{< /expand >}}
 ```
 
 ### img
 
 ```bash
-// path: static/images/whoami/avatar.jpg, you can set width, height also
-{{< img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" >}}
+// path: static/images/whoami/avatar.jpg
+{{< img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" width="50px" height="50px">}}
 ```
 
 ### notice
 
 ```bash
-{{% notice note %}} # note, info, tip, warning
+{{< notice note >}} # note, info, tip, warning
 A notice disclaimer
-{{% /notice %}}
+{{< /notice >}}
 ```
 
 ### color

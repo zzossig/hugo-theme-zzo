@@ -1,11 +1,15 @@
 .expand {
   position: relative;
+  margin: 1.5rem 0;
+  border-radius: 0.25rem;
+  @include box-shadow(1px, 1px, 3px, 0, rgba(0, 0, 0, 0.125));
 
   &__content {
     padding: 0 18px;
     overflow: hidden;
     max-height: 0;
-    border-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
 
     @include transition(all, 0.2s, ease);
     @include themify($themes) {
@@ -21,11 +25,10 @@
     outline: none;
     border: none;
     padding: 0.125rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.125rem;
     font-size: 1rem;
     font-family: $title-font;
-    border-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
 
     @include flexbox();
     @include align-items(center);

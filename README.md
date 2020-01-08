@@ -27,7 +27,7 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 
 ## Features
 
-* Multiple Skins(dark, light, solarized, hacker)
+* Multiple Skins(dark, light, solarized, ...)
 * A mobile menu
 * CSS grid and flex for layout
 * HTML5
@@ -216,7 +216,7 @@ description = "The Zzo theme for Hugo example site." # for SEO
 custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
 custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
 
-themeOptions = ["dark", "light", "hacker", "solarized"] # select options for site color theme
+themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"] # select options for site color theme
 notAllowedTypesInHome = ["contact", "talks", "about"] # not allowed page types in home page. type can be set in front matter or default to folder name.
 
 # header
@@ -420,9 +420,9 @@ series:
 categories:
 -
 images: # when mode is one-by-one, images front-matter variable works
-  - image: image1.jpg
+  - image: image1.jpg # image path: static/gallery/anygalleryname/image1.jpg
     caption: caption1
-  - image: image2.jpg
+  - image: image2.jpg # image path: static/gallery/anygalleryname/image2.jpg
     caption: caption2
     ...
 ---
@@ -953,34 +953,33 @@ You can add some config option parameters at data/flowchartjs.json
 
 ## Shortcodes
 
-### warning
+### alert
 
 ```bash
-{{% alert theme="info" %}}**this** is a text{{% /alert %}}
-{{% alert theme="success" %}}**Yeahhh !** is a text{{% /alert %}}
-{{% alert theme="warning" %}}**Be carefull** is a text{{% /alert %}}
-{{% alert theme="danger" %}}**Beware !** is a text{{% /alert %}}
+{{< alert theme="warning" >}} # warning, success, info, danger
+**this** is a text
+{{< /alert >}}
 ```
 
 ### expand
 
 ```bash
-{{%expand "Expand me" %}}Good job{{% /expand%}}
+{{< expand "Expand me" >}}Some Markdown Contents{{< /expand >}}
 ```
 
 ### img
 
 ```bash
-// path: static/images/whoami/avatar.jpg, you can set width, height also
-{{< img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" >}}
+// path: static/images/whoami/avatar.jpg
+{{< img src="/images/whoami/avatar.jpg" title="Image4" caption="Image description" alt="image alt" width="50px" height="50px">}}
 ```
 
 ### notice
 
 ```bash
-{{% notice note %}} # note, info, tip, warning
+{{< notice note >}} # note, info, tip, warning
 A notice disclaimer
-{{% /notice %}}
+{{< /notice >}}
 ```
 
 ### color

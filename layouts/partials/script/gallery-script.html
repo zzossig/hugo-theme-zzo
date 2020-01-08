@@ -23,12 +23,13 @@
     document.querySelectorAll('.grid-item').forEach(function(elem) {
       elem.addEventListener('mouseenter', function() {
         elem.querySelector('.grid-item__desc').style.display = 'block';
+        elem.querySelector('.grid-item__desc').style.opacity = 1;
         elem.querySelector('.grid-item__desc').onclick = function(e) {
           e.target.previousElementSibling.click();
         }
       });
       elem.addEventListener('mouseleave', function () {
-        elem.querySelector('.grid-item__desc').style.display = 'none';
+        elem.querySelector('.grid-item__desc').style.opacity = 0;
       });
     });
 

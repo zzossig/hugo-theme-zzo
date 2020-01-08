@@ -1,80 +1,73 @@
-div.notices {
+.notices {
     margin: 2rem 0;
     position: relative;
-
-    border-radius: .2rem;
+    border-radius: .125rem;
     color: #fff;
-    padding: .5rem 1rem .5rem 2rem;
-    position: relative
-}
+    padding: .3rem 0.5rem .3rem 2rem;
+    font-size: 0.9rem;
 
-div.notices p {
-    padding: 0px;
-    display: block;
-    font-size: 1rem;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-}
+    &:first-child {
+        &::before {
+            position: absolute;
+            top: -28.5px;
+            color: #fff;
+            content: '💡';
+            left: 10px;
+        }
 
-div.notices p:first-child:before {
-    position: absolute;
-    top: -27px;
-    color: #fff;
-    content: '💡';
-    left: 10px;
-}
+        &::after {
+            position: absolute;
+            top: -28.5px;
+            color: #fff;
+            left: 2rem;
+        }
+    }
 
-div.notices p:first-child:after {
-    position: absolute;
-    top: -27px;
-    color: #fff;
-    left: 2rem;
-}
+    &.info {
+        border-top: 30px solid #f1b37e;
+        background: #fefaf5;
+        color: rgba(150, 90, 38, 0.995) !important;
+        font-family: $content-font;
 
-div.notices.info p:first-child:after {
-    content: 'Info';
-    font-family: $title-font;
-}
+        &:first-child::after {
+            content: 'Info';
+            font-family: $title-font;
+        }
+    }
 
-div.notices.warning p:first-child:after {
-    content: 'Warning';
-    font-family: $title-font;
-}
+    &.warning {
+        border-top: 30px solid #d58181;
+        background: #fbeded;
+        color: rgba(132, 56, 56, 0.995) !important;
+        font-family: $content-font;
 
-div.notices.note p:first-child:after {
-    content: 'Note';
-    font-family: $title-font;
-}
+        &:first-child::after {
+            content: 'Warning';
+            font-family: $title-font;
+        }
+    }
 
-div.notices.tip p:first-child:after {
-    content: 'Tip';
-    font-family: $title-font;
-}
+    &.note {
+        border-top: 30px solid #6bb1e0;
+        background: #e6f3fb;
+        color: rgba(47, 103, 141, 0.995) !important;
+        font-family: $content-font;
 
-div.notices.note {
-    border-top: 30px solid #6bb1e0;
-    background: #e6f3fb;
-    color: rgba(47, 103, 141, 0.995) !important;
-    font-family: $content-font;
-}
+        &:first-child::after {
+            content: 'Note';
+            font-family: $title-font;
+        }
+    }
 
-div.notices.info {
-    border-top: 30px solid #f1b37e;
-    background: #fefaf5;
-    color: rgba(150, 90, 38, 0.995) !important;
-    font-family: $content-font;
-}
+    &.tip {
+        border-top: 30px solid #84c578;
+        background: #e8f7e6;
+        color: rgba(72, 125, 63, 0.995) !important;
+        font-family: $content-font;
 
-div.notices.tip {
-    border-top: 30px solid #84c578;
-    background: #e8f7e6;
-    color: rgba(72, 125, 63, 0.995) !important;
-    font-family: $content-font;
-}
-
-div.notices.warning {
-    border-top: 30px solid #d58181;
-    background: #fbeded;
-    color: rgba(132, 56, 56, 0.995) !important;
-    font-family: $content-font;
+        &:first-child::after {
+            content: 'Tip';
+            font-family: $title-font;
+        }
+    }
 }
