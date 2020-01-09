@@ -16,11 +16,9 @@
 
   li {
     display: inline;
-    font-size: 1rem;
+    font-size: 0.9rem;
     
     a {
-      font-size: 0.9rem;
-      
       @include themify($themes) {
         color: themed('breadcrumb-item-color');
         @include on-event {
@@ -30,13 +28,9 @@
     }    
 
     &:last-child {
-      a {
-        @include themify($themes) {
-          color: themed('breadcrumb-item-active-color');
-        }
-        text-decoration: none;
-        cursor: default;
-      }      
+      @include themify($themes) {
+        color: themed('breadcrumb-item-active-color');
+      }
     }       
   }
 

@@ -8,12 +8,14 @@
   {{ else if not .p1.IsHome }}
   {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
   {{ end }}
-  <li {{ if eq .p1 .p2 }} class="is-active" {{ end }}>    
+  <li {{ if eq .p1 .p2 }} class="is-active" {{ end }}>
     {{ if eq (len .p1.Title) 0 }}
-      <a href="{{ .p1.Permalink }}">{{ .p1.Site.Title }}</a>
+      <a href="{{ .p1.Permalink }}" class="capitalize">{{ .p1.Site.Title }}</a>
+    {{ else if eq .p1 .p2 }}
+      <span>{{ i18n (lower .p1.Title) | default .p1.Title }}</span>
     {{ else }}
-      <a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a>
-    {{ end }}    
+      <a href="{{ .p1.Permalink }}" class="capitalize">{{ i18n (lower .p1.Title) | default .p1.Title }}</a>
+    {{ end }}
   </li>
   {{ end }}
 </nav>

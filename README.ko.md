@@ -626,7 +626,7 @@ other = "검색..."
 [summary-dateformat]
 other = "2006년 01월 02일"
 
-[taxo-tags]
+[tags]
 other = "태그"
 
 ...

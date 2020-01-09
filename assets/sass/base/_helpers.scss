@@ -14,7 +14,11 @@
   @include themify($themes) {
     background-color: themed('body-background-color');
   }
- }
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
 
 .hide {
   display: none;

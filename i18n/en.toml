@@ -7,13 +7,13 @@ other = "Jan 2, 2006"
 [reading-time]
 other = "min read"
 
-[taxo-tags]
+[tags]
 other = "Tags"
 
-[taxo-categories]
+[categories]
 other = "Categories"
 
-[taxo-series]
+[series]
 other = "Series"
 
 [archive-dateformat]
