@@ -341,7 +341,6 @@ commento = false
   gitlab = ""
   mastodon = ""
   jianshu = ""
-  zhihu = ""
 
 [donationOptions] 
   enable = false # if set, the donation button will show up on the single page.
