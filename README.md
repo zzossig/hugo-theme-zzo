@@ -212,6 +212,7 @@ You shoud make your own menu.
 
 ```bash
 logoText = "Zzo" # Logo text that appears in the site navigation bar.
+logoType = "short" # long, short -> short: squre shape includes logo text, long: rectangle shape not includes logo text
 description = "The Zzo theme for Hugo example site." # for SEO
 custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
 custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
@@ -341,7 +342,6 @@ commento = false
   gitlab = ""
   mastodon = ""
   jianshu = ""
-  zhihu = ""
 
 [donationOptions] 
   enable = false # if set, the donation button will show up on the single page.
@@ -723,6 +723,8 @@ header:
       - HUGO
     subtitle:
       - The world’s fastest framework for building websites
+    titleColor:
+    titleShadow: false
     titleFontSize: 44
     subtitleFontSize: 16
     spaceBetweenTitleSubtitle: 20

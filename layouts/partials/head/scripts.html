@@ -529,11 +529,17 @@
     }
 
     function generateHighlightedText(text, regions) {
-      if(!regions) return text;
-      
+      if (!regions) {
+        return text;
+      }
+
       var content = '', nextUnhighlightedRegionStartingIndex = 0;
 
       regions.forEach(function(region) {
+        if (region[0] === region[1]) {
+          return null;
+        }
+        
         content += '' +
           text.substring(nextUnhighlightedRegionStartingIndex, region[0]) +
           '<span class="search__highlight">' +
