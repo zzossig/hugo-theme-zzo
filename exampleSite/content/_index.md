@@ -9,6 +9,8 @@ header:
       - HUGO
     subtitle:
       - The world’s fastest framework for building websites
+    titleColor: 
+    titleShadow: false
     titleFontSize: 44
     subtitleFontSize: 16
     spaceBetweenTitleSubtitle: 20
