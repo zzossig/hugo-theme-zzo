@@ -1,6 +1,6 @@
 ---
 title: "Syntax highlighting"
-date: 2017-10-11T10:33:41+09:00
+date: 2019-10-11T10:33:41+09:00
 description: "Syntax highlighting test"
 tags:
 - hugo
@@ -19,7 +19,7 @@ line
 * * *
 line
 
-# Code Syntax Highlighting
+## Code Syntax Highlighting
 
 Verify the following code blocks render as code blocks and highlight properly. 
 

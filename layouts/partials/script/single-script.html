@@ -147,9 +147,10 @@
             curElem.nextElementSibling.style.display = 'block';
           }
           if (curElem) {
+            getParents(curElem, 'ul') ? 
             getParents(curElem, 'ul').forEach(function (elem) {
               elem.style.display = 'block';
-            });
+            }) : null;
           }
         });
       });

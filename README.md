@@ -341,6 +341,7 @@ commento = false
   gitlab = ""
   mastodon = ""
   jianshu = ""
+  zhihu = ""
 
 [donationOptions] 
   enable = false # if set, the donation button will show up on the single page.
@@ -507,7 +508,7 @@ description: Talks Page
 ---
 ```
 
-2. Next, make some files under the `talks` folder you have created in step 1. If you want to make other links block, then make another file under the `talks` folder.
+2. Next, make some files under the `talks` folder you have created in step 1. If you want to make other link post, then make another file under the `talks` folder.
 
 root/content/talks/myLinks.md
 
@@ -523,16 +524,6 @@ series:
 -
 categories:
 -
-links:
-  - link: "https://google.com"
-    title: "Video Link Title"
-    type: "video"
-  - link: "https://naver.com"
-    title: "PPT Link Title"
-    type: "ppt"
-  - link: "https://yahoo.com"
-    title: "Event Link Title"
-    type: "event"
 ---
 ```
 

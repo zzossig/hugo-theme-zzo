@@ -347,6 +347,7 @@ commento = false
   gitlab = ""
   mastodon = ""
   jianshu = ""
+  zhihu = ""
 
 [donationOptions] 
   enable = false # if set, the donation button will show up on the single page.
@@ -513,7 +514,7 @@ description: Talks Page
 ---
 ```
 
-2. 또 다른 파일을 만들어 줍니다. 이곳에 링크 값을 넣을 겁니다. 
+2. 또 다른 파일을 만들어 줍니다. 이곳에 내용을 넣어주세요. 
 
 root/content/talks/myLinks.md
 
@@ -529,17 +530,8 @@ series:
 -
 categories:
 -
-links:
-  - link: "https://google.com"
-    title: "Video Link Title"
-    type: "video"
-  - link: "https://naver.com"
-    title: "PPT Link Title"
-    type: "ppt"
-  - link: "https://yahoo.com"
-    title: "Event Link Title"
-    type: "event"
 ---
+```
 
 3. 마지막으로 메뉴만 다음 과 같이 만들어 주면 됩니다. 
 

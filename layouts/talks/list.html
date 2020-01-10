@@ -17,25 +17,11 @@
     <span class="archive__key">{{ .Key }}</span>
     <ul class="archive__ul">
       {{ range .Pages }}
-      <li class="talk__li">
+      <li class="archive__li">
         <span class="talk__date">
           {{ .PublishDate.Format (i18n "talks-dateformat") }}
         </span>
-        <ul>
-          <li>
-            <a href="{{ .Permalink }}" class="talk__title talk__title--margin">{{ .Title }}</a>
-          </li>
-          <li class="talk__links">
-            <ul>
-              {{ range .Params.links }}
-                <li class="talk__links--li">           
-                  <span class="talk__type">{{ .type | default "talks" }}</span>
-                  <a href="{{ .link | safeURL }}" title="{{ .link }}" target="_blank" rel="noreferrer" class="talk__title talk__title--margin p2">{{ .title | default .link }}</a>
-                </li>
-              {{ end }}
-            </ul>
-          </li>
-        </ul>
+        <a href="{{ .Permalink }}" class="talk__title">{{ .Title }}</a>
       </li>
       {{ end }}
     </ul>

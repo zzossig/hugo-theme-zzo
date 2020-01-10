@@ -7,6 +7,11 @@ libraries:
 - katex
 ---
 
+{{< box >}}
+We need goldmark katex entension which is not yet we have: 
+[https://github.com/gohugoio/hugo/issues/6544](https://github.com/gohugoio/hugo/issues/6544)
+{{< /box >}}
+
 Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.
 <!--more-->
 

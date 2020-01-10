@@ -87,8 +87,8 @@
     border-bottom-left-radius: 0.25rem;
     font-size: 0.8rem;
     width: 50%;
-    height: 20px;
-    line-height: 20px;
+    height: 24px;
+    line-height: 24px;
     text-align: center;
 
     @include truncate(50px);
@@ -107,8 +107,8 @@
     border-bottom-right-radius: 0.25rem;
     font-size: 0.8rem;
     width: 50%;
-    height: 20px;
-    line-height: 20px;
+    height: 24px;
+    line-height: 24px;
     text-align: center;        
 
     @include truncate(50px);
@@ -133,13 +133,14 @@
         position: absolute;
         left: 3rem;                
         width: 0.25rem;
-        height: 20px;
+        height: 30px;
         
         @include themify($themes) {
           background-color: themed('archive-hover-line-color');
         }
 
         @media only screen and (max-width: 769px) {
+          height: 24px;
           top: 50%;
           @include translateY(-50%);
         }

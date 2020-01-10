@@ -2,6 +2,9 @@
 title: "Katex support"
 date: 2019-11-15T12:00:06+09:00
 description: "KaTeX is a fast, easy-to-use JavaScript library for TeX math rendering on the web."
+draft: false
+enableToc: false
+enableTocContent: false
 tags:
 - 
 series:
@@ -12,6 +15,11 @@ libraries:
 - katex
 featured_image: "feature2/mathbook.png"
 ---
+
+{{< box >}}
+We need goldmark katex entension which is not yet we have: 
+[https://github.com/gohugoio/hugo/issues/6544](https://github.com/gohugoio/hugo/issues/6544)
+{{< /box >}}
 
 
 The following

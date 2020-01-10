@@ -1,63 +1,48 @@
 .talk {
-  &__li {
-    margin: 0.75rem 0 0.75rem 4rem;
-    z-index: 0;    
-
-    @include transition(margin-left, 0.1s, ease);
-    @include flexbox();
-    @include align-items(flex-start);
-
-    @media only screen and (max-width: 769px) {
-      margin-left: 0;
-      position: relative;
-    }
-  }
-
   &__date {
     border-radius: 0.25rem;
     min-width: 100px;
     max-width: 100px;
+    margin-right: 1rem;
     font-size: 16px;
     height: 26px;
     line-height: 26px;
     text-align: center;
+    position: relative;
     
-    @include animation('slide-in-left .2s .4s 1 ease both');
+    @include truncate(100px);
+    @include animation('slide-in-left .2s .5s 1 ease both');
     @include themify($themes) {
       color: themed('archive-meta-color');
       background-color: themed('archive-type-background-color');
     }
   }
 
-  &__type {
-    border-radius: 0.25rem;
-    min-width: 100px;
-    max-width: 100px;
-    margin-top: 0.25rem;
-    font-size: 14px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-
-    @include animation('slide-in-left .2s .6s 1 ease both');
-    @include flexbox();
-    @include align-items(center);
-    @include justify-content(center);
-    @include themify($themes) {
-      color: themed('archive-type-color');
-      background-color: themed('archive-type-background-color');
-    }
-  }
-
   &__title {
-    @include truncate2($grid-max-width);
-
     &--margin {
-      margin-right: 0.5rem;  
+      margin-right: 0.5rem;
       margin-left: 0.75rem;
     }
 
+    @include truncate2($grid-max-width);
     @include on-event {
+      &::before {
+        content: '';
+        position: absolute;
+        left: 100px;                
+        width: 0.2rem;
+        height: 24px;
+        
+        @include themify($themes) {
+          background-color: themed('archive-hover-line-color');
+        }
+
+        @media only screen and (max-width: 769px) {
+          top: 50%;
+          @include translateY(-50%);
+        }
+      }
+
       @media only screen and (min-width: 769px) {
         &::before {
           content: '';
@@ -76,30 +61,6 @@
           }
         }
       }
-    }
-  }
-
-  &__links {
-    @include flexbox();
-    @include flex-direction(column);
-
-    li {
-      padding-left: 0.5em;
-      margin: 0.25rem 0 0.25rem -3.75rem;
-
-      @include flexbox();
-      @include align-items(center);
-      @include truncate2(650px);
-      @media only screen and (max-width: 769px) {
-        margin-left: -6.8rem;
-        @include truncate2(350px);
-      }
-    }
-
-    &--item {
-      padding-left: 0.5rem;
-      margin: 0.25rem 0;
-      @include flexbox();
     }
   }
 }

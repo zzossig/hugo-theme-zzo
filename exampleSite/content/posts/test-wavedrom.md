@@ -2,6 +2,9 @@
 title: "Wavedrom support"
 date: 2019-11-18T18:00:06+09:00
 description: "WaveDrom is a Free and Open Source online digital timing diagram (waveform) rendering engine that uses javascript, HTML5 and SVG to convert a WaveJSON input text description into SVG vector graphics."
+draft: false
+enableToc: false
+enableTocContent: false
 tags:
 -
 series:
