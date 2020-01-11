@@ -1,4 +1,4 @@
-logoText = "Zzo theme"
+logoText = "Zzo"
 logoType = "short" # long, short
 description = "The Zzo theme for Hugo example site."
 custom_css = []

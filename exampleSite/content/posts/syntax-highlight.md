@@ -1,23 +1,21 @@
 ---
 title: "Syntax highlighting"
-date: 2019-10-11T10:33:41+09:00
+date: 2019-12-18T10:33:41+09:00
 description: "Syntax highlighting test"
+draft: false
+hideToc: false
+enableToc: true
+enableTocContent: false
+author: Jeus
+authorEmoji: 🎅
 tags:
 - hugo
 series:
 -
 categories:
 - hugo
+featured_image: feature2/color-palette.png
 ---
-
-Dolore in consectetur irure qui laborum. Adipisicing cillum ad laboris dolor. Quis consectetur ullamco esse ad mollit anim sint nostrud esse. Irure voluptate ex fugiat voluptate ea fugiat laboris.
-
-> This is a blockqute.
-
-* * *
-line
-* * *
-line
 
 ## Code Syntax Highlighting
 

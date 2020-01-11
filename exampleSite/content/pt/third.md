@@ -9,7 +9,7 @@ series:
 -
 categories:
 -
-featured_image: "feature2/albatross.png"
+featured_image: "feature1/number-three.png"
 plugins:
 - highlight
 - zoom

@@ -10,10 +10,12 @@ header:
     subtitle:
       - The world’s fastest framework for building websites
     titleColor: 
-    titleShadow: false
+    titleShadow: true
     titleFontSize: 44
-    subtitleFontSize: 16
-    spaceBetweenTitleSubtitle: 20
+    subtitleColor: 
+    subtitleCursive: true
+    subtitleFontSize: 18
+    spaceBetweenTitleSubtitle: 16
   
   - type: img
     imageSrc: images/header/background.jpg

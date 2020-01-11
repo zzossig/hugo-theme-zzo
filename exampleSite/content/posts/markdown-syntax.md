@@ -1,22 +1,25 @@
-+++
-author = "Hugo Authors"
-title = "Markdown Syntax Guide"
-date = 2019-12-20T12:00:06+09:00
-description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
-tags = [
-    "markdown",
-    "css",
-    "html",
-    "themes",
-]
-categories = [
-    "themes",
-    "syntax",
-]
-series = ["Themes Guide"]
-aliases = ["migrate-from-jekyl"]
-featured_image = "feature1/markdown.png"
-+++
+---
+title: Markdown Syntax Guide
+date: 2019-12-20T12:00:06+09:00
+description: Sample article showcasing basic Markdown syntax and formatting for HTML elements.
+draft: false
+hideToc: false
+enableToc: true
+enableTocContent: true
+author: Choi
+authorEmoji: 🤖
+tags:
+- markdown
+- css
+- html
+- themes
+categories:
+- themes
+- syntax
+series:
+- Themes Guide
+featured_image: "feature1/markdown.png"
+---
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
 <!--more-->
@@ -140,7 +143,7 @@ html
 
 H<sub>2</sub>O
 
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+X<sup>n</sup> + Y<sup>n</sup>: Z<sup>n</sup>
 
 Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
 
