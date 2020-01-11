@@ -23,6 +23,7 @@ $theme_kimbie_chroma_background: {{ .Site.Data.skin.theme_kimbie_chroma_backgrou
 
 $title-font: {{ .Site.Data.font.title_font }};
 $content-font: {{ .Site.Data.font.content_font }};
+$cursive-font: {{ .Site.Data.font.cursive_font }};
 
 @import 'abstracts/variables';
 @import 'abstracts/mixins';

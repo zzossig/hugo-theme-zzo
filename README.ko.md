@@ -730,9 +730,11 @@ header:
       - HUGO
     subtitle:
       - The world’s fastest framework for building websites
-    titleColor:
+    titleColor: # #123456, red
     titleShadow: false
     titleFontSize: 44
+    subtitleColor: # #123456, red
+    subtitleCursive: false
     subtitleFontSize: 16
     spaceBetweenTitleSubtitle: 20
   

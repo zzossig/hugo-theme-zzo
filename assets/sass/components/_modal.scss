@@ -142,16 +142,6 @@
       to { opacity: 0; }
 }
 
-@keyframes mmslideIn {
-  from { transform: translateY(4%); }
-    to { transform: translateY(0); }
-}
-
-@keyframes mmslideOut {
-    from { transform: translateY(0); }
-    to { transform: translateY(-2%); }
-}
-
 .micromodal-slide {
   display: none;
 }
@@ -165,7 +155,7 @@
 }
 
 .micromodal-slide[aria-hidden="false"] .modal__container {
-  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+  animation: mmfadeIn .3s cubic-bezier(0, 0, .2, 1);
 }
 
 .micromodal-slide[aria-hidden="true"] .modal__overlay {
@@ -173,7 +163,7 @@
 }
 
 .micromodal-slide[aria-hidden="true"] .modal__container {
-  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+  animation: mmfadeOut .3s cubic-bezier(0, 0, .2, 1);
 }
 
 .micromodal-slide .modal__container,

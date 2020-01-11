@@ -21,9 +21,9 @@
         }        
     </script>    
     
-    <div id="body">
+    <div id="container">
         {{ partial "body/custom-wrapper" . }}
-        <div class="container wrapper">
+        <div class="wrapper">
             {{ partial "navbar/site-nav" . }}
             {{ partial "header/site-header" . }}
             {{ block "main" . }}{{ end }}

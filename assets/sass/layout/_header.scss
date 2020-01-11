@@ -33,7 +33,9 @@
 
   &__subtitle {
     line-height: 1.2;
-    font-family: $title-font;
+    &[data-cursive="true"] {
+      font-family: $cursive-font; 
+    }
   }
 
   &__align-left {

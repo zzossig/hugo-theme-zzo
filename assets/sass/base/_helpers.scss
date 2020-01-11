@@ -4,18 +4,6 @@
   display: table;
 }
 
-.container {
-  max-width: 100%; /* 1 */
-  margin-left: auto; /* 2 */
-  margin-right: auto; /* 2 */
-  width: 100%; /* 1 */
-  min-height: 100vh;
-  position: relative;
-  @include themify($themes) {
-    background-color: themed('body-background-color');
-  }
-}
-
 .capitalize {
   text-transform: capitalize;
 }

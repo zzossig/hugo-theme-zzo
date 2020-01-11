@@ -44,11 +44,12 @@
 .grid-item {
   float: left;
   border-radius: 0.25rem;
+  padding: 0.51rem;
 }
 
 .grid-item img {
   display: block;
-  max-width: 100%;  
+  max-width: 100%;
 }
 
 
@@ -115,7 +116,7 @@
         }
 
         &::after {
-          content: "〰️🔍〰️";
+          content: "➖🔍➖";
         }
       }
     }

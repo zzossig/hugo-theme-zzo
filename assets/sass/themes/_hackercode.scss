@@ -50,9 +50,9 @@ $hackercode: '';
     content-pre-main-color: #dc3958,
     content-pre-color: #d3af86,
     content-pre-number-color: #666,
-    content-pre-background-color: #423523,
+    content-pre-background-color: #362712,
     content-pre-header-color: #8ab1b0,
-    content-pre-header-background-color: #362712,
+    content-pre-header-background-color: lighten(#362712, 3%),
     content-pre-border-background-color: #e3b583,
   );
 } @else {

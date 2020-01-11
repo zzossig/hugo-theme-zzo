@@ -14,6 +14,8 @@ header:
     titleColor: 
     titleShadow: false
     titleFontSize: 44
+    subtitleColor:
+    subtitleCursive: false
     subtitleFontSize: 16
     spaceBetweenTitleSubtitle: 20
   

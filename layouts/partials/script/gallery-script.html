@@ -24,7 +24,12 @@
       elem.addEventListener('mouseenter', function() {
         elem.querySelector('.grid-item__desc').style.display = 'block';
         elem.querySelector('.grid-item__desc').style.opacity = 1;
+        elem.querySelector('.grid-item__desc--text').onclick = function (e) {
+          e.stopPropagation();
+          e.target.parentNode.previousElementSibling.click();
+        }
         elem.querySelector('.grid-item__desc').onclick = function(e) {
+          console.log('eee');
           e.target.previousElementSibling.click();
         }
       });
