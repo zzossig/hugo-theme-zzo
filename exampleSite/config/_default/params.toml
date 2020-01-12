@@ -5,7 +5,7 @@ custom_css = []
 custom_js = []
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"]
-notAllowedTypesInHome = ["contact", "talks", "about"]
+notAllowedTypesInHome = ["contact", "talks", "about", "offline"]
 
 # header
 homeHeaderType = "text" # text, img, slide
