@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  var modal = document.getElementById('modal');
   var singleContentsElem = document.querySelector('.single__contents');
   var swipeWrapElem = document.querySelector('.swipe-wrap');
   var mySwipeElem = document.getElementById('mySwipe');
@@ -103,9 +104,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var mySwipe = null;
   var keydownFunction = function (e) {
     if (e.key === 'ArrowRight') {
-      mySwipe.next();
+      if (modal && modal.classList.contains('is-open')) {
+        mySwipe.next();
+      }
     } else if (e.key === 'ArrowLeft') {
-      mySwipe.prev();
+      if (modal && modal.classList.contains('is-open')) {
+        mySwipe.prev();
+      }
     }
   }
 
