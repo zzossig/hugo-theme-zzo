@@ -6,7 +6,7 @@
       {{ $header := . }}
       {{ if .title }}
         {{ range .title }}
-        <div class="site-header__title" style="font-size: {{ $header.titleFontSize }}px;">
+        <div class="site-header__title {{ if $header.titleShadow }}site-header__title--shadow{{ end }}" style="font-size: {{ $header.titleFontSize }}px;">
           {{ . }}
         </div>
         {{ end }}      
@@ -16,7 +16,7 @@
       {{ end }}
       {{ if .subtitle }}
         {{ range .subtitle }} 
-        <div class="site-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px;">
+        <div class="site-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px; {{ with $header.subtitleColor }}color:{{ . }}{{ end }}" data-cursive="{{ with $header.subtitleCursive }}{{ . }}{{ end }}">
           {{ . }}
         </div>
         {{ end }}      
