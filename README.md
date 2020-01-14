@@ -21,6 +21,7 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 * [Talks Page](#talks-page)
 * [Multi Language](#multi-language)
 * [Author](#author)
+* [Favicon](#favicon)
 * [Customizing](#customizing)
 * [External libraries](#external-library)
 * [Shortcodes](#shortcodes)
@@ -217,6 +218,7 @@ logo = true # Logo that appears in the site navigation bar.
 description = "The Zzo theme for Hugo example site." # for SEO
 custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
 custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
+useFaviconGenerator = false # https://www.favicon-generator.org/
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"] # select options for site color theme
 notAllowedTypesInHome = ["contact", "talks", "about"] # not allowed page types in home page. type can be set in front matter or default to folder name.
@@ -925,6 +927,19 @@ socialOptions: # override params.toml file socialOptions
   ...
 ---
 ```
+
+## Favicon
+
+Put your `favicon.ico` file under the static folder. The filename should be `favicon` and the extension should be `ico`.
+
+### Using favicon-genarator
+
+If you want to support mobile favicon, use [favicon-generator](https://www.favicon-generator.org/).
+
+- Make favicons from favicon-generator site.
+- Make a folder at `root/static/favicon`
+- Unzip the generated favicon to that folder.
+- Set the config param `useFaviconGenerator` to `true`
 
 ## External Library
 

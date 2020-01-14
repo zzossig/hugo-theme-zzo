@@ -3,6 +3,7 @@ logoType = "short" # long, short
 description = "The Zzo theme for Hugo example site."
 custom_css = []
 custom_js = []
+useFaviconGenerator = true # https://www.favicon-generator.org/
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"]
 notAllowedTypesInHome = ["contact", "talks", "about"]

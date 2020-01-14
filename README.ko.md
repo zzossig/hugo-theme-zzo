@@ -21,6 +21,7 @@ Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로
 * [컨택 페이지](#contact-page)
 * [다국어](#multi-language)
 * [저자](#author)
+* [Favicon](#favicon)
 * [커스터마이징](#customizing)
 * [외부 라이브러리 사용](#external-library)
 * [Shortcodes](#shortcodes)
@@ -223,6 +224,7 @@ logo = true # Logo that appears in the site navigation bar.
 description = "The Zzo theme for Hugo example site." # for SEO
 custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
 custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
+useFaviconGenerator = false # https://www.favicon-generator.org/
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"] # select options for site color theme
 notAllowedTypesInHome = ["contact", "talks", "about"] # not allowed page types in home page. type can be set in front matter or default to folder name.
@@ -928,6 +930,19 @@ socialOptions: # override params.toml file socialOptions
   ...
 ---
 ```
+
+## Favicon
+
+`favicon.ico`라는 파일을 루트 디렉토리의 static 폴더에 넣어주세요. 파일 이름과 확장자가 정확히 `favicon.ico`여야 합니다.
+
+### Using favicon-genarator
+
+모바일 환경을 고려하신다면 [favicon-generator](https://www.favicon-generator.org/) 사이트에서 파비콘을 만들어주세요.
+
+- 위의 사이트에서 파비콘을 만들어주세요.
+- `root/static/favicon`경로에 폴더를 만들어주세요.
+- 해당 폴더에 파비콘을 풀어주세요.
+- params.toml 파일에 `useFaviconGenerator`의 값을 `true`로 바꿔주세요.
 
 ## External Library
 
