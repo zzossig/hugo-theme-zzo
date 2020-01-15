@@ -330,6 +330,7 @@ commento = false
 
 [socialOptions] # if set, social icons will show up.
   email = "mailto:your@email.com"
+  phone = ""
   facebook = "http://example.org/"
   twitter = "http://example.org/"
   github = "https://github.com/zzossig/hugo-theme-zzo"

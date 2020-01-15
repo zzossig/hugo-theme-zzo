@@ -14,6 +14,7 @@ authorImage: "/images/whoami/avatar.jpg"
 authorDesc: 
 socialOptions:
   email: ""
+  phone: ""
   facebook: ""
   twitter: ""
   github: ""
