@@ -1,12 +1,14 @@
+{{ $swipe := resources.Get "js/swipe.js" | resources.Minify | resources.Fingerprint }}
+<script defer src="{{ $swipe.RelPermalink }}"></script>
+
 {{ if $.Params.header }}
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-  {{ range $.Params.header }}
+<div id="headerSwipe" class="swipe">
+  <div class="swipe-wrap">
+    {{ range $.Params.header }}
     {{ if eq .type "slide" }}
       {{ $height := .height }}
       {{ range .slide }}
-        <div class="swiper-slide site-header site-header__align-{{ .align }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }};
-    background-repeat: {{ .imageRepeat }}; background-position: {{ .imagePosition }}; height: {{ $height }}px;">
+        <div class="swiper-slide site-header site-header__align-{{ .align }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }}; background-repeat: {{ .imageRepeat }}; background-position: {{ .imagePosition }}; height: {{ $height }}px;">
           {{ $header := . }}
           {{ if .title }}            
             {{ range .title }}
@@ -23,26 +25,43 @@
             <div class="site-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
               {{ . }}
             </div>
-            {{ end }}      
+            {{ end }}
           {{ end }}
         </div>
       {{ end }}
     {{ end }}
   {{ end }}
   </div>
-  <div class="swiper-pagination"></div>
 </div>
-{{ end }}
-
-{{ $js := .Site.Data.lib.js }}
-{{ $css := .Site.Data.lib.css }}
-
-<link rel="stylesheet" href="{{  $css.swiper.url }}" integrity="{{ $css.swiper.sri }}" crossorigin="anonymous">
-<script src="{{ $js.swiper.url }}" integrity="{{ $js.swiper.sri }}" crossorigin="anonymous"></script>
 
 <script>
-  {{ $swiper := .Site.Data.swiper }}
-  var options = JSON.parse({{ $swiper | jsonify }});
-
-  var mySwiper = new Swiper('.swiper-container', options);
+  document.addEventListener('DOMContentLoaded', function () {
+    {{ $header := .Params.header }}
+    var options = null;
+    var header = JSON.parse({{ $header | jsonify }});
+    var slide = header.filter(function(h) {
+      return h.type === 'slide';
+    });
+    
+    if (slide.length > 0) {
+      options = slide[0].options;
+    }
+    console.log(options);
+    var headerSwipeElem = document.getElementById('headerSwipe');
+    var headerSwipe = Swipe(headerSwipeElem,
+      options ? 
+      options : {
+        startSlide: 0,
+        auto: 7000,
+        draggable: true,
+        autoRestart: true,
+        continuous: true,
+        disableScroll: true,
+        stopPropagation: true,
+        callback: function (index, element) { },
+        transitionEnd: function (index, element) { }
+      });
+  });
 </script>
+
+{{ end }}

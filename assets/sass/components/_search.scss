@@ -1,7 +1,7 @@
 .search {
   position: relative;
   border-radius: 0.25rem;
-  height: $search-height;
+  height: 35px;
   z-index: z('search');
   margin-bottom: 0.5rem;  
   
@@ -83,7 +83,7 @@
       display: inline-block;
       margin-top: 0.25rem;
       position: absolute;
-      top: $search-height;
+      top: 35px;
       width: 100%;
       border-radius: 0.1rem;
       @include box-shadow(0, 1px, 3px, 0, rgba(0, 0, 0, 0.4));

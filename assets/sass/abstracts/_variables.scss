@@ -1,7 +1,7 @@
 @import "../themes/theme";
 
 $text-font-stack: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
-$code-font-stack: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace !default;
+$code-font-stack: Consolas, Monaco, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", "Lucida Console", "Lucida Sans Typewriter", "Liberation Mono", "Nimbus Mono L", Monaco, Courier, monospace !default;
 
 $z-indexes: ("modal", "navbar", "dropdown", "header", "gtt", "clipboard", "grid", "search-btn", "search", "content", "footer", "taxo", "toc", "gallery-mask");
 
@@ -12,6 +12,3 @@ $breakpoints: (
   'lg': 1280px,
   'xl': 1960px,
 );
-
-$search-height: 35px !default;
-$code-font-size: .9rem !default;

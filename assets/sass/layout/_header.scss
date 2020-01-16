@@ -1,9 +1,4 @@
 .header {
-  @include flexbox();
-  @include align-items(center);
-  @include justify-content(center);
-  @include flex-direction(column);
-
   .title {
     font-family: $title-font;
     font-weight: 900;

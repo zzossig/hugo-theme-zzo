@@ -765,6 +765,14 @@ header:
 
   - type: slide
     height: 235
+    options:
+        startSlide: 0
+        auto: 5000 # auto slide delay 5000ms(5sec)
+        draggable: true # slide draggable
+        autoRestart: true # restart after drag finished
+        continuous: true # last to first
+        disableScroll: true
+        stopPropagation: true
     slide:
       - paddingX: 50
         paddingY: 0
