@@ -71,7 +71,9 @@ $light: (
     search-placeholder-color: #bdbdbd,
     search-color: #424242,
     search-icon-color: #bdbdbd,
-    search-border-color: darken(#eceff1, 8%),
+    search-border-color: #e0e0e0,
+    search-border-outline-color: rgba(207, 216, 220, 0.6),
+    search-border-active-color: #b0bec5,
     search-background-color: #eeeeee,
     search-content-color: #424242,
     search-content-background-color: #eeeeee,
@@ -97,4 +99,6 @@ $light: (
     contact-input-color: #424242,
     contact-input-background-color: #eee,
     contact-button-background-color: #eee,
+    custom-scrollbar-foreground-color: #cfd8dc,
+    custom-scrollbar-background-color: #FCFCFA,
 );

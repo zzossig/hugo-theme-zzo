@@ -71,6 +71,8 @@ $solarized: (
     search-placeholder-color: #B58900,
     search-color: #B58900,
     search-border-color: darken(#FBF1D1, 10%),
+    search-border-outline-color: rgba(133, 153, 0, 0.2),
+    search-border-active-color: lighten(#B58900, 10%),
     search-icon-color: #B58900,
     search-background-color: #FBF1D1,
     search-content-color: #B58900,
@@ -96,4 +98,6 @@ $solarized: (
     contact-input-color: #B58900,
     contact-input-background-color: #FBF1D1,
     contact-button-background-color: #FBF1D1,
+    custom-scrollbar-foreground-color: #b0bec5,
+    custom-scrollbar-background-color: #EEE8D5,
 );

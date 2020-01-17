@@ -11,6 +11,7 @@
     line-height: 3rem;
     overflow-wrap: break-word;
 
+    @include animation('slide-in-down .2s .25s 1 ease-in both');
     @include themify($themes) {
       color: themed("single-header-title-color");
     }
@@ -46,6 +47,7 @@
   }
 
   &__contents {
+    @include animation('slide-in-left .15s .6s 1 ease-in both');
     &--gallery {
       overflow: hidden;
     }
@@ -447,7 +449,7 @@ pre:not(.chroma) {
   border-radius: 5px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
   z-index: z('content');
-  overflow-x: auto;
+  overflow-x: auto;  
 
   @include themify($codeblock) {
     color: themed('content-pre-color');
@@ -482,6 +484,13 @@ pre:not(.chroma) {
     }
   }
 
+  table, tr, td {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
   .lntd {
     &:first-child {
       width: 10px;
@@ -503,17 +512,18 @@ pre:not(.chroma) {
     }
   }
 
-  table, tr, td {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    border-collapse: collapse;
-  }
-
   /* LineNumbersTable */  
   .lnt {
     @include themify($codeblock) {
       color: themed('content-pre-number-color');
+    }
+  }
+
+  table.lntable {
+    overflow-x: auto;
+    @include themify($themes) {
+      @include webkit-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
+      @include moz-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
     }
   }
 }

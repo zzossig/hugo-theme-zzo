@@ -3,7 +3,7 @@
   @include justify-content(center);
   @include align-items(flex-start);
   @include flex-direction(column);
-  @include animation('slide-in-down .5s .2s 1 ease both');
+  @include animation('slide-in-down .4s .2s 1 ease both');
 
   width: 100%;
   font-family: $title-font;

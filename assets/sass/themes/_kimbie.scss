@@ -71,7 +71,9 @@ $kimbie: (
   search-placeholder-color: #6e583b,
   search-color: #d3af86,
   search-icon-color: #6e583b,
-  search-border-color: #5e452b,
+  search-border-color: #6e583b,
+  search-border-outline-color: rgba(240, 100, 49, 0.25),
+  search-border-active-color: #5e452b,
   search-content-color: #d3af86,
   search-background-color: #362712,
   search-content-background-color: #362712,
@@ -97,4 +99,6 @@ $kimbie: (
   contact-input-color: #e3b583,
   contact-input-background-color: #362712,
   contact-button-background-color: #362712,
+  custom-scrollbar-foreground-color: #5e452b,
+  custom-scrollbar-background-color: #d3af86,
 ) !default;

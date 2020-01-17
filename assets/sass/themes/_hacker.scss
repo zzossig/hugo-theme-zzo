@@ -72,7 +72,9 @@ $hacker: (
     search-placeholder-color: #727072,
     search-color: #1FFF2A,
     search-icon-color: #727072,
-    search-border-color: #111111,
+    search-border-color: #0d0e0f,
+    search-border-outline-color: rgba(161, 173, 100, 0.2),
+    search-border-active-color: #414141,
     search-background-color: #252526,
     search-content-color: #1FFF2A,
     search-content-background-color: lighten(#252526, 7%),
@@ -98,4 +100,6 @@ $hacker: (
     contact-input-color: #FCFCFA,
     contact-input-background-color: lighten(#252526, 4%),
     contact-button-background-color: lighten(#252526, 4%),
+    custom-scrollbar-foreground-color: #616161,
+    custom-scrollbar-background-color: #FCFCFA,
 );
