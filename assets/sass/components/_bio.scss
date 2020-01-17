@@ -3,7 +3,6 @@
   @include justify-content(center);
   @include align-items(flex-start);
   @include flex-direction(column);
-  @include animation('slide-in-down .4s .2s 1 ease both');
 
   width: 100%;
   font-family: $title-font;
@@ -13,6 +12,7 @@
     width: 100%;
     height: auto;
     @include box-shadow(0, 2px, 4px, 0, rgba(0, 0, 0, 0.25));
+    @include animation('slide-in-down .25s .6s 1 ease-in both');
 
     &-wrapper {
       width: 90%;
