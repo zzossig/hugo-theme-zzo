@@ -22,6 +22,18 @@
   }
 }
 
+@include keyframes(slide-in-left-little) {
+  0% {
+    transform: translate(-1%,0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+
 @include keyframes(slide-in-down-little) {
   0% {
     transform: translate(0,-1%);

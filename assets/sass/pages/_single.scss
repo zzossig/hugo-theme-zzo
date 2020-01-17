@@ -11,7 +11,7 @@
     line-height: 3rem;
     overflow-wrap: break-word;
 
-    @include animation('slide-in-left .2s .15s 1 ease-in both');
+    @include animation('slide-in-down .2s .3s 1 ease-in both');
     @include themify($themes) {
       color: themed("single-header-title-color");
     }
@@ -23,7 +23,7 @@
     @include flexbox();
     @include align-items(center);
     @include flex-wrap(wrap);
-    @include flex-grow(1);    
+    @include flex-grow(1);
     @include themify($themes) {
       color: themed('meta-color');
     }
@@ -47,12 +47,12 @@
   }
 
   &__contents {
-    @include animation('slide-in-down-little .3s .4s 1 ease-in both');
+    @include animation('slide-in-left-little .2s .6s 1 ease-in both');
     &--gallery {
       overflow: hidden;
     }
 
-    &>p>a {
+    & > p > a {
       text-decoration: underline;
     }
 
