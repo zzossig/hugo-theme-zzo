@@ -1,23 +1,17 @@
 {{ if $.Param "enableSidebar" }}
 
-<div class="sidebar">
+<ul class="sidebar">
     {{ partial "search/site-search" . }}
     {{ partial "sidebar/custom-list" . }}
     {{ if and .Site.Params.itemsPerCategory .Site.Params.enableListSidebarTitles }}
         {{ range first .Site.Params.itemsPerCategory .Pages }}
-        <section class="sidebar-recent">
+        <li class="sidebar-recent">
             <a href="{{ .RelPermalink }}" class="sidebar-recent__title p1">{{ .Title }}</a>
-            <ul class="sidebar-recent__ul">
-                {{ range first .Site.Params.itemsPerCategory .Pages }}
-                <li><a href="{{ .RelPermalink }}" class="sidebar-recent__a p2">{{ .Title }}</a>
-                </li>
-                {{ end }}
-            </ul>
-        </section>
+        </li>
         {{ end }}
         <hr class="hr-fade sidebar-hr" />
     {{ end }}
-</div>
+</ul>
 <div class="taxo-root">
 {{ partial "taxonomy/taxonomy-tags" . }}
 {{ partial "taxonomy/taxonomy-categories" . }}

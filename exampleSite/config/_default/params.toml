@@ -7,6 +7,7 @@ useFaviconGenerator = true # https://www.favicon-generator.org/
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"]
 notAllowedTypesInHome = ["contact", "talks", "about"]
+notAllowedTypesInHomeSidebar = ["about", "archive"]
 
 # header
 homeHeaderType = "text" # text, img, slide
@@ -40,6 +41,7 @@ enableSidebar = true
 enableSidebarTags = true
 enableSidebarSeries = true
 enableSidebarCategories = true
+enableHomeSidebarTitles = true
 enableListSidebarTitles = true
 enableToc = true
 hideToc = false

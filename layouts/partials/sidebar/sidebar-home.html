@@ -1,25 +1,31 @@
 {{ if $.Param "enableSidebar" }}
 <div class="sidebar">    
     {{ partial "search/site-search" . }}
-    {{ partial "sidebar/site-bio" . }}    
+    {{ partial "sidebar/site-bio" . }}
     {{ partial "sidebar/custom-home" . }}
 
-    {{ range (and (where .Site.Sections "Type" "!=" "about") (where .Site.Sections "Type" "!=" "archive")) }}
-    <section class="sidebar-recent">
-        <a href="{{ .RelPermalink }}" class="sidebar-recent__title p2">{{ .Title }}</a>
-        <ul class="sidebar-recent__ul">
-            {{ if .Site.Params.itemsPerCategory }}
-            {{ range first .Site.Params.itemsPerCategory .Pages }}
-            <li><a href="{{ .RelPermalink }}" class="sidebar-recent__a p2">{{ .Title }}</a>
-            </li>
-            {{ end }}
-            {{ end }}
-        </ul>
-    </section>
+    {{ if and .Site.Params.itemsPerCategory .Site.Params.enableHomeSidebarTitles }}
+        {{ $filteredSections := .Site.Sections }}
+        {{ range .Site.Params.notAllowedTypesInHomeSidebar }}
+            {{ $filteredSections = (where $filteredSections "Type" "!=" (lower .)) }}
+        {{ end }}
+
+        {{ range $filteredSections }}
+        <section class="sidebar-recent">
+            <a href="{{ .RelPermalink }}" class="sidebar-recent__title p2">{{ .Title }}</a>
+            <ul class="sidebar-recent__ul">
+                {{ range first .Site.Params.itemsPerCategory .Pages }}
+                    <li>
+                        <a href="{{ .RelPermalink }}" class="sidebar-recent__a p2">{{ .Title }}</a>
+                    </li>
+                {{ end }}
+            </ul>
+        </section>
+        <hr class="hr-fade sidebar-hr" />
+        {{ end }}
     {{ end }}
 </div>
 
-<hr class="hr-fade sidebar-hr" />
 <div class="taxo-root">
 {{ partial "taxonomy/taxonomy-tags" . }}
 {{ partial "taxonomy/taxonomy-categories" . }}

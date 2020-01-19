@@ -6,7 +6,9 @@
   font-size: 0.85rem;
   padding-left: 0.5rem;
   z-index: z('toc');
+
   @include no-select;
+  @include animation('slide-in-down-little .2s .6s 1 ease-in both');
   
   #TableOfContents {
     position: relative;

@@ -222,6 +222,7 @@ useFaviconGenerator = false # https://www.favicon-generator.org/
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"] # select options for site color theme
 notAllowedTypesInHome = ["contact", "talks", "about"] # not allowed page types in home page. type can be set in front matter or default to folder name.
+notAllowedTypesInHomeSidebar = ["about", "archive"] # not allowed page types in home page sidebar(recent post titles).
 
 # header
 homeHeaderType = "text" # text, img, slide
@@ -254,10 +255,10 @@ link = "https://github.com/zzossig/hugo-theme-zzo"
 # sidebar
 enableBio = true # home page sidebar
 enableSidebar = true # Set to false to create the full width of the content.
-enableSidebarTitles = true
 enableSidebarTags = true # if you want to use tags.
 enableSidebarSeries = true
 enableSidebarCategories = true
+enableHomeSidebarTitles = true
 enableListSidebarTitles = true
 enableToc = true # single page table of contents, you can replace this param to toc(toc = true)
 hideToc = false # Hide or Show toc
