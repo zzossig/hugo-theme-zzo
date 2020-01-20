@@ -593,7 +593,7 @@ enableBio: true # Set to false if you want to hide the bio component.
 ---
 ```
 
-2. 다음 경로에 카테고리 폴더와 파일을 만듭니다. `root/content/showcase/javascript/_index.md` file. (저의 경우, javascript가 카테고리 폴더입니다.)
+2. 다음 경로에 폴더와 파일을 만듭니다. `root/content/showcase/javascript/_index.md` file. (javascript가 섹션 폴더가 되며 자바스크립트 쇼케이스를 모아두는 폴더가 됩니다.)
 
 ```yaml
 ---

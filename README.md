@@ -586,14 +586,14 @@ enableBio: true # Set to false if you want to hide the bio component.
 ---
 ```
 
-2. Make a category folder and a file at `root/content/showcase/javascript/_index.md` file. (In my case, category is a javascript)
+2. Make a file at `root/content/showcase/javascript/_index.md` file. (`javascript` will be a section folder that contains javascript showcases)
 
 ```yaml
 ---
-title: "Javascript" # category name
+title: "Javascript" # section name, appear on menu bar
 date: 2020-01-19T21:04:11+09:00
 description: Hugo theme collection # For SEO
-category: theme # meta info appeared on a card bottom side.
+category: theme # meta info appear on a card bottom side.
 enableBio: true
 ---
 ```
@@ -604,13 +604,13 @@ enableBio: true
 
 ```yaml
 ---
-title: "My Awesome Project" # apperared on a card component
+title: "My Awesome Project" # apperar on a card component
 date: 2020-01-19T21:13:42+09:00
-description: Hello world! This is my awesome project! # apperared on a card component
+description: Hello world! This is my awesome project! # apperar on a card component
 weight: 1 # card ordering
 link: https://github.com/zzossig/hugo-theme-zzo
 repo: https://github.com/zzossig/hugo-theme-zzo
-pinned: true # appreared on a overview page.
+pinned: true # apprear on a overview page.
 thumb: feature3/css3.png # relative path in static/images
 ---
 ```
