@@ -1,6 +1,4 @@
 .summary-card {
-  margin: 0 0.5rem;
-  padding: 0 0.5rem;
   @include animation('slide-in-down .2s .3s 1 ease-in both');
 
   .title {
@@ -80,7 +78,6 @@
 }
 
 .summary-classic {
-  padding: 0 1rem;
   @include animation('slide-in-down .2s .3s 1 ease-in both');
 
   .title {
@@ -108,8 +105,13 @@
 
   &__flex-box {
     @include flexbox();
+    
     margin-top: 1rem;
     margin-bottom: 1rem;
+
+    &[data-position="left"] {
+      @include justify-content(space-between);
+    }
   }
 
   &__content {

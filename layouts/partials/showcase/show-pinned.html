@@ -19,9 +19,10 @@
         {{ $category := .Params.category }}
         {{ range where .Pages "Params.pinned" true }}
           <div class="showcase__box">
-            <a href="{{ .Params.Link }}" class="showcase__box--title" target="_blank" rel="noreferrer">
+            <a href="{{ .Params.Link }}" class="showcase__box--link" target="_blank" rel="noreferrer"></a>
+            <span class="showcase__box--title">
               {{ .Title }}
-            </a>
+            </span>
             <div class="showcase__box--desc">
               {{ .Description }}
             </div>

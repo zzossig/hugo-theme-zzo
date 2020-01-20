@@ -5,47 +5,54 @@
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
 <script src="{{ $enquire.RelPermalink }}"></script>
 
-<main class="{{ if $.Param "enableSidebar" }}main-main{{ else }}main{{ end }}">
-    <article class="{{ with .Section }}section-{{ . | urlize }} {{ end }}single-view">
-        <div class="content">
-            {{ .Content }}
+<main class="main inner">
+    <div class="list__main {{ if $.Param "enableSidebar" }}{{ if eq .Site.Params.sidebarPosition "left" }}mr{{ else }}lm{{ end }}{{ else }}lmr{{ end }}">
+        <div class="summary__container">
+            {{ $filteredPages := .Site.RegularPages }}
+            {{ range .Site.Params.notAllowedTypesInHome }}
+                {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
+            {{ end }}
+            {{ $paginator := .Paginate $filteredPages }}
+            {{ range $paginator.Pages }}
+                {{ .Render "summary" }}
+            {{ end }}
         </div>
-    </article>
 
-    <div class="summary__container">
-        {{ $filteredPages := .Site.RegularPages }}
-        {{ range .Site.Params.notAllowedTypesInHome }}
-            {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
-        {{ end }}
-        {{ $paginator := .Paginate $filteredPages }}
-        {{ range $paginator.Pages }}
-            {{ .Render "summary" }}
-        {{ end }}
-    </div>    {{ partial "pagination/pagination" . }}
+        {{ partial "pagination/pagination" . }}
+    </div>
+
+    {{ if $.Param "enableSidebar" }}
+        <aside class="list__sidebar {{ if eq .Site.Params.sidebarPosition "left" }}l{{ else }}r{{ end }}">
+            {{ partial "sidebar/sidebar-home" . }}
+        </aside>
+    {{ end }}
 </main>
-
-{{ if $.Param "enableSidebar" }}
-    <aside class="main-side">
-        {{ partial "sidebar/sidebar-home" . }}
-    </aside>
-{{ end }}
 <script>
-    enquire.register("screen and (max-width: 769px)", { 
+    {{ $sidebarPosition:= .Site.Params.sidebarPosition }}
+    var sidebarPosition = JSON.parse({{ $sidebarPosition | jsonify }});
+    var listMainElem = document.querySelector('.list__main');
+    var listSideElem = document.querySelector('.list__sidebar');
+
+    var gridSmall = 'l';
+    var gridBig = 'mr';
+    var gridFull = 'lmr'
+
+    if (sidebarPosition === "right") {
+        gridSmall = 'r';
+        gridBig = 'lm'
+    }
+
+    enquire.register("screen and (max-width: 769px)", {
         match: function () {
-            if (document.getElementsByTagName('main')[0]) {
-                document.getElementsByTagName('main')[0].className = "main";
-            }
-            if (document.getElementsByTagName('aside')[0]) {
-                document.getElementsByTagName('aside')[0].className = "hide";
-            }
+            listMainElem.classList.remove(gridBig);
+            listMainElem.classList.add(gridFull);
+            listSideElem.classList.remove(gridSmall);
         },
         unmatch: function () {
-            if (document.getElementsByTagName('main')[0]) {
-                document.getElementsByTagName('main')[0].className = "main-main";
-            }
-            if (document.getElementsByTagName('aside')[0]) {
-                document.getElementsByTagName('aside')[0].className = "main-side";
-            }
+            listMainElem.classList.remove(gridFull);
+            listMainElem.classList.add(gridBig);
+            listSideElem.classList.add(gridSmall);
+
             if (document.getElementsByClassName('navbar__burger')[0]) {
                 document.getElementsByClassName('navbar__burger')[0].classList.remove('is-active');
             }

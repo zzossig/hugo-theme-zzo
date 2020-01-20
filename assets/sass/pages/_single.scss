@@ -392,6 +392,7 @@ code, pre {
 *:not(.chroma) {
   code, pre {
     @include themify($codeblock) {
+      color: themed('content-pre-color');
       background: themed('content-pre-background-color');
     }
   }

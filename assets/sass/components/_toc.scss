@@ -1,6 +1,6 @@
 .toc {
   width: 100%;
-  max-width: calcSideWidth();
+  max-width: $sidebar-width;
   position: fixed;
   top: 7rem;
   font-size: 0.85rem;

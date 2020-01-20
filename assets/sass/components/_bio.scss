@@ -56,7 +56,7 @@
 
     a {
       padding-right: 1rem;
-      @include truncate(calcSideWidth());
+      @include truncate($sidebar-width);
     }
   }
 

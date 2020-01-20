@@ -3,7 +3,7 @@
 $text-font-stack: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
 $code-font-stack: Consolas, Monaco, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", "Lucida Console", "Lucida Sans Typewriter", "Liberation Mono", "Nimbus Mono L", Monaco, Courier, monospace !default;
 
-$z-indexes: ("modal", "navbar", "dropdown", "header", "gtt", "clipboard", "grid", "search-btn", "search", "content", "footer", "taxo", "toc", "gallery-mask");
+$z-indexes: ("modal", "navbar", "dropdown", "header", "gtt", "clipboard", "grid", "search-btn", "search", "content", "footer", "taxo", "toc", "gallery-mask", "card-outter", "card-inner");
 
 $breakpoints: (
   'xs': 0,
@@ -12,3 +12,5 @@ $breakpoints: (
   'lg': 1280px,
   'xl': 1960px,
 );
+
+$sidebar-width: 250px;

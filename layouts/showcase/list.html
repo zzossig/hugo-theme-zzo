@@ -1,13 +1,14 @@
 {{ define "main" }}
 <main class="main showcase inner">
   {{ if .Params.enableBio }}
-    <aside class="l">
+    <aside class="{{ if eq .Site.Params.sidebarPosition "left" }}l{{ else }}r{{ end }}">
       <div class="showcase__bio">
+        {{ partial "search/site-search" . }}
         {{ partial "sidebar/site-bio" . }}
       </div>
     </aside>
   {{ end }}
-  <section class="showcase__section {{ if .Params.enableBio }}mr{{ else }}lmr{{ end }}">
+  <section class="showcase__section {{ if .Params.enableBio }}{{ if eq .Site.Params.sidebarPosition "left" }}mr{{ else }}lm{{ end }}{{ else }}lmr{{ end }}">
     {{ if .Params.enableBio }}
       <div class="showcase__bio--mobile hide">
         {{ partial "body/whoami" . }}
@@ -20,9 +21,6 @@
       {{ partial "showcase/show-section" . }}
     {{ end }}
   </section>
-  <div class="hide">
-    {{ partial "search/site-search" . }}
-  </div>
   {{ partial "script/showcase-script" . }}
 </main>
 {{ end }}

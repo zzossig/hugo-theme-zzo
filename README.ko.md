@@ -16,7 +16,6 @@ Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로
 * [업데이트](#updating)
 * [예제 사이트 돌리기](#run-example-site)
 * [설정](#configuration)
-* [레이아웃](#layout)
 * [갤러리](#gallery)
 * [컨택 페이지](#contact-page)
 * [토크 페이지](#talks-page)
@@ -273,6 +272,7 @@ enableToc = true # single page table of contents, you can replace this param to 
 hideToc = false # Hide or Show toc
 enableTocSwitch = true # single page table of contents visibility switch
 itemsPerCategory = 5 # maximum number of posts shown in the sidebar.
+sidebarPosition = "right" # bio, profile component layout position
 
 # footer
 showPoweredBy = true # show footer text: Powered by Hugo and Zzo theme
@@ -371,47 +371,6 @@ commento = false
   copyrightLink = ""
   copyrightLinkImage = ""
   copyrightLinkText = ""
-```
-
-## Layout
-
-### CSS grid for layout
-
-이 프로젝트의 레이아웃은 css의 grid란 걸 사용해서 잡았습니다. 혹시나 커스터마이징 하실 때 알아야 할 수도 있을 것 같아서 알려드립니다.
-
-### grid structure
-
-|  left 	|  right 	|
-|---	|---	|
-|  1	|  2	|
-|  3 	|  4	|
-|  5 	|  6	|
-|  7 	|  8	|
-
-* left, right column width ratio => 5 : 2
-* 1 => .navbar-main
-* 2 => .navbar-side
-* 1 + 2 => .navbar
-* 3 => .header-main
-* 4 => .header-side
-* 3 + 4 => .header
-* 5 => .main-main
-* 6 => .main-side
-* 5 + 6 => .main
-* 7 => .footer-main
-* 8 => .footer-side
-* 7 + 8 => .footer
-
-### grid structure example applied in home page
-
-```html
-<div class="navbar"></div>
-<div class="header"></div>
-<div>
-  <div class="main-main"></div>
-  <div class="main-side"></div>
-</div>
-<div class="footer></div>
 ```
 
 ## Gallery
@@ -593,21 +552,21 @@ enableBio: true # Set to false if you want to hide the bio component.
 ---
 ```
 
-2. 다음 경로에 폴더와 파일을 만듭니다. `root/content/showcase/javascript/_index.md` file. (javascript가 섹션 폴더가 되며 자바스크립트 쇼케이스를 모아두는 폴더가 됩니다.)
+2. 다음 경로에 카테고리 폴더와 파일을 만듭니다. `root/content/showcase/hugo/_index.md` file. (저의 경우, hugo가 카테고리 폴더입니다.)
 
 ```yaml
 ---
-title: "Javascript" # category name
+title: "Hugo" # section name
 date: 2020-01-19T21:04:11+09:00
 description: Hugo theme collection # For SEO
-category: theme # meta info appeared on a card bottom side.
+category: theme # meta info appeared on a card bottom side. category in category
 enableBio: true
 ---
 ```
 
 3. 마지막으로, 프로젝트당 한개의 md파일을 만드시면 됩니다.  
 
-`root/content/showcase/javascript/my-awesome-project.md`.
+`root/content/showcase/hugo/my-awesome-project.md`.
 
 ```yaml
 ---

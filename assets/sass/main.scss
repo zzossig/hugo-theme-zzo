@@ -9,6 +9,8 @@ $grid_column_gap_unit: {{ .Site.Data.grid.grid_column_gap_unit }};
 $grid_navbar_height: {{ .Site.Data.grid.grid_navbar_height }};
 $grid_row_gap: {{ .Site.Data.grid.grid_row_gap }};
 
+$sidebar_position: {{ .Site.Params.sidebarPosition }};
+
 $theme_light_chroma: {{ .Site.Data.skin.theme_light_chroma }};
 $theme_dark_chroma: {{ .Site.Data.skin.theme_dark_chroma }};
 $theme_hacker_chroma: {{ .Site.Data.skin.theme_hacker_chroma }};

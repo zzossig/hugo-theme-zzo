@@ -11,6 +11,7 @@
       {{ $category := .Params.category }}
       {{ range .Pages }}
         <div class="showcase__box">
+          <a href="{{ .Params.Link }}" class="showcase__box--link" target="_blank" rel="noreferrer"></a>
           <a href="{{ .Params.Link }}" class="showcase__box--title" target="_blank" rel="noreferrer">
             {{ .Title }}
           </a>

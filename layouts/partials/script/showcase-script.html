@@ -7,50 +7,61 @@
 
 <script>
   {{ $enableBio:= .Params.enableBio }}
+  {{ $sidebarPosition:= .Site.Params.sidebarPosition }}
   var enableBio = JSON.parse({{ $enableBio | jsonify }});
+  var sidebarPosition = JSON.parse({{ $sidebarPosition | jsonify }});
 
   document.addEventListener('DOMContentLoaded', function () {
     var bioElem = document.querySelector('.showcase__bio');
     var sectionElem = document.querySelector('.showcase__section');
     var bioMobileElem = document.querySelector('.showcase__bio--mobile');
 
+    var gridSmall = 'l';
+    var gridBig = 'mr';
+    var gridFull = 'lmr'
+
+    if (sidebarPosition === "right") {
+      gridSmall = 'r';
+      gridBig = 'lm'
+    }
+
     enquire.register("screen and (max-width: 600px)", {
       match: function () {
         if (enableBio) {
           if (bioElem) {
-            bioElem.classList.remove('l');
+            bioElem.classList.remove(gridSmall);
           }
           if (sectionElem) {
-            sectionElem.classList.remove('mr');
-            sectionElem.classList.add('lmr');
+            sectionElem.classList.remove(gridBig);
+            sectionElem.classList.add(gridFull);
           }
           if (bioMobileElem) {
             bioMobileElem.classList.remove('hide');
           }
         } else {
           if (sectionElem) {
-            sectionElem.classList.remove('mr');
-            sectionElem.classList.remove('lmr');
-            sectionElem.classList.add('lmr');
+            sectionElem.classList.remove(gridBig);
+            sectionElem.classList.remove(gridFull);
+            sectionElem.classList.add(gridFull);
           }
         }
       },
       unmatch: function () {
         if (enableBio) {
           if (bioElem) {
-            bioElem.classList.add('l');
+            bioElem.classList.add(gridSmall);
           }
           if (sectionElem) {
-            sectionElem.classList.remove('lmr');
-            sectionElem.classList.add('mr');
+            sectionElem.classList.remove(gridFull);
+            sectionElem.classList.add(gridBig);
           }
           if (bioMobileElem) {
             bioMobileElem.classList.add('hide');
           }
         } else {
-          sectionElem.classList.remove('mr');
-          sectionElem.classList.remove('lmr');
-          sectionElem.classList.add('lmr');
+          sectionElem.classList.remove(gridBig);
+          sectionElem.classList.remove(gridFull);
+          sectionElem.classList.add(gridFull);
         }
       },
       setup: function () { },
