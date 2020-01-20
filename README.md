@@ -555,7 +555,7 @@ enableBio: true
 ---
 ```
 
-3. Finally, Make a file per project.
+3. Make a file per project.
 
 `root/content/showcase/hugo/my-awesome-project.md`.
 
@@ -570,6 +570,16 @@ repo: https://github.com/zzossig/hugo-theme-zzo
 pinned: true # appreared on a overview page.
 thumb: feature3/css3.png # relative path in static/images
 ---
+```
+
+4. Finally, make a menu at your root/config/_default/menus.en.toml file
+
+```toml
+[[main]]
+  identifier = "showcase"
+  name = "Showcase"
+  url = "showcase"
+  weight = 7
 ```
 
 ## Multi Language
