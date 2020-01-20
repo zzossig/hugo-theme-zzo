@@ -69,3 +69,9 @@ other = "Modified At"
 
 [tooltip-reading-time]
 other = "Reading Time"
+
+[showcase-overview]
+other = "Overview"
+
+[showcase-pinned]
+other = "Pinned"

@@ -19,6 +19,8 @@ Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로
 * [레이아웃](#layout)
 * [갤러리](#gallery)
 * [컨택 페이지](#contact-page)
+* [토크 페이지](#talks-page)
+* [쇼케이스 페이지](#showcase-page)
 * [다국어](#multi-language)
 * [저자](#author)
 * [Favicon](#favicon)
@@ -227,8 +229,9 @@ custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/
 useFaviconGenerator = false # https://www.favicon-generator.org/
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"] # select options for site color theme
-notAllowedTypesInHome = ["contact", "talks", "about"] # not allowed page types in home page. type can be set in front matter or default to folder name.
-notAllowedTypesInHomeSidebar = ["about", "archive"] # not allowed page types in home page sidebar(recent post titles).
+notAllowedTypesInHome = ["contact", "talks", "about", "showcase"] # not allowed page types in home page. type can be set in front matter or default to folder name.
+notAllowedTypesInHomeSidebar = ["about", "archive", "showcase"] # not allowed page types in home page sidebar(recent post titles).
+notAllowedTypesInArchive = ["about", "talks", "showcase"] # not allowed page types in archive page
 
 # header
 homeHeaderType = "text" # text, img, slide
@@ -518,6 +521,7 @@ Talks 페이지는 아카이브 페이지와 유사한 UI의 페이지입니다.
 title: "Talks"
 date: 2019-12-30T11:14:14+09:00
 description: Talks Page
+titleWrap: wrap # wrap, nowrap
 ---
 ```
 
@@ -573,6 +577,50 @@ root/config/_default/menus.en.toml file
     ---
     ...
     ```
+
+## Showcase Page
+
+Showcase 페이지는 프로젝트를 전시하는 페이지 입니다. 페이지를 만드시려면 아래 단계를 진행해주세요.
+
+1. 다음 경로에 파일을 만듭니다. `root/content/showcase/_index.md`.
+
+```yaml
+---
+title: "Showcase overview" # For SEO
+date: 2020-01-19T15:43:38+09:00
+description: My portfolio, repos, works overview page # For SEO
+enableBio: true # Set to false if you want to hide the bio component.
+---
+```
+
+2. 다음 경로에 카테고리 폴더와 파일을 만듭니다. `root/content/showcase/javascript/_index.md` file. (저의 경우, javascript가 카테고리 폴더입니다.)
+
+```yaml
+---
+title: "Javascript" # category name
+date: 2020-01-19T21:04:11+09:00
+description: Hugo theme collection # For SEO
+category: theme # meta info appeared on a card bottom side.
+enableBio: true
+---
+```
+
+3. 마지막으로, 프로젝트당 한개의 md파일을 만드시면 됩니다.  
+
+`root/content/showcase/javascript/my-awesome-project.md`.
+
+```yaml
+---
+title: "My Awesome Project" # apperared on a card component
+date: 2020-01-19T21:13:42+09:00
+description: Hello world! This is my awesome project! # apperared on a card component
+weight: 1 # card ordering
+link: https://github.com/zzossig/hugo-theme-zzo
+repo: https://github.com/zzossig/hugo-theme-zzo
+pinned: true # appreared on a overview page.
+thumb: feature3/css3.png # relative path in static/images
+---
+```
 
 ## Multi Language
 

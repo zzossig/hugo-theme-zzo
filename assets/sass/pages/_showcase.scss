@@ -1,0 +1,183 @@
+.showcase {
+  padding: 0.75rem 1.5rem;
+
+  &__bio {
+    position: -webkit-sticky;
+    position: sticky;
+    top: $grid_navbar_height * 1.25;
+    display: block;
+    margin-top: 2rem;
+
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  &__section {
+    
+  }
+
+  &__nav {
+    margin: 1rem 0.5rem;
+    padding: 0.5rem 0;
+    
+    @include themify($themes) {
+      border-bottom: 1px solid themed('hr-color');
+    }
+  }
+
+  &__button {
+    border: none;
+    outline: none;
+    font-family: $title-font;
+    font-size: 0.95rem;
+    border-top-left-radius: 0.125rem;
+    border-top-right-radius: 0.125rem;
+    padding: 0.5rem 0;
+    margin-right: 1rem;
+    position: relative;
+    text-decoration: none !important;
+    display: inline-block;
+    cursor: pointer;
+
+    @include themify($themes) {
+      color: themed('navbar-title-color');
+      @include on-event {
+        color: themed('navbar-title-hover-color');
+      }
+    }
+
+    &[data-meta]:after {
+      content: attr(data-meta);
+      width: 100%;
+      padding: 0.125rem 0.25rem;
+      border-radius: 50%;
+      margin: auto;
+      font-size: 12px;
+      
+      @include themify($themes) {
+        color: themed('taxo-num-color');
+        background-color: themed('taxo-num-background-color');
+      }
+    }
+
+    &.active {
+      @include themify($themes) {
+        color: themed('navbar-title-active-color');
+      }
+    }
+  }
+
+  &__title {
+    margin: 2rem 0.5rem 0.25rem 0.5rem;
+    font-size: 1.125rem;
+  }
+
+  &__box {
+    width: 47.5%;
+    height: auto;
+    border-radius: 0.2rem;
+    margin: 0.5rem;
+    padding: 1rem;
+    position: relative;
+    
+    @include flexbox();
+    @include flex-grow(1);
+    @include flex-direction(column);
+    @include justify-content(flex-start);
+    @include themify($themes) {
+      border: 1px solid themed('content-box-border-color');
+    }
+    @include on-event {
+      @include on-event {
+        @include box-shadow(1px, 1px, 3px, 0px, rgba(0, 0, 0, 0.25));
+        background-color: rgba(125, 125, 125, 0.1);
+      }
+    }
+    @media only screen and (max-width: 960px) {
+      width: 245px;
+    }
+
+    &--wrapper {
+      z-index: 2;
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include animation('slide-in-left-little .2s .25s 1 ease-in both');
+    }
+
+    &--dummy {
+      width: 47.5%;
+      margin: 0.5rem;
+
+      @include flex-grow(1);
+      @media only screen and (max-width: 960px) {
+        width: 245px;
+      }
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    &--title {
+      word-break: break-word;
+      font-family: $title-font;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &--desc {
+      font-family: $content-font;
+      font-size: 0.9rem;
+      margin: 0.25rem 0;
+      height: 60px;
+      overflow: hidden;
+    }
+
+    &--img {
+      width: auto;
+      height: 100%;
+      max-height: 225px;
+      object-fit: cover;
+
+      img {
+        border-radius: 0.2rem;
+        display: block;
+        margin: auto;
+        max-height: 225px;
+      }
+
+      @include flexbox();
+      @include justify-content(center);
+      @include align-items(center);
+    }
+
+    &--meta {
+      margin-top: 0.25rem;
+
+      @include flexbox();
+      .type {
+        font-size: 12px;
+        text-transform: capitalize;
+
+        @include flexbox();
+        @include themify($themes) {
+          color: themed('meta-color');
+        }
+
+        svg {
+          display: block;
+          margin: auto 0.35rem auto 0;
+        }
+      }
+
+      a.type {
+        text-decoration: none;
+        @include themify($themes) {
+          @include on-event {
+            color: themed('link-hover');
+          }
+        }
+      }
+    }
+  }
+}

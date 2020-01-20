@@ -2,6 +2,7 @@
   position: relative;
   padding: 2rem 2rem 0;
   width: 100%;
+
   @include flexbox();
   @include flex-direction(column);
   @include justify-content(flex-start);
@@ -35,16 +36,20 @@
   &__li {
     margin-bottom: 0.5rem;
     margin-left: 4rem;
-    z-index: 0;    
+    z-index: 0;
 
     @include transition(margin-left, 0.1s, ease);
     @include flexbox();
-    @include align-items(center);
+    @include align-items(flex-start);
 
     @media only screen and (max-width: 769px) {
       margin-left: 0;
       position: relative;
-    }   
+    }
+
+    @media only screen and (max-width: 600px) {
+      @include flex-direction(column);
+    }
   }
 
   &__key {
@@ -125,8 +130,17 @@
   &__title {
     margin-right: 0.5rem;    
     margin-left: 1rem;
+    width: 100%;
 
-    @include truncate($grid-max-width);
+    &[data-title-wrap^="no"] {
+      @include truncate($grid-max-width);
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
     @include on-event {
       &::before {
         content: '';
@@ -137,6 +151,11 @@
         
         @include themify($themes) {
           background-color: themed('archive-hover-line-color');
+          
+          @media only screen and (max-width:768px) {
+            top: 13px;
+            height: 24px;
+          }
         }
 
         @media only screen and (max-width: 769px) {

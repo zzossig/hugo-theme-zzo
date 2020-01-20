@@ -9,8 +9,5 @@ series:
 -
 categories:
 -
-links:
-  - link: ""
-    title: ""
-    type: ""
+titleWrap: wrap # wrap, noWrap
 ---

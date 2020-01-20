@@ -69,3 +69,9 @@ other = "수정일"
 
 [tooltip-reading-time]
 other = "읽는 시간"
+
+[showcase-overview]
+other = "개요"
+
+[showcase-pinned]
+other = "고정"

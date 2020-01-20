@@ -1,0 +1,63 @@
+{{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
+<script defer src="{{ $enquire.RelPermalink }}"></script>
+{{ $lazysizes := resources.Get "js/lazysizes.min.js" | resources.Fingerprint }}
+<script defer src="{{ $lazysizes.RelPermalink }}"></script>
+{{ $shave := resources.Get "js/shave.min.js" | resources.Fingerprint }}
+<script defer src="{{ $shave.RelPermalink }}"></script>
+
+<script>
+  {{ $enableBio:= .Params.enableBio }}
+  var enableBio = JSON.parse({{ $enableBio | jsonify }});
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var bioElem = document.querySelector('.showcase__bio');
+    var sectionElem = document.querySelector('.showcase__section');
+    var bioMobileElem = document.querySelector('.showcase__bio--mobile');
+
+    enquire.register("screen and (max-width: 600px)", {
+      match: function () {
+        if (enableBio) {
+          if (bioElem) {
+            bioElem.classList.remove('l');
+          }
+          if (sectionElem) {
+            sectionElem.classList.remove('mr');
+            sectionElem.classList.add('lmr');
+          }
+          if (bioMobileElem) {
+            bioMobileElem.classList.remove('hide');
+          }
+        } else {
+          if (sectionElem) {
+            sectionElem.classList.remove('mr');
+            sectionElem.classList.remove('lmr');
+            sectionElem.classList.add('lmr');
+          }
+        }
+      },
+      unmatch: function () {
+        if (enableBio) {
+          if (bioElem) {
+            bioElem.classList.add('l');
+          }
+          if (sectionElem) {
+            sectionElem.classList.remove('lmr');
+            sectionElem.classList.add('mr');
+          }
+          if (bioMobileElem) {
+            bioMobileElem.classList.add('hide');
+          }
+        } else {
+          sectionElem.classList.remove('mr');
+          sectionElem.classList.remove('lmr');
+          sectionElem.classList.add('lmr');
+        }
+      },
+      setup: function () { },
+      deferSetup: true,
+      destroy: function () { },
+    });
+
+    shave('.showcase__box--desc', 70);
+  });
+</script>

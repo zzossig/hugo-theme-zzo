@@ -19,46 +19,41 @@
   }
 
   &__title {
-    &--margin {
-      margin-right: 0.5rem;
-      margin-left: 0.75rem;
+    margin-right: 0.5rem;
+    margin-left: 0.75rem;
+    width: 100%;
+
+    &[data-title-wrap^="no"] {
+      @include truncate($grid-max-width);
     }
 
-    @include truncate2($grid-max-width);
+    @media only screen and (max-width: 600px) {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
     @include on-event {
       &::before {
         content: '';
         position: absolute;
-        left: 100px;                
-        width: 0.2rem;
-        height: 24px;
+        left: 3rem;
+        width: 0.25rem;
+        height: 30px;
         
         @include themify($themes) {
           background-color: themed('archive-hover-line-color');
+          
+          @media only screen and (max-width:768px) {
+            top: 13px;
+            left: 0;
+            height: 24px;
+          }
         }
 
         @media only screen and (max-width: 769px) {
+          height: 24px;
           top: 50%;
           @include translateY(-50%);
-        }
-      }
-
-      @media only screen and (min-width: 769px) {
-        &::before {
-          content: '';
-          position: absolute;
-          left: 3rem;                
-          width: 0.25rem;
-          height: 30px;
-          
-          @include themify($themes) {
-            background-color: themed('archive-hover-line-color');
-          }
-
-          @media only screen and (max-width: 769px) {
-            top: 50%;
-            @include translateY(-50%);
-          }
         }
       }
     }

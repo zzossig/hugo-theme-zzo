@@ -1,0 +1,49 @@
+<div>
+  {{ $pinnedNum := 0 }}
+  {{ $isOdd := false}}
+
+  {{ range .Pages }}
+    {{ $pinnedNum = add $pinnedNum (len (where .Pages "Params.pinned" true)) }}
+  {{ end }}
+
+  {{ if eq (mod $pinnedNum 2) 1 }}
+    {{ $isOdd = true }}
+  {{ end }}
+
+  {{ if gt $pinnedNum 0 }}
+    <div class="showcase__title">
+      {{ i18n "showcase-pinned" }}
+    </div>
+    <div class="showcase__box--wrapper">
+      {{ range .Pages }}
+        {{ $category := .Params.category }}
+        {{ range where .Pages "Params.pinned" true }}
+          <div class="showcase__box">
+            <a href="{{ .Params.Link }}" class="showcase__box--title" target="_blank" rel="noreferrer">
+              {{ .Title }}
+            </a>
+            <div class="showcase__box--desc">
+              {{ .Description }}
+            </div>
+            <div class="grow"></div>
+            <div class="showcase__box--meta">
+              <span class="type">
+                {{ partial "svgs/etc/code.svg" (dict "width" 14 "height" 14) }}
+                {{ $category }}
+              </span>
+              <div class="grow"></div>
+              <a href="{{ .Params.Repo }}" class="type" target="_blank" rel="noreferrer">
+                {{ partial "svgs/social/github.svg" (dict "width" 14 "height" 14) }}
+                Repository
+              </a>
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+      
+      {{ if $isOdd }}
+        <div class="showcase__box--dummy"></div>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>

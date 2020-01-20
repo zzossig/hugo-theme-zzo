@@ -1,0 +1,42 @@
+<div>
+  {{ $sectionNum := (len .Pages) }}
+  {{ $isOdd := false}}
+
+  {{ if eq (mod $sectionNum 2) 1}}
+    {{ $isOdd = true }}
+  {{ end }}
+
+  {{ if gt $sectionNum 0 }}
+    <div class="showcase__box--wrapper">
+      {{ $category := .Params.category }}
+      {{ range .Pages }}
+        <div class="showcase__box">
+          <a href="{{ .Params.Link }}" class="showcase__box--title" target="_blank" rel="noreferrer">
+            {{ .Title }}
+          </a>
+          <a href="{{ .Params.Link }}" class="showcase__box--img" target="_blank" rel="noreferrer">
+            <img src="{{ (print "images/" .Params.thumb) | relURL }}" alt="{{ .Title }}">
+          </a>
+          <div class="showcase__box--desc">
+            {{ .Description }}
+          </div>
+          <div class="showcase__box--meta">
+            <span class="type">
+              {{ partial "svgs/etc/code.svg" (dict "width" 14 "height" 14) }}
+              {{ $category }}
+            </span>
+            <div class="grow"></div>
+            <a href="{{ .Params.Repo }}" class="type" target="_blank" rel="noreferrer">
+              {{ partial "svgs/social/github.svg" (dict "width" 14 "height" 14) }}
+              Repository
+            </a>
+          </div>
+        </div>
+      {{ end }}
+      
+      {{ if $isOdd }}
+        <div class="showcase__box--dummy"></div>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>

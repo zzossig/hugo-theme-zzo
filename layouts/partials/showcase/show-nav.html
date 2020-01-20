@@ -1,0 +1,15 @@
+{{ $current := . }}
+<nav class="showcase__nav">
+  <a href="{{ .FirstSection.Permalink }}" class="showcase__button {{ if eq .Permalink .FirstSection.Permalink }}active{{ end }}">
+    {{ i18n "showcase-overview" }}
+  </a>
+  {{ range (.Site.GetPage "section" .Type).Pages }}
+    {{ $active := false }}
+    {{ $active = or $active (eq .Name $current.Title) }}
+    {{ $active = or $active (eq (lower .URL) (lower $current.Title)) }}
+    {{ $active = or $active (eq (lower .URL) (lower $current.Type)) }}
+    <a href="{{ .Permalink }}" class="showcase__button {{ if $active }}active{{ end }}" data-meta="{{ len .Pages }}">
+      {{ i18n (lower .Title) | default .Title }}
+    </a>
+  {{ end }}
+</nav>

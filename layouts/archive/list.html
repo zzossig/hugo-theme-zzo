@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{ $titleWrap := .Params.titleWrap }}
+
 <header class="header">
   <h3 class="h3 terms__title">
     {{ .Title }}
@@ -7,11 +9,14 @@
     {{ .Content }}
   </div>
 </header>
-</span>
 <main class="main archive">
   <div class="archive__container">
-    {{ $pages := (where (where .Site.RegularPages "Type" "!=" "about") "Section" "!=" "talks") }}
-    {{ $paginator := .Paginate ($pages.GroupByDate (.Site.Params.archiveGroupByDate | default "2006")) .Site.Params.archivePaginate }}
+    {{ $filteredPages := .Site.RegularPages }}
+    {{ range .Site.Params.notAllowedTypesInArchive }}
+      {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
+    {{ end }}
+
+    {{ $paginator := .Paginate ($filteredPages.GroupByDate (.Site.Params.archiveGroupByDate | default "2006")) .Site.Params.archivePaginate }}
     
     {{ range ($paginator).PageGroups }}
     <span class="archive__key">{{ .Key }}</span>
@@ -21,8 +26,8 @@
         <span class="archive__meta">
           <span class="archive__type">{{ .Type }}</span>
           <span class="archive__date">{{ .Date.Format (i18n "archive-dateformat") }}</span>
-        </span>        
-        <a href="{{ .Permalink }}" class="archive__title">{{ .Title }}</a>        
+        </span>
+        <a href="{{ .Permalink }}" class="archive__title" data-title-wrap="{{ $titleWrap | default "wrap"}}">{{ .Title }}</a>        
       </li>
       {{ end }}
     </ul>

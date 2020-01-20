@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{ $titleWrap := .Params.titleWrap }}
+
 <header class="header">
   <h3 class="h3 terms__title">
     {{ .Title }}
@@ -21,7 +23,7 @@
         <span class="talk__date">
           {{ .PublishDate.Format (i18n "talks-dateformat") }}
         </span>
-        <a href="{{ .Permalink }}" class="talk__title">{{ .Title }}</a>
+        <a href="{{ .Permalink }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}">{{ .Title }}</a>
       </li>
       {{ end }}
     </ul>
