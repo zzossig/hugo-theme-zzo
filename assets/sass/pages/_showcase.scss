@@ -70,7 +70,7 @@
   }
 
   &__box {
-    width: 47.5%;
+    width: 25%;
     height: auto;
     border-radius: 0.2rem;
     margin: 0.5rem;
@@ -91,7 +91,7 @@
       }
     }
     @media only screen and (max-width: 960px) {
-      width: 245px;
+      width: 35%;
     }
 
     &--wrapper {
@@ -101,12 +101,12 @@
     }
 
     &--dummy {
-      width: 47.5%;
+      width: 25%;
       margin: 0.5rem;
 
       @include flex-grow(1);
       @media only screen and (max-width: 960px) {
-        width: 245px;
+        width: 35%;
       }
       @media only screen and (max-width: 600px) {
         display: none;
