@@ -15,9 +15,11 @@
           <a href="{{ .Params.Link }}" class="showcase__box--title" target="_blank" rel="noreferrer">
             {{ .Title }}
           </a>
+          {{ if (isset .Params "thumb") | or (eq .Params.thumb "") }}
           <a href="{{ .Params.Link }}" class="showcase__box--img" target="_blank" rel="noreferrer">
             <img src="{{ (print "images/" .Params.thumb) | relURL }}" alt="{{ .Title }}">
           </a>
+          {{ end }}
           <div class="showcase__box--desc">
             {{ .Description }}
           </div>
