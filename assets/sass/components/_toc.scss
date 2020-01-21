@@ -8,7 +8,7 @@
   z-index: z('toc');
 
   @include no-select;
-  @include animation('slide-in-down-little .2s .6s 1 ease-in both');
+  @include animation('slide-in-down-little .2s .3s 1 ease-in both');
   
   #TableOfContents {
     position: relative;

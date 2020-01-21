@@ -5,7 +5,7 @@
     a {
       font-family: $title-font;
       font-weight: 700;
-      word-break:break-all;
+      word-break: break-word;
 
       @include themify($themes) {
           color: themed('title-color');
@@ -86,7 +86,7 @@
     a {
       font-family: $title-font;
       font-weight: 700;
-      word-break:break-all;
+      word-break:break-word;
 
       @include themify($themes) {
           color: themed('title-color');
@@ -118,7 +118,6 @@
     @include flexbox();
     @include flex-direction(column);
     @include justify-content(flex-start);
-    padding-left: 1rem;
   }
 
   &__text {
@@ -131,6 +130,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+
     @include animation('slide-in-left .2s .6s 1 ease-in both');
         
     &-wrapper {
@@ -138,10 +138,16 @@
       min-width: 130px;
       overflow: hidden;
       border-radius: 0.25rem;
+      
+      @include transition(all, 0.25s, ease-in);
       @include align-self(center);
       @include on-event {
         @include box-shadow(1px, 1px, 3px, 0px, rgba(0, 0, 0, 0.25));
         background-color: rgba(125, 125, 125, 0.1);
+      }
+      @media only screen and (max-width: 769px) {
+        max-width: 90px;
+        min-width: 90px;
       }
     }
   }

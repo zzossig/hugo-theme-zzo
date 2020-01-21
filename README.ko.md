@@ -564,9 +564,9 @@ enableBio: true
 ---
 ```
 
-3. 마지막으로, 프로젝트당 한개의 md파일을 만드시면 됩니다.  
+3. 프로젝트당 한개의 md파일을 만들어 주세요.
 
-`root/content/showcase/hugo/my-awesome-project.md`.
+`root/content/showcase/hugo/my-awesome-project.md`
 
 ```yaml
 ---
@@ -579,6 +579,18 @@ repo: https://github.com/zzossig/hugo-theme-zzo
 pinned: true # appreared on a overview page.
 thumb: feature3/css3.png # relative path in static/images
 ---
+```
+
+4. 마지막으로, 메뉴를 등록해주세요.
+
+`root/config/_default/menus.en.toml`
+
+```toml
+[[main]]
+  identifier = "showcase"
+  name = "Showcase"
+  url = "showcase"
+  weight = 7
 ```
 
 ## Multi Language

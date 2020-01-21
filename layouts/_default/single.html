@@ -3,7 +3,7 @@
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
 <script src="{{ $enquire.RelPermalink }}"></script>
 
-<main class="{{ if or ($.Param "enableToc") ($.Param "toc") }}{{ if $.Param "hideToc" }}main{{ else }}main-main{{ end }}{{ else }}main{{ end }}">
+<main class="single__main {{ if or ($.Param "enableToc") ($.Param "toc") }}{{ if $.Param "hideToc" }}main{{ else }}main-main{{ end }}{{ else }}main{{ end }}">
   {{ if eq .Site.Params.enableBreadcrumb true }}
   {{ partial "body/breadcrumb" . }}
   {{ end }}
@@ -25,33 +25,42 @@
     {{ partial "body/photoswipe" . }}
 
     <div class="hide">
-    {{ partial "search/site-search" . }}
+      {{ partial "search/site-search" . }}
     </div>
   </div>
 </main>
 
-{{ if $.Param "enableSidebar" }}
-<aside class="{{ if or ($.Param "enableToc") ($.Param "toc") }}main-side{{ end }}">
+{{ if or ($.Param "enableToc") ($.Param "toc") }}
+<aside class="single__side {{ if or ($.Param "enableToc") ($.Param "toc") }}main-side{{ end }}">
   {{ partial "sidebar/sidebar-single" . }}
 </aside>
 {{ end }}
 <script>
+  {{ $enableToc:= $.Param "enableToc" }}
+  {{ $toc:= $.Param "toc" }}
+  var enableToc = JSON.parse({{ $enableToc | jsonify }});
+  var toc = JSON.parse({{ $toc | jsonify }});
+  
+  var singleMainElem = document.querySelector('.single__main');
+  var singleSideElem = document.querySelector('.single__side');
+
   enquire.register("screen and (max-width: 769px)", {
     match: function () {
-      if (document.getElementsByTagName('main')[0]) {
-        document.getElementsByTagName('main')[0].className = "main";
-      }
-      if (document.getElementsByTagName('aside')[0]) {
-        document.getElementsByTagName('aside')[0].className = "hide";
+      if (enableToc || toc) {
+        singleMainElem.classList.remove('main-main');
+        singleMainElem.classList.add('main');
+        singleSideElem.classList.remove('main-side');
+        singleSideElem.classList.add('hide');
       }
     },
     unmatch: function () {
-      if (document.getElementsByTagName('main')[0]) {
-        document.getElementsByTagName('main')[0].className = "main-main";
+      if (enableToc || toc) {
+        singleMainElem.classList.remove('main');
+        singleMainElem.classList.add('main-main');
+        singleSideElem.classList.remove('hide');
+        singleSideElem.classList.add('main-side');
       }
-      if (document.getElementsByTagName('aside')[0]) {
-        document.getElementsByTagName('aside')[0].className = "main-side";
-      }
+
       document.getElementsByClassName('navbar__burger')[0].classList.remove('is-active');
       document.getElementsByClassName('navbar__menu')[0].classList.remove('is-active');
       document.getElementsByClassName('mobile-search')[0].classList.add('hide');

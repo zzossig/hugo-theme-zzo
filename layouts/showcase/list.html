@@ -21,6 +21,12 @@
       {{ partial "showcase/show-section" . }}
     {{ end }}
   </section>
+  
   {{ partial "script/showcase-script" . }}
+  {{ if not .Params.enableBio }}
+    <div class="hide">
+      {{ partial "search/site-search" . }}
+    </div>
+  {{ end }}
 </main>
 {{ end }}

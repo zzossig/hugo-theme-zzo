@@ -49,11 +49,13 @@
             listMainElem.classList.remove(gridBig);
             listMainElem.classList.add(gridFull);
             listSideElem.classList.remove(gridSmall);
+            listSideElem.classList.add('hide');
         },
         unmatch: function () {
             listMainElem.classList.remove(gridFull);
             listMainElem.classList.add(gridBig);
             listSideElem.classList.add(gridSmall);
+            listSideElem.classList.remove('hide');
 
             document.getElementsByClassName('navbar__burger')[0].classList.remove('is-active');
             document.getElementsByClassName('navbar__menu')[0].classList.remove('is-active');
