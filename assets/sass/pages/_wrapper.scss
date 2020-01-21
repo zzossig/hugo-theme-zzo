@@ -1,0 +1,30 @@
+$grid_max: $grid_max_width + $grid_max_unit;
+
+.wrapper {
+  margin: 0 auto;
+  position: relative;
+
+  @include justify-content(center);
+  @include themify($themes) {
+      background-color: themed('body-background-color');
+  }
+  @media only screen and (max-width: 769px) {
+      grid-template-columns: minmax(0, $grid_main_main) minmax(0, $grid_main_side);
+  }
+  
+  &__left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: calc((100vw - 980px) / 2);
+  }
+
+  &__right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: calc((100vw - 980px) / 2);
+  }
+}

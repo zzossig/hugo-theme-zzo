@@ -20,6 +20,8 @@
   <ul class="pagination">
     {{ range $pag.Pagers }}
       {{ $cur := .PageNumber }}
+      <script>
+      </script>
       {{ if in ($.Scratch.Get "show") $cur }}
         <li
         {{ if eq . $pag }}class="active"{{ end }}><a href="{{ .URL }}">{{ .PageNumber }}</a></li>

@@ -6,6 +6,7 @@ draft: false
 hideToc: false
 enableToc: true
 enableTocContent: false
+tocPosition: inner
 tags:
 -
 series:

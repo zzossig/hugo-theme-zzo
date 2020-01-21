@@ -80,6 +80,16 @@
       }
     }
   }
+
+  &__outer {
+    padding-right: 1rem;
+    padding-left: 2.5rem;
+    max-width: calc((100vw - 980px) / 2);
+
+    @media only screen and (max-width: 1300px) {
+      display: none;
+    }
+  }
 }
 
 .expand__content {

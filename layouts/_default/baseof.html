@@ -22,14 +22,15 @@
     </script>    
     
     <div id="container">
-        {{ partial "body/custom-wrapper" . }}
+        {{ partial "body/main-left" . }}
         <div class="wrapper">
             {{ partial "navbar/site-nav" . }}
             {{ partial "header/site-header" . }}
             {{ block "main" . }}{{ end }}
             {{ partial "body/custom-body" . }}
             {{ partial "footer/site-footer" . }}
-        </div>    
+        </div>
+        {{ partial "body/main-right" . }}
     </div>
 </body>
 

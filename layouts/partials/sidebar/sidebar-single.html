@@ -1,5 +1,5 @@
 {{ if $.Param "enableSidebar" }}
-{{ if or ($.Param "enableToc") ($.Param "toc") }}
+{{ if and (or ($.Param "enableToc") ($.Param "toc")) (ne ($.Param "tocPosition") "outer") }}
 
 <section class="sidebar">
   <div class="toc__flexbox" data-position="{{ if $.Param "hideToc" }}absolute{{ else }}fixed{{ end }}">

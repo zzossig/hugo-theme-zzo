@@ -1,0 +1,9 @@
+<div class="wrapper__right">
+  {{ if eq ($.Param "tocPosition") "outer" }}
+    {{ if or ($.Param "enableToc") ($.Param "toc") }}
+      <div class="toc toc__outer {{ if $.Param "hideToc" }}hide{{ end }}">
+        {{ .TableOfContents }}
+      </div>
+    {{ end }}
+  {{ end }}
+</div>

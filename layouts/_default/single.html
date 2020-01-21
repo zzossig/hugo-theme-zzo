@@ -3,7 +3,7 @@
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
 <script src="{{ $enquire.RelPermalink }}"></script>
 
-<main class="single__main {{ if or ($.Param "enableToc") ($.Param "toc") }}{{ if $.Param "hideToc" }}main{{ else }}main-main{{ end }}{{ else }}main{{ end }}">
+<main class="single__main {{ if or ($.Param "enableToc") ($.Param "toc") }}{{ if $.Param "hideToc" }}main{{ else if eq ($.Param "tocPosition") "outer" }}main{{ else }}main-main{{ end }}{{ else }}main{{ end }}">
   {{ if eq .Site.Params.enableBreadcrumb true }}
   {{ partial "body/breadcrumb" . }}
   {{ end }}
@@ -30,7 +30,7 @@
   </div>
 </main>
 
-{{ if or ($.Param "enableToc") ($.Param "toc") }}
+{{ if and (or ($.Param "enableToc") ($.Param "toc")) (ne ($.Param "tocPosition") "outer") }}
 <aside class="single__side {{ if or ($.Param "enableToc") ($.Param "toc") }}main-side{{ end }}">
   {{ partial "sidebar/sidebar-single" . }}
 </aside>
@@ -38,27 +38,48 @@
 <script>
   {{ $enableToc:= $.Param "enableToc" }}
   {{ $toc:= $.Param "toc" }}
+  {{ $tocPosition:= $.Param "tocPosition" }}
+
   var enableToc = JSON.parse({{ $enableToc | jsonify }});
   var toc = JSON.parse({{ $toc | jsonify }});
+  var tocPosition = JSON.parse({{ $tocPosition | jsonify }});
   
   var singleMainElem = document.querySelector('.single__main');
   var singleSideElem = document.querySelector('.single__side');
 
   enquire.register("screen and (max-width: 769px)", {
     match: function () {
-      if (enableToc || toc) {
-        singleMainElem.classList.remove('main-main');
-        singleMainElem.classList.add('main');
-        singleSideElem.classList.remove('main-side');
-        singleSideElem.classList.add('hide');
+      if ((enableToc || toc) && tocPosition !== "outer") {
+        if (singleMainElem && singleSideElem) {
+          singleMainElem.classList.remove('main-main');
+          singleMainElem.classList.add('main');
+          singleSideElem.classList.remove('main-side');
+          singleSideElem.classList.add('hide');
+        }
+      } else if (tocPosition === "outer") {
+        if (singleMainElem && !singleMainElem.classList.contains('main-main')) {
+          singleMainElem.classList.remove('main-main');
+          singleMainElem.classList.add('main');
+        }
+        if (singleSideElem && !singleSideElem.classList.contains('hide')) {
+          singleSideElem.classList.add('hide');
+        }
       }
     },
     unmatch: function () {
-      if (enableToc || toc) {
+      if ((enableToc || toc) && tocPosition !== "outer") {
         singleMainElem.classList.remove('main');
         singleMainElem.classList.add('main-main');
         singleSideElem.classList.remove('hide');
         singleSideElem.classList.add('main-side');
+      } else if (tocPosition === "outer") {
+        if (singleMainElem && !singleMainElem.classList.contains('main-main')) {
+          singleMainElem.classList.remove('main-main');
+          singleMainElem.classList.add('main');
+        }
+        if (singleSideElem && !singleSideElem.classList.contains('hide')) {
+          singleSideElem.classList.add('hide');
+        }
       }
 
       document.getElementsByClassName('navbar__burger')[0].classList.remove('is-active');

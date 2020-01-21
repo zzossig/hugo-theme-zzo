@@ -116,7 +116,7 @@
     var toc = JSON.parse({{ $toc | jsonify }});
     var hideToc = JSON.parse({{ $hideToc | jsonify }});
     
-    if (enableToc || toc) {
+    if ((enableToc || toc) && document.querySelector('.toc')) {
       var tableOfContentsElem = document.querySelector('.toc').querySelector('#TableOfContents');
       tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
         liElem.querySelectorAll('ul').forEach(function (ulElem) {

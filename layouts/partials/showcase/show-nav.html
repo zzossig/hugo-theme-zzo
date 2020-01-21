@@ -6,8 +6,8 @@
   {{ range (.Site.GetPage "section" .Type).Pages }}
     {{ $active := false }}
     {{ $active = or $active (eq .Name $current.Title) }}
-    {{ $active = or $active (eq (lower .URL) (lower $current.Title)) }}
-    {{ $active = or $active (eq (lower .URL) (lower $current.Type)) }}
+    {{ $active = or $active (eq (lower .Permalink) (lower $current.Title)) }}
+    {{ $active = or $active (eq (lower .Permalink) (lower $current.Type)) }}
     <a href="{{ .Permalink }}" class="showcase__button {{ if $active }}active{{ end }}" data-meta="{{ len .Pages }}">
       {{ i18n (lower .Title) | default .Title }}
     </a>

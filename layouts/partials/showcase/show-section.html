@@ -10,14 +10,17 @@
           <a href="{{ .Params.Link }}" class="showcase__box--title" target="_blank" rel="noreferrer">
             {{ .Title }}
           </a>
-          {{ if (isset .Params "thumb") | or (eq .Params.thumb "") }}
+          
+          {{ if .Params.thumb }}
           <a href="{{ .Params.Link }}" class="showcase__box--img" target="_blank" rel="noreferrer">
             <img src="{{ (print "images/" .Params.thumb) | relURL }}" alt="{{ .Title }}">
           </a>
           {{ end }}
+
           <div class="showcase__box--desc">
             {{ .Description }}
           </div>
+          <div class="grow"></div>
           <div class="showcase__box--meta">
             <span class="type">
               {{ partial "svgs/etc/code.svg" (dict "width" 14 "height" 14) }}

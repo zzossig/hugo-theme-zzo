@@ -6,9 +6,6 @@
   {{ end }}
 
   {{ if gt $pinnedNum 0 }}
-    <div class="showcase__title">
-      {{ i18n "showcase-pinned" }}
-    </div>
     <div style="display: flex; justify-content: center">
     <ol class="showcase__box--wrapper">
       {{ range .Pages }}

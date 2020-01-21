@@ -138,6 +138,8 @@
       min-width: 130px;
       overflow: hidden;
       border-radius: 0.25rem;
+      padding: 0.25rem;
+      margin-right: .5rem;
       
       @include transition(all, 0.25s, ease-in);
       @include align-self(center);

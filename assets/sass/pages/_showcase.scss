@@ -6,7 +6,7 @@
     position: sticky;
     top: $grid_navbar_height * 1.25;
     display: block;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 
     @media only screen and (max-width: 600px) {
       display: none;
@@ -64,14 +64,9 @@
     }
   }
 
-  &__title {
-    margin: 2rem 0.5rem 0.25rem 0;
-    font-size: 1.125rem;
-  }
-
   &__box {
     width: 100%;
-    max-width: 48.2%;
+    max-width: 48%;
     height: auto;
     border-radius: 0.2rem;
     padding: 1rem;
@@ -101,7 +96,7 @@
     }
 
     @media only screen and (max-width: 1180px) {
-      max-width: 48.2%;
+      max-width: 48%;
     }
 
     @media only screen and (max-width: 769px) {
