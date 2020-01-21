@@ -14,8 +14,8 @@
   }
 
   &__nav {
-    margin: 0 0.5rem;
     padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
     
     @include themify($themes) {
       border-bottom: 1px solid themed('hr-color');
@@ -65,18 +65,28 @@
   }
 
   &__title {
-    margin: 2rem 0.5rem 0.25rem 0.5rem;
+    margin: 2rem 0.5rem 0.25rem 0;
     font-size: 1.125rem;
   }
 
   &__box {
-    width: 25%;
+    width: 100%;
+    max-width: 48.2%;
     height: auto;
     border-radius: 0.2rem;
-    margin: 0.5rem;
     padding: 1rem;
     position: relative;
     
+    &:nth-child(odd) {
+      margin: 0.5rem;
+      margin-left: 0;
+    }
+
+    &:nth-child(even) {
+      margin: 0.5rem;
+      margin-right: 0;
+    }
+
     @include flexbox();
     @include flex-grow(1);
     @include flex-direction(column);
@@ -84,33 +94,26 @@
     @include themify($themes) {
       border: 1px solid themed('content-box-border-color');
     }
+
     @include on-event {
-      @include on-event {
-        @include box-shadow(1px, 1px, 3px, 0px, rgba(0, 0, 0, 0.25));
-        background-color: rgba(125, 125, 125, 0.1);
-      }
+      @include box-shadow(1px, 1px, 3px, 0px, rgba(0, 0, 0, 0.25));
+      background-color: rgba(125, 125, 125, 0.1);
     }
-    @media only screen and (max-width: 960px) {
-      width: 35%;
+
+    @media only screen and (max-width: 1180px) {
+      max-width: 48.2%;
+    }
+
+    @media only screen and (max-width: 769px) {
+      max-width: 100%;
+      margin: 0.5rem 0 !important;
     }
 
     &--wrapper {
       @include flexbox();
+      @include justify-content(flex-start);
       @include flex-wrap(wrap);
       @include animation('slide-in-left-little .2s .25s 1 ease-in both');
-    }
-
-    &--dummy {
-      width: 25%;
-      margin: 0.5rem;
-
-      @include flex-grow(1);
-      @media only screen and (max-width: 960px) {
-        width: 35%;
-      }
-      @media only screen and (max-width: 600px) {
-        display: none;
-      }
     }
 
     &--title {
@@ -130,13 +133,13 @@
       font-family: $content-font;
       font-size: 0.9rem;
       margin: 0.25rem 0;
-      height: 60px;
-      overflow: hidden;
+      height: 70px;
     }
 
     &--img {
       width: auto;
       height: 100%;
+      margin: 0.5rem 0;
       max-height: 225px;
       object-fit: cover;
 

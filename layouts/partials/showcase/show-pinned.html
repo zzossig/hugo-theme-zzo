@@ -1,24 +1,20 @@
 <div>
   {{ $pinnedNum := 0 }}
-  {{ $isOdd := false}}
 
   {{ range .Pages }}
     {{ $pinnedNum = add $pinnedNum (len (where .Pages "Params.pinned" true)) }}
-  {{ end }}
-
-  {{ if eq (mod $pinnedNum 2) 1 }}
-    {{ $isOdd = true }}
   {{ end }}
 
   {{ if gt $pinnedNum 0 }}
     <div class="showcase__title">
       {{ i18n "showcase-pinned" }}
     </div>
-    <div class="showcase__box--wrapper">
+    <div style="display: flex; justify-content: center">
+    <ol class="showcase__box--wrapper">
       {{ range .Pages }}
         {{ $category := .Params.category }}
         {{ range where .Pages "Params.pinned" true }}
-          <div class="showcase__box">
+          <li class="showcase__box">
             <a href="{{ .Params.Link }}" class="showcase__box--link" target="_blank" rel="noreferrer"></a>
             <span class="showcase__box--title">
               {{ .Title }}
@@ -38,13 +34,10 @@
                 Repository
               </a>
             </div>
-          </div>
+          </li>
         {{ end }}
       {{ end }}
-      
-      {{ if $isOdd }}
-        <div class="showcase__box--dummy"></div>
-      {{ end }}
+    </ol>
     </div>
   {{ end }}
 </div>

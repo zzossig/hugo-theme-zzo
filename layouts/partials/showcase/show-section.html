@@ -1,10 +1,5 @@
 <div>
   {{ $sectionNum := (len .Pages) }}
-  {{ $isOdd := false}}
-
-  {{ if eq (mod $sectionNum 2) 1}}
-    {{ $isOdd = true }}
-  {{ end }}
 
   {{ if gt $sectionNum 0 }}
     <div class="showcase__box--wrapper">
@@ -35,10 +30,6 @@
             </a>
           </div>
         </div>
-      {{ end }}
-      
-      {{ if $isOdd }}
-        <div class="showcase__box--dummy"></div>
       {{ end }}
     </div>
   {{ end }}
