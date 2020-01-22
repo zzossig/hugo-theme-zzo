@@ -1047,7 +1047,7 @@ Some markdown contents
 
 ### code / codes => Tabbed code-block. indentation matters.
 
-```bash
+`````
 {{< codes java javascript >}}
   {{< code >}}
   ```java
@@ -1060,4 +1060,4 @@ Some markdown contents
   ```
   {{< /code >}}
 {{< /codes >}}
-```
+`````
