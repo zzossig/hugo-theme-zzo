@@ -1,4 +1,18 @@
 .list {
+  &__main {
+
+  }
+
+  &__sidebar {
+    &.l {
+      margin-left: 1rem;
+    }
+
+    &.r {
+      margin-right: 1rem;
+    }
+  }
+
   &__header {
     display: flex;
     align-items: center;

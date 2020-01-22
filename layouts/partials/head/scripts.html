@@ -14,11 +14,42 @@
 <script defer src="{{ $getParents.RelPermalink }}"></script>
 {{ $fadeinout := resources.Get "js/helper/fadeinout.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $fadeinout.RelPermalink }}"></script>
-
+{{ $closest := resources.Get "js/helper/closest.js" | resources.Minify }}
+<script defer src="{{ $closest.RelPermalink }}"></script>
+  
 <script>
   "use strict";
 
   document.addEventListener('DOMContentLoaded', function () {
+    // ============================ tab ============================
+    document.querySelectorAll('.tab') ? 
+    document.querySelectorAll('.tab').forEach(function(elem, idx) {
+      var containerId = elem.getAttribute('id');
+      var containerElem = elem;
+      var tabLinks = elem.querySelectorAll('.tab__link');
+      var tabContents = elem.querySelectorAll('.tab__content');
+      var ids = [];
+
+      tabLinks && tabLinks.length > 0 ?
+      tabLinks.forEach(function(link, index, self) {
+        link.onclick = function(e) {
+          for (var i = 0; i < self.length; i++) {
+            if (index === parseInt(i, 10)) {
+              if (!self[i].classList.contains('active')) {
+                self[i].classList.add('active');
+                tabContents[i].style.display = 'block';
+              }
+            } else {
+              self[i].classList.remove('active');
+              tabContents[i].style.display = 'none';
+            }
+          }
+        }
+      }) : null;
+    }) : null;
+    // =============================================================
+
+
     // ========================= go to top =========================
     var gttBtn = document.getElementById("gtt");
     gttBtn.style.display = "none";
@@ -95,7 +126,7 @@
           navbar.classList.remove('navbar--show');
         }
         
-        singleContentsElem ? 
+        singleContentsElem ?
         singleContentsElem.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(function(elem) {
           if (toggleTocElem && !toggleTocElem.checked) {
             return null;
@@ -110,20 +141,21 @@
               tocElem.querySelector('a[href="#' + id + '"]') ? 
               tocElem.querySelector('a[href="#' + id + '"]').classList.add('active') : null;
 
-              tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
+              tableOfContentsElem.querySelector('ul') ?
+              tableOfContentsElem.querySelector('ul').querySelectorAll('li').forEach(function (liElem) {
                 liElem.querySelectorAll('ul').forEach(function (ulElem) {
                   ulElem.style.display = 'none';
                 });
-              });
+              }) : null;
 
               var curElem = tableOfContentsElem.querySelector(`[href="#${id}"]`);
               if (curElem && curElem.nextElementSibling) {
                 curElem.nextElementSibling.style.display = 'block';
               }
-              getParents(curElem, 'ul') ? 
+              getParents(curElem, 'ul') ?
               getParents(curElem, 'ul').forEach(function (elem) {
                 elem.style.display = 'block';
-              }) : null; 
+              }) : null;
             }
           }
         }) : null;
@@ -153,9 +185,11 @@
               tocElem.querySelector('a[href="#' + id + '"]') ? 
               tocElem.querySelector('a[href="#' + id + '"]').classList.add('active') : null;
 
-              tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
-                liElem.querySelectorAll('ul').forEach(function (ulElem) {
-                  ulElem.style.display = 'none';
+              tableOfContentsElem.querySelectorAll('ul').forEach(function (rootUl) {
+                rootUl.querySelectorAll('li').forEach(function (liElem) {
+                  liElem.querySelectorAll('ul').forEach(function (ulElem) {
+                    ulElem.style.display = 'none';
+                  });
                 });
               });
 
@@ -172,11 +206,12 @@
         }) : null;
 
         if (tableOfContentsElem && document.documentElement.scrollTop < 250) {
-          tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
+          tableOfContentsElem.querySelector('ul') ?
+          tableOfContentsElem.querySelector('ul').querySelectorAll('li').forEach(function (liElem) {
             liElem.querySelectorAll('ul').forEach(function (ulElem) {
               ulElem.style.display = 'none';
             });
-          });
+          }) : null;
         }
       }
       lastScrollTop = st <= 0 ? 0 : st;

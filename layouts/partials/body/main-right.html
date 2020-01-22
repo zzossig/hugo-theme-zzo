@@ -1,6 +1,15 @@
 <div class="wrapper__right">
   {{ if eq ($.Param "tocPosition") "outer" }}
     {{ if or ($.Param "enableToc") ($.Param "toc") }}
+      <div class="toc__flexbox--outer" data-position="fixed">
+        <h6 class="toc__title">{{ i18n "toc-label" }}</h6>
+        {{ if $.Param "enableTocSwitch" }}
+        <label class="switch">
+          <input id="visible-toc" aria-label="Visible TOC" type="checkbox" {{ if $.Param "hideToc" }}{{ else }}checked{{ end }}>
+          <span class="slider round"></span>
+        </label>
+        {{ end }}
+      </div>
       <div class="toc toc__outer {{ if $.Param "hideToc" }}hide{{ end }}">
         {{ .TableOfContents }}
       </div>

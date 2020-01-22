@@ -1040,6 +1040,31 @@ A notice disclaimer
 
 ```bash
 {{< box >}}
-Some markdown contents
+Some contents
 {{< /box >}}
+```
+
+### boxmd
+
+```bash
+{{< boxmd >}}
+Some markdown contents
+{{< /boxmd >}}
+```
+
+### code / codes => Tabbed code-block. indentation matters.
+
+```bash
+{{< codes java javascript >}}
+  {{< code >}}
+  ```java
+  System.out.println('Hello World!');
+  ```
+  {{< /code >}}
+  {{< code >}}
+  ```javascript
+  console.log('Hello World!');
+  ```
+  {{< /code >}}
+{{< /codes >}}
 ```

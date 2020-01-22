@@ -3,9 +3,9 @@
     <span class="expand-icon expand-icon__right">
         {{ partial "svgs/arrow/keyboard-arrow-right.svg" (dict "width" 24 "height" 24) }}
     </span>
-    {{.Get 0}}
+    {{ .Get 0 }}
   </button>
   <div class="expand__content">
-    {{.Inner | safeHTML}}
+    {{ .Inner | safeHTML }}
   </div>
 </div>

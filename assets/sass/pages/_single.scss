@@ -129,6 +129,7 @@
       overflow: auto;
       border-radius: 0.34rem;
       line-height: 1.5;
+      font-size: 13.8px;
     }
 
     pre:not(.chroma) {
@@ -348,7 +349,7 @@
 
           th, td {
             padding: 5px 15px;
-            font-size: 0.9rem;
+            font-size: 13.8px;
             border: 1px double themed('content-pre-border-background-color');
           }
         }

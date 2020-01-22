@@ -78,6 +78,7 @@
 }
 
 .summary-classic {
+  padding: 0 1rem;
   @include animation('slide-in-down .2s .3s 1 ease-in both');
 
   .title {

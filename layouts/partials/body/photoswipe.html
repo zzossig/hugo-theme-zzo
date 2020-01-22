@@ -177,6 +177,9 @@ document.addEventListener('DOMContentLoaded', function () {
         fadeOut(itemsElem, 200);
       }, 2500);
     }
+    wrapper.ontouchstart = function() {
+      fadeIn(itemsElem, 200);
+    }
     wrapper.append(clonedElem);
     swipeWrapElem.append(wrapper);
 

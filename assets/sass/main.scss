@@ -70,6 +70,7 @@ $cursive-font: {{ .Site.Data.font.cursive_font }};
 @import 'components/donation';
 @import 'components/box';
 @import 'components/modal';
+@import 'components/tab';
 
 @import 'pages/404';
 @import 'pages/about';

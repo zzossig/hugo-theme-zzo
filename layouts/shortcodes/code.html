@@ -1,0 +1,4 @@
+{{ $id := substr (md5 .Inner) 0 16 }}
+<div id="{{ $id }}" class="tab__content">
+  {{ .Inner | markdownify }}
+</div>

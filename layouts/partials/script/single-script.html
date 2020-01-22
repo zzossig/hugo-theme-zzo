@@ -112,17 +112,19 @@
     {{ $enableToc := ($.Param "enableToc") }}
     {{ $toc := ($.Param "toc") }}
     {{ $hideToc := ($.Param "hideToc") }}
+    
     var enableToc = JSON.parse({{ $enableToc | jsonify }});
     var toc = JSON.parse({{ $toc | jsonify }});
     var hideToc = JSON.parse({{ $hideToc | jsonify }});
     
     if ((enableToc || toc) && document.querySelector('.toc')) {
       var tableOfContentsElem = document.querySelector('.toc').querySelector('#TableOfContents');
-      tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
+      tableOfContentsElem.querySelector('ul') ?
+      tableOfContentsElem.querySelector('ul').querySelectorAll('li').forEach(function (liElem) {
         liElem.querySelectorAll('ul').forEach(function (ulElem) {
           ulElem.style.display = 'none';
         });
-      });
+      }) : null;
 
       tableOfContentsElem.querySelectorAll('a').forEach(function(elem) {
         elem.addEventListener('click', function() {
@@ -136,11 +138,12 @@
           });
           elem.classList.add('active');
 
-          tableOfContentsElem.querySelectorAll('ul > li').forEach(function (liElem) {
-            liElem.querySelectorAll('ul').forEach(function(ulElem) {
+          tableOfContentsElem.querySelector('ul') ?
+          tableOfContentsElem.querySelector('ul').querySelectorAll('li').forEach(function (liElem) {
+            liElem.querySelectorAll('ul').forEach(function (ulElem) {
               ulElem.style.display = 'none';
             });
-          });
+          }) : null;
 
           var curElem = tableOfContentsElem.querySelector(`[href="#${id}"]`);
           if (curElem && curElem.nextElementSibling) {
@@ -156,7 +159,8 @@
       });
 
       // toc visibility
-      var toggleTocElem = document.querySelector("#toggle-toc");
+      var toggleTocElem = document.getElementById("toggle-toc");
+      var visibleTocElem = document.getElementById('visible-toc');
       var tocElem = document.querySelector('.toc');
       var mainElem = document.querySelector('main');
       var sideElem = document.querySelector('side');
@@ -198,6 +202,19 @@
           }
         }
       }) : null;
+
+      visibleTocElem ?
+      visibleTocElem.addEventListener('change', function(e) {
+        if (e.target.checked) {
+          if (tocElem) {
+            fadeIn(tocElem, 200);
+          }
+        } else {
+          if (tocElem) {
+            fadeOut(tocElem, 200);
+          }
+        }
+      }) : null;
     }
     // =================================================================
 
@@ -222,7 +239,6 @@
     headers.forEach(function (elem) {
       var url = encodeURI(document.location.origin + document.location.pathname);
       var link = url + "#" + elem.getAttribute('id');
-      
       var newElemOuter = document.createElement('span');
       newElemOuter.classList.add('anchor');
       newElemOuter.classList.add('hide');
@@ -273,8 +289,8 @@
     var makeClipboard = function(elem) {
       var code = elem,
         text = elem.textContent;
-
-      if (text.length > 30) {
+        
+      if (text.length > 15) {
         if (!clipInit) {
           var text, clip = new ClipboardJS('.copy-to-clipboard', {
             text: function (trigger) {

@@ -35,7 +35,6 @@ $grid_column_gap: $grid_column_gap_width + $grid_column_gap_unit;
 }
 
 .main {
-    padding: 0 1rem;
     grid-area: 3 / 1 / 4 / 3;
 }
 
@@ -67,15 +66,15 @@ $grid_column_gap: $grid_column_gap_width + $grid_column_gap_unit;
 
 .inner {
     display: grid;
-    grid-template-columns: 250px 1fr 1fr;
+    grid-template-columns: 266px 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 16px;
     grid-row-gap: 0px;
 
     @if $sidebar_position == "left" {
-        grid-template-columns: 250px 1fr 1fr;
+        grid-template-columns: 266px 1fr 1fr;
     } @else {
-        grid-template-columns: 1fr 1fr 250px;
+        grid-template-columns: 1fr 1fr 266px;
     }
 }
 

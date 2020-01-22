@@ -1,15 +1,18 @@
 /**
  * Basic typography style for copy text
  */
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font: normal 125% / 1.4 $text-font-stack;
-  -webkit-text-size-adjust: 100%;
 }
 
 code,
 pre {
   font: normal 125% / 1.8 $code-font-stack;
-  -webkit-text-size-adjust: 100%;
 }
 
 .h1 {

@@ -1,11 +1,15 @@
 .archive {
   position: relative;
-  padding: 2rem 2rem 0;
   width: 100%;
+  padding: 2rem 2rem 0;
 
   @include flexbox();
   @include flex-direction(column);
   @include justify-content(flex-start);
+
+  @media only screen and (max-width:768px) {
+    padding: 2rem 1rem 0;
+  }
 
   &__container {
     width: 100%;
