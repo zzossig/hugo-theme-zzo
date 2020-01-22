@@ -1,10 +1,11 @@
 .switch {
   position: relative;
-  // display: inline-block;
   width: 28px;
   height: 14px;
   margin-top: 0.7rem;
   margin-left: 1rem;
+
+  @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
 }
 
 .switch input { 
@@ -20,6 +21,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+
   @include transition(all, 0.2s, ease);
   @include themify($themes) {
     background-color: themed('switch-background-color');
@@ -32,7 +34,8 @@
   height: 11px;
   width: 11px;
   left: 1.72px;
-  bottom: 1.72px;  
+  bottom: 1.72px;
+
   @include transition(all, 0.2s, ease);
   @include themify($themes) {
     background-color: themed('switch-button-color');
