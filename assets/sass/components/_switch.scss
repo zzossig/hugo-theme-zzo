@@ -5,6 +5,11 @@
   height: 14px;
   margin-top: 0.7rem;
   margin-left: 1rem;
+  
+  @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
+  @media only screen and (max-width: 1300px) {
+    display: none;
+  }
 }
 
 .switch input { 
