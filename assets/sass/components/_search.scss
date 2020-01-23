@@ -2,6 +2,7 @@
   position: relative;
   border-radius: 0.25rem;
   height: 35px;
+  max-width: 928px;
   z-index: z('search');
   margin-bottom: 0.5rem;  
   
@@ -36,7 +37,7 @@
     @include truncate($grid_main_side_width + $grid_main_side_unit);
     @include themify($themes) {
       color: themed("search-color");
-      background-color: inherit;
+      background-color: themed("search-background-color");
       @include input-placeholder {
         font-family: $title-font;
         color: themed("search-placeholder-color");
@@ -89,10 +90,6 @@
 }
 
 #search-results {
-  @include themify($themes) {
-    // @include webkit-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
-  }
-  
   &.dropdown {
     display: none;
     &.is-active {
@@ -143,8 +140,10 @@
 
 .mobile-search {
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: z('modal');
-  width: 100%;  
+  width: 100%;
   overflow: hidden;
 
   @include themify($themes) {
@@ -169,6 +168,7 @@
       height: $grid_navbar_height;
       cursor: pointer;
       position: absolute;
+      top: 0;
       right: 0;
 
       @include flexbox();
@@ -203,7 +203,7 @@
   }
 
   &__body {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow-y: auto;
     

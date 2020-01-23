@@ -121,6 +121,7 @@ dfn {
 figcaption {  
   font-style: italic;
   font-size: 0.9rem;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
   @include themify($themes) {
     color: themed("figcaption-color");

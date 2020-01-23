@@ -20,6 +20,61 @@
 <script>
   "use strict";
 
+  // ========================== poiyfill ==========================
+  // forEach
+  if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+  }
+
+  // includes
+  if (!String.prototype.includes) {
+    String.prototype.includes = function (search, start) {
+      'use strict';
+
+      if (search instanceof RegExp) {
+        throw TypeError('first argument must not be a RegExp');
+      }
+      if (start === undefined) { start = 0; }
+      return this.indexOf(search, start) !== -1;
+    };
+  }
+
+  // append
+  Document.prototype.append = Element.prototype.append = function append() {
+    this.appendChild(_mutation(arguments));
+  };
+  function _mutation(nodes) {
+    if (!nodes.length) {
+      throw new Error('DOM Exception 8');
+    } else if (nodes.length === 1) {
+      return typeof nodes[0] === 'string' ? document.createTextNode(nodes[0]) : nodes[0];
+    } else {
+      var
+      fragment = document.createDocumentFragment(),
+      length = nodes.length,
+      index = -1,
+      node;
+
+      while (++index < length) {
+        node = nodes[index];
+
+        fragment.appendChild(typeof node === 'string' ? document.createTextNode(node) : node);
+      }
+
+      return fragment;
+    }
+  }
+
+  // startsWith
+  if (!String.prototype.startsWith) {
+    String.prototype.startsWith = function (searchString, position) {
+      position = position || 0;
+      return this.indexOf(searchString, position) === position;
+    };
+  }
+  // ===============================================================
+
+
   document.addEventListener('DOMContentLoaded', function () {
     // ============================ tab ============================
     document.querySelectorAll('.tab') ? 
@@ -54,7 +109,11 @@
     var gttBtn = document.getElementById("gtt");
     gttBtn.style.display = "none";
     gttBtn.addEventListener('click', function () {
-      scrollToTop(250);
+      if (window.document.documentMode) {
+        document.documentElement.scrollTop = 0;
+      } else {
+        scrollToTop(250);
+      }
     });
 
     function scrollToTop(scrollDuration) {
@@ -148,7 +207,7 @@
                 });
               }) : null;
 
-              var curElem = tableOfContentsElem.querySelector(`[href="#${id}"]`);
+              var curElem = tableOfContentsElem.querySelector("[href='#" + id + "']");
               if (curElem && curElem.nextElementSibling) {
                 curElem.nextElementSibling.style.display = 'block';
               }
@@ -193,7 +252,7 @@
                 });
               });
 
-              var curElem = tableOfContentsElem.querySelector(`[href="#${id}"]`);
+              var curElem = tableOfContentsElem.querySelector("[href='#" + id + "']");
               if (curElem && curElem.nextElementSibling) {
                 curElem.nextElementSibling.style.display = 'block';
               }
@@ -222,6 +281,8 @@
   // ========================== navbar ==========================
     var navbarBurgerElem = document.querySelector('.navbar__burger');
     var navbarMenuElem = document.querySelector('.navbar__menu');
+    console.log(navbarBurgerElem);
+    console.log(navbarMenuElem);
     navbarBurgerElem ?
     navbarBurgerElem.addEventListener('click', function () {
       if (navbarBurgerElem.classList.contains('is-active')) {
@@ -286,7 +347,8 @@
 
     mobileSearchInputElem ? 
     mobileSearchInputElem.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
+      var keyCode = e.which || e.keyCode;
+      if (e.key === 'Escape' || keyCode === 27) {
         if (mobileSearchContainer) {
           mobileSearchContainer.style.display = 'none';
         }
@@ -332,7 +394,7 @@
         localStorage.setItem('theme', selectedThemeVariant);
 
         rootEleme.removeAttribute('class');
-        rootEleme.classList.add(`theme__${selectedThemeVariant}`);
+        rootEleme.classList.add('theme__' + selectedThemeVariant);
         selectThemeElem.forEach(function(rootElem) {
           rootElem.querySelectorAll('a').forEach(function (elem) {
             if (elem.classList) {
@@ -445,7 +507,7 @@
           });
         }
         else {
-          console.error(`[${xhr.status}]Error:`, xhr.statusText);
+          console.error('[' + xhr.status + ']Error:', xhr.statusText);
         }
       };
       xhr.send();
@@ -464,7 +526,7 @@
           var item = document.createElement('a');
           item.setAttribute('href', result.uri);
           item.setAttribute('class', 'dropdown-item');
-          item.innerHTML = `<div class="menu-item"><div class="menu-item__title">📄 ${result.title}</div><div class="menu-item__desc">${result.description ? result.description : result.content}</div></div>`;
+          item.innerHTML = '<div class="menu-item"><div class="menu-item__title">📄 ' + result.title + '</div><div class="menu-item__desc">' + (result.description ? result.description : result.content) + '</div></div>';
           content.appendChild(item);
         });
       } else {
@@ -495,7 +557,7 @@
           var item = document.createElement('a');
           item.setAttribute('href', result.item.uri);
           item.setAttribute('class', 'dropdown-item');
-          item.innerHTML = `<div class="menu-item"><div class="menu-item__title">📄 ${generateHighlightedText(result.item.title, result.matches[0].indices)}</div><div class="menu-item__desc">${result.matches[1] ? generateHighlightedText(result.item.description, result.matches[1].indices) : result.matches[2] ? generateHighlightedText(result.item.content, result.matches[2].indices) : ''}</div></div>`;
+          item.innerHTML = '<div class="menu-item"><div class="menu-item__title">📄 ' + generateHighlightedText(result.item.title, result.matches[0].indices) + '</div><div class="menu-item__desc">' + (result.matches[1] ? generateHighlightedText(result.item.description, result.matches[1].indices) : result.matches[2] ? generateHighlightedText(result.item.content, result.matches[2].indices) : '') + '</div></div>';
           content.appendChild(item);
         });
       } else {
@@ -523,7 +585,7 @@
         results.forEach(function (result) {
           var item = document.createElement('a');
           item.setAttribute('href', result.uri);
-          item.innerHTML = `<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ${result.title}</div><div class="mobile-search__item--desc">${result.description ? result.description : result.content}</div></div>`;
+          item.innerHTML = '<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ' + result.title + '</div><div class="mobile-search__item--desc">' + (result.description ? result.description : result.content) + '</div></div>';
           content.appendChild(item);
         });
       } else {
@@ -548,7 +610,7 @@
         results.forEach(function (result) {
           var item = document.createElement('a');
           item.setAttribute('href', result.item.uri);
-          item.innerHTML = `<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ${generateHighlightedText(result.item.title, result.matches[0].indices)}</div><div class="mobile-search__item--desc">${result.matches[1] ? generateHighlightedText(result.item.description, result.matches[1].indices) : result.matches[2] ? generateHighlightedText(result.item.content, result.matches[2].indices) : ''}</div></div>`;
+          item.innerHTML = '<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ' + generateHighlightedText(result.item.title, result.matches[0].indices) + '</div><div class="mobile-search__item--desc">' + (result.matches[1] ? generateHighlightedText(result.item.description, result.matches[1].indices) : result.matches[2] ? generateHighlightedText(result.item.content, result.matches[2].indices) : '') + '</div></div>';
           content.appendChild(item);
         });
       } else {
@@ -594,6 +656,7 @@
     var searchElem = document.getElementById('search');
     var searchMobile = document.getElementById('search-mobile');
 
+    searchElem ? 
     searchElem.addEventListener('input', function(e) {
       if (!e.target.value) {
         document.getElementById('search-results').setAttribute('class', 'dropdown');
@@ -611,8 +674,9 @@
       } else {
         renderSearchResults(results);
       }
-    });
+    }) : null;
 
+    searchElem ? 
     searchElem.addEventListener('blur', function() {
       if (window.innerWidth < 770) {
         return null;
@@ -620,8 +684,9 @@
       setTimeout(function () {
         document.getElementById('search-results').setAttribute('class', 'dropdown');
       }, 100);
-    });
+    }) : null;
 
+    searchElem ? 
     searchElem.addEventListener('click', function(e) {
       if (window.innerWidth < 770) {
         return null;
@@ -638,7 +703,7 @@
       } else {
         renderSearchResults(results);
       }
-    });
+    }) : null;
     
     function indexInParent(node) {
       var children = node.parentNode.childNodes;
@@ -656,14 +721,16 @@
     var items = null;
     var searchContainerMaxHeight = 350;
 
+    searchElem ? 
     searchElem.addEventListener('keydown', function(e) {
       if (window.innerWidth < 770) {
         return null;
       }
 
       var items = document.querySelectorAll('#search-menu .dropdown-item');
+      var keyCode = e.which || e.keyCode;
       
-      if (e.key === 'ArrowDown') {
+      if (e.key === 'ArrowDown' || keyCode === 40) {
         if (activeIndex === null) {
           activeIndex = 0;
           items[activeIndex].classList.remove('is-active');
@@ -679,7 +746,7 @@
         } else if (activeIndex === 0) {
           document.querySelector(".search-content").scrollTop = 0;
         }
-      } else if (e.key === 'ArrowUp') {
+      } else if (e.key === 'ArrowUp' || keyCode === 38) {
         if (activeIndex === null) {
           activeIndex = items.length - 1;
           items[activeIndex].classList.remove('is-active');
@@ -695,19 +762,20 @@
         } else {
           document.querySelector(".search-content").scrollTop = overflowedPixel + items[activeIndex].getBoundingClientRect().height;
         }
-      } else if (e.key === 'Enter') {
+      } else if (e.key === 'Enter' || keyCode === 13) {
         var currentItemLink = items[activeIndex].getAttribute('href');
         if (currentItemLink) {
           location.href = currentItemLink;
         }
-      } else if (e.key === 'Escape') {
+      } else if (e.key === 'Escape' || keyCode === 27) {
         e.target.value = null;
         if (searchResults) {
           searchResults.classList.remove('is-active');
         }
       }
-    });
+    }) : null;
 
+    searchMobile ? 
     searchMobile.addEventListener('input', function(e) {
       if (!e.target.value) {
         let wrap = document.getElementById('search-mobile-results');
@@ -725,7 +793,7 @@
       } else {
         renderSearchResultsMobile(results);
       }
-    });
+    }) : null;
   // ============================================================
   });
 </script>

@@ -31,7 +31,7 @@
           {{ else if eq (lower .) "tumblr" }}
             <a href="http://tumblr.com/widgets/share/tool?canonicalUrl={{ $ctx.Permalink | absLangURL }}&data-title={{ $ctx.Title }}&data-content={{ $ctx.Description }}" class="donation__item" target="_blank" rel="noreferer">
               {{ partial "svgs/share/tumblr.svg" (dict "width" 22 "height" 22) }}
-              {{ i18n "linkedin" | default "LinkedIn" }}
+              {{ i18n "tumblr" | default "Tumblr" }}
             </a>
           {{ else if eq (lower .) "weibo" }}
             <a href="javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://service.weibo.com/share/share.php?url='+e(d.location.href)+'&title='+e(d.title),x=function(){if(!window.open(r,'weibo','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r+'&r=1'};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()" class="donation__item" target="_blank" rel="noreferer">

@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ block "title" . }}{{ .Title }} – {{ .Site.Title }}{{ end }}</title>
     {{ partial "head/scripts" . }}    
     {{ partialCached "head/styles" . }}
@@ -17,7 +18,7 @@
     <script>
         var localTheme = localStorage.getItem('theme');
         if (localTheme) {
-            document.getElementById('root').className = `theme__${localTheme}`;
+            document.getElementById('root').className = 'theme__' + localTheme;
         }        
     </script>    
     

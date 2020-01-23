@@ -1,0 +1,44 @@
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+  .header {
+    padding-top: 3rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .showcase {
+    &__nav {
+      margin-top: 1.5rem;
+    }
+
+    &__box {
+      min-width: 270px;
+    }
+  }
+
+  .navbar {
+    &__slide-down {
+      svg {
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+
+  .theme-mobile {
+    top: 3px;
+    right: 77px;
+  }
+
+  .copy-to-clipboard {
+    &::after {
+      content: 'copy';
+      font-family: $title-font;
+      font-size: 9px;
+      border: 1px solid #aaa;
+      border-radius: 0.125rem;
+      position: absolute;
+      padding: 0 0.1rem;
+      right: 1px;
+      top: -1px;
+    }
+  }
+}

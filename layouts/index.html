@@ -30,6 +30,9 @@
 <script>
     {{ $sidebarPosition:= .Site.Params.sidebarPosition }}
     var sidebarPosition = JSON.parse({{ $sidebarPosition | jsonify }});
+    {{ $enableSidebar:= .Site.Params.enableSidebar }}
+    var enableSidebar = JSON.parse({{ $enableSidebar | jsonify }});
+    
     var listMainElem = document.querySelector('.list__main');
     var listSideElem = document.querySelector('.list__sidebar');
 
@@ -44,16 +47,39 @@
 
     enquire.register("screen and (max-width: 769px)", {
         match: function () {
-            listMainElem.classList.remove(gridBig);
-            listMainElem.classList.add(gridFull);
-            listSideElem.classList.remove(gridSmall);
-            listSideElem.classList.add('hide');
+            if (enableSidebar) {
+                listMainElem.classList.remove(gridBig);
+                listMainElem.classList.add(gridFull);
+                listSideElem.classList.remove(gridSmall);
+                listSideElem.classList.add('hide');
+            } else {
+                if (listMainElem && !listMainElem.classList.contains(gridFull)) {
+                    listMainElem.classList.remove(gridBig);
+                    listMainElem.classList.add(gridFull);
+                }
+
+                if (listSideElem && !listSideElem.classList.contains('hide')) {
+                    listSideElem.classList.add('hide');
+                }
+            }
+            
         },
         unmatch: function () {
-            listMainElem.classList.remove(gridFull);
-            listMainElem.classList.add(gridBig);
-            listSideElem.classList.add(gridSmall);
-            listSideElem.classList.remove('hide');
+            if (enableSidebar) {
+                listMainElem.classList.remove(gridFull);
+                listMainElem.classList.add(gridBig);
+                listSideElem.classList.add(gridSmall);
+                listSideElem.classList.remove('hide');
+            } else {
+                if (listMainElem && !listMainElem.classList.contains(gridFull)) {
+                    listMainElem.classList.remove(gridBig);
+                    listMainElem.classList.add(gridFull);
+                }
+
+                if (listSideElem && !listSideElem.classList.contains('hide')) {
+                    listSideElem.classList.add('hide');
+                }
+            }
 
             if (document.getElementsByClassName('navbar__burger')[0]) {
                 document.getElementsByClassName('navbar__burger')[0].classList.remove('is-active');

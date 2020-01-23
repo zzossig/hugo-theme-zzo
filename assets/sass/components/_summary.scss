@@ -79,6 +79,8 @@
 
 .summary-classic {
   padding: 0 1rem;
+  @include flexbox();
+  @include flex-direction(column);
   @include animation('slide-in-down .2s .3s 1 ease-in both');
 
   .title {
@@ -116,6 +118,8 @@
   }
 
   &__content {
+    width: 100%;
+    
     @include flexbox();
     @include flex-direction(column);
     @include justify-content(flex-start);
@@ -142,7 +146,7 @@
       padding: 0.25rem;
       margin-right: .5rem;
       
-      @include transition(all, 0.25s, ease-in);
+      @include transition(all, 0.2s, ease-out);
       @include align-self(center);
       @include on-event {
         @include box-shadow(1px, 1px, 3px, 0px, rgba(0, 0, 0, 0.25));

@@ -145,7 +145,7 @@
             });
           }) : null;
 
-          var curElem = tableOfContentsElem.querySelector(`[href="#${id}"]`);
+          var curElem = tableOfContentsElem.querySelector('[href="#' + id + '"]');
           if (curElem && curElem.nextElementSibling) {
             curElem.nextElementSibling.style.display = 'block';
           }
@@ -328,8 +328,8 @@
         var isNotAllowedIncluded = false;
         var curClassName = code.getAttribute('class');
 
-        for (let str of notAllowedClass) {
-          if (curClassName && curClassName.startsWith(str)) {
+        for (var i = 0; i < notAllowedClass.length; i++) {
+          if (curClassName && curClassName.startsWith(notAllowedClass[i])) {
             isNotAllowedIncluded = true;
             break;
           }

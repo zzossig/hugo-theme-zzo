@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   MicroModal.init({
-    onClose: () => {
+    onClose: function () {
       if (mySwipe) {
         mySwipe.kill();
         mySwipe = null;

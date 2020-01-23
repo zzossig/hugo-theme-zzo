@@ -5,11 +5,13 @@
   @include flex-direction(column);
 
   width: 100%;
+  max-width: 928px;
   font-family: $title-font;
 
   &__photo {
     border-radius: 0.25rem;
     width: 100%;
+    max-width: 250px;
     height: auto;
     @include box-shadow(0, 2px, 4px, 0, rgba(0, 0, 0, 0.25));
     @include animation('slide-in-down-little .2s .6s 1 ease-in both');

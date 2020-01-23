@@ -26,6 +26,13 @@
   }
 
   &__slide-down {
+    @include themify($themes) {
+      background-color: themed('navbar-background-color');
+      @include on-event {
+        background-color: themed('navbar-menu-hover-background-color');
+      }
+    }
+    
     @media only screen and (min-width: 769px) {
       @for $i from 1 through 8 {
         &:nth-child(#{$i}) {
@@ -43,7 +50,7 @@
     @include flex-shrink(0);  
   }
 
-  &__burger {        
+  &__burger {
     display: none;
     position: relative;
 
@@ -62,7 +69,7 @@
       span {
         @include themify($themes) {
           background-color: themed('burger-menu-color');
-        }        
+        }
         
         border-radius: 1rem;
         display: block;
@@ -93,7 +100,6 @@
         }        
       }
 
-      // Modifers
       &.is-active {
         display: block;
         span {
@@ -205,13 +211,15 @@
 
     &.is-active {
       position: absolute;
+      top: $grid_navbar_height;
+      left: 0;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+
       @include flexbox();
       @include flex-direction(column);
       @include align-items(flex-start);
-      top: 100%;
-      width: 100%;
-      height: auto;      
-      overflow: hidden;
       @include themify($themes) {        
         border-top: 1px solid themed('navbar-border-bottom-color');
         background-color: themed('navbar-mobile-background-color');
