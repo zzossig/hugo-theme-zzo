@@ -355,23 +355,27 @@ commento = false
   weibo = ""
   douban = ""
   csdn = ""
-  zhihu = ""
   gitlab = ""
   mastodon = ""
   jianshu = ""
+  zhihu = ""
 
-[donationOptions] 
+[donationOptions]
   enable = false # if set, the donation button will show up on the single page.
   alipay = "" # Alipay QR Code image (example path: images/donation/alipay-qrcode.png) and put your file at root/static/images/donation/
   wechat = "" # Wechat pay QR Code image (example path: same as above)
   paypal = "" # Paypal URL
   patreon = "" # Patreon URL
+  bitcoin = "" # example path: images/donation/bitcoin-code-image.png
 
 [copyrightOptions]
   enableCopyrightLink = false # if set, you can add copyright link
   copyrightLink = ""
   copyrightLinkImage = ""
   copyrightLinkText = ""
+
+[share]
+  options = ["facebook","twitter", "reddit", "linkedin", "tumblr", "weibo", "douban", "line"]
 ```
 
 ## Gallery

@@ -46,6 +46,9 @@ other = "阅读"
 [donate-message]
 other = "您的鼓励是我最大的动力"
 
+[share-message]
+other = "分享"
+
 [contact-name]
 other = "姓名"
 

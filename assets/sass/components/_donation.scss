@@ -1,19 +1,21 @@
 .donation {
-  @include flexbox();
-  @include align-items(center);
-  @include justify-content(center);
+  margin: 2.5rem 0;
+  position: relative;
   
-  @media only screen and (max-width: 769px) {
-    @include flex-direction(column);
-  }
+  &__icons {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-wrap(wrap);
 
-  a {
-    text-decoration: none !important;
+    a {
+      text-decoration: none !important;
+    }
   }
 
   &__message {
     padding: 0.5rem;
-    font-size: 18px;    
+    font-size: 18px;
     font-weight: bold;
     font-family: $title-font;
     
@@ -22,7 +24,8 @@
   }
 
   &__item {
-    font-size: 16px;
+    font-family: $title-font;
+    font-size: 0.8rem;
     padding: 0.125rem;
     padding-right: 0.25rem;
     cursor: pointer;
@@ -41,18 +44,22 @@
         color: themed('social-icon-hover-color');
         border: 1px solid themed('social-icon-hover-color');
         @include transition(color, 0.2s, ease);
-      }        
+      }
     }
   }
 
   &__dropup {
     position: relative;
     height: 100%;
+
+    @media only screen and (max-width: 769px) {
+      position: static;
+    }
+
     &--content {
       display: none;
       position: absolute;
       bottom: 100%;
-      background-color: #fff;
       z-index: 1;
       min-width: 250px;
       max-width: 350px;
@@ -60,12 +67,17 @@
       margin-bottom: 0.25rem;
       border-radius: 0.25rem;
 
+      img {
+        margin: auto;
+      }
+
       @media only screen and (max-width: 769px) {
         left: 50%;
         transform: translate(-50%);
       }
 
       @include themify($themes) {
+        border: 1px solid themed('dropdown-item-hover-background-color');
         background-color: themed('dropdown-content-background-color');
       }
     }

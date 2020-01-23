@@ -46,6 +46,9 @@ other = "views"
 [donate-message]
 other = "Support the author with"
 
+[share-message]
+other = "Share this article with"
+
 [contact-name]
 other = "Name"
 

@@ -46,6 +46,9 @@ other = "조회수"
 [donate-message]
 other = "후원하기"
 
+[share-message]
+other = "공유하기"
+
 [contact-name]
 other = "이름"
 

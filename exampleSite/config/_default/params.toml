@@ -143,3 +143,6 @@ commento = false
   wechat = ""
   paypal = ""
   patreon = ""
+
+[share]
+  # options = ["facebook","twitter", "reddit", "linkedin", "tumblr", "weibo", "douban", "line"]

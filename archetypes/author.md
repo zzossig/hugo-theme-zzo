@@ -32,8 +32,8 @@ socialOptions:
   weibo: ""
   douban: ""
   csdn: ""
-  zhihu: ""
   gitlab: ""
   mastodon: ""
   jianshu: ""
+  zhihu: ""
 ---

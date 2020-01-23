@@ -1,30 +1,32 @@
 {{ if $.Param "donationOptions.enable" }}
-<div class="donation__message">
-  {{ i18n "donate-message" }}
-</div>
-<div class="donation">  
-  {{ range $name, $path := $.Param "donationOptions" }}
-    {{ if (and $path (ne $name "enable")) }}
-      {{ if in $name "patreon" }}
-        <a href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}" class="donation__item">
-          {{ partial (print "svgs/donation/" $name ".svg") (dict "width" 19 "height" 19) }}
-          {{ $name }}
-        </a>
-      {{ else if in $name "paypal" }}
-        <a href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}" class="donation__item">
-          {{ partial (print "svgs/donation/" $name ".svg") (dict "width" 22 "height" 22) }}
-          {{ $name }}
-        </a>
-      {{ else }}
-        <div class="donation__item donation__dropup">
-          {{ partial (print "svgs/donation/" $name ".svg") (dict "width" 22 "height" 22) }}
-          {{ $name }}
-          <div class="donation__dropup--content">
-            <img data-src="{{ $path | relURL }}" alt="{{ $name }} QR Code" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload"/>
+<div class="donation">
+  <div class="donation__message">
+    {{ i18n "donate-message" }}
+  </div>
+  <div class="donation__icons">
+    {{ range $name, $path := $.Param "donationOptions" }}
+      {{ if (and $path (ne $name "enable")) }}
+        {{ if in $name "patreon" }}
+          <a href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}" class="donation__item" target="_blank" rel="noreferrer">
+            {{ partial (print "svgs/donation/" $name ".svg") (dict "width" 19 "height" 19) }}
+            {{ $name }}
+          </a>
+        {{ else if in $name "paypal" }}
+          <a href="{{ $path | safeURL }}" title="{{ $name }}" aria-label="{{ $name }}" class="donation__item" target="_blank" rel="noreferrer">
+            {{ partial (print "svgs/donation/" $name ".svg") (dict "width" 22 "height" 22) }}
+            {{ $name }}
+          </a>
+        {{ else }}
+          <div class="donation__item donation__dropup" title="{{ $name }}" aria-label="{{ $name }}">
+            {{ partial (print "svgs/donation/" $name ".svg") (dict "width" 22 "height" 22) }}
+            {{ $name }}
+            <div class="donation__dropup--content">
+              <img data-src="{{ $path | relURL }}" alt="{{ $name }} QR Code" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload"/>
+            </div>        
           </div>        
-        </div>        
+        {{ end }}
       {{ end }}
     {{ end }}
-  {{ end }}
+  </div>
 </div>
 {{ end }}
