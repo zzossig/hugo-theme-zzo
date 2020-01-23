@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main class="main showcase inner">
+<main class="main showcase inner" data-sidebar-position="{{ $.Param "sidebarPosition" }}">
   {{ if .Params.enableBio }}
     <aside class="{{ if eq .Site.Params.sidebarPosition "left" }}l{{ else }}r{{ end }}">
       <div class="showcase__bio">

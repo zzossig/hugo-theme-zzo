@@ -1,59 +1,58 @@
 .tab {
   position: relative;
+  padding: 0.5rem 0;
+  margin: 2rem 0;
 
   &__links {
-    position: absolute;
-    top: 0;
-    left: 0;
     height: 30px;
-    z-index: z('clipboard');
     border-top-left-radius: 0.25rem;
 
     @include flexbox();
     @include align-items(center);
     @include justify-content(flex-start);
-    @include themify($codeblock) {
-      background-color: themed('content-pre-header-background-color');
+    @include themify($themes) {
     }
   }
 
   &__link {
     height: 30px;
-    border: none;
     outline: none;
+    border: none;
     cursor: pointer;
     font-size: 13.8px;
     font-family: $title-font;
     text-transform: capitalize;
     padding: 0.25rem 0.5rem;
-
-    &:first-child {
-      border-top-left-radius: 0.25rem;
-    }
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
     
-    @include transition(all, 0.2s, ease-in);
     @include themify($themes) {
       color: themed('navbar-title-color');
-      border-top: 1px solid transparent;
-      &.active {
-        border-top: 1px solid themed('content-pre-header-background-color');
-      }
-    }
-
-    @include themify($codeblock) {
-      background-color: themed('content-pre-header-background-color');
+      background-color: themed('body-background-color');
 
       &.active {
-        background-color: themed('content-pre-background-color');
+        height: 32px;
+        background-color: themed('body-background-color');
+        border: 1px solid themed('hr-color');
+        border-bottom: none;
       }
 
       @include on-event {
-        background-color: themed('content-pre-background-color');
+        color: themed('navbar-title-hover-color');
+        background-color: themed('content-pre-header-background-color');
       }
     }
   }
 
   &__content {
     display: none;
+    padding: 0 0.5rem;
+    border-radius: 0.25rem;
+    border-top-left-radius: 0;
+
+    @include themify($themes) {
+      border: 1px solid themed('hr-color');
+      background-color: themed('body-background-color');
+    }
   }
 }

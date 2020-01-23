@@ -1065,3 +1065,31 @@ Some markdown contents
   {{< /code >}}
 {{< /codes >}}
 `````
+
+### tab / tabs => Tabs make it easy to explore and switch between different views
+
+`````
+{{< tabs Windows MacOS Ubuntu >}}
+  {{< tab >}}
+
+  ### Windows section
+
+  ```javascript
+  console.log('Hello World!');
+  ```
+
+  {{< /tab >}}
+  {{< tab >}}
+
+  ### MacOS section
+
+  Hello world!
+  {{< /tab >}}
+  {{< tab >}}
+
+  ### Ubuntu section
+
+  Great!
+  {{< /tab >}}
+{{< /tabs >}}
+`````

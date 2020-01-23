@@ -71,9 +71,11 @@ $grid_column_gap: $grid_column_gap_width + $grid_column_gap_unit;
     grid-column-gap: 16px;
     grid-row-gap: 0px;
 
-    @if $sidebar_position == "left" {
+    &[data-sidebar-position="left"] {
         grid-template-columns: 266px 1fr 1fr;
-    } @else {
+    }
+
+    &[data-sidebar-position="right"] {
         grid-template-columns: 1fr 1fr 266px;
     }
 }

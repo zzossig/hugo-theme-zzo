@@ -16,6 +16,7 @@
   &__message {
     padding: 0.5rem;
     font-size: 18px;
+    line-height: 18px;
     font-weight: bold;
     font-family: $title-font;
     
@@ -26,8 +27,7 @@
   &__item {
     font-family: $title-font;
     font-size: 0.8rem;
-    padding: 0.125rem;
-    padding-right: 0.25rem;
+    padding: 0.1rem 0.325rem 0.1rem 0.25rem;
     cursor: pointer;
     border-radius: 0.25rem;
     margin: 0.25rem;
@@ -45,6 +45,10 @@
         border: 1px solid themed('social-icon-hover-color');
         @include transition(color, 0.2s, ease);
       }
+    }
+
+    svg {
+      margin-right: 0.25rem;
     }
   }
 

@@ -1056,7 +1056,7 @@ Some markdown contents
 {{< /boxmd >}}
 ```
 
-### code / codes => Tabbed code-block. indentation matters.
+### code / codes => 코드를 여러 버전으로 제공할 때 쓰세요. 들여쓰기 잘못하면 이상하게 나와요.
 
 `````
 {{< codes java javascript >}}
@@ -1071,4 +1071,32 @@ Some markdown contents
   ```
   {{< /code >}}
 {{< /codes >}}
+`````
+
+### tab / tabs => 여러 버전의 뷰를 제공할 때 쓰세요
+
+`````
+{{< tabs Windows MacOS Ubuntu >}}
+  {{< tab >}}
+
+  ### Windows section
+
+  ```javascript
+  console.log('Hello World!');
+  ```
+
+  {{< /tab >}}
+  {{< tab >}}
+
+  ### MacOS section
+
+  Hello world!
+  {{< /tab >}}
+  {{< tab >}}
+
+  ### Ubuntu section
+
+  Great!
+  {{< /tab >}}
+{{< /tabs >}}
 `````

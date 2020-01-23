@@ -1,0 +1,47 @@
+{{ $id := substr (md5 .Inner) 0 16 }}
+<div id="{{ $id }}" class="tab">
+  <div class="tab__links">
+    {{ range .Params }}
+    <button class="tab__link" aria-label="Tab link">{{ . }}</button>
+    {{ end }}
+  </div>
+  {{ .Inner }}
+</div>
+
+<script>
+  'use strict';
+
+  var containerId = JSON.parse({{ $id | jsonify }});
+  var containerElem = document.getElementById(containerId);
+  var tabLinks = null;
+  var tabContents = null;
+  var ids = [];
+
+  if (containerElem) {
+    tabLinks = containerElem.querySelectorAll('.tab__link');
+    tabContents = containerElem.querySelectorAll('.tab__content');
+  }
+
+  for (var i = 0; i < tabContents.length; i++) {
+    ids = ids.concat(tabContents[i].getAttribute('id'));
+    tabContents[i].style.display = 'none';
+
+    if (0 === parseInt(i, 10) && !tabContents[i].classList.contains('active')) {
+      tabContents[i].classList.add('active');
+    }
+  }
+
+  for (var i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].setAttribute('id', ids[i]);
+
+    if (0 === parseInt(i, 10) && !tabLinks[i].classList.contains('active')) {
+      tabLinks[i].classList.add('active');
+    } else {
+      tabLinks[i].classList.remove('active');
+    }
+  }
+
+  if (tabContents.length > 0) {
+    tabContents[0].style.display = 'block';
+  }
+</script>

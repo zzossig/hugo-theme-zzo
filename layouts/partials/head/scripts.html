@@ -105,6 +105,35 @@
     // =============================================================
 
 
+    // ========================== codetab ==========================
+    document.querySelectorAll('.codetab') ? 
+    document.querySelectorAll('.codetab').forEach(function(elem, idx) {
+      var containerId = elem.getAttribute('id');
+      var containerElem = elem;
+      var codetabLinks = elem.querySelectorAll('.codetab__link');
+      var codetabContents = elem.querySelectorAll('.codetab__content');
+      var ids = [];
+
+      codetabLinks && codetabLinks.length > 0 ?
+      codetabLinks.forEach(function(link, index, self) {
+        link.onclick = function(e) {
+          for (var i = 0; i < self.length; i++) {
+            if (index === parseInt(i, 10)) {
+              if (!self[i].classList.contains('active')) {
+                self[i].classList.add('active');
+                codetabContents[i].style.display = 'block';
+              }
+            } else {
+              self[i].classList.remove('active');
+              codetabContents[i].style.display = 'none';
+            }
+          }
+        }
+      }) : null;
+    }) : null;
+    // =============================================================
+
+
     // ========================= go to top =========================
     var gttBtn = document.getElementById("gtt");
     gttBtn.style.display = "none";
@@ -281,8 +310,6 @@
   // ========================== navbar ==========================
     var navbarBurgerElem = document.querySelector('.navbar__burger');
     var navbarMenuElem = document.querySelector('.navbar__menu');
-    console.log(navbarBurgerElem);
-    console.log(navbarMenuElem);
     navbarBurgerElem ?
     navbarBurgerElem.addEventListener('click', function () {
       if (navbarBurgerElem.classList.contains('is-active')) {
