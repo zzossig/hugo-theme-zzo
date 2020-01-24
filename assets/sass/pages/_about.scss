@@ -1,4 +1,9 @@
 .about{
   position: relative;
   width: 100%;
+  padding: 2rem 1rem 0;
+  
+  @media only screen and (max-width:768px) {
+    padding: 1rem;
+  }
 }

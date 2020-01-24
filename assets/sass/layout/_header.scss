@@ -1,4 +1,6 @@
 .header {
+  padding: 1rem;
+  
   @include flexbox();
   @include justify-content(center);
   @include align-items(center);
