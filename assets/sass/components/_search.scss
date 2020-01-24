@@ -37,7 +37,7 @@
     @include truncate($grid_main_side_width + $grid_main_side_unit);
     @include themify($themes) {
       color: themed("search-color");
-      background-color: themed("search-background-color");
+      background-color: inherit;
       @include input-placeholder {
         font-family: $title-font;
         color: themed("search-placeholder-color");

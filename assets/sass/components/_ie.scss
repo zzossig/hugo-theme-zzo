@@ -42,6 +42,12 @@
     }
   }
 
+  #search.input {
+    @include themify($themes) {
+      background-color: themed("search-background-color");
+    }
+  }
+
   .search {
     .input {
       &::-ms-clear {
