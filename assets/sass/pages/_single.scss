@@ -10,6 +10,8 @@
     font-family: $title-font;
     line-height: 3rem;
     overflow-wrap: break-word;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
 
     @include animation('slide-in-down .2s .3s 1 ease-in both');
     @include themify($themes) {
@@ -19,6 +21,7 @@
 
   &__meta {
     font-size: 0.8rem;
+    margin-bottom: 2rem;
 
     @include flexbox();
     @include align-items(center);
@@ -56,8 +59,8 @@
       text-decoration: underline;
     }
 
-    font-size: 1rem;
-    font-family: $content-font;
+    font-size: 17.2px;
+    font-family: $contents-font-stack;
     margin: 1rem 0;
     line-height: 1.7;
     width: inheirt;

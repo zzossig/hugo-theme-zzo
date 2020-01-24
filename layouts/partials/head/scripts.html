@@ -194,7 +194,17 @@
     var navbar = document.querySelector('.navbar');
     var tocFlexbox = document.querySelector('.toc__flexbox');
     var tocFlexboxOuter = document.querySelector('.toc__flexbox--outer');
+    var notAllowedTitleIds = null;
 
+    singleContentsElem && singleContentsElem.querySelectorAll(".tab") ?
+    singleContentsElem.querySelectorAll(".tab").forEach(function (elem) {
+      elem.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(function (element) {
+        notAllowedTitleIds = Array.isArray(notAllowedTitleIds) ?
+          notAllowedTitleIds.concat(element.getAttribute('id')) :
+          [element.getAttribute('id')];
+      });
+    }) : null;
+    
     window.onscroll = function () {
       scrollFunction();
       
@@ -223,6 +233,10 @@
                 return null;
               }
 
+              if (notAllowedTitleIds && notAllowedTitleIds.includes(elem.getAttribute('id'))) {
+                return null;
+              }
+              
               if (document.documentElement.scrollTop >= elem.offsetTop) {
                 if (tableOfContentsElem) {
                   var id = elem.getAttribute('id');
@@ -280,6 +294,10 @@
           if (singleContentsElem.querySelectorAll("h1, h2, h3, h4, h5, h6").length > 0) {
             singleContentsElem.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(function (elem) {
               if (toggleTocElem && !toggleTocElem.checked) {
+                return null;
+              }
+              
+              if (notAllowedTitleIds && notAllowedTitleIds.includes(elem.getAttribute('id'))) {
                 return null;
               }
 
@@ -559,7 +577,7 @@
             location: 0,
             distance: 100,
             maxPatternLength: 32,
-            minMatchCharLength: 1,
+            minMatchCharLength: 2,
           });
         }
         else {

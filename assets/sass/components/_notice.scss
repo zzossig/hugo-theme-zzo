@@ -27,7 +27,7 @@
         border-top: 30px solid #f1b37e;
         background: #fefaf5;
         color: rgba(150, 90, 38, 0.995) !important;
-        font-family: $content-font;
+        font-family: $contents-font-stack;
 
         &:first-child::after {
             content: 'Info';
@@ -39,7 +39,7 @@
         border-top: 30px solid #d58181;
         background: #fbeded;
         color: rgba(132, 56, 56, 0.995) !important;
-        font-family: $content-font;
+        font-family: $contents-font-stack;
 
         &:first-child::after {
             content: 'Warning';
@@ -51,7 +51,7 @@
         border-top: 30px solid #6bb1e0;
         background: #e6f3fb;
         color: rgba(47, 103, 141, 0.995) !important;
-        font-family: $content-font;
+        font-family: $contents-font-stack;
 
         &:first-child::after {
             content: 'Note';
@@ -63,7 +63,7 @@
         border-top: 30px solid #84c578;
         background: #e8f7e6;
         color: rgba(72, 125, 63, 0.995) !important;
-        font-family: $content-font;
+        font-family: $contents-font-stack;
 
         &:first-child::after {
             content: 'Tip';
