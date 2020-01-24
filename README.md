@@ -1070,7 +1070,7 @@ Some markdown contents
 
 ⚠️Becareful that the content in the tab should be different from each other.
 The tab makes unique id hashes depending on the tab contents.
-So, If you just copy-paste the tabs, since it has the same contents, the tab will not work.
+So, If you just copy-paste the tabs with multiple times, since it has the same contents, the tab will not work.
 
 `````
 {{< tabs Windows MacOS Ubuntu >}}

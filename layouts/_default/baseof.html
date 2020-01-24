@@ -24,7 +24,7 @@
     
     <div id="container">
         {{ partial "body/main-left" . }}
-        <div class="wrapper">
+        <div class="wrapper" data-type="{{ .Type }}" data-kind="{{ .Kind }}">
             {{ partial "navbar/site-nav" . }}
             {{ partial "header/site-header" . }}
             {{ block "main" . }}{{ end }}

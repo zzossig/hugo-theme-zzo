@@ -41,4 +41,320 @@
       top: -1px;
     }
   }
+
+  .search {
+    .input {
+      &::-ms-clear {
+        display: none;
+      }
+    }
+  }
+
+  .mobile-search {
+    &__top {
+      &--input {
+        &::-ms-clear {
+          display: none;
+        }
+      }
+    }
+  }
+
+
+  /* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
+  .wrapper {
+    width: 100%;
+    max-width: 960px;
+    -ms-grid-columns: minmax(350px, 5fr) minmax(250px, 2fr);
+    grid-template-columns: minmax(350px, 5fr) minmax(250px, 2fr);
+    -ms-grid-rows: 50px minmax(0, 190px) 1fr minmax(0, 200px);
+    grid-template-rows: 50px minmax(0, 190px) 1fr minmax(0, 200px);
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+
+    &[data-kind="home"] {
+      display: -ms-grid;
+      display: grid;
+    }
+
+    &[data-kind="taxonomy"] {
+      display: -ms-grid;
+      display: grid;
+    }
+
+    &[data-kind="section"] {
+      display: -ms-grid;
+      display: grid;
+      &[data-type="gallery"] {
+        display: inline-block;
+      }
+      &[data-type="showcase"] {
+        display: inline-block;
+      }
+      &[data-type="archive"] {
+        display: inline-block;
+      }
+    }
+  }
+
+  .header-main {
+    grid-row: 2;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 2 / 1 / 3 / 2;
+  }
+
+  .header-side {
+    grid-row: 2;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 2 / 2 / 3 / 3;
+  }
+
+  .header {
+    grid-row: 2;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-area: 2 / 1 / 4 / 3;
+  }
+
+  .main-main {
+    grid-row: 3;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 3 / 1 / 4 / 2;
+  }
+
+  .main-side {
+    grid-row: 3;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-column: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 3 / 2 / 4 / 3;
+  }
+
+  .main {
+    grid-row: 3;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: 3 / 1 / 2 / 3;
+
+    &.terms {
+      height: calc(100% - 250px);
+    }
+  }
+
+  .footer-main {
+    grid-row: 4;
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 4 / 1 / 5 / 2;
+  }
+
+  .footer-side {
+    grid-row: 4;
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    grid-column: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 4 / 2 / 5 / 3;
+  }
+
+  .footer {
+    grid-row: 4;
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-area: 4 / 1 / 4 / 3;
+  }
+
+  .navbar-main {
+    grid-row: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  .navbar-side {
+    grid-row: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-column: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+  .navbar {
+    grid-row: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: 1 / 1 / 2 / 3;
+  }
+
+
+
+  .inner {
+    display: -ms-grid;
+    display: grid;
+    max-width: 960px;
+    height: calc(100% - 110px);
+    margin-top: $grid_navbar_height;
+    -ms-grid-columns: 320px 1fr 1fr;
+    grid-template-columns: 320px 1fr 1fr;
+    -ms-grid-rows: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+
+    &[data-kind="home"] {
+      display: -ms-grid;
+      display: grid;
+    }
+
+    &[data-kind="texonomy"] {
+      display: -ms-grid;
+      display: grid;
+    }
+
+    &[data-kind="section"] {
+      display: -ms-grid;
+      display: grid;
+      &[data-type="gallery"] {
+        display: inline-block;
+      }
+      &[data-type="showcase"] {
+        display: inline-block;
+      }
+      &[data-type="archive"] {
+        display: inline-block;
+      }
+    }
+
+    &[data-type="showcase"] {
+      margin-top: 0;
+    }
+
+    &[data-sidebar-position="left"] {
+      -ms-grid-columns: 320px 1fr 1fr;
+      grid-template-columns: 320px 1fr 1fr;
+    }
+
+    &[data-sidebar-position="right"] {
+      -ms-grid-columns: 1fr 1fr 320px;
+      grid-template-columns: 1fr 1fr 320px;
+    }
+  }
+
+
+
+  .inner > *:nth-child(1) {
+    grid-row: 1;
+    -ms-grid-row: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+  }
+
+
+
+  .inner > *:nth-child(2) {
+    grid-row: 1;
+    -ms-grid-row: 1;
+    grid-column: 3;
+    -ms-grid-column: 3;
+  }
+
+
+
+  .inner > *:nth-child(3) {
+    grid-row: 1;
+    -ms-grid-row: 1;
+    grid-column: 5;
+    -ms-grid-column: 5;
+  }
+
+  .l { 
+    grid-row: 1; 
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 1 / 1 / 2 / 2; 
+  }
+  .m {
+    grid-row: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-column: 2;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 1 / 2 / 2 / 3; 
+  }
+  .r {
+    grid-row: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-column: 3;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  .lm {
+    grid-row: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  .mr { 
+    grid-row: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-column: 2; 
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    grid-area: 1 / 2 / 2 / 4; 
+  }
+  .lmr {
+    grid-row: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-column: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: 1 / 1 / 2 / 4; 
+  }
 }
