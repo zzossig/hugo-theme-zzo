@@ -36,7 +36,69 @@
     @include align-items(center);
 
     svg {
+      padding: 0.375rem;
+      border-radius: 0.25rem;
       margin-right: 0.25rem;
+      
+      @include themify($themes) {
+        color: themed('share-color');
+        background-color: themed('share-background-color');
+        @include box-shadow(1px, 1px, 3px, 0, themed('share-shadow-color'));
+      }
+      
+      &[data-name="douban"] {
+        color: white;
+        @include on-event {
+          background-color: #007722;
+        }
+      }
+      &[data-name="facebook"] {
+        color: white;
+        @include on-event {
+          background-color: #1877F2;  
+        }
+      }
+      &[data-name="twitter"] {
+        color: white;
+        @include on-event {
+          background-color: #1DA1F2;  
+        }
+      }
+      &[data-name="reddit"] {
+        color: white;
+        @include on-event {
+          background-color: #FF4500;  
+        }
+      }
+      &[data-name="tumblr"] {
+        color: white;
+        @include on-event {
+          background-color: #36465D;  
+        }
+      }
+      &[data-name="linkedin"] {
+        color: white;
+        @include on-event {
+          background-color: #0077B5;  
+        }
+      }
+      &[data-name="weibo"] {
+        color: white;
+        @include on-event {
+          background-color: #E6162D;  
+        }
+      }
+      &[data-name="line"] {
+        color: white;
+        @include on-event {
+          background-color: #00C300;  
+        }
+      }
+
+      @include transition(transform, 0.15s, ease-in);
+      @include on-event {
+        @include translateY(-0.25rem);
+      }
     }
   }
 

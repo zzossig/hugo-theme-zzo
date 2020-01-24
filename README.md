@@ -367,8 +367,12 @@ commento = false
   copyrightLinkImage = ""
   copyrightLinkText = ""
 
-[share]
-  options = ["facebook","twitter", "reddit", "linkedin", "tumblr", "weibo", "douban", "line"]
+# possible share name: ["facebook","twitter", "reddit", "linkedin", "tumblr", "weibo", "douban", "line"]
+[[share]]
+  name = "facebook"
+[[share]]
+  name = "twitter"
+  username = ""
 ```
 
 ## Gallery
