@@ -59,8 +59,7 @@
       text-decoration: underline;
     }
 
-    font-size: 17.2px;
-    font-family: $contents-font-stack;
+    font-size: 16.4px;
     margin: 1rem 0;
     line-height: 1.7;
     width: inheirt;
@@ -133,6 +132,10 @@
       border-radius: 0.34rem;
       line-height: 1.5;
       font-size: 13.8px;
+      @include themify($themes) {
+        @include webkit-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
+        @include moz-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
+      }
     }
 
     pre:not(.chroma) {
@@ -247,7 +250,7 @@
       }
 
       code:not([class^=language]) {
-        padding: 3px 5px;
+        padding: 3px 7px;
         margin: 0 0.25rem;
         @include themify($codeblock) {
           color: themed('content-code-color');
@@ -266,7 +269,7 @@
       padding: 0;      
 
       code:not([class^=language]) {
-        padding: 3px 5px;
+        padding: 3px 7px;
         margin: 0 0.25rem;
         @include themify($codeblock) {
           color: themed('content-code-color');
@@ -285,9 +288,11 @@
       margin-left: 2rem;
       margin-bottom: calc(1rem / 2);
 
+      & > code {
+        padding: 2px 7px;
+      }
+
       code:not([class^=language]) {
-        padding: 3px 0;
-        // margin: 0 0.25rem;
         @include themify($codeblock) {
           color: themed('content-code-color');
         }
@@ -359,7 +364,7 @@
       }
 
       code:not([class^=language]) {
-        padding: 3px 5px;
+        padding: 3px 7px;
         margin: 0 0.25rem;
         @include themify($codeblock) {
           color: themed('content-code-color');
@@ -535,9 +540,9 @@ pre:not(.chroma) {
 
 li .highlight > .chroma {
   .lnt:first-child {
-    padding: 0;
+    padding: 0 0.3rem;
   }
   .lnt:not(:first-child) {
-    padding-left: 0.5rem;
+    padding: 0 0.3rem;
   }
 }
