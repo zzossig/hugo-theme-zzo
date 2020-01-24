@@ -1068,6 +1068,10 @@ Some markdown contents
 
 ### tab / tabs => Tabs make it easy to explore and switch between different views
 
+⚠️Becareful that the content in the tab should be different from each other.
+The tab makes unique id hashes depending on the tab contents.
+So, If you just copy-paste the tabs, since it has the same contents, the tab will not work.
+
 `````
 {{< tabs Windows MacOS Ubuntu >}}
   {{< tab >}}
