@@ -181,6 +181,23 @@
 .summary-compact {
   padding: 0 1rem;
   @include animation('slide-in-down .2s .3s 1 ease-in both');
+
+  .title {
+    a {
+      @include themify($themes) {
+        color: themed('title-color');
+        @include on-event {
+          color: themed('link-hover');
+        }
+      }
+    }
+  }
+
+  .subtitle {
+    @include themify($themes) {
+      color: themed('meta-color');
+    }
+  }
   
   &__flexbox {
     @include flexbox();
@@ -191,6 +208,28 @@
   &__meta {
     padding: 1rem 0;
     overflow-wrap: break-word;
+  }
+
+  &__tag {
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    padding: 0.25rem;
+    margin: 0 0.25rem;
+    border: none;
+    border-radius: 0.2rem;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    @include themify($themes) {
+      color: themed('body-color');
+      background-color: themed('taxo-tags-background-color');
+    }
+
+    &--wrapper {
+      margin-top: 0.75rem;
+
+      @include flexbox();
+    }
   }
 
   hr {
