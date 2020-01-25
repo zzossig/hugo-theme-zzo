@@ -1033,8 +1033,8 @@ libraries:
 ### notice
 
 ```bash
-{{< notice note >}} # note, info, tip, warning
-A notice disclaimer
+{{< notice success >}} # success, info, warning, error
+success
 {{< /notice >}}
 ```
 

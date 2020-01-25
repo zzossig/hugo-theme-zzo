@@ -2,10 +2,9 @@
   position: relative;
   margin: 1.5rem 0;
   border-radius: 0.25rem;
-  @include box-shadow(1px, 1px, 3px, 0, rgba(0, 0, 0, 0.125));
 
   &__content {
-    padding: 0 18px;
+    padding: 0 1.125rem;
     overflow: hidden;
     max-height: 0;
     border-bottom-left-radius: 0.25rem;
@@ -13,6 +12,7 @@
 
     @include transition(all, 0.2s, ease);
     @include themify($themes) {
+      border-top: 1px solid themed('content-box-border-color');
       background-color: themed('toc-body-background-color');
     }
 
@@ -21,6 +21,10 @@
       font-size: 15.2px;
       margin: 0 0 0.525rem 2rem !important;
       list-style-type: '📂 ';
+
+      &:first-child {
+        margin-top: 0.25rem !important;
+      }
       
       li {
         font-size: 14.4px;

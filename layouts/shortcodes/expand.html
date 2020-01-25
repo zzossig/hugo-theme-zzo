@@ -6,6 +6,6 @@
     {{ .Get 0 }}
   </button>
   <div class="expand__content">
-    {{ .Inner | safeHTML }}
+    {{ .Inner | markdownify }}
   </div>
 </div>

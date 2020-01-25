@@ -1,30 +1,32 @@
 .alert {
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: 0.125rem;
 
-    &-info {
-        background-color: #d7eef9;
-        border: 2px solid #b2def4;
-        color: rgba(26, 128, 180, 0.9925);
-    }
+    @include themify($themes) {
+        &-info {
+            background-color: rgba(215, 238, 249, 0.4);
+            border-left: 5px solid #bbdefb;
+            color: themed('dropdown-item-color');
+        }
 
-    &-success {
-        background-color: #d9efd6;
-        border: 2px solid #bce3b5;
-        color: rgba(70, 149, 57, 0.9925);
-    }
+        &-success {
+            background-color: rgba(217, 239, 214, 0.4);
+            border-left: 5px solid #c8e6c9;
+            color: themed('dropdown-item-color');
+        }
 
-    &-warning {
-        background-color: #fbf6e1;
-        border: 2px solid #f6ecbe;
-        color: rgba(180, 154, 26, 0.9925);
-    }
+        &-warning {
+            background-color: rgba(255, 249, 196, 0.4);
+            border-left: 5px solid #ffeb3b;
+            color: themed('dropdown-item-color');
+        }
 
-    &-danger {
-        background-color: #f5dddd;
-        border: 2px solid #ecbdbd;
-        color: rgba(159, 46, 46, 0.9925);
+        &-danger {
+            background-color: rgba(245, 221, 221, 0.4);
+            border-left: 5px solid #ffcdd2;
+            color: themed('dropdown-item-color');
+        }
     }
 }

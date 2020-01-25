@@ -1,4 +1,4 @@
-.navbar {  
+.navbar {
   margin: auto;
   width: inherit;
   max-width: inherit;
@@ -26,6 +26,11 @@
   }
 
   &__slide-down {
+    svg {
+      margin: auto;
+      display: block;
+    }
+
     @include themify($themes) {
       background-color: themed('navbar-background-color');
       @include on-event {

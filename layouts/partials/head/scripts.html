@@ -194,8 +194,11 @@
     var navbar = document.querySelector('.navbar');
     var tocFlexbox = document.querySelector('.toc__flexbox');
     var tocFlexboxOuter = document.querySelector('.toc__flexbox--outer');
+    var expandContents = document.querySelectorAll('.expand__content');
+    var boxContents = document.querySelectorAll('.box');
     var notAllowedTitleIds = null;
 
+    // tab
     singleContentsElem && singleContentsElem.querySelectorAll(".tab") ?
     singleContentsElem.querySelectorAll(".tab").forEach(function (elem) {
       elem.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(function (element) {
@@ -204,6 +207,25 @@
           [element.getAttribute('id')];
       });
     }) : null;
+
+    // expand
+    expandContents ? expandContents.forEach(function(elem) {
+      elem.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(function (element) {
+        notAllowedTitleIds = Array.isArray(notAllowedTitleIds) ?
+          notAllowedTitleIds.concat(element.getAttribute('id')) :
+          [element.getAttribute('id')];
+      });
+    }) : null;
+
+    // box
+    boxContents ? boxContents.forEach(function(elem) {
+      elem.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(function (element) {
+        notAllowedTitleIds = Array.isArray(notAllowedTitleIds) ?
+          notAllowedTitleIds.concat(element.getAttribute('id')) :
+          [element.getAttribute('id')];
+      });
+    }) : null;
+
     
     window.onscroll = function () {
       scrollFunction();

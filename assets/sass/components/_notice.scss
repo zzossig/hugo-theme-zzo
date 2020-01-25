@@ -4,66 +4,65 @@
     border-radius: .125rem;
     color: #fff;
     padding: .3rem 0.5rem .3rem 2rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 
-    &:first-child {
-        &::before {
-            position: absolute;
-            top: -28.5px;
-            color: #fff;
-            content: '💡';
-            left: 10px;
-        }
-
-        &::after {
-            position: absolute;
-            top: -28.5px;
-            color: #fff;
-            left: 2rem;
-        }
-    }
-
-    &.info {
+    &.warning {
         border-top: 30px solid #f1b37e;
         background: #fefaf5;
         color: rgba(150, 90, 38, 0.995) !important;
 
-        &:first-child::after {
-            content: 'Info';
+        &::before {
+            position: absolute;
+            content: '⚠️   Warning';
             font-family: $title-font;
+            top: -26.5px;
+            left: 0.4rem;
+            height: 100%;
         }
     }
 
-    &.warning {
+    &.error {
         border-top: 30px solid #d58181;
         background: #fbeded;
         color: rgba(132, 56, 56, 0.995) !important;
 
-        &:first-child::after {
-            content: 'Warning';
+        &::before {
+            position: absolute;
+            content: '❌   Error';
             font-family: $title-font;
+            top: -26.5px;
+            left: 0.4rem;
+            height: 100%;
         }
     }
 
-    &.note {
+    &.info {
         border-top: 30px solid #6bb1e0;
         background: #e6f3fb;
         color: rgba(47, 103, 141, 0.995) !important;
 
-        &:first-child::after {
-            content: 'Note';
+        &::before {
+            position: absolute;
+            content: 'ℹ️   Info';
             font-family: $title-font;
+            top: -26.5px;
+            left: 0.4rem;
+            height: 100%;
         }
     }
 
-    &.tip {
+    &.success {
         border-top: 30px solid #84c578;
         background: #e8f7e6;
         color: rgba(72, 125, 63, 0.995) !important;
 
-        &:first-child::after {
-            content: 'Tip';
+        &::before {
+            position: absolute;
+            content: '✔️   Success';
             font-family: $title-font;
+            top: -26.5px;
+            left: 0.4rem;
+            height: 100%;
         }
     }
 }

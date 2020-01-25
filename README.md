@@ -1026,8 +1026,8 @@ You can add some config option parameters at data/flowchartjs.json
 ### notice
 
 ```bash
-{{< notice note >}} # note, info, tip, warning
-A notice disclaimer
+{{< notice success >}} # success, info, warning, error
+success
 {{< /notice >}}
 ```
 
