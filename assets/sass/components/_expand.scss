@@ -17,8 +17,7 @@
     }
 
     li {
-      font-family: $title-font;
-      font-size: 15.2px;
+      font-size: 14.4px;
       margin: 0 0 0.525rem 2rem !important;
 
       &:first-child {
@@ -32,6 +31,8 @@
     }
 
     &--toc {
+      font-family: $title-font;
+      font-size: 15.2px;
       li {
         list-style-type: '📂 ';
         li {
