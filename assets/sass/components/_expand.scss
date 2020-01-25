@@ -20,16 +20,23 @@
       font-family: $title-font;
       font-size: 15.2px;
       margin: 0 0 0.525rem 2rem !important;
-      list-style-type: '📂 ';
 
       &:first-child {
         margin-top: 0.25rem !important;
       }
-      
+
       li {
         font-size: 14.4px;
-        list-style-type: '📄 ';
         margin: 0 0 0.25rem 1.25rem !important;
+      }
+    }
+
+    &--toc {
+      li {
+        list-style-type: '📂 ';
+        li {
+          list-style-type: '📄 ';
+        }
       }
     }
   }

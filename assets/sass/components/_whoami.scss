@@ -47,6 +47,7 @@
     padding-bottom: 0.5rem;
 
     @include themify($codeblock) {
+      color: themed('content-pre-color');
       text-decoration: underline double themed('content-pre-main-color');
     }
   }
@@ -80,7 +81,10 @@
 
   &__written-by {
     font-size: 0.9rem;
-    opacity: 0.65;
+    opacity: 0.75;
+    @include themify($codeblock) {
+      color: themed('content-pre-color');
+    }
   }
 
   &-hr {
