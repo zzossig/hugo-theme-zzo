@@ -1,6 +1,7 @@
 @import "../themes/theme";
 
-$text-font-stack: 'Muli',
+$text-font-stack: $content-font, 
+              'Muli',
               avenir,
               'helvetica neue', helvetica,
               ubuntu,
