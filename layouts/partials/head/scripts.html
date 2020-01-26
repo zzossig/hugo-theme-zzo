@@ -268,12 +268,14 @@
                   tocElem.querySelector('a[href="#' + id + '"]') ?
                     tocElem.querySelector('a[href="#' + id + '"]').classList.add('active') : null;
 
-                  tableOfContentsElem.querySelector('ul') ?
-                    tableOfContentsElem.querySelector('ul').querySelectorAll('li').forEach(function (liElem) {
+                  tableOfContentsElem.querySelectorAll('ul') ? 
+                  tableOfContentsElem.querySelectorAll('ul').forEach(function (rootUl) {
+                    rootUl.querySelectorAll('li').forEach(function (liElem) {
                       liElem.querySelectorAll('ul').forEach(function (ulElem) {
                         ulElem.style.display = 'none';
                       });
-                    }) : null;
+                    });
+                  }) : null;
 
                   var curElem = tableOfContentsElem.querySelector("[href='#" + id + "']");
                   if (curElem && curElem.nextElementSibling) {
@@ -332,13 +334,14 @@
                   tocElem.querySelector('a[href="#' + id + '"]') ?
                     tocElem.querySelector('a[href="#' + id + '"]').classList.add('active') : null;
 
+                  tableOfContentsElem.querySelectorAll('ul') ? 
                   tableOfContentsElem.querySelectorAll('ul').forEach(function (rootUl) {
                     rootUl.querySelectorAll('li').forEach(function (liElem) {
                       liElem.querySelectorAll('ul').forEach(function (ulElem) {
                         ulElem.style.display = 'none';
                       });
                     });
-                  });
+                  }) : null;
 
                   var curElem = tableOfContentsElem.querySelector("[href='#" + id + "']");
                   if (curElem && curElem.nextElementSibling) {

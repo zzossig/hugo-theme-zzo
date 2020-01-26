@@ -121,10 +121,12 @@
     
     if ((enableToc || toc) && document.querySelector('.toc')) {
       var tableOfContentsElem = document.querySelector('.toc').querySelector('#TableOfContents');
-      tableOfContentsElem.querySelector('ul') ?
-      tableOfContentsElem.querySelector('ul').querySelectorAll('li').forEach(function (liElem) {
-        liElem.querySelectorAll('ul').forEach(function (ulElem) {
-          ulElem.style.display = 'none';
+      tableOfContentsElem.querySelectorAll('ul') ?
+      tableOfContentsElem.querySelectorAll('ul').forEach(function (rootUl) {
+        rootUl.querySelectorAll('li').forEach(function (liElem) {
+          liElem.querySelectorAll('ul').forEach(function (ulElem) {
+            ulElem.style.display = 'none';
+          });
         });
       }) : null;
 
@@ -141,13 +143,6 @@
                 elem.classList.remove('active');
               });
               elem.classList.add('active');
-
-              tableOfContentsElem.querySelector('ul') ?
-                tableOfContentsElem.querySelector('ul').querySelectorAll('li').forEach(function (liElem) {
-                  liElem.querySelectorAll('ul').forEach(function (ulElem) {
-                    ulElem.style.display = 'none';
-                  });
-                }) : null;
 
               var curElem = tableOfContentsElem.querySelector('[href="#' + id + '"]');
               if (curElem && curElem.nextElementSibling) {
