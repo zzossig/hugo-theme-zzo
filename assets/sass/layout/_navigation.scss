@@ -26,10 +26,10 @@
   }
 
   &__slide-down {
-    svg {
-      margin: auto;
-      display: block;
-    }
+    // svg {
+    //   margin: auto;
+    //   display: block;
+    // }
 
     @include themify($themes) {
       background-color: themed('navbar-background-color');
@@ -208,10 +208,6 @@
         width: 100%;
         padding: 0 0.75rem;
       }
-    }
-
-    &-icon {
-      margin-top: 0.4rem;
     }
 
     &.is-active {
