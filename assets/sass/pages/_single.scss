@@ -541,3 +541,17 @@ li .highlight > .chroma {
     padding: 0 0.3rem;
   }
 }
+
+td {
+  code {
+    padding: 2px 7px !important;
+  }
+}
+
+table:not(.lntable) {
+  td {
+    code {
+      padding: 2px 7px !important;
+    }
+  }
+}
