@@ -420,14 +420,13 @@
   }
 
   .dropdown {
-    border-bottom: 2px solid transparent;
+    height: $grid_navbar_height !important;
     @include themify($themes) {
       color: themed('burger-menu-color');  
       @include on-event {
         color: themed('link-hover');
         background-color: themed('navbar-menu-hover-background-color');
-        border-bottom: 2px solid themed('navbar-border-bottom-color');
-      }      
+      }
     }
 
     &-trigger {

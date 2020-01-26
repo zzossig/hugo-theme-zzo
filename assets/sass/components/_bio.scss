@@ -3,6 +3,9 @@
   @include justify-content(center);
   @include align-items(flex-start);
   @include flex-direction(column);
+  @include themify($codeblock) {
+    color: themed('content-pre-color');
+  }
 
   width: 100%;
   max-width: 928px;
