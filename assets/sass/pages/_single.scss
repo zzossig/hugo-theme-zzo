@@ -542,7 +542,7 @@ li .highlight > .chroma {
   }
 }
 
-td {
+td:not(.lntd) {
   code {
     padding: 2px 7px !important;
   }
