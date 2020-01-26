@@ -60,6 +60,7 @@
     }
 
     margin: 1rem 0;
+    font-size: 1rem;
     line-height: 1.7;
     width: inheirt;
     max-width: inherit;
@@ -130,6 +131,7 @@
       overflow: auto;
       border-radius: 0.34rem;
       line-height: 1.5;
+      font-size: 13.8px;
       
       @include themify($themes) {
         @include webkit-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
@@ -161,6 +163,7 @@
         height: 30px;
         z-index: z('content');
         line-height: 30px;
+        font-size: 13.8px;
         font-family: $title-font;
         font-weight: bold;
         display: inline-block;
@@ -386,6 +389,7 @@
 code, pre {  
   padding: .5rem 0;
   line-height: 1.5;
+  font-size: 13.8px;
   font-family: $code-font-stack;
   overflow: auto;
 
@@ -476,6 +480,7 @@ pre:not(.chroma) {
       width: 100%;
       height: 30px;
       line-height: 1.9;
+      font-size: 13.8px;
       font-family: $title-font;
       font-weight: bold;
       display: inline-block;

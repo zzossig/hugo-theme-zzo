@@ -149,7 +149,6 @@
 
   &__title {
     height: $grid_navbar_height;
-    line-height: $grid_navbar_height;
     font-size: 1.5rem;
 
     @include flexbox();
