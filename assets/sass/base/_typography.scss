@@ -9,13 +9,14 @@ html {
 }
 
 body {
-  // font: normal 125% / 1.4 $text-font-stack;
-  font: normal 125% / 1.4 $text-font-stack;
+  font-size: 16px;
+  font-family: $text-font-stack;
 }
 
 code,
 pre {
-  font: normal 125% / 1.8 $code-font-stack;
+  font-size: 13.8px;
+  font-family: $code-font-stack;
 }
 
 .h1 {

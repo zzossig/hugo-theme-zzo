@@ -40,6 +40,11 @@
       right: 1px;
       top: -1px;
     }
+    transition: none !important;
+
+    &:hover {
+      transform: translateY(0) !important;
+    }
   }
 
   #search.input {
@@ -65,6 +70,18 @@
       }
     }
   }
+
+  pre.chroma {
+    &:first-child {
+      border: 6px solid transparent;
+      border-top: none;
+      border-bottom: none;
+    }
+    .lnt {
+      padding: 0 !important;
+    }
+  }
+  
 
 
   /* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
