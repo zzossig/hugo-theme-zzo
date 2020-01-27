@@ -1,4 +1,5 @@
 .summary-card {
+  padding: 1rem;
   @include animation('slide-in-down .2s .3s 1 ease-in both');
 
   .title {
@@ -66,7 +67,7 @@
   }
   &:not(:last-child) {
     hr {
-      margin-bottom: 4rem;      
+      margin-bottom: 2.5rem;      
     }
   }
   &:last-child {
