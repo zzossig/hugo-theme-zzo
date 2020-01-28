@@ -1,0 +1,81 @@
+[search-placeholder]
+other = "جستجو"
+
+[tags]
+other = "برچسب ها"
+
+[categories]
+other = "دسته بندی ها"
+
+[series]
+other = "سری مطالب"
+
+[reading-time]
+other = "دقیقه بخوانید"
+
+[summary-dateformat]
+other = "Jan 2, 2006"
+
+[archive-dateformat]
+other = "Jan 2"
+
+[talks-dateformat]
+other = "Jan 2"
+
+[single-dateformat]
+other = "Jan 2, 2006"
+
+[single-related]
+other = "پست های مشابه"
+
+[single-writtenBy]
+other = "نوشته شده توسط"
+
+[toc-label]
+other = "عناوین اصلی"
+
+[counter-site-pv]
+other = "کل بازدید ها"
+
+[counter-site-uv]
+other = "کل بازدید کنندگان"
+
+[counter-page-pv]
+other = "بازدید"
+
+[donate-message]
+other = "حمایت مالی"
+
+[share-message]
+other = "اشتراک گذاری این پست"
+
+[contact-name]
+other = "نام"
+
+[contact-email]
+other = "ایمیل"
+
+[contact-message]
+other = "پیام"
+
+[contact-send]
+other = "ارسال"
+
+[tooltip-home]
+other = "خانه"
+
+[tooltip-written]
+other = "نوشته شده در"
+
+[tooltip-modified]
+other = "اصلاح شده در"
+
+[tooltip-reading-time]
+other = "مدت زمان خواندن"
+
+[showcase-overview]
+other = "بررسی اجمالی"
+
+[showcase-pinned]
+other = "پین شده"
+
