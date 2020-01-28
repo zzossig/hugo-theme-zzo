@@ -49,19 +49,43 @@
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);
+  }
 
-    &--icon {
-      margin-right: 0.25rem;
-      @include flexbox();
-      @include align-items(center);
-      @include themify($themes) {
-        color: themed('social-icon-color');
-      }      
+  &[data-dir="ltr"] {
+    .bio__info {
+      &--icon {
+        margin-right: 0.25rem;
+
+        @include flexbox();
+        @include align-items(center);
+        @include themify($themes) {
+          color: themed('social-icon-color');
+        }
+      }
+
+      a {
+        padding-right: 1rem;
+        @include truncate($sidebar-width);
+      }
     }
+  }
 
-    a {
-      padding-right: 1rem;
-      @include truncate($sidebar-width);
+  &[data-dir="rtl"] {
+    .bio__info {
+      &--icon {
+        margin-left: 0.25rem !important;
+        
+        @include flexbox();
+        @include align-items(center);
+        @include themify($themes) {
+          color: themed('social-icon-color');
+        }
+      }
+
+      a {
+        padding-left: 1rem;
+        @include truncate($sidebar-width);
+      }
     }
   }
 

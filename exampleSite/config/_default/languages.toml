@@ -2,8 +2,10 @@
   title = "Hugo Zzo Theme"
   languageName = "English"
   weight = 1
+  languagedir = "ltr"
 
 [ko]
   title = "Hugo Zzo Theme"
   languageName = "한국어"
   weight = 2
+  languagedir = "ltr"

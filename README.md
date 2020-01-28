@@ -250,7 +250,8 @@ talksGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 myname = "zzossig"
 email = "zzossig@gmail.com"
 whoami = "Web Developer"
-useGravatar = false
+bioImageUrl = "" # image url like http//... If not set, we find a avatar image in root/static/images/whoami/avatar.(png|jpg|svg)
+useGravatar = false # we use this option highest priority
 location = "Seoul, Korea"
 organization = "Hugo"
 link = "https://github.com/zzossig/hugo-theme-zzo"
@@ -354,6 +355,8 @@ commento = false
   mastodon = ""
   jianshu = ""
   zhihu = ""
+  signal = ""
+  whatsapp = ""
 
 [donationOptions]
   enable = false # if set, the donation button will show up on the single page.
@@ -957,6 +960,7 @@ title:
 author: # author name
 authorEmoji: 🤖 # emoji for subtitle, summary meta data
 authorImage: "/images/whoami/avatar.jpg" # image path in the static folder
+authorImageUrl: "" # your image url. We use `authorImageUrl` first. If not set, we use `authorImage`.
 authorDesc: # author description
 socialOptions: # override params.toml file socialOptions
   email: ""

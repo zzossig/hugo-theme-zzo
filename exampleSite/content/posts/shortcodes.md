@@ -116,12 +116,6 @@ Colored box
 **this** is a text
 {{< /alert >}}
 
-## Image
-
-Diaplay image with title and caption
-
-{{< img src="/images/whoami/avatar.jpg" title="Title" caption="example caption" alt="example avatar" width="400px" >}}
-
 ## Notice
 
 {{< notice success >}}
