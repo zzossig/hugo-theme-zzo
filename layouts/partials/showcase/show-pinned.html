@@ -11,7 +11,7 @@
       {{ range .Pages }}
         {{ $category := .Params.category }}
         {{ range where .Pages "Params.pinned" true }}
-          <li class="showcase__box">
+          <li class="showcase__box" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
             <a href="{{ .Params.Link }}" class="showcase__box--link" target="_blank" rel="noreferrer"></a>
             <span class="showcase__box--title">
               {{ .Title }}

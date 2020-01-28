@@ -11,6 +11,11 @@
     &.r {
       margin-right: 1rem;
     }
+
+    &[data-dir="rtl"] {
+      margin-left: 1rem;
+      margin-right: 0;
+    }
   }
 
   &__header {

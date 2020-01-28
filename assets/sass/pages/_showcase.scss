@@ -71,15 +71,29 @@
     border-radius: 0.2rem;
     padding: 1rem;
     position: relative;
-    
-    &:nth-child(odd) {
-      margin: 0.5rem;
-      margin-left: 0;
+
+    &[data-dir="rtl"] {
+      &:nth-child(odd) {
+        margin: 0.5rem;
+        margin-right: 0;
+      }
+
+      &:nth-child(even) {
+        margin: 0.5rem;
+        margin-left: 0;
+      }
     }
 
-    &:nth-child(even) {
-      margin: 0.5rem;
-      margin-right: 0;
+    &[data-dir="ltr"] {
+      &:nth-child(odd) {
+        margin: 0.5rem;
+        margin-left: 0;
+      }
+
+      &:nth-child(even) {
+        margin: 0.5rem;
+        margin-right: 0;
+      }
     }
 
     @include flexbox();

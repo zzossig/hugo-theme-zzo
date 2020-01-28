@@ -156,6 +156,7 @@
     height: $grid_navbar_height;
     text-align: right;
     position: relative;
+    direction: rtl;
 
     @include flexbox();
     @include align-items(center);
@@ -170,7 +171,6 @@
       cursor: pointer;
       position: absolute;
       top: 0;
-      right: 0;
 
       @include flexbox();
       @include align-items(center);
@@ -180,6 +180,14 @@
         @include on-event {
           color: themed('link-hover');
         }
+      }
+
+      &[data-dir="ltr"] {
+        right: 0;
+      }
+
+      &[data-dir="rtl"] {
+        left: 0;
       }
     }
 
@@ -191,6 +199,7 @@
       border-radius: 0.25rem;
       padding: 0 1rem;
       font-size: 1.1rem;
+      
       @include themify($themes) {
         color: themed('body-color');
         background-color: themed('navbar-background-color');
@@ -213,6 +222,14 @@
       background-color: themed('body-background-color');
 
       @include moz-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
+    }
+
+    &[data-dir="ltr"] {
+      direction: ltr;
+    }
+
+    &[data-dir="rtl"] {
+      direction: rtl;
     }
   }
 

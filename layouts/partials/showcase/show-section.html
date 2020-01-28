@@ -5,7 +5,7 @@
     <div class="showcase__box--wrapper">
       {{ $category := .Params.category }}
       {{ range .Pages }}
-        <div class="showcase__box">
+        <div class="showcase__box" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
           <a href="{{ .Params.Link }}" class="showcase__box--link" target="_blank" rel="noreferrer"></a>
           <a href="{{ .Params.Link }}" class="showcase__box--title" target="_blank" rel="noreferrer">
             {{ .Title }}

@@ -34,7 +34,35 @@
 {{ end }}
 
 {{ if in .Params.Libraries "mathjax" }}
-  <script defer src="{{ $js.mathjax.url }}" integrity="{{ $js.mathjax.sri }}" crossorigin="anonymous"></script>
+  <script type="text/javascript" async src="{{ $js.mathjax.url }}?config=TeX-AMS-MML_HTMLorMML">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js"]
+        }
+      }
+    });
+    MathJax.Hub.Queue(function () {
+      // Fix <code> tags after MathJax finishes running. This is a
+      // hack to overcome a shortcoming of Markdown. Discussion at
+      // https://github.com/mojombo/jekyll/issues/199
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+
+    MathJax.Hub.Config({
+      // Autonumbering by mathjax
+      TeX: { equationNumbers: { autoNumber: "AMS" } }
+    });
+  </script>
 {{ end }}
 
 {{ if in .Params.Libraries "msc" }}
@@ -58,7 +86,6 @@
   <script defer src="{{ $js.viz.url }}" crossorigin="anonymous"></script>
   <script defer src="{{ $js.viz_render.url }}" integrity="{{ $js.viz_render.sri }}" crossorigin="anonymous"></script>
 {{ end }}
-
 
 <script>
   'use strict';
@@ -451,19 +478,6 @@
 
 
     // ============================ mathjax ============================
-    if (lib && lib.includes('mathjax')) {
-      window.MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']],
-          processEscapes: false,
-          packages: { '[+]': ['noerrors'] }
-        },
-        loader: {
-          load: ['[tex]/noerrors']
-        },
-      };
-    }
     // =================================================================
 
 

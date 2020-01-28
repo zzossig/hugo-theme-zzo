@@ -8,7 +8,21 @@
   left: 0;
   right: 0;
   top: 0;
+
+  &[data-dir="rtl"] {
+    direction: rtl;  
+  }
   
+  &[data-dir="ltr"] {
+    direction: ltr;
+  }
+
+  @media only screen and (max-width: 769px) {
+    &[data-dir="rtl"] {
+      direction: ltr;  
+    }
+  }
+
   @include transition(all, 0.2s, ease);  
   @include flexbox();
   @include justify-content(space-between);
@@ -44,7 +58,7 @@
           @include animation('slide-in-down .25s #{$i * .1}s 1 ease both');
         }
       }
-    }   
+    }
   }
   
   &__brand {
@@ -170,6 +184,7 @@
     @include flexbox();
     @include align-items(center);
     @include justify-content(flex-end);
+
     height: $grid_navbar_height;
 
     @media only screen and (max-width: 769px) {
@@ -191,14 +206,15 @@
         color: themed('navbar-title-color');
         border-top: 1px solid transparent;
         border-bottom: 1px solid themed('navbar-border-bottom-color');
+        background-color: themed('navbar-background-color');
         @include on-event {
           color: themed('navbar-title-hover-color');
           background-color: themed('navbar-menu-hover-background-color');
           text-decoration: none;
           border-bottom: 1px solid themed('navbar-border-bottom-color');
-          @media only screen and (max-width: 769px) {
-            border-bottom: none;
-          }
+        }
+        @media only screen and (max-width: 769px) {
+          border-bottom: none;
         }
         &.active {
           color: themed('navbar-title-active-color') !important;
@@ -278,6 +294,7 @@
       @include truncate(150px);
       @include themify($themes) {
         color: themed("dropdown-item-color");
+        background-color: themed("navbar-background-color");
         @include on-event {
           color: themed("navbar-dropdown-item-hover-color");
           background-color: themed("navbar-menu-hover-background-color");
@@ -291,7 +308,7 @@
       }
 
       @media only screen and (max-width: 769px) {
-        padding-left: 2.5rem;
+        padding: 0 2.5rem;
         min-width: 100%;
         max-width: 100%;
       }

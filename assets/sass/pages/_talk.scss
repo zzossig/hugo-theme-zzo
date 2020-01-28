@@ -3,7 +3,6 @@
     border-radius: 0.25rem;
     min-width: 100px;
     max-width: 100px;
-    margin-right: 1rem;
     font-size: 16px;
     height: 26px;
     line-height: 26px;
@@ -15,6 +14,14 @@
     @include themify($themes) {
       color: themed('archive-meta-color');
       background-color: themed('archive-type-background-color');
+    }
+
+    &[data-dir="rtl"] {
+      margin-left: 1rem;
+    }
+
+    &[data-dir="ltr"] {
+      margin-right: 1rem;
     }
   }
 
@@ -32,28 +39,30 @@
       margin-bottom: 0.5rem;
     }
     
-    @include on-event {
-      &::before {
-        content: '';
-        position: absolute;
-        left: 3rem;
-        width: 0.25rem;
-        height: 30px;
-        
-        @include themify($themes) {
-          background-color: themed('archive-hover-line-color');
+    &[data-dir="ltr"] {
+      @include on-event {
+        &::before {
+          content: '';
+          position: absolute;
+          left: 3rem;
+          width: 0.25rem;
+          height: 30px;
           
-          @media only screen and (max-width:768px) {
-            top: 13px;
-            left: 0;
-            height: 24px;
+          @include themify($themes) {
+            background-color: themed('archive-hover-line-color');
+            
+            @media only screen and (max-width:768px) {
+              top: 13px;
+              left: 0;
+              height: 24px;
+            }
           }
-        }
 
-        @media only screen and (max-width: 769px) {
-          height: 24px;
-          top: 50%;
-          @include translateY(-50%);
+          @media only screen and (max-width: 769px) {
+            height: 24px;
+            top: 50%;
+            @include translateY(-50%);
+          }
         }
       }
     }

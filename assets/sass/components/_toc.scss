@@ -18,6 +18,11 @@
     @include flexbox();
     @include align-items(center);
     position: fixed;
+
+    .toc__title {
+      margin-top: 0.75rem;
+      margin-left: 0.5rem;
+    }
   }
 
   &__flexbox[data-position="absolute"] {
@@ -39,11 +44,26 @@
     }
   }
 
+  &__flexbox--outer[data-dir="ltr"] {
+    top: 4.2rem;
+    left: 1rem;
+  }
+
+  &__flexbox--outer[data-dir="rtl"] {
+    top: 4.2rem;
+    right: 1rem;
+
+    .toc__title {
+      margin-top: 0.75rem;
+      margin-left: 0.5rem;
+    }
+  }
+
   &__title {
     font-size: 0.9rem;
     margin-top: 0.5rem;
+
     @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
-    
     @include themify($themes) {
       color: themed('toc-label-color');
     }
@@ -55,23 +75,66 @@
     }
   }
 
-  a {
-    color: inherit;     
-    position: relative;
-    &::before {
-      @include themify($themes) {        
-        background-color: themed('toc-vertical-line');
-      }      
-      content: '';
-      height: 100%;
-      left: -1rem;
-      margin-top: -1px;
-      position: absolute;
-      width: 2px;            
-      &:last-child {
-        background-color: transparent;
+  &[data-dir="ltr"] {
+    a {
+      color: inherit;     
+      position: relative;
+      &::before {
+        @include themify($themes) {        
+          background-color: themed('toc-vertical-line');
+        }      
+        content: '';
+        height: 100%;
+        left: -1rem;
+        margin-top: -1px;
+        position: absolute;
+        width: 2px;            
+        &:last-child {
+          background-color: transparent;
+        }
       }
-    }    
+    }
+    
+    .active {
+      @include themify($themes) {
+        color: themed('link-hover');
+        font-weight: 700;
+        &::before {        
+          background-color: themed('toc-vertical-line-active');
+        }
+      }
+    }
+  }
+
+  &[data-dir="rtl"] {
+    a {
+      color: inherit;     
+      position: relative;
+      &::before {
+        @include themify($themes) {        
+          background-color: themed('toc-vertical-line');
+        }      
+        content: '';
+        height: 100%;
+        right: -1rem;
+        margin-top: -1px;
+        position: absolute;
+        width: 2px;            
+        &:last-child {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .active {
+      @include themify($themes) {
+        color: themed('link-hover');
+        font-weight: 700;
+        &::before {        
+          background-color: themed('toc-vertical-line-active');
+        }
+      }
+    }
   }
 
   ul {
@@ -88,16 +151,6 @@
         &.active {
           color: themed('toc-vertical-line-active');
         }
-      }
-    }
-  }
-
-  .active {
-    @include themify($themes) {
-      color: themed('link-hover');
-      font-weight: 700;
-      &::before {        
-        background-color: themed('toc-vertical-line-active');
       }
     }
   }

@@ -37,11 +37,12 @@ Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(alw
 * Search Engine Optimization(SEO)
 * Multilingual (i18n)
 * Responsive design
-* RSS and JSON feeds with full content
+* RSS
 * Search
 * Gallery
 * Fast code highlighting
-* Talks page for external links
+* Talks page
+* Showcase page
 
 ## Minimum Hugo version
 
@@ -219,6 +220,7 @@ description = "The Zzo theme for Hugo example site." # for SEO
 custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
 custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
 useFaviconGenerator = false # https://www.favicon-generator.org/
+languagedir = "ltr" # ltr / rtl
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"] # select options for site color theme
 notAllowedTypesInHome = ["contact", "talks", "about", "showcase"] # not allowed page types in home page. type can be set in front matter or default to folder name.

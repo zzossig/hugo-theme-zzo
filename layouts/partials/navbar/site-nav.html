@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
   <div class="navbar__brand">
     {{ if $.Param "logo" | default true }}
     <a href="{{ "/" | relLangURL }}" title="{{ i18n "tooltip-home" }}" rel="home" class="{{ if eq ($.Param "logoType") "long" }}navbar__long-link{{ else }}navbar__logo-link{{ end }}">
@@ -33,7 +33,7 @@
       {{ $active = or $active (eq (lower .URL) (lower $current.Type)) }}
       {{ if .HasChildren }}
         <div class="navbar__dropdown navbar__slide-down">
-          <a href="{{ .URL | relLangURL }}" class="navbar__menu-item {{ if $active }}active{{ end }}">
+          <a href="{{ .URL | relLangURL }}" class="navbar__menu-item {{ if $active }}active{{ end }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
             {{ safeHTML .Name }}
             <span class="navbar__menu-icon">
               {{ partial "svgs/arrow/keyboard-arrow-down.svg" (dict "width" 18 "height" 18) }}
@@ -41,12 +41,12 @@
           </a>        
           <div class="navbar__dropdown--content">
             {{ range .Children }}
-            <a href="{{ .URL | relLangURL }}" class="navbar__dropdown--item">{{ safeHTML .Name }}</a>        
+            <a href="{{ .URL | relLangURL }}" class="navbar__dropdown--item" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ safeHTML .Name }}</a>        
             {{ end }}
           </div>
         </div>
       {{ else }}
-        <a href="{{ .URL | relLangURL }}" class="navbar__menu-item navbar__slide-down {{ if $active }}active{{ end }}">{{ safeHTML .Name }}</a>
+        <a href="{{ .URL | relLangURL }}" class="navbar__menu-item navbar__slide-down {{ if $active }}active{{ end }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ safeHTML .Name }}</a>
       {{ end }}
     {{ end }}
   </div>

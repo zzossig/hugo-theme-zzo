@@ -40,6 +40,8 @@ Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로
 * 검색 (지원 예정)
 * 갤러리 지원
 * 코드 하이라이트
+* 토크 페이지
+* 쇼케이스 페이지
 
 ## Minimum Hugo version
 
@@ -226,6 +228,7 @@ description = "The Zzo theme for Hugo example site." # for SEO
 custom_css = [] # custom_css = ["scss/custom.scss"] and then make file at root/assets/scss/custom.scss
 custom_js = [] # custom_js = ["js/custom.js"] and then make file at root/assets/js/custom.js
 useFaviconGenerator = false # https://www.favicon-generator.org/
+languagedir = "ltr" # ltr / rtl
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"] # select options for site color theme
 notAllowedTypesInHome = ["contact", "talks", "about", "showcase"] # not allowed page types in home page. type can be set in front matter or default to folder name.

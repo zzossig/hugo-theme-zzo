@@ -17,21 +17,43 @@
 
   &__ul {
     position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      left: 3rem;
-      top: 0;
-      width: 0.25rem;
-      height: 100%;
-      @include themify($themes) {
-        background-color: themed('toc-vertical-line');
+
+    &[data-dir="rtl"] {
+      &::before {
+        content: '';
+        position: absolute;
+        right: 3rem;
+        top: 0;
+        width: 0.25rem;
+        height: 100%;
+        @include themify($themes) {
+          background-color: themed('toc-vertical-line');
+        }
+      }
+
+      @media only screen and (max-width: 769px) {
+        &::before {
+          content: none;
+        }
       }
     }
 
-    @media only screen and (max-width: 769px) {
+    &[data-dir="ltr"] {
       &::before {
-        content: none;
+        content: '';
+        position: absolute;
+        left: 3rem;
+        top: 0;
+        width: 0.25rem;
+        height: 100%;
+        @include themify($themes) {
+          background-color: themed('toc-vertical-line');
+        }
+      }
+      @media only screen and (max-width: 769px) {
+        &::before {
+          content: none;
+        }
       }
     }
 
@@ -39,17 +61,27 @@
 
   &__li {
     margin-bottom: 0.5rem;
-    margin-left: 4rem;
     z-index: 0;
+
+    &[data-dir="rtl"] {
+      margin-right: 4rem;
+      @media only screen and (max-width: 769px) {
+        margin-right: 0;
+        position: relative;
+      }
+    }
+
+    &[data-dir="ltr"] {
+      margin-left: 4rem;
+      @media only screen and (max-width: 769px) {
+        margin-left: 0;
+        position: relative;
+      }
+    }
 
     @include transition(margin-left, 0.1s, ease);
     @include flexbox();
     @include align-items(flex-start);
-
-    @media only screen and (max-width: 769px) {
-      margin-left: 0;
-      position: relative;
-    }
 
     @media only screen and (max-width: 600px) {
       @include flex-direction(column);
@@ -146,26 +178,53 @@
     }
     
     @include on-event {
-      &::before {
-        content: '';
-        position: absolute;
-        left: 3rem;                
-        width: 0.25rem;
-        height: 30px;
-        
-        @include themify($themes) {
-          background-color: themed('archive-hover-line-color');
+      &[data-dir="ltr"] {
+        &::before {
+          content: '';
+          position: absolute;
+          left: 3rem;                
+          width: 0.25rem;
+          height: 30px;
           
-          @media only screen and (max-width:768px) {
-            top: 13px;
+          @include themify($themes) {
+            background-color: themed('archive-hover-line-color');
+            
+            @media only screen and (max-width:768px) {
+              top: 13px;
+              height: 24px;
+            }
+          }
+
+          @media only screen and (max-width: 769px) {
             height: 24px;
+            top: 50%;
+            @include translateY(-50%);
           }
         }
+      }
 
-        @media only screen and (max-width: 769px) {
-          height: 24px;
-          top: 50%;
-          @include translateY(-50%);
+      &[data-dir="rtl"] {
+        &::before {
+          content: '';
+          position: absolute;
+          right: 3rem;                
+          width: 0.25rem;
+          height: 30px;
+          
+          @include themify($themes) {
+            background-color: themed('archive-hover-line-color');
+            
+            @media only screen and (max-width:768px) {
+              top: 13px;
+              height: 24px;
+            }
+          }
+
+          @media only screen and (max-width: 769px) {
+            height: 24px;
+            top: 50%;
+            @include translateY(-50%);
+          }
         }
       }
     }

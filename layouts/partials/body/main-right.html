@@ -1,8 +1,9 @@
-<div class="wrapper__right">
+{{ if ne ($.Param "languagedir") "rtl" }}
+<div class="wrapper__right" dir="ltr">
   {{ if and (eq ($.Param "tocPosition") "outer") .IsPage }}
     {{ if and (ne .Type "about") (ne .Type "contact") (ne .Type "gallery") }}
       {{ if or ($.Param "enableToc") ($.Param "toc") }}
-        <div class="toc__flexbox--outer" data-position="fixed">
+        <div class="toc__flexbox--outer" data-position="fixed" data-dir="ltr">
           <h6 class="toc__title toc__title--outer">{{ i18n "toc-label" }}</h6>
           {{ if $.Param "enableTocSwitch" }}
           <label class="switch">
@@ -11,10 +12,11 @@
           </label>
           {{ end }}
         </div>
-        <div class="toc toc__outer {{ if $.Param "hideToc" }}hide{{ end }}">
+        <div class="toc toc__outer {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="ltr">
           {{ .TableOfContents }}
         </div>
       {{ end }}
     {{ end }}
   {{ end }}
 </div>
+{{ end }}

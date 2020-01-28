@@ -23,7 +23,7 @@
   </div>
 
   {{ if $.Param "enableSidebar" }}
-    <aside class="list__sidebar {{ if eq .Site.Params.sidebarPosition "left" }}l{{ else }}r{{ end }}">
+    <aside class="list__sidebar {{ if eq .Site.Params.sidebarPosition "left" }}l{{ else }}r{{ end }}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
       {{ partial "sidebar/sidebar-list" . }}
     </aside>
   {{ end }}

@@ -11,7 +11,7 @@
       </label>
     {{ end }}
   </div>
-  <div class="toc {{ if $.Param "hideToc" }}hide{{ end }}">
+  <div class="toc {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="{{ if eq ($.Param "languagedir") "rtl" }}rtl{{ else }}ltr{{ end }}">
     {{ .TableOfContents }}
   </div>
 </section>

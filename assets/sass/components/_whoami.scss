@@ -13,6 +13,7 @@
   &__contents {
     width: 100%;
     margin-top: 0.5rem;
+    padding: 0 1rem;
 
     @media only screen and (max-width: 769px) {
       @include flexbox();

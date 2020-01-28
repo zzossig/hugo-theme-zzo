@@ -17,13 +17,13 @@
 
     {{ range ($paginator).PageGroups }}
     <span class="archive__key">{{ .Key }}</span>
-    <ul class="archive__ul">
+    <ul class="archive__ul" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
       {{ range .Pages }}
-      <li class="archive__li">
-        <span class="talk__date">
+      <li class="archive__li" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+        <span class="talk__date" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
           {{ .PublishDate.Format (i18n "talks-dateformat") }}
         </span>
-        <a href="{{ .Permalink }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}">{{ .Title }}</a>
+        <a href="{{ .Permalink }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>
       </li>
       {{ end }}
     </ul>

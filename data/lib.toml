@@ -20,8 +20,7 @@
   url = "https://cdn.jsdelivr.net/npm/raphael@2.3.0/raphael.min.js"
 
 [js.mathjax]
-  sri = "sha256-3Fdoa5wQb+JYfEmTpQHx9sc/GuwpfC/0R9EpBki+mf8="
-  url = "https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-chtml.js"
+  url = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"
 
 [js.webfont]
   sri = "" # no sri
