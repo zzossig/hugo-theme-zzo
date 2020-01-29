@@ -1,7 +1,7 @@
 # js
 [js.mermaid]
-  sri = "sha256-JEqEejGt4tR35L0a1zodzsV0/PJ6GIf7J4yDtywdrH8="
-  url = "https://cdn.jsdelivr.net/npm/mermaid@8.4.4/dist/mermaid.min.js"
+  sri = "sha256-wV/0jM5E/0V+KqyxUio2Ve5OAC/gweTTqdbnRX1fgAE="
+  url = "https://cdn.jsdelivr.net/npm/mermaid@8.4.6/dist/mermaid.min.js"
 
 [js.katex]
   sri = "sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc="
@@ -43,12 +43,12 @@
   url = "https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"
 
 [js.wavedrom]
-  sri = "sha256-IDuClDzRPosOM4bqD2e6ANDjqDwqNJrQxvXvegg47eI="
-  url = "https://cdn.jsdelivr.net/npm/wavedrom@2.1.6/wavedrom.min.js"
+  sri = "sha256-Gvxb3h9f9p1eiyr59LuWSLX/tWVncuDrHgLF9+rwkw8="
+  url = "https://cdn.jsdelivr.net/npm/wavedrom@2.3.0/wavedrom.min.js"
 
 [js.wavedrom_skin]
   sri = "sha256-AcH/tECvCrfgPUHK98GALAPyAE7XpAYyEsbpmQrniFo="
-  url = "https://cdn.jsdelivr.net/npm/wavedrom@2.1.6/skins/default.js"
+  url = "https://cdn.jsdelivr.net/npm/wavedrom@2.3.0/skins/default.js"
 
 [js.viz]
   sri = "" # no sri

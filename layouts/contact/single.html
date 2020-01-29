@@ -6,15 +6,17 @@
 </header>
 <main class="main">
   <div class="contact">
-    <article class="single__contents contact__desc">
-      {{ .Content }}
-    </article>
-    {{ if eq .Params.service "formspree" }}
-      {{ partial "contact/formspree" . }}
-    {{ else }}
-      {{ partial "contact/formspree" . }}
-    {{ end }}
-  </div>  
+      {{ if eq .Params.service "formspree" }}
+        <article class="single__contents contact__desc">
+          {{ .Content }}
+        </article>
+        {{ partial "contact/formspree" . }}
+      {{ else }}
+        <article class="single__contents contact__desc">
+          {{ .Content }}
+        </article>
+      {{ end }}
+  </div>
 </main>
 <div class="hide">
   {{ partial "search/site-search" . }}

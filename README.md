@@ -446,7 +446,7 @@ root
 
 ## Contact Page
 
-Currently available service: [formspree]. Open an issue if you need another service vendor.
+Currently available service: [formspree]. Open an issue if you need another service vendor. If you want just a blank page and use a markdown, set the service param empty.
 
 1. Make a file at root/contact/index.md
 
