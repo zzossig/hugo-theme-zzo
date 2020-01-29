@@ -96,6 +96,8 @@
     padding: 0.125rem;
     font-size: 0.95rem;
     font-weight: 700;
+    font-family: $title-font;
+
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);
@@ -127,6 +129,7 @@
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
     font-size: 0.8rem;
+    font-family: $title-font;
     width: 50%;
     height: 24px;
     line-height: 24px;
@@ -147,6 +150,7 @@
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
     font-size: 0.8rem;
+    font-family: $title-font;
     width: 50%;
     height: 24px;
     line-height: 24px;
@@ -167,6 +171,7 @@
     margin-right: 0.5rem;    
     margin-left: 1rem;
     width: 100%;
+    font-family: $title-font;
 
     &[data-title-wrap^="no"] {
       @include truncate($grid-max-width);

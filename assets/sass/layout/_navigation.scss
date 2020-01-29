@@ -164,6 +164,7 @@
   &__title {
     height: $grid_navbar_height;
     font-size: 1.5rem;
+    font-family: $title-font;
 
     @include flexbox();
     @include align-items(center);        

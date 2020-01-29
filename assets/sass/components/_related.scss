@@ -17,6 +17,8 @@
 
   &__link {
     font-size: 16.8px;
+    font-family: $title-font;
+    
     @include themify($themes) {
       color: themed('related-link-color');
     }

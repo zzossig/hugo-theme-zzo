@@ -67,6 +67,7 @@
     @include justify-content(center);
     @include transition(all, 0.2s, ease-out);
     
+    font-family: $title-font;
     padding: 0.25rem;
     border-radius: 0.125rem;
     &-title {

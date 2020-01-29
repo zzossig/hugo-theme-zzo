@@ -44,6 +44,7 @@
   &__title {
     font-size: 1.5rem;
     font-weight: 700;
+    font-family: $title-font;
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;
 
@@ -86,6 +87,7 @@
 
   &__written-by {
     font-size: 0.9rem;
+    font-family: $title-font;
     opacity: 0.75;
     @include themify($codeblock) {
       color: themed('content-pre-color');

@@ -6,6 +6,8 @@
   
   &__title {
     margin: 2rem 0;
+    font-family: $title-font;
+    
     @include themify($themes) {
       color: themed('terms-title-color');
       text-shadow: 1.2px 1.2px 0 themed('terms-title-color'),
