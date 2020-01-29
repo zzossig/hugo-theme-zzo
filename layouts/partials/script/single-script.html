@@ -1,12 +1,8 @@
 {{ $js := .Site.Data.lib.js }}
 {{ $css := .Site.Data.lib.css }}
 
-{{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
-<script defer src="{{ $enquire.RelPermalink }}"></script>
 {{ $clipboard := resources.Get "js/clipboard.min.js" | resources.Fingerprint }}
 <script defer src="{{ $clipboard.RelPermalink }}"></script>
-{{ $lazysizes := resources.Get "js/lazysizes.min.js" | resources.Fingerprint }}
-<script defer src="{{ $lazysizes.RelPermalink }}"></script>
 {{ $getParents := resources.Get "js/helper/getParents.js" | resources.Minify }}
 <script defer src="{{ $getParents.RelPermalink }}"></script>
 {{ $closest := resources.Get "js/helper/closest.js" | resources.Minify }}

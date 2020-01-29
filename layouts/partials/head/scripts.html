@@ -8,6 +8,10 @@
 {{ end }}
 {{ end }}
 
+{{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
+<script src="{{ $enquire.RelPermalink }}"></script>
+{{ $lazysizes := resources.Get "js/lazysizes.min.js" | resources.Fingerprint }}
+<script defer src="{{ $lazysizes.RelPermalink }}"></script>
 {{ $fuse := resources.Get "js/fuse.min.js" | resources.Fingerprint }}
 <script defer src="{{ $fuse.RelPermalink }}"></script>
 {{ $getParents := resources.Get "js/helper/getParents.js" | resources.Minify | resources.Fingerprint }}

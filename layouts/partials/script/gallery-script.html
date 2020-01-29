@@ -1,11 +1,7 @@
-{{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
-<script defer src="{{ $enquire.RelPermalink }}"></script>
 {{ $masonry := resources.Get "js/masonry.pkgd.min.js" | resources.Fingerprint }}
 <script defer src="{{ $masonry.RelPermalink }}"></script>
 {{ $imagesloaded := resources.Get "js/imagesloaded.pkgd.min.js" | resources.Fingerprint }}
 <script defer src="{{ $imagesloaded.RelPermalink }}"></script>
-{{ $lazysizes := resources.Get "js/lazysizes.min.js" | resources.Fingerprint }}
-<script defer src="{{ $lazysizes.RelPermalink }}"></script>
 
 <script>
   window.onload = function() {

@@ -1,8 +1,5 @@
 {{ define "main" }}
 
-{{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
-<script src="{{ $enquire.RelPermalink }}"></script>
-
 <main class="main inner" data-sidebar-position="{{ $.Param "sidebarPosition" }}">
   <div class="list__main {{ if $.Param "enableSidebar" }}{{ if eq .Site.Params.sidebarPosition "left" }}mr{{ else }}lm{{ end }}{{ else }}lmr{{ end }}">
     {{ partial "body/breadcrumb" . }}

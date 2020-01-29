@@ -1,8 +1,5 @@
 {{ define "main" }}
 
-{{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
-<script src="{{ $enquire.RelPermalink }}"></script>
-
 <main class="single__main {{ if or ($.Param "enableToc") ($.Param "toc") }}{{ if $.Param "hideToc" }}main{{ else if eq ($.Param "tocPosition") "outer" }}main{{ else }}main-main{{ end }}{{ else }}main{{ end }}">
   {{ if eq .Site.Params.enableBreadcrumb true }}
   {{ partial "body/breadcrumb" . }}

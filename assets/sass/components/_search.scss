@@ -181,18 +181,11 @@
           color: themed('link-hover');
         }
       }
-
-      &[data-dir="ltr"] {
-        right: 0;
-      }
-
-      &[data-dir="rtl"] {
-        left: 0;
-      }
     }
 
-    &--input {      
-      width: calc(100% - 70px);
+    &--input {
+      position: absolute;
+      width: calc(100% - 50px);
       height: 70%;
       outline: none;
       border: none;
@@ -223,13 +216,35 @@
 
       @include moz-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
     }
+  }
 
-    &[data-dir="ltr"] {
+  &[data-dir="ltr"] {
+    .mobile-search__top--icon {
+      right: 0;
+    }
+    
+    .mobile-search__body {
       direction: ltr;
     }
 
-    &[data-dir="rtl"] {
+    .mobile-search__top--input {
+      direction: ltr;
+      left: 0;
+    }
+  }
+
+  &[data-dir="rtl"] {
+    .mobile-search__top--icon {
+      left: 0; 
+    }
+
+    .mobile-search__body {
+      direction: rtl; 
+    }
+
+    .mobile-search__top--input {
       direction: rtl;
+      right: 0;
     }
   }
 
