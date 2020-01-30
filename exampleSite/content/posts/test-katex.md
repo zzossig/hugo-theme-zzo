@@ -16,21 +16,13 @@ libraries:
 featured_image: "feature2/mathbook.png"
 ---
 
-{{< box >}}
-We need goldmark katex entension which is not yet we have: 
-[https://github.com/gohugoio/hugo/issues/6544](https://github.com/gohugoio/hugo/issues/6544)
-{{< /box >}}
-
-
 The following
 
 $$ \int_{a}^{b} x^2 dx $$
 
 Is an integral
 
-$$
- \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-$$
+$$ \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } $$
 
 Enable Katex in the config file by setting the `katex` param to `true`. This will import the necessary Katex CSS/JS. 
 
@@ -39,21 +31,17 @@ See the online reference of [supported TeX functions](https://katex.org/docs/sup
 **Note:** For inline math to render correctly, your content file extension must be `.mmark`. See the [official mmark site](https://mmark.nl/). 
 
 ```
-Inline math: $$ \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… $$
+Inline math: $ \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… $
 ```
 
-Inline math: $$ \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… $$
+Inline math: $ \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… $
 
 ```
 Block math:
 
-$$
-\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-$$
+$$ \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } $$
 ```
 
 Block math:
 
-$$
-\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-$$
+$$ \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } $$
