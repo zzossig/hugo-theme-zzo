@@ -29,9 +29,9 @@ $kimbiecode: '';
     content-pre-color: #d1d1d1,
     content-pre-number-color: #666,
     content-pre-background-color: #282a36,
-    content-pre-border-background-color: #f3ff6e,
+    content-pre-border-background-color: #424242,
     content-pre-header-background-color: darken(#202420, 1.5%),
-    content-pre-header-color: #f3ff6e,
+    content-pre-header-color: #FCFCFA,
   );
 } @else if $theme_kimbie_chroma_background == solarized {
   $kimbiecode: (

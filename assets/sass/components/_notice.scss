@@ -1,10 +1,21 @@
 .notices {
-    margin: 2rem 0;
     position: relative;
     border-radius: .125rem;
     color: #fff;
+    margin: 2rem 0;
     padding: .3rem 0.5rem .3rem 2rem;
     font-size: 0.95rem;
+
+    a {
+        text-decoration: underline;
+    }
+
+    > table {
+        table-layout:fixed;
+        width: 100%;
+        margin: 10px 0;
+        border-spacing: 0;
+    }
 
     &.warning {
         border-top: 30px solid #f1b37e;
@@ -18,6 +29,35 @@
             top: -26.5px;
             left: 0.4rem;
             height: 100%;
+        }
+
+        a {
+            font-weight: bold;
+            color: rgba(134, 74, 22, 0.995);
+            @include themify($themes) {
+                @include on-event {
+                    color: themed('link-hover');
+                }
+            }
+        }
+
+        > table {
+            thead {
+                background: #f1b37e;
+            }
+
+            th {
+                color: rgba(134, 74, 22, 0.995);
+            }
+
+            th, td {
+                padding: 5px 15px;
+                border: 1px double rgba(166, 106, 54, 0.45);
+            }
+        }
+
+        p > code, li > code, td > code {
+            background-color: darken(#fefaf5, 6%);
         }
     }
 
@@ -34,6 +74,35 @@
             left: 0.4rem;
             height: 100%;
         }
+
+        a {
+            font-weight: bold;
+            color: rgba(116, 40, 40, 0.995);
+            @include themify($themes) {
+                @include on-event {
+                    color: themed('link-hover');
+                }
+            }
+        }
+
+        > table {
+            thead {
+                background: #d58181;
+            }
+
+            th {
+                color: rgba(116, 40, 40, 0.995);
+            }
+
+            th, td {
+                padding: 5px 15px;
+                border: 1px double rgba(148, 72, 72, 0.45);
+            }
+        }
+
+        p > code, li > code, td > code {
+            background-color: darken(#fbeded, 6%);
+        }
     }
 
     &.info {
@@ -49,6 +118,35 @@
             left: 0.4rem;
             height: 100%;
         }
+
+        a {
+            font-weight: bold;
+            color: rgba(31, 87, 125, 0.995);
+            @include themify($themes) {
+                @include on-event {
+                    color: themed('link-hover');
+                }
+            }
+        }
+
+        > table {
+            thead {
+                background: #6bb1e0;
+            }
+
+            th {
+                color: rgba(31, 87, 125, 0.995);
+            }
+
+            th, td {
+                padding: 5px 15px;
+                border: 1px double rgba(63, 119, 157, 0.45);
+            }
+        }
+
+        p > code, li > code, td > code {
+            background-color: darken(#e6f3fb, 6%);
+        }
     }
 
     &.success {
@@ -63,6 +161,35 @@
             top: -26.5px;
             left: 0.4rem;
             height: 100%;
+        }
+
+        a {
+            font-weight: bold;
+            color: rgba(56, 109, 47, 0.995);
+            @include themify($themes) {
+                @include on-event {
+                    color: themed('link-hover');
+                }
+            }
+        }
+
+        > table {
+            thead {
+                background: #84c578;
+            }
+
+            th {
+                color: rgba(56, 109, 47, 0.995);
+            }
+
+            th, td {
+                padding: 5px 15px;
+                border: 1px double rgba(82, 141, 79, 0.45);
+            }
+        }
+
+        p > code, li > code, td > code {
+            background-color: darken(#e8f7e6, 6%);
         }
     }
 }

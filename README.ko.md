@@ -8,6 +8,11 @@
 클릭해 주셔서 감사합니다. Zzo theme은 많은 기능을 지원하고있고 있습니다. 기술 블로그를 운영하기에 최적화 되어있습니다!(적어도 제생각엔...)
 Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로 저와 소통할 수 있다는 점? 입니다. 
 
+## Documentation
+
+영문버전 도큐먼트
+[https://zzodocs.netlify.com/docs/](https://zzodocs.netlify.com/docs/)
+
 ## Table of contents
 
 * [기능](#features)

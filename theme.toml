@@ -1,6 +1,6 @@
 name = "Zzo"
 description = "Hugo blog theme with rich features."
-homepage = "https://github.com/zzossig/hugo-theme-zzo.git"
+homepage = "https://zzodocs.netlify.com/docs"
 license = "MIT"
 licenselink = "https://github.com/zzossig/hugo-theme-zzo/blob/master/LICENSE.md"
 tags = ["accessible", "multilingual", "responsive", "blog", "search", "simple", "light", "dark", "mobile", "gallery", "technical", "fast", "presentation"]
