@@ -51,6 +51,7 @@
 
   &__contents {
     @include animation('slide-in-left-little .2s .6s 1 ease-in both');
+    
     &--gallery {
       overflow: hidden;
     }
@@ -286,8 +287,19 @@
       list-style: disc outside none;
     }
 
+    &[data-dir="rtl"] {
+      li {
+        margin-right: 2rem;
+      }
+    }
+
+    &[data-dir="ltr"] {
+      li {
+        margin-left: 2rem;
+      }
+    }
+
     li {
-      margin-left: 2rem;
       margin-bottom: calc(1rem / 2);
 
       & > code {
