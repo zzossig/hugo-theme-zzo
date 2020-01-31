@@ -9,7 +9,7 @@ series:
 -
 categories:
 -
-featured_image: "feature1/number-four.png"
+image: images/feature1/number-four.png
 plugins:
 - highlight
 - zoom

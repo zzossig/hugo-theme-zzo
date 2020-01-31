@@ -13,7 +13,7 @@ categories:
 - math
 libraries:
 - katex
-featured_image: "feature2/mathbook.png"
+image: images/feature2/mathbook.png
 ---
 
 The following

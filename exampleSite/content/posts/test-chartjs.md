@@ -13,7 +13,7 @@ categories:
 - diagram
 libraries:
 - chart
-featured_image: "feature1/graph.png"
+image: images/feature1/graph.png
 ---
 
 ```chart

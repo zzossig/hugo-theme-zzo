@@ -362,6 +362,8 @@ commento = false
   zhihu = ""
   signal = ""
   whatsapp = ""
+  matrix = ""
+  xmpp = ""
 
 [donationOptions]
   enable = false # if set, the donation button will show up on the single page.
@@ -377,7 +379,7 @@ commento = false
   copyrightLinkImage = ""
   copyrightLinkText = ""
 
-# possible share name: ["facebook","twitter", "reddit", "linkedin", "tumblr", "weibo", "douban", "line"]
+# possible share name: "facebook","twitter", "reddit", "linkedin", "tumblr", "weibo", "douban", "line", "whatsapp", "telegram"
 [[share]]
   name = "facebook"
 [[share]]

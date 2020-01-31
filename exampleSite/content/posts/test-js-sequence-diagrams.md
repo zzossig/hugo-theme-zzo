@@ -13,7 +13,7 @@ categories:
 - diagram
 libraries:
 - msc
-featured_image: "feature2/transfer.png"
+image: images/feature2/transfer.png
 ---
 
 ```msc

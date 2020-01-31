@@ -14,7 +14,7 @@ categories:
 - diagram
 libraries:
 - flowchartjs
-featured_image: "feature1/flowchart.png"
+image: images/feature1/flowchart.png
 ---
 
 ```flowchart

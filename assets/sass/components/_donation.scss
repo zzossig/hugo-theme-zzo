@@ -105,7 +105,19 @@
       &[data-name="line"] {
         color: white;
         @include on-event {
-          background-color: #00C300;  
+          background-color: #00C300;
+        }
+      }
+      &[data-name="telegram"] {
+        color: white;
+        @include on-event {
+          background-color: #2CA5E0;
+        }
+      }
+      &[data-name="whatsapp"] {
+        color: white;
+        @include on-event {
+          background-color: #25D366;
         }
       }
 

@@ -39,6 +39,14 @@
         <a href="https://social-plugins.line.me/lineit/share?url={{ $ctx.Permalink | absLangURL }}" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "Line" }}" aria-label="Line Share Button" data-type="share">
           {{ partial "svgs/share/line.svg" (dict "width" 35 "height" 35) }}
         </a>
+      {{ else if eq (lower .name) "telegram" }}
+        <a href='https://telegram.me/share/url?url=' onclick='window.open(&apos;https://telegram.me/share/url?url=&apos;+encodeURIComponent(location.href)+&apos;&amp;bodytext=&amp;tags=&amp;text=&apos;+encodeURIComponent(document.title));return false;' class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "Telegram" }}" aria-label="Telegram Share Button" data-type="share">
+          {{ partial "svgs/social/telegram.svg" (dict "width" 35 "height" 35) }}
+        </a>
+      {{ else if eq (lower .name) "whatsapp" }}
+        <a href="https://web.whatsapp.com/send?text={{ $ctx.Title }} - {{ $ctx.Permalink | absLangURL }}" data-href="{{ $ctx.Permalink | absLangURL }}" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "WhatsApp" }}" aria-label="WhatsApp Share Button" data-type="share">
+          {{ partial "svgs/social/whatsapp.svg" (dict "width" 35 "height" 35) }}
+        </a>
       {{ end }}
     {{ end }}
   </div>

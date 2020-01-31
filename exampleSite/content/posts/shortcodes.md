@@ -13,7 +13,7 @@ series:
 -
 categories:
 -
-featured_image: feature3/code-file.png
+image: images/feature3/code-file.png
 ---
 
 ## Markdownify box

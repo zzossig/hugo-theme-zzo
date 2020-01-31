@@ -14,7 +14,7 @@ images:
     caption: man
   - image: child.jpg
     caption: child
-featured_image: feature2/gallery.png
+image: images/feature2/gallery.png
 ---
 
 Sample images from [Pixabay](https://pixabay.com)

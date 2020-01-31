@@ -37,4 +37,8 @@ socialOptions:
   mastodon: ""
   jianshu: ""
   zhihu: ""
+  signal: ""
+  whatsapp: ""
+  matrix: ""
+  xmpp: ""
 ---

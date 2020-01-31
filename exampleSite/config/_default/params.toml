@@ -140,6 +140,8 @@ commento = false
   zhihu = ""
   signal = ""
   whatsapp = ""
+  matrix = ""
+  xmpp = ""
 
 [donationOptions]
   enable = false
