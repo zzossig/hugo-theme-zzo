@@ -22,7 +22,7 @@
       </header>
       <div>
         <div class="summary-classic__text p2">
-          {{ with $.Param "description" }}
+          {{ with .Params.description }}
             {{ . }}
           {{ else }}
             {{ .Summary | safeHTML }}

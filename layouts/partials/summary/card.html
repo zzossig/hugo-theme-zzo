@@ -5,7 +5,7 @@
   </header>
   <div class="summary-card__content">
     <div class="summary-card__text p2">
-      {{ with $.Param "description" }}
+      {{ with .Params.description }}
       {{ . }}
       {{ else }}
       {{ .Summary }}
