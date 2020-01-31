@@ -9,11 +9,11 @@
         {{ range $index, $element := .Site.Taxonomies.series }}
         {{ if $index }}
             <span class="tag">
-                <a href="{{ $element.Page.RelPermalink }}" class="is-series taxo__link">
+                <a href="{{ $element.Page.RelPermalink }}" class="is-series taxo__link" data-dir="{{ if eq ($.Param "languagedir") "rtl" }}rtl{{ else }}ltr{{ end }}">
                     <span class="taxo__text">
                         {{ $element.Page.Title }}
                     </span>
-                    <span class="taxo__num">
+                    <span class="taxo__num" dir="auto">
                         {{ printf "%#v" (len $element) }}
                     </span>
                 </a>

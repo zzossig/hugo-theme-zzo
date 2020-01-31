@@ -24,12 +24,35 @@
 
   &__link {
     text-decoration: none !important;   
+
+    &[data-dir="ltr"] {
+      .taxo__text {
+        border-top-left-radius: 0.175rem;
+        border-bottom-left-radius: 0.175rem;
+      }
+      
+      .taxo__num {
+        padding: 0.125rem 0.25rem;
+        border-top-right-radius: 0.175rem;
+        border-bottom-right-radius: 0.175rem;    
+      }
+    }
+
+    &[data-dir="rtl"] {
+      .taxo__text {
+        border-top-right-radius: 0.175rem;
+        border-bottom-right-radius: 0.175rem;
+      }
+      
+      .taxo__num {
+        padding: 0.125rem 0.25rem;
+        border-top-left-radius: 0.175rem;
+        border-bottom-left-radius: 0.175rem;    
+      }
+    }
   }
 
   &__text {
-    border-top-left-radius: 0.175rem;
-    border-bottom-left-radius: 0.175rem;
-
     @include on-event {        
       text-decoration: underline !important;   
     }
@@ -39,10 +62,6 @@
   }
 
   &__num {
-    padding: 0.125rem 0.25rem;
-    border-top-right-radius: 0.175rem;
-    border-bottom-right-radius: 0.175rem;    
-
     @include themify($themes) {
       color: themed('taxo-num-color');
       background-color: themed('taxo-num-background-color');    
@@ -70,28 +89,52 @@
 
   .is-tags {
     border-radius: 0.175rem;
-    padding: 0.125rem 0 0.125rem 0.25rem;
+    
     @include themify($themes) {
       color: themed('taxo-tags-color');
       background-color: themed('taxo-tags-background-color');
     }
-  }  
+
+    &[data-dir="ltr"] {
+      padding: 0.125rem 0 0.125rem 0.25rem;
+    }
+
+    &[data-dir="rtl"] {
+      padding: 0.125rem 0.25rem 0.125rem 0;
+    }
+  }
 
   .is-categories {
     border-radius: 0.175rem;
-    padding: 0.125rem 0 0.125rem 0.25rem;
+    
     @include themify($themes) {
       color: themed('taxo-categories-color');
       background-color: themed('taxo-categories-background-color');
+    }
+
+    &[data-dir="ltr"] {
+      padding: 0.125rem 0 0.125rem 0.25rem;
+    }
+
+    &[data-dir="rtl"] {
+      padding: 0.125rem 0.25rem 0.125rem 0;
     }
   }
 
   .is-series {
     border-radius: 0.175rem;
-    padding: 0.125rem 0 0.125rem 0.25rem;
+    
     @include themify($themes) {
       color: themed('taxo-series-color');
       background-color: themed('taxo-series-background-color');
+    }
+
+    &[data-dir="ltr"] {
+      padding: 0.125rem 0 0.125rem 0.25rem;
+    }
+
+    &[data-dir="rtl"] {
+      padding: 0.125rem 0.25rem 0.125rem 0;
     }
   }
 }
