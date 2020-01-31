@@ -1,14 +1,14 @@
 {{ define "main" }}
 <main class="main showcase inner" data-sidebar-position="{{ $.Param "sidebarPosition" }}">
   {{ if .Params.enableBio }}
-    <aside class="{{ if eq .Site.Params.sidebarPosition "left" }}l{{ else }}r{{ end }}">
+    <aside class="{{ if eq ($.Param "sidebarPosition") "left" }}l{{ else }}r{{ end }}">
       <div class="showcase__bio">
         {{ partial "search/site-search" . }}
         {{ partial "sidebar/site-bio" . }}
       </div>
     </aside>
   {{ end }}
-  <section class="showcase__section {{ if .Params.enableBio }}{{ if eq .Site.Params.sidebarPosition "left" }}mr{{ else }}lm{{ end }}{{ else }}lmr{{ end }}">
+  <section class="showcase__section {{ if .Params.enableBio }}{{ if eq ($.Param "sidebarPosition") "left" }}mr{{ else }}lm{{ end }}{{ else }}lmr{{ end }}">
     {{ if .Params.enableBio }}
       <div class="showcase__bio--mobile hide">
         {{ partial "body/whoami" . }}

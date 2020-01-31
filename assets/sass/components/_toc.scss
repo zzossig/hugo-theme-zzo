@@ -76,62 +76,137 @@
   }
 
   &[data-dir="ltr"] {
-    a {
-      color: inherit;     
-      position: relative;
-      &::before {
-        @include themify($themes) {        
-          background-color: themed('toc-vertical-line');
-        }      
-        content: '';
-        height: 100%;
-        left: -1rem;
-        margin-top: -1px;
-        position: absolute;
-        width: 2px;            
-        &:last-child {
-          background-color: transparent;
+    &[data-folding=true] {
+      @include themify($themes) {
+        a {
+          color: themed('toc-vertical-line');
+          position: relative;
+
+          &::before {
+            content: '';
+            height: 100%;
+            left: -1rem;
+            margin-top: -1px;
+            position: absolute;
+            width: 2px;            
+            background-color: themed('toc-vertical-line');
+            &:last-child {
+              background-color: transparent;
+            }
+          }
+        }
+          
+        .active {
+          color: themed('toc-vertical-line-active');
+          font-weight: 700;
+          &::before {
+            background-color: themed('toc-vertical-line-active');
+          }
         }
       }
     }
-    
-    .active {
+
+    &[data-folding=false] {
       @include themify($themes) {
-        color: themed('link-hover');
-        font-weight: 700;
-        &::before {        
-          background-color: themed('toc-vertical-line-active');
+        a {
+          color: themed('toc-vertical-line');
+
+          &.active {
+            color: themed('toc-vertical-line-active');
+            
+            &::before {
+              background-color: themed('toc-vertical-line-active');
+              content: '';
+              height: 0.95rem;
+              left: -1rem;
+              margin-top: 2px;
+              position: absolute;
+              width: 2px;            
+              &:last-child {
+                background-color: transparent;
+              }
+            }
+          }
+        }   
+      }
+    }
+
+    ul {
+      @include themify($themes) {
+        li {        
+          li {
+            margin-left: 1rem;
+            color: themed('sidebar-li-color');      
+          }  
         }
       }
     }
   }
 
   &[data-dir="rtl"] {
-    a {
-      color: inherit;     
-      position: relative;
-      &::before {
-        @include themify($themes) {        
-          background-color: themed('toc-vertical-line');
-        }      
-        content: '';
-        height: 100%;
-        right: -1rem;
-        margin-top: -1px;
-        position: absolute;
-        width: 2px;            
-        &:last-child {
-          background-color: transparent;
+    &[data-folding=true] {
+      a {
+        color: inherit;
+        position: relative;
+        &::before {
+          @include themify($themes) {        
+            background-color: themed('toc-vertical-line');
+          }      
+          content: '';
+          height: 100%;
+          right: -1rem;
+          margin-top: -1px;
+          position: absolute;
+          width: 2px;            
+          &:last-child {
+            background-color: transparent;
+          }
+        }
+      }
+
+      .active {
+        @include themify($themes) {
+          color: themed('link-hover');
+          font-weight: 700;
+          &::before {        
+            background-color: themed('toc-vertical-line-active');
+          }
         }
       }
     }
 
-    .active {
+    &[data-folding=false] {
       @include themify($themes) {
-        color: themed('link-hover');
-        font-weight: 700;
-        &::before {        
-          background-color: themed('toc-vertical-line-active');
+        a {
+          color: themed('toc-vertical-line');
+
+          &.active {
+            color: themed('toc-vertical-line-active');
+            
+            &::before {
+              background-color: themed('toc-vertical-line-active');
+              content: '';
+              height: 0.95rem;
+              right: -1rem;
+              margin-top: 2px;
+              position: absolute;
+              width: 2px;            
+              &:last-child {
+                background-color: transparent;
+              }
+            }
+          }
+        }   
+      }
+    }
+
+    ul {
+      @include themify($themes) {
+        li {
+          li {
+            margin-right: 1rem;
+            color: themed('sidebar-li-color');      
+          }  
         }
       }
     }
@@ -139,13 +214,6 @@
 
   ul {
     @include themify($themes) {
-      li {        
-        li {
-          margin-left: 1rem;
-          color: themed('sidebar-li-color');      
-        }  
-      }
-      
       a {
         color: themed('toc-title-color');        
         &.active {

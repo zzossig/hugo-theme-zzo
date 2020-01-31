@@ -1,8 +1,8 @@
 {{ define "main" }}
 
 <main class="single__main {{ if or ($.Param "enableToc") ($.Param "toc") }}{{ if $.Param "hideToc" }}main{{ else if eq ($.Param "tocPosition") "outer" }}main{{ else }}main-main{{ end }}{{ else }}main{{ end }}">
-  {{ if eq .Site.Params.enableBreadcrumb true }}
-  {{ partial "body/breadcrumb" . }}
+  {{ if $.Param "enableBreadcrumb" }}
+    {{ partial "body/breadcrumb" . }}
   {{ end }}
   <div class="single">
     <h2 class="single__title">{{ .Title }}</h2>

@@ -1,10 +1,10 @@
 {{ if .IsHome }}
 <header class="header">
-    {{ if and .Site.Params.homeHeaderType (eq .Site.Params.homeHeaderType "slide") }}
+    {{ if and ($.Param "homeHeaderType") (eq ($.Param "homeHeaderType") "slide") }}
         {{ partial "header/header-slide" . }}
-    {{ else if and .Site.Params.homeHeaderType (eq .Site.Params.homeHeaderType "img") }}
+    {{ else if and ($.Param "homeHeaderType") (eq ($.Param "homeHeaderType") "img") }}
         {{ partial "header/header-img" . }}
-    {{ else if and .Site.Params.homeHeaderType (eq .Site.Params.homeHeaderType "text") }}
+    {{ else if and ($.Param "homeHeaderType") (eq ($.Param "homeHeaderType") "text") }}
         {{ partial "header/header-text" . }}
     {{ else }}
         {{ partial "header/custom-header" . }}

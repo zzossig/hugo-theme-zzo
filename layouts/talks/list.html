@@ -13,7 +13,7 @@
 <main class="main archive">
   <div class="archive__container">
     {{ $pages := (where .Site.RegularPages "Section" "talks") }}
-    {{ $paginator := .Paginate ($pages.GroupByPublishDate (.Site.Params.talksGroupByDate | default "2006")) .Site.Params.talksPaginate }}
+    {{ $paginator := .Paginate ($pages.GroupByPublishDate ($.Param "talksGroupByDate" | default "2006")) ($.Param "talksPaginate") }}
 
     {{ range ($paginator).PageGroups }}
     <span class="archive__key">{{ .Key }}</span>

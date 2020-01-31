@@ -4,9 +4,9 @@
     {{ partial "sidebar/site-bio" . }}
     {{ partial "sidebar/custom-home" . }}
 
-    {{ if and .Site.Params.itemsPerCategory .Site.Params.enableHomeSidebarTitles }}
+    {{ if and ($.Param "itemsPerCategory") ($.Param "enableHomeSidebarTitles") }}
         {{ $filteredSections := .Site.Sections }}
-        {{ range .Site.Params.notAllowedTypesInHomeSidebar }}
+        {{ range $.Param "notAllowedTypesInHomeSidebar" }}
             {{ $filteredSections = (where $filteredSections "Type" "!=" (lower .)) }}
         {{ end }}
 
@@ -14,7 +14,7 @@
         <section class="sidebar-recent">
             <a href="{{ .RelPermalink }}" class="sidebar-recent__title p2">{{ .Title }}</a>
             <ul class="sidebar-recent__ul">
-                {{ range first .Site.Params.itemsPerCategory .Pages }}
+                {{ range first ($.Param "itemsPerCategory") .Pages }}
                     <li>
                         <a href="{{ .RelPermalink }}" class="sidebar-recent__a p2">{{ .Title }}</a>
                     </li>

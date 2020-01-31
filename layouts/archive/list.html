@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $titleWrap := .Params.titleWrap }}
+{{ $titleWrap := $.Param "titleWrap" }}
 
 <header class="header">
   <h3 class="h3 terms__title">
@@ -12,11 +12,11 @@
 <main class="main archive">
   <div class="archive__container">
     {{ $filteredPages := .Site.RegularPages }}
-    {{ range .Site.Params.notAllowedTypesInArchive }}
+    {{ range $.Param "notAllowedTypesInArchive" }}
       {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
     {{ end }}
 
-    {{ $paginator := .Paginate ($filteredPages.GroupByDate (.Site.Params.archiveGroupByDate | default "2006")) .Site.Params.archivePaginate }}
+    {{ $paginator := .Paginate ($filteredPages.GroupByDate ($.Param "archiveGroupByDate" | default "2006")) ($.Param "archivePaginate") }}
     
     {{ range ($paginator).PageGroups }}
     <span class="archive__key">{{ .Key }}</span>

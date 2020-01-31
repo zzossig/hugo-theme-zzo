@@ -3,8 +3,8 @@
 <ul class="sidebar">
     {{ partial "search/site-search" . }}
     {{ partial "sidebar/custom-list" . }}
-    {{ if and .Site.Params.itemsPerCategory .Site.Params.enableListSidebarTitles }}
-        {{ range first .Site.Params.itemsPerCategory .Pages }}
+    {{ if and ($.Param "itemsPerCategory") ($.Param "enableListSidebarTitles") }}
+        {{ range first ($.Param "itemsPerCategory") .Pages }}
         <li class="sidebar-recent">
             <a href="{{ .RelPermalink }}" class="sidebar-recent__title p1">{{ .Title }}</a>
         </li>

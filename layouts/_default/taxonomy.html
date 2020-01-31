@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 <main class="main inner" data-sidebar-position="{{ $.Param "sidebarPosition" }}">
-  <div class="list__main {{ if $.Param "enableSidebar" }}{{ if eq .Site.Params.sidebarPosition "left" }}mr{{ else }}lm{{ end }}{{ else }}lmr{{ end }}">
+  <div class="list__main {{ if $.Param "enableSidebar" }}{{ if eq ($.Param "sidebarPosition") "left" }}mr{{ else }}lm{{ end }}{{ else }}lmr{{ end }}">
     {{ partial "body/breadcrumb" . }}
     <header class="list__header">
       <h5 class="list__header--title capitalize h5">{{ .Title }}</h5>
@@ -20,16 +20,16 @@
   </div>
 
   {{ if $.Param "enableSidebar" }}
-    <aside class="list__sidebar {{ if eq .Site.Params.sidebarPosition "left" }}l{{ else }}r{{ end }}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+    <aside class="list__sidebar {{ if eq ($.Param "sidebarPosition") "left" }}l{{ else }}r{{ end }}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
       {{ partial "sidebar/sidebar-list" . }}
     </aside>
   {{ end }}
 </main>
 
 <script>
-  {{ $sidebarPosition:= .Site.Params.sidebarPosition }}
+  {{ $sidebarPosition:= $.Param "sidebarPosition" }}
   var sidebarPosition = JSON.parse({{ $sidebarPosition | jsonify }});
-  {{ $enableSidebar:= .Site.Params.enableSidebar }}
+  {{ $enableSidebar:= $.Param "enableSidebar" }}
   var enableSidebar = JSON.parse({{ $enableSidebar | jsonify }});
 
   var listMainElem = document.querySelector('.list__main');

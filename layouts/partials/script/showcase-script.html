@@ -2,8 +2,8 @@
 <script defer src="{{ $shave.RelPermalink }}"></script>
 
 <script>
-  {{ $enableBio:= .Params.enableBio }}
-  {{ $sidebarPosition:= .Site.Params.sidebarPosition }}
+  {{ $enableBio:= $.Param "enableBio" }}
+  {{ $sidebarPosition:= $.Param "sidebarPosition" }}
   var enableBio = JSON.parse({{ $enableBio | jsonify }});
   var sidebarPosition = JSON.parse({{ $sidebarPosition | jsonify }});
 

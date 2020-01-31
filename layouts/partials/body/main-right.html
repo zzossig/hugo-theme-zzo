@@ -12,7 +12,7 @@
           </label>
           {{ end }}
         </div>
-        <div class="toc toc__outer {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="ltr">
+        <div class="toc toc__outer {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="ltr" data-folding="{{ if $.Param "tocFolding" }}true{{ else }}false{{ end }}">
           {{ .TableOfContents }}
         </div>
       {{ end }}
