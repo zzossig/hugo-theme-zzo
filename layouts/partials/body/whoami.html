@@ -5,7 +5,7 @@
   <div class="whoami__image-wrapper">
     {{ $src := "" }}
     {{ if site.Params.useGravatar }}
-      {{ $src = printf "https://s.gravatar.com/avatar/%s?s=200" (md5 $.Param "email") }}
+      {{ $src = printf "https://s.gravatar.com/avatar/%s?s=200" (md5 ($.Param "email")) }}
       <img src="{{ $src }}" alt="{{ if $.Param "myname" }}{{ $.Param "myname" }}{{ else }}Avatar{{ end }}" class="whoami__image"/>
     {{ else }}
       {{ if $.Param "authorImageUrl" }}
