@@ -56,8 +56,10 @@
             }
         }
 
-        p > code, li > code, td > code {
-            background-color: darken(#fefaf5, 6%);
+        p > code, li > code, td > code, code {
+            padding: 3px 7px;
+            color: rgba(150, 90, 38, 0.995) !important;
+            background-color: darken(#fefaf5, 6%) !important;
         }
     }
 
@@ -100,8 +102,10 @@
             }
         }
 
-        p > code, li > code, td > code {
-            background-color: darken(#fbeded, 6%);
+        p > code, li > code, td > code, code {
+            padding: 3px 7px;
+            color: rgba(132, 56, 56, 0.995) !important;
+            background-color: darken(#fbeded, 6%) !important;
         }
     }
 
@@ -144,8 +148,10 @@
             }
         }
 
-        p > code, li > code, td > code {
-            background-color: darken(#e6f3fb, 6%);
+        p > code, li > code, td > code, code {
+            padding: 3px 7px;
+            color: rgba(47, 103, 141, 0.995) !important;
+            background-color: darken(#e6f3fb, 6%) !important;
         }
     }
 
@@ -188,8 +194,10 @@
             }
         }
 
-        p > code, li > code, td > code {
-            background-color: darken(#e8f7e6, 6%);
+        p > code, li > code, td > code, code {
+            padding: 3px 7px;
+            color: rgba(72, 125, 63, 0.995) !important;
+            background-color: darken(#e8f7e6, 6%) !important;
         }
     }
 }
