@@ -6,15 +6,26 @@
   &__sidebar {
     &.l {
       margin-left: 1rem;
-    }
 
-    &.r {
-      margin-right: 1rem;
+      &[data-dir="rtl"] {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+
+      &[data-dir="ltr"] {
+        margin-left: 1rem;
+        margin-right: 0;
+      }
     }
 
     &[data-dir="rtl"] {
       margin-left: 1rem;
       margin-right: 0;
+    }
+
+    &[data-dir="ltr"] {
+      margin-left: 0;
+      margin-right: 1rem;
     }
   }
 
