@@ -21,6 +21,10 @@
 {{ with $.Param "meta_image" }}
 <meta property="og:image" content="{{ . | absURL }}">
 <meta property="og:image:url" content="{{ . | absURL }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:app:name:iphone" content="{{ $.Site.Title }}">
+<meta property="twitter:title" content="{{ $.Param "title" }}">
+<meta property="twitter:description" content="{{ $.Param "description" }}">
 {{ end }}
 {{ hugo.Generator }}
 <meta name="msapplication-TileColor" content="{{ $.Param "themecolor" | default "#ffffff" }}">
