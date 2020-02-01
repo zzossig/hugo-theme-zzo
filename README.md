@@ -365,6 +365,7 @@ commento = false
   matrix = ""
   xmpp = ""
   dev-to = ""
+  gitea = ""
 
 [donationOptions]
   enable = false # if set, the donation button will show up on the single page.

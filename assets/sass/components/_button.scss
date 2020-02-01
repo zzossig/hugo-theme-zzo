@@ -1,0 +1,39 @@
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 3px 9px;
+  margin: 0.5rem;
+  cursor: pointer;
+  text-decoration: none !important;
+  border-radius: 0.25rem;
+
+  &__text {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
+  }
+
+  @include themify($themes) {
+    &[data-color="default"] {
+      color: themed('link');
+      border: 1px solid themed('link');
+
+      @include on-event {
+        color: themed('link-hover');
+        border: 1px solid themed('link-hover');
+      }
+    }
+
+    &[data-color="primary"] {
+      color: themed('button-primary-color');
+      border: 1px solid themed('button-primary-color');
+
+      @include on-event {
+        color: themed('link-hover');
+        border: 1px solid themed('link-hover');
+      }
+    }
+  }
+}

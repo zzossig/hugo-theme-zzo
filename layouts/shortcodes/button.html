@@ -1,0 +1,5 @@
+<a href="{{ .Get "href" | default "#" }}" class="button" style="width: {{ .Get "width" | default "72px" }}; height: {{ .Get "height" | default "30px" }};" data-color="{{ .Get "color" | default "default" }}" target="_blank" rel="noreferrer">
+  <span class="button__text">
+    {{ .Inner | markdownify }}
+  </span>
+</a>

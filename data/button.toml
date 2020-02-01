@@ -1,0 +1,6 @@
+# restart hugo after set the values
+dark_primary_color = "#82aaff"
+light_primary_color = "#728fcb"
+hacker_primary_color = "#cddc39"
+solarized_primary_color = "#689f38"
+kimbie_primary_color = "#8ab1b0"

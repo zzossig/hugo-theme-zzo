@@ -42,4 +42,5 @@ socialOptions:
   matrix: ""
   xmpp: ""
   dev-to: ""
+  gitea: ""
 ---
