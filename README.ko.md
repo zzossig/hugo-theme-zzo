@@ -373,6 +373,7 @@ commento = false
   whatsapp = ""
   matrix = ""
   xmpp = ""
+  dev-to = ""
 
 [donationOptions]
   enable = false # if set, the donation button will show up on the single page.

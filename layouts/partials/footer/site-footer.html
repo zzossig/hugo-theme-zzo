@@ -13,9 +13,9 @@
                     {{ $rightString := replace (index (split $.Site.Copyright "{}") 1) "{year}" now.Year }}
 
                     {{ if and ($.Site.Params.copyrightOptions.copyrightLinkImage) ($.Site.Params.copyrightOptions.copyrightLinkText) }}
-                        <a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}" class="footer__copyright--img"><img alt="{{ $.Site.Params.copyrightOptions.copyrightLinkText }}" style="border-width:0" src="{{ $.Site.Params.copyrightOptions.copyrightLinkImage }}"/></a>{{ $leftString }}<a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}">{{ $.Site.Params.copyrightOptions.copyrightLinkText }}</a>{{ $rightString }}
+                        <a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}" class="footer__copyright--img"><img alt="{{ $.Site.Params.copyrightOptions.copyrightLinkText }}" style="border-width:0" src="{{ $.Site.Params.copyrightOptions.copyrightLinkImage }}"/></a>{{ $leftString | markdownify }}<a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}">{{ $.Site.Params.copyrightOptions.copyrightLinkText }}</a>{{ $rightString | markdownify }}
                     {{ else }}
-                        {{ $leftString }}<a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}">{{ $.Site.Params.copyrightOptions.copyrightLinkText }}</a>{{ $rightString }}
+                        {{ $leftString | markdownify }}<a rel="license" href="{{ $.Site.Params.copyrightOptions.copyrightLink }}">{{ $.Site.Params.copyrightOptions.copyrightLinkText }}</a>{{ $rightString | markdownify }}
                     {{ end }}
                 {{ else }}
                     {{ with $.Site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}{{ end }}
