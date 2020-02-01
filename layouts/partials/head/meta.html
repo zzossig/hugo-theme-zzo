@@ -18,9 +18,9 @@
 <meta property="og:url" content="{{ .Permalink | absLangURL }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:description" content="{{ $.Param "description" }}">
-{{ with $.Param "image" }}
-<meta property="og:image" content="{{ . | absLangURL }}">
-<meta property="og:image:url" content="{{ . | absLangURL }}">
+{{ with $.Param "meta_image" }}
+<meta property="og:image" content="{{ . | absURL }}">
+<meta property="og:image:url" content="{{ . | absURL }}">
 {{ end }}
 {{ hugo.Generator }}
 <meta name="msapplication-TileColor" content="{{ $.Param "themecolor" | default "#ffffff" }}">
