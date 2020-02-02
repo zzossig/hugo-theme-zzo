@@ -279,6 +279,9 @@
     var text, clip = new ClipboardJS('.anchor');
     var headers = singleContentsElem.querySelectorAll("h1, h2, h3, h4");
 
+    {{ $languagedir := ($.Param "languagedir" | default "ltr") }}
+    var languagedir = JSON.parse({{ $languagedir | jsonify }});
+
     headers ? 
     headers.forEach(function (elem) {
       var url = encodeURI(document.location.origin + document.location.pathname);
@@ -292,10 +295,15 @@
       var newElemInner = document.createElement('span');
       newElemInner.style.fontSize = '1rem';
       newElemInner.style.position = 'absolute';
-      newElemInner.style.right = '-2rem';
       newElemInner.style.top = '50%';
       newElemInner.style.transform = 'translateY(-50%)';
       newElemInner.innerText = "🔗";
+
+      if (languagedir === "rtl") {
+        newElemInner.style.left = '-2rem';
+      } else {
+        newElemInner.style.right = '-2rem';
+      }
 
       newElemOuter.append(newElemInner);
       elem.append(newElemOuter);
