@@ -254,7 +254,7 @@ talksGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 myname = "zzossig"
 email = "zzossig@gmail.com"
 whoami = "Web Developer"
-bioImageUrl = "" # image url like http//... If not set, we find a avatar image in root/static/images/whoami/avatar.(png|jpg|svg)
+bioImageUrl = "" # image url like "http//..." or "images/anyfoldername/mybioimage.jpg" If not set, we find a avatar image in root/static/images/whoami/avatar.(png|jpg|svg)
 useGravatar = false # we use this option highest priority
 location = "Seoul, Korea"
 organization = "Hugo"
@@ -457,7 +457,7 @@ root
 
 Currently available service: [formspree]. Open an issue if you need another service vendor. If you want just a blank page and use a markdown, set the service param empty.
 
-1. Make a file at root/contact/index.md
+1. Make a file at root/content/contact/index.md
 
 ```yaml
 ---

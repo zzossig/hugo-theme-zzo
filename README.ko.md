@@ -263,7 +263,7 @@ talksGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 myname = "zzossig"
 email = "zzossig@gmail.com"
 whoami = "Web Developer"
-bioImageUrl = "" # image url like http//... If not set, we find a avatar image in root/static/images/whoami/avatar.(png|jpg|svg)
+bioImageUrl = "" # image url like "http//..." or "images/anyfoldername/mybioimage.jpg" If not set, we find a avatar image in root/static/images/whoami/avatar.(png|jpg|svg)
 useGravatar = false # we use this option highest priority
 location = "Seoul, Korea"
 organization = "Hugo"
@@ -468,7 +468,7 @@ root
 
 현재 이용 가능한 서비스: [formspree]. 다른 서비스를 이용하고 싶으시면 새 이슈를 만들어주세요. 서비스 파라미터를 빈값으로 설정하면 마크다운으로 해당 페이지를 채울 수 있습니다.
 
-1. 파일을 다음 경로에 만들어줍니다. root/contact/index.md
+1. 파일을 다음 경로에 만들어줍니다. root/content/contact/index.md
 
 ```yaml
 ---
