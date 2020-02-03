@@ -1,24 +1,6 @@
 <div class="grow"></div>
 <nav class="pagination-single">
-  {{ if eq ($.Param "languagedir") "ltr" }}
-    {{ if .PrevPage }}
-      <a href="{{ .PrevPage.Permalink }}" class="pagination-single__left">
-        <div class="pagination-single__icon">
-          {{ partial "svgs/arrow/arrow-back.svg" (dict "width" 25 "height" 25) }}
-        </div>
-        <div class="pagination-single__left-title">{{ .PrevPage.Title }}</div>      
-      </a>
-    {{ end }}
-    <div class="grow"></div>
-    {{ if .NextPage }}
-      <a href="{{ .NextPage.Permalink }}" class="pagination-single__right">      
-        <div class="pagination-single__right-title">{{ .NextPage.Title }}</div>
-        <div class="pagination-single__icon">
-          {{ partial "svgs/arrow/arrow-forward.svg" (dict "width" 25 "height" 25) }}
-        </div>
-      </a>
-    {{ end }}
-  {{ else }}
+  {{ if eq ($.Param "languagedir") "rtl" }}
     {{ if .NextPage }}
     <a href="{{ .NextPage.Permalink }}" class="pagination-single__right">
       <div class="pagination-single__icon">
@@ -35,6 +17,24 @@
         {{ partial "svgs/arrow/arrow-back.svg" (dict "width" 25 "height" 25) }}
       </div>
     </a>
+    {{ end }}
+  {{ else }}
+    {{ if .PrevPage }}
+      <a href="{{ .PrevPage.Permalink }}" class="pagination-single__left">
+        <div class="pagination-single__icon">
+          {{ partial "svgs/arrow/arrow-back.svg" (dict "width" 25 "height" 25) }}
+        </div>
+        <div class="pagination-single__left-title">{{ .PrevPage.Title }}</div>      
+      </a>
+    {{ end }}
+    <div class="grow"></div>
+    {{ if .NextPage }}
+      <a href="{{ .NextPage.Permalink }}" class="pagination-single__right">      
+        <div class="pagination-single__right-title">{{ .NextPage.Title }}</div>
+        <div class="pagination-single__icon">
+          {{ partial "svgs/arrow/arrow-forward.svg" (dict "width" 25 "height" 25) }}
+        </div>
+      </a>
     {{ end }}
   {{ end }}
 </nav>

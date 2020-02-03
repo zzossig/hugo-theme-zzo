@@ -635,7 +635,7 @@
       searchResults = document.getElementById('search-results');
       searchMenu = document.getElementById('search-menu');
       searchResults.setAttribute('class', 'dropdown is-active');
-
+      
       var content = document.createElement('div');
       content.setAttribute('class', 'dropdown-content search-content');
 
@@ -662,7 +662,7 @@
       searchMenu.appendChild(content);
     }
 
-    function renderSearchHighlightResults(results) {      
+    function renderSearchHighlightResults(results) {
       searchResults = document.getElementById('search-results');
       searchMenu = document.getElementById('search-menu');
       searchResults.setAttribute('class', 'dropdown is-active');
@@ -881,9 +881,8 @@
           document.querySelector(".search-content").scrollTop = overflowedPixel + items[activeIndex].getBoundingClientRect().height;
         }
       } else if (e.key === 'Enter' || keyCode === 13) {
-        var currentItemLink = items[activeIndex].getAttribute('href');
-        if (currentItemLink) {
-          location.href = currentItemLink;
+        if (items[activeIndex] && items[activeIndex].getAttribute('href')) {
+          location.href = items[activeIndex].getAttribute('href');
         }
       } else if (e.key === 'Escape' || keyCode === 27) {
         e.target.value = null;
