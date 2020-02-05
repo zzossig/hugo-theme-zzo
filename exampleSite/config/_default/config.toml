@@ -36,6 +36,7 @@ googleAnalytics = ""
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "JSON"]
 
 [taxonomies]
   category = "categories"

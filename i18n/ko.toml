@@ -25,6 +25,9 @@ other = "01월 02일"
 [single-dateformat]
 other = "2006년 01월 02일"
 
+[pub-dateformat]
+other = "2006-01-02"
+
 [single-related]
 other = "관련글"
 

@@ -1,0 +1,132 @@
+{{ $shave := resources.Get "js/shave.min.js" | resources.Fingerprint }}
+<script defer src="{{ $shave.RelPermalink }}"></script>
+{{ $fuzzysort := resources.Get "js/fuzzysort.min.js" | resources.Fingerprint }}
+<script defer src="{{ $fuzzysort.RelPermalink }}"></script>
+
+<script>
+  {{ $permalink := .Permalink }}
+  var permalink = JSON.parse({{ $permalink | jsonify }});
+  {{ $isRootSection := eq .Permalink .FirstSection.Permalink }}
+  var isRootSection = JSON.parse({{ $isRootSection | jsonify }});
+  var data = null;
+  const options = {
+    limit: 100, // don't return more results than you need!
+    allowTypo: false, // if you don't care about allowing typos
+    threshold: -10000, // don't return bad results
+    keys: ['title', 'abstract'],
+  }
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    // search
+    (function loadData() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', permalink + "index.json");
+      xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          data = JSON.parse(xhr.response.toString('utf-8'));
+        } else {
+          console.error('[' + xhr.status + ']Error:', xhr.statusText);
+        }
+      };
+      xhr.send();
+    })();
+
+    var pubSearch = document.getElementById('pubSearch');
+    var pubList = document.querySelector('.pub__list');
+
+    var makeLi = function(ulElem, obj) {
+      var li = document.createElement('li');
+      li.className = 'pub__item';
+      
+      var a = document.createElement('a');
+      a.innerHTML = obj.title;
+      a.setAttribute('href', obj.permalink);
+      if (obj.booktitle) {
+        var span = document.createElement('span');
+        span.className = 'p2';
+        span.innerText = ' - ' + obj.booktitle;
+        a.appendChild(span);
+      } else if (obj.shorttitle) {
+        var span = document.createElement('span');
+        span.className = 'p2';
+        span.innerText = ' - ' + obj.shorttitle;
+        a.appendChild(span);
+      }
+
+      var metaDiv = document.createElement('div');
+      if (obj.publishDate) {
+        var dateSpan = document.createElement('span');
+        dateSpan.className = 'caption pub__meta';
+        dateSpan.innerText = '📅 ' + obj.publishDate.slice(0, 11);
+        metaDiv.appendChild(dateSpan);
+      }
+
+      if (obj.authors) {
+        var authorsSpan = document.createElement('span');
+        authorsSpan.className = 'caption pub__meta';
+        authorsSpan.innerText = '✍️ ' + obj.authors.toString();
+        metaDiv.appendChild(authorsSpan);
+      }
+
+      if (obj.publication) {
+        var pubSpan = document.createElement('span');
+        pubSpan.className = 'caption pub__meta';
+        pubSpan.innerText = '📚 ' + obj.publication;
+        metaDiv.appendChild(pubSpan);
+      }
+
+      if (obj.ENTRYTYPE) {
+        var typeSpan = document.createElement('span');
+        typeSpan.className = 'caption pub__meta';
+        typeSpan.innerText = '🎯 ' + obj.ENTRYTYPE;
+        metaDiv.appendChild(typeSpan);
+      }
+
+      var descDiv = document.createElement('div');
+      descDiv.className = 'pub__summary';
+      if (obj.abstract) {
+        descDiv.innerHTML = obj.abstract.substr(0, 300);
+      }
+      
+      li.appendChild(a);
+      li.appendChild(metaDiv);
+      li.appendChild(descDiv);
+      ulElem.appendChild(li);
+    }
+
+    pubSearch ? 
+    pubSearch.addEventListener('input', function(e) {
+      if (isRootSection) {
+        return null;
+      }
+      var originUl = pubList.querySelector('ul');
+      var ul = document.createElement('ul');
+      
+      if (!e.target.value) {
+        data.forEach(function (elem) {
+          makeLi(ul, elem);
+        });
+        originUl.parentNode.replaceChild(ul, originUl);
+      } else if (data) {
+        var results = fuzzysort.go(e.target.value, data, options);
+        if (results && results.length) {
+          var sortedResult = results.sort(function (a, b) {
+            var aDate = new Date(a.obj.publishDate);
+            var bDate = new Date(b.obj.publishDate);
+            return bDate.getTime() - aDate.getTime();
+          });
+
+          sortedResult.forEach(function (elem) {
+            makeLi(ul, elem.obj);
+          });
+
+          originUl.parentNode.replaceChild(ul, originUl);
+        }
+      }
+    }) : null;
+
+    // shave
+    shave('.pub__summary', 150);
+  });
+</script>

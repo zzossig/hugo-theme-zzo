@@ -1,0 +1,18 @@
+{{ $current := . }}
+<nav class="showcase__nav">
+  <div class="pub__toolbar--search search">
+    <input id="pubSearch" aria-label="Publication Search" class="input" type="text" placeholder="{{T "search-placeholder"}}" autocomplete="off"/>
+  </div>
+  <a href="{{ .FirstSection.Permalink }}" class="showcase__button {{ if eq .Permalink .FirstSection.Permalink }}active{{ end }}">
+    {{ i18n "showcase-overview" }}
+  </a>
+  {{ range (.Site.GetPage "section" .Type).Pages }}
+    {{ $active := false }}
+    {{ $active = or $active (eq .Name $current.Title) }}
+    {{ $active = or $active (eq (lower .Permalink) (lower $current.Title)) }}
+    {{ $active = or $active (eq (lower .Permalink) (lower $current.Type)) }}
+    <a href="{{ .Permalink }}" class="showcase__button {{ if $active }}active{{ end }}" data-meta="{{ len .Pages }}">
+      {{ i18n (lower .Title) | default .Title }}
+    </a>
+  {{ end }}
+</nav>

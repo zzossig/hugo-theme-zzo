@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main class="main pub inner" data-sidebar-position="{{ $.Param "sidebarPosition" }}">
+  <section class="pub__section lmr">
+    {{ partial "publication/pub-toolbar" . }}
+    {{ partial "publication/pub-list" . }}
+    <div class="grow"></div>
+    {{ partial "pagination/pagination" . }}
+  </section>
+  
+  {{ partial "script/pub-list-script" . }}
+  <div class="hide">
+    {{ partial "search/site-search" . }}
+  </div>
+</main>
+{{ end }}

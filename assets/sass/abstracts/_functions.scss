@@ -10,20 +10,3 @@
 @function themed($key) {   
   @return map-get($theme-map, $key);
 }
-
-@function calcSideWidth() {
-  $grid_max: $grid_max_width + $grid_max_unit;
-  $grid_main_main: $grid_main_main_width + $grid_main_main_unit;
-  $grid_main_side: $grid_main_side_width + $grid_main_side_unit;
-  $grid_column_gap: $grid_column_gap_width + $grid_column_gap_unit;
-
-  @if $grid_main_main_unit == fr and $grid_main_side_unit == fr {
-    @if $grid_max_unit == px {
-      @return #{($grid_main_side_width / ($grid_main_main_width + $grid_main_side_width)) * $grid_max_width - $grid_column_gap_width}px;
-    } @else if $grid_max_unit == "%" {
-      @return ($grid_main_side_width / ($grid_main_main_width + $grid_main_side_width) * 100)*1%;
-    }
-  } @else if $grid_main_side_unit == px {
-    @return $grid_main_side;
-  }
-}

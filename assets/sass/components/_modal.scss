@@ -130,6 +130,49 @@
       @include translateY(-50%);
     }
   }
+
+  &__cite {
+    width: 350px;
+    height: 500px;
+    white-space: nowrap;
+
+    @include flexbox();
+    @include justify-content(center);
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
+    @include themify($themes) {
+      border: 4px solid themed('hr-color');
+      background-color: themed('body-background-color');
+      @include webkit-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
+      @include moz-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
+    }
+
+    &--exist {
+      width: 100%;
+      padding: 4rem 0.5rem 2.5rem;
+      font-size: 1rem;
+      overflow-x: auto;
+
+      @include themify($themes) {
+        background-color: themed('body-background-color');
+        @include webkit-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
+        @include moz-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
+      }
+    }
+
+    &--notexist {
+      padding-top: 4rem;
+    }
+  }
+
+  &__copy {
+    position: absolute;
+    left: 4px;
+    bottom: 56px;
+    width: 60px;
+    height: 30px;
+  }
 }
 
 @keyframes mmfadeIn {

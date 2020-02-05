@@ -1,0 +1,43 @@
+{{ define "main" }}
+
+<main class="single__main {{ if or ($.Param "enableToc") ($.Param "toc") }}{{ if $.Param "hideToc" }}main{{ else if eq ($.Param "tocPosition") "outer" }}main{{ else }}main-main{{ end }}{{ else }}main{{ end }}">
+  {{ if $.Param "enableBreadcrumb" }}
+    {{ partial "body/breadcrumb" . }}
+  {{ end }}
+  <div class="single">
+    <h2 class="single__title">{{ .Title }}</h2>
+    {{ with .Params.shorttitle }}
+      <h6 class="single__shorttitle">{{ . }}</h6>
+    {{ end }}
+    {{ with .Params.booktitle }}
+      <h6 class="single__shorttitle">{{ . }}</h6>
+    {{ end }}
+    <div class="single__meta">
+      {{ partial "publication/pub-meta" . }}
+    </div>
+    <div class="pub__links">
+      {{ partial "publication/pub-links" . }}
+    </div>
+    <article class="single__contents" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
+      {{ .Params.abstract }}
+      {{ .Content }}
+    </article>
+    {{ partial "body/share" . }}
+    {{ partial "body/donation" . }}
+    {{ partial "body/whoami" . }}
+    {{ partial "comments/comments.html" . }}
+    {{ partial "body/photoswipe" . }}
+
+    <div class="hide">
+      {{ partial "search/site-search" . }}
+    </div>
+  </div>
+</main>
+
+{{ if and (or ($.Param "enableToc") ($.Param "toc")) (ne ($.Param "tocPosition") "outer") }}
+<aside class="single__side {{ if or ($.Param "enableToc") ($.Param "toc") }}main-side{{ end }}">
+  {{ partial "sidebar/sidebar-single" . }}
+</aside>
+{{ end }}
+{{ partial "script/pub-single-script" . }}
+{{ end }}

@@ -1,0 +1,34 @@
+<div class="pub__list">
+  {{ $paginator := .Paginate (where .Pages "Type" .Type) ($.Param "pubPaginate") }}
+  <ul>
+    {{ range $paginator.Pages }}
+    <li class="pub__item">
+      <a href="{{ .Permalink }}">
+        {{ .Title }}
+        {{ with .Params.shorttitle }}
+          <span class="p2">
+          - {{ . }}
+          </span>
+        {{ end }}
+        {{ with .Params.booktitle }}
+          <span class="p2">
+          - {{ . }}
+          </span>
+        {{ end }}
+      </a>
+      {{ if not .IsNode }}
+        <div>
+          {{ partial "publication/pub-meta" . }}
+        </div>
+        <div class="pub__summary">
+          {{ .Params.abstract }}
+        </div>
+      {{ else }}
+        <div class="pub__summary">
+          {{ .Params.description | markdownify }}
+        </div>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</div>

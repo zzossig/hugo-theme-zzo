@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 description: 
-type: pt
+type: presentation
 tags:
 -
 series:

@@ -6,6 +6,7 @@
   cursor: pointer;
   text-decoration: none !important;
   border-radius: 0.25rem;
+  background-color: transparent;
 
   &__text {
     margin: auto;
@@ -13,6 +14,21 @@
     top: 50%;
     left: 50%;
     @include translate(-50%, -50%);
+  }
+
+  &__small {
+    height: 28px;
+    font-size: 16px;
+  }
+
+  &__medium {
+    height: 32px;
+    font-size: 17px;
+  }
+
+  &__large {
+    height: 36px;
+    font-size: 18px;
   }
 
   @include themify($themes) {

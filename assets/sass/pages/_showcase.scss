@@ -46,8 +46,8 @@
     &[data-meta]:after {
       content: attr(data-meta);
       width: 100%;
-      padding: 0.125rem 0.25rem;
-      border-radius: 50%;
+      padding: 0.125rem 0.35rem;
+      border-radius: 0.25rem;
       margin: auto;
       font-size: 12px;
       

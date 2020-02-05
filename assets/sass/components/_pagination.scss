@@ -72,7 +72,6 @@
     border-radius: 0.125rem;
     &-title {
       font-size: 16.8px;
-      padding-bottom: 0.3rem;
       @include truncate($grid_max_width + $grid_max_unit);
     }
 

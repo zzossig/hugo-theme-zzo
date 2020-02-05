@@ -1,0 +1,53 @@
+.pub {
+  padding: 0.75rem 1.5rem;
+
+  @media only screen and (max-width: 600px) {
+    padding: 1rem;
+  }
+
+  &__section {
+    @include flexbox();
+    @include flex-direction(column);
+  }
+  
+  &__toolbar {
+    &--search {
+      width: 240px;
+      padding: 0 0.5rem;
+      margin-right: 1rem;
+      
+      @media only screen and (max-width: 600px) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__list {
+    margin: 1rem 0;
+  }
+
+  &__item {
+    margin: 1rem;
+    padding: 0.5rem 0;
+
+    @include flexbox();
+    @include flex-direction(column);
+    @media only screen and (max-width: 600px) {
+      margin: 1rem 0;
+    }
+  }
+
+  &__meta {
+    margin: 0 0.25rem;
+    display: inline-block;
+  }
+
+  &__summary {
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  &__links {
+    
+  }
+}

@@ -1,7 +1,8 @@
 .related {
-  margin: 2rem 0;
+  margin: 2rem auto;
   padding: 0.5rem;
   width: 100%;
+  max-width: 700px;
   position: relative;
 
   @include flexbox();
@@ -10,6 +11,7 @@
 
   &__title {
     font-size: 32px;
+    
     @include themify($themes) {
       color: themed('related-header-title-color');
     }

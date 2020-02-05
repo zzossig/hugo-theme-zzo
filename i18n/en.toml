@@ -25,6 +25,9 @@ other = "Jan 2"
 [single-dateformat]
 other = "Jan 2, 2006"
 
+[pub-dateformat]
+other = "2006-01-02"
+
 [single-related]
 other = "See Also"
 

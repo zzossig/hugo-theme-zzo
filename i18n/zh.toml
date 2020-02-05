@@ -25,6 +25,9 @@ other = "01月02日"
 [single-dateformat]
 other = "2006年01月02日"
 
+[pub-dateformat]
+other = "2006-01-02"
+
 [single-related]
 other = "相关内容"
 
