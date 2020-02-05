@@ -598,6 +598,10 @@
 
     var fuse = null;
 
+    function endsWith(str, suffix) {
+      return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+
     function initFuse() {
       if (!endsWith(baseurl, "/")) {
         baseurl = baseurl + '/';
