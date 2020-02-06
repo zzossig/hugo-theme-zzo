@@ -1,14 +1,7 @@
-[{{ range $index, $page := .Site.Pages }}
-{{- if ne $page.Type "json" -}}
-{{- if and $index (gt $index 0) -}},{{- end }}
-{
-	"uri": "{{ $page.Permalink }}",
-	"title": "{{ htmlEscape $page.Title}}",
-	"tags": [{{ range $tindex, $tag := $page.Params.tags }}{{ if $tindex }}, {{ end }}"{{ $tag| htmlEscape }}"{{ end }}],
-	"categories": [{{ range $cindex, $category := $page.Params.categoris }}{{ if $cindex }}, {{ end }}"{{ $category| htmlEscape }}"{{ end }}],
-	"series": [{{ range $sindex, $series := $page.Params.series }}{{ if $sindex }}, {{ end }}"{{ $series| htmlEscape }}"{{ end }}],
-	"description": "{{ htmlEscape .Description}}",
-	"content": {{$page.Plain | jsonify}}
-}
+{{- $.Scratch.Add "searchindex" slice -}}
+{{- range $index, $element := (where .Site.Pages "Kind" "page") -}}
+  {{ with $element.Plain }}
+    {{- $.Scratch.Add "searchindex" (dict "id" $index "title" $element.Title "uri" $element.Permalink "tags" $element.Params.tags "section" $element.Section "content" $element.Plain "description" $element.Description) -}}
+  {{ end }}
 {{- end -}}
-{{- end -}}]
+{{- $.Scratch.Get "searchindex" | jsonify -}}

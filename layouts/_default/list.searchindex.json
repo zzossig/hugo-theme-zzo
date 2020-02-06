@@ -1,0 +1,26 @@
+{{- $.Scratch.Add "searchindex" slice -}}
+
+{{ if eq .Type "publication" }}
+
+  {{ if eq .Permalink .FirstSection.Permalink }}
+    {{- range $index, $element := (where .Site.RegularPages "Section" "publication") -}}
+      {{- $.Scratch.Add "searchindex" (dict "id" $index "title" $element.Title "shorttitle" $element.Params.shorttitle "booktitle" $element.Params.booktitle "uri" $element.Permalink "tags" $element.Params.tags "authors" $element.Params.authors "abstract" $element.Params.abstract "ENTRYTYPE" $element.Params.ENTRYTYPE "publication" $element.Params.publication "publishDate" $element.Params.publishDate) -}}
+    {{- end -}}
+  {{ else }}
+    {{ $paginator := .Paginate (where .Pages "Type" .Type) }}
+    {{- range $index, $element := $paginator.Pages -}}
+      {{- $.Scratch.Add "searchindex" (dict "id" $index "title" $element.Title "shorttitle" $element.Params.shorttitle "booktitle" $element.Params.booktitle "uri" $element.Permalink "tags" $element.Params.tags "authors" $element.Params.authors "abstract" $element.Params.abstract "ENTRYTYPE" $element.Params.ENTRYTYPE "publication" $element.Params.publication "publishDate" $element.Params.publishDate) -}}
+    {{- end -}}
+  {{ end }}
+
+{{ else }}
+
+  {{- range $index, $element := (where .Site.Pages "Kind" "page") -}}
+    {{ with $element.Plain }}
+      {{- $.Scratch.Add "searchindex" (dict "id" $index "title" $element.Title "uri" $element.Permalink "tags" $element.Params.tags "section" $element.Section "content" $element.Plain "description" $element.Description) -}}
+    {{ end }}
+  {{- end -}}
+
+{{ end }}
+
+{{- $.Scratch.Get "searchindex" | jsonify -}}

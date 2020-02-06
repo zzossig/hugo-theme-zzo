@@ -6,8 +6,6 @@
 <script>
   {{ $permalink := .Permalink }}
   var permalink = JSON.parse({{ $permalink | jsonify }});
-  {{ $isRootSection := eq .Permalink .FirstSection.Permalink }}
-  var isRootSection = JSON.parse({{ $isRootSection | jsonify }});
   var data = null;
   const options = {
     limit: 100, // don't return more results than you need!
@@ -58,7 +56,7 @@
       if (obj.publishDate) {
         var dateSpan = document.createElement('span');
         dateSpan.className = 'caption pub__meta';
-        dateSpan.innerText = '📅 ' + obj.publishDate.slice(0, 11);
+        dateSpan.innerText = '📅 ' + obj.publishDate.slice(0, 10);
         metaDiv.appendChild(dateSpan);
       }
 
@@ -97,9 +95,6 @@
 
     pubSearch ? 
     pubSearch.addEventListener('input', function(e) {
-      if (isRootSection) {
-        return null;
-      }
       var originUl = pubList.querySelector('ul');
       var ul = document.createElement('ul');
       

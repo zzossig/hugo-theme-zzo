@@ -551,44 +551,8 @@
 
 
   // ========================== search ==========================
-    var baseurl = null;
-    {{ $siteBaseURL:= .Site.BaseURL }}
-    var siteBaseURL = JSON.parse({{ $siteBaseURL | jsonify }});
-    var siteBaseChecker = /\/\w+\//i;
-    var isSlug = siteBaseChecker.test(siteBaseURL);
-    var isThemeSite = location.origin.includes('themes.gohugo.io');
-
-    {{ if .Site.IsMultiLingual }}
-        if (isThemeSite) {
-          baseurl = "{{.Site.BaseURL}}{{.Site.LanguagePrefix}}";
-        } else {
-          var hasLangPostfix = location.pathname.includes("/{{.Site.Language.Lang}}");
-          if (hasLangPostfix) {
-            if (isSlug) {
-              baseurl = location.origin + siteBaseURL.match(siteBaseChecker)[0] + "{{.Site.Language.Lang}}";
-            } else {
-              baseurl = location.origin + "/{{.Site.Language.Lang}}";
-            }
-          } else {
-            if (isSlug) {
-              baseurl = location.origin + siteBaseURL.match(siteBaseChecker)[0];
-            } else {
-              baseurl = location.origin;
-            }
-          }
-        }
-    {{ else }}
-        if (isThemeSite) {
-          baseurl = "{{.Site.BaseURL}}";
-        } else {
-          if (isSlug) {
-            baseurl = location.origin + siteBaseURL.match(siteBaseChecker)[0];
-          } else {
-            baseurl = location.origin;
-          } 
-        }
-    {{ end }}
-
+    {{ $permalink:= .Permalink }}
+    var permalink = JSON.parse({{ $permalink | jsonify }});
     var searchResults = null;
     var searchMenu = null;
     var searchText = null;
@@ -598,17 +562,9 @@
 
     var fuse = null;
 
-    function endsWith(str, suffix) {
-      return str.indexOf(suffix, str.length - suffix.length) !== -1;
-    }
-
     function initFuse() {
-      if (!endsWith(baseurl, "/")) {
-        baseurl = baseurl + '/';
-      };
-
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', baseurl + "index.json");
+      xhr.open('GET', permalink + "index.json");
       xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
       xhr.onload = function () {
         if (xhr.status === 200) {
