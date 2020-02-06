@@ -73,8 +73,13 @@
 
   &__title {
     font-size: 1rem;
+    
     @include themify($themes) {
       color: themed('body-color');
+    }
+
+    &::before {
+      content: '📄 ';
     }
   }
 
@@ -84,7 +89,7 @@
 
     @include truncate($grid_main_side_width + $grid_main_side_unit);
     @include themify($themes) {
-      color: themed('search-color');
+      color: themed('meta-color');
     }
   }
 }

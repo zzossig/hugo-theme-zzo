@@ -413,80 +413,6 @@
   // ============================================================
 
 
-  // ====================== mobile search =======================
-    var mobileSearchInputElem = document.querySelector('#search-mobile');
-    var mobileSearchClassElem = document.querySelector('.mobile-search');
-    var mobileSearchBtnElem = document.querySelector('#mobileSearchBtn');
-    var mobileSearchCloseBtnElem = document.querySelector('#search-mobile-close');
-    var mobileSearchContainer = document.querySelector('#search-mobile-container');
-    var mobileSearchResultsElem = document.querySelector('#search-mobile-results');
-    var htmlElem = document.querySelector('html');
-
-    if (mobileSearchClassElem) {
-      mobileSearchClassElem.style.display = 'none';
-    }
-
-    mobileSearchBtnElem ? 
-    mobileSearchBtnElem.addEventListener('click', function () {
-      if (mobileSearchContainer) {
-        mobileSearchContainer.style.display = 'block';
-      }
-
-      if (mobileSearchInputElem) {
-        mobileSearchInputElem.focus();
-      }
-
-      if (htmlElem) {
-        htmlElem.style.overflowY = 'hidden';
-      }
-    }) : null;
-
-    mobileSearchCloseBtnElem ? 
-    mobileSearchCloseBtnElem.addEventListener('click', function() {
-      if (mobileSearchContainer) {
-        mobileSearchContainer.style.display = 'none';
-      }
-
-      if (mobileSearchInputElem) {
-        mobileSearchInputElem.value = '';
-      }
-      
-      if (mobileSearchResultsElem) {
-        while (mobileSearchResultsElem.firstChild) {
-          mobileSearchResultsElem.removeChild(mobileSearchResultsElem.firstChild);
-        }
-      }
-
-      if (htmlElem) {
-        htmlElem.style.overflowY = 'visible';
-      }
-    }) : null;
-
-    mobileSearchInputElem ? 
-    mobileSearchInputElem.addEventListener('keydown', function(e) {
-      var keyCode = e.which || e.keyCode;
-      if (e.key === 'Escape' || keyCode === 27) {
-        if (mobileSearchContainer) {
-          mobileSearchContainer.style.display = 'none';
-        }
-        
-        if (mobileSearchInputElem) {
-          mobileSearchInputElem.value = '';
-        }
-
-        if (mobileSearchResultsElem) {
-          while (mobileSearchResultsElem.firstChild) {
-            mobileSearchResultsElem.removeChild(mobileSearchResultsElem.firstChild);
-          }
-        }
-        if (htmlElem) {
-          htmlElem.style.overflowY = 'visible';
-        }
-      }
-    }) : null;
-  // ============================================================
-
-
   // ======================= theme change =======================
     var localTheme = localStorage.getItem('theme');
     var rootEleme = document.getElementById('root');
@@ -586,27 +512,125 @@
       xhr.send();
     }
 
-    function renderSearchResults(results) { // [{}, {}, ...] or [{item: {}, matches: []}, ...]
+
+
+
+    function makeLi(ulElem, obj) {
+      var li = document.createElement('li');
+      li.className = 'search-result__item';
+      
+      var a = document.createElement('a');
+      a.innerHTML = obj.title;
+      a.setAttribute('class', 'search-result__item--title');
+      a.setAttribute('href', obj.permalink);
+
+      var descDiv = document.createElement('div');
+      descDiv.setAttribute('class', 'search-result__item--desc');
+      if (obj.description) {
+        descDiv.innerHTML = obj.description;
+      } else if (obj.content) {
+        descDiv.innerHTML = obj.content.substring(0, 150);
+      }
+      
+      li.appendChild(a);
+      li.appendChild(descDiv);
+      ulElem.appendChild(li);
+    }
+
+    function makeHighlightLi(ulElem, obj) {
+      var li = document.createElement('li');
+      li.className = 'search-result__item';
+      var descDiv = null;
+
+      var a = document.createElement('a');
+      a.innerHTML = obj.item.title;
+      a.setAttribute('class', 'search-result__item--title');
+      a.setAttribute('href', obj.item.uri);
+
+      if (obj.matches && obj.matches.length) {
+        for (var i = 0; i < obj.matches.length; i++) {
+          if ('title' === obj.matches[i].key) {
+            a = document.createElement('a');
+            a.innerHTML = generateHighlightedText(obj.matches[i].value, obj.matches[i].indices);
+            a.setAttribute('class', 'search-result__item--title');
+            a.setAttribute('href', obj.item.uri);
+          }
+          
+          if ('description' === obj.matches[i].key) {
+            descDiv = document.createElement('div');
+            descDiv.setAttribute('class', 'search-result__item--desc');
+            descDiv.innerHTML = generateHighlightedText(obj.item.description, obj.matches[i].indices);
+          } else if ('content' === obj.matches[i].key) {
+            if (!descDiv) {
+              descDiv = document.createElement('div');
+              descDiv.setAttribute('class', 'search-result__item--desc');
+              descDiv.innerHTML = generateHighlightedText(obj.item.content.substring(0, 150), obj.matches[i].indices);
+            }
+          } else {
+            if (obj.item.description) {
+              descDiv = document.createElement('div');
+              descDiv.setAttribute('class', 'search-result__item--desc');
+              descDiv.innerHTML = obj.item.description;
+            } else {
+              descDiv = document.createElement('div');
+              descDiv.setAttribute('class', 'search-result__item--desc');
+              descDiv.innerHTML = obj.item.content.substring(0, 150);
+            }
+          }
+        }
+
+        li.appendChild(a);
+        if (descDiv) {
+          li.appendChild(descDiv);
+        }
+        if (li) {
+          ulElem.appendChild(li);
+        }
+      }
+    }
+
+
+
+
+
+
+    function renderSearchResults(searchText, results) {
       searchResults = document.getElementById('search-results');
       searchMenu = document.getElementById('search-menu');
       searchResults.setAttribute('class', 'dropdown is-active');
       
-      var content = document.createElement('div');
-      content.setAttribute('class', 'dropdown-content search-content');
+      var ul = document.createElement('ul');
+      ul.setAttribute('class', 'dropdown-content search-content');
 
-      if (results.length > 0) {
+      if (results.length) {
         results.forEach(function (result) {
-          var item = document.createElement('a');
-          item.setAttribute('href', result.uri);
-          item.setAttribute('class', 'dropdown-item');
-          item.innerHTML = '<div class="menu-item"><div class="menu-item__title">📄 ' + result.title + '</div><div class="menu-item__desc">' + (result.description ? result.description : result.content) + '</div></div>';
-          content.appendChild(item);
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.setAttribute('href', result.uri);
+          a.setAttribute('class', 'dropdown-item');
+          a.appendChild(li);
+
+          var titleDiv = document.createElement('div');
+          titleDiv.innerHTML = result.title;
+          titleDiv.setAttribute('class', 'menu-item__title');
+
+          var descDiv = document.createElement('div');
+          descDiv.setAttribute('class', 'menu-item__desc');
+          if (result.description) {
+            descDiv.innerHTML = result.description;
+          } else if (result.content) {
+            descDiv.innerHTML = result.content.substring(0, 150);
+          }
+
+          li.appendChild(titleDiv);
+          li.appendChild(descDiv);
+          ul.appendChild(a);
         });
       } else {
-        var item = document.createElement('span');
-        item.setAttribute('class', 'dropdown-item');
-        item.innerText = 'No results found';
-        content.appendChild(item);
+        var li = document.createElement('li');
+        li.setAttribute('class', 'dropdown-item');
+        li.innerText = 'No results found';
+        ul.appendChild(li);
       }
 
       while (searchMenu.hasChildNodes()) {
@@ -614,30 +638,73 @@
           searchMenu.lastChild
         );
       }
-      searchMenu.appendChild(content);
+      
+      searchMenu.appendChild(ul);
     }
 
-    function renderSearchHighlightResults(results) {
+    function renderSearchHighlightResults(searchText, results) {
       searchResults = document.getElementById('search-results');
       searchMenu = document.getElementById('search-menu');
       searchResults.setAttribute('class', 'dropdown is-active');
 
-      var content = document.createElement('div');
-      content.setAttribute('class', 'dropdown-content search-content');
+      var ul = document.createElement('ul');
+      ul.setAttribute('class', 'dropdown-content search-content');
 
-      if (results.length > 0) {
+      if (results.length) {
         results.forEach(function (result) {
-          var item = document.createElement('a');
-          item.setAttribute('href', result.item.uri);
-          item.setAttribute('class', 'dropdown-item');
-          item.innerHTML = '<div class="menu-item"><div class="menu-item__title">📄 ' + generateHighlightedText(result.item.title, result.matches[0].indices) + '</div><div class="menu-item__desc">' + (result.matches[1] ? generateHighlightedText(result.item.description, result.matches[1].indices) : result.matches[2] ? generateHighlightedText(result.item.content, result.matches[2].indices) : '') + '</div></div>';
-          content.appendChild(item);
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          var descDiv = null;
+
+          a.setAttribute('href', result.item.uri);
+          a.setAttribute('class', 'dropdown-item');
+          a.appendChild(li);
+
+          var titleDiv = document.createElement('div');
+          titleDiv.innerHTML = result.item.title;
+          titleDiv.setAttribute('class', 'menu-item__title');
+          
+          if (result.matches && result.matches.length) {
+            for (var i = 0; i < result.matches.length; i++) {
+              if ('title' === result.matches[i].key) {
+                titleDiv.innerHTML = generateHighlightedText(result.matches[i].value, result.matches[i].indices);
+              }
+
+              if ('description' === result.matches[i].key) {
+                descDiv = document.createElement('div');
+                descDiv.setAttribute('class', 'menu-item__desc');
+                descDiv.innerHTML = generateHighlightedText(result.item.description, result.matches[i].indices);
+              } else if ('content' === result.matches[i].key) {
+                if (!descDiv) {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'menu-item__desc');
+                  descDiv.innerHTML = generateHighlightedText(result.item.content.substring(0, 150), result.matches[i].indices);
+                }
+              } else {
+                if (result.item.description) {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'menu-item__desc');
+                  descDiv.innerHTML = result.item.description;
+                } else {
+                  descDiv = document.createElement('div');
+                  descDiv.setAttribute('class', 'menu-item__desc');
+                  descDiv.innerHTML = result.item.content.substring(0, 150);
+                }
+              }
+            }
+            
+            li.appendChild(titleDiv);
+            if (descDiv) {
+              li.appendChild(descDiv);
+            }
+            ul.appendChild(a);
+          }
         });
       } else {
-        var item = document.createElement('span');
-        item.setAttribute('class', 'dropdown-item');
-        item.innerText = 'No results found';
-        content.appendChild(item);
+        var li = document.createElement('li');
+        li.setAttribute('class', 'dropdown-item');
+        li.innerText = 'No results found';
+        ul.appendChild(li);
       }
 
       while (searchMenu.hasChildNodes()) {
@@ -645,10 +712,10 @@
           searchMenu.lastChild
         );
       }
-      searchMenu.appendChild(content);
+      searchMenu.appendChild(ul);
     }
 
-    function renderSearchResultsMobile(results) {
+    function renderSearchResultsMobile(searchText, results) {
       searchResults = document.getElementById('search-mobile-results');
 
       var content = document.createElement('div');
@@ -673,7 +740,7 @@
       searchResults.appendChild(content);      
     }
 
-    function renderSearchHighlightResultsMobile(results) {
+    function renderSearchHighlightResultsMobile(searchText, results) {
       searchResults = document.getElementById('search-mobile-results');
 
       var content = document.createElement('div');
@@ -743,9 +810,9 @@
       searchText = e.target.value;
       var results = fuse.search(e.target.value);
       if (enableSearchHighlight) {
-        renderSearchHighlightResults(results);
+        renderSearchHighlightResults(searchText, results);
       } else {
-        renderSearchResults(results);
+        renderSearchResults(searchText, results);
       }
     }) : null;
 
@@ -772,9 +839,9 @@
       searchText = e.target.value;
       var results = fuse.search(e.target.value);
       if (enableSearchHighlight) {
-        renderSearchHighlightResults(results);
+        renderSearchHighlightResults(searchText, results);
       } else {
-        renderSearchResults(results);
+        renderSearchResults(searchText, results);
       }
     }) : null;
     
@@ -802,6 +869,10 @@
 
       var items = document.querySelectorAll('#search-menu .dropdown-item');
       var keyCode = e.which || e.keyCode;
+
+      if (!items || !items.length) {
+        return null;
+      }
       
       if (e.key === 'ArrowDown' || keyCode === 40) {
         if (activeIndex === null) {
@@ -859,11 +930,85 @@
 
       searchText = e.target.value;
       var results = fuse.search(e.target.value);
-      renderSearchResultsMobile(results);
+      renderSearchResultsMobile(searchText, results);
       if (enableSearchHighlight) {
-        renderSearchHighlightResultsMobile(results);
+        renderSearchHighlightResultsMobile(searchText, results);
       } else {
-        renderSearchResultsMobile(results);
+        renderSearchResultsMobile(searchText, results);
+      }
+    }) : null;
+  // ============================================================
+
+
+  // ====================== mobile search =======================
+    var mobileSearchInputElem = document.querySelector('#search-mobile');
+    var mobileSearchClassElem = document.querySelector('.mobile-search');
+    var mobileSearchBtnElem = document.querySelector('#mobileSearchBtn');
+    var mobileSearchCloseBtnElem = document.querySelector('#search-mobile-close');
+    var mobileSearchContainer = document.querySelector('#search-mobile-container');
+    var mobileSearchResultsElem = document.querySelector('#search-mobile-results');
+    var htmlElem = document.querySelector('html');
+
+    if (mobileSearchClassElem) {
+      mobileSearchClassElem.style.display = 'none';
+    }
+
+    mobileSearchBtnElem ? 
+    mobileSearchBtnElem.addEventListener('click', function () {
+      if (mobileSearchContainer) {
+        mobileSearchContainer.style.display = 'block';
+      }
+
+      if (mobileSearchInputElem) {
+        mobileSearchInputElem.focus();
+      }
+
+      if (htmlElem) {
+        htmlElem.style.overflowY = 'hidden';
+      }
+    }) : null;
+
+    mobileSearchCloseBtnElem ? 
+    mobileSearchCloseBtnElem.addEventListener('click', function() {
+      if (mobileSearchContainer) {
+        mobileSearchContainer.style.display = 'none';
+      }
+
+      if (mobileSearchInputElem) {
+        mobileSearchInputElem.value = '';
+      }
+      
+      if (mobileSearchResultsElem) {
+        while (mobileSearchResultsElem.firstChild) {
+          mobileSearchResultsElem.removeChild(mobileSearchResultsElem.firstChild);
+        }
+      }
+
+      if (htmlElem) {
+        htmlElem.style.overflowY = 'visible';
+      }
+    }) : null;
+
+    mobileSearchInputElem ? 
+    mobileSearchInputElem.addEventListener('keydown', function(e) {
+      var keyCode = e.which || e.keyCode;
+      if (e.key === 'Escape' || keyCode === 27) {
+        if (mobileSearchContainer) {
+          mobileSearchContainer.style.display = 'none';
+        }
+        
+        if (mobileSearchInputElem) {
+          mobileSearchInputElem.value = '';
+        }
+
+        if (mobileSearchResultsElem) {
+          while (mobileSearchResultsElem.firstChild) {
+            mobileSearchResultsElem.removeChild(mobileSearchResultsElem.firstChild);
+          }
+        }
+        if (htmlElem) {
+          htmlElem.style.overflowY = 'visible';
+        }
       }
     }) : null;
   // ============================================================
