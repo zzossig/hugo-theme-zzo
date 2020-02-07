@@ -11,13 +11,14 @@
             {{ .Content }}
         </div>
 
-        <div class="summary__container">
+        <div class="summary__container" data-display="block">
             {{ $paginator := .Paginate (where .Pages "Type" .Type) }}
             {{ range $paginator.Pages }}
                 {{ .Render "summary" }}
             {{ end }}
+            {{ partial "pagination/pagination" . }}
         </div>
-        {{ partial "pagination/pagination" . }}
+        {{ partial "search/search-result-desktop" . }}
     </div>    
 
     {{ if $.Param "enableSidebar" }}

@@ -66,6 +66,65 @@
       color: themed('search-highlight-color');
     }
   }
+
+  &-result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 4px 0;
+
+    @include themify($themes) {
+      background-color: themed('body-background-color');
+    }
+
+    &[data-display="block"] {
+      display: block; 
+    }
+
+    &[data-display="none"] {
+      display: none;
+    }
+
+    &__header {
+    }
+
+    &__body {
+      margin-top: 1rem;
+      padding: 0 1rem;
+      position: relative;
+      display: block;
+      overflow: auto;
+      height: 100%;
+
+      @include themify($themes) {
+        @include moz-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
+        @include webkit-scrollbars(themed('custom-scrollbar-foreground-color'), themed('custom-scrollbar-background-color'));
+      }
+    }
+
+    &__item {
+      &:not(first-child) {
+        padding-bottom: 2.25rem; 
+      }
+
+      &--title {
+        font-family: $title-font;
+        font-size: 1.5rem;
+        margin: 0.25rem 0;
+
+        &::before {
+          content: "📋 ";
+        }
+      }
+
+      &--desc {
+        font-size: 1rem;
+        margin: 0.25rem 0;
+      }
+    }
+  }
 }
 
 .menu-item {
@@ -126,7 +185,7 @@
 
     &-item {
       font-size: 1rem;
-      padding: 0.125rem;
+      padding: 0.125rem 0.25rem;
       @include on-event {
         @include themify($themes) {
           background-color: themed('search-hover-background-color');
@@ -286,11 +345,23 @@
   }
 
   &__item {   
-    padding: 0.5rem;   
+    padding: 0.5rem;
+    list-style-type: none;
+
+    &:not(first-child) {
+      padding-bottom: 0.75rem;
+    }
+
     &--title {
+      font-family: $title-font;
       font-size: 1.2rem;      
+      margin: 0.25rem 0;
       @include themify($themes) {
         color: themed('body-color');
+      }
+
+      &::before {
+        content: "📋 ";
       }
     }
 

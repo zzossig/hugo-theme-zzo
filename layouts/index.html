@@ -4,7 +4,7 @@
 
 <main class="main inner" data-sidebar-position="{{ $.Param "sidebarPosition" }}">
     <div class="list__main {{ if $.Param "enableSidebar" }}{{ if eq ($.Param "sidebarPosition") "left" }}mr{{ else }}lm{{ end }}{{ else }}lmr{{ end }}">
-        <div class="summary__container">
+        <div class="summary__container" data-display="block">
             {{ $filteredPages := .Site.RegularPages }}
             {{ range $.Param "notAllowedTypesInHome" }}
                 {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
@@ -13,9 +13,9 @@
             {{ range $paginator.Pages }}
                 {{ .Render "summary" }}
             {{ end }}
+            {{ partial "pagination/pagination" . }}
         </div>
-
-        {{ partial "pagination/pagination" . }}
+        {{ partial "search/search-result-desktop" . }}
     </div>
 
     {{ if $.Param "enableSidebar" }}

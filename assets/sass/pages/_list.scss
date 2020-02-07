@@ -1,6 +1,14 @@
 .list {
   &__main {
+    position: relative;
+  
+    &[data-display="block"] {
+      display: block; 
+    }
 
+    &[data-display="none"] {
+      display: none;
+    }
   }
 
   &__sidebar {
