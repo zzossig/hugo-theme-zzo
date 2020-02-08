@@ -1,0 +1,13 @@
+{{ $taxo := "tags" }}
+<ul id="{{ $taxo }}" class="pub__tags caption">
+  {{ range $index, $value := .Param $taxo }}
+    {{ if and (eq $index 0) (ne (len $value) 0) }}
+    &nbsp;🏷️
+    {{ end }}
+
+    {{ $name := . }}
+    {{ with $.Site.GetPage (printf "/%s/%s" $taxo ($name | urlize)) }}
+      <li><a href="{{ .Permalink }}" class="pub__tag">#{{ $name }}</a></li>
+    {{ end }}
+  {{ end }}
+</ul>

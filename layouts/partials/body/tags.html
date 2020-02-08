@@ -1,14 +1,11 @@
+{{ $taxo := "tags" }}
 <div class="single__tags caption">
-{{ range $index, $value := .Params.Tags }}
+{{ range $index, $value := .Param $taxo }}
   {{ if and (eq $index 0) (ne (len $value) 0) }}
     🏷️
   {{ end }}
-  {{ if $value }}
-  <li>
-    <a href="{{ "/tags/" | relLangURL }}{{ $value | urlize }}" class="single__tag" title="{{ $value }}">
-      #{{ $value }}
-    </a>
-  </li>
-  {{ end }}  
+  {{ with $.Site.GetPage (printf "/%s/%s" $taxo ($value | urlize)) }}
+    <li><a href="{{ .Permalink }}" class="single__tag" title="{{ $value }}">#{{ $value }}</a></li>
+  {{ end }}
 {{ end }}
 </div>

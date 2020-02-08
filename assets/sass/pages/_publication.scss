@@ -39,6 +39,9 @@
     a {
       @include themify($themes) {
         color: themed('title-color');
+        @include on-event {
+          color: themed('link-hover');
+        }
       }
     }
   }
@@ -59,7 +62,7 @@
   }
 
   &__btn {
-    padding: 0 0.25rem;
+    padding: 0 0.4rem;
     border-radius: 0.2rem;
     
     @include themify($themes) {
@@ -67,6 +70,32 @@
       background-color: themed('donation-background-color');
       @include on-event {
         background-color: darken(themed('donation-background-color'), 5%);
+      }
+    }
+  }
+
+  &__metas {
+    margin-top: 0.25rem;
+
+    @include flexbox();
+    @include flex-wrap(wrap);
+  }
+
+  &__tags {
+    display: inline-block;
+    list-style-type: none;
+    z-index: z('card-outter');
+
+    @include flexbox();
+    @include align-items(center);
+  }
+
+  &__tag {
+    padding: 0 0.25rem;
+    @include themify($themes) {
+      color: themed('link') !important;
+      @include on-event {
+        color: themed('link-hover') !important;
       }
     }
   }
@@ -128,14 +157,14 @@
       }
 
       &[data-dir="ltr"] {
-        a {
+        a:not(.pub__tag) {
             &:first-child {
             margin-right: 1rem;
           }
         }
       }
       &[data-dir="rtl"] {
-        a {
+        a:not(.pub__tag) {
             &:first-child {
             margin-left: 1rem;
           }

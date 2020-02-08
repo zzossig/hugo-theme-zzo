@@ -2,12 +2,18 @@
 <script defer src="{{ $shave.RelPermalink }}"></script>
 {{ $fuse := resources.Get "js/fuse.min.js" | resources.Fingerprint }}
 <script defer src="{{ $fuse.RelPermalink }}"></script>
+{{ $masonry := resources.Get "js/masonry.pkgd.min.js" | resources.Fingerprint }}
+<script defer src="{{ $masonry.RelPermalink }}"></script>
+{{ $imagesloaded := resources.Get "js/imagesloaded.pkgd.min.js" | resources.Fingerprint }}
+<script defer src="{{ $imagesloaded.RelPermalink }}"></script>
 
 <script>
   {{ $enableSearchHighlight := ($.Param "enableSearchHighlight") }}
   var enableSearchHighlight = JSON.parse({{ $enableSearchHighlight | jsonify }});
   {{ $isFirstSection := eq .Permalink .FirstSection.Permalink }}
   var isFirstSection = JSON.parse({{ $isFirstSection | jsonify }});
+  {{ $tagsBaseURL := ("/tags/" | relLangURL) }}
+  var tagsBaseURL = JSON.parse({{ $tagsBaseURL | jsonify }});
   
   document.addEventListener('DOMContentLoaded', function () {
     var originHtmlText = JSON.stringify(document.querySelector('.pub__ul').innerHTML);
@@ -21,23 +27,25 @@
     var makeLi = function(ulElem, obj) {
       var li = document.createElement('li');
       li.className = 'pub__item';
-      
-      var a = document.createElement('a');
-      a.innerHTML = obj.title;
-      a.setAttribute('href', obj.permalink);
+
+      var titleLink = document.createElement('a');
+      titleLink.innerHTML = obj.title;
+      titleLink.setAttribute('href', obj.uri);
+
       if (obj.booktitle) {
         var span = document.createElement('span');
         span.className = 'p2';
         span.innerText = ' - ' + obj.booktitle;
-        a.appendChild(span);
+        titleLink.appendChild(span);
       } else if (obj.shorttitle) {
         var span = document.createElement('span');
         span.className = 'p2';
         span.innerText = ' - ' + obj.shorttitle;
-        a.appendChild(span);
+        titleLink.appendChild(span);
       }
 
       var metaDiv = document.createElement('div');
+      metaDiv.setAttribute('class', 'pub__metas');
       if (obj.publishDate) {
         var dateSpan = document.createElement('span');
         dateSpan.className = 'caption pub__meta';
@@ -66,15 +74,37 @@
         metaDiv.appendChild(typeSpan);
       }
 
+      var tagsUl = null;
+      if (obj.tags && obj.tags.length) {
+        tagsUl = document.createElement('ul');
+        tagsUl.setAttribute('class', 'pub__tags caption');
+        tagsUl.innerHTML = '&nbsp;🏷️';
+
+        for (var i = 0; i < obj.tags.length; i++) {
+          var tagLi = document.createElement('li');
+          var tagLink = document.createElement('a');
+
+          tagLink.setAttribute('href', tagsBaseURL + obj.tags[i]);
+          tagLink.setAttribute('class', 'pub__tag');
+          tagLink.innerText = "#" + obj.tags[i];
+
+          tagLi.appendChild(tagLink);
+          tagsUl.appendChild(tagLi);
+        }
+      }
+
       var descDiv = document.createElement('div');
       descDiv.className = 'pub__summary';
       if (obj.abstract) {
         descDiv.innerHTML = obj.abstract.substr(0, 300);
       }
       
-      li.appendChild(a);
+      li.appendChild(titleLink);
       li.appendChild(metaDiv);
       li.appendChild(descDiv);
+      if (tagsUl) {
+        metaDiv.appendChild(tagsUl);
+      }
       ulElem.appendChild(li);
     }
 
@@ -82,9 +112,9 @@
       var li = document.createElement('li');
       li.className = 'pub__item';
       
-      var a = document.createElement('a');
-      a.innerHTML = obj.item.title;
-      a.setAttribute('href', obj.item.uri);
+      var titleLink = document.createElement('a');
+      titleLink.innerHTML = obj.item.title;
+      titleLink.setAttribute('href', obj.item.uri);
 
       var descDiv = null;
       if (obj.item.abstract) {
@@ -92,30 +122,30 @@
         descDiv.innerHTML = obj.item.abstract;
         descDiv.className = 'pub__summary';
       }
-
-      var metaDiv = null;
       
       if (obj.matches && obj.matches.length) {
         for (var i = 0; i < obj.matches.length; i++) {
-          a.innerHTML = obj.item.title;
+          titleLink.innerHTML = obj.item.title;
 
           if (obj.matches[i].key === 'title') {
-            a.innerHTML = generateHighlightedText(obj.item.title, obj.matches[i].indices);
+            titleLink.innerHTML = generateHighlightedText(obj.item.title, obj.matches[i].indices);
           }
 
           if (obj.item.booktitle) {
             var span = document.createElement('span');
             span.className = 'p2';
             span.innerHTML = ' - ' + obj.item.booktitle;
-            a.appendChild(span);
+            titleLink.appendChild(span);
           } else if (obj.item.shorttitle) {
             var span = document.createElement('span');
             span.className = 'p2';
             span.innerHTML = ' - ' + obj.item.shorttitle;
-            a.appendChild(span);
+            titleLink.appendChild(span);
           }
 
-          metaDiv = document.createElement('div');
+          var metaDiv = document.createElement('div');
+          metaDiv.setAttribute('class', 'pub__metas');
+
           if (obj.item.publishDate) {
             var dateSpan = document.createElement('span');
             dateSpan.className = 'caption pub__meta';
@@ -143,19 +173,42 @@
             typeSpan.innerText = '🎯 ' + obj.item.ENTRYTYPE;
             metaDiv.appendChild(typeSpan);
           }
+          
+          var tagsUl = null;
+          if (obj.item.tags && obj.item.tags.length) {
+            tagsUl = document.createElement('ul');
+            tagsUl.setAttribute('class', 'pub__tags caption');
+            tagsUl.innerHTML = '&nbsp;🏷️';
+
+            for (var j = 0; j < obj.item.tags.length; j++) {
+              var tagLi = document.createElement('li');
+              var tagLink = document.createElement('a');
+
+              tagLink.setAttribute('href', tagsBaseURL + obj.item.tags[j]);
+              tagLink.setAttribute('class', 'pub__tag');
+              tagLink.innerText = "#" + obj.item.tags[j];
+
+              tagLi.appendChild(tagLink);
+              tagsUl.appendChild(tagLi);
+            }
+          }
 
           if (obj.matches[i].key === 'abstract') {
             descDiv.innerHTML = generateHighlightedText(obj.matches[i].value, obj.matches[i].indices);
           }
         }
 
-        li.appendChild(a);
+        li.appendChild(titleLink);
         if (metaDiv) {
           li.appendChild(metaDiv);
         }
         if (descDiv) {
           li.appendChild(descDiv);
         }
+        if (tagsUl && metaDiv) {
+          metaDiv.appendChild(tagsUl);
+        }
+        
         ulElem.appendChild(li);
       }
     }
@@ -203,9 +256,24 @@
       newUl.setAttribute('class', 'pub__ul');
 
       if (!searchText) {
-        fuse ? fuse.list.forEach(function(item) {
-          makeLi(newUl, item);
-        }) : null;
+        if (isFirstSection) {
+          originUl.innerHTML = JSON.parse(originHtmlText);
+          var grid = document.querySelector('.pgrid');
+          var msnry = new Masonry(grid, {
+            itemSelector: '.pgrid-item',
+            columnWidth: '.pgrid-sizer',
+            percentPosition: true,
+          });
+          imagesLoaded(grid).on('progress', function () {
+            msnry.layout();
+          });
+          return null;
+        } else {
+          fuse ? fuse.list.forEach(function (item) {
+            makeLi(newUl, item);
+          }) : null;
+        }
+
         pubResult ? pubResult.setAttribute('data-display', 'none') : null;
         originUl ? originUl.setAttribute('data-display', 'block') : null;
       } else if (results) {
@@ -230,6 +298,15 @@
       if (!searchText) {
         if (isFirstSection) {
           originUl.innerHTML = JSON.parse(originHtmlText);
+          var grid = document.querySelector('.pgrid');
+          var msnry = new Masonry(grid, {
+            itemSelector: '.pgrid-item',
+            columnWidth: '.pgrid-sizer',
+            percentPosition: true,
+          });
+          imagesLoaded(grid).on('progress', function () {
+            msnry.layout();
+          });
           return null;
         } else {
           fuse ? fuse.list.forEach(function (item) {

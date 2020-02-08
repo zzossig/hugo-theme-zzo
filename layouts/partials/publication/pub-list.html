@@ -17,8 +17,9 @@
         {{ end }}
       </a>
       {{ if not .IsNode }}
-        <div>
+        <div class="pub__metas">
           {{ partial "publication/pub-meta" . }}
+          {{ partial "publication/pub-tags" . }}
         </div>
         <div class="pub__summary">
           {{ .Params.abstract }}

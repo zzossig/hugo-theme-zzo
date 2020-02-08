@@ -1,8 +1,3 @@
-{{ $masonry := resources.Get "js/masonry.pkgd.min.js" | resources.Fingerprint }}
-<script defer src="{{ $masonry.RelPermalink }}"></script>
-{{ $imagesloaded := resources.Get "js/imagesloaded.pkgd.min.js" | resources.Fingerprint }}
-<script defer src="{{ $imagesloaded.RelPermalink }}"></script>
-
 <script>
   window.onload = function () {
     // ========================= masonry =========================

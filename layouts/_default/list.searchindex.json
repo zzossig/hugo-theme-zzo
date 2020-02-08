@@ -9,7 +9,7 @@
   {{ else }}
     {{ $paginator := .Paginate (where .Pages "Type" .Type) ($.Param "pubPaginate") }}
     {{- range $index, $element := $paginator.Pages -}}
-      {{- $.Scratch.Add "searchindex" (dict "id" $index "title" $element.Title "shorttitle" $element.Params.shorttitle "booktitle" $element.Params.booktitle "uri" $element.Permalink "tags" $element.Params.tags "authors" $element.Params.authors "abstract" $element.Params.abstract "ENTRYTYPE" $element.Params.ENTRYTYPE "publication" $element.Params.publication "publishDate" $element.Params.publishDate) -}}
+      {{- $.Scratch.Add "searchindex" (dict "id" $index "title" $element.Title "shorttitle" $element.Params.shorttitle "booktitle" $element.Params.booktitle "uri" $element.Permalink "tags" $element.Params.tags "authors" $element.Params.authors "abstract" $element.Params.abstract "ENTRYTYPE" $element.Params.ENTRYTYPE "publication" $element.Params.publication "publishDate" $element.Params.publishDate "tags" $element.Params.tags) -}}
     {{- end -}}
   {{ end }}
 

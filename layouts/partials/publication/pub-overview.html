@@ -20,6 +20,7 @@
                   <a href="{{ .FirstSection.Permalink }}/{{ .Params.ENTRYTYPE }}">
                     🎯 {{ .Params.ENTRYTYPE }}
                   </a>
+                  {{ partial "publication/pub-tags" . }}
                   {{ with .Params.links }}
                     {{ range . }}
                       <a href="{{ .link }}" class="pub__btn" target="_blank" rel="noreferrer">
