@@ -844,11 +844,12 @@
 
     var searchElem = document.getElementById('search');
     var searchMobile = document.getElementById('search-mobile');
+    var searchResults = document.getElementById('search-results');
 
     searchElem ?
     searchElem.addEventListener('input', function(e) {
       if (!e.target.value | window.innerWidth < 770) {
-        document.getElementById('search-results').setAttribute('class', 'dropdown');
+        searchResults ? searchResults.setAttribute('class', 'dropdown') : null;
         searchResult ? searchResult.setAttribute('data-display', 'none') : null;
         summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
         return null;
@@ -869,6 +870,13 @@
         } else {
           renderSearchResultsSide(searchText, results);
         }
+        
+        var dropdownItems = searchResults.querySelectorAll('.dropdown-item');
+        dropdownItems ? dropdownItems.forEach(function(item) {
+          item.addEventListener('mousedown', function(e) {
+            e.target.click();
+          });
+        }) : null;
       }
     }) : null;
 
@@ -877,9 +885,7 @@
       if (window.innerWidth < 770) {
         return null;
       }
-      setTimeout(function () {
-        document.getElementById('search-results').setAttribute('class', 'dropdown');
-      }, 100);
+      searchResults ? searchResults.setAttribute('class', 'dropdown') : null;
     }) : null;
 
     searchElem ? 
@@ -888,7 +894,7 @@
         return null;
       }
       if (!e.target.value) {
-        document.getElementById('search-results').setAttribute('class', 'dropdown');
+        searchResults ? searchResults.setAttribute('class', 'dropdown') : null;
         return null;
       }
 
@@ -907,6 +913,13 @@
         } else {
           renderSearchResultsSide(searchText, results);
         }
+
+        var dropdownItems = searchResults.querySelectorAll('.dropdown-item');
+        dropdownItems ? dropdownItems.forEach(function (item) {
+          item.addEventListener('mousedown', function (e) {
+            e.target.click();
+          });
+        }) : null;
       }
     }) : null;
 
