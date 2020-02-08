@@ -844,12 +844,12 @@
 
     var searchElem = document.getElementById('search');
     var searchMobile = document.getElementById('search-mobile');
-    var searchResults = document.getElementById('search-results');
+    var searchResultsContainer = document.getElementById('search-results');
 
     searchElem ?
     searchElem.addEventListener('input', function(e) {
       if (!e.target.value | window.innerWidth < 770) {
-        searchResults ? searchResults.setAttribute('class', 'dropdown') : null;
+        searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dropdown') : null;
         searchResult ? searchResult.setAttribute('data-display', 'none') : null;
         summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
         return null;
@@ -871,7 +871,7 @@
           renderSearchResultsSide(searchText, results);
         }
         
-        var dropdownItems = searchResults.querySelectorAll('.dropdown-item');
+        var dropdownItems = searchResultsContainer.querySelectorAll('.dropdown-item');
         dropdownItems ? dropdownItems.forEach(function(item) {
           item.addEventListener('mousedown', function(e) {
             e.target.click();
@@ -885,7 +885,7 @@
       if (window.innerWidth < 770) {
         return null;
       }
-      searchResults ? searchResults.setAttribute('class', 'dropdown') : null;
+      searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dropdown') : null;
     }) : null;
 
     searchElem ? 
@@ -894,7 +894,7 @@
         return null;
       }
       if (!e.target.value) {
-        searchResults ? searchResults.setAttribute('class', 'dropdown') : null;
+        searchResultsContainer ? searchResultsContainer.setAttribute('class', 'dropdown') : null;
         return null;
       }
 
@@ -914,7 +914,7 @@
           renderSearchResultsSide(searchText, results);
         }
 
-        var dropdownItems = searchResults.querySelectorAll('.dropdown-item');
+        var dropdownItems = searchResultsContainer.querySelectorAll('.dropdown-item');
         dropdownItems ? dropdownItems.forEach(function (item) {
           item.addEventListener('mousedown', function (e) {
             e.target.click();
