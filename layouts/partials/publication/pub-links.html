@@ -1,12 +1,12 @@
-<div class="pub__links">
-  {{ with .Params.link }}
-    <a href="{{ . }}" title="{{ . }}" target="_blank" rel="noreferrer" class="button button__medium" data-color="default">
-      url
-    </a>
-  {{ end }}
-  <button title="Cite Button" aria-label="Cite Button" id="citeBtn" class="button button__medium" data-color="default">
+<div>
+  <button title="Cite Button" aria-label="Cite Button" id="citeBtn" class="button button__micro" data-color="default" data-variant="contained">
     cite
   </button>
+  {{ with .Params.links }}
+    {{ range . }}
+        <a href="{{ .link }}" title="{{ .name }}" class="button button__micro" data-color="default" data-variant="contained" target="_blank" rel="noreferrer">{{ .name }}</a>
+    {{ end }}
+  {{ end }}
 </div>
 
 <div class="modal micromodal-slide" id="modal" aria-hidden="true">

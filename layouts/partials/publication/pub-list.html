@@ -1,6 +1,6 @@
 <div class="pub__list">
   {{ $paginator := .Paginate (where .Pages "Type" .Type) ($.Param "pubPaginate") }}
-  <ul>
+  <ul class="pub__ul" data-display="block">
     {{ range $paginator.Pages }}
     <li class="pub__item">
       <a href="{{ .Permalink }}">
@@ -31,4 +31,5 @@
     </li>
     {{ end }}
   </ul>
+  {{ partial "publication/pub-search-result" . }}
 </div>

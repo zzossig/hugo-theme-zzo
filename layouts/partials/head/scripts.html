@@ -498,17 +498,19 @@
     var enableSearchHighlight = JSON.parse({{ $enableSearchHighlight | jsonify }});
     {{ $searchResultPosition := ($.Param "searchResultPosition") }}
     var searchResultPosition = JSON.parse({{ $searchResultPosition | jsonify }});
+    {{ $sectionType := .Type }}
+    var sectionType = JSON.parse({{ $sectionType | jsonify }});
 
     var fuse = null;
 
-    function initFuse() {
+    (function initFuse() {
       var xhr = new XMLHttpRequest();
       xhr.open('GET', permalink + "index.json");
       xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
       xhr.onload = function () {
         if (xhr.status === 200) {
           fuse = new Fuse(JSON.parse(xhr.response.toString('utf-8')), {
-            keys: ['title', 'description', 'content'],
+            keys: sectionType.includes('publication') ? ['title', 'description', 'content'] : ['title', 'abstract'],
             includeMatches: enableSearchHighlight,
             shouldSort: true,
             threshold: 0.4,
@@ -517,13 +519,14 @@
             maxPatternLength: 32,
             minMatchCharLength: 1,
           });
+          window.fuse = fuse;
         }
         else {
           console.error('[' + xhr.status + ']Error:', xhr.statusText);
         }
       };
       xhr.send();
-    }
+    })();
 
     function makeLi(ulElem, obj) {
       var li = document.createElement('li');
@@ -839,21 +842,15 @@
       return content;
     };
 
-    initFuse();
-
     var searchElem = document.getElementById('search');
     var searchMobile = document.getElementById('search-mobile');
 
-    searchElem ? 
+    searchElem ?
     searchElem.addEventListener('input', function(e) {
-      if (!e.target.value) {
+      if (!e.target.value | window.innerWidth < 770) {
         document.getElementById('search-results').setAttribute('class', 'dropdown');
         searchResult ? searchResult.setAttribute('data-display', 'none') : null;
         summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
-        return null;
-      }
-
-      if (window.innerWidth < 770) {
         return null;
       }
 
@@ -912,16 +909,6 @@
         }
       }
     }) : null;
-    
-    function indexInParent(node) {
-      var children = node.parentNode.childNodes;
-      var num = 0;
-      for (var i = 0; i < children.length; i++) {
-        if (children[i] == node) return num;
-        if (children[i].nodeType == 1) num++;
-      }
-      return -1;
-    }
 
     var searchMenuElem = document.getElementById("search-menu");
     var activeItem = document.querySelector('#search-menu .dropdown-item.is-active');
@@ -1094,16 +1081,16 @@
       var ul = document.createElement('ul');
       
       if (!searchText) {
-        searchResult.setAttribute('data-display', 'none');
-        summaryContainer.setAttribute('data-display', 'block');
+        searchResult ? searchResult.setAttribute('data-display', 'none') : null;
+        summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
       } else if (results) {
         if (results && results.length) {
           results.forEach(function (result) {
             makeLi(ul, result);
           });
 
-          searchResult.setAttribute('data-display', 'block');
-          summaryContainer.setAttribute('data-display', 'none');
+          searchResult ? searchResult.setAttribute('data-display', 'block') : null;
+          summaryContainer ? summaryContainer.setAttribute('data-display', 'none') : null;
         }
       }
 
@@ -1116,16 +1103,16 @@
       var ul = document.createElement('ul');
 
       if (!searchText) {
-        searchResult.setAttribute('data-display', 'none');
-        summaryContainer.setAttribute('data-display', 'block');
+        searchResult ? searchResult.setAttribute('data-display', 'none') : null;
+        summaryContainer ? summaryContainer.setAttribute('data-display', 'block') : null;
       } else if (results) {
         if (results && results.length) {
           results.forEach(function (result) {
             makeHighlightLi(ul, result);
           });
 
-          searchResult.setAttribute('data-display', 'block');
-          summaryContainer.setAttribute('data-display', 'none');
+          searchResult ? searchResult.setAttribute('data-display', 'block') : null;
+          summaryContainer ? summaryContainer.setAttribute('data-display', 'none') : null;
         }
       }
 

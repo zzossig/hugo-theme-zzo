@@ -1,0 +1,38 @@
+{{ $paginator := .Paginate (where .Pages "Type" .Type) }}
+{{ $ctx := . }}
+<div class="pub__list">
+  <ul class="pub__ul">
+    <div class="pgrid">
+      <div class="pgrid-sizer"></div>
+      {{ range $index, $element := $paginator.Pages }}
+        {{ range $idx, $elem := .Pages }}
+          {{ if .Params.pinned }}
+            <div class="pgrid-item">
+              <div class="pub__box">
+                <a href="{{ .Permalink }}" class="showcase__box--link" aria-label="{{ .Title }}"></a>
+                <div class="pub__box--title">
+                  {{ .Title }}
+                </div>
+                <div class="pub__box--desc">
+                  {{ .Params.abstract }}
+                </div>
+                <div class="pub__box--links" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
+                  <a href="{{ .FirstSection.Permalink }}/{{ .Params.ENTRYTYPE }}">
+                    🎯 {{ .Params.ENTRYTYPE }}
+                  </a>
+                  {{ with .Params.links }}
+                    {{ range . }}
+                      <a href="{{ .link }}" class="pub__btn" target="_blank" rel="noreferrer">
+                        {{ .name }}
+                      </a>
+                    {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </ul>
+</div>

@@ -11,7 +11,7 @@
       </label>
     {{ end }}
   </div>
-  <div class="toc {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="{{ if eq ($.Param "languagedir") "rtl" }}rtl{{ else }}ltr{{ end }}" data-folding="{{ if $.Param "tocFolding" }}true{{ else }}false{{ end }}">
+  <div class="toc {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}" data-folding="{{ if $.Param "tocFolding" }}true{{ else }}false{{ end }}">
     {{ .TableOfContents }}
   </div>
 </section>

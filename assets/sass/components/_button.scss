@@ -2,7 +2,7 @@
   position: relative;
   display: inline-block;
   padding: 3px 9px;
-  margin: 0.5rem;
+  margin: 0.25rem;
   cursor: pointer;
   text-decoration: none !important;
   border-radius: 0.25rem;
@@ -16,6 +16,18 @@
     @include translate(-50%, -50%);
   }
 
+  &__micro {
+    height: 20px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  &__mini {
+    height: 24px;
+    font-size: 15px;
+    line-height: 15px;
+  }
+
   &__small {
     height: 28px;
     font-size: 16px;
@@ -24,6 +36,7 @@
   &__medium {
     height: 32px;
     font-size: 17px;
+    line-height: 17px;
   }
 
   &__large {
@@ -49,6 +62,21 @@
       @include on-event {
         color: themed('link-hover');
         border: 1px solid themed('link-hover');
+      }
+    }
+
+    &[data-variant="contained"] {
+      &[data-color="primary"], &[data-color="default"] {
+        color: #111;
+        background: themed('button-primary-color');
+        @include box-shadow(1px, 1px, 3px, 0, themed('share-shadow-color'));
+        border: none;
+
+        @include on-event {
+          color: #111;
+          background: darken(themed('button-primary-color'), 4%);
+          border: none;
+        }
       }
     }
   }

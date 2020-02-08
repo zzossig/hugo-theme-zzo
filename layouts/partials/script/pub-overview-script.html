@@ -1,0 +1,43 @@
+{{ $masonry := resources.Get "js/masonry.pkgd.min.js" | resources.Fingerprint }}
+<script defer src="{{ $masonry.RelPermalink }}"></script>
+{{ $imagesloaded := resources.Get "js/imagesloaded.pkgd.min.js" | resources.Fingerprint }}
+<script defer src="{{ $imagesloaded.RelPermalink }}"></script>
+
+<script>
+  window.onload = function () {
+    // ========================= masonry =========================
+    var grid = document.querySelector('.pgrid');
+    var msnry = new Masonry(grid, {
+      itemSelector: '.pgrid-item',
+      columnWidth: '.pgrid-sizer',
+      percentPosition: true,
+    });
+    imagesLoaded(grid).on('progress', function () {
+      msnry.layout();
+    });
+    
+    enquire.register("screen and (max-width:769px)", {
+      match: function () {
+        document.querySelectorAll('.pgrid-item').forEach(function (elem) {
+          elem.classList.add('full');
+          elem.classList.remove('half');
+        });
+        document.querySelectorAll('.pgrid-sizer').forEach(function (elem) {
+          elem.classList.add('full');
+          elem.classList.remove('half');
+        });
+      },
+      unmatch: function () {
+        document.querySelectorAll('.pgrid-item').forEach(function (elem) {
+          elem.classList.add('half');
+          elem.classList.remove('full');
+        });
+        document.querySelectorAll('.pgrid-sizer').forEach(function (elem) {
+          elem.classList.add('half');
+          elem.classList.remove('full');
+        });
+      },
+    });
+    // ===========================================================
+  }
+</script>

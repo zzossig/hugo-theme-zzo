@@ -1,37 +1,22 @@
 {{ $shave := resources.Get "js/shave.min.js" | resources.Fingerprint }}
 <script defer src="{{ $shave.RelPermalink }}"></script>
-{{ $fuzzysort := resources.Get "js/fuzzysort.min.js" | resources.Fingerprint }}
-<script defer src="{{ $fuzzysort.RelPermalink }}"></script>
+{{ $fuse := resources.Get "js/fuse.min.js" | resources.Fingerprint }}
+<script defer src="{{ $fuse.RelPermalink }}"></script>
 
 <script>
-  {{ $permalink := .Permalink }}
-  var permalink = JSON.parse({{ $permalink | jsonify }});
-  var data = null;
-  const options = {
-    limit: 100, // don't return more results than you need!
-    allowTypo: false, // if you don't care about allowing typos
-    threshold: -10000, // don't return bad results
-    keys: ['title', 'abstract'],
-  }
+  {{ $enableSearchHighlight := ($.Param "enableSearchHighlight") }}
+  var enableSearchHighlight = JSON.parse({{ $enableSearchHighlight | jsonify }});
+  {{ $isFirstSection := eq .Permalink .FirstSection.Permalink }}
+  var isFirstSection = JSON.parse({{ $isFirstSection | jsonify }});
   
   document.addEventListener('DOMContentLoaded', function () {
-    // search
-    (function loadData() {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', permalink + "index.json");
-      xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-      xhr.onload = function () {
-        if (xhr.status === 200) {
-          data = JSON.parse(xhr.response.toString('utf-8'));
-        } else {
-          console.error('[' + xhr.status + ']Error:', xhr.statusText);
-        }
-      };
-      xhr.send();
-    })();
+    var originHtmlText = JSON.stringify(document.querySelector('.pub__ul').innerHTML);
 
+    // search
     var pubSearch = document.getElementById('pubSearch');
     var pubList = document.querySelector('.pub__list');
+    var pubUl = document.querySelector('.pub__ul');
+    var pubResult = document.querySelector('.pub__result');
 
     var makeLi = function(ulElem, obj) {
       var li = document.createElement('li');
@@ -93,33 +78,180 @@
       ulElem.appendChild(li);
     }
 
-    pubSearch ? 
-    pubSearch.addEventListener('input', function(e) {
-      var originUl = pubList.querySelector('ul');
-      var ul = document.createElement('ul');
+    var makeHighlightLi = function (ulElem, obj) {
+      var li = document.createElement('li');
+      li.className = 'pub__item';
       
-      if (!e.target.value) {
-        data.forEach(function (elem) {
-          makeLi(ul, elem);
-        });
-        originUl.parentNode.replaceChild(ul, originUl);
-      } else if (data) {
-        var results = fuzzysort.go(e.target.value, data, options);
-        if (results && results.length) {
-          var sortedResult = results.sort(function (a, b) {
-            var aDate = new Date(a.obj.publishDate);
-            var bDate = new Date(b.obj.publishDate);
-            return bDate.getTime() - aDate.getTime();
-          });
+      var a = document.createElement('a');
+      a.innerHTML = obj.item.title;
+      a.setAttribute('href', obj.item.uri);
 
-          sortedResult.forEach(function (elem) {
-            makeLi(ul, elem.obj);
-          });
+      var descDiv = null;
+      if (obj.item.abstract) {
+        descDiv = document.createElement('div');
+        descDiv.innerHTML = obj.item.abstract;
+        descDiv.className = 'pub__summary';
+      }
 
-          originUl.parentNode.replaceChild(ul, originUl);
+      var metaDiv = null;
+      
+      if (obj.matches && obj.matches.length) {
+        for (var i = 0; i < obj.matches.length; i++) {
+          a.innerHTML = obj.item.title;
+
+          if (obj.matches[i].key === 'title') {
+            a.innerHTML = generateHighlightedText(obj.item.title, obj.matches[i].indices);
+          }
+
+          if (obj.item.booktitle) {
+            var span = document.createElement('span');
+            span.className = 'p2';
+            span.innerHTML = ' - ' + obj.item.booktitle;
+            a.appendChild(span);
+          } else if (obj.item.shorttitle) {
+            var span = document.createElement('span');
+            span.className = 'p2';
+            span.innerHTML = ' - ' + obj.item.shorttitle;
+            a.appendChild(span);
+          }
+
+          metaDiv = document.createElement('div');
+          if (obj.item.publishDate) {
+            var dateSpan = document.createElement('span');
+            dateSpan.className = 'caption pub__meta';
+            dateSpan.innerText = '📅 ' + obj.item.publishDate.slice(0, 10);
+            metaDiv.appendChild(dateSpan);
+          }
+
+          if (obj.item.authors) {
+            var authorsSpan = document.createElement('span');
+            authorsSpan.className = 'caption pub__meta';
+            authorsSpan.innerText = '✍️ ' + obj.item.authors.toString();
+            metaDiv.appendChild(authorsSpan);
+          }
+
+          if (obj.item.publication) {
+            var pubSpan = document.createElement('span');
+            pubSpan.className = 'caption pub__meta';
+            pubSpan.innerText = '📚 ' + obj.item.publication;
+            metaDiv.appendChild(pubSpan);
+          }
+
+          if (obj.item.ENTRYTYPE) {
+            var typeSpan = document.createElement('span');
+            typeSpan.className = 'caption pub__meta';
+            typeSpan.innerText = '🎯 ' + obj.item.ENTRYTYPE;
+            metaDiv.appendChild(typeSpan);
+          }
+
+          if (obj.matches[i].key === 'abstract') {
+            descDiv.innerHTML = generateHighlightedText(obj.matches[i].value, obj.matches[i].indices);
+          }
         }
+
+        li.appendChild(a);
+        if (metaDiv) {
+          li.appendChild(metaDiv);
+        }
+        if (descDiv) {
+          li.appendChild(descDiv);
+        }
+        ulElem.appendChild(li);
+      }
+    }
+
+    function generateHighlightedText(text, regions) {
+      if (!regions) {
+        return text;
+      }
+
+      var content = '', nextUnhighlightedRegionStartingIndex = 0;
+
+      regions.forEach(function (region) {
+        if (region[0] === region[1]) {
+          return null;
+        }
+
+        content += '' +
+          text.substring(nextUnhighlightedRegionStartingIndex, region[0]) +
+          '<span class="search__highlight">' +
+          text.substring(region[0], region[1] + 1) +
+          '</span>' +
+          '';
+        nextUnhighlightedRegionStartingIndex = region[1] + 1;
+      });
+
+      content += text.substring(nextUnhighlightedRegionStartingIndex);
+
+      return content;
+    };
+
+    pubSearch ?
+    pubSearch.addEventListener('input', function(e) {
+      var results = fuse.search(e.target.value);
+      
+      if (enableSearchHighlight) {
+        renderSearchHighlightResults(e.target.value, results);
+      } else {
+        renderSearchResults(e.target.value, results);
       }
     }) : null;
+
+    function renderSearchResults(searchText, results) {
+      var originUl = document.querySelector('.pub__ul');
+      var newUl = document.createElement('ul');
+      newUl.setAttribute('class', 'pub__ul');
+
+      if (!searchText) {
+        fuse ? fuse.list.forEach(function(item) {
+          makeLi(newUl, item);
+        }) : null;
+        pubResult ? pubResult.setAttribute('data-display', 'none') : null;
+        originUl ? originUl.setAttribute('data-display', 'block') : null;
+      } else if (results) {
+        if (results && results.length) {
+          results.forEach(function (result) {
+            makeLi(newUl, result);
+          });
+
+          pubResult ? pubResult.setAttribute('data-display', 'block') : null;
+          originUl ? originUl.setAttribute('data-display', 'none') : null;
+        }
+      }
+
+      originUl.parentNode.replaceChild(newUl, originUl);
+    }
+
+    function renderSearchHighlightResults(searchText, results) {
+      var originUl = document.querySelector('.pub__ul');
+      var newUl = document.createElement('ul');
+      newUl.setAttribute('class', 'pub__ul');
+
+      if (!searchText) {
+        if (isFirstSection) {
+          originUl.innerHTML = JSON.parse(originHtmlText);
+          return null;
+        } else {
+          fuse ? fuse.list.forEach(function (item) {
+            makeLi(newUl, item);
+          }) : null;
+        }
+
+        pubResult ? pubResult.setAttribute('data-display', 'none') : null;
+        originUl ? originUl.setAttribute('data-display', 'block') : null;
+      } else if (results) {
+        if (results && results.length) {
+          results.forEach(function (result) {
+            makeHighlightLi(newUl, result);
+          });
+
+          pubResult ? pubResult.setAttribute('data-display', 'block') : null;
+          originUl ? originUl.setAttribute('data-display', 'none') : null;
+        }
+      }
+
+      originUl.parentNode.replaceChild(newUl, originUl);
+    }
 
     // shave
     shave('.pub__summary', 150);
