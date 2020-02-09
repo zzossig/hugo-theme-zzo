@@ -74,6 +74,9 @@
     opacity: 1;
     height: auto;
     cursor: pointer;
+    
+    @include flexbox();
+    @include justify-content(center);
 
     &__desc {
       position: absolute;

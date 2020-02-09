@@ -90,34 +90,6 @@
     var navbar = document.querySelector('.navbar');
     var singleContentsElem = document.querySelector('.single__contents');
 
-    // ====================== markdown code block ======================
-    function wrap(el, wrapper) {
-      el.parentNode.insertBefore(wrapper, el);
-      wrapper.appendChild(el);
-    }
-
-    (function () {
-      singleContentsElem.querySelectorAll('pre > code').forEach(function(elem) {
-        var dataLang = elem.getAttribute('data-lang');
-        if (!dataLang) {
-          var dataLangWrapper = document.createElement('div');
-          dataLangWrapper.setAttribute('data-lang', 'Code');
-          dataLangWrapper.className = 'language-code';
-          wrap(elem.parentNode, dataLangWrapper);
-        }
-      });
-    })();
-
-    var langCodeElem = document.querySelectorAll('.language-code');
-    langCodeElem ? langCodeElem.forEach(function (elem) {
-      var newElem = document.createElement('span');
-      newElem.className = 'copy-to-clipboard';
-      newElem.setAttribute('title', 'Copy to clipboard');
-      elem.append(newElem);
-    }) : null;
-    // =================================================================
-
-
     // ======================= busuanzi counter ========================
     {{ $enableBusuanzi := .Site.Params.enableBusuanzi }}
     {{ $busuanziPagePV := .Site.Params.busuanziPagePV }}
@@ -338,6 +310,9 @@
     var clipInit = false;
     var preChromaElem = document.querySelectorAll('pre.chroma');
     var langCodeElem = document.querySelectorAll('.language-code');
+    var dolorCodeElem = document.querySelectorAll('div.language-\\$');
+    var gtCodeElem = document.querySelectorAll('div.language-\\>');
+
     var makeClipboard = function(elem) {
       var code = elem,
         text = elem.textContent;
@@ -398,6 +373,13 @@
       }
     }
 
+    var makeSymbolClipboard = function(elem) {
+      var clipboardSpan = document.createElement('span');
+      clipboardSpan.setAttribute('class', 'copy-to-clipboard');
+      clipboardSpan.setAttribute('title', 'Copy to clipboard');
+      elem.parentNode.parentNode.insertBefore(clipboardSpan, elem.parentNode.nextElementSibling);
+    }
+
     preChromaElem ? 
     preChromaElem.forEach(function(elem) {
       elem.querySelectorAll('code').forEach(function(codeElem) {
@@ -410,6 +392,41 @@
       elem.querySelectorAll('code').forEach(function (codeElem) {
         makeClipboard(codeElem);
       });
+    }) : null;
+
+    dolorCodeElem ? 
+    dolorCodeElem.forEach(function(elem) {
+      elem.querySelectorAll('code').forEach(function (codeElem) {
+        makeSymbolClipboard(codeElem);
+      });
+    }) : null;
+
+    gtCodeElem ?
+    gtCodeElem.forEach(function(elem) {
+      elem.querySelectorAll('code').forEach(function (codeElem) {
+        makeSymbolClipboard(codeElem);
+      });
+    }) : null;
+    // =================================================================
+
+
+    // ================ codeblock line number to symbol ================
+    dolorCodeElem ?
+    dolorCodeElem.forEach(function(elem) {
+      var lnts = elem.parentNode.parentNode ? elem.parentNode.parentNode.querySelectorAll('.lnt') : null;
+      lnts ? 
+      lnts.forEach(function(lnt) {
+        lnt.innerHTML = '$<br/>';
+      }) : null;
+    }) : null;
+
+    gtCodeElem ?
+    gtCodeElem.forEach(function(elem) {
+      var lnts = elem.parentNode.parentNode ? elem.parentNode.parentNode.querySelectorAll('.lnt') : null;
+      lnts ? 
+      lnts.forEach(function(lnt) {
+        lnt.innerHTML = '><br/>';
+      }) : null;
     }) : null;
     // =================================================================
 

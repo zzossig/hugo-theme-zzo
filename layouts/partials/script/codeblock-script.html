@@ -1,0 +1,48 @@
+<script>
+  'use strict';
+  // ====================== markdown code block ======================
+  function wrap(el, wrapper) {
+    el.parentNode.insertBefore(wrapper, el);
+    wrapper.appendChild(el);
+  }
+
+  (function () {
+    var singleContentsElem = document.querySelector('.single__contents');
+    singleContentsElem ? 
+    singleContentsElem.querySelectorAll('pre > code').forEach(function(elem) {
+      var dataLang = elem.getAttribute('data-lang');
+      var dataLangWrapper = document.createElement('div');
+      var code = null;
+      var codeTitle = null;
+
+      if (dataLang && dataLang.includes(':')) {
+        code = dataLang.split(':')[0];
+        codeTitle = dataLang.split(':')[1];
+
+        dataLangWrapper.className = 'language-' + code;
+        dataLangWrapper.setAttribute('data-lang', codeTitle);
+
+        elem.className = 'language-' + code;
+        elem.setAttribute('data-lang', codeTitle);
+        elem.setAttribute('id', codeTitle);
+      } else if (!dataLang) {
+        dataLangWrapper.setAttribute('data-lang', 'Code');
+        dataLangWrapper.className = 'language-code';
+      }
+
+      if (!dataLang || codeTitle) {
+        wrap(elem.parentNode, dataLangWrapper);
+      }
+
+    }) : null;
+  })();
+
+  var langCodeElem = document.querySelectorAll('.language-code');
+  langCodeElem ? langCodeElem.forEach(function (elem) {
+    var newElem = document.createElement('span');
+    newElem.className = 'copy-to-clipboard';
+    newElem.setAttribute('title', 'Copy to clipboard');
+    elem.append(newElem);
+  }) : null;
+  // =================================================================
+</script>

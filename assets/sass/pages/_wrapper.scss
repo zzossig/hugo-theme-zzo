@@ -17,7 +17,7 @@ $grid_max: $grid_max_width + $grid_max_unit;
     top: 0;
     left: 0;
     height: 100vh;
-    width: calc((100vw - 980px) / 2);
+    width: calc((100vw - #{$grid_max}) / 2);
   }
 
   &__right {
@@ -25,6 +25,6 @@ $grid_max: $grid_max_width + $grid_max_unit;
     top: 0;
     right: 0;
     height: 100vh;
-    width: calc((100vw - 980px) / 2);
+    width: calc((100vw - #{$grid_max}) / 2);
   }
 }
