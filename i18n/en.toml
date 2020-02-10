@@ -28,6 +28,9 @@ other = "Jan 2, 2006"
 [pub-dateformat]
 other = "2006-01-02"
 
+[resume-dateformat]
+other = "Jan, 2006"
+
 [single-related]
 other = "See Also"
 

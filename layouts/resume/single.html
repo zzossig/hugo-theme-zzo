@@ -1,0 +1,92 @@
+{{ define "main" }}
+<main class="main resume">
+  {{ with .Params.header }}
+    <main class="resume__section" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
+      <aside class="resume__section--side">
+        {{ with .image }}
+          <div class="resume__header--image">
+            <img src="{{ .src | relURL }}" alt="{{ .alt }}" style="height: {{ .height }}px"/>
+          </div>
+        {{ end }}
+      </aside>
+      <article class="resume__section--main">
+        {{ with .infos.name }}
+          <h2 class="resume__header--name">
+            {{ . }}
+          </h2>
+        {{ end }}
+        {{ with .infos.email }}
+          <div class="resume__header--info">
+            {{ . }}
+          </div>
+        {{ end }}
+        {{ with .infos.phone }}
+          <div class="resume__header--info">
+            {{ . }}
+          </div>
+        {{ end }}
+        {{ with .infos.addr }}
+          <div class="resume__header--info">
+            {{ . }}
+          </div>
+        {{ end }}
+        {{ with .infos.website }}
+          <div class="resume__header--info">
+            {{ . }}
+          </div>
+        {{ end }}
+      </article>
+    </main>
+  {{ end }}
+  {{ range .Params.items }}
+    <main class="resume__section" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
+      <aside class="resume__section--side">
+        <div class="resume__section--sectiontitle">{{ .title }}</div>
+      </aside>
+      
+      <article class="resume__section--main">
+        {{ range .sections }}
+          <div class="resume__section--title">
+            {{ with .title }}
+              {{ . }}
+              <div class="grow"></div>
+            {{ end }}
+            {{ with .startDate }}
+              <span class="resume__section--meta">
+                {{ dateFormat (i18n "resume-dateformat") . }}
+              </span>
+            {{ end }}
+            {{ if .endDate }}
+              {{ with .endDate }}
+                <span class="resume__section--meta">
+                  &nbsp;~&nbsp;{{ dateFormat (i18n "resume-dateformat") . }}
+                </span>
+              {{ end }}
+            {{ else }}
+              {{ with .endDateText }}
+                <span class="resume__section--meta">
+                  &nbsp;~&nbsp;{{ . }}
+                </span>
+              {{ end }}
+            {{ end }}
+          </div>
+          {{ with .subtitle }}
+            <div class="resume__section--subtitle">
+              {{ . }}
+            </div>
+          {{ end }}
+          {{ with .contents }}
+            <div class="single__contents resume__section--contents">
+              {{ . | markdownify }}
+            </div>
+          {{ end }}
+        {{ end }}
+      </article>
+    </main>
+  {{ end }}
+</main>
+<div class="hide">
+  {{ partial "search/site-search" . }}
+</div>
+{{ partial "script/resume-script" . }}
+{{ end }}
