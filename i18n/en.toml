@@ -93,3 +93,6 @@ other = "Overview"
 
 [showcase-pinned]
 other = "Pinned"
+
+[nojs-message]
+other = "Please enable Javascript to view the contents"

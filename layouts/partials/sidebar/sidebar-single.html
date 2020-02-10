@@ -1,7 +1,8 @@
 {{ if $.Param "enableSidebar" }}
 {{ if and (or ($.Param "enableToc") ($.Param "toc")) (ne ($.Param "tocPosition") "outer") }}
 
-<section class="sidebar">
+<section class="sidebar hide">
+  <script>document.querySelector('.sidebar').classList.remove('hide')</script>
   <div class="toc__flexbox" data-position="{{ if $.Param "hideToc" }}absolute{{ else }}fixed{{ end }}">
     <h6 class="toc__title">{{ i18n "toc-label" }}</h6>
     {{ if $.Param "enableTocSwitch" }}

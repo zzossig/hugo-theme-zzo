@@ -93,3 +93,6 @@ other = "总览"
 
 [showcase-pinned]
 other = "固定"
+
+[nojs-message]
+other = "Please enable Javascript to view the contents"

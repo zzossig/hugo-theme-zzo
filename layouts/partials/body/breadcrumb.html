@@ -1,4 +1,5 @@
-<nav class="breadcrumb" aria-label="breadcrumbs">
+<nav class="breadcrumb hide" aria-label="breadcrumbs">
+  <script>document.querySelector('.breadcrumb').classList.remove('hide')</script>
   <ol>
     {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
   </ol>

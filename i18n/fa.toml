@@ -94,3 +94,5 @@ other = "بررسی اجمالی"
 [showcase-pinned]
 other = "پین شده"
 
+[nojs-message]
+other = "Please enable Javascript to view the contents"

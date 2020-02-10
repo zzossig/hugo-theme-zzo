@@ -4,7 +4,11 @@
   {{ if $.Param "enableBreadcrumb" }}
     {{ partial "body/breadcrumb" . }}
   {{ end }}
-  <div class="single">
+  <noscript>
+    {{ i18n "nojs-message" }}
+  </noscript>
+  <div class="single hide">
+    <script>document.querySelector('.single').classList.remove('hide')</script>
     <h2 class="single__title">{{ .Title }}</h2>
     <div class="single__meta">
       {{ partial "body/infos" . }}

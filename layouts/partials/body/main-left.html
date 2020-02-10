@@ -1,5 +1,6 @@
 {{ if eq ($.Param "languagedir") "rtl" }}
-<div class="wrapper__left" dir="rtl">
+<div class="wrapper__left hide" dir="rtl">
+  <script>document.querySelector('.wrapper__left').classList.remove('hide')</script>
   {{ if and (eq ($.Param "tocPosition") "outer") .IsPage }}
     {{ if and (ne .Type "about") (ne .Type "contact") (ne .Type "gallery") }}
       {{ if or ($.Param "enableToc") ($.Param "toc") }}

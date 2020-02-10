@@ -93,3 +93,6 @@ other = "개요"
 
 [showcase-pinned]
 other = "고정"
+
+[nojs-message]
+other = "내용을 보시려면 자바스크립트를 활성화 해주세요"
