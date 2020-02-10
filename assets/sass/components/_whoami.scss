@@ -60,6 +60,7 @@
 
     @media only screen and (max-width: 769px) {
       width: 75%;
+      text-align: center !important;
     }
 
     @include themify($codeblock) {
