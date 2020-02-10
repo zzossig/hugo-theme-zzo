@@ -1,0 +1,14 @@
+{{ if and (.Site.Params.baiduAnalytics) (not .Site.IsServer) }}
+  <script>
+    {{ $baiduAnalyticsId := .Site.Params.baiduAnalytics }}
+    var baiduAnalyticsId = JSON.parse({{ $baiduAnalyticsId | jsonify }});
+
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?" + baiduAnalyticsId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+{{ end }}

@@ -4,6 +4,12 @@
     {{ partial "footer/go-to-top" . }}
     <hr />
 
+    <div class="basicflex">
+        {{ range $.Param "footerLinks" }}
+            <a href="{{ .link }}" class="footer__link" target="_blank" rel="noreferrer">{{ .name }}</a>
+        {{ end }}
+    </div>
+
     <div class="footer__poweredby">
         {{ partial "footer/site-counter" . }}
         {{ if $.Site.Copyright }}        
@@ -26,5 +32,6 @@
         {{ if $.Param "showPoweredBy" }}
             <p class="caption">Powered by <a href="https://gohugo.io/" rel="noreferrer">Hugo</a> and the <a href="https://github.com/zzossig/hugo-theme-zzo" rel="noreferrer">Zzo theme</a></p>
         {{ end }}
+        
     </div> 
 </footer>

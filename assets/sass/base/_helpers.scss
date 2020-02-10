@@ -15,3 +15,9 @@
 .grow {
   @include flex-grow(1);
 }
+
+.basicflex {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+}

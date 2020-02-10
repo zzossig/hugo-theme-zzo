@@ -6,15 +6,13 @@
 </header>
 <main class="main">
   <div class="contact">
+      <article class="single__contents contact__desc" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
+        {{ .Content }}
+      </article>
       {{ if eq .Params.service "formspree" }}
-        <article class="single__contents contact__desc" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
-          {{ .Content }}
-        </article>
         {{ partial "contact/formspree" . }}
-      {{ else }}
-        <article class="single__contents contact__desc" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
-          {{ .Content }}
-        </article>
+      {{ else if eq .Params.service "getform" }}
+        {{ partial "contact/getform" . }}
       {{ end }}
   </div>
 </main>

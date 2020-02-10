@@ -61,11 +61,20 @@ other = "이름"
 [contact-email]
 other = "이메일"
 
+[contact-tel]
+other = "전화번호"
+
+[contact-file]
+other = "파일"
+
 [contact-message]
 other = "내용"
 
 [contact-send]
 other = "보내기"
+
+[contact-browse]
+other = "Browse"
 
 [tooltip-home]
 other = "홈페이지"

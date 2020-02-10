@@ -1,0 +1,51 @@
+<form action="https://getform.io/f/{{ with .Params.getformToken }}{{ . }}{{ end }}" method="POST" class="contact__form">
+  <div class="contact__input--container">
+    <div class="contact__input--wrapper">
+      <label class="contact__label">
+        {{ i18n "contact-name" }}
+      </label>
+      <input type="text" name="name" class="contact__input" aria-label="{{ i18n "contact-name" }}">
+    </div>
+    <div class="contact__input--wrapper">
+      <label class="contact__label">
+        {{ i18n "contact-email" }}
+      </label>
+      <input type="email" name="email" class="contact__input" aria-label="{{ i18n "contact-email" }}">
+    </div>
+  </div>
+  <div class="contact__input--container">
+    <div class="contact__input--wrapper">
+      <label class="contact__label">
+        {{ i18n "contact-tel" }}
+      </label>
+      <input type="text" name="tel" class="contact__input" aria-label="{{ i18n "contact-tel" }}">
+    </div>
+    <div class="contact__input--wrapper">
+      <label class="contact__label">
+        {{ i18n "contact-file" }}
+      </label>
+      <input type="file" id="upload" name="file" style="display: none;">
+      <input type="button" id="uploadBtn" value="{{ i18n "contact-browse" | default "Browse..." }}" class="contact__input" aria-label="{{ i18n "contact-file" }}"/>
+    </div>
+  </div>
+  <input type="submit" value="{{ i18n "contact-send" }}" class="contact__send">
+</form>
+
+<script>
+  var uploadBtn = document.querySelector('#uploadBtn');
+  uploadBtn.addEventListener('click', function(elem) {
+    var upload = document.querySelector('#upload');
+    upload.click();
+    upload.onchange = function(e) {
+      var fullPath = e.target.value;
+      if (fullPath) {
+        var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+        var filename = fullPath.substring(startIndex);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+          filename = filename.substring(1);
+        }
+        uploadBtn.setAttribute('value', filename);
+      }
+    }
+  });
+</script>

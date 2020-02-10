@@ -6,9 +6,9 @@ custom_js = []
 useFaviconGenerator = true # https://www.favicon-generator.org/
 
 themeOptions = ["dark", "light", "hacker", "solarized", "kimbie"]
-notAllowedTypesInHome = ["contact", "talks", "about", "showcase", "publication", "presentation"]
-notAllowedTypesInHomeSidebar = ["about", "archive", "showcase", "publication", "presentation"]
-notAllowedTypesInArchive = ["about", "talks", "showcase", "publication", "presentation"]
+notAllowedTypesInHome = ["contact", "talks", "about", "showcase", "publication", "presentation", "resume"]
+notAllowedTypesInHomeSidebar = ["about", "archive", "showcase", "publication", "presentation", "resume"]
+notAllowedTypesInArchive = ["about", "talks", "showcase", "publication", "presentation", "resume"]
 
 # header
 homeHeaderType = "text" # text, img, slide
@@ -63,6 +63,7 @@ enableLangChange = true
 enableThemeChange = true
 
 # service
+googleTagManager = "" # GTM-XXXXXX
 baiduAnalytics = ""
 enableBusuanzi = false
 busuanziSiteUV = true
@@ -160,3 +161,10 @@ commento = false
   username = ""
 [[share]]
   name = "twitter"
+
+[[footerLinks]]
+  name = ""
+  link = ""
+[[footerLinks]]
+  name = ""
+  link = ""

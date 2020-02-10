@@ -1,21 +1,4 @@
-{{ template "_internal/google_analytics.html" . }}
-{{ template "_internal/google_analytics_async.html" . }}
-
-{{ if .Site.Params.baiduAnalytics }}
-  <script>
-    {{ $baiduAnalyticsId := .Site.Params.baiduAnalytics }}
-    var baiduAnalyticsId = JSON.parse({{ $baiduAnalyticsId | jsonify }});
-
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?" + baiduAnalyticsId;
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-{{ end }}
-
-{{ if .Site.Params.enableBusuanzi }}
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-{{ end }}
+{{ partial "service/google-analytics" . }}
+{{ partial "service/google-tag-manager" . }}
+{{ partial "service/baidu-analytics" . }}
+{{ partial "service/busuanzi" . }}

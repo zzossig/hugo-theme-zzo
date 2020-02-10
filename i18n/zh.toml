@@ -61,11 +61,20 @@ other = "姓名"
 [contact-email]
 other = "电子邮件"
 
+[contact-tel]
+other = "Tel"
+
+[contact-file]
+other = "File"
+
 [contact-message]
 other = "消息"
 
 [contact-send]
 other = "发送"
+
+[contact-browse]
+other = "Browse"
 
 [tooltip-home]
 other = "主页"

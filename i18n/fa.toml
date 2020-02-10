@@ -61,11 +61,20 @@ other = "نام"
 [contact-email]
 other = "ایمیل"
 
+[contact-tel]
+other = "Tel"
+
+[contact-file]
+other = "File"
+
 [contact-message]
 other = "پیام"
 
 [contact-send]
 other = "ارسال"
+
+[contact-browse]
+other = "Browse"
 
 [tooltip-home]
 other = "خانه"

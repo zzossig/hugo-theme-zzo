@@ -25,7 +25,9 @@
 
       @include flexbox();
       @include flex-direction(column);
-      @include flex-grow(1);      
+      @include flex-grow(1);
+      @include flex-shrink(1);
+      @include flex-basis(0);
     }
 
     &--container {

@@ -61,11 +61,20 @@ other = "Name"
 [contact-email]
 other = "Email"
 
+[contact-tel]
+other = "Tel"
+
+[contact-file]
+other = "File"
+
 [contact-message]
 other = "Message"
 
 [contact-send]
 other = "Send"
+
+[contact-browse]
+other = "Browse"
 
 [tooltip-home]
 other = "Home"
