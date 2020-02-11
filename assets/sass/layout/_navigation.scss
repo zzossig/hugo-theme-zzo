@@ -10,7 +10,7 @@
   top: 0;
 
   &[data-dir="rtl"] {
-    direction: rtl;  
+    direction: rtl;
   }
   
   &[data-dir="ltr"] {
@@ -46,7 +46,7 @@
     }
 
     @include themify($themes) {
-      background-color: themed('navbar-background-color');
+      background-color: themed('navbar-background-color') !important;
       @include on-event {
         background-color: themed('navbar-menu-hover-background-color');
       }
@@ -71,19 +71,22 @@
 
   &__burger {
     display: none;
-    position: relative;
 
     @include animation('slide-in-down .5s .0s 1 ease both');
     @media only screen and (max-width: 769px) {
       cursor: pointer;
       margin-left: auto;
-      position: relative;
       height: $grid_navbar_height;    
       width: 35px;
+      position: absolute;
+      right: 0;
 
       @include flexbox();
       @include align-items(center);
       @include justify-content(flex-end);
+      @include themify($themes) {
+        background: themed('navbar-background-color');
+      }
 
       span {
         @include themify($themes) {
@@ -99,6 +102,7 @@
         transition-duration: 86ms;
         transition-property: background-color, opacity, transform;
         transition-timing-function: ease-out;
+        z-index: z('navbar');
         width: 16px;
         &:nth-child(1) {
           top: calc(50% - 6px);
@@ -198,7 +202,7 @@
       font-size: 1rem;
       font-family: $title-font;
       font-weight: 700;
-
+      
       @include flexbox();
       @include align-items(center);
       @include justify-content(center);

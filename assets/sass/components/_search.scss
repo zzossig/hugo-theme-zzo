@@ -347,7 +347,8 @@
 
     @include animation('slide-in-down .5s .25s 1 ease both');
     @include themify($themes) {
-      color: themed('burger-menu-color');  
+      color: themed('burger-menu-color');
+      background-color: themed('navbar-background-color');
       @include on-event {
         color: themed('link-hover');   
       }
