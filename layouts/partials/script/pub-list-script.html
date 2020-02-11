@@ -1,7 +1,5 @@
 {{ $shave := resources.Get "js/shave.min.js" | resources.Fingerprint }}
 <script defer src="{{ $shave.RelPermalink }}"></script>
-{{ $fuse := resources.Get "js/fuse.min.js" | resources.Fingerprint }}
-<script defer src="{{ $fuse.RelPermalink }}"></script>
 {{ $masonry := resources.Get "js/masonry.pkgd.min.js" | resources.Fingerprint }}
 <script defer src="{{ $masonry.RelPermalink }}"></script>
 {{ $imagesloaded := resources.Get "js/imagesloaded.pkgd.min.js" | resources.Fingerprint }}
