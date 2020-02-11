@@ -38,7 +38,7 @@ other = "پست های مشابه"
 other = "نوشته شده توسط"
 
 [toc-label]
-other = "عناوین اصلی"
+other = "محتوای پست"
 
 [counter-site-pv]
 other = "کل بازدید ها"
@@ -62,10 +62,10 @@ other = "نام"
 other = "ایمیل"
 
 [contact-tel]
-other = "Tel"
+other = "تلفن تماس"
 
 [contact-file]
-other = "File"
+other = "فایل"
 
 [contact-message]
 other = "پیام"
@@ -74,7 +74,7 @@ other = "پیام"
 other = "ارسال"
 
 [contact-browse]
-other = "Browse"
+other = "مرور"
 
 [tooltip-home]
 other = "خانه"
@@ -89,10 +89,10 @@ other = "اصلاح شده در"
 other = "مدت زمان خواندن"
 
 [showcase-overview]
-other = "بررسی اجمالی"
+other = "ویترین"
 
 [showcase-pinned]
 other = "پین شده"
 
 [nojs-message]
-other = "Please enable Javascript to view the contents"
+other = "لطفا برای نمایش محتوا اجرای جاوا اسکریپت را فعال کنید"
