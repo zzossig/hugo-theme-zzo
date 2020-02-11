@@ -857,7 +857,7 @@
 
       searchText = e.target.value;
       var results = fuse.search(e.target.value);
-
+      
       if (searchResultPosition === "main") {
         if (enableSearchHighlight) {
           renderSearchHighlightResultsMain(searchText, results);

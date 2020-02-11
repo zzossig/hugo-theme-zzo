@@ -1,3 +1,4 @@
+{{ .Scratch.Delete "searchindex" }}
 {{- $.Scratch.Add "searchindex" slice -}}
 
 {{ if eq .Type "publication" }}
