@@ -1,34 +1,14 @@
-.swiper-container {
-  background-color: transparent;
-  width: 100%;
-  height: auto;
-}
-
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-}
-
-.swiper-pagination-bullet {
-  opacity: .5;
-}
-
-.swiper-pagination-bullet-active {
-  @include themify($themes) {
-    background: themed('navbar-title-active-color') !important;
-  }
-}
-
-
 .swipe {
   overflow: hidden;
   visibility: hidden;
-  position: relative;  
+  position: relative;
 }
+
 .swipe-wrap {
   overflow: hidden;
   position: relative;
 }
+
 .swipe-wrap > div {
   float: left;
   position: relative;

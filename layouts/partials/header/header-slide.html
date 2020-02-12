@@ -2,66 +2,64 @@
 <script defer src="{{ $swipe.RelPermalink }}"></script>
 
 {{ if $.Params.header }}
-<div id="headerSwipe" class="swipe">
-  <div class="swipe-wrap">
-    {{ range $.Params.header }}
-    {{ if eq .type "slide" }}
-      {{ $height := .height }}
-      {{ range .slide }}
-        <div class="swiper-slide site-header site-header__align-{{ .align }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }}; background-repeat: {{ .imageRepeat }}; background-position: {{ .imagePosition }}; height: {{ $height }}px;">
-          {{ $header := . }}
-          {{ if .title }}            
-            {{ range .title }}
-            <div class="site-header__title" style="font-size: {{ $header.titleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
-              {{ . }}
-            </div>
-            {{ end }}      
-          {{ end }}
-          {{ if .spaceBetweenTitleSubtitle }}
-            <div style="height: {{ .spaceBetweenTitleSubtitle }}px"></div>
-          {{ end }}
-          {{ if .subtitle }}
-            {{ range .subtitle }} 
-            <div class="site-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
-              {{ . }}
-            </div>
+  <div id="headerSwipe" class="swipe">
+    <div class="swipe-wrap">
+      {{ range $.Params.header }}
+      {{ if eq .type "slide" }}
+        {{ $height := .height }}
+        {{ range .slide }}
+          <div class="site-header site-header__align-{{ .align }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }}; background-repeat: {{ .imageRepeat }}; background-position: {{ .imagePosition }}; height: {{ $height }}px;">
+            {{ $header := . }}
+            {{ if .title }}            
+              {{ range .title }}
+              <div class="site-header__title" style="font-size: {{ $header.titleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
+                {{ . }}
+              </div>
+              {{ end }}      
             {{ end }}
-          {{ end }}
-        </div>
+            {{ if .spaceBetweenTitleSubtitle }}
+              <div style="height: {{ .spaceBetweenTitleSubtitle }}px"></div>
+            {{ end }}
+            {{ if .subtitle }}
+              {{ range .subtitle }} 
+              <div class="site-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px; padding: {{ $header.paddingY }}px {{ $header.paddingX }}px;">
+                {{ . }}
+              </div>
+              {{ end }}
+            {{ end }}
+          </div>
+        {{ end }}
       {{ end }}
-    {{ end }}
-  {{ end }}
+      {{ end }}
+    </div>
   </div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    {{ $header := .Params.header }}
-    var options = null;
-    var header = JSON.parse({{ $header | jsonify }});
-    var slide = header.filter(function(h) {
-      return h.type === 'slide';
-    });
-    
-    if (slide.length > 0) {
-      options = slide[0].options;
-    }
-    console.log(options);
-    var headerSwipeElem = document.getElementById('headerSwipe');
-    var headerSwipe = Swipe(headerSwipeElem,
-      options ? 
-      options : {
-        startSlide: 0,
-        auto: 7000,
-        draggable: true,
-        autoRestart: true,
-        continuous: true,
-        disableScroll: true,
-        stopPropagation: true,
-        callback: function (index, element) { },
-        transitionEnd: function (index, element) { }
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      {{ $header := $.Params.header }}
+      var options = null;
+      var header = JSON.parse({{ $header | jsonify }});
+      var slide = header.filter(function(h) {
+        return h.type === 'slide';
       });
-  });
-</script>
-
+      
+      if (slide.length > 0) {
+        options = slide[0].options;
+      }
+      
+      var headerSwipeElem = document.getElementById('headerSwipe');
+      var headerSwipe = new Swipe(headerSwipeElem,
+        options ? 
+        options : {
+          startSlide: 0,
+          auto: 7000,
+          draggable: true,
+          autoRestart: true,
+          continuous: true,
+          disableScroll: true,
+          stopPropagation: true,
+          callback: function (index, element) { },
+          transitionEnd: function (index, element) { }
+        });
+    });
+  </script>
 {{ end }}
