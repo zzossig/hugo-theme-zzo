@@ -21,9 +21,11 @@ image: images/feature2/color-palette.png
 
 Verify the following code blocks render as code blocks and highlight properly. 
 
+More about tuning syntax highlighting is the [Hugo documentation](https://gohugo.io/content-management/syntax-highlighting/).
+
 ### Diff
 
-``` diff
+``` diff {hl_lines=[4,"6-7"]}
 *** /path/to/original	''timestamp''
 --- /path/to/new	''timestamp''
 ***************
