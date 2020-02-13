@@ -25,10 +25,28 @@
     }
   }
 
+  &__icons {
+    padding: 0 0.5rem;
+    margin: auto 0;
+    @include flexbox();
+
+    svg {
+      display: block;
+      margin: auto;
+    }
+  }
+
+  &__icon {
+    margin: auto 0.25rem;
+    
+    @include themify($themes) {
+      color: themed('social-icon-color');
+    }
+  }
+
   &__title {
     margin-right: 0.5rem;
     margin-left: 0.75rem;
-    width: 100%;
 
     &[data-title-wrap^="no"] {
       @include truncate($grid-max-width);
