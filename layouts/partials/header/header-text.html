@@ -1,7 +1,7 @@
 {{ if $.Params.header }}  
   {{ range $.Params.header }}
     {{ if eq .type "text" }}
-      <div class="site-header site-header__align-{{ .align }}" style="width: 100%; height: {{ .height }}px; padding: {{ .paddingY }}px {{ .paddingX }}px;">
+      <div class="site-header basicflex-column site-header__align-{{ .align }}" style="width: 100%; height: {{ .height }}px; padding: {{ .paddingY }}px {{ .paddingX }}px;">
         {{ $header := . }}
         {{ if .title }}            
           {{ range .title }}

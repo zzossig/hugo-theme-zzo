@@ -1,7 +1,7 @@
 {{ if $.Params.header }}  
   {{ range $.Params.header }}
     {{ if eq .type "img" }}
-    <div class="site-header site-header__align-{{ .align }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }};
+    <div class="site-header basicflex-column site-header__align-{{ .align }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }};
     background-repeat: {{ .imageRepeat }}; background-position: {{ .imagePosition }}; width: 100%; height: {{ .height }}px; padding: {{ .paddingY }}px {{ .paddingX }}px;">
       {{ $header := . }}
       {{ if .title }}
