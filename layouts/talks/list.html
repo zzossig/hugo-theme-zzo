@@ -5,11 +5,21 @@
   <h3 class="h3 terms__title">
     {{ .Title }}
   </h3>
+  {{ if not .Params.subtitle }}
   <div>
     {{ .Content }}
   </div>
+  {{ end }}
 </header>
 <main class="main archive">
+  {{ if .Params.subtitle }}
+  <div class="archive__content">
+    {{ .Content }}
+  </div>
+  <h4 class="archive__subtitle">
+    {{ .Params.subtitle }}
+  </h4>
+  {{ end }}
   <div class="archive__container">
     {{ $pages := (where .Site.RegularPages "Section" "talks") }}
     {{ $paginator := .Paginate ($pages.GroupByPublishDate ($.Param "talksGroupByDate" | default "2006")) ($.Param "talksPaginate") }}
