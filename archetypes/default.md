@@ -7,6 +7,7 @@ hideToc: false
 enableToc: true
 enableTocContent: false
 tocPosition: inner
+tocLevels: ["h2", "h3", "h4"]
 tags:
 -
 series:

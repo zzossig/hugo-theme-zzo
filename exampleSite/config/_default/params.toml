@@ -55,6 +55,7 @@ tocPosition = "inner" # inner, outer
 enableTocSwitch = true
 itemsPerCategory = 5
 sidebarPosition = "right"
+tocLevels = ["h2", "h3", "h4"]
 
 # footer
 showPoweredBy = true
