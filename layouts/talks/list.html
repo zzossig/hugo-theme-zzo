@@ -32,7 +32,11 @@
         <span class="talk__date" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
           {{ .PublishDate.Format (i18n "talks-dateformat") }}
         </span>
-        <a href="{{ .Permalink }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>
+        {{ if .Params.disableLink }}
+        <div class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</div>
+        {{ else }}
+        <a href="{{ if .Params.externalLink }}{{ .Params.externalLink }}{{ else }}{{ .Permalink }}{{ end }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>
+        {{ end }}
       </li>
       {{ end }}
     </ul>
