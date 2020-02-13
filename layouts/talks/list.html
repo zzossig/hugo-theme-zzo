@@ -5,20 +5,15 @@
   <h3 class="h3 terms__title">
     {{ .Title }}
   </h3>
-  {{ if not .Params.subtitle }}
-  <div>
+  <div class="px py p2 terms__content">
     {{ .Content }}
   </div>
-  {{ end }}
 </header>
 <main class="main archive">
-  {{ if .Params.subtitle }}
-  <div class="archive__content">
-    {{ .Content }}
-  </div>
-  <h4 class="archive__subtitle">
-    {{ .Params.subtitle }}
-  </h4>
+  {{ with .Params.subtitle }}
+    <h6 class="archive__subtitle h6">
+      {{ . }}
+    </h6>
   {{ end }}
   <div class="archive__container">
     {{ $pages := (where .Site.RegularPages "Section" "talks") }}
