@@ -17,6 +17,10 @@
     }    
   }
 
+  &__content {
+    width: 100%;
+  }
+
   &__list {
     @include flexbox();
     @include align-items(center);

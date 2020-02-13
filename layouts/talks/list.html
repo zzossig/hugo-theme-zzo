@@ -35,7 +35,7 @@
         {{ if .Params.disableLink }}
         <div class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</div>
         {{ else }}
-        <a href="{{ if .Params.externalLink }}{{ .Params.externalLink }}{{ else }}{{ .Permalink }}{{ end }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>
+        <a href="{{ if .Params.externalLink }}{{ .Params.externalLink }}{{ else }}{{ .Permalink }}{{ end }}" target="{{ with .Params.externalLink }}_blank{{ end }}" rel="{{ with .Params.externalLink }}noreferrer{{ end }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>
         {{ end }}
       </li>
       {{ end }}

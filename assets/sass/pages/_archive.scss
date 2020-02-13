@@ -234,4 +234,17 @@
       }
     }
   }
+
+  &__subtitle {
+    text-align: center;
+    font-weight: bold;
+    font-family: $title-font;
+
+    @include themify($themes) {
+      color: themed('terms-title-color');
+    }
+    @media only screen and (max-width:600px) {
+      margin-bottom: 1rem;
+    }
+  }
 }

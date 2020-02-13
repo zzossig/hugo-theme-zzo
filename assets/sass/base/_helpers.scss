@@ -28,3 +28,13 @@
   @include justify-content(center);
   @include flex-direction(column);
 }
+
+.px {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
