@@ -1,7 +1,14 @@
 {{ if $.Param "showFeedLinks" }}
   {{ if not (in ($.Param "notAllowedTypesInHomeFeed") .Type) }}
-    <a href="{{ .FirstSection.Permalink }}/index.xml" type="application/rss+xml" title="RSS" aria-label="RSS Feed Link">
-      {{ partial "svgs/etc/rss.svg" (dict "width" 32 "height" 32) }}
-    </a>
+  {{ $exclude := slice "tags" "series" "categories" }}
+    {{ if not (in $exclude .Type) }}
+      <a href="{{ .FirstSection.Permalink }}/index.xml" type="application/rss+xml" title="RSS" aria-label="RSS Feed Link">
+        {{ partial "svgs/etc/rss.svg" (dict "width" 32 "height" 32) }}
+      </a>
+    {{ else }}
+      <a href="{{ .Permalink }}/index.xml" type="application/rss+xml" title="RSS" aria-label="RSS Feed Link">
+        {{ partial "svgs/etc/rss.svg" (dict "width" 32 "height" 32) }}
+      </a>
+    {{ end }}
   {{ end }}
 {{ end }}
