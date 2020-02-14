@@ -15,7 +15,13 @@
     {{ end }}
     
     {{ if .IsHome }}
-      {{ range .Site.RegularPages }}
+      
+      {{ $filteredPages := .Site.RegularPages }}
+      {{ range $.Param "notAllowedTypesInHomeFeed" }}
+        {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
+      {{ end }}
+
+      {{ range $filteredPages }}
       <item>
         <title>{{ .Title }}</title>
         <link>{{ .Permalink }}</link>
@@ -25,7 +31,9 @@
         <description>{{ .Summary | html }}</description>
       </item>
       {{ end }}
+
     {{ else }}
+
       {{ range .Pages }}
       <item>
         <title>{{ .Title }}</title>
@@ -36,6 +44,7 @@
         <description>{{ .Summary | html }}</description>
       </item>
       {{ end }}
+
     {{ end }}
   </channel>
 </rss>
