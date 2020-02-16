@@ -352,6 +352,7 @@
     @include themify($themes) {
       color: themed('burger-menu-color');
       background-color: themed('navbar-background-color');
+      border-bottom: 1px solid themed('navbar-border-bottom-color');
       @include on-event {
         color: themed('link-hover');   
       }

@@ -47,11 +47,12 @@
 
     @include themify($themes) {
       background-color: themed('navbar-background-color') !important;
+      border-bottom: 1px solid themed('navbar-border-bottom-color') !important;
       @include on-event {
         background-color: themed('navbar-menu-hover-background-color');
       }
     }
-    
+
     &[data-ani="true"] {
       @media only screen and (min-width: 769px) {
         @for $i from 1 through 8 {
@@ -91,6 +92,7 @@
       @include justify-content(flex-end);
       @include themify($themes) {
         background: themed('navbar-background-color');
+        border-bottom: 1px solid themed('navbar-border-bottom-color');
       }
 
       span {
@@ -343,7 +345,9 @@
     display: none;
   }
 
-  .dropdown {    
+  .dropdown {
+    position: relative;
+
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);    
