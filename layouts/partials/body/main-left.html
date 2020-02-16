@@ -4,16 +4,16 @@
   {{ if and (eq ($.Param "tocPosition") "outer") .IsPage }}
     {{ if and (ne .Type "about") (ne .Type "contact") (ne .Type "gallery") }}
       {{ if or ($.Param "enableToc") ($.Param "toc") }}
-        <div class="toc__flexbox--outer" data-position="fixed" data-dir="rtl">
-          <h6 class="toc__title toc__title--outer">{{ i18n "toc-label" }}</h6>
+        <div class="toc__flexbox--outer" data-position="fixed" data-dir="rtl" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
+          <h6 class="toc__title toc__title--outer" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ i18n "toc-label" }}</h6>
           {{ if $.Param "enableTocSwitch" }}
-          <label class="switch">
+          <label class="switch" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
             <input id="visible-toc" aria-label="Visible TOC" type="checkbox" {{ if $.Param "hideToc" }}{{ else }}checked{{ end }}>
             <span class="slider round"></span>
           </label>
           {{ end }}
         </div>
-        <div class="toc toc__outer {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="rtl" data-folding="{{ if $.Param "tocFolding" }}true{{ else }}false{{ end }}">
+        <div class="toc toc__outer {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="rtl" data-folding="{{ if $.Param "tocFolding" }}true{{ else }}false{{ end }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
           {{ .TableOfContents }}
         </div>
       {{ end }}

@@ -122,7 +122,10 @@
       @include flexbox();
       @include justify-content(flex-start);
       @include flex-wrap(wrap);
-      @include animation('slide-in-left-little .2s .25s 1 ease-in both');
+
+      &[data-ani="true"] {
+        @include animation('slide-in-left-little .2s .25s 1 ease-in both');
+      }
     }
 
     &--title {

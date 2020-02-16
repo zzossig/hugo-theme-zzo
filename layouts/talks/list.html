@@ -20,11 +20,11 @@
     {{ $paginator := .Paginate ($pages.GroupByPublishDate ($.Param "talksGroupByDate" | default "2006")) ($.Param "talksPaginate") }}
 
     {{ range ($paginator).PageGroups }}
-    <span class="archive__key">{{ .Key }}</span>
+    <span class="archive__key" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ .Key }}</span>
     <ul class="archive__ul" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
       {{ range .Pages }}
       <li class="archive__li" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
-        <span class="talk__date" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+        <span class="talk__date" data-dir="{{ $.Param "languagedir" | default "ltr" }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
           {{ .PublishDate.Format (i18n "talks-dateformat") }}
         </span>
         {{ if .Params.disableLink }}

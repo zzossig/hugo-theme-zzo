@@ -1,4 +1,4 @@
-<article class="summary-card">
+<article class="summary-card" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
   <header>
     <h5 class="title h5"><a href='{{ .Permalink }}'> {{ .Title }}</a> </h5>
     <h6 class="subtitle caption"><time title="{{ i18n "tooltip-written" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">📅{{ .Date.Format (i18n "summary-dateformat") }} </time> {{ if .GitInfo }} <time title="{{ i18n "tooltip-modified" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}"> &middot; 📝 {{ .Lastmod.Format (i18n "summary-dateformat") }} </time> {{ end }} <span title="{{ i18n "tooltip-reading-time" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}"> &middot; ☕ {{ .ReadingTime }} {{ i18n "reading-time" }}</span>{{ with $.Param "author" }}&middot; <span title="{{ i18n "single-writtenBy" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{if $.Param "AuthorEmoji" }}{{ $.Param "AuthorEmoji" }}{{ else }}✍️{{ end }}&nbsp;{{ . }}</span>{{ end }}</h6>
@@ -14,13 +14,13 @@
     {{ if $.Param "featured_image" }}
     <div class="summary-card__image-wrapper">
       <a href="{{ .Permalink }}">
-        <img data-src="{{ (print "images/" ($.Param "featured_image")) | relURL }}" alt="{{ print ($.Param "featured_image") }}" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-card__image"/>
+        <img data-src="{{ (print "images/" ($.Param "featured_image")) | relURL }}" alt="{{ print ($.Param "featured_image") }}" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-card__image" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}"/>
       </a>
     </div>
     {{ else if $.Param "image" }}
     <div class="summary-card__image-wrapper">
       <a href="{{ .Permalink }}">
-        <img data-src="{{ $.Param "image" | relURL }}" alt="{{ $.Param "image" }}" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-card__image" />
+        <img data-src="{{ $.Param "image" | relURL }}" alt="{{ $.Param "image" }}" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload summary-card__image" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}"/>
       </a>
     </div>
     {{ else if $.Param "featured_video" }}

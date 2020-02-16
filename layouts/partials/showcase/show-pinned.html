@@ -7,7 +7,7 @@
 
   {{ if gt $pinnedNum 0 }}
     <div style="display: flex; justify-content: center">
-    <ol class="showcase__box--wrapper">
+    <ol class="showcase__box--wrapper" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
       {{ range .Pages }}
         {{ $category := .Params.category }}
         {{ $categoryIcon := (print "svgs/showcase/" (.Params.categoryIcon | default "code") ".svg") }}

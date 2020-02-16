@@ -12,10 +12,13 @@
     overflow-wrap: break-word;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
-
-    @include animation('slide-in-down .2s .3s 1 ease-in both');
+    
     @include themify($themes) {
       color: themed("single-header-title-color");
+    }
+
+    &[data-ani="true"] {
+      @include animation('slide-in-down .2s .3s 1 ease-in both');
     }
   }
 
@@ -62,7 +65,9 @@
   }
 
   &__contents {
-    @include animation('slide-in-left-little .2s .6s 1 ease-in both');
+    &[data-ani="true"] {
+      @include animation('slide-in-left-little .2s .6s 1 ease-in both');
+    }
     
     &--gallery {
       overflow: hidden;

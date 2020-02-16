@@ -9,7 +9,10 @@
   @include flexbox();
   @include justify-content(center);
   @include flex-direction(column);
-  @include animation('fade-in .15s .1s 1 ease-in both');
+
+  &[data-ani="true"] {
+    @include animation('fade-in .15s .1s 1 ease-in both');
+  }
 
   &__title {
     line-height: 1.1;

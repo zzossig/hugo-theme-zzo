@@ -9,12 +9,12 @@
   </noscript>
   <div class="single hide">
     <script>document.querySelector('.single').classList.remove('hide')</script>
-    <h2 class="single__title">{{ .Title }}</h2>
+    <h2 class="single__title" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ .Title }}</h2>
     <div class="single__meta">
       {{ partial "body/infos" . }}
       {{ partial "body/tags" . }}
     </div>
-    <article class="single__contents" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
+    <article class="single__contents" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
       {{ partial "body/toc" . }}
       {{ .Content }}
     </article>

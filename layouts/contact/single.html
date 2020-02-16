@@ -6,7 +6,7 @@
 </header>
 <main class="main">
   <div class="contact">
-      <article class="single__contents contact__desc" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
+      <article class="single__contents contact__desc" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
         {{ .Content }}
       </article>
       {{ if eq .Params.service "formspree" }}

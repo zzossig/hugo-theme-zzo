@@ -8,7 +8,7 @@
       {{ if eq .type "slide" }}
         {{ $height := .height }}
         {{ range .slide }}
-          <div class="site-header site-header__align-{{ .align }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }}; background-repeat: {{ .imageRepeat }}; background-position: {{ .imagePosition }}; height: {{ $height }}px;">
+          <div class="site-header site-header__align-{{ .align }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }}; background-repeat: {{ .imageRepeat }}; background-position: {{ .imagePosition }}; height: {{ $height }}px;">
             {{ $header := . }}
             {{ if .title }}            
               {{ range .title }}

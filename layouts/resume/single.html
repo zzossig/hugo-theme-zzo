@@ -76,7 +76,7 @@
             </div>
           {{ end }}
           {{ with .contents }}
-            <div class="single__contents resume__section--contents">
+            <div class="single__contents resume__section--contents" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
               {{ . | markdownify }}
             </div>
           {{ end }}

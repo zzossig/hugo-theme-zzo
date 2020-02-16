@@ -52,10 +52,12 @@
       }
     }
     
-    @media only screen and (min-width: 769px) {
-      @for $i from 1 through 8 {
-        &:nth-child(#{$i}) {
-          @include animation('slide-in-down .25s #{$i * .1}s 1 ease both');
+    &[data-ani="true"] {
+      @media only screen and (min-width: 769px) {
+        @for $i from 1 through 8 {
+          &:nth-child(#{$i}) {
+            @include animation('slide-in-down .25s #{$i * .1}s 1 ease both');
+          }
         }
       }
     }
@@ -72,7 +74,10 @@
   &__burger {
     display: none;
 
-    @include animation('slide-in-down .5s .0s 1 ease both');
+    &[data-ani="true"] {
+      @include animation('slide-in-down .5s .0s 1 ease both');
+    }
+    
     @media only screen and (max-width: 769px) {
       cursor: pointer;
       margin-left: auto;
@@ -329,7 +334,10 @@
   @include flexbox();
   @include align-items(center);
   @include justify-content(flex-end);
-  @include animation('slide-in-down .5s .0s 1 ease both');  
+
+  &[data-ani="true"] {
+    @include animation('slide-in-down .5s .0s 1 ease both');
+  }
 
   @media only screen and (max-width: 769px) {
     display: none;
@@ -425,7 +433,10 @@
   cursor: pointer;
   z-index: z('modal');
 
-  @include animation('slide-in-down .5s .4s 1 ease both');
+  &[data-ani="true"] {
+    @include animation('slide-in-down .5s .4s 1 ease both');
+  }
+  
   @include themify($themes) {
     color: themed('burger-menu-color');  
     @include on-event {

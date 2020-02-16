@@ -7,8 +7,11 @@
   padding-left: 0.5rem;
   z-index: z('toc');
 
+  &[data-ani="true"] {
+    @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
+  }
+
   @include no-select;
-  @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
   
   #TableOfContents {
     position: relative;
@@ -37,10 +40,13 @@
     top: 4.2rem;
     left: 1rem;
     position: absolute;
-
-    @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
+    
     @media only screen and (max-width: 1300px) {
       display: none;
+    }
+
+    &[data-ani="true"] {
+      @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
     }
   }
 
@@ -63,7 +69,10 @@
     font-size: 0.9rem;
     margin-top: 0.5rem;
 
-    @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
+    &[data-ani="true"] {
+      @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
+    }
+    
     @include themify($themes) {
       color: themed('toc-label-color');
     }

@@ -345,7 +345,10 @@
     display: none;
     z-index: z('search-btn');
 
-    @include animation('slide-in-down .5s .25s 1 ease both');
+    &[data-ani="true"] {
+      @include animation('slide-in-down .5s .25s 1 ease both');
+    }
+    
     @include themify($themes) {
       color: themed('burger-menu-color');
       background-color: themed('navbar-background-color');

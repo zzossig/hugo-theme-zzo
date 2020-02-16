@@ -2,7 +2,7 @@
   {{ $sectionNum := (len .Pages) }}
 
   {{ if gt $sectionNum 0 }}
-    <div class="showcase__box--wrapper">
+    <div class="showcase__box--wrapper" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
       {{ $category := .Params.category }}
       {{ $categoryIcon := (print "svgs/showcase/" (.Params.categoryIcon | default "code") ".svg") }}
       {{ range .Pages }}

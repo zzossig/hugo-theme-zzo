@@ -8,9 +8,12 @@
     line-height: 26px;
     text-align: center;
     position: relative;
+
+    &[data-ani="true"] {
+      @include animation('slide-in-left .2s .5s 1 ease both');
+    }
     
     @include truncate(100px);
-    @include animation('slide-in-left .2s .5s 1 ease both');
     @include themify($themes) {
       color: themed('archive-meta-color');
       background-color: themed('archive-type-background-color');

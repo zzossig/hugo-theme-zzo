@@ -17,7 +17,7 @@
   {{ partial "navbar/select-theme-mobile" . }}
   {{ partial "search/site-search-mobile" . }}
   
-  <a role="button" class="navbar__burger" aria-label="menu" aria-expanded="false">
+  <a role="button" class="navbar__burger" aria-label="menu" aria-expanded="false" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
@@ -32,7 +32,7 @@
       {{ $active = or $active (eq (lower .URL) (lower $current.Title)) }}
       {{ $active = or $active (eq (lower .URL) (lower $current.Type)) }}
       {{ if .HasChildren }}
-        <div class="navbar__dropdown navbar__slide-down">
+        <div class="navbar__dropdown navbar__slide-down" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
           <a href="{{ .URL | relLangURL }}" class="navbar__menu-item {{ if $active }}active{{ end }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
             {{ safeHTML .Name }}
             <span class="navbar__menu-icon">
@@ -46,7 +46,7 @@
           </div>
         </div>
       {{ else }}
-        <a href="{{ .URL | relLangURL }}" class="navbar__menu-item navbar__slide-down {{ if $active }}active{{ end }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ safeHTML .Name }}</a>
+        <a href="{{ .URL | relLangURL }}" class="navbar__menu-item navbar__slide-down {{ if $active }}active{{ end }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ safeHTML .Name }}</a>
       {{ end }}
     {{ end }}
   </div>

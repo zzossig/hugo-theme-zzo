@@ -4,15 +4,15 @@
 <section class="sidebar hide">
   <script>document.querySelector('.sidebar').classList.remove('hide')</script>
   <div class="toc__flexbox" data-position="{{ if $.Param "hideToc" }}absolute{{ else }}fixed{{ end }}">
-    <h6 class="toc__title">{{ i18n "toc-label" }}</h6>
+    <h6 class="toc__title" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ i18n "toc-label" }}</h6>
     {{ if $.Param "enableTocSwitch" }}
-      <label class="switch">
+      <label class="switch" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
         <input id="toggle-toc" aria-label="Toggle TOC" type="checkbox" {{ if $.Param "hideToc" }}{{ else }}checked{{ end }}>
         <span class="slider round"></span>
       </label>
     {{ end }}
   </div>
-  <div class="toc {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}" data-folding="{{ if $.Param "tocFolding" }}true{{ else }}false{{ end }}">
+  <div class="toc {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}" data-folding="{{ if $.Param "tocFolding" }}true{{ else }}false{{ end }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
     {{ .TableOfContents }}
   </div>
 </section>

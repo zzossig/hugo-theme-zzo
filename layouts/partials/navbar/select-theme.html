@@ -1,7 +1,7 @@
 {{ if $.Param "enableThemeChange" }}
-<div class="theme">
+<div class="theme" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
   <div class="dropdown">
-    <button class="dropdown-trigger navbar__slide-down" aria-label="Select Theme Button">
+    <button class="dropdown-trigger navbar__slide-down" aria-label="Select Theme Button" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
       {{ partial "svgs/etc/invert-colors.svg" (dict "width" 22 "height" 22) }}      
     </button>
     <div class="dropdown-content select-theme">

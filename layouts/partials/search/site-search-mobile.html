@@ -1,5 +1,5 @@
 {{ if $.Param "enableSearch" }}
-<div id="mobileSearchBtn" class="mobile-search__btn">
+<div id="mobileSearchBtn" class="mobile-search__btn" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
   {{ partial "svgs/etc/search.svg" (dict "width" 22 "height" 22) }}
 </div>
 

@@ -5,10 +5,12 @@
   margin-top: 0.7rem;
   margin-left: 1rem;
 
-  @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
+  &[data-ani="true"] {
+    @include animation('slide-in-down-little .2s .3s 1 ease-in backwards');
+  }
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
