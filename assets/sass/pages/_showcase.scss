@@ -140,7 +140,7 @@
 
     &--desc {
       font-size: 0.9rem;
-      margin: 0.25rem 0;
+      margin-top: 0.25rem;
       height: 70px;
     }
 
@@ -167,9 +167,13 @@
       margin-top: 0.25rem;
 
       @include flexbox();
+      @include flex-wrap(wrap);
+      @include justify-content(flex-end);
+
       .type {
         font-size: 12px;
         text-transform: capitalize;
+        margin-top: 0.25rem;
 
         @include flexbox();
         @include themify($themes) {
@@ -178,7 +182,11 @@
 
         svg {
           display: block;
-          margin: auto 0.35rem auto 0;
+          margin: auto 0.2rem auto 0.35rem;
+        }
+
+        img {
+          margin-left: 0.35rem;
         }
       }
 
@@ -192,6 +200,17 @@
             color: themed('link-hover');
           }
         }
+      }
+    }
+
+    &--shields {
+      margin-top: 0.25rem;
+
+      @include flexbox();
+      @include flex-wrap(wrap);
+
+      a.type {
+        margin-right: 0.5rem;
       }
     }
 
