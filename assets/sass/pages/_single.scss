@@ -252,17 +252,11 @@
     }
 
     blockquote {
-      margin: 0 1.75rem 1.75rem 1.5rem;
-      padding: 0 0 0 1.42188rem;
       font-size: 1.05rem;
       line-height: 1.75;
       color: inherit;
       opacity: 0.8;
       position: relative;
-      
-      @include themify($themes) {
-          border-left: 0.32813rem solid themed("single-blockquote-border-color");
-      }
 
       code:not([class^=language]) {
         padding: 3px 7px;
@@ -303,11 +297,29 @@
       li {
         margin-right: 2rem;
       }
+
+      blockquote {
+        margin: 0 1.5rem 1.75rem 1.75rem;
+        padding: 0 1.42188rem 0 0;
+
+        @include themify($themes) {
+          border-right: 0.32813rem solid themed("single-blockquote-border-color");
+        }
+      }
     }
 
     &[data-dir="ltr"] {
       li {
         margin-left: 2rem;
+      }
+
+      blockquote {
+        margin: 0 1.75rem 1.75rem 1.5rem;
+        padding: 0 0 0 1.42188rem;
+
+        @include themify($themes) {
+          border-left: 0.32813rem solid themed("single-blockquote-border-color");
+        }
       }
     }
 
