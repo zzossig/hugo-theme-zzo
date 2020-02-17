@@ -302,6 +302,11 @@ busuanziSiteUV = true # unique visitors (total number of visitors)
 busuanziSitePV = true # site total page view count
 busuanziPagePV = true # post view count
 
+# rss
+updatePeriod = "" # Possible values: 'hourly', 'daily', 'weekly', 'monthly', or 'yearly'.
+updateFrequency = ""
+fullContents = false
+
 # comment
 enableComment = true
 disqus_shortname = "" 

@@ -75,6 +75,11 @@ busuanziSiteUV = true
 busuanziSitePV = true
 busuanziPagePV = true
 
+# rss
+updatePeriod = "" # Possible values: 'hourly', 'daily', 'weekly', 'monthly', or 'yearly'.
+updateFrequency = ""
+fullContents = false
+
 # comment
 enableComment = true
 disqus_shortname = ""
