@@ -12,7 +12,7 @@
     </div>
 
     <div class="summary__container" data-display="block">
-      {{ range .Paginator.Pages }}
+      {{ range .Paginator.Pages.ByWeight }}
         {{ .Render "summary" }}
       {{ end }}
       {{ partial "pagination/pagination" . }}

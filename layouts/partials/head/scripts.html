@@ -437,26 +437,41 @@
     var rootEleme = document.getElementById('root');
     var selectThemeElem = document.querySelectorAll('.select-theme');
     var selectThemeItemElem = document.querySelectorAll('.select-theme__item');
-    
+
     var setMetaColor = function(themeColor) {
+      var metaMsapplicationTileColor = document.getElementsByName('msapplication-TileColor')[0];
+      var metaThemeColor = document.getElementsByName('theme-color')[0];
+      var metaMsapplicationNavbuttonColor = document.getElementsByName('msapplication-navbutton-color')[0];
+      var metaAppleMobileWebAappStatusBarStyle = document.getElementsByName('apple-mobile-web-app-status-bar-style')[0];
+
       if (themeColor.includes('dark')) {
-        {{ $.Scratch.Set "themeTitleColor" "#fcfcfa" }}
-        {{ $.Scratch.Set "themeNavbarColor" "#403E41" }}
+        metaMsapplicationTileColor.setAttribute('content', '#fcfcfa');
+        metaThemeColor.setAttribute('content', '#403E41');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#403E41');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#403E41');
       } else if (themeColor.includes('light')) {
-        {{ $.Scratch.Set "themeTitleColor" "#555" }}
-        {{ $.Scratch.Set "themeNavbarColor" "#eee" }}
+        metaMsapplicationTileColor.setAttribute('content', '#555');
+        metaThemeColor.setAttribute('content', '#eee');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#eee');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#eee');
       } else if (themeColor.includes('hacker')) {
-        {{ $.Scratch.Set "themeTitleColor" "#e3cd26" }}
-        {{ $.Scratch.Set "themeNavbarColor" "#252526" }}
+        metaMsapplicationTileColor.setAttribute('content', '#e3cd26');
+        metaThemeColor.setAttribute('content', '#252526');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#252526');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#252526');
       } else if (themeColor.includes('solarized')) {
-        {{ $.Scratch.Set "themeTitleColor" "#586e75" }}
-        {{ $.Scratch.Set "themeNavbarColor" "#eee8d5" }}
+        metaMsapplicationTileColor.setAttribute('content', '#d3af86');
+        metaThemeColor.setAttribute('content', '#51412c');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#51412c');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#51412c');
       } else if (themeColor.includes('kimbie')) {
-        {{ $.Scratch.Set "themeTitleColor" "#d3af86" }}
-        {{ $.Scratch.Set "themeNavbarColor" "#51412c" }}
+        metaMsapplicationTileColor.setAttribute('content', '#586e75');
+        metaThemeColor.setAttribute('content', '#eee8d5');
+        metaMsapplicationNavbuttonColor.setAttribute('content', '#eee8d5');
+        metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#eee8d5');
       } 
     }
-
+    
     if (localTheme) {
       selectThemeItemElem ? 
       selectThemeItemElem.forEach(function (elem) {
@@ -466,6 +481,7 @@
           elem.classList.remove('is-active');
         }
       }) : null;
+
       setMetaColor(localTheme);
     } else {
       setMetaColor(rootEleme.className);
@@ -476,6 +492,7 @@
       v.addEventListener('click', function (e) {
         var selectedThemeVariant = e.target.text.trim();
         localStorage.setItem('theme', selectedThemeVariant);
+        setMetaColor(selectedThemeVariant);
 
         rootEleme.removeAttribute('class');
         rootEleme.classList.add('theme__' + selectedThemeVariant);

@@ -12,7 +12,7 @@
         </div>
 
         <div class="summary__container" data-display="block">
-            {{ $paginator := .Paginate (where .Pages "Type" .Type) }}
+            {{ $paginator := .Paginate (where .Pages "Type" .Type).ByWeight }}
             {{ range $paginator.Pages }}
                 {{ .Render "summary" }}
             {{ end }}
