@@ -27,13 +27,13 @@
 <meta property="twitter:description" content="{{ $.Param "description" }}">
 {{ end }}
 {{ hugo.Generator }}
-<meta name="msapplication-TileColor" content="{{ $.Param "themecolor" | default "#ffffff" }}">
+<meta name="msapplication-TileColor" content="{{ $.Scratch.Get "themeTitleColor" | default "#fff" }}">
 <!-- Chrome, Firefox OS and Opera -->
-<meta name="theme-color" content="{{ $.Param "themecolor" | default "#ffffff" }}">
+<meta name="theme-color" content="{{ $.Scratch.Get "themeNavbarColor" | default "#fff" }}">
 <!-- Windows Phone -->
-<meta name="msapplication-navbutton-color" content="{{ $.Param "themecolor" | default "#ffffff" }}">
+<meta name="msapplication-navbutton-color" content="{{ $.Scratch.Get "themeNavbarColor" | default "#fff" }}">
 <!-- iOS Safari -->
-<meta name="apple-mobile-web-app-status-bar-style" content="{{ $.Param "themecolor" | default "#ffffff" }}">
+<meta name="apple-mobile-web-app-status-bar-style" content="{{ $.Scratch.Get "themeNavbarColor" | default "#fff" }}">
 <link rel="canonical" href="{{ .Permalink | absLangURL }}">
 <link rel="manifest" href="{{ "manifest.json" | relURL }}">
 {{ if $.Site.Params.useFaviconGenerator }}
