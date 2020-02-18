@@ -54,8 +54,12 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 {{ else }}
+  {{ if (fileExists "static/apple-touch-icon.png") -}}
   <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
-  <link rel="shortcut icon" href="{{ "favicon.png" | relURL }}" type="image/x-icon">
+  {{- end }}
   <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}" type="image/x-icon">
+  <link rel="icon" href="{{ "favicon.png" | relURL }}" sizes="any" type="image/png" />
+  {{ if (fileExists "static/logo.svg") -}}
   <link rel="icon" href="{{ "logo.svg" | relURL }}" sizes="any" type="image/svg+xml" />
+  {{- end }}
 {{ end }}
