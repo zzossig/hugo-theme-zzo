@@ -28,7 +28,12 @@
 {{ end }}
 {{ hugo.Generator }}
 <meta name="msapplication-TileColor" content="{{ $.Param "themecolor" | default "#ffffff" }}">
+<!-- Chrome, Firefox OS and Opera -->
 <meta name="theme-color" content="{{ $.Param "themecolor" | default "#ffffff" }}">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="{{ $.Param "themecolor" | default "#ffffff" }}">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-status-bar-style" content="{{ $.Param "themecolor" | default "#ffffff" }}">
 <link rel="canonical" href="{{ .Permalink | absLangURL }}">
 <link rel="manifest" href="{{ "manifest.json" | relURL }}">
 {{ if $.Site.Params.useFaviconGenerator }}
