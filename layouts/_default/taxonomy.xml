@@ -1,9 +1,10 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
-<rss version="2.0"
-	xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:atom="http://www.w3.org/2005/Atom"
-	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
+<rss version="2.0" 
+  xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/" 
+  xmlns:atom="http://www.w3.org/2005/Atom" 
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+  xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
@@ -15,8 +16,7 @@
     <copyright>{{.}}</copyright>{{end}}{{ if not .Date.IsZero }}
     <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}{{ with .Site.Params.updatePeriod }}
     <sy:updatePeriod>{{.}}</sy:updatePeriod>{{end}}{{ with .Site.Params.updateFrequency }}
-    <sy:updateFrequency>{{.}}</sy:updateFrequency>{{end}}{{ with .Site.Params.myname }}
-    <dc:creator>{{.}}</dc:creator>{{end}}
+    <sy:updateFrequency>{{.}}</sy:updateFrequency>{{end}}
     {{ with .OutputFormats.Get "RSS" }}
         {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
@@ -27,12 +27,14 @@
         <link>{{ .Permalink }}</link>
         <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
         {{ with .Site.Params.email }}<author>{{.}}{{ with $.Site.Params.myname }} ({{.}}){{end}}</author>{{end}}
+        {{ with .Params.Lastmod }}<atom:modified>{{ .Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</atom:modified>{{end}}
         <guid>{{ .Permalink }}</guid>
         <description>{{ .Summary | html }}</description>
         {{ if .Site.Params.fullContents }}<content:encoded><![CDATA[{{ .Content | html }}]]></content:encoded>{{end}}
-        {{ with $.Params.image }}<media:content url="{{ .Permalink }}{{ .Params.image }}" medium="image"><media:title type="html">featured image</media:title></media:content>{{end}}
-        {{ with $.Params.featured_image }}<media:content url="{{ .Permalink }}image/{{ .Params.featured_image }}" medium="image"><media:title type="html">featured image</media:title></media:content>{{end}}
-        {{ with $.Params.meta_image }}<media:content url="{{ .Permalink }}image/{{ $.Params.meta_image }}" medium="image"><media:title type="html">meta image</media:title></media:content>{{end}}
+        {{ if .Params.author }}<dc:creator>{{ .Params.author }}</dc:creator>{{ else if .Site.Params.myname }}<dc:creator>{{ .Site.Params.myname }}</dc:creator>{{end}}
+        {{ if .Params.image }}<media:content url="{{ .Site.BaseURL }}{{ .Params.image }}" medium="image"><media:title type="html">featured image</media:title></media:content>{{end}}
+        {{ if .Params.featured_image }}<media:content url="{{ .Site.BaseURL }}image/{{ .Params.featured_image }}" medium="image"><media:title type="html">featured image</media:title></media:content>{{end}}
+        {{ if .Params.meta_image }}<media:content url="{{ .Site.BaseURL }}{{ .Params.meta_image }}" medium="image"><media:title type="html">meta image</media:title></media:content>{{end}}
         {{ with .Params.tags }}
           {{ range . }}
             {{ with . }}
