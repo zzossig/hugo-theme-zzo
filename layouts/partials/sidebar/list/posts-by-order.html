@@ -4,15 +4,24 @@
     {{ $filteredSections = (where $filteredSections "Type" "!=" (lower .)) }}
   {{ end }}
 
-  <div class="sidebar-recent__title p2">{{ i18n "posts-by-order" | default "TOP POSTS" }}</div>
-  <ul class="sidebar-recent__ul">
-    {{ range first ($.Param "itemsPerCategory") ($filteredSections.ByParam "order") }}
-      {{ if .Params.order }}
-        <li>
-          <a href="{{ .RelPermalink }}" class="sidebar-recent__a p2">{{ .Title }}</a>
-        </li>
-      {{ end }}
+  {{ $hasOrder := false }}
+  {{ range first ($.Param "itemsPerCategory") ($filteredSections.ByParam "order") }}
+    {{ if .Params.order }}
+      {{ $hasOrder = true }}
     {{ end }}
-  </ul>
-  <hr class="hr-fade sidebar-hr" />
+  {{ end }}
+
+  {{ if $hasOrder }}
+    <div class="sidebar-recent__title p2">{{ i18n "posts-by-order" | default "TOP POSTS" }}</div>
+    <ul class="sidebar-recent__ul">
+      {{ range first ($.Param "itemsPerCategory") ($filteredSections.ByParam "order") }}
+        {{ if .Params.order }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="sidebar-recent__a p2">{{ .Title }}</a>
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+    <hr class="hr-fade sidebar-hr" />
+  {{ end }}
 {{ end }}
