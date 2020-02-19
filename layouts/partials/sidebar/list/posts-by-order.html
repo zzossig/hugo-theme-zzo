@@ -4,7 +4,7 @@
     {{ $filteredSections = (where $filteredSections "Type" "!=" (lower .)) }}
   {{ end }}
 
-  <div class="sidebar-recent__title p2">{{ i18n "posts-by-param" | default "TOP POSTS" }}</div>
+  <div class="sidebar-recent__title p2">{{ i18n "posts-by-order" | default "TOP POSTS" }}</div>
   <ul class="sidebar-recent__ul">
     {{ range first ($.Param "itemsPerCategory") ($filteredSections.ByParam "order") }}
       {{ if .Params.order }}
