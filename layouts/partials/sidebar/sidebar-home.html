@@ -3,6 +3,7 @@
     {{ partial "search/site-search" . }}
     {{ partial "sidebar/site-bio" . }}
     {{ partial "sidebar/custom-home" . }}
+    {{ partial "sidebar/list/posts-by-order" . }}
 
     {{ if and ($.Param "itemsPerCategory") ($.Param "enableHomeSidebarTitles") }}
         {{ $filteredSections := .Site.Sections }}

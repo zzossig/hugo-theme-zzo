@@ -3,6 +3,8 @@
 <ul class="sidebar">
     {{ partial "search/site-search" . }}
     {{ partial "sidebar/custom-list" . }}
+    {{ partial "sidebar/list/posts-by-order" . }}
+    
     {{ if and ($.Param "itemsPerCategory") ($.Param "enableListSidebarTitles") }}
         {{ range first ($.Param "itemsPerCategory") .Pages }}
         <li class="sidebar-recent">

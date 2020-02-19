@@ -1,4 +1,4 @@
-{{ if $.Param "enableSidebarTags" }}
+{{ if and ($.Param "enableSidebarTags") (ne (len .Site.Taxonomies.tags) 0) }}
 <div class="taxo">
     <section>
         <span class="title p2">
