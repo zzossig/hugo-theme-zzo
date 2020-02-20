@@ -31,15 +31,15 @@
         <div class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</div>
         {{ else }}
         <a href="{{ if .Params.externalLink }}{{ .Params.externalLink }}{{ else }}{{ .Permalink }}{{ end }}" target="{{ with .Params.externalLink }}_blank{{ end }}" rel="{{ with .Params.externalLink }}noreferrer{{ end }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>
-          {{ with .Params.subLinks }}
-            <div class="talk__icons">
-              {{ range . }}
-                <a href="{{ .link }}" class="talk__icon" target="_blank" rel="noreferrer" title="{{ .type }}">
-                  {{ partial (print "svgs/etc/" .type ".svg") (dict "width" 23 "height" 23) }}
-                </a>
-              {{ end }}
-            </div>
-          {{ end }}
+        {{ end }}
+        {{ with .Params.subLinks }}
+          <div class="talk__icons">
+            {{ range . }}
+              <a href="{{ .link }}" class="talk__icon" target="_blank" rel="noreferrer" title="{{ .type }}">
+                {{ partial (print "svgs/etc/" .type ".svg") (dict "width" 23 "height" 23) }}
+              </a>
+            {{ end }}
+          </div>
         {{ end }}
       </li>
       {{ end }}
