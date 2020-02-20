@@ -79,6 +79,26 @@
   // ===============================================================
 
   document.addEventListener('DOMContentLoaded', function () {
+    // ===================== navbar collapse ======================
+    var navCollapseBtn = document.querySelector('.navbar__burger');
+    navCollapseBtn ? navCollapseBtn.addEventListener('click', function (e) {
+      var navCollapse = document.querySelector('.navbarm__collapse');
+
+      if (navCollapse) {
+        var dataOpen = navCollapse.getAttribute('data-open');
+
+        if (dataOpen === 'true') {
+          navCollapse.setAttribute('data-open', 'false');
+          navCollapse.style.maxHeight = 0;
+        } else {
+          navCollapse.setAttribute('data-open', 'true');
+          navCollapse.style.maxHeight = navCollapse.scrollHeight + "px";
+        }
+      }
+    }) : null;
+    // ============================================================
+
+
     // =================== search-result desktop ==================
     var summaryContainer = document.querySelector('.summary__container');
     var searchResult = document.querySelector('.search-result');
@@ -413,22 +433,6 @@
       }
       lastScrollTop = st <= 0 ? 0 : st;
     };
-  // ============================================================
-
-
-  // ========================== navbar ==========================
-    var navbarBurgerElem = document.querySelector('.navbar__burger');
-    var navbarMenuElem = document.querySelector('.navbar__menu');
-    navbarBurgerElem ?
-    navbarBurgerElem.addEventListener('click', function () {
-      if (navbarBurgerElem.classList.contains('is-active')) {
-        navbarBurgerElem.classList.remove('is-active');
-        navbarMenuElem.classList.remove('is-active');
-      } else {
-        navbarBurgerElem.classList.add('is-active');
-        navbarMenuElem.classList.add('is-active');
-      }
-    }) : null;
   // ============================================================
 
 

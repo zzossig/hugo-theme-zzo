@@ -77,8 +77,10 @@
                 }
             }
 
-            if (document.getElementsByClassName('navbar__burger')[0]) {
-                document.getElementsByClassName('navbar__burger')[0].classList.remove('is-active');
+            var navCollapse = document.getElementsByClassName('navbarm__collapse')[0];
+            if (navCollapse) {
+                navCollapse.setAttribute('data-open', false);
+                navCollapse.style.maxHeight = 0;
             }
             if (document.getElementsByClassName('navbar__menu')[0]) {
                 document.getElementsByClassName('navbar__menu')[0].classList.remove('is-active');

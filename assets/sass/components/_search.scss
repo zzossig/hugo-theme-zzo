@@ -354,7 +354,7 @@
       background-color: themed('navbar-background-color');
       border-bottom: 1px solid themed('navbar-border-bottom-color');
       @include on-event {
-        color: themed('link-hover');   
+        color: themed('navbar-title-hover-color');   
       }
     }
 
