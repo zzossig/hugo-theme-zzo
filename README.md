@@ -252,6 +252,9 @@ notAllowedTypesInHomeFeed = ["about", "archive", "contact", "talks", "showcase",
 # header
 homeHeaderType = "text" # text, img, slide
 
+# menu
+showMobileMenuTerms = ["tags", "categories", "series"]
+
 # navbar
 enableThemeChange = true # site color theme
 

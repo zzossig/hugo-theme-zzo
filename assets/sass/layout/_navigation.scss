@@ -477,6 +477,14 @@
 
     @include flexbox();
 
+    &--term {
+      &[data-index="0"] {
+        @include themify($themes) {
+          border-top: 1px solid themed('search-border-outline-color');
+        }
+      }
+    }
+
     &--item {
       height: $grid-navbar-height;
 

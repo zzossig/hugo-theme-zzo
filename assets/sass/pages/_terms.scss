@@ -22,10 +22,16 @@
   }
 
   &__list {
+    width: 50%;
+
     @include flexbox();
     @include align-items(center);
     @include flex-wrap(wrap);
-    width: 50%;
+    
+    @media only screen and (max-width: 769px) {
+      width: 100%;
+      padding: 2rem 1rem;
+    }
   }
 
   &__item {

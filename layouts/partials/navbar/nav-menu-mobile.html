@@ -10,14 +10,22 @@
 <div class="navbarm__collapse" data-open="false">
   <ul>
     {{ $current := . }}
-    {{ range .Site.Menus.main }}
-    {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
-    {{ $active = or $active (eq .Name $current.Title) }}
-    {{ $active = or $active (eq (lower .URL) (lower $current.Title)) }}
-    {{ $active = or $active (eq (lower .URL) (lower $current.Type)) }}
-    <li class="navbarm__menu--item {{ if $active }}active{{ end }}">
-      <a href="{{ .URL | relLangURL }}">{{ safeHTML .Name }}</a>
-    </li>
+    {{ range $index, $menu := .Site.Menus.main }}
+      {{ $active := or ($current.IsMenuCurrent "main" $menu) ($current.HasMenuCurrent "main" $menu) }}
+      {{ $active = or $active (eq $menu.Name $current.Title) }}
+      {{ $active = or $active (eq (lower $menu.URL) (lower $current.Title)) }}
+      {{ $active = or $active (eq (lower $menu.URL) (lower $current.Type)) }}
+      <li class="navbarm__menu--item {{ if $active }}active{{ end }}">
+        <a href="{{ $menu.URL | relLangURL }}">{{ safeHTML $menu.Name }}</a>
+      </li>
+    {{ end }}
+
+    {{ range $index, $term := $.Site.Params.showMobileMenuTerms }}
+      <li class="navbarm__menu--item {{ if (in $current.Permalink $term) }}active{{ end }}">
+        <a href="{{ $term | relLangURL }}" class="navbarm__menu--term" data-index="{{ $index }}">
+          {{ i18n $term }}
+        </a>
+      </li>
     {{ end }}
   </ul>
 </div>
