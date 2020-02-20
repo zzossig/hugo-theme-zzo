@@ -3,7 +3,7 @@
 
 <head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ block "title" . }}{{ .Title }} – {{ .Site.Title }}{{ end }}</title>
     {{ partial "head/scripts" . }}    
@@ -19,9 +19,14 @@
         var localTheme = localStorage.getItem('theme');
         if (localTheme) {
             document.getElementById('root').className = 'theme__' + localTheme;
-        }        
+        }
+        
+        function resetHeight() {
+            document.body.style.height = window.innerHeight + "px";
+        }
+        window.addEventListener("resize", resetHeight);
+        resetHeight();
     </script>
-    
     <div id="container">
         {{ partial "body/main-left" . }}
         <div class="wrapper" data-type="{{ .Type }}" data-kind="{{ .Kind }}">

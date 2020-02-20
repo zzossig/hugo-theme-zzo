@@ -80,10 +80,12 @@
                 }
             }
 
+            var navCollapseBtn = document.querySelector('.navbar__burger');
             var navCollapse = document.getElementsByClassName('navbarm__collapse')[0];
             if (navCollapse) {
                 navCollapse.setAttribute('data-open', false);
                 navCollapse.style.maxHeight = 0;
+                navCollapseBtn.classList.remove('is-active');
             }
             document.getElementsByClassName('navbar__menu')[0].classList.remove('is-active');
             document.getElementsByClassName('mobile-search')[0].classList.add('hide');

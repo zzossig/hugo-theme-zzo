@@ -293,7 +293,7 @@
     }
 
     &--item {
-      padding: 0.5rem 2.25rem !important;
+      padding: 0.25rem 0.75rem;
       height: auto;
       margin: auto;
       min-width: 40px;
@@ -349,14 +349,6 @@
     height: $grid_navbar_height !important;
     position: relative;
 
-    @include themify($themes) {
-      color: themed('burger-menu-color');  
-      @include on-event {
-        color: themed('link-hover');
-        background-color: themed('navbar-menu-hover-background-color');
-      }
-    }
-
     @include flexbox();
     @include align-items(center);
     @include justify-content(center);    
@@ -364,7 +356,7 @@
       color: themed('burger-menu-color');  
       @include on-event {
         color: themed('navbar-title-hover-color');
-        background-color: themed('navbar-menu-hover-background-color');
+        background-color: themed('navbar-background-color');
       }
     }
 
@@ -487,12 +479,12 @@
 
     &--item {
       height: $grid-navbar-height;
-      padding: 0rem 0.75rem;
 
       & > a {
         height: 100%;
         font-family: $title-font;
-        font-size: 16.8px;
+        font-size: 1rem;
+        font-weight: bold;
         color: inherit;
         text-decoration: none !important;
         
@@ -506,6 +498,10 @@
         &.active {
           font-weight: bold;
           color: themed('navbar-title-active-color');
+        }
+        
+        @include on-event {
+          background-color: themed('navbar-menu-hover-background-color');
         }
       }
     }

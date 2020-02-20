@@ -59,6 +59,14 @@
           sectionElem.classList.remove(gridFull);
           sectionElem.classList.add(gridFull);
         }
+
+        var navCollapseBtn = document.querySelector('.navbar__burger');
+        var navCollapse = document.getElementsByClassName('navbarm__collapse')[0];
+        if (navCollapse) {
+          navCollapse.setAttribute('data-open', false);
+          navCollapse.style.maxHeight = 0;
+          navCollapseBtn.classList.remove('is-active');
+        }
       },
       setup: function () { },
       deferSetup: true,
