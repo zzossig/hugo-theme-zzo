@@ -20,12 +20,6 @@
         if (localTheme) {
             document.getElementById('root').className = 'theme__' + localTheme;
         }
-        
-        function resetHeight() {
-            document.body.style.height = window.innerHeight + "px";
-        }
-        window.addEventListener("resize", resetHeight);
-        resetHeight();
     </script>
     <div id="container">
         {{ partial "body/main-left" . }}
