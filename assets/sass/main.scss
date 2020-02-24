@@ -78,6 +78,7 @@ $cursive-font: {{ .Site.Data.font.cursive_font }};
 @import 'components/ie';
 @import 'components/tab';
 @import 'components/button';
+@import 'components/featuredImage';
 
 @import 'pages/404';
 @import 'pages/about';

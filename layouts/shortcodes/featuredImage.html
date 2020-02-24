@@ -1,0 +1,14 @@
+{{ $imgSrc := false }}
+{{ $params := $.Page.Params }}
+
+{{ if $params.image }}
+  {{ $imgSrc = $params.image }}
+{{ else if $params.featured_image }}
+  {{ $imgSrc = (print "images/" $params.featured_image) }}
+{{ end }}
+
+{{ if $imgSrc }}
+  <div class="featured-image__wrapper">
+    <img src="{{ $imgSrc | relURL }}" alt="{{ (.Get "alt") | default "Featured Image" }}" class="featured-image" style="width: {{ with (.Get "width") }}{{ . }}px{{ end }};height: {{ with (.Get "height") }}{{ . }}px{{ end }};">
+  </div>
+{{ end }}
