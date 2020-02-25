@@ -1,14 +1,14 @@
-{{ $swipe := resources.Get "js/swipe.js" | resources.Minify | resources.Fingerprint }}
+{{ $swipe := resources.Get "js/swipehome.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $swipe.RelPermalink }}"></script>
 
 {{ if $.Params.header }}
   <div id="headerSwipe" class="swipe">
-    <div class="swipe-wrap">
+    <div class="swipe-home">
       {{ range $.Params.header }}
       {{ if eq .type "slide" }}
         {{ $height := .height }}
         {{ range .slide }}
-          <div class="site-header site-header__align-{{ .align }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }}; background-repeat: {{ .imageRepeat }}; background-position: {{ .imagePosition }}; height: {{ $height }}px;">
+          <div class="site-header__align-{{ .align }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}" style="background-image: url('{{ .imageSrc | relURL }}'); background-size: {{ .imageSize }}; background-repeat: {{ .imageRepeat }}; background-position: {{ .imagePosition }}; height: {{ $height }}px;">
             {{ $header := . }}
             {{ if .title }}            
               {{ range .title }}

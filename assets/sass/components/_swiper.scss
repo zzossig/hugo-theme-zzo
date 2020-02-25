@@ -19,3 +19,14 @@
   @include justify-content(center);
   @include align-items(center);
 }
+
+.swipe-home > div {
+  float: left;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  @include flexbox();
+  @include justify-content(center);
+  @include flex-direction(column);
+}

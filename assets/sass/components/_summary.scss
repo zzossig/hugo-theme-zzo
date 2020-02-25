@@ -141,32 +141,52 @@
   }
 
   &__image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
 
     &[data-ani="true"] {
       @include animation('slide-in-left .2s .6s 1 ease-in both');
+    }
+
+    &[data-hwm="true"] {
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    &-container {
+      border-radius: 0.25rem;
+      padding: 0.25rem;
+
+      &[data-position="left"] {
+        margin-left: .5rem;
+      }
+      
+      &[data-position="right"] {
+        margin-right: .5rem;
+      }
+
+      @include transition(all, 0.2s, ease-out);
+      @include on-event {
+        @include box-shadow(1px, 1px, 3px, 0px, rgba(0, 0, 0, 0.25));
+        background-color: rgba(125, 125, 125, 0.1);
+      }
     }
         
     &-wrapper {
       max-width: 130px;
       min-width: 130px;
       overflow: hidden;
-      border-radius: 0.25rem;
-      padding: 0.25rem;
-      margin-right: .5rem;
-      
-      @include transition(all, 0.2s, ease-out);
+
       @include align-self(center);
-      @include on-event {
-        @include box-shadow(1px, 1px, 3px, 0px, rgba(0, 0, 0, 0.25));
-        background-color: rgba(125, 125, 125, 0.1);
-      }
       @media only screen and (max-width: 769px) {
         max-width: 90px;
         min-width: 90px;
       }
+    }
+
+    &-wrapper2 {
+      height: 100%;
+      margin: auto;
     }
   }
 
