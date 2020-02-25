@@ -18,8 +18,8 @@
 <meta property="og:url" content="{{ .Permalink | absLangURL }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:description" content="{{ $.Param "description" }}">
-{{ if $.Param "meta_image" }}
-  {{ with $.Param "meta_image" }}
+{{ if .Params.meta_image }}
+  {{ with .Params.meta_image }}
     <meta property="og:image" content="{{ . | absURL }}">
     <meta property="og:image:url" content="{{ . | absURL }}">
     <meta name="twitter:card" content="summary_large_image">
@@ -27,8 +27,17 @@
     <meta property="twitter:title" content="{{ $.Param "title" }}">
     <meta property="twitter:description" content="{{ $.Param "description" }}">
   {{ end }}
-{{ else if $.Param "image" }}
-  {{ with $.Param "image" }}
+{{ else if .Params.image }}
+  {{ with .Params.image }}
+    <meta property="og:image" content="{{ . | absURL }}">
+    <meta property="og:image:url" content="{{ . | absURL }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:app:name:iphone" content="{{ $.Site.Title }}">
+    <meta property="twitter:title" content="{{ $.Param "title" }}">
+    <meta property="twitter:description" content="{{ $.Param "description" }}">
+  {{ end }}
+{{ else if $.Param "meta_image" }}
+  {{ with $.Param "meta_image" }}
     <meta property="og:image" content="{{ . | absURL }}">
     <meta property="og:image:url" content="{{ . | absURL }}">
     <meta name="twitter:card" content="summary_large_image">
