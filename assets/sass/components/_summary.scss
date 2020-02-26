@@ -141,8 +141,6 @@
   }
 
   &__image {
-    height: 100%;
-
     &[data-ani="true"] {
       @include animation('slide-in-left .2s .6s 1 ease-in both');
     }
