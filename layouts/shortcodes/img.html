@@ -1,5 +1,5 @@
 {{ $base := (findRE "/[a-zA-Z0-9_]+/" .Site.BaseURL | default "/") }}
-{{ if not (.Get "lazy") }}
+{{ if or (eq (.Get "lazy") false) (eq (.Get "lazy") "false") }}
 <figure {{ with .Get "class" }}class="{{ . }}" {{ end }}>
   {{ with .Get "link"}}<a href="{{ . }}">{{ end }}
     <img src="{{ if eq $base "/" }}{{ .Get "src" }}{{ else }}{{ delimit $base "" }}{{ substr (.Get "src") 1 }}{{ end }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} style="width:{{ .Get "width" }};height:{{ .Get "height" }};"/>
