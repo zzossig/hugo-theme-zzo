@@ -95,7 +95,7 @@ other = "Overview"
 other = "Pinned"
 
 [nojs-message]
-other = "Please enable Javascript to view the contents"
+other = "This page looks best with JavaScript enabled"
 
 [posts-by-order]
 other = "TOP POSTS"

@@ -64,6 +64,12 @@
     padding: 0 0.125rem;
   }
 
+  &__nojs {
+    width: 100%;
+    color: red;
+    padding: 0.5rem 0;
+  }
+
   &__contents {
     &[data-ani="true"] {
       @include animation('slide-in-left-little .2s .6s 1 ease-in both');

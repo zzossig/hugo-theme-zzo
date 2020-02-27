@@ -11,9 +11,7 @@
     <a href="{{ .URL | relLangURL }}" class="navbar__menu-item {{ if $active }}active{{ end }}"
       dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
       {{ safeHTML .Name }}
-      <span class="navbar__menu-icon">
-        {{ partial "svgs/arrow/keyboard-arrow-down.svg" (dict "width" 18 "height" 18) }}
-      </span>
+      {{ partial "svgs/arrow/keyboard-arrow-down.svg" (dict "width" 18 "height" 18) }}
     </a>
     <div class="navbar__dropdown--content">
       {{ range .Children }}

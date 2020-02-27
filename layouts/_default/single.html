@@ -4,11 +4,16 @@
   {{ if $.Param "enableBreadcrumb" }}
     {{ partial "body/breadcrumb" . }}
   {{ end }}
+  {{ if $.Param "hideSingleContentsWhenJSDisabled" }}
   <noscript>
-    {{ i18n "nojs-message" }}
+    <div class="single__nojs">
+      {{ i18n "nojs-message" }}
+    </div>
   </noscript>
-  <div class="single hide">
-    <script>document.querySelector('.single').classList.remove('hide')</script>
+  {{ end }}
+  <div class="single {{ if $.Param "hideSingleContentsWhenJSDisabled" }}hide{{ end }}">
+    <div class="single__nojs">{{ i18n "nojs-message" }}</div>
+    <script>document.querySelector('.single').classList.remove('hide'); document.querySelector('.single__nojs').classList.add('hide');</script>
     <h2 class="single__title" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ .Title }}</h2>
     <div class="single__meta">
       {{ partial "body/infos" . }}

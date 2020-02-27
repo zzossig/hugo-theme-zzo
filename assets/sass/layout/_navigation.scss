@@ -495,10 +495,15 @@
         font-weight: bold;
         color: inherit;
         text-decoration: none !important;
+        padding: 0 1rem;
         
         @include flexbox();
         @include align-items(center);
-        @include justify-content(center);
+        @include justify-content(flex-start);
+      }
+
+      & svg {
+        margin: auto 0.25rem;
       }
 
       @include themify($themes) {
@@ -511,6 +516,15 @@
         @include on-event {
           background-color: themed('navbar-menu-hover-background-color');
         }
+      }
+    }
+
+    &--subitem {
+      height: 30px;
+      padding: 0 2.5rem;
+      
+      & > a {
+        font-size: 0.9rem;
       }
     }
   }
