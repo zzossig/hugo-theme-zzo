@@ -54,7 +54,11 @@
 <meta name="msapplication-navbutton-color" content="{{ $.Scratch.Get "themeNavbarColor" | default "#fff" }}">
 <!-- iOS Safari -->
 <meta name="apple-mobile-web-app-status-bar-style" content="{{ $.Scratch.Get "themeNavbarColor" | default "#fff" }}">
+{{ if $.Param "canonicalUrl" }}
+<link rel="canonical" href="{{ $.Param "canonicalUrl" | absLangURL }}">
+{{ else }}
 <link rel="canonical" href="{{ .Permalink | absLangURL }}">
+{{ end }}
 <link rel="manifest" href="{{ "manifest.json" | relURL }}">
 {{ if $.Site.Params.useFaviconGenerator }}
   <link rel="apple-touch-icon" sizes="57x57" href="{{ "favicon/apple-icon-57x57.png" | relURL }}">
