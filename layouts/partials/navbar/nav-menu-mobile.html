@@ -8,7 +8,7 @@
   <span aria-hidden="true"></span>
 </a>
 <div class="navbarm__collapse" data-open="false">
-  <ul>
+  <ul dir="{{ $.Param "languagedir" | default "ltr" }}">
     {{ $current := . }}
     {{ range $index, $menu := .Site.Menus.main }}
       {{ $active := or ($current.IsMenuCurrent "main" $menu) ($current.HasMenuCurrent "main" $menu) }}
