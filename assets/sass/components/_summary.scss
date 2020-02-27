@@ -145,15 +145,15 @@
       @include animation('slide-in-left .2s .6s 1 ease-in both');
     }
 
-    &[data-hwm="true"] {
-      @media only screen and (max-width: 600px) {
-        display: none;
-      }
-    }
-
     &-container {
       border-radius: 0.25rem;
       padding: 0.25rem;
+
+      &[data-hwm="true"] {
+        @media only screen and (max-width: 600px) {
+          display: none;
+        }
+      }
 
       &[data-position="left"] {
         margin-left: .5rem;
