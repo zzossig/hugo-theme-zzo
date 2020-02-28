@@ -391,6 +391,7 @@ commento = false
   xmpp = ""
   dev-to = ""
   gitea = ""
+  google-scholar = ""
 
 [donationOptions]
   enable = false # if set, the donation button will show up on the single page.

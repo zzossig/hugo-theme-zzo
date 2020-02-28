@@ -43,4 +43,5 @@ socialOptions:
   xmpp: ""
   dev-to: ""
   gitea: ""
+  google-scholar: ""
 ---
