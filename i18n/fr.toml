@@ -1,0 +1,101 @@
+[search-placeholder]
+other = "Rechercher"
+
+[summary-dateformat]
+other = "02/01/2006"
+
+[reading-time]
+other = "min de lecture"
+
+[tags]
+other = "Étiquettes"
+
+[categories]
+other = "Catégories"
+
+[series]
+other = "Séries"
+
+[archive-dateformat]
+other = "02/01/2006"
+
+[talks-dateformat]
+other = "02/01/2006"
+
+[single-dateformat]
+other = "02/01/2006"
+
+[pub-dateformat]
+other = "02/01/2006"
+
+[resume-dateformat]
+other = "02/01/2006"
+
+[single-related]
+other = "Voir aussi"
+
+[single-writtenBy]
+other = "RÉDIGÉ PAR"
+
+[toc-label]
+other = "Contenu"
+
+[counter-site-pv]
+other = "Total views"
+
+[counter-site-uv]
+other = "visiteurs"
+
+[counter-page-pv]
+other = "views"
+
+[donate-message]
+other = "Soutenez l'auteur avec"
+
+[share-message]
+other = "Partagez"
+
+[contact-name]
+other = "Nom"
+
+[contact-email]
+other = "Courriel"
+
+[contact-tel]
+other = "Tél"
+
+[contact-file]
+other = "Fichier"
+
+[contact-message]
+other = "Message"
+
+[contact-send]
+other = "Envoyer"
+
+[contact-browse]
+other = "Consulter"
+
+[tooltip-home]
+other = "Accueil"
+
+[tooltip-written]
+other = "Rédigé le"
+
+[tooltip-modified]
+other = "Modifié At"
+
+[tooltip-reading-time]
+other = "Temps de lecture"
+
+[showcase-overview]
+other = "Aperçu"
+
+[showcase-pinned]
+other = "Épinglé"
+
+[nojs-message]
+other = "Pour un rendu optimal, activez JavaScript"
+
+[posts-by-order]
+other = "MEILLEURES PUBLICATIONS"
