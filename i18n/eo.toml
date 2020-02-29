@@ -1,0 +1,101 @@
+[search-placeholder]
+other = "Serĉi"
+
+[summary-dateformat]
+other = "02/01/2006"
+
+[reading-time]
+other = "min de legado"
+
+[tags]
+other = "Etiketo"
+
+[categories]
+other = "Kategorioj"
+
+[series]
+other = "Sinsekvoj"
+
+[archive-dateformat]
+other = "02/01/2006"
+
+[talks-dateformat]
+other = "02/01/2006"
+
+[single-dateformat]
+other = "02/01/2006"
+
+[pub-dateformat]
+other = "02/01/2006"
+
+[resume-dateformat]
+other = "02/01/2006"
+
+[single-related]
+other = "Voir aussi"
+
+[single-writtenBy]
+other = "SKRIBIS"
+
+[toc-label]
+other = "Enhavo"
+
+[counter-site-pv]
+other = "tutaj vidoj"
+
+[counter-site-uv]
+other = "vizitantoj"
+
+[counter-page-pv]
+other = "vidoj"
+
+[donate-message]
+other = "Subtenu la verkisto per"
+
+[share-message]
+other = "Konigu"
+
+[contact-name]
+other = "Nomo"
+
+[contact-email]
+other = "Poŝtadreso"
+
+[contact-tel]
+other = "Telefono"
+
+[contact-file]
+other = "Dosiero"
+
+[contact-message]
+other = "Mesaĝo"
+
+[contact-send]
+other = "Sendi"
+
+[contact-browse]
+other = "Foliumi"
+
+[tooltip-home]
+other = "Ĉefpaĝo"
+
+[tooltip-written]
+other = "Skribis je"
+
+[tooltip-modified]
+other = "Ŝanĝis je"
+
+[tooltip-reading-time]
+other = "Tempo de lego"
+
+[showcase-overview]
+other = "Resume"
+
+[showcase-pinned]
+other = "Alpinglita"
+
+[nojs-message]
+other = "Por plibona vido the ĉi tiu paĝo, eble ŝaltu JavaSkripton"
+
+[posts-by-order]
+other = "PLEJ BONAJ AFIŜOJ"
