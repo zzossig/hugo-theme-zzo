@@ -261,6 +261,17 @@
     .language-code .copy-to-clipboard:hover {
       @include translateY(-0.1rem);
     }
+    .highlight > .copy-to-clipboard {
+      position: absolute;
+      right: 4px;
+      top: 5px;      
+      border-radius: 2px;
+      z-index: z('clipboard');
+      @include transition(all, 0.2s, ease);
+    }
+    .highlight > .copy-to-clipboard:hover {
+      @include translateY(-0.1rem);
+    }
 
     blockquote {
       font-size: 1.05rem;
@@ -507,6 +518,16 @@ pre:not(.chroma) {
   }
 }
 
+.highlight {
+  position: relative;
+
+  @include on-event {
+    .copy-to-clipboard {
+      opacity: 1;
+    }
+  }
+}
+
 .highlight > .chroma {
   margin: 1em 0;
   border-radius: 5px;
@@ -514,6 +535,7 @@ pre:not(.chroma) {
   z-index: z('content');
   overflow-x: auto;
   direction: ltr;
+  position: relative;
 
   @include themify($codeblock) {
     color: themed('content-pre-color');

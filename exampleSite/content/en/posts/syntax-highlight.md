@@ -38,7 +38,28 @@ It is important to spell
 +new line
 ```
 
+```diff {hl_lines=[4,"6-7"], linenos=false}
+*** /path/to/original	''timestamp''
+--- /path/to/new	''timestamp''
+***************
+*** 1 ****
+! This is a line.
+--- 1 ---
+! This is a replacement line.
+It is important to spell
+-removed line
++new line
+```
+
 ### Makefile
+
+``` makefile {linenos=false}
+CC=gcc
+CFLAGS=-I.
+
+hellomake: hellomake.o hellofunc.o
+     $(CC) -o hellomake hellomake.o hellofunc.o -I.
+```
 
 ``` makefile
 CC=gcc

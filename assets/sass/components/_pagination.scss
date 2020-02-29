@@ -54,7 +54,7 @@
 .pagination-single {
   @include flexbox();
   @include align-items(center);
-  @include justify-content(center);
+  @include justify-content(flex-end);
   @include flex-wrap(wrap);
   width: 100%;
   margin: 1rem 0;
@@ -94,7 +94,7 @@
   &__right {
     @include on-event {
       @include translateX(0.25rem);
-    }    
+    }
   }
 
   &__icon {
