@@ -389,6 +389,7 @@ commento = false
   dev-to = ""
   gitea = ""
   google-scholar = ""
+  twitch = ""
 
 [donationOptions]
   enable = false # if set, the donation button will show up on the single page.

@@ -44,4 +44,5 @@ socialOptions:
   dev-to: ""
   gitea: ""
   google-scholar: ""
+  twitch: ""
 ---
