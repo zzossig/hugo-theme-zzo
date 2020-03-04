@@ -28,8 +28,25 @@
   {{ partial "pagination/pagination-single" . }}
 </main>
 
-{{ else }}
+{{ else if eq (lower .Params.mode) "remote" }}
+<main class="gallery main">
+  <div class="grid gallery__container">
+    <div class="grid-sizer"></div>
+    {{ range .Params.Images }}
+    <div class="grid-item">
+      <img src="{{ .image }}" alt="{{ print .caption }}" />
+      <div class="grid-item__desc hide">
+        <span class="grid-item__desc--text">
+          {{ .caption }}
+        </span>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+  {{ partial "pagination/pagination-single" . }}
+</main>
 
+{{ else }}
 <main class="gallery main">
   <div class="grid gallery__container">
     <div class="grid-sizer"></div>
