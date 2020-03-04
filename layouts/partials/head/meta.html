@@ -2,10 +2,11 @@
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" title="{{ .Name }}" href="{{ .Permalink | safeURL }}">
 {{ end }}
 <meta name="description" content="{{ $.Param "description" }}" />
-{{ if isset .Params "keywords" }}
-<meta name="keywords" content="{{ delimit .Keywords "," }}">
-{{ else if isset .Params "tags" }}
-<meta name="keywords" content="{{ delimit .Params.tags "," }}">
+{{ with $.Params.keywords }}
+<meta name="keywords" content="{{ delimit $.Params.keywords "," }}">
+{{ end }}
+{{ with $.Params.tags }}
+<meta name="keywords" content="{{ delimit $.Params.tags "," }}">
 {{ end }}
 <meta name="created" content="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">
 <meta name="modified" content="{{ .Lastmod.Format "2006-01-02T15:04:05-0700" }}">
