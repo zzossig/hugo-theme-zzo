@@ -43,3 +43,9 @@
   name = "Showcase"
   url = "showcase"
   weight = 6
+
+[[main]]
+  identifier = "publication"
+  name = "Pub"
+  url = "publication"
+  weight = 7
