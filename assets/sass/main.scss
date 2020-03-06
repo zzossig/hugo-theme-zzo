@@ -31,6 +31,8 @@ $title-font: {{ .Site.Data.font.title_font }};
 $content-font: {{ .Site.Data.font.content_font }};
 $cursive-font: {{ .Site.Data.font.cursive_font }};
 
+$viewport_size: {{ .Site.Params.viewportSize | default "normal" }};
+
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 @import 'abstracts/functions';

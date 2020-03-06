@@ -249,6 +249,10 @@ notAllowedTypesInHomeSidebar = ["about", "archive", "showcase"] # not allowed pa
 notAllowedTypesInArchive = ["about", "talks", "showcase"] # not allowed page types in archive page
 notAllowedTypesInHomeFeed = ["about", "archive", "contact", "talks", "showcase", "publication", "presentation", "resume", "gallery"]
 
+viewportSize = "normal" # widest, wider, wide, normal, narrow
+enableUiAnimation = true
+hideSingleContentsWhenJSDisabled = false
+
 # header
 homeHeaderType = "text" # text, img, slide
 

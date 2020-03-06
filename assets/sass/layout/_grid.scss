@@ -1,3 +1,19 @@
+$grid_max_width: 960;
+
+@if global-variable-exists(viewport_size) {
+    @if $viewport_size == widest {
+        $grid_max_width: 1600;
+    } @else if $viewport_size == wider {
+        $grid_max_width: 1440;
+    } @else if $viewport_size == wide {
+        $grid_max_width: 1280;
+    } @else if $viewport_size == narrow {
+        $grid_max_width: 800;
+    } @else {
+        $grid_max_width: 960;
+    }
+}
+
 $grid_max: $grid_max_width + $grid_max_unit;
 $grid_main_main: $grid_main_main_width + $grid_main_main_unit;
 $grid_main_side: $grid_main_side_width + $grid_main_side_unit;
