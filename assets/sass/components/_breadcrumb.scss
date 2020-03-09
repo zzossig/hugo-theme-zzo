@@ -4,9 +4,9 @@
   padding: 0.5rem;
   border-radius: 0.25rem;
   padding: auto;
+  min-width: 0;
   font-family: $title-font;
 
-  @include truncate($grid_max_width + $grid_max_unit);
   @include themify($themes) {
     background-color: themed('breadcrumb-background-color');
   }   
@@ -19,6 +19,7 @@
   li {
     display: inline;
     font-size: 0.9rem;
+    @include truncate2(150px);
     
     a {
       @include themify($themes) {
