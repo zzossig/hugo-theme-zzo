@@ -3,23 +3,15 @@
 English | 
 [한국어](https://github.com/zzossig/hugo-theme-zzo/blob/master/README.ko.md)
 
-I changed the search logic. So, please add this config params to your `config.toml` file.
+Minimum Hugo version changed to 0.65.0 to take advantage of new feature `.GetTerms`.
+This new feature enable asian languages correctly displayed.
 
-```toml
-...
-[outputs]
-  page = ["HTML", "SearchIndex"]
-  home = ["HTML", "RSS", "SearchIndex"]
-  section = ["HTML", "RSS", "SearchIndex"]
-  taxonomyTerm = ["HTML", "RSS", "SearchIndex"]
-  taxonomy = ["HTML", "RSS", "SearchIndex"]
-
-[outputFormats]
-  [outputFormats.SearchIndex]
-    mediaType = "application/json"
-    baseName = "index"
-    isPlainText = true
-    notAlternative = true
+```html
+<ul>
+    {{ range (.GetTerms "tags") }}
+        <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+   {{ end }}
+</ul>
 ```
 
 Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(always), and many features. 
