@@ -5,7 +5,7 @@ license = "MIT"
 licenselink = "https://github.com/zzossig/hugo-theme-zzo/blob/master/LICENSE.md"
 tags = ["accessible", "multilingual", "responsive", "blog", "search", "simple", "light", "dark", "mobile", "gallery", "technical", "fast", "presentation"]
 features = ["accessible", "multilingual", "responsive", "grid", "sass", "search", "subtheme", "gallery", "technical", "fast", "presentation"]
-min_version = "0.60.0"
+min_version = "0.65.0"
 
 [author]
   name = "zzossig"
