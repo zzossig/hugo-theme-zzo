@@ -43,6 +43,14 @@
   &-hr {
     margin: 1.5rem 0;
   }
+
+  &__menu {
+    margin-top: $grid_navbar_height;
+    padding: 0 1rem;
+
+    @include flexbox();
+    @include flex-direction(column);
+  }
 }
 
 li.sidebar-recent {

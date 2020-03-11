@@ -1,5 +1,10 @@
+{{ $isPad := or (in (slice "archive" "posts" "page") .Type) }}
+{{ $isPad = or $isPad (and (eq .Kind "page") (not (in (slice "about" "contact" "publication") .Type))) }}
+{{ $isPad = or $isPad (and (eq .Kind "section") (eq .Type "publication")) }}
+{{ $isPad = or $isPad (and (eq .Type "tags") (ne .Kind "taxonomyTerm")) }}
+
 {{ if eq ($.Param "languagedir") "rtl" }}
-<div class="wrapper__left hide" dir="rtl">
+<div class="wrapper__left hide" data-pad="{{ $isPad }}" dir="rtl">
   <script>document.querySelector('.wrapper__left').classList.remove('hide')</script>
   {{ if and (eq ($.Param "tocPosition") "outer") .IsPage }}
     {{ if and (ne .Type "about") (ne .Type "contact") (ne .Type "gallery") }}
@@ -20,4 +25,10 @@
     {{ end }}
   {{ end }}
 </div>
+{{ else if and (eq ($.Param "languagedir") "ltr") ($.Param "enableSidebarMenu") }}
+  <div class="wrapper__left" data-pad="{{ $isPad }}" dir="ltr">
+    <div class="sidebar__menu">
+      {{ partial "sidebar/sidebar-menu" . }}
+    </div>
+  </div>
 {{ end }}
