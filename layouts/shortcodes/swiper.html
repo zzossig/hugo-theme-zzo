@@ -1,0 +1,47 @@
+{{ $swiper_style := resources.Get "lib/swiper/swiper.min.css" | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $swiper_style.RelPermalink }}">
+{{ $swiper_script := resources.Get "lib/swiper/swiper.min.js" | resources.Fingerprint }}
+<script defer src="{{ $swiper_script.RelPermalink }}"></script>
+
+{{ $id := substr (md5 .Inner) 0 16 }}
+{{ $enableNavigation := .Get "enableNavigation" }}
+{{ $enablePagination := .Get "enablePagination" }}
+
+<div id="{{ $id }}" class="swiper-container">
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    {{ .Inner }}
+  </div>
+  
+  {{ if $enablePagination }}
+    <div class="swiper-pagination"></div>
+  {{ end }}
+
+  {{ if $enableNavigation }}
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  {{ end }}
+</div>
+
+<script>
+  'use strict';
+
+  document.addEventListener('DOMContentLoaded', function () {
+    {{ $options := .Params }}
+    var options = JSON.parse({{ $options | jsonify }});
+    var id = JSON.parse({{ $id | jsonify }});
+    var enableNavigation = JSON.parse({{ $enableNavigation | jsonify }});
+    var enablePagination = JSON.parse({{ $enablePagination | jsonify }});
+
+    var mySwiper = new Swiper('#' + id, {
+      ...options,
+      pagination: {
+        el: enablePagination ? '.swiper-pagination'  : null,
+      },
+      navigation: {
+        nextEl: enableNavigation ? '.swiper-button-next' : null,
+        prevEl: enableNavigation ? '.swiper-button-prev' : null,
+      },
+    });
+  });
+</script>

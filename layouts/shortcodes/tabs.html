@@ -2,7 +2,7 @@
 <div id="{{ $id }}" class="tab">
   <div class="tab__links">
     {{ range .Params }}
-    <button class="tab__link" aria-label="Tab link">{{ . }}</button>
+      <button class="tab__link" aria-label="Tab link">{{ . }}</button>
     {{ end }}
   </div>
   {{ .Inner }}

@@ -30,3 +30,20 @@
   @include justify-content(center);
   @include flex-direction(column);
 }
+
+.swiper-slide {
+  @include flexbox();
+  @include flex-direction(column);
+
+  &[data-align='center'] {
+    @include align-items(center);
+  }
+  
+  &[data-align='left'] {
+    @include align-items(flex-start);
+  }
+  
+  &[data-align='right'] {
+    @include align-items(flex-end);
+  }
+}
