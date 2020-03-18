@@ -1,1 +1,5 @@
-<div class="swiper-slide" data-align="{{ .Get "align" | default "center" }}">{{ .Inner | markdownify }}</div>
+<div class="swiper-slide" data-align="{{ .Get "align" | default "center" }}">
+  <div class="swiper-slide__inner">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

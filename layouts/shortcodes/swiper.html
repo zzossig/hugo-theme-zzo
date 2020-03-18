@@ -27,21 +27,41 @@
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function () {
-    {{ $options := .Params }}
-    var options = JSON.parse({{ $options | jsonify }});
+    {{ $swiper := .Site.Data.swiper }}
+    var options = JSON.parse({{ $swiper | jsonify }});
+    {{ $optionName := .Params.option }}
+    var optionName = JSON.parse({{ $optionName | jsonify }});
+    
     var id = JSON.parse({{ $id | jsonify }});
     var enableNavigation = JSON.parse({{ $enableNavigation | jsonify }});
     var enablePagination = JSON.parse({{ $enablePagination | jsonify }});
 
-    var mySwiper = new Swiper('#' + id, {
-      ...options,
-      pagination: {
-        el: enablePagination ? '.swiper-pagination'  : null,
-      },
-      navigation: {
-        nextEl: enableNavigation ? '.swiper-button-next' : null,
-        prevEl: enableNavigation ? '.swiper-button-prev' : null,
-      },
-    });
+    if (optionName) {
+      var parsedOptions = Object.assign({}, options[optionName]);
+    }
+
+    if (optionName && enablePagination) {
+      parsedOptions.pagination = {
+        el: '.swiper-pagination',
+      };
+    }
+    
+    if (optionName && enableNavigation) {
+      parsedOptions.navigation = {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      };
+    }
+
+    if (enableNavigation) {
+      var allSlideElem = document.querySelectorAll('.swiper-slide__inner');
+      allSlideElem ?
+      allSlideElem.forEach(function (slideElem) {
+        slideElem.style.padding = '0 40px';
+      }) : null;
+    }
+    
+    var mySwiper = new Swiper('#' + id, parsedOptions);
+
   });
 </script>
