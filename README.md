@@ -431,7 +431,7 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 description: 
 type: gallery
-mode: one-by-one # at-once or one-by-one
+mode: one-by-one # at-once, one-by-one, remote
 tags:
 -
 series:
@@ -481,6 +481,17 @@ root
 │   ├── gallery
 │   │   ├── anygalleryname
 │   │   │   ├── ...your images here
+```
+
+Or you can just set the mode to remote, and use your own image url.
+
+```bash
+images: # when mode is remote, you can use your own image url
+  - image: "https://cdn.pixabay.com/photo/2020/03/16/10/27/spring-4936511_960_720.jpg"
+    caption: caption1
+  - image: "https://cdn.pixabay.com/photo/2018/01/03/19/17/cat-3059075_960_720.jpg"
+    caption: caption2
+    ...
 ```
 
 ## Contact Page
