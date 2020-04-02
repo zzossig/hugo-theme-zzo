@@ -1,0 +1,66 @@
+{{ $id := substr (md5 .Inner) 0 16 }}
+<div id="{{ $id }}">
+  
+</div>
+
+<script>
+  'use strict';
+
+  var id = JSON.parse({{ $id | jsonify }});
+  var root = document.getElementById('root');
+  
+  {{ $href := (.Get "href") }}
+  var href = JSON.parse({{ $href | jsonify }});
+  {{ $height := (.Get "height") }}
+  var height = JSON.parse({{ $height | jsonify }});
+  {{ $width := (.Get "width") }}
+  var width = JSON.parse({{ $width | jsonify }});
+  {{ $inner := .Inner }}
+  var inner = JSON.parse({{ $inner | jsonify }});
+
+  function makeCard() {
+    var card = document.createElement('a');
+    card.setAttribute('class', 'twitter-timeline');
+    card.setAttribute('href', href);
+    card.setAttribute('data-chrome', 'nofooter');
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://platform.twitter.com/widgets.js');
+    script.setAttribute('charset', 'utf-8');
+
+    if (height) {
+      card.setAttribute('data-height', height);
+    }
+    if (width) {
+      card.setAttribute('data-width', width);
+    }
+    if (inner) {
+      card.textContent = inner;
+    }
+
+    var themeOption = root.getAttribute('class');
+    
+    if (themeOption.includes('light') || themeOption.includes('solarized')) {
+      card.setAttribute('data-theme', 'light');
+    } else {
+      card.setAttribute('data-theme', 'dark');
+    }
+
+    var timeline = document.getElementById(id);
+
+    timeline.innerHTML = '';
+    timeline.appendChild(script);
+    timeline.appendChild(card);
+  }
+
+  var twitterCards = document.querySelectorAll('.twitter-timeline');
+  if (twitterCards) {
+    window.addEventListener('message', function (e) {
+      if (e.data.type === 'set-twitter-theme') {
+        makeCard();
+      }
+    });
+  }
+
+  makeCard();
+</script>
