@@ -205,6 +205,13 @@
   width: 49.5%;
 }
 
+@media only screen and (max-width:769px) {
+  .pgrid-sizer,
+  .pgrid-item {
+    width: 100%;
+  }
+}
+
 .pgrid-item {
   float: left;
   border-radius: 0.25rem;
