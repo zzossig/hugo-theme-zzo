@@ -8,6 +8,12 @@
             {{ range $.Param "notAllowedTypesInHome" }}
                 {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
             {{ end }}
+            {{ $filteredPagesPinned := slice }}
+            {{ if .Site.Params.enablePinnedPosts }}
+                {{ $filteredPagesPinned = (where $filteredPages "Params.pinned" "==" true) }}
+            {{ end }}
+            {{ $filteredPages := $filteredPages | intersect (where $filteredPages "Params.pinned" "!=" true) }}
+            {{ $filteredPages := $filteredPages | union ($filteredPagesPinned) }}
             {{ $paginator := .Paginate $filteredPages }}
             {{ range $paginator.Pages }}
                 {{ .Render "summary" }}

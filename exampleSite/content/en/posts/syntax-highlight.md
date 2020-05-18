@@ -8,6 +8,7 @@ enableToc: true
 enableTocContent: false
 author: Jeus
 authorEmoji: 🎅
+pinned: true
 tags:
 - hugo
 series:
