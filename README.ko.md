@@ -240,6 +240,7 @@ notAllowedTypesInHome = ["contact", "talks", "about", "showcase"] # not allowed 
 notAllowedTypesInHomeSidebar = ["about", "archive", "showcase"] # not allowed page types in home page sidebar(recent post titles).
 notAllowedTypesInArchive = ["about", "talks", "showcase"] # not allowed page types in archive page
 notAllowedTypesInHomeFeed = ["about", "archive", "contact", "talks", "showcase", "publication", "presentation", "resume", "gallery"]
+enablePinnedPosts = true # show pinned posts first in the main view
 
 viewportSize = "normal" # widest, wider, wide, normal, narrow
 enableUiAnimation = true
