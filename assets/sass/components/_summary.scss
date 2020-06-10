@@ -246,7 +246,7 @@
     font-size: 0.8rem;
     line-height: 0.8rem;
     padding: 0.25rem;
-    margin: 0 0.25rem;
+    margin: 0.35rem 0.25rem 0;
     border: none;
     border-radius: 0.2rem;
     text-transform: capitalize;
@@ -258,9 +258,10 @@
     }
 
     &--wrapper {
-      margin-top: 0.75rem;
+      margin-top: 0.5rem;
 
       @include flexbox();
+      @include flex-wrap(wrap);
     }
   }
 
