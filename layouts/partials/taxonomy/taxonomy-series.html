@@ -6,8 +6,9 @@
                 {{ i18n "series" }}
             </a>
         </span>
+        {{ $minItemsToShowInTagCloud := $.Site.Params.minItemsToShowInTagCloud }}
         {{ range $index, $element := .Site.Taxonomies.series }}
-        {{ if $index }}
+        {{ if and $index (ge (len $element) $minItemsToShowInTagCloud) }}
             <span class="tag">
                 <a href="{{ $element.Page.RelPermalink }}" class="is-series taxo__link" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
                     <span class="taxo__text">

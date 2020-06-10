@@ -6,8 +6,9 @@
                 {{ i18n "tags"}}
             </a>
         </span>
+        {{ $minItemsToShowInTagCloud := $.Site.Params.minItemsToShowInTagCloud }}
         {{ range $index, $element := .Site.Taxonomies.tags }}
-        {{ if $index }}
+        {{ if and $index (ge (len $element) $minItemsToShowInTagCloud) }}
             <span class="tag">
                 <a href="{{ $element.Page.RelPermalink }}" class="is-tags taxo__link" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
                     <span class="taxo__text">

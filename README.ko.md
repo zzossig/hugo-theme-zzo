@@ -245,6 +245,7 @@ enablePinnedPosts = true # show pinned posts first in the main view
 viewportSize = "normal" # widest, wider, wide, normal, narrow
 enableUiAnimation = true
 hideSingleContentsWhenJSDisabled = false
+minItemsToShowInTagCloud = 1 # Minimum items to show in tag cloud
 
 # header
 homeHeaderType = "text" # text, img, slide
