@@ -325,6 +325,8 @@ commento = false
 [utterances]       # https://utteranc.es/
   owner = ""              # Your GitHub ID
   repo = ""               # The repo to store comments
+  message = ""      # Optional
+  link = ""         # Optional
 
 [gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
   owner = ""              # Your GitHub ID

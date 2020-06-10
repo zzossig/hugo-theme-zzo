@@ -1,0 +1,7 @@
+.utterances {
+  &__message {
+    font-size: 0.95rem;
+    @include flexbox();
+    @include justify-content(center);
+  }
+}

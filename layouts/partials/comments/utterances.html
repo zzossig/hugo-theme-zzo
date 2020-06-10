@@ -29,8 +29,8 @@
 </script>
 
 <div id="comments-fallback" class="viaemail">
-    <div class="viaemail__no-comments-message">
-        Don't want to use the Utterance bot? Comments can be also placed
-        <a href="https://github.com/{{ .Site.Params.utterances.owner }}/{{ .Site.Params.utterances.repo }}/issues/{{ .Params.utterances_issue_id | default "" }}" target="_blank" rel="noreferrer">directly on GitHub</a>.
+    <div class="utterances__message">
+        {{ .Site.Params.utterances.message }}
+        <a href="https://github.com/{{ .Site.Params.utterances.owner }}/{{ .Site.Params.utterances.repo }}/issues/{{ .Params.utterances_issue_id | default "" }}" target="_blank" rel="noreferrer">&nbsp;{{ .Site.Params.utterances.link }}</a>
     </div>
 </div>
