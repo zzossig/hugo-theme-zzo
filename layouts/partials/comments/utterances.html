@@ -2,14 +2,27 @@
 <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    function checkTheme(local, base) {
+      if (local === "dark" || base === "dark") {
+        return "photon-dark";
+      } else if (local === "hacker" || base === "hacker") {
+        return "photon-dark";
+      } else if (local === "kimbie" || base === "kimbie") {
+        return "github-dark-orange";
+      } else {
+        return "github-light";
+      }
+    }
+
     try {
       {{ $owner:= .Site.Params.utterances.owner }}
       var owner = JSON.parse({{ $owner | jsonify }});
       {{ $repo:= .Site.Params.utterances.repo }}
       var repo = JSON.parse({{ $repo | jsonify }});
+      {{ $baseTheme:= index .Site.Params.themeOptions 0 }}
+      var baseTheme = JSON.parse({{ $baseTheme | jsonify }});
       var localTheme = localStorage.getItem('theme');
-      var utterTheme = localTheme === "dark" || localTheme === "hacker" ? 'photon-dark' : localTheme === 'kimbie' ? 'github-dark-orange' : 'github-light'
-
+      var utterTheme = checkTheme(localTheme, baseTheme);
       var myScript = document.createElement('script');
       myScript.setAttribute('src', 'https://utteranc.es/client.js');
       myScript.setAttribute('repo', `${owner}/${repo}`);
@@ -20,6 +33,8 @@
 
       myScript.onload = function() {
       }
+
+      
 
       document.getElementById('utterances').appendChild(myScript);
     } catch (err) {
