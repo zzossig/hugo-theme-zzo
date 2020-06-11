@@ -3,16 +3,14 @@
 English | 
 [한국어](https://github.com/zzossig/hugo-theme-zzo/blob/master/README.ko.md)
 
-Minimum Hugo version changed to 0.65.0 to take advantage of new feature `.GetTerms`.
-This new feature enable asian languages correctly displayed.
-
-```html
-<ul>
-    {{ range (.GetTerms "tags") }}
-        <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-   {{ end }}
-</ul>
+🔥🔥🔥
+after update the zzo theme, delete the outputs.page variable in `config.toml`.
+```diff
+[outputs]
+  <del>page = ["HTML", "SearchIndex"]</del>
 ```
+I changed the place to make search index
+🔥🔥🔥
 
 Thank you for click me!. Zzo theme is a blog theme powered by Hugo with free(always), and many features. 
 
