@@ -8,12 +8,15 @@
 {{ end }}
 {{ end }}
 
+{{ if $.Param "enableSearch" }}
+  {{ $fuse := resources.Get "js/fuse.min.js" | resources.Fingerprint }}
+  <script defer src="{{ $fuse.RelPermalink }}"></script>
+{{ end }}
+
 {{ $enquire := resources.Get "js/enquire.min.js" | resources.Fingerprint }}
 <script src="{{ $enquire.RelPermalink }}"></script>
 {{ $lazysizes := resources.Get "js/lazysizes.min.js" | resources.Fingerprint }}
 <script defer src="{{ $lazysizes.RelPermalink }}"></script>
-{{ $fuse := resources.Get "js/fuse.min.js" | resources.Fingerprint }}
-<script defer src="{{ $fuse.RelPermalink }}"></script>
 {{ $getParents := resources.Get "js/helper/getParents.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $getParents.RelPermalink }}"></script>
 {{ $fadeinout := resources.Get "js/helper/fadeinout.js" | resources.Minify | resources.Fingerprint }}
