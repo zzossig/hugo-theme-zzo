@@ -1,0 +1,30 @@
+{{ if $.Params.header }}  
+  {{ range $.Params.header }}
+    {{ if eq .type "typewriter" }}
+      <div class="site-header basicflex-column site-header__align-left" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}" style="width: 100%; height: {{ .height }}px; padding: {{ .paddingY }}px {{ .paddingX }}px;">
+        {{ $header := . }}
+        {{ if .title }}
+          {{ range .title }}
+          <div class="site-header__title {{ if $header.titleShadow }}site-header__title--shadow{{ end }}" style="font-size: {{ $header.titleFontSize }}px; {{ with $header.titleColor }}color:{{ . }}{{ end }};">
+            {{ . }}
+          </div>
+          {{ end }}
+        {{ end }}
+        {{ if .spaceBetweenTitleTyping }}
+          <div style="height: {{ .spaceBetweenTitleTyping }}px"></div>
+        {{ end }}
+        {{/*  <div class="site-header__subtitle" style="font-size: {{ $header.subtitleFontSize }}px; {{ with $header.subtitleColor }}color:{{ . }}{{ end }}" data-cursive="{{ with $header.subtitleCursive }}{{ . }}{{ end }}">  */}}
+        
+        <h3 class="site-header__subtitle" style="padding-left: 40px;"> 
+          <span style="color: {{ .typingCaretColor }};">&gt;</span>
+          {{ if .typingPrefix }} {{ .typingPrefix }} {{ end }}
+          {{ if .typingItems }}
+            <span class="typer" data-words="{{ range .typingItems }} {{ . }}, {{ end }}" data-delay="100" data-deleteDelay="1000" data-colors="{{ range .typingColors }} {{ . }} {{ end }}" style="font-size: {{ $header.typingFondSize }}px; {{ with $header.typingColor }}color:{{ . }}{{ end }}" data-cursive="{{ with $header.typingCursive }}{{ . }}{{ end }}"></span>
+            <span class="cursor" data-owner="main" data-cursor-display="|"></span>
+          {{ end }}
+        </h3>
+        <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
+      </div>
+    {{ end }}
+  {{ end }}
+{{ end }}
