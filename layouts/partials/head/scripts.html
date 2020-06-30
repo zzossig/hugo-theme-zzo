@@ -553,10 +553,12 @@
 
 
   // ========================== search ==========================
-    {{ $baseurl:= $.Site.BaseURL }}
+    {{ $baseurl := $.Site.BaseURL }}
     var baseurl = JSON.parse({{ $baseurl | jsonify }});
-    {{ $permalink:= .Permalink }}
+    {{ $permalink := .Permalink }}
     var permalink = JSON.parse({{ $permalink | jsonify }});
+    {{ $langprefix := $.Site.LanguagePrefix }}
+    var langprefix = JSON.parse({{ $langprefix | jsonify }});
     var searchResults = null;
     var searchMenu = null;
     var searchText = null;
@@ -571,11 +573,11 @@
     var sectionType = JSON.parse({{ $sectionType | jsonify }});
 
     var fuse = null;
-    
+
     if (enableSearch) {
       (function initFuse() {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', baseurl + "/index.json");
+        xhr.open('GET', baseurl + langprefix + "/index.json");
         xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
         xhr.onload = function () {
           if (xhr.status === 200) {
