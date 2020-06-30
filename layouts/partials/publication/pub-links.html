@@ -18,8 +18,10 @@
       <div class="modal__icon modal__toolbar--close" title="Close" aria-label="Close Button" data-micromodal-close>
         {{ partial "svgs/etc/close.svg" (dict "width" 25 "height" 25) }}
       </div>
+      {{ $langprefix := $.Site.Language.Lang }}
+      {{ $folderPathWithoutLangPrefix := replace .RelPermalink (print "/" $langprefix "/") "/" }}
+      {{ $filePath := print "/content/" $langprefix $folderPathWithoutLangPrefix "cite.bib" }}
       <main class="modal__cite">
-        {{ $filePath := print "/content" (print .Permalink "cite.bib" | relURL) }}
         {{ if fileExists $filePath }}
           <div class="modal__cite--exist" id="citeContents">
             {{ readFile $filePath | markdownify }}
@@ -30,9 +32,11 @@
           </div>
         {{ end }}
       </main>
-      <button id="copyBtn" class="button modal__copy" data-color="default" aria-label="Cite Copy Button" data-clipboard-target="#citeContents">
-        {{ i18n "copy" | default "Copy"}}
-      </button>
+      {{ if fileExists $filePath }}
+        <button id="copyBtn" class="button modal__copy" data-color="default" aria-label="Cite Copy Button" data-clipboard-target="#citeContents">
+          {{ i18n "copy" | default "Copy"}}
+        </button>
+      {{ end }}
     </div>
   </div>
 </div>
