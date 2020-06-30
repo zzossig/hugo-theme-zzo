@@ -19,7 +19,7 @@
         {{ partial "svgs/etc/close.svg" (dict "width" 25 "height" 25) }}
       </div>
       <main class="modal__cite">
-        {{ $filePath := (print .Permalink "cite.bib" | relLangURL) }}
+        {{ $filePath := print "/content" (print .Permalink "cite.bib" | relURL) }}
         {{ if fileExists $filePath }}
           <div class="modal__cite--exist" id="citeContents">
             {{ readFile $filePath | markdownify }}
