@@ -553,8 +553,6 @@
 
 
   // ========================== search ==========================
-    {{ $baseurl:= $.Site.BaseURL }}
-    var baseurl = JSON.parse({{ $baseurl | jsonify }});
     {{ $permalink:= .Permalink }}
     var permalink = JSON.parse({{ $permalink | jsonify }});
     var searchResults = null;
@@ -575,7 +573,7 @@
     if (enableSearch) {
       (function initFuse() {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', baseurl + "/index.json");
+        xhr.open('GET', "/{{ .Lang }}/index.json");
         xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
         xhr.onload = function () {
           if (xhr.status === 200) {
