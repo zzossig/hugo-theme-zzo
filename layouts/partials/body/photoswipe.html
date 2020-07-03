@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var captionElem = document.querySelector('.modal__caption');
   var pagingElem = document.querySelector('.modal__paging');
   var itemsElem = document.querySelector('.modal__items');
-  var imgTotalNum = null;
   var myFadeTimeout = null;
   var mySwipe = null;
   var keydownFunction = function (e) {
@@ -114,12 +113,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  if (galleryContainerElem) {
-    imgTotalNum = galleryContainerElem.querySelectorAll('img').length;
-  } else {
+  if (!galleryContainerElem) {
     galleryContainerElem = document.querySelector('.single__contents');
-    imgTotalNum = galleryContainerElem.querySelectorAll('img').length;
   }
+
+  var allImages = [];
+  galleryContainerElem.querySelectorAll('img').forEach(function (elem) {
+    if (elem.getAttribute('photoswipe') != "false") {
+      allImages.push(elem);
+    }
+  });
+
+  var imgTotalNum = allImages.length;
 
   MicroModal.init({
     onClose: function () {
@@ -148,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  galleryContainerElem.querySelectorAll('img').forEach(function (elem, idx) {
+  allImages.forEach(function (elem, idx) {
     elem.style.cursor = 'pointer';
 
     var clonedElem = elem.cloneNode(true);
