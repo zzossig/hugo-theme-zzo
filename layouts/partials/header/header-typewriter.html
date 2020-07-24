@@ -1,0 +1,41 @@
+<script src="{{ .Site.Data.lib.js.typewriter.url }}" integrity="{{ .Site.Data.lib.js.typewriter.sri }}" crossorigin="anonymous"></script>
+
+{{ if $.Params.header }}
+  {{ range $.Params.header }}
+    {{ if eq .type "typewriter" }}
+      <div class="site-header basicflex-column site-header__align-{{ .align }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}" style="width: 100%; height: {{ .height }}px; padding: {{ .paddingY }}px {{ .paddingX }}px; font-size: {{ .fontSize }}px; {{ with .fontColor }}color:{{ . }}{{ end }};">
+        <div id="typewriter"></div>
+      </div>
+
+      <script>
+        {{ $methods:= .methods }}
+        {{ $options:= .options }}
+
+        var methods = JSON.parse({{ $methods | jsonify }});
+        var options = JSON.parse({{ $options | jsonify }});
+        var typeElem = document.getElementById("typewriter");
+        var typewriter = new Typewriter(typeElem, options);
+        
+        for (var i = 0; i < methods.length; i++) {
+          var key = Object.keys(methods[i])[0];
+
+          if (key === "typeString") {
+            typewriter.typeString(methods[i][key]);
+          } else if (key === "pauseFor") {
+            typewriter.pauseFor(methods[i][key]);
+          } else if (key === "deleteAll") {
+            typewriter.deleteAll();
+          } else if (key === "deleteChars") {
+            typewriter.deleteChars(methods[i][key]);
+          } else if (key === "pause") {
+            typewriter.pause();
+          } else if (key === "stop") {
+            typewriter.stop();
+          }
+        }
+
+        typewriter.start();
+      </script>
+    {{ end }}
+  {{ end }}
+{{ end }}

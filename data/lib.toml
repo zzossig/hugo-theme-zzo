@@ -58,6 +58,9 @@
   sri = "sha256-Ogqs510LFnekr9o7OLdpelaaAmNss9egQRTyzCqV2NQ="
   url = "https://cdn.jsdelivr.net/npm/viz.js@2.1.2/full.render.js"
 
+[js.typewriter]
+  sri = "sha256-dsvC/UolMujQ/UQ7lVeJ7Q/FV3BSzWO0rc8iz1rqHQo="
+  url = "https://cdn.jsdelivr.net/npm/typewriter-effect@2.13.1/dist/core.js"
 
 
 
