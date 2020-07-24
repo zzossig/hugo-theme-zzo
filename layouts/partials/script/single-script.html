@@ -33,14 +33,10 @@
 <script>
   window.MathJax = {
     tex: {
-      inlineMath: [['$', '$']],
-      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
       processEnvironments: true,
-      tags: "ams"
-    },
-    chtml: {
-      scale: 1.1
     },
     options: {
       skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
@@ -50,7 +46,7 @@
   };
   </script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script async src="{{ $js.mathjax.url }}"></script>
+  <script async src="{{ $js.mathjax.url }}" id="MathJax-script"></script>
 {{ end }}
 
 {{ if in .Params.Libraries "msc" }}
@@ -501,6 +497,9 @@
 
 
     // ============================ mathjax ============================
+    document.querySelectorAll("mjx-container").forEach(function (x) {
+      x.parentElement.classList += 'has-jax'
+    });
     // =================================================================
 
 

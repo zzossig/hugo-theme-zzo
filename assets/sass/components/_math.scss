@@ -3,3 +3,10 @@
     overflow-y: hidden;
     box-sizing: border-box;
 }
+
+code.has-jax {
+    -webkit-font-smoothing: antialiased;
+    background: inherit !important;
+    border: none !important;
+    font-size: 100%;
+}
