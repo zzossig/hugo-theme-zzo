@@ -71,6 +71,11 @@
   <script defer src="{{ $js.viz_render.url }}" integrity="{{ $js.viz_render.sri }}" crossorigin="anonymous"></script>
 {{ end }}
 
+{{ if in .Params.Libraries "jsxgraph" }}
+  <script defer src="{{ $js.jsxgraph.url }}" integrity="{{ $js.jsxgraph.sri }}" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ $css.jsxgraph.url }}" integrity="{{ $css.jsxgraph.sri }}" crossorigin="anonymous" />
+{{ end }}
+
 <script>
   'use strict';
 
@@ -611,5 +616,27 @@
     }
     // =================================================================
     
+    {{ if in .Params.Libraries "jsxgraph" }} {
+      var chartPrefix = "language-jessiecode";
+      var index = 0;
+
+      Array.prototype.forEach.call(document.querySelectorAll("[class^=" + chartPrefix + "]"), function (x) {
+        x.style.display = 'none'
+        x.parentNode.style.backgroundColor = "transparent"
+        var node0 = document.createElement('div');
+        node0.id = 'jsxgraph' + index;
+        node0.classList += 'jxgbox';
+        
+        x.parentNode.insertBefore(node0, x);
+
+        var board = JXG.JSXGraph.initBoard(node0.id, {showCopyright: false, zoom: true, pan: true});
+        board.jc = new JXG.JessieCode();
+        board.jc.use(board);
+        board.jc.parse(x.innerText);
+        board.resizeContainer(300,300);
+        index += 1;
+      });
+    }
+    {{ end }}
   }
 </script>
