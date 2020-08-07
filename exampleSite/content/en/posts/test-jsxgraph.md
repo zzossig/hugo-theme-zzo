@@ -16,6 +16,8 @@ libraries:
 image: images/feature1/graph.png
 ---
 Use `Shift` and `Mouse Left` to drag, `Shift` and `Mouse Scroll` to zoom.
+
+### Example 1
 ```jessiecode
 point(5, 5) <<id:'pt', name: 'point'>>;
 grid();
@@ -29,6 +31,7 @@ g = functiongraph(f);
 $board.setView([-10, 10, 10, -10]);
 ```
 
+### Example 2
 Point A will stay inside the circle.
 
 ```jessiecode
@@ -51,9 +54,10 @@ p.on('drag',function(){
 });
 ```
 
+### Example3
 This graph shows the properties of triangle. Drag the edges of triangle to observe changes.
 
-```jessiecode
+```jessiecode:400x400
 // code adapted from https://github.com/jsxgraph/JessieCode/blob/master/examples/euler.html
 cerise = <<
     strokeColor: '#901B77',
@@ -111,3 +115,12 @@ euler = line(H, S) << strokeWidth: 2, strokeColor:'#901B77' >>;
 
 $board.setView([-1.5, 2, 1.5, -1]);
 ```
+
+### Note
+You can specify height and weight in the language specifier. e.g.
+````markdown
+```jessiecode:400x300
+// codes...
+```
+````
+will change the graph size to width 400px and height 300px.
