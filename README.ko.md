@@ -1040,7 +1040,7 @@ socialOptions: # override params.toml file socialOptions
 
 ## External Library
 
-현재 지원하는 외부 라이브러리는 Katex, MathJax, Mermaid, Flowchart.js, chart.js, viz-graph, wavedrom, js-sequence-diagram 입니다. front-matter에 값을 넣어주시면 해당 라이브러리가 로드됩니다.
+현재 지원하는 외부 라이브러리는 Katex, MathJax, Mermaid, Flowchart.js, chart.js, viz-graph, wavedrom, js-sequence-diagram, jsxgraph 입니다. front-matter에 값을 넣어주시면 해당 라이브러리가 로드됩니다.
 
 ```bash
 ---
@@ -1057,6 +1057,7 @@ libraries:
 - mermaid
 - viz
 - wavedrom
+- jsxgraph
 ---
 
 ```

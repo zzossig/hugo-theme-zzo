@@ -1065,7 +1065,7 @@ If you want to support mobile favicon, use [favicon-generator](https://www.favic
 
 ## External Library
 
-If you want use external libraries, this theme currently supporting Katex, MathJax, Mermaid, Flowchart.js, chart.js, viz-graph, wavedrom, js-sequence-diagram. Just add some variable to a front-matter.
+If you want use external libraries, this theme currently supporting Katex, MathJax, Mermaid, Flowchart.js, chart.js, viz-graph, wavedrom, js-sequence-diagram, jsxgraph. Just add some variable to a front-matter.
 
 ```bash
 ---
@@ -1082,6 +1082,7 @@ libraries:
 - mermaid
 - viz
 - wavedrom
+- jsxgraph
 ---
 
 ```
