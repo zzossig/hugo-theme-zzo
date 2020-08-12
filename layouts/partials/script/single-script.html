@@ -639,7 +639,7 @@
         var size = x.getAttribute('data-lang').split('x');
         if (size && size.length == 2) {
           var w = parseInt(size[0], 10);
-          var h = parseInt(size[0], 10);
+          var h = parseInt(size[1], 10);
           if (!(isNaN(w) || isNaN(h))) {
             board.resizeContainer(w, h);
           }
