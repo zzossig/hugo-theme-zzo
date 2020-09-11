@@ -9,40 +9,44 @@
     {{ .Content }}
   </div>
 </header>
-<main class="main archive">
-  <div class="archive__container">
-    {{ $filteredPages := .Site.RegularPages }}
-    {{ range $.Param "notAllowedTypesInArchive" }}
-      {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
-    {{ end }}
-
-    {{ $paginator := .Paginate ($filteredPages.GroupByDate ($.Param "archiveGroupByDate" | default "2006")) ($.Param "archivePaginate") }}
-    
-    {{ range ($paginator).PageGroups }}
-    <span class="archive__key" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ .Key }}</span>
-    <ul class="archive__ul" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
-      {{ range .Pages }}
-      <li class="archive__li" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
-        <span class="archive__meta" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
-          {{ if ne ($.Param "languagedir") "rtl" }}
-            <span class="archive__type">{{ .Type }}</span>
-            <span class="archive__date">{{ .Date.Format (i18n "archive-dateformat") }}</span>
-          {{ else }}
-            <span class="archive__date">{{ .Date.Format (i18n "archive-dateformat") }}</span>
-            <span class="archive__type">{{ .Type }}</span>
-          {{ end }}
-        </span>
-        <a href="{{ .Permalink }}" class="archive__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>        
-      </li>
+{{ if .Pages }}
+  <main class="main archive">
+    <div class="archive__container">
+      {{ $filteredPages := .Site.RegularPages }}
+      {{ range $.Param "notAllowedTypesInArchive" }}
+        {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
       {{ end }}
-    </ul>
-    {{ end }}    
-  </div>
-  <div class="grow"></div>
-  {{ partial "pagination/pagination" . }}
-  <div class="hide">
-    {{ partial "search/site-search" . }}
-  </div>
-  {{ partial "script/archive-script" . }}
-</main>
+  
+      {{ $paginator := .Paginate ($filteredPages.GroupByDate ($.Param "archiveGroupByDate" | default "2006")) ($.Param "archivePaginate") }}
+  
+    {{ if $paginator }}
+      {{ range ($paginator).PageGroups }}
+      <span class="archive__key" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ .Key }}</span>
+      <ul class="archive__ul" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+        {{ range .Pages }}
+        <li class="archive__li" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+          <span class="archive__meta" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
+            {{ if ne ($.Param "languagedir") "rtl" }}
+              <span class="archive__type">{{ .Type }}</span>
+              <span class="archive__date">{{ .Date.Format (i18n "archive-dateformat") }}</span>
+            {{ else }}
+              <span class="archive__date">{{ .Date.Format (i18n "archive-dateformat") }}</span>
+              <span class="archive__type">{{ .Type }}</span>
+            {{ end }}
+          </span>
+          <a href="{{ .Permalink }}" class="archive__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>        
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}    
+    {{ end }}
+    </div>
+    <div class="grow"></div>
+    {{ partial "pagination/pagination" . }}
+    <div class="hide">
+      {{ partial "search/site-search" . }}
+    </div>
+    {{ partial "script/archive-script" . }}
+  </main>
+{{ end }}
 {{ end }}
