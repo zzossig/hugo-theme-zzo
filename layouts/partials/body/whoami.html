@@ -27,7 +27,7 @@
     </div>
     <div class="whoami__title">
       {{ if $.Param "author" }}
-        {{ $.Param "author" }}
+        {{ partial "head/author.html" ($.Param "author") }}
       {{ else }}
         {{ $.Param "myname" }}
       {{ end }}
