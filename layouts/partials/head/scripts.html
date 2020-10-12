@@ -591,12 +591,15 @@
             fuse = new Fuse(JSON.parse(xhr.response.toString('utf-8')), {
               keys: sectionType.includes('publication') ? ['title', 'abstract'] : ['title', 'description', 'content'],
               includeMatches: enableSearchHighlight,
-              shouldSort: true,
-              threshold: 0.4,
-              location: 0,
-              distance: 100,
+              shouldSort: true, // default: true
+              threshold: 0.4, // default: 0.6 (0.0 requires a perfect match)
+              location: 0, // default: 0
+              distance: 100, // default: 100
               maxPatternLength: 32,
               minMatchCharLength: 1,
+              isCaseSensitive: false, // defualt: false
+              findAllMatches: false, // default: false
+              useExtendedSearch: false, // default: false
             });
             window.fuse = fuse;
           }

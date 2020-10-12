@@ -99,3 +99,18 @@ other = "자바스크립트를 활성화 해주세요"
 
 [posts-by-order]
 other = "TOP POSTS"
+
+[skin-dark]
+other = "dark"
+
+[skin-light]
+other = "light"
+
+[skin-hacker]
+other = "hacker"
+
+[skin-solarized]
+other = "solarized"
+
+[skin-kimbie]
+other = "kimbie"

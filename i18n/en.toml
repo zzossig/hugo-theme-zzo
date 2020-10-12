@@ -99,3 +99,18 @@ other = "This page looks best with JavaScript enabled"
 
 [posts-by-order]
 other = "TOP POSTS"
+
+[skin-dark]
+other = "dark"
+
+[skin-light]
+other = "light"
+
+[skin-hacker]
+other = "hacker"
+
+[skin-solarized]
+other = "solarized"
+
+[skin-kimbie]
+other = "kimbie"

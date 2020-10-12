@@ -99,3 +99,18 @@ other = "Por plibona vido the ĉi tiu paĝo, eble ŝaltu JavaSkripton"
 
 [posts-by-order]
 other = "PLEJ BONAJ AFIŜOJ"
+
+[skin-dark]
+other = "dark"
+
+[skin-light]
+other = "light"
+
+[skin-hacker]
+other = "hacker"
+
+[skin-solarized]
+other = "solarized"
+
+[skin-kimbie]
+other = "kimbie"

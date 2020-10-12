@@ -10,6 +10,11 @@
 
 .hide {
   display: none;
+  &-mobile {
+    @media only screen and (max-width: 769px) {
+      display: none;
+    }
+  }
 }
 
 .grow {

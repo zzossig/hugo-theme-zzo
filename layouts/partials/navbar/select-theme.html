@@ -8,7 +8,7 @@
       {{ if .Site.Params.themeOptions }}
         {{ range $index, $value := .Site.Params.themeOptions }}
         <a href="#" class="dropdown-item select-theme__item {{ if (eq $index 0) }}is-active{{ end }}">
-          {{ . }}
+          {{ i18n (print "skin-" .) | default . }}
         </a>
         {{ end }}
       {{ end }}

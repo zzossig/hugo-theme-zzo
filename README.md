@@ -268,6 +268,7 @@ minItemsToShowInTagCloud = 1 # Minimum items to show in tag cloud
 
 # header
 homeHeaderType = "text" # text, img, slide, typewriter
+hideHomeHeaderWhenMobile = false
 
 # menu
 showMobileMenuTerms = ["tags", "categories", "series"]
