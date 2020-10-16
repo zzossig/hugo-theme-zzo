@@ -62,6 +62,9 @@
   sri = "sha256-dsvC/UolMujQ/UQ7lVeJ7Q/FV3BSzWO0rc8iz1rqHQo="
   url = "https://cdn.jsdelivr.net/npm/typewriter-effect@2.13.1/dist/core.js"
 
+[js.jsxgraph]
+  sri = "sha256-vSFHJZi3+DbmVrl8xDFCHPI3jy9n7sbvlISCPqpVFrQ="
+  url = "https://cdn.jsdelivr.net/npm/jsxgraph@1.1.0/distrib/jsxgraphcore.js"
 
 
 
@@ -74,6 +77,9 @@
   sri = "sha256-On01v36B8LRDuL2tqhqs7Gb3Cm/NIpsLFy4OarOodUA="
   url = "https://cdn.jsdelivr.net/npm/@rokt33r/js-sequence-diagrams@2.0.6-2/dist/sequence-diagram-min.css"
 
+[css.jsxgraph]
+  sri = "sha256-TiPwINPr/OB7izwBT0o+kJo/HchaLj6ln7fZpOzgXQU="
+  url = "https://cdn.jsdelivr.net/npm/jsxgraph@1.1.0/distrib/jsxgraph.css"
 
 
 
