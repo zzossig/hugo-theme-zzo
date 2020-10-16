@@ -70,6 +70,7 @@
     
     @include flexbox();
     @include justify-content(center);
+    @include align-items(flex-start);
 
     &__desc {
       position: absolute;

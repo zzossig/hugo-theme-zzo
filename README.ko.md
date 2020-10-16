@@ -254,6 +254,10 @@ enableUiAnimation = true
 hideSingleContentsWhenJSDisabled = false
 minItemsToShowInTagCloud = 1 # Minimum items to show in tag cloud
 
+# appbar
+enableAppbarSearchIcon = false
+enableAppbarLangIcon = false
+
 # header
 homeHeaderType = "text" # text, img, slide, typewriter
 hideHomeHeaderWhenMobile = false

@@ -1,4 +1,10 @@
 <div class="navbar__menu">
+  {{ if $.Site.Params.enableAppbarSearchIcon }}
+    {{ partial "navbar/search-icon" . }}
+  {{ end }}
+  {{ if $.Site.Params.enableAppbarLangIcon }}
+    {{ partial "navbar/language-icon" . }}
+  {{ end }}
   {{ partial "navbar/select-theme" . }}
   {{ $current := . }}
   {{ range .Site.Menus.main }}

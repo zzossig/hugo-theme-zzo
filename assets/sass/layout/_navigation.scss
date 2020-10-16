@@ -55,7 +55,7 @@
 
     &[data-ani="true"] {
       @media only screen and (min-width: 769px) {
-        @for $i from 1 through 8 {
+        @for $i from 1 through 10 {
           &:nth-child(#{$i}) {
             @include animation('slide-in-down .25s #{$i * .1}s 1 ease both');
           }
@@ -356,7 +356,6 @@
       color: themed('burger-menu-color');  
       @include on-event {
         color: themed('navbar-title-hover-color');
-        background-color: themed('navbar-background-color');
       }
     }
 
