@@ -1,0 +1,116 @@
+[search-placeholder]
+other = "Cerca"
+
+[summary-dateformat]
+other = "2006-01-02"
+
+[reading-time]
+other = "Minuts lectura"
+
+[tags]
+other = "Etiquetes"
+
+[categories]
+other = "Categories"
+
+[series]
+other = "Sèrie"
+
+[archive-dateformat]
+other = "2006-01-02"
+
+[talks-dateformat]
+other = "2006-01-02"
+
+[single-dateformat]
+other = "2006-01-02"
+
+[pub-dateformat]
+other = "2006-01-02"
+
+[resume-dateformat]
+other = "Jan, 2006"
+
+[single-related]
+other = "Veure també"
+
+[single-writtenBy]
+other = "Escrit per"
+
+[toc-label]
+other = "Què hi ha en aquesta pàgina"
+
+[counter-site-pv]
+other = "Visualitzacions totals"
+
+[counter-site-uv]
+other = "Total de visitants"
+
+[counter-page-pv]
+other = "visualitzacions"
+
+[donate-message]
+other = "Dóna suport a l'autor amb"
+
+[share-message]
+other = "Comparteix a"
+
+[contact-name]
+other = "Nam"
+
+[contact-email]
+other = "Correu electrònic"
+
+[contact-tel]
+other = "Tel"
+
+[contact-file]
+other = "Arxiu"
+
+[contact-message]
+other = "Missatge"
+
+[contact-send]
+other = "Envia"
+
+[contact-browse]
+other = "Cerca"
+
+[tooltip-home]
+other = "Inici"
+
+[tooltip-written]
+other = "Escrit a"
+
+[tooltip-modified]
+other = "Modificat a"
+
+[tooltip-reading-time]
+other = "Temps de lectura"
+
+[showcase-overview]
+other = "Visió general"
+
+[showcase-pinned]
+other = "Fixat"
+
+[nojs-message]
+other = "Aquesta pàgina té millor aspecte amb JavaScript habilitat"
+
+[posts-by-order]
+other = "Publicacions principals"
+
+[skin-dark]
+other = "fosc"
+
+[skin-light]
+other = "clara"
+
+[skin-hacker]
+other = "hacker"
+
+[skin-solarized]
+other = "solarized"
+
+[skin-kimbie]
+other = "kimbie"
