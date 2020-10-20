@@ -1,0 +1,116 @@
+[search-placeholder]
+other = "Căută"
+
+[summary-dateformat]
+other = "2006-01-02"
+
+[reading-time]
+other = "minute de citit"
+
+[tags]
+other = "Etichete"
+
+[categories]
+other = "Categorii"
+
+[series]
+other = "Seria"
+
+[archive-dateformat]
+other = "2006-01-02"
+
+[talks-dateformat]
+other = "2006-01-02"
+
+[single-dateformat]
+other = "2006-01-02"
+
+[pub-dateformat]
+other = "2006-01-02"
+
+[resume-dateformat]
+other = "2006-01-02"
+
+[single-related]
+other = "Vezi și"
+
+[single-writtenBy]
+other = "Scris de"
+
+[toc-label]
+other = "Ce este pe această pagină"
+
+[counter-site-pv]
+other = "Vizualizări totale"
+
+[counter-site-uv]
+other = "Total vizitatori"
+
+[counter-page-pv]
+other = "vizualizări"
+
+[donate-message]
+other = "Sprijiniți autorul cu"
+
+[share-message]
+other = "împărtăşi pe"
+
+[contact-name]
+other = "Nume"
+
+[contact-email]
+other = "poştă electronică"
+
+[contact-tel]
+other = "Tel"
+
+[contact-file]
+other = "Fișier"
+
+[contact-message]
+other = "Mesaj"
+
+[contact-send]
+other = "Trimite"
+
+[contact-browse]
+other = "Răsfoire"
+
+[tooltip-home]
+other = "Start"
+
+[tooltip-written]
+other = "Scris în"
+
+[tooltip-modified]
+other = "Modificat în"
+
+[tooltip-reading-time]
+other = "Timpul de citire"
+
+[showcase-overview]
+other = "Prezentare generală"
+
+[showcase-pinned]
+other = "Fixat"
+
+[nojs-message]
+other = "Această pagină arată cel mai bine cu JavaScript activat"
+
+[posts-by-order]
+other = "Publicații principale"
+
+[skin-dark]
+other = "închis"
+
+[skin-light]
+other = "luminos"
+
+[skin-hacker]
+other = "hacker"
+
+[skin-solarized]
+other = "solarized"
+
+[skin-kimbie]
+other = "kimbie"
