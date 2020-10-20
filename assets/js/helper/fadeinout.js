@@ -11,7 +11,7 @@ var fadeOut = function(node, duration) {
       requestAnimationFrame(tick);
     } else {
       node.style.opacity = '';
-      node.style.display = 'none';
+      node.classList.add('hide');
     }
   });
 }
@@ -19,10 +19,8 @@ var fadeOut = function(node, duration) {
 var fadeIn = function (node, duration) {
   if (getComputedStyle(node).display !== 'none') return;
 
-  if (node.style.display === 'none') {
-    node.style.display = '';
-  } else {
-    node.style.display = 'block';
+  if (node.classList.contains('hide')) {
+    node.classList.remove('hide');
   }
   node.style.opacity = 0;
 
