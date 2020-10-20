@@ -556,8 +556,7 @@ pre:not(.chroma) {
       font-size: 13.8px;
       font-family: $title-font;
       font-weight: bold;
-      display: inline-block;
-      text-transform: capitalize;      
+      display: inline-block;      
       content: attr(data-lang);
 
       @include themify($codeblock) {

@@ -4,7 +4,7 @@
   margin: 2rem 0;
 
   &__links {
-    height: auto;
+    height: 30px;
     border-top-left-radius: 0.25rem;
 
     @include flexbox();
@@ -27,6 +27,8 @@
     @include themify($themes) {
       color: themed('navbar-title-color');
       background-color: themed('body-background-color');
+      border: none;
+      border-bottom: 1px solid themed('hr-color');
 
       &.active {
         background-color: themed('body-background-color');
