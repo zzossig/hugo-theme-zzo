@@ -22,6 +22,19 @@
     }
   }
 
+  &__subtitle {
+    margin-bottom: 1.75rem;
+    font-family: $title-font;
+    
+    @include themify($themes) {
+      color: themed("toc-title-color");
+    }
+
+    &[data-ani="true"] {
+      @include animation('slide-in-down .2s .3s 1 ease-in both');
+    }
+  }
+
   &__shorttitle {
     font-size: 1.5rem;
     font-family: $title-font;
