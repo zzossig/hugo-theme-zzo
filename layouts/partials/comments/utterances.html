@@ -3,11 +3,13 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     function checkTheme(local, base) {
-      if (local === "dark" || base === "dark") {
+      var currentTheme = local || base;
+
+      if (currentTheme === "dark") {
         return "photon-dark";
-      } else if (local === "hacker" || base === "hacker") {
+      } else if (currentTheme === "hacker") {
         return "photon-dark";
-      } else if (local === "kimbie" || base === "kimbie") {
+      } else if (currentTheme === "kimbie") {
         return "github-dark-orange";
       } else {
         return "github-light";
@@ -30,7 +32,6 @@
       myScript.setAttribute('theme', utterTheme);
       myScript.setAttribute('crossorigin', 'anonymous');
       myScript.setAttribute('async', '');
-
       myScript.onload = function() {
       }
 

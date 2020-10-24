@@ -249,19 +249,12 @@
       @include clippy();
       @include transition(all, 0.2s, ease);
     }
-    .copy-to-clipboard:hover {
-      @include translateY(-0.1rem);
-    }
     .chroma .copy-to-clipboard {
       position: absolute;
       right: 4px;
       top: 5px;      
       border-radius: 2px;
       z-index: z('clipboard');
-      @include transition(all, 0.2s, ease);
-    }
-    .chroma .copy-to-clipboard:hover {
-      @include translateY(-0.1rem);
     }
     .language-code .copy-to-clipboard {
       position: absolute;
@@ -269,10 +262,6 @@
       top: 5px;      
       border-radius: 2px;
       z-index: z('clipboard');
-      @include transition(all, 0.2s, ease);
-    }
-    .language-code .copy-to-clipboard:hover {
-      @include translateY(-0.1rem);
     }
     .highlight > .copy-to-clipboard {
       position: absolute;
@@ -280,10 +269,6 @@
       top: 5px;      
       border-radius: 2px;
       z-index: z('clipboard');
-      @include transition(all, 0.2s, ease);
-    }
-    .highlight > .copy-to-clipboard:hover {
-      @include translateY(-0.1rem);
     }
 
     blockquote {

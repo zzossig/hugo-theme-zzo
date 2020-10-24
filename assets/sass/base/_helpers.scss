@@ -27,6 +27,10 @@
   @include justify-content(center);
 }
 
+.flexwrap {
+  @include flex-wrap(wrap);
+}
+
 .basicflex-column {
   @include flexbox();
   @include align-items(center);

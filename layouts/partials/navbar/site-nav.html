@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation" aria-label="main navigation" data-dir="{{ if $.Param "navbardir" }}{{ $.Param "navbardir" }}{{ else }}{{ $.Param "languagedir" | default "ltr" }}{{ end }}">
+<nav class="navbar scrolling" role="navigation" aria-label="main navigation" data-dir="{{ if $.Param "navbardir" }}{{ $.Param "navbardir" }}{{ else }}{{ $.Param "languagedir" | default "ltr" }}{{ end }}">
   <div class="navbar__brand">
     {{ if $.Param "logo" | default true }}
     <a href="{{ "/" | relLangURL }}" title="{{ i18n "tooltip-home" }}" rel="home" class="{{ if eq ($.Param "logoType") "long" }}navbar__long-link{{ else }}navbar__logo-link{{ end }}">

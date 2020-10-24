@@ -1,6 +1,10 @@
 English | 
 [한국어](https://github.com/zzossig/hugo-theme-zzo/blob/master/README.ko.md)
 
+## Hugo Theme Zzo
+
+Zzo is a blog theme for Hugo. It includes almost all features that a blog theme should have. Search, Gallery, so on. It looks simple but once you deep dive into it, you can find out lots of functionalities.
+
 ## 📄 Documentation
 
 [https://zzo-docs.vercel.app/zzo](https://zzo-docs.vercel.app/zzo)
@@ -28,8 +32,11 @@ Your support will be of great help in maintaining the project.
 * Publication Page
 * Resume Page
 * Presentation Page
-* Showcase Page
 
 ## Minimum Hugo version
 
 Hugo version 0.65.0 or higher is required.
+
+## Screenshot
+
+![Hugo Theme Zzo Screenshot](images/screenshot.png)

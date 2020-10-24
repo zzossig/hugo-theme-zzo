@@ -4,9 +4,11 @@
     {{ partial "footer/go-to-top" . }}
     <hr />
 
-    <div class="basicflex">
+    <div class="basicflex flexwrap">
         {{ range $.Param "footerLinks" }}
-            <a href="{{ .link }}" class="footer__link" target="_blank" rel="noreferrer">{{ .name }}</a>
+            {{ if .link }}
+                <a href="{{ .link }}" class="footer__link" target="_blank" rel="noreferrer">{{ .name }}</a>
+            {{ end }}
         {{ end }}
     </div>
 
