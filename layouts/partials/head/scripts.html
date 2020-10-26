@@ -451,6 +451,17 @@
     var rootEleme = document.getElementById('root');
     var selectThemeElem = document.querySelectorAll('.select-theme');
     var selectThemeItemElem = document.querySelectorAll('.select-theme__item');
+    
+    {{ $skinDarkCode := (i18n "skin-dark") }}
+    var skinDarkCode = JSON.parse({{ $skinDarkCode | jsonify }});
+    {{ $skinLightCode := (i18n "skin-light") }}
+    var skinLightCode = JSON.parse({{ $skinLightCode | jsonify }});
+    {{ $skinHackerCode := (i18n "skin-hacker") }}
+    var skinHackerCode = JSON.parse({{ $skinHackerCode | jsonify }});
+    {{ $skinSolarizedCode := (i18n "skin-solarized") }}
+    var skinSolarizedCode = JSON.parse({{ $skinSolarizedCode | jsonify }});
+    {{ $skinKimbieCode := (i18n "skin-kimbie") }}
+    var skinKimbieCode = JSON.parse({{ $skinKimbieCode | jsonify }});
 
     var setMetaColor = function(themeColor) {
       var metaMsapplicationTileColor = document.getElementsByName('msapplication-TileColor')[0];
@@ -485,6 +496,20 @@
         metaAppleMobileWebAappStatusBarStyle.setAttribute('content', '#eee8d5');
       }
     }
+
+    var parseSkinCode = function(themeText) {
+      if (themeText === skinDarkCode) {
+        return 'dark';
+      } else if (themeText === skinLightCode) {
+        return 'light';
+      } else if (themeText === skinHackerCode) {
+        return 'hacker';
+      } else if (themeText === skinSolarizedCode) {
+        return 'solarized';
+      } else if (themeText === skinKimbieCode) {
+        return 'kimbie';
+      }
+    }
     
     if (localTheme) {
       selectThemeItemElem ? 
@@ -504,7 +529,7 @@
     selectThemeItemElem ? 
     selectThemeItemElem.forEach(function (v, i) {
       v.addEventListener('click', function (e) {
-        var selectedThemeVariant = e.target.text.trim();
+        var selectedThemeVariant = parseSkinCode(e.target.text.trim());
         localStorage.setItem('theme', selectedThemeVariant);
         setMetaColor(selectedThemeVariant);
 
