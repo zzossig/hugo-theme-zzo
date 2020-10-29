@@ -1,3 +1,4 @@
+$theme-map: null;
 @mixin themify($themes) {
   @each $theme, $map in $themes {
     .theme__#{$theme} & {
