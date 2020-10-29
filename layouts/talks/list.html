@@ -17,34 +17,39 @@
   {{ end }}
   <div class="archive__container">
     {{ $pages := (where .Site.RegularPages "Section" "talks") }}
-    {{ $paginator := .Paginate ($pages.GroupByPublishDate ($.Param "talksGroupByDate" | default "2006")) ($.Param "talksPaginate") }}
 
-    {{ range ($paginator).PageGroups }}
-    <span class="archive__key" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ .Key }}</span>
-    <ul class="archive__ul" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
-      {{ range .Pages }}
-      <li class="archive__li" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
-        <span class="talk__date" data-dir="{{ $.Param "languagedir" | default "ltr" }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
-          {{ .PublishDate.Format (i18n "talks-dateformat") }}
-        </span>
-        {{ if .Params.disableLink }}
-        <div class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</div>
-        {{ else }}
-        <a href="{{ if .Params.externalLink }}{{ .Params.externalLink }}{{ else }}{{ .Permalink }}{{ end }}" target="{{ with .Params.externalLink }}_blank{{ end }}" rel="{{ with .Params.externalLink }}noreferrer{{ end }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>
-        {{ end }}
-        {{ with .Params.subLinks }}
-          <div class="talk__icons">
-            {{ range . }}
-              <a href="{{ .link }}" class="talk__icon" target="_blank" rel="noreferrer" title="{{ .type }}">
-                {{ partial (print "svgs/etc/" .type ".svg") (dict "width" 23 "height" 23) }}
-              </a>
+    {{ if gt (len $pages) 0 }}
+      {{ $paginator := .Paginate ($pages.GroupByPublishDate ($.Param "talksGroupByDate" | default "2006")) ($.Param "talksPaginate") }}
+      {{ range ($paginator).PageGroups }}
+        <span class="archive__key" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ .Key }}</span>
+        <ul class="archive__ul" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+          {{ range .Pages }}
+          <li class="archive__li" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+            <span class="talk__date" data-dir="{{ $.Param "languagedir" | default "ltr" }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
+              {{ .PublishDate.Format (i18n "talks-dateformat") }}
+            </span>
+            {{ if .Params.disableLink }}
+            <div class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</div>
+            {{ else }}
+            <a href="{{ if .Params.externalLink }}{{ .Params.externalLink }}{{ else }}{{ .Permalink }}{{ end }}" target="{{ with .Params.externalLink }}_blank{{ end }}" rel="{{ with .Params.externalLink }}noreferrer{{ end }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>
             {{ end }}
-          </div>
-        {{ end }}
-      </li>
+            {{ with .Params.subLinks }}
+              <div class="talk__icons">
+                {{ range . }}
+                  <a href="{{ .link }}" class="talk__icon" target="_blank" rel="noreferrer" title="{{ .type }}">
+                    {{ partial (print "svgs/etc/" .type ".svg") (dict "width" 23 "height" 23) }}
+                  </a>
+                {{ end }}
+              </div>
+            {{ end }}
+          </li>
+          {{ end }}
+        </ul>
       {{ end }}
-    </ul>
+    {{ else }}
+      {{ i18n "no-contents" | default "There is nothing to display" }}
     {{ end }}
+
   </div>
   <div class="grow"></div>
   {{ partial "pagination/pagination" . }}

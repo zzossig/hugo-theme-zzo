@@ -114,3 +114,6 @@ other = "solarized"
 
 [skin-kimbie]
 other = "kimbie"
+
+[no-contents]
+other = "Nothing to Display"
