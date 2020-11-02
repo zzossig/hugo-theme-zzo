@@ -240,8 +240,7 @@ $theme-map: null;
 }
 
 @mixin clippy() {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24pt" height="24pt" viewBox="0 0 24 24" version="1.1">
-<path style="stroke:none;fill-rule:nonzero;fill:rgb(100,100,100);fill-opacity:1;" d="M 4 2 C 2.894531 2 2 2.894531 2 4 L 2 17 C 2 17.550781 2.449219 18 3 18 C 3.550781 18 4 17.550781 4 17 L 4 4 L 17 4 C 17.550781 4 18 3.550781 18 3 C 18 2.449219 17.550781 2 17 2 Z M 8 6 C 6.894531 6 6 6.894531 6 8 L 6 20 C 6 21.105469 6.894531 22 8 22 L 20 22 C 21.105469 22 22 21.105469 22 20 L 22 8 C 22 6.894531 21.105469 6 20 6 Z M 8 8 L 20 8 L 20 20 L 8 20 Z M 8 8 "/></svg>');
+  background-image: url('data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjRwdCIgaGVpZ2h0PSIyNHB0IiB2aWV3Qm94PSIwIDAgMjQgMjQiPlxhPHBhdGggc3R5bGU9InN0cm9rZTpub25lO2ZpbGwtcnVsZTpub256ZXJvO2ZpbGw6IzY0NjQ2NDtmaWxsLW9wYWNpdHk6MSIgZD0iTTQgMkMyLjg5NDUzMSAyIDIgMi44OTQ1MzEgMiA0VjE3QzIgMTcuNTUwNzgxIDIuNDQ5MjE5IDE4IDMgMThTNCAxNy41NTA3ODEgNCAxN1Y0SDE3QzE3LjU1MDc4MSA0IDE4IDMuNTUwNzgxIDE4IDNTMTcuNTUwNzgxIDIgMTcgMnpNOCA2QzYuODk0NTMxIDYgNiA2Ljg5NDUzMSA2IDhWMjBDNiAyMS4xMDU0NjkgNi44OTQ1MzEgMjIgOCAyMkgyMEMyMS4xMDU0NjkgMjIgMjIgMjEuMTA1NDY5IDIyIDIwVjhDMjIgNi44OTQ1MzEgMjEuMTA1NDY5IDYgMjAgNnpNOCA4SDIwVjIwSDh6TTggOCIvPjwvc3ZnPg')
 }
 
 @mixin webkit-scrollbars($foreground-color, $background-color) {
