@@ -1,8 +1,6 @@
 {{ $js := .Site.Data.lib.js }}
 {{ $css := .Site.Data.lib.css }}
 
-{{ $clipboard := resources.Get "js/clipboard.min.js" | resources.Fingerprint }}
-<script defer src="{{ $clipboard.RelPermalink }}"></script>
 {{ $getParents := resources.Get "js/helper/getParents.js" | resources.Minify }}
 <script defer src="{{ $getParents.RelPermalink }}"></script>
 {{ $closest := resources.Get "js/helper/closest.js" | resources.Minify }}
@@ -89,6 +87,7 @@
       pagePvElem.textContent = pagePvElem.textContent.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
     }    
     // =================================================================
+
 
 
     // ============================== toc ==============================
@@ -238,73 +237,6 @@
     // =================================================================
 
 
-    // ========================== foot notes ===========================
-    var footNoteRefs = document.querySelectorAll('.footnote-ref');
-    var footNoteBackRefs = document.querySelectorAll('.footnote-backref');
-
-    footNoteRefs ? 
-    footNoteRefs.forEach(function(elem, idx) {
-      elem.onmouseenter = function () {
-        if (navbar.classList.contains('scrolling')) {
-          navbar.classList.remove('scrolling');
-        }
-      }
-
-      elem.onmouseleave = function () {
-        if (!navbar.classList.contains('scrolling')) {
-          setTimeout(function () {
-            navbar.classList.add('scrolling');
-          }, 100);
-        }
-      }
-
-      elem.onclick = function () {
-        if (!navbar.classList.contains('scrolling')) {
-          navbar.classList.remove('navbar--show');
-          navbar.classList.remove('navbar--hide');
-          navbar.classList.add('navbar--hide');
-        }
-      }
-    }) : null;
-
-    footNoteBackRefs ? 
-    footNoteBackRefs.forEach(function(elem, idx) {
-      elem.onmouseenter = function () {
-        if (navbar.classList.contains('scrolling')) {
-          navbar.classList.remove('scrolling');
-        }
-      }
-
-      elem.onmouseleave = function () {
-        if (!navbar.classList.contains('scrolling')) {
-          setTimeout(function() {
-            navbar.classList.add('scrolling');
-          }, 100);
-        }
-      }
-
-      elem.onclick = function () {
-        if (!navbar.classList.contains('scrolling')) {
-          navbar.classList.remove('navbar--show');
-          navbar.classList.remove('navbar--hide');
-          navbar.classList.add('navbar--hide');
-        }
-      }
-    }) : null;
-    // =================================================================
-
-
-    // ======================== markdown table =========================
-    var tables = document.querySelectorAll('.single__contents > table');
-    for (let i = 0; i < tables.length; i++) {
-      var table = tables[i];
-      var wrapper = document.createElement('div');
-      wrapper.className = 'table-wrapper';
-      table.parentElement.replaceChild(wrapper, table);
-      wrapper.appendChild(table);
-    }
-    // =================================================================
-
 
     // ==================== add links in all titles ====================
     var text, clip = new ClipboardJS('.anchor');
@@ -367,130 +299,6 @@
     // =================================================================
 
 
-    // =========================== clipboard ===========================
-    var clipInit = false;
-    var preChromaElem = document.querySelectorAll('pre.chroma');
-    var langCodeElem = document.querySelectorAll('.language-code');
-    var dollarCodeElem = document.querySelectorAll('div.language-\\$');
-    var gtCodeElem = document.querySelectorAll('div.language-\\>');
-
-    var makeClipboard = function(elem) {
-      var code = elem,
-        text = elem.textContent;
-        
-      if (text.length > 15) {
-        if (!clipInit) {
-          var text, clip = new ClipboardJS('.copy-to-clipboard', {
-            text: function (trigger) {
-              var codeElem = prev(trigger).querySelectorAll('code');
-              if (codeElem.length > 1) {
-                text = prev(trigger).querySelector('code[class^="language-"]').textContent;
-              } else {
-                text = prev(trigger).querySelector('code').textContent;
-              }
-
-              return text.replace(/^\$\s/gm, '');
-            }
-          });
-
-          var inPre;
-          clip.on('success', function (e) {
-            e.clearSelection();
-            inPre = prop(e.trigger.parentNode, 'tagName') == 'PRE';
-            e.trigger.setAttribute('aria-label', 'Copied to clipboard!');
-            e.trigger.classList.add('tooltipped');
-            e.trigger.classList.add('tooltipped-w');
-          });
-
-          clip.on('error', function (e) {
-            inPre = prop(e.trigger.parentNode, 'tagName') == 'PRE';
-            e.trigger.setAttribute('aria-label', e.action.toString());
-            e.trigger.classList.add('tooltipped');
-            e.trigger.classList.add('tooltipped-w');
-          });
-
-          clipInit = true;
-        }
-
-        var notAllowedClass = ['language-mermaid', 'language-viz', 'language-wave', 'language-chart', 'language-msc', 'language-flowchart'];
-        var isNotAllowedIncluded = false;
-        var curClassName = code.getAttribute('class');
-
-        for (var i = 0; i < notAllowedClass.length; i++) {
-          if (curClassName && curClassName.startsWith(notAllowedClass[i])) {
-            isNotAllowedIncluded = true;
-            break;
-          }
-        }
-
-        if (!isNotAllowedIncluded) {
-          if (curClassName) {
-            var newClipboardElem = document.createElement('span');
-            newClipboardElem.setAttribute('class', 'copy-to-clipboard');
-            newClipboardElem.setAttribute('title', 'Copy to clipboard');
-            elem.parentNode.parentNode.insertBefore(newClipboardElem, elem.parentNode.nextElementSibling);
-          }
-        }
-      }
-    }
-
-    var makeSymbolClipboard = function(elem) {
-      var clipboardSpan = document.createElement('span');
-      clipboardSpan.setAttribute('class', 'copy-to-clipboard');
-      clipboardSpan.setAttribute('title', 'Copy to clipboard');
-      elem.parentNode.parentNode.insertBefore(clipboardSpan, elem.parentNode.nextElementSibling);
-    }
-
-    preChromaElem ? 
-    preChromaElem.forEach(function(elem) {
-      elem.querySelectorAll('code').forEach(function(codeElem) {
-        makeClipboard(codeElem);
-      });
-    }) : null;
-    
-    langCodeElem ? 
-    langCodeElem.forEach(function(elem) {
-      elem.querySelectorAll('code').forEach(function (codeElem) {
-        makeClipboard(codeElem);
-      });
-    }) : null;
-
-    dollarCodeElem ? 
-    dollarCodeElem.forEach(function(elem) {
-      elem.querySelectorAll('code').forEach(function (codeElem) {
-        makeSymbolClipboard(codeElem);
-      });
-    }) : null;
-
-    gtCodeElem ?
-    gtCodeElem.forEach(function(elem) {
-      elem.querySelectorAll('code').forEach(function (codeElem) {
-        makeSymbolClipboard(codeElem);
-      });
-    }) : null;
-    // =================================================================
-
-
-    // ================ codeblock line number to symbol ================
-    dollarCodeElem ?
-    dollarCodeElem.forEach(function(elem) {
-      var lnts = elem.parentNode.parentNode ? elem.parentNode.parentNode.querySelectorAll('.lnt') : null;
-      lnts ? 
-      lnts.forEach(function(lnt) {
-        lnt.innerHTML = '$<br/>';
-      }) : null;
-    }) : null;
-
-    gtCodeElem ?
-    gtCodeElem.forEach(function(elem) {
-      var lnts = elem.parentNode.parentNode ? elem.parentNode.parentNode.querySelectorAll('.lnt') : null;
-      lnts ? 
-      lnts.forEach(function(lnt) {
-        lnt.innerHTML = '><br/>';
-      }) : null;
-    }) : null;
-    // =================================================================
-
 
     // ============================ mermaid ============================
     {{ $lib := .Params.libraries }}
@@ -524,6 +332,7 @@
       });
     }
     // =================================================================
+
     
 
     // ============================= katex =============================
@@ -541,6 +350,7 @@
       renderMathInElement(document.querySelector('.single__contents'), options);
     }
     // =================================================================
+
 
 
     // ========================= flowchart.js ==========================
@@ -568,12 +378,14 @@
     }
     // =================================================================
 
+    
 
     // ============================ mathjax ============================
     document.querySelectorAll("mjx-container").forEach(function (x) {
       x.parentElement.classList += 'has-jax'
     });
     // =================================================================
+
 
 
     // ====================== js-sequence-diagram ======================
@@ -597,6 +409,7 @@
       });
     }
     // =================================================================
+
 
 
     // =========================== chart.js ============================
@@ -640,6 +453,7 @@
     // =================================================================
 
 
+
     // =========================== wavedrom ============================
     if (lib && lib.includes('wavedrom')) {
       var wavePrefix = "language-wave";
@@ -660,6 +474,7 @@
       });
     }
     // =================================================================
+
 
 
     // ========================== viz diagram ==========================
