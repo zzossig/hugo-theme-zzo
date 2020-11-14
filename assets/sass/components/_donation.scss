@@ -120,6 +120,42 @@
           background-color: #25D366;
         }
       }
+      &[data-name="pocket"] {
+        color: white;
+        @include on-event {
+          background-color: #EF3F56;
+        }
+      }
+      &[data-name="feedly"] {
+        color: white;
+        @include on-event {
+          background-color: #2BB24C;
+        }
+      }
+      &[data-name="hatena"] {
+        color: white;
+        @include on-event {
+          background-color: #00A4DE;
+        }
+      }
+      &[data-name="pinterest"] {
+        color: white;
+        @include on-event {
+          background-color: #BD081C;
+        }
+      }
+      &[data-name="delicious"] {
+        color: white;
+        @include on-event {
+          background-color: #3399FF;
+        }
+      }
+      &[data-name="google"] {
+        color: white;
+        @include on-event {
+          background-color: #4285F4;
+        }
+      }
 
       @include transition(transform, 0.15s, ease-in);
       @include on-event {
