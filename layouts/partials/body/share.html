@@ -47,6 +47,30 @@
         <a href="https://web.whatsapp.com/send?text={{ $ctx.Title }} - {{ $ctx.Permalink | absLangURL }}" data-href="{{ $ctx.Permalink | absLangURL }}" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "WhatsApp" }}" aria-label="WhatsApp Share Button" data-type="share">
           {{ partial "svgs/social/whatsapp.svg" (dict "width" 35 "height" 35) }}
         </a>
+      {{ else if eq (lower .name) "pocket" }}
+        <a href="https://getpocket.com/save?url={{ $ctx.Permalink | absLangURL }}" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "Pocket" }}" aria-label="Pocket Share Button" data-type="share">
+          {{ partial "svgs/share/pocket.svg" (dict "width" 35 "height" 35) }}
+        </a>
+      {{ else if eq (lower .name) "feedly" }}
+        <a href="https://feedly.com/i/subscription/feed/{{ .Permalink | absLangURL }}index.xml" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "Feedly" }}" aria-label="Feedly Share Button" data-type="share">
+          {{ partial "svgs/share/feedly.svg" (dict "width" 35 "height" 35) }}
+        </a>
+      {{ else if eq (lower .name) "hatena" }}
+        <a href="https://b.hatena.ne.jp/entry/panel/?btitle={{ $ctx.Title }}&url={{ $ctx.Permalink | absLangURL }}" title="{{ i18n "Hatena Blog" | default "Hatena Blog" }}" aria-label="Hatena Blog Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
+          {{ partial "svgs/share/hatena.svg" (dict "width" 35 "height" 35) }}
+        </a>
+      {{ else if eq (lower .name) "pinterest" }}
+        <a href="http://www.pinterest.com/pin/create/button/?url={{ $ctx.Permalink | absLangURL }}{{ if $.Param "featured_image" }}&media={{ (print "images/" ($.Param "featured_image")) | absURL }}{{ else if $.Param "image" }}&media={{ $.Param "image" | absURL }}{{end}}&description={{ $ctx.Description }}" title="{{ i18n "Pinterest" | default "Pinterest" }}" aria-label="Pinterest Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
+          {{ partial "svgs/share/pinterest.svg" (dict "width" 35 "height" 35) }}
+        </a>
+      {{ else if eq (lower .name) "delicious" }}
+        <a href="http://www.delicious.com/save?url={{ $ctx.Permalink | absLangURL }}&title={{ $ctx.Title }}" title="{{ i18n "Delicious" | default "Delicious" }}" aria-label="Delicious Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
+          {{ partial "svgs/share/delicious.svg" (dict "width" 35 "height" 35) }}
+        </a>
+      {{ else if eq (lower .name) "google" }}
+        <a href="https://www.google.com/bookmarks/mark?op=add&bkmk={{ $ctx.Permalink | absLangURL }}&title={{ $ctx.Title }}" title="{{ i18n "Google Bookmark" | default "Google Bookmark" }}" aria-label="Google Bookmark Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
+          {{ partial "svgs/share/google.svg" (dict "width" 35 "height" 35) }}
+        </a>
       {{ end }}
     {{ end }}
   </div>
