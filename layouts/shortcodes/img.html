@@ -1,8 +1,12 @@
-{{ $base := (findRE "/[a-zA-Z0-9_]+/" .Site.BaseURL | default "/") }}
-{{ if or (eq (.Get "lazy") false) (eq (.Get "lazy") "false") }}
 <figure {{ with .Get "class" }}class="{{ . }}" {{ end }}>
   {{ with .Get "link"}}<a href="{{ . }}">{{ end }}
-    <img src="{{ if eq $base "/" }}{{ .Get "src" }}{{ else }}{{ delimit $base "" }}{{ substr (.Get "src") 1 }}{{ end }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} style="width:{{ .Get "width" }};height:{{ .Get "height" }};"/>
+  
+  {{ if or (eq (.Get "lazy") false) (eq (.Get "lazy") "false") }}
+    <img src="{{ .Get "src" | relURL }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} style="width:{{ .Get "width" }};height:{{ .Get "height" }};"/>
+  {{ else }}
+    <img data-src="{{ .Get "src" | relURL }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} data-caption="{{ .Get "caption" }}" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='{{ if .Get "width" }}{{ .Get "width" }}{{ else }}{{ end }}' height='{{ if .Get "height" }}{{ .Get "height" }}{{ else }}{{ end }}' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload" style="width:{{ .Get "width" }};height:{{ .Get "height" }};"/>
+  {{ end }}
+
   {{ if .Get "link"}}</a>{{ end }}
   {{ if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
     <figcaption style="text-align: {{ with .Get "position" }}{{ . }};{{ end }}">{{ if isset .Params "title" }}
@@ -16,21 +20,3 @@
     </figcaption>
   {{ end }}
 </figure>
-{{ else }}
-<figure {{ with .Get "class" }}class="{{ . }}" {{ end }}>
-  {{ with .Get "link"}}<a href="{{ . }}">{{ end }}
-    <img data-src="{{ if eq $base "/" }}{{ .Get "src" }}{{ else }}{{ delimit $base "" }}{{ substr (.Get "src") 1 }}{{ end }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} data-caption="{{ .Get "caption" }}" src="data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='{{ if .Get "width" }}{{ .Get "width" }}{{ else }}{{ end }}' height='{{ if .Get "height" }}{{ .Get "height" }}{{ else }}{{ end }}' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3Cpath fill='%23aaa' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-2.35 3.02-1.56-1.88c-.2-.25-.58-.24-.78.01l-1.74 2.23c-.26.33-.02.81.39.81h8.98c.41 0 .65-.47.4-.8l-2.55-3.39c-.19-.26-.59-.26-.79 0z'/%3E%3C/svg%3E" class="lazyload" style="width:{{ .Get "width" }};height:{{ .Get "height" }};"/>
-    {{ if .Get "link"}}</a>{{ end }}
-  {{ if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
-    <figcaption style="text-align: {{ with .Get "position" }}{{ . }};{{ end }}">{{ if isset .Params "title" }}
-    <strong>{{ .Get "title" }}</strong>:{{ end }}
-    {{ if or (.Get "caption") (.Get "attr")}}
-    {{ .Get "caption" }}
-    {{ with .Get "attrlink"}}<a href="{{ . }}"> {{ end }}
-      {{ .Get "attr" }}
-      {{ if .Get "attrlink"}}</a> {{ end }}
-    {{ end }}
-  </figcaption>
-  {{ end }}
-</figure>
-{{ end }}
