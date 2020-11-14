@@ -47,28 +47,28 @@
       if (obj.publishDate) {
         var dateSpan = document.createElement('span');
         dateSpan.className = 'caption pub__meta';
-        dateSpan.innerText = '📅 ' + obj.publishDate.slice(0, 10);
+        dateSpan.innerText = '{{ ($.Site.Params.writtenTimeIcon | safeHTML) | default "📅" }} ' + obj.publishDate.slice(0, 10);
         metaDiv.appendChild(dateSpan);
       }
 
       if (obj.authors) {
         var authorsSpan = document.createElement('span');
         authorsSpan.className = 'caption pub__meta';
-        authorsSpan.innerText = '✍️ ' + obj.authors.toString();
+        authorsSpan.innerText = '{{ ($.Site.Params.authorIcon | safeHTML) | default "✍️" }} ' + obj.authors.toString();
         metaDiv.appendChild(authorsSpan);
       }
 
       if (obj.publication) {
         var pubSpan = document.createElement('span');
         pubSpan.className = 'caption pub__meta';
-        pubSpan.innerText = '📚 ' + obj.publication;
+        pubSpan.innerText = '{{ ($.Site.Params.publicationIcon | safeHTML) | default "📚" }} ' + obj.publication;
         metaDiv.appendChild(pubSpan);
       }
 
       if (obj.ENTRYTYPE) {
         var typeSpan = document.createElement('span');
         typeSpan.className = 'caption pub__meta';
-        typeSpan.innerText = '🎯 ' + obj.ENTRYTYPE;
+        typeSpan.innerText = '{{ ($.Site.Params.typeIcon | safeHTML) | default "🎯" }} ' + obj.ENTRYTYPE;
         metaDiv.appendChild(typeSpan);
       }
 
@@ -76,7 +76,7 @@
       if (obj.tags && obj.tags.length) {
         tagsUl = document.createElement('ul');
         tagsUl.setAttribute('class', 'pub__tags caption');
-        tagsUl.innerHTML = '&nbsp;🏷️';
+        tagsUl.innerHTML = '&nbsp;{{ ($.Site.Params.tagIcon | safeHTML) | default "🏷️" }}';
 
         for (var i = 0; i < obj.tags.length; i++) {
           var tagLi = document.createElement('li');
@@ -147,28 +147,28 @@
           if (obj.item.publishDate) {
             var dateSpan = document.createElement('span');
             dateSpan.className = 'caption pub__meta';
-            dateSpan.innerText = '📅 ' + obj.item.publishDate.slice(0, 10);
+            dateSpan.innerText = '{{ ($.Site.Params.writtenTimeIcon | safeHTML) | default "📅" }} ' + obj.item.publishDate.slice(0, 10);
             metaDiv.appendChild(dateSpan);
           }
 
           if (obj.item.authors) {
             var authorsSpan = document.createElement('span');
             authorsSpan.className = 'caption pub__meta';
-            authorsSpan.innerText = '✍️ ' + obj.item.authors.toString();
+            authorsSpan.innerText = '{{ ($.Site.Params.authorIcon | safeHTML) | default "✍️" }} ' + obj.item.authors.toString();
             metaDiv.appendChild(authorsSpan);
           }
 
           if (obj.item.publication) {
             var pubSpan = document.createElement('span');
             pubSpan.className = 'caption pub__meta';
-            pubSpan.innerText = '📚 ' + obj.item.publication;
+            pubSpan.innerText = '{{ ($.Site.Params.publicationIcon | safeHTML) | default "📚" }} ' + obj.item.publication;
             metaDiv.appendChild(pubSpan);
           }
 
           if (obj.item.ENTRYTYPE) {
             var typeSpan = document.createElement('span');
             typeSpan.className = 'caption pub__meta';
-            typeSpan.innerText = '🎯 ' + obj.item.ENTRYTYPE;
+            typeSpan.innerText = '{{ ($.Site.Params.typeIcon | safeHTML) | default "🎯" }} ' + obj.item.ENTRYTYPE;
             metaDiv.appendChild(typeSpan);
           }
           
@@ -176,7 +176,7 @@
           if (obj.item.tags && obj.item.tags.length) {
             tagsUl = document.createElement('ul');
             tagsUl.setAttribute('class', 'pub__tags caption');
-            tagsUl.innerHTML = '&nbsp;🏷️';
+            tagsUl.innerHTML = '&nbsp;{{ ($.Site.Params.tagIcon | safeHTML) | default "🏷️" }}';
 
             for (var j = 0; j < obj.item.tags.length; j++) {
               var tagLi = document.createElement('li');

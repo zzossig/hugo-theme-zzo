@@ -45,6 +45,14 @@ paginateWindow = 1
 talksPaginate = 5
 talksGroupByDate = "2006"
 pubPaginate = 20
+writtenTimeIcon = "📅"
+modifiedTimeIcon = "📝"
+readingTimeIcon = "☕"
+authorIcon = "✍️"
+pagePvIcon = "👀"
+tagIcon = "🏷️"
+publicationIcon = "📚"
+typeIcon = "🎯"
 
 # whoami
 myname = "zzossig"
