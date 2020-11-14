@@ -17,15 +17,15 @@
 
     <div class="summary-classic__content">
       <header>
-        <h5 class="title h5"><a href='{{ .Permalink }}'>{{- with .Params.pinned -}}📌&nbsp;{{- end -}}{{ .Title }}</a> </h5>
+        <h5 class="title h5"><a href='{{ .Permalink }}'>{{- with .Params.pinned -}}{{ ($.Site.Params.pinIcon | safeHTML) | default "📌" }}&nbsp;{{- end -}}{{ .Title }}</a> </h5>
         <h6 class="subtitle caption">
-          <time title="{{ i18n "tooltip-written" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">📅&nbsp;{{ .Date.Format (i18n "summary-dateformat") }} </time>
+          <time title="{{ i18n "tooltip-written" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ ($.Site.Params.writtenTimeIcon | safeHTML) | default "📅" }}&nbsp;{{ .Date.Format (i18n "summary-dateformat") }} </time>
           {{ if ne (.Date.Format (i18n "summary-dateformat")) (.Lastmod.Format (i18n "summary-dateformat")) }}
-          <time title="{{ i18n "tooltip-modified" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}"> &middot; 📝&nbsp;{{ .Lastmod.Format (i18n "summary-dateformat") }} </time>
+          <time title="{{ i18n "tooltip-modified" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}"> &middot; {{ ($.Site.Params.modifiedTimeIcon | safeHTML) | default "📝" }}&nbsp;{{ .Lastmod.Format (i18n "summary-dateformat") }} </time>
           {{ end }}
-          <span title="{{ i18n "tooltip-reading-time" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}"> &middot; ☕&nbsp;{{ .ReadingTime }}&nbsp;{{ i18n "reading-time" }} </span>
+          <span title="{{ i18n "tooltip-reading-time" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}"> &middot; {{ ($.Site.Params.readingTimeIcon | safeHTML) | default "☕" }}&nbsp;{{ .ReadingTime }}&nbsp;{{ i18n "reading-time" }} </span>
           {{ with $.Param "author" }}
-          &middot; <span title="{{ i18n "single-writtenBy" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ if $.Param "authorEmoji" }}{{ $.Param "authorEmoji" }}{{ else }}✍️{{ end }}&nbsp;{{ . }}</span>
+          &middot; <span title="{{ i18n "single-writtenBy" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ if $.Param "authorEmoji" }}{{ $.Param "authorEmoji" }}{{ else }}{{ ($.Site.Params.authorIcon | safeHTML) | default "✍️" }}{{ end }}&nbsp;{{ . }}</span>
           {{ end }}
         </h6>
       </header>
