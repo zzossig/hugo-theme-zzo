@@ -1,0 +1,119 @@
+[search-placeholder]
+other = "検索"
+
+[summary-dateformat]
+other = "2006/1/2"
+
+[reading-time]
+other = "分で読めます"
+
+[tags]
+other = "タグ"
+
+[categories]
+other = "カテゴリ"
+
+[series]
+other = "連載"
+
+[archive-dateformat]
+other = "1/2"
+
+[talks-dateformat]
+other = "1/2"
+
+[single-dateformat]
+other = "2006/1/2"
+
+[pub-dateformat]
+other = "2006/01/02"
+
+[resume-dateformat]
+other = "2006年1月"
+
+[single-related]
+other = "関連記事"
+
+[single-writtenBy]
+other = "著者"
+
+[toc-label]
+other = "目次"
+
+[counter-site-pv]
+other = "サイト閲覧数"
+
+[counter-site-uv]
+other = "訪問者数"
+
+[counter-page-pv]
+other = "ページ閲覧数"
+
+[donate-message]
+other = "著者をサポート"
+
+[share-message]
+other = "共有"
+
+[contact-name]
+other = "名前"
+
+[contact-email]
+other = "Eメール"
+
+[contact-tel]
+other = "電話番号"
+
+[contact-file]
+other = "ファイル"
+
+[contact-message]
+other = "メッセージ"
+
+[contact-send]
+other = "送信"
+
+[contact-browse]
+other = "ブラウズ"
+
+[tooltip-home]
+other = "ホーム"
+
+[tooltip-written]
+other = "作成日"
+
+[tooltip-modified]
+other = "編集日"
+
+[tooltip-reading-time]
+other = "読了時間"
+
+[showcase-overview]
+other = "概要"
+
+[showcase-pinned]
+other = "ピン留め"
+
+[nojs-message]
+other = "JavaScriptを有効にしてください"
+
+[posts-by-order]
+other = "人気記事"
+
+[skin-dark]
+other = "dark"
+
+[skin-light]
+other = "light"
+
+[skin-hacker]
+other = "hacker"
+
+[skin-solarized]
+other = "solarized"
+
+[skin-kimbie]
+other = "kimbie"
+
+[no-contents]
+other = "コンテンツがありません"
