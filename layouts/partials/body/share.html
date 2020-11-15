@@ -16,43 +16,43 @@
           {{ partial "svgs/share/twitter.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "reddit" }}
-        <a href="https://www.reddit.com/submit?url={{ $ctx.Permalink | absLangURL }}&amp;title={{ $ctx.Title }}" target="_blank" rel="noreferer" title="{{ i18n "reddit" | default "Reddit" }}" aria-label="Reddit Share Button" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&amp;title=' +  encodeURIComponent(document.title)); return false;" class="donation__item" data-type="share">
+        <a href="https://www.reddit.com/submit?url={{ $ctx.Permalink | absLangURL }}&amp;title={{ $ctx.Title }}" target="_blank" rel="noreferrer" title="{{ i18n "reddit" | default "Reddit" }}" aria-label="Reddit Share Button" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&amp;title=' +  encodeURIComponent(document.title)); return false;" class="donation__item" data-type="share">
           {{ partial "svgs/share/reddit.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "linkedin" }}
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ $ctx.Permalink | absLangURL }}&title={{ $ctx.Title }} &summary={{ $ctx.Description }}&source={{ $site.Params.Description }}" target="_blank" rel="noreferer" title="{{ i18n "linkedin" | default "LinkedIn" }}" aria-label="LinkedIn Share Button" class="donation__item" data-type="share">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ $ctx.Permalink | absLangURL }}&title={{ $ctx.Title }} &summary={{ $ctx.Description }}&source={{ $site.Params.Description }}" target="_blank" rel="noreferrer" title="{{ i18n "linkedin" | default "LinkedIn" }}" aria-label="LinkedIn Share Button" class="donation__item" data-type="share">
           {{ partial "svgs/share/linkedin.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "tumblr" }}
-        <a href="http://tumblr.com/widgets/share/tool?canonicalUrl={{ $ctx.Permalink | absLangURL }}&data-title={{ $ctx.Title }}&data-content={{ $ctx.Description }}" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "tumblr" | default "Tumblr" }}" aria-label="Tumblr Share Button" data-type="share">
+        <a href="http://tumblr.com/widgets/share/tool?canonicalUrl={{ $ctx.Permalink | absLangURL }}&data-title={{ $ctx.Title }}&data-content={{ $ctx.Description }}" class="donation__item" target="_blank" rel="noreferrer" title="{{ i18n "tumblr" | default "Tumblr" }}" aria-label="Tumblr Share Button" data-type="share">
           {{ partial "svgs/share/tumblr.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "weibo" }}
-        <a href="javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://service.weibo.com/share/share.php?url='+e(d.location.href)+'&title='+e(d.title),x=function(){if(!window.open(r,'weibo','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r+'&r=1'};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "weibo" | default "Weibo" }}" aria-label="Weibo Share Button" data-type="share">
+        <a href="javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://service.weibo.com/share/share.php?url='+e(d.location.href)+'&title='+e(d.title),x=function(){if(!window.open(r,'weibo','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r+'&r=1'};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()" class="donation__item" target="_blank" rel="noreferrer" title="{{ i18n "weibo" | default "Weibo" }}" aria-label="Weibo Share Button" data-type="share">
           {{ partial "svgs/share/weibo.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "douban" }}
-        <a href="javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='https://www.douban.com/recommend/?url='+e(d.location.href)+'&title='+e(d.title)+'&sel='+e(s)+'&v=1',w=450,h=330,x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width='+w+',height='+h+',left='+(screen.width-w)/2+',top='+(screen.height-h)/2))location.href=r+'&r=1'};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "douban" | default "Douban" }}" aria-label="Douban Share Button" data-type="share">
+        <a href="javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='https://www.douban.com/recommend/?url='+e(d.location.href)+'&title='+e(d.title)+'&sel='+e(s)+'&v=1',w=450,h=330,x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width='+w+',height='+h+',left='+(screen.width-w)/2+',top='+(screen.height-h)/2))location.href=r+'&r=1'};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()" class="donation__item" target="_blank" rel="noreferrer" title="{{ i18n "douban" | default "Douban" }}" aria-label="Douban Share Button" data-type="share">
           {{ partial "svgs/share/douban.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "line" }}
-        <a href="https://social-plugins.line.me/lineit/share?url={{ $ctx.Permalink | absLangURL }}" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "Line" }}" aria-label="Line Share Button" data-type="share">
+        <a href="https://social-plugins.line.me/lineit/share?url={{ $ctx.Permalink | absLangURL }}" class="donation__item" target="_blank" rel="noreferrer" title="{{ i18n "line" | default "Line" }}" aria-label="Line Share Button" data-type="share">
           {{ partial "svgs/share/line.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "telegram" }}
-        <a href='https://telegram.me/share/url?url=' onclick='window.open(&apos;https://telegram.me/share/url?url=&apos;+encodeURIComponent(location.href)+&apos;&amp;bodytext=&amp;tags=&amp;text=&apos;+encodeURIComponent(document.title));return false;' class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "Telegram" }}" aria-label="Telegram Share Button" data-type="share">
+        <a href='https://telegram.me/share/url?url=' onclick='window.open(&apos;https://telegram.me/share/url?url=&apos;+encodeURIComponent(location.href)+&apos;&amp;bodytext=&amp;tags=&amp;text=&apos;+encodeURIComponent(document.title));return false;' class="donation__item" target="_blank" rel="noreferrer" title="{{ i18n "line" | default "Telegram" }}" aria-label="Telegram Share Button" data-type="share">
           {{ partial "svgs/social/telegram.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "whatsapp" }}
-        <a href="https://web.whatsapp.com/send?text={{ $ctx.Title }} - {{ $ctx.Permalink | absLangURL }}" data-href="{{ $ctx.Permalink | absLangURL }}" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "WhatsApp" }}" aria-label="WhatsApp Share Button" data-type="share">
+        <a href="https://web.whatsapp.com/send?text={{ $ctx.Title }} - {{ $ctx.Permalink | absLangURL }}" data-href="{{ $ctx.Permalink | absLangURL }}" class="donation__item" target="_blank" rel="noreferrer" title="{{ i18n "line" | default "WhatsApp" }}" aria-label="WhatsApp Share Button" data-type="share">
           {{ partial "svgs/social/whatsapp.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "pocket" }}
-        <a href="https://getpocket.com/save?url={{ $ctx.Permalink | absLangURL }}" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "Pocket" }}" aria-label="Pocket Share Button" data-type="share">
+        <a href="https://getpocket.com/save?url={{ $ctx.Permalink | absLangURL }}" class="donation__item" target="_blank" rel="noreferrer" title="{{ i18n "line" | default "Pocket" }}" aria-label="Pocket Share Button" data-type="share">
           {{ partial "svgs/share/pocket.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "feedly" }}
-        <a href="https://feedly.com/i/subscription/feed/{{ .Permalink | absLangURL }}index.xml" class="donation__item" target="_blank" rel="noreferer" title="{{ i18n "line" | default "Feedly" }}" aria-label="Feedly Share Button" data-type="share">
+        <a href="https://feedly.com/i/subscription/feed/{{ .Permalink | absLangURL }}index.xml" class="donation__item" target="_blank" rel="noreferrer" title="{{ i18n "line" | default "Feedly" }}" aria-label="Feedly Share Button" data-type="share">
           {{ partial "svgs/share/feedly.svg" (dict "width" 35 "height" 35) }}
         </a>
       {{ else if eq (lower .name) "hatena" }}
