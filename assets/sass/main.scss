@@ -82,6 +82,7 @@ $viewport_size: {{ .Site.Params.viewportSize | default "normal" }};
 @import 'components/button';
 @import 'components/featuredImage';
 @import 'components/comment';
+@import 'components/affeliate';
 
 @import 'pages/404';
 @import 'pages/about';

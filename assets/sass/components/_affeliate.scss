@@ -1,0 +1,124 @@
+.affeliate {
+  word-break: keep-all;
+  padding: 0.5rem;
+  margin: 2.5rem 0;
+  border-radius: 0.5rem;
+  position: relative;
+  display: flex;
+
+  @include themify($themes) {
+    border: 1px solid themed('content-box-border-color');
+    background-color: themed('content-box-background-color');
+  }
+
+  &__imgwrapper {
+      width: 25%;
+      text-align: center;
+      margin: 0 auto;
+      padding: .5rem;
+  }
+  &__image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+  }
+  &__body {
+      width: 75%;
+      text-align: center;
+      &__title {
+	  font-family: $title-font;
+	  font-size: 1rem;
+	  font-weight: bold;
+      }
+      &__description {
+	  font-size: 0.75rem;
+      }
+  }
+
+  &__icons {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-wrap(wrap);
+    margin: 0.5rem 0;
+
+    a {
+      text-decoration: none !important;
+    }
+  }
+
+  &__item {
+    font-family: $title-font;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    margin: 0.25rem;
+    text-transform: capitalize;
+
+    @include flexbox();
+    @include align-items(center);
+
+    &[data-type="affeliate"] {
+      svg {
+        @include themify($themes) {
+          color: themed('share-color');
+          background-color: themed('share-background-color');
+          @include box-shadow(1px, 1px, 3px, 0, themed('share-shadow-color'));
+        }
+      }
+    }
+
+    svg {
+      padding: 0.375rem;
+      border-radius: 0.25rem;
+      margin-right: 0.25rem;
+
+      &[data-name="amazon"] {
+        color: white;
+        @include on-event {
+          background-color: #FF9900;
+        }
+      }
+      &[data-name="rakuten"] {
+        color: white;
+        @include on-event {
+          background-color: #BF0000;
+        }
+      }
+      &[data-name="yahoojp"] {
+        color: white;
+        @include on-event {
+          background-color: #FF0132;
+        }
+      }
+      &[data-name="gmarket"] {
+        color: white;
+        @include on-event {
+          background-color: #48AC4A;
+        }
+      }
+      &[data-name="link"] {
+        color: white;
+        @include on-event {
+          background-color: #00457C;
+        }
+      }
+
+      @include transition(transform, 0.15s, ease-in);
+      @include on-event {
+        @include translateY(-0.25rem);
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+      display: block;
+
+      &__imgwrapper {
+	  width: 60%;
+      }
+      &__body {
+	  width: 100%;
+      }
+  }
+}
