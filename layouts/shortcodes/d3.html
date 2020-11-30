@@ -1,0 +1,21 @@
+{{ $scriptPath := (.Get "script") }}
+{{ $stylePath := (.Get "style") }}
+
+<div class="d3-container">{{ .Inner }}</div>
+<link rel="stylesheet" href="{{ $stylePath }}">
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var scriptPath = JSON.parse({{ $scriptPath | jsonify }});
+    var stylePath = JSON.parse({{ $stylePath | jsonify }});
+
+    var myScript = document.createElement('script');
+    myScript.setAttribute('src', scriptPath);
+    myScript.setAttribute('defer', '');
+    myScript.setAttribute('crossorigin', 'anonymous');
+    myScript.onload = function () {
+    }
+
+    document.querySelector('.d3-container').appendChild(myScript);
+  });
+</script>

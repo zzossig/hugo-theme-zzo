@@ -64,7 +64,6 @@
 
 
 
-
 # css
 [css.katex]
   sri = "sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung="
@@ -106,3 +105,135 @@
 [reveal.plugin.highlight]
   sri = "sha256-ZksQEvQYWeyyAZ67Oi6Ob1eLnb1IpmIV+IGstqKyxgw="
   url = "https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/plugin/highlight/highlight.js"
+
+
+
+
+# d3
+[d3.d3]
+  sri = "sha256-AFWyORP4OXUzC8rHTpEW7fyXtxg94+ZzivnZiTb1NDg="
+  url = "https://cdn.jsdelivr.net/npm/d3@6.2.0/dist/d3.min.js"
+
+[d3.d3_hierarchy]
+  sri = "sha256-dtbU7jTXuLCRWKGtvdkLY4rxF99K2+QiaitwZUad724="
+  url = "https://cdn.jsdelivr.net/npm/d3-hierarchy@2.0.0/dist/d3-hierarchy.min.js"
+
+[d3.d3_chord]
+  sri = "sha256-U9vN3je/JFBbIylxi6a0QQTD7G7NhTaPjzKy+26VV04="
+  url = "https://cdn.jsdelivr.net/npm/d3-chord@2.0.0/dist/d3-chord.min.js"
+
+[d3.d3_scale]
+  sri = "sha256-cPuRiIDVnHuoqntmS4c3g5fiOYUaGlFSrd8JQyNiQ/0="
+  url = "https://cdn.jsdelivr.net/npm/d3-scale@3.2.3/dist/d3-scale.min.js"
+
+[d3.d3_array]
+  sri = "sha256-LElbjahQVyLc02LK/jxcL9XB+pduNfeqI/hzsoahmpU="
+  url = "https://cdn.jsdelivr.net/npm/d3-array@2.8.0/dist/d3-array.min.js"
+
+[d3.d3_time]
+  sri = "sha256-eh+F/na1O1TKgtP2hS7Hn+WRcVR4vTXNIsM9ooGx/+g="
+  url = "https://cdn.jsdelivr.net/npm/d3-time@2.0.0/dist/d3-time.min.js"
+
+[d3.d3_color]
+  sri = "sha256-q6AewSdFihb0Ivx9H/OYYrakVi32V28/YaBsx6WsOy4="
+  url = "https://cdn.jsdelivr.net/npm/d3-color@2.0.0/dist/d3-color.min.js"
+
+[d3.d3_interpolate]
+  sri = "sha256-P1W6DCrxw4sXLNcLfzvgNYbvt1wRmBDKxqI/W1Mdg="
+  url = "https://cdn.jsdelivr.net/npm/d3-interpolate@2.0.1/dist/d3-interpolate.min.js"
+
+[d3.d3_format]
+  sri = "sha256-AKzQvR0TkyTa3c1ysXFHHqOXD0c62Qilf8nhN0uJgFQ="
+  url = "https://cdn.jsdelivr.net/npm/d3-format@2.0.0/dist/d3-format.min.js"
+
+[d3.d3_shape]
+  sri = "sha256-9B5EThAf6dtMdM6i6Bk+RdVuCT9utGs93tZk6XddosA="
+  url = "https://cdn.jsdelivr.net/npm/d3-shape@2.0.0/dist/d3-shape.min.js"
+
+[d3.d3_time_format]
+  sri = "sha256-Z+x3KiVqFtiMKtrqiIrrcTlUyd+47J/dx+QWYVApQes="
+  url = "https://cdn.jsdelivr.net/npm/d3-time-format@3.0.0/dist/d3-time-format.min.js"
+
+[d3.d3_geo]
+  sri = "sha256-xZWdUp5Za2GR50z6oa3h3lgnmGLklpZNbQJ1adTKiw8="
+  url = "https://cdn.jsdelivr.net/npm/d3-geo@2.0.1/dist/d3-geo.min.js"
+
+[d3.d3_path]
+  sri = "sha256-8k9A+YNlYmtlw3dMKgBCUaz827pImA2sBqvVMDyi2cc="
+  url = "https://cdn.jsdelivr.net/npm/d3-path@2.0.0/dist/d3-path.min.js"
+
+[d3.d3_collection]
+  sri = "sha256-NCMoV+CugFd4nyewJ9N5j96ZN6LRArEp2pSjtON5fNk="
+  url = "https://cdn.jsdelivr.net/npm/d3-collection@1.0.7/dist/d3-collection.min.js"
+
+[d3.d3_timer]
+  sri = "sha256-1pmTErM5B7Vvr2jL5roQTCh/LIx6jxa1zO5IA7o96o4="
+  url = "https://cdn.jsdelivr.net/npm/d3-timer@2.0.0/dist/d3-timer.min.js"
+
+[d3.d3_ease]
+  sri = "sha256-B2rj4Zh6nUUF47NMo+6tby3yob2eIdBuj/AakAeRwSE="
+  url = "https://cdn.jsdelivr.net/npm/d3-ease@2.0.0/dist/d3-ease.min.js"
+
+[d3.d3_dispatch]
+  sri = "sha256-QmkMXTtH6RvxasB3nXUBjn9R81NP9G4OF36X2CUb8AI="
+  url = "https://cdn.jsdelivr.net/npm/d3-dispatch@2.0.0/dist/d3-dispatch.min.js"
+
+[d3.d3_selection]
+  sri = "sha256-x/Z3vkIy98JMpcyi0VizY1btggFV30l+HQUmUSSWAm8="
+  url = "https://cdn.jsdelivr.net/npm/d3-selection@2.0.0/dist/d3-selection.min.js"
+
+[d3.d3_transition]
+  sri = "sha256-QduTNttH+PA2VJSoGk5vp1OBZVrZio9yFkTSSc6Jksg="
+  url = "https://cdn.jsdelivr.net/npm/d3-transition@2.0.0/dist/d3-transition.min.js"
+
+[d3.d3_force]
+  sri = "sha256-dL14uW+TjPPEgnKDqHzomvQ8kzo+gcae/nriqIJCD5g="
+  url = "https://cdn.jsdelivr.net/npm/d3-force@2.1.1/dist/d3-force.min.js"
+
+[d3.d3_quadtree]
+  sri = "sha256-xymtd4rNxO1nVCw6cQ35vpKKF+IV2qwEfXONZyBJWZE="
+  url = "https://cdn.jsdelivr.net/npm/d3-quadtree@2.0.0/dist/d3-quadtree.min.js"
+
+[d3.d3_dsv]
+  sri = "sha256-Pr4ci/Ja/AAdfIaGS07qwCgR21oC0ohaoScBqbFD9fI="
+  url = "https://cdn.jsdelivr.net/npm/d3-dsv@2.0.0/dist/d3-dsv.min.js"
+
+[d3.d3_drag]
+  sri = "sha256-XYs7fS4WOujiXGvS/s9UpVnlelmzsS9IcWHvrnuQKg0="
+  url = "https://cdn.jsdelivr.net/npm/d3-drag@2.0.0/dist/d3-drag.min.js"
+
+[d3.d3_axis]
+  sri = "sha256-uwGy/Tx9m7TojgBRgOvMO4+FkA68ueGSSpPrBIvUTEw="
+  url = "https://cdn.jsdelivr.net/npm/d3-axis@2.0.0/dist/d3-axis.min.js"
+
+[d3.d3_random]
+  sri = "sha256-bpm9eaWv1gCHRYYx3FYdU1M8xwtIJRtCgJdfWpx1P9Q="
+  url = "https://cdn.jsdelivr.net/npm/d3-random@2.2.2/dist/d3-random.min.js"
+
+[d3.d3_scale_chromatic]
+  sri = "sha256-6j4tMdLVRyhccNbjkfHgQCTYUmR68g0v9a+MvHPd2yI="
+  url = "https://cdn.jsdelivr.net/npm/d3-scale-chromatic@2.0.0/dist/d3-scale-chromatic.min.js"
+
+[d3.d3_fetch]
+  sri = "sha256-yZPADzSS1tJycc9A8qESjci2VqVegCUVSGRCG5qSsOEhVk0="
+  url = "https://cdn.jsdelivr.net/npm/d3-fetch@2.0.0/dist/d3-fetch.min.js"
+
+[d3.d3_voronoi]
+  sri = "sha256-im0m580XGAWXKCrJBfoAJ2cjs7GKXcncAWz4LCUISEE="
+  url = "https://cdn.jsdelivr.net/npm/d3-voronoi@1.1.4/dist/d3-voronoi.min.js"
+
+[d3.d3_brush]
+  sri = "sha256-2WuoXSdR57Vd7P33a2QoHiB9Rb6aPbTCFPDNdUy8wV0="
+  url = "https://cdn.jsdelivr.net/npm/d3-brush@2.1.0/dist/d3-brush.min.js"
+
+[d3.d3_zoom]
+  sri = "sha256-kYaE50K/AOo+qwLOoR2CVq6GhzA7shguxWf1n8bfHy0="
+  url = "https://cdn.jsdelivr.net/npm/d3-zoom@2.0.0/dist/d3-zoom.min.js"
+
+[d3.d3_polygon]
+  sri = "sha256-hj6CABB+QH7MENztFRi2oM/iq3qkpUBeTQNjfL84EaE="
+  url = "https://cdn.jsdelivr.net/npm/d3-polygon@2.0.0/dist/d3-polygon.min.js"
+
+[d3.d3_contour]
+  sri = "sha256-i10ISq4/JP3k0HZE8gqbakhgaOjQKWn0Pm8oBUUwqNQ="
+  url = "https://cdn.jsdelivr.net/npm/d3-contour@2.0.0/dist/d3-contour.min.js"
