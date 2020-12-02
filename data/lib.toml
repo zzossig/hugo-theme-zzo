@@ -237,3 +237,7 @@
 [d3.d3_contour]
   sri = "sha256-i10ISq4/JP3k0HZE8gqbakhgaOjQKWn0Pm8oBUUwqNQ="
   url = "https://cdn.jsdelivr.net/npm/d3-contour@2.0.0/dist/d3-contour.min.js"
+
+[d3.d3_cloud]
+  sri = "" # no sri
+  url = "https://cdn.jsdelivr.net/npm/d3-cloud@1.2.5/build/d3.layout.cloud.min.js"

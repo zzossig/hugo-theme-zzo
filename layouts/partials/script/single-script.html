@@ -109,6 +109,9 @@
 {{ if in .Params.Libraries "d3_contour" }}
   <script defer src="{{ $d3.d3_contour.url }}" integrity="{{ $d3.d3_contour.sri }}" crossorigin="anonymous"></script>
 {{ end }}
+{{ if in .Params.Libraries "d3_cloud" }}
+  <script defer src="{{ $d3.d3_cloud.url }}" integrity="{{ $d3.d3_cloud.sri }}" crossorigin="anonymous"></script>
+{{ end }}
 
 {{ if in .Params.Libraries "mermaid" }}
   <script defer src="{{ $js.mermaid.url }}" integrity="{{ $js.mermaid.sri }}" crossorigin="anonymous"></script>
