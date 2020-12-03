@@ -1,0 +1,119 @@
+[search-placeholder]
+other = "Pesquisar"
+
+[summary-dateformat]
+other = "02-01-2006"
+
+[reading-time]
+other = "min. de leitura"
+
+[tags]
+other = "Tags"
+
+[categories]
+other = "Categorias"
+
+[series]
+other = "Séries"
+
+[archive-dateformat]
+other = "02-01-2006"
+
+[talks-dateformat]
+other = "02-01-2006"
+
+[single-dateformat]
+other = "02-01-2006"
+
+[pub-dateformat]
+other = "02-01-2006"
+
+[resume-dateformat]
+other = "02-01-2006"
+
+[single-related]
+other = "Ver Também"
+
+[single-writtenBy]
+other = "Escrito por"
+
+[toc-label]
+other = "O que tem nesta página"
+
+[counter-site-pv]
+other = "Total de visualizações"
+
+[counter-site-uv]
+other = "Total de visitantes"
+
+[counter-page-pv]
+other = "visualizações"
+
+[donate-message]
+other = "Apoie o autor com"
+
+[share-message]
+other = "Compartilhar em"
+
+[contact-name]
+other = "Nome"
+
+[contact-email]
+other = "E-mail"
+
+[contact-tel]
+other = "Tel"
+
+[contact-file]
+other = "Arquivo"
+
+[contact-message]
+other = "Mensagem"
+
+[contact-send]
+other = "Enviar"
+
+[contact-browse]
+other = "Procurar"
+
+[tooltip-home]
+other = "Início"
+
+[tooltip-written]
+other = "Escrito em"
+
+[tooltip-modified]
+other = "Modificado em"
+
+[tooltip-reading-time]
+other = "Tempo de Leitura"
+
+[showcase-overview]
+other = "Resumo"
+
+[showcase-pinned]
+other = "Pinned"
+
+[nojs-message]
+other = "Esta página é melhor visualizada com o JavaScript habilitado"
+
+[posts-by-order]
+other = "Principais Publicações"
+
+[skin-dark]
+other = "dark"
+
+[skin-light]
+other = "light"
+
+[skin-hacker]
+other = "hacker"
+
+[skin-solarized]
+other = "solarized"
+
+[skin-kimbie]
+other = "kimbie"
+
+[no-contents]
+other = "Nada a ser exibido"
