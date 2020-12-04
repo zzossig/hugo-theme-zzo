@@ -21,4 +21,7 @@ jobs:
 
       - name: Run Hugo
         working-directory: exampleSite
-        run: hugo --themesDir ../..
+        run: |
+          mkdir -p themes
+          ln -s ../.. themes/zzo
+          hugo
