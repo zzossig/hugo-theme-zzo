@@ -12,6 +12,8 @@
 <script defer src="{{ $prop.RelPermalink }}"></script>
 {{ $fadeinout := resources.Get "js/helper/fadeinout.js" | resources.Minify }}
 <script defer src="{{ $fadeinout.RelPermalink }}"></script>
+{{ $throttle := resources.Get "js/helper/throttle.js" | resources.Minify }}
+<script defer src="{{ $throttle.RelPermalink }}"></script>
 
 {{ if in .Params.Libraries "d3" }}
   <script defer src="{{ $d3.d3.url }}" integrity="{{ $d3.d3.sri }}" crossorigin="anonymous"></script>
@@ -335,6 +337,23 @@
         }
       }) : null;
     }
+    // =================================================================
+    
+    
+    
+    // ======================== TOC height calc ========================
+    var topOffset = 120;
+    var botOffset = 70;
+    var handleWindowResize = function () {
+      if (tocElem) {
+        tocElem.style.maxHeight = (window.innerHeight - topOffset - botOffset) + 'px';
+      }
+    }
+    var throttledWindowResize = throttle(handleWindowResize, 300);
+    throttledWindowResize()
+
+    
+    window.addEventListener('resize', throttledWindowResize);
     // =================================================================
 
 
