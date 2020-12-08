@@ -1,110 +1,110 @@
 [search-placeholder]
-other = "buscar"
+other = "Pesquisar"
 
 [summary-dateformat]
-other = "2006-01-02"
+other = "02-01-2006"
 
 [reading-time]
-other = "minutos lectura"
+other = "min. de leitura"
 
 [tags]
-other = "Etiquetas"
+other = "Tags"
 
 [categories]
-other = "Categorías"
+other = "Categorias"
 
 [series]
-other = "Serie"
+other = "Séries"
 
 [archive-dateformat]
-other = "2015-01-21"
+other = "02-01-2006"
 
 [talks-dateformat]
-other = "2006-01-02"
+other = "02-01-2006"
 
 [single-dateformat]
-other = "2006-01-02"
+other = "02-01-2006"
 
 [pub-dateformat]
-other = "2006-01-02"
+other = "02-01-2006"
 
 [resume-dateformat]
-other = "2006-01-02"
+other = "02-01-2006"
 
 [single-related]
-other = "Ver también"
+other = "Ver Também"
 
 [single-writtenBy]
 other = "Escrito por"
 
 [toc-label]
-other = "Qué hay en esta página"
+other = "O que tem nesta página"
 
 [counter-site-pv]
-other = "Visitas totales"
+other = "Total de visualizações"
 
 [counter-site-uv]
-other = "Visitantes totales"
+other = "Total de visitantes"
 
 [counter-page-pv]
-other = "vistas"
+other = "visualizações"
 
 [donate-message]
-other = "Apoya al autor con"
+other = "Apoie o autor com"
 
 [share-message]
-other = "compartir en"
+other = "Compartilhar em"
 
 [contact-name]
-other = "Nombre"
+other = "Nome"
 
 [contact-email]
-other = "Correo electronico"
+other = "E-mail"
 
 [contact-tel]
 other = "Tel"
 
 [contact-file]
-other = "Archivo"
+other = "Arquivo"
 
 [contact-message]
-other = "Mensaje"
+other = "Mensagem"
 
 [contact-send]
 other = "Enviar"
 
 [contact-browse]
-other = "Examinar"
+other = "Procurar"
 
 [tooltip-home]
-other = "inicio"
+other = "Início"
 
 [tooltip-written]
-other = "Escrito en"
+other = "Escrito em"
 
 [tooltip-modified]
-other = "Modificado en"
+other = "Modificado em"
 
 [tooltip-reading-time]
-other = "Tiempo de lectura"
+other = "Tempo de Leitura"
 
 [showcase-overview]
-other = "Resumen"
+other = "Resumo"
 
 [showcase-pinned]
 other = "Pinned"
 
 [nojs-message]
-other = "Esta pagina se ve mejor con JavaScript habilitado"
+other = "Esta página é melhor visualizada com o JavaScript habilitado"
 
 [posts-by-order]
-other = "Publicaciones principales"
+other = "Principais Publicações"
 
 [skin-dark]
-other = "oscuro"
+other = "dark"
 
 [skin-light]
-other = "claro"
+other = "light"
 
 [skin-hacker]
 other = "hacker"
@@ -116,4 +116,4 @@ other = "solarized"
 other = "kimbie"
 
 [no-contents]
-other = "Nada que Mostrar"
+other = "Nada a ser exibido"
