@@ -1,5 +1,9 @@
-<form action={{ $.Param "redirect-after-submit" }} name="contact" method="POST" data-netlify="true" class="contact__form">
+<form action={{ $.Param "redirect-after-submit" }} name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true" class="contact__form">
   <div class="contact__input--container">
+    <div class="hide">
+      <label>Don't Fill This in If You Are Human: </label>
+      <input type="text" name="bot-field" />
+    </div>
     <div class="contact__input--wrapper">
       <label class="contact__label">
         {{ i18n "contact-name" }}
@@ -19,6 +23,11 @@
     </label>
     <textarea name="message" class="contact__message" aria-label="{{ i18n "contact-message" }}"></textarea>
   </div>
+
+  {{ if ($.Param "recaptcha") }}
+    <div data-netlify-recaptcha="true" class="contact__input--wrapper"></div>
+  {{ end }}
+  
   <input type="submit" value="{{ i18n "contact-send" }}" class="contact__send">
 </form>
 
