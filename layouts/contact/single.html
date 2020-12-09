@@ -13,6 +13,8 @@
         {{ partial "contact/formspree" . }}
       {{ else if eq .Params.service "getform" }}
         {{ partial "contact/getform" . }}
+      {{ else if eq .Params.service "netlifyform" }}
+        {{ partial "contact/netlifyform" . }}
       {{ end }}
   </div>
 </main>
