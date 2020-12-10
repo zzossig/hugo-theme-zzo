@@ -18,7 +18,7 @@ Zzo theme을 이용할 시 가장 매력적인 포인트 한가지는, 한글로
 ## Documentation
 
 영문버전 도큐먼트
-[https://zzo-docs.vercel.app/zzo](https://zzo-docs.vercel.app/zzo
+[https://zzo-docs.vercel.app/zzo](https://zzo-docs.vercel.app/zzo)
 
 ## Table of contents
 
