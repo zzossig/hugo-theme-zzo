@@ -1,7 +1,7 @@
 # js
 [js.mermaid]
-  sri = "sha256-wV/0jM5E/0V+KqyxUio2Ve5OAC/gweTTqdbnRX1fgAE="
-  url = "https://cdn.jsdelivr.net/npm/mermaid@8.4.6/dist/mermaid.min.js"
+  sri = "sha256-/+BzMP7spK5kZq/eJyTUBpewugOb45C/VbvZkziFAB4="
+  url = "https://cdn.jsdelivr.net/npm/mermaid@8.8.4/dist/mermaid.min.js"
 
 [js.katex]
   sri = "sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc="
