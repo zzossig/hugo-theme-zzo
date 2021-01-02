@@ -21,9 +21,11 @@
         {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
     
+    {{- $limit := .Site.Config.Services.RSS.Limit -}}
+
     {{ if .IsHome }}
       
-      {{ $filteredPages := .Site.RegularPages }}
+      {{ $filteredPages := .Site.RegularPages | first $limit }}
       {{ range $.Param "notAllowedTypesInHomeFeed" }}
         {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
       {{ end }}
@@ -68,7 +70,7 @@
 
     {{ else }}
 
-      {{ range .Pages }}
+      {{ range (.Pages | first $limit) }}
       <item>
         <title>{{ .Title }}</title>
         <link>{{ .Permalink }}</link>
