@@ -23,15 +23,15 @@
     padding: 0.5rem 0.75rem;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
-    
+
     @include themify($themes) {
       color: themed('navbar-title-color');
-      background-color: themed('body-background-color');
+      background-color: themed('tab-link-background-color');
       border: none;
       border-bottom: 1px solid themed('hr-color');
 
       &.active {
-        background-color: themed('body-background-color');
+        background-color: themed('tab-link-active-background-color');
         border: 1px solid themed('hr-color');
         border-bottom: none;
       }
