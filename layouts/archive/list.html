@@ -9,6 +9,7 @@
     {{ .Content }}
   </div>
 </header>
+<<<<<<< HEAD
 <main class="main archive">
   <div class="archive__container">
     {{ $filteredPages := .Site.RegularPages }}
@@ -19,6 +20,20 @@
   {{ if gt (len $filteredPages) 0 }}
     {{ $paginator := .Paginate ($filteredPages.GroupByDate ($.Param "archiveGroupByDate" | default "2006")) ($.Param "archivePaginate") }}
     {{ range ($paginator).PageGroups }}
+=======
+{{ if .Pages }}
+  <main class="main archive">
+    <div class="archive__container">
+      {{ $filteredPages := .Site.RegularPages }}
+      {{ range $.Param "notAllowedTypesInArchive" }}
+        {{ $filteredPages = (where $filteredPages "Type" "!=" (lower .)) }}
+      {{ end }}
+  
+      {{ $paginator := .Paginate ($filteredPages.GroupByDate ($.Param "archiveGroupByDate" | default "2006")) ($.Param "archivePaginate") }}
+  
+    {{ if $paginator }}
+      {{ range ($paginator).PageGroups }}
+>>>>>>> 7fcf1bc41734ab53012ec651fbd8ba9b28fd542a
       <span class="archive__key" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ .Key }}</span>
       <ul class="archive__ul" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
         {{ range .Pages }}
@@ -36,6 +51,7 @@
         </li>
         {{ end }}
       </ul>
+<<<<<<< HEAD
     {{ end }}
   {{ else }}
     {{ i18n "no-contents" | default "There is nothing to display" }}
@@ -50,3 +66,17 @@
   {{ partial "script/archive-script" . }}
 </main>
 {{ end }}
+=======
+      {{ end }}    
+    {{ end }}
+    </div>
+    <div class="grow"></div>
+    {{ partial "pagination/pagination" . }}
+    <div class="hide">
+      {{ partial "search/site-search" . }}
+    </div>
+    {{ partial "script/archive-script" . }}
+  </main>
+{{ end }}
+{{ end }}
+>>>>>>> 7fcf1bc41734ab53012ec651fbd8ba9b28fd542a
