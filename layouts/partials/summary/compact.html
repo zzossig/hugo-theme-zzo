@@ -11,11 +11,7 @@
           {{ end }} 
           <span title="{{ i18n "tooltip-reading-time" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}"> &middot; {{ ($.Site.Params.readingTimeIcon | safeHTML) | default "☕" }} {{ .ReadingTime }} {{ i18n "reading-time" }}</span>
           {{ with $params.Author }}
-<<<<<<< HEAD
-          &middot; <span title="{{ i18n "single-writtenBy" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ if $params.AuthorEmoji }}{{ $params.AuthorEmoji }}{{ else }}{{ ($.Site.Params.authorIcon | safeHTML) | default "✍️" }}{{ end }}&nbsp;{{ . }}</span>
-=======
-          &middot; <span title="{{ i18n "single-writtenBy" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ if $params.AuthorEmoji }}{{ $params.AuthorEmoji }}{{ else }}✍️{{ end }}&nbsp;{{ partial "head/author.html" . }}</span>
->>>>>>> 7fcf1bc41734ab53012ec651fbd8ba9b28fd542a
+          &middot; <span title="{{ i18n "single-writtenBy" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ if $params.AuthorEmoji }}{{ $params.AuthorEmoji }}{{ else }}{{ ($.Site.Params.authorIcon | safeHTML) | default "✍️" }}{{ end }}&nbsp;{{ partial "head/author.html" . }}</span>
           {{ end }}
         </h6>
       </header>
