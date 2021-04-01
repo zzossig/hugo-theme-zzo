@@ -530,6 +530,8 @@
     var skinSolarizedCode = JSON.parse({{ $skinSolarizedCode | jsonify }});
     {{ $skinKimbieCode := (i18n "skin-kimbie") }}
     var skinKimbieCode = JSON.parse({{ $skinKimbieCode | jsonify }});
+    {{ $skingruvCode := (i18n "skin-gruv") }}
+    var skingruvCode = JSON.parse({{ $skingruvCode | jsonify }});
 
     var setMetaColor = function(themeColor) {
       var metaMsapplicationTileColor = document.getElementsByName('msapplication-TileColor')[0];
@@ -576,6 +578,8 @@
         return 'solarized';
       } else if (themeText === skinKimbieCode) {
         return 'kimbie';
+      } else if (themeText === skingruvCode) {
+        return 'gruv';
       }
     }
     
