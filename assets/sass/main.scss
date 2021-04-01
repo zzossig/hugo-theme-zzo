@@ -14,18 +14,21 @@ $theme_dark_chroma: {{ .Site.Data.skin.theme_dark_chroma }};
 $theme_hacker_chroma: {{ .Site.Data.skin.theme_hacker_chroma }};
 $theme_solarized_chroma: {{ .Site.Data.skin.theme_solarized_chroma }};
 $theme_kimbie_chroma: {{ .Site.Data.skin.theme_kimbie_chroma }};
+$theme_gruv_chroma: {{ .Site.Data.skin.theme_gruv_chroma }};
 
 $theme_light_chroma_background: {{ .Site.Data.skin.theme_light_chroma_background }};
 $theme_dark_chroma_background: {{ .Site.Data.skin.theme_dark_chroma_background }};
 $theme_hacker_chroma_background: {{ .Site.Data.skin.theme_hacker_chroma_background }};
 $theme_solarized_chroma_background: {{ .Site.Data.skin.theme_solarized_chroma_background }};
 $theme_kimbie_chroma_background: {{ .Site.Data.skin.theme_kimbie_chroma_background }};
+$theme_gruv_chroma_background: {{ .Site.Data.skin.theme_gruv_chroma_background }};
 
 $button_dark_primary_color: {{ .Site.Data.button.dark_primary_color }};
 $button_light_primary_color: {{ .Site.Data.button.light_primary_color }};
 $button_hacker_primary_color: {{ .Site.Data.button.hacker_primary_color }};
 $button_solarized_primary_color: {{ .Site.Data.button.solarized_primary_color }};
 $button_kimbie_primary_color: {{ .Site.Data.button.kimbie_primary_color }};
+$button_gruv_primary_color: {{ .Site.Data.button.gruv_primary_color }};
 
 $title-font: {{ .Site.Data.font.title_font }};
 $content-font: {{ .Site.Data.font.content_font }};
