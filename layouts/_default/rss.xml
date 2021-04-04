@@ -8,7 +8,7 @@
   <channel>
     <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
-    <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
+    <description>{{ if .Site.Params.rssDescription }}{{ .Site.Params.rssDescription }}{{ else }}Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}{{ end }}</description>
     <generator>Hugo -- gohugo.io</generator>{{ with .Site.Language.Lang }}
     <language>{{.}}</language>{{end}}{{ with $.Site.Params.email }}
     <managingEditor>{{.}}{{ with $.Site.Params.myname }} ({{.}}){{end}}</managingEditor>{{end}}{{ with .Site.Params.email }}
