@@ -2,7 +2,11 @@
 {{- $.Scratch.Add "searchindex" slice -}}
 {{- range $index, $element := (where .Site.RegularPages "Kind" "page") -}}
   {{ with $element.Plain }}
-    {{- $.Scratch.Add "searchindex" (dict "id" $index "title" $element.Title "uri" $element.Permalink "tags" $element.Params.tags "section" $element.Section "content" $element.Plain "description" $element.Description) -}}
+    {{- if $.Param "searchContent" -}}
+      {{- $.Scratch.Add "searchindex" (dict "id" $index "title" $element.Title "uri" $element.Permalink "tags" $element.Params.tags "section" $element.Section "content" $element.Plain "description" $element.Description) -}}
+    {{ else }}
+      {{- $.Scratch.Add "searchindex" (dict "id" $index "title" $element.Title "uri" $element.Permalink "tags" $element.Params.tags "section" $element.Section "description" $element.Description) -}}
+    {{- end -}}
   {{ end }}
 {{- end -}}
 {{- $.Scratch.Get "searchindex" | jsonify -}}
