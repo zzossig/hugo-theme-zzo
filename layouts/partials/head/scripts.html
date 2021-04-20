@@ -664,6 +664,8 @@
     var enableSearch = JSON.parse({{ $enableSearch | jsonify }});
     {{ $searchDistance := ($.Param "searchDistance") }}
     var searchDistance = JSON.parse({{ $searchDistance | jsonify }});
+    {{ $searchThreshold := ($.Param "searchThreshold") }}
+    var searchThreshold = JSON.parse({{ $searchThreshold | jsonify }});
     {{ $searchContent := ($.Param "searchContent") }}
     var searchContent = JSON.parse({{ $searchContent | jsonify }});
     {{ $enableSearchHighlight := ($.Param "enableSearchHighlight") }}
@@ -694,7 +696,7 @@
                 searchContent ? ['title', 'description', 'content'] : ['title', 'description'],
               includeMatches: enableSearchHighlight,
               shouldSort: true, // default: true
-              threshold: 0.4, // default: 0.6 (0.0 requires a perfect match)
+              threshold: searchThreshold ? searchThreshold : 0.4, // default: 0.6 (0.0 requires a perfect match)
               location: 0, // default: 0
               distance: searchDistance ? searchDistance : 100, // default: 100
               maxPatternLength: 32,
