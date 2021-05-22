@@ -41,13 +41,13 @@ other = "RÉDIGÉ PAR"
 other = "Contenu"
 
 [counter-site-pv]
-other = "Total views"
+other = "Vues totales"
 
 [counter-site-uv]
 other = "visiteurs"
 
 [counter-page-pv]
-other = "views"
+other = "vues"
 
 [donate-message]
 other = "Soutenez l'auteur avec"
@@ -83,7 +83,7 @@ other = "Accueil"
 other = "Rédigé le"
 
 [tooltip-modified]
-other = "Modifié At"
+other = "Modifié le"
 
 [tooltip-reading-time]
 other = "Temps de lecture"
@@ -101,10 +101,10 @@ other = "Pour un rendu optimal, activez JavaScript"
 other = "MEILLEURES PUBLICATIONS"
 
 [skin-dark]
-other = "dark"
+other = "sombre"
 
 [skin-light]
-other = "light"
+other = "clair"
 
 [skin-hacker]
 other = "hacker"
@@ -116,4 +116,4 @@ other = "solarized"
 other = "kimbie"
 
 [no-contents]
-other = "Nothing to Display"
+other = "Rien à afficher"

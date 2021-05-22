@@ -268,10 +268,15 @@ showMobileMenuTerms = ["tags", "categories", "series"]
 # navbar
 enableThemeChange = true # site color theme
 
-# body
-enableBreadcrumb = true # breadcrumb for list, single page
+# search
 enableSearch = true # site search with fuse
 enableSearchHighlight = true # when true, search keyword will be highlighted
+searchContent = true # include content to search index
+searchDistance = 100 # fuse option: distance
+searchThreshold = 0.4 # 0.0: exact match, 1.0: any match
+
+# body
+enableBreadcrumb = true # breadcrumb for list, single page
 enableGoToTop = true # scroll to top
 enableWhoami = true # at the end of single page
 summaryShape = "classic" # card, classic, compact

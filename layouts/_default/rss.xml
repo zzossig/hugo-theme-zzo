@@ -8,12 +8,12 @@
   <channel>
     <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
-    <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
+    <description>{{ if .Site.Params.rssDescription }}{{ .Site.Params.rssDescription }}{{ else }}Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}{{ end }}</description>
     <generator>Hugo -- gohugo.io</generator>{{ with .Site.Language.Lang }}
     <language>{{.}}</language>{{end}}{{ with $.Site.Params.email }}
     <managingEditor>{{.}}{{ with $.Site.Params.myname }} ({{.}}){{end}}</managingEditor>{{end}}{{ with .Site.Params.email }}
     <webMaster>{{.}}{{ with $.Site.Params.myname }} ({{.}}){{end}}</webMaster>{{end}}{{ with .Site.Copyright }}
-    <copyright>{{.}}</copyright>{{end}}{{ if not .Date.IsZero }}
+    <copyright>{{ replace . "{year}" now.Year | markdownify}}</copyright>{{end}}{{ if not .Date.IsZero }}
     <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}{{ with .Site.Params.updatePeriod }}
     <sy:updatePeriod>{{.}}</sy:updatePeriod>{{end}}{{ with .Site.Params.updateFrequency }}
     <sy:updateFrequency>{{.}}</sy:updateFrequency>{{end}}
