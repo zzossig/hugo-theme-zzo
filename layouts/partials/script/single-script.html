@@ -502,7 +502,9 @@
 
     // ============================ mathjax ============================
     document.querySelectorAll("mjx-container").forEach(function (x) {
-      x.parentElement.classList += 'has-jax'
+      if(!x.parentElement.classList.contains('has-jax')) {
+        x.parentElement.classList += 'has-jax';
+      }
     });
     // =================================================================
 
