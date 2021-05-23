@@ -1,0 +1,7 @@
+{{ $author_type := (printf "%T" .) }}
+{{ $author_is_slice := (eq "[]string" $author_type) }}
+    {{ if $author_is_slice }}
+        {{ delimit . ", " }}
+    {{ else }}
+        {{ . }}
+    {{ end }}
