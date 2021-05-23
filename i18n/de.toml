@@ -1,0 +1,119 @@
+[search-placeholder]
+other = "Suchen ..."
+
+[summary-dateformat]
+other = "02.01.2006"
+
+[reading-time]
+other = "Min. Lesezeit"
+
+[tags]
+other = "Stichworte"
+
+[categories]
+other = "Kategorien"
+
+[series]
+other = "Serien"
+
+[archive-dateformat]
+other = "02.01."
+
+[talks-dateformat]
+other = "02.01."
+
+[single-dateformat]
+other = "02.01.2006"
+
+[pub-dateformat]
+other = "2006-01-02"
+
+[resume-dateformat]
+other = "Jan, 2006"
+
+[single-related]
+other = "Vgl. auch"
+
+[single-writtenBy]
+other = "ERSTELLT VON"
+
+[toc-label]
+other = "Inhaltsverzeichnis"
+
+[counter-site-pv]
+other = "Summe der Seitenaufrufe"
+
+[counter-site-uv]
+other = "Summe an Besuchern"
+
+[counter-page-pv]
+other = "Seitenaufrufe"
+
+[donate-message]
+other = "Unterstützen Sie den Autor über"
+
+[share-message]
+other = "Inhalt teilen auf:"
+
+[contact-name]
+other = "Name"
+
+[contact-email]
+other = "E-Mail"
+
+[contact-tel]
+other = "Tel"
+
+[contact-file]
+other = "Datei"
+
+[contact-message]
+other = "Nachricht"
+
+[contact-send]
+other = "Senden"
+
+[contact-browse]
+other = "Durchsuchen ..."
+
+[tooltip-home]
+other = "Start"
+
+[tooltip-written]
+other = "erstellt am:"
+
+[tooltip-modified]
+other = "geändert am:"
+
+[tooltip-reading-time]
+other = "Lesezeit"
+
+[showcase-overview]
+other = "Übersicht"
+
+[showcase-pinned]
+other = "gepinnt"
+
+[nojs-message]
+other = "Für eine optimale Darstellung aktivieren Sie bitte JavaScript."
+
+[posts-by-order]
+other = "TOP NACHRICHTEN"
+
+[skin-dark]
+other = "Dunkel"
+
+[skin-light]
+other = "Hell"
+
+[skin-hacker]
+other = "Schwarz/Grün"
+
+[skin-solarized]
+other = "Samtig Hell"
+
+[skin-kimbie]
+other = "Braun"
+
+[no-contents]
+other = "Hier gibt es nichts zu sehen!"
