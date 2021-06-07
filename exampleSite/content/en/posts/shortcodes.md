@@ -133,3 +133,14 @@ warning text
 {{< notice error >}}
 error text
 {{< /notice >}}
+
+## Affeliate
+{{< affeliate title="The Very Hungry Caterpillar"
+    description="Author: Eric Carle; Publisher: Philomel Books<br>THE all-time classic picture book, from generation to generation, sold somewhere in the world every 30 seconds! A sturdy and beautiful book to give as a gift for new babies, baby showers, birthdays, and other new beginnings!"
+	img="images/shortcodes/affeliate.jpg"
+    amazon="https://www.amazon.com/dp/0399226907/"
+	rakuten="https://books.rakuten.co.jp/rb/4177444/"
+	yahoojp="https://store.shopping.yahoo.co.jp/maniacs-shop/pd-01041801.html"
+	gmarket="http://global.gmarket.co.kr/item?goodsCode=260740452"
+    link="https://www.penguinrandomhouse.com/books/557025/9780399256042" >}}
+
