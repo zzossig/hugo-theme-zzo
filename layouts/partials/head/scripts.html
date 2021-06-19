@@ -662,6 +662,12 @@
     
     {{ $enableSearch := ($.Param "enableSearch") }}
     var enableSearch = JSON.parse({{ $enableSearch | jsonify }});
+    {{ $searchDistance := ($.Param "searchDistance") }}
+    var searchDistance = JSON.parse({{ $searchDistance | jsonify }});
+    {{ $searchThreshold := ($.Param "searchThreshold") }}
+    var searchThreshold = JSON.parse({{ $searchThreshold | jsonify }});
+    {{ $searchContent := ($.Param "searchContent") }}
+    var searchContent = JSON.parse({{ $searchContent | jsonify }});
     {{ $enableSearchHighlight := ($.Param "enableSearchHighlight") }}
     var enableSearchHighlight = JSON.parse({{ $enableSearchHighlight | jsonify }});
     {{ $searchResultPosition := ($.Param "searchResultPosition") }}
@@ -686,12 +692,13 @@
         xhr.onload = function () {
           if (xhr.status === 200) {
             fuse = new Fuse(JSON.parse(xhr.response.toString('utf-8')), {
-              keys: sectionType.includes('publication') ? ['title', 'abstract'] : ['title', 'description', 'content'],
+              keys: sectionType.includes('publication') ? ['title', 'abstract'] : 
+                searchContent ? ['title', 'description', 'content'] : ['title', 'description'],
               includeMatches: enableSearchHighlight,
               shouldSort: true, // default: true
-              threshold: 0.4, // default: 0.6 (0.0 requires a perfect match)
+              threshold: searchThreshold ? searchThreshold : 0.4, // default: 0.6 (0.0 requires a perfect match)
               location: 0, // default: 0
-              distance: 100, // default: 100
+              distance: searchDistance ? searchDistance : 100, // default: 100
               maxPatternLength: 32,
               minMatchCharLength: 1,
               isCaseSensitive: false, // defualt: false
@@ -715,7 +722,7 @@
       var a = document.createElement('a');
       a.innerHTML = obj.item.title;
       a.setAttribute('class', 'search-result__item--title');
-      a.setAttribute('href', obj.item.permalink);
+      a.setAttribute('href', obj.item.uri);
 
       var descDiv = document.createElement('div');
       descDiv.setAttribute('class', 'search-result__item--desc');
