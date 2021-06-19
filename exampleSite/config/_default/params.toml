@@ -97,6 +97,7 @@ enableThemeChange = true
 
 # service
 googleTagManager = "" # GTM-XXXXXX
+googleRecaptcha = "" #add your site key here example "6LesNi8aAAAAAGfQ6mXSkFJIVTpDpywrUUHTdx87"
 baiduAnalytics = ""
 enableBusuanzi = false
 busuanziSiteUV = true
