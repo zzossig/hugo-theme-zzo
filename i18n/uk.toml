@@ -1,0 +1,119 @@
+[search-placeholder]
+other = "Пошук"
+
+[summary-dateformat]
+other = "Jan 2, 2006"
+
+[reading-time]
+other = "хв читати"
+
+[tags]
+other = "Теги"
+
+[categories]
+other = "Категорії"
+
+[series]
+other = "Серії"
+
+[archive-dateformat]
+other = "Jan 2"
+
+[talks-dateformat]
+other = "Jan 2"
+
+[single-dateformat]
+other = "Jan 2, 2006"
+
+[pub-dateformat]
+other = "2006-01-02"
+
+[resume-dateformat]
+other = "Jan, 2006"
+
+[single-related]
+other = "Дивись також"
+
+[single-writtenBy]
+other = "НАПИСАВ"
+
+[toc-label]
+other = "Що на цій сторінці"
+
+[counter-site-pv]
+other = "Всього переглядів"
+
+[counter-site-uv]
+other = "Всього відвідувачів"
+
+[counter-page-pv]
+other = "переглядів"
+
+[donate-message]
+other = "Підтримайте автора"
+
+[share-message]
+other = "Поширити в"
+
+[contact-name]
+other = "Ім'я"
+
+[contact-email]
+other = "Email"
+
+[contact-tel]
+other = "Тел"
+
+[contact-file]
+other = "Файл"
+
+[contact-message]
+other = "Повідомлення"
+
+[contact-send]
+other = "Відправити"
+
+[contact-browse]
+other = "Огляд"
+
+[tooltip-home]
+other = "Дім"
+
+[tooltip-written]
+other = "Написано"
+
+[tooltip-modified]
+other = "Змінено"
+
+[tooltip-reading-time]
+other = "Час читання"
+
+[showcase-overview]
+other = "Огляд"
+
+[showcase-pinned]
+other = "Закріплено"
+
+[nojs-message]
+other = "Ця сторінка виглядає краще якщо JavaScript працює"
+
+[posts-by-order]
+other = "ТОП ПОСТИ"
+
+[skin-dark]
+other = "dark"
+
+[skin-light]
+other = "light"
+
+[skin-hacker]
+other = "hacker"
+
+[skin-solarized]
+other = "solarized"
+
+[skin-kimbie]
+other = "kimbie"
+
+[no-contents]
+other = "Нічого показувати"
