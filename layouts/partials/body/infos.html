@@ -4,7 +4,7 @@
   {{ if ne (.Date.Format (i18n "summary-dateformat")) (.Lastmod.Format (i18n "summary-dateformat")) }}
   &nbsp;&middot;&nbsp; <time class="single__info" title="{{ i18n "tooltip-modified" }}"> {{ ($.Site.Params.modifiedTimeIcon | safeHTML) | default "📝" }}&nbsp;{{ .Lastmod.Format (i18n "single-dateformat") }} </time>
   {{ end }}
-  &nbsp;&middot;&nbsp; <span class="single__info" title="{{ i18n "tooltip-reading-time" }}"> {{ ($.Site.Params.readingTimeIcon | safeHTML) | default "☕" }}&nbsp;{{ .ReadingTime }}&nbsp;{{ i18n "reading-time" }} </span>
+  &nbsp;&middot;&nbsp; <span class="single__info" title="{{ i18n "tooltip-reading-time" }}"> {{ ($.Site.Params.readingTimeIcon | safeHTML) | default "☕" }}&nbsp;{{ i18n "reading-time" .ReadingTime }} </span>
   {{ with .Params.Author }}
   &nbsp;&middot;&nbsp; <span class="single__info" title="{{ i18n "single-writtenBy" }}">{{if $params.AuthorEmoji }}{{ $params.AuthorEmoji }}{{ else }}{{ ($.Site.Params.authorIcon | safeHTML) | default "✍️" }}{{ end }}&nbsp;{{ . }}</span>
   {{ end }}

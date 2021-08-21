@@ -5,7 +5,7 @@ other = "Pesquisar"
 other = "02-01-2006"
 
 [reading-time]
-other = "min. de leitura"
+other = "{{ .Count }} min. de leitura"
 
 [tags]
 other = "Tags"

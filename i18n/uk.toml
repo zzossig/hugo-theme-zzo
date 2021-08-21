@@ -5,7 +5,7 @@ other = "Пошук"
 other = "Jan 2, 2006"
 
 [reading-time]
-other = "хв читати"
+other = "{{ .Count }} хв читати"
 
 [tags]
 other = "Теги"

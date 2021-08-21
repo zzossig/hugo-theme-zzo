@@ -5,7 +5,7 @@ other = "Cerca"
 other = "2006-01-02"
 
 [reading-time]
-other = "Minuts lectura"
+other = "{{ .Count }} Minuts lectura"
 
 [tags]
 other = "Etiquetes"

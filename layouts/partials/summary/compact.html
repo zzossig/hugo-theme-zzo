@@ -9,7 +9,7 @@
           {{ if ne (.Date.Format (i18n "summary-dateformat")) (.Lastmod.Format (i18n "summary-dateformat")) }}
             <time title="{{ i18n "tooltip-modified" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}"> &middot; {{ ($.Site.Params.modifiedTimeIcon | safeHTML) | default "📝" }} {{ .Lastmod.Format (i18n "summary-dateformat") }} </time> 
           {{ end }} 
-          <span title="{{ i18n "tooltip-reading-time" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}"> &middot; {{ ($.Site.Params.readingTimeIcon | safeHTML) | default "☕" }} {{ .ReadingTime }} {{ i18n "reading-time" }}</span>
+          <span title="{{ i18n "tooltip-reading-time" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}"> &middot; {{ ($.Site.Params.readingTimeIcon | safeHTML) | default "☕" }} {{ i18n "reading-time" .ReadingTime }}</span>
           {{ with $params.Author }}
           &middot; <span title="{{ i18n "single-writtenBy" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">{{ if $params.AuthorEmoji }}{{ $params.AuthorEmoji }}{{ else }}{{ ($.Site.Params.authorIcon | safeHTML) | default "✍️" }}{{ end }}&nbsp;{{ . }}</span>
           {{ end }}

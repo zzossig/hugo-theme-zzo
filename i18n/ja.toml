@@ -5,7 +5,7 @@ other = "検索"
 other = "2006/1/2"
 
 [reading-time]
-other = "分で読めます"
+other = "{{ .Count }} 分で読めます"
 
 [tags]
 other = "タグ"

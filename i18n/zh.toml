@@ -5,7 +5,7 @@ other = "搜索"
 other = "2006年01月02日"
 
 [reading-time]
-other = "分钟"
+other = "{{ .Count }} 分钟"
 
 [tags]
 other = "标签"
