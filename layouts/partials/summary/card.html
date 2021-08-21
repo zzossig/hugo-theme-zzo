@@ -1,4 +1,4 @@
-<article class="summary-card" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
+<article class="summary-card" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
   <header>
     <h5 class="title h5"><a href='{{ .Permalink }}'>{{- with .Params.pinned -}}{{ ($.Site.Params.pinIcon | safeHTML) | default "📌" }}&nbsp;{{- end -}}{{ .Title }}</a> </h5>
     <h6 class="subtitle caption">

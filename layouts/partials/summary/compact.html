@@ -1,4 +1,4 @@
-<article class="summary-compact" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
+<article class="summary-compact" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
   <div class="summary-compact__flex-box">
     {{ $params := .Params }}
     <div class="summary-compact__meta">

@@ -1,4 +1,4 @@
-<article class="summary-classic" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
+<article class="summary-classic" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}" dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}">
   <div class="summary-classic__flex-box" {{ if eq ($.Param "sidebarPosition") "left" }}data-position="left"{{ end }}>
 
     {{ if and (or ($.Param "featured_image") ($.Param "summary_image")) (eq ($.Param "sidebarPosition") "right") }}
