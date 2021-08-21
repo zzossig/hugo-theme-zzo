@@ -5,7 +5,7 @@ other = "검색"
 other = "2006년 01월 02일"
 
 [reading-time]
-other = "min read"
+other = "{{ .Count }} min read"
 
 [tags]
 other = "태그"

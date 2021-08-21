@@ -11,7 +11,7 @@ other = "دسته بندی ها"
 other = "سری مطالب"
 
 [reading-time]
-other = "دقیقه بخوانید"
+other = "{{ .Count }} دقیقه بخوانید"
 
 [summary-dateformat]
 other = "Jan 2, 2006"

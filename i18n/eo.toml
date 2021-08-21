@@ -5,7 +5,7 @@ other = "Serĉi"
 other = "02/01/2006"
 
 [reading-time]
-other = "min de legado"
+other = "{{ .Count }} min de legado"
 
 [tags]
 other = "Etiketoj"
