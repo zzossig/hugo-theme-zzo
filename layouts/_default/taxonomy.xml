@@ -29,7 +29,7 @@
         {{ with .Site.Params.email }}<author>{{.}}{{ with $.Site.Params.myname }} ({{.}}){{end}}</author>{{end}}
         {{ with .Params.Lastmod }}<atom:modified>{{ .Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</atom:modified>{{end}}
         <guid>{{ .Permalink }}</guid>
-        <description>{{ .Summary | html }}</description>
+        <description>{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | html }}{{ end }}</description>
         {{ if .Site.Params.fullContents }}<content:encoded><![CDATA[{{ .Content | html }}]]></content:encoded>{{end}}
         {{ if .Params.author }}<dc:creator>{{ .Params.author }}</dc:creator>{{ else if .Site.Params.myname }}<dc:creator>{{ .Site.Params.myname }}</dc:creator>{{end}}
         {{ if .Params.image }}<media:content url="{{ .Site.BaseURL }}{{ .Params.image }}" medium="image"><media:title type="html">featured image</media:title></media:content>{{end}}
