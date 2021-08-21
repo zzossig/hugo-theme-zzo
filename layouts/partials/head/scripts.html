@@ -243,33 +243,35 @@
 
 
     // ========================= go to top =========================
-    var gttBtn = document.getElementById("gtt");
-    gttBtn.style.display = "none";
-    gttBtn.addEventListener('click', function () {
-      if (window.document.documentMode) {
-        document.documentElement.scrollTop = 0;
-      } else {
-        scrollToTop(250);
-      }
-    });
-
-    function scrollToTop(scrollDuration) {
-      var scrollStep = -window.scrollY / (scrollDuration / 15);
-      var scrollInterval = setInterval(function () {
-        if (window.scrollY != 0) {
-          window.scrollBy(0, scrollStep);
+    {{ if $.Param "enableGoToTop" }}
+      var gttBtn = document.getElementById("gtt");
+      gttBtn.style.display = "none";
+      gttBtn.addEventListener('click', function () {
+        if (window.document.documentMode) {
+          document.documentElement.scrollTop = 0;
+        } else {
+          scrollToTop(250);
         }
-        else clearInterval(scrollInterval);
-      }, 15);
-    }
+      });
 
-    var scrollFunction = function () {
-      if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-        gttBtn.style.display = "block";
-      } else {
-        gttBtn.style.display = "none";
+      function scrollToTop(scrollDuration) {
+        var scrollStep = -window.scrollY / (scrollDuration / 15);
+        var scrollInterval = setInterval(function () {
+          if (window.scrollY != 0) {
+            window.scrollBy(0, scrollStep);
+          }
+          else clearInterval(scrollInterval);
+        }, 15);
       }
-    }
+
+      var scrollFunction = function () {
+        if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+          gttBtn.style.display = "block";
+        } else {
+          gttBtn.style.display = "none";
+        }
+      }
+    {{ end }}
     // ============================================================
 
 
@@ -347,15 +349,19 @@
 
     
     window.onscroll = function () {
-      scrollFunction();
+      {{ if $.Param "enableGoToTop" }}
+        scrollFunction();
+      {{ end }}
       
       var st = window.pageYOffset || document.documentElement.scrollTop;
       if (st > lastScrollTop) { // scroll down
-        if (st < 250) {
-          gttBtn.style.display = "none";
-        } else {
-          gttBtn.style.display = "block";
-        }
+        {{ if $.Param "enableGoToTop" }}
+          if (st < 250) {
+            gttBtn.style.display = "none";
+          } else {
+            gttBtn.style.display = "block";
+          }
+        {{ end }}
 
         if (st < 45) {
           return null;
@@ -429,9 +435,11 @@
           }
         }
       } else { // scroll up
-        if (st < 250) {
-          gttBtn.style.display = "none";
-        }
+        {{ if $.Param "enableGoToTop" }}
+          if (st < 250) {
+            gttBtn.style.display = "none";
+          }
+        {{ end }}
 
         if (navbar.classList.contains('scrolling')) {
           if (navbar.classList.contains('navbar--hide')) {
