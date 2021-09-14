@@ -21,7 +21,7 @@
       var owner = JSON.parse({{ $owner | jsonify }});
       {{ $repo:= .Site.Params.utterances.repo }}
       var repo = JSON.parse({{ $repo | jsonify }});
-      {{ $issueTerm:= .Site.Params.utterances.issueTerm | default 'pathname' }}
+      {{ $issueTerm:= .Site.Params.utterances.issueTerm | default "pathname" }}
       var issueTerm = JSON.parse({{ $issueTerm | jsonify }});
       {{ $baseTheme:= index .Site.Params.themeOptions 0 }}
       var baseTheme = JSON.parse({{ $baseTheme | jsonify }});
