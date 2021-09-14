@@ -127,7 +127,7 @@ commento = false
 [utterances]       # https://utteranc.es/
   owner = ""              # Your GitHub ID
   repo = ""               # The repo to store comments
-  issueTerm =""            # Choose the mapping between blog posts and GitHub issues. pathname (default), title, url, og:title...
+  issueTerm = ""            # Choose the mapping between blog posts and GitHub issues. pathname (default), title, url, og:title...
 
 [gitalk]           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
   owner = ""              # Your GitHub ID
