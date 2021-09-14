@@ -21,6 +21,8 @@
       var owner = JSON.parse({{ $owner | jsonify }});
       {{ $repo:= .Site.Params.utterances.repo }}
       var repo = JSON.parse({{ $repo | jsonify }});
+      {{ $issueTerm:= .Site.Params.utterances.issueTerm | default 'pathname' }}
+      var issueTerm = JSON.parse({{ $issueTerm | jsonify }});
       {{ $baseTheme:= index .Site.Params.themeOptions 0 }}
       var baseTheme = JSON.parse({{ $baseTheme | jsonify }});
       var localTheme = localStorage.getItem('theme');
@@ -28,7 +30,7 @@
       var myScript = document.createElement('script');
       myScript.setAttribute('src', 'https://utteranc.es/client.js');
       myScript.setAttribute('repo', `${owner}/${repo}`);
-      myScript.setAttribute('issue-term', 'pathname');
+      myScript.setAttribute('issue-term', issueTerm);
       myScript.setAttribute('theme', utterTheme);
       myScript.setAttribute('crossorigin', 'anonymous');
       myScript.setAttribute('async', '');
