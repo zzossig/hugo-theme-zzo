@@ -919,8 +919,8 @@
       if (results.length > 0) {
         results.forEach(function (result) {
           var item = document.createElement('a');
-          item.setAttribute('href', result.uri);
-          item.innerHTML = '<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ' + result.title + '</div><div class="mobile-search__item--desc">' + (result.description ? result.description : result.content) + '</div></div>';
+          item.setAttribute('href', result.item.uri);
+          item.innerHTML = '<div class="mobile-search__item"><div class="mobile-search__item--title">📄 ' + result.item.title + '</div><div class="mobile-search__item--desc">' + (result.item.description ? result.item.description : result.item.content) + '</div></div>';
           content.appendChild(item);
         });
       } else {
