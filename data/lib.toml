@@ -4,12 +4,12 @@
   url = "https://cdn.jsdelivr.net/npm/mermaid@8.8.4/dist/mermaid.min.js"
 
 [js.katex]
-  sri = "sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc="
-  url = "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  sri = "sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb"
+  url = "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"
 
 [js.katex_auto_render]
-  sri = "sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI="
-  url = "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  sri = "sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"
+  url = "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js"
 
 [js.flowchartjs]
   sri = "sha256-xghRsaOFJXNxT9sgANknngHh3FjUQWrJUae7GP+2Atc="
@@ -66,8 +66,8 @@
 
 # css
 [css.katex]
-  sri = "sha256-V8SV2MO1FUb63Bwht5Wx9x6PVHNa02gv8BgH/uH3ung="
-  url = "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  sri = "sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET"
+  url = "https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css"
 
 [css.sequence_diagram]
   sri = "sha256-On01v36B8LRDuL2tqhqs7Gb3Cm/NIpsLFy4OarOodUA="
