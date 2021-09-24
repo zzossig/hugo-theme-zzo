@@ -63,14 +63,6 @@
         <a href="http://www.pinterest.com/pin/create/button/?url={{ $ctx.Permalink | absLangURL }}{{ if $.Param "featured_image" }}&media={{ (print "images/" ($.Param "featured_image")) | absURL }}{{ else if $.Param "image" }}&media={{ $.Param "image" | absURL }}{{end}}&description={{ $ctx.Description }}" title="{{ i18n "Pinterest" | default "Pinterest" }}" aria-label="Pinterest Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
           {{ partial "svgs/share/pinterest.svg" (dict "width" 35 "height" 35) }}
         </a>
-      {{ else if eq (lower .name) "delicious" }}
-        <a href="http://www.delicious.com/save?url={{ $ctx.Permalink | absLangURL }}&title={{ $ctx.Title }}" title="{{ i18n "Delicious" | default "Delicious" }}" aria-label="Delicious Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
-          {{ partial "svgs/share/delicious.svg" (dict "width" 35 "height" 35) }}
-        </a>
-      {{ else if eq (lower .name) "google" }}
-        <a href="https://www.google.com/bookmarks/mark?op=add&bkmk={{ $ctx.Permalink | absLangURL }}&title={{ $ctx.Title }}" title="{{ i18n "Google Bookmark" | default "Google Bookmark" }}" aria-label="Google Bookmark Share Button" class="donation__item" target="_blank" rel="noreferrer" data-type="share">
-          {{ partial "svgs/share/google.svg" (dict "width" 35 "height" 35) }}
-        </a>
       {{ end }}
     {{ end }}
   </div>
