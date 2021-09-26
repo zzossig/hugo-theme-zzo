@@ -32,9 +32,9 @@
         <description>{{ .Summary | html }}</description>
         {{ if .Site.Params.fullContents }}<content:encoded><![CDATA[{{ .Content | html }}]]></content:encoded>{{end}}
         {{ if .Params.author }}<dc:creator>{{ .Params.author }}</dc:creator>{{ else if .Site.Params.myname }}<dc:creator>{{ .Site.Params.myname }}</dc:creator>{{end}}
-        {{ if .Params.image }}<media:content url="{{ .Site.BaseURL }}{{ .Params.image }}" medium="image"><media:title type="html">featured image</media:title></media:content>{{end}}
-        {{ if .Params.featured_image }}<media:content url="{{ .Site.BaseURL }}image/{{ .Params.featured_image }}" medium="image"><media:title type="html">featured image</media:title></media:content>{{end}}
-        {{ if .Params.meta_image }}<media:content url="{{ .Site.BaseURL }}{{ .Params.meta_image }}" medium="image"><media:title type="html">meta image</media:title></media:content>{{end}}
+        {{ if .Params.image }}<media:content url="{{ .Params.image | absURL }}" medium="image"><media:title type="html">featured image</media:title></media:content>{{end}}
+        {{ if .Params.featured_image }}<media:content url="{{ print "image/" .Params.featured_image | absURL }}" medium="image"><media:title type="html">featured image</media:title></media:content>{{end}}
+        {{ if .Params.meta_image }}<media:content url="{{ .Params.meta_image | absURL }}" medium="image"><media:title type="html">meta image</media:title></media:content>{{end}}
         {{ with .Params.tags }}
           {{ range . }}
             {{ with . }}
