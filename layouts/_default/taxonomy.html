@@ -2,7 +2,9 @@
 
 <main class="main inner" data-sidebar-position="{{ $.Param "sidebarPosition" }}">
   <div class="list__main {{ if $.Param "enableSidebar" }}{{ if eq ($.Param "sidebarPosition") "left" }}mr{{ else }}lm{{ end }}{{ else }}lmr{{ end }}">
-    {{ partial "body/breadcrumb" . }}
+    {{ if $.Param "enableBreadcrumb" }}
+      {{ partial "body/breadcrumb" . }}
+    {{ end }}
     <header class="list__header">
       <h5 class="list__header--title capitalize h5">{{ .Title }}</h5>
     </header>
