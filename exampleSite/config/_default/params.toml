@@ -30,15 +30,19 @@ hideHomeHeaderWhenMobile = false
 # menu
 showMobileMenuTerms = ["tags", "categories", "series"]
 
-# body
-enableBreadcrumb = true
-enablePhotoSwipe = true
+# search
 enableSearch = true
 enableSearchHighlight = true
+searchResultPosition = "main" # side, main
+searchContent = true # include content to search index
+searchDistance = 100 # fuse option
+searchThreshold = 0.4 # 0.0: exact match, 1.0: any match
+
+# body
+enableBreadcrumb = true
 enableGoToTop = true
 enableWhoami = true
 summaryShape = "classic" # card, classic, compact
-searchResultPosition = "main" # side, main
 archiveGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
 archivePaginate = 13
 paginateWindow = 1
