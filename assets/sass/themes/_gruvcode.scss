@@ -1,0 +1,69 @@
+$gruvcode: '';
+
+@if $theme_gruv_chroma_background == dark {
+  $gruvcode: (
+    content-code-color: #fcfcfa,
+    content-pre-main-color: #FFA7C4,
+    content-pre-color: #eee,
+    content-pre-number-color: #666,
+    content-pre-background-color: #171f2e,
+    content-pre-header-background-color: darken(#011627, 1.5%),
+    content-pre-border-background-color: #3a3a3a,
+    content-pre-header-color: #FCFCFA,
+  );
+} @else if $theme_gruv_chroma_background == light {
+  $gruvcode: (
+    content-code-color: #26a69a,
+    content-pre-main-color: #607d8b,
+    content-pre-color: #344952,
+    content-pre-number-color: #aaa,
+    content-pre-background-color: #F5F2F0,
+    content-pre-border-background-color: darken(#F5F2F0, 7%),
+    content-pre-header-background-color: darken(#F5F2F0, 3%),
+    content-pre-header-color: #344952,
+  );
+} @else if $theme_gruv_chroma_background == gruv {
+  $gruvcode: (
+    content-code-color: #E3CD26,
+    content-pre-main-color: #1FFF2A,
+    content-pre-color: #d1d1d1,
+    content-pre-number-color: #666,
+    content-pre-background-color: #282a36,
+    content-pre-border-background-color: #424242,
+    content-pre-header-background-color: darken(#202420, 1.5%),
+    content-pre-header-color: #FCFCFA,
+  );
+} @else if $theme_gruv_chroma_background == solarized {
+  $gruvcode: (
+    content-code-color: #268bd2,
+    content-pre-main-color: #B58900,
+    content-pre-color: #344952,
+    content-pre-number-color: #aaa,
+    content-pre-background-color: #faf1cd,
+    content-pre-border-background-color: darken(#FBF1D1, 12%),
+    content-pre-header-background-color: darken(#FBF1D1, 6%),
+    content-pre-header-color: #344952,
+  );
+} @else if $theme_gruv_chroma_background == kimbie {
+  $gruvcode: (
+    content-code-color: #f06431,
+    content-pre-main-color: #dc3958,
+    content-pre-color: #d3af86,
+    content-pre-number-color: #666,
+    content-pre-background-color: #362712,
+    content-pre-header-color: #8ab1b0,
+    content-pre-header-background-color: lighten(#362712, 3%),
+    content-pre-border-background-color: #e3b583,
+  );
+} @else {
+  $gruvcode: (
+    content-code-color: #689d6a,
+    content-pre-main-color: #E08C48,//#1FFF2A,
+    content-pre-color: #ebdbb2,
+    content-pre-number-color: #666,
+    content-pre-background-color: #1d2021,
+    content-pre-border-background-color: #282828,
+    content-pre-header-background-color: #282828,//dark(#202420, 1.5%),
+    content-pre-header-color: #b16286,
+  );
+}
