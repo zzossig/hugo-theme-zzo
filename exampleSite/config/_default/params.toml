@@ -160,6 +160,10 @@ commento = false
   scriptSrc = "" # "https://isso.example.com/js/embed.min.js"
   dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
 
+[fastcomments]
+  enable = false
+  tenantId = "demo"
+
 [socialOptions]
   email = "mailto:your@email.com"
   phone = ""
