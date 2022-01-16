@@ -1,0 +1,38 @@
+
+{{- if site.Params.useGravatar -}}
+  {{- printf "https://s.gravatar.com/avatar/%s?s=%d" (md5 .email) .size -}}
+{{- else if .urlSoure -}} {{/* If an url source is set, use it directly. */}}
+  {{- .urlSoure -}}
+{{- else -}}
+  {{- $imageResource := "" -}}
+
+  {{- if .fileSource -}}
+    {{- if (hasPrefix .fileSource "assets/") -}} {{/* If the explicit file source is within assets, get its resource */}}
+      {{- $imageResource = resources.Get (strings.TrimPrefix "assets/" .fileSource) -}}
+    {{- end -}}
+  {{- else -}} {{/* If file source is not explicitly set, try to find an avatar */}}
+    {{- if (fileExists "assets/images/whoami/avatar.png") -}}
+      {{- $imageResource = resources.Get "images/whoami/avatar.png" -}}
+    {{- else if (fileExists "assets/images/whoami/avatar.jpg") -}}
+      {{- $imageResource = resources.Get "images/whoami/avatar.jpg" -}}
+    {{- else if (fileExists "assets/images/whoami/avatar.svg") -}}
+      {{- $imageResource = resources.Get "images/whoami/avatar.svg" -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $imageResource -}} {{/* If we have an asset image, resize it & get its url */}}
+    {{- ($imageResource.Resize (printf "%dx" .size)).RelPermalink  -}}
+  {{- else if .fileSource -}} {{/* If a file source was specified but it did not resulted in an asset, it's a static file */}}
+    {{- .fileSource -}}
+  {{- else -}} {{/* Otherwise, lookup in static files */}}
+    {{- if (fileExists "static/images/whoami/avatar.png") -}}
+      {{- "images/whoami/avatar.png" | relURL -}}
+    {{- else if (fileExists "static/images/whoami/avatar.jpg") -}}
+      {{- "images/whoami/avatar.jpg" | relURL -}}
+    {{- else if (fileExists "static/images/whoami/avatar.svg") -}}
+      {{- "images/whoami/avatar.svg" | relURL -}}
+    {{- else -}}
+      {{- "images/whoami/avatar.jpg" | relURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
