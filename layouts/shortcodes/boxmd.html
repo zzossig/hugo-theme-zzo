@@ -1,1 +1,1 @@
-<div class="box">{{ .Inner | markdownify }}</div>
+<div class="box">{{ .Inner | .Page.RenderString }}</div>
