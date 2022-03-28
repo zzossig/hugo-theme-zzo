@@ -1,5 +1,5 @@
 <div class="swiper-slide" data-align="{{ .Get "align" | default "center" }}">
   <div class="swiper-slide__inner">
-    {{ .Inner | markdownify }}
+    {{ .Inner | .Page.RenderString }}
   </div>
 </div>

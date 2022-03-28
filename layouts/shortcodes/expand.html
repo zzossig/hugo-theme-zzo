@@ -6,6 +6,6 @@
     {{ .Get 0 }}
   </button>
   <div class="expand__content">
-    {{ .Inner | markdownify }}
+    {{ .Inner | .Page.RenderString }}
   </div>
 </div>
