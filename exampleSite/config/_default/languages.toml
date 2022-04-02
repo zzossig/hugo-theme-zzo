@@ -2,12 +2,12 @@
   title = "Hugo Zzo Theme"
   languageName = "English"
   weight = 1
-  languagedir = "ltr"
+  languageDirection = "ltr"
   contentdir = "content/en"
 
 [ko]
   title = "Hugo Zzo Theme"
   languageName = "한국어"
   weight = 2
-  languagedir = "ltr"
+  languageDirection = "ltr"
   contentdir = "content/ko"

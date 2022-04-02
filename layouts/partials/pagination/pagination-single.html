@@ -1,6 +1,6 @@
 <div class="grow"></div>
 <nav class="pagination-single">
-  {{ if eq ($.Param "languagedir") "rtl" }}
+  {{ if eq $.Site.Language.LanguageDirection "rtl" }}
     {{ with .NextInSection }}
     <a href="{{ .Permalink }}" class="pagination-single__right">
       <div class="pagination-single__icon">

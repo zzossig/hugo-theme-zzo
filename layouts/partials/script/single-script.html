@@ -362,7 +362,7 @@
     var text, clip = new ClipboardJS('.anchor');
     var headers = singleContentsElem.querySelectorAll("h1, h2, h3, h4");
 
-    {{ $languagedir := ($.Param "languagedir" | default "ltr") }}
+    {{ $languagedir := ($.Site.Language.LanguageDirection | default "ltr") }}
     var languagedir = JSON.parse({{ $languagedir | jsonify }});
 
     headers ? 

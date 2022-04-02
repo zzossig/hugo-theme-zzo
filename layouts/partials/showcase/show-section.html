@@ -6,7 +6,7 @@
       {{ $category := .Params.category }}
       {{ $categoryIcon := (print "svgs/showcase/" (.Params.categoryIcon | default "code") ".svg") }}
       {{ range .Pages }}
-        <div class="showcase__box" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+        <div class="showcase__box" data-dir="{{ $.Site.Language.LanguageDirection | default "ltr" }}">
           <a href="{{ .Params.Link }}" class="showcase__box--link" target="_blank" rel="noreferrer"></a>
           <a href="{{ .Params.Link }}" class="showcase__box--title" target="_blank" rel="noreferrer">
             {{ .Title }}

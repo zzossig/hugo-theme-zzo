@@ -12,7 +12,7 @@
       </label>
     {{ end }}
   </div>
-  <div class="toc {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="{{ if ne ($.Param "languagedir") "rtl" }}ltr{{ else }}rtl{{ end }}" data-folding="{{ if $.Param "tocFolding" }}true{{ else }}false{{ end }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
+  <div class="toc {{ if $.Param "hideToc" }}hide{{ end }}" data-dir="{{ if ne $.Site.Language.LanguageDirection "rtl" }}ltr{{ else }}rtl{{ end }}" data-folding="{{ if $.Param "tocFolding" }}true{{ else }}false{{ end }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
     {{ .TableOfContents }}
   </div>
 </section>

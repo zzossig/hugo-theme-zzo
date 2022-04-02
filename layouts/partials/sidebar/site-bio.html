@@ -1,5 +1,5 @@
 {{ if $.Param "enableBio" }}
-<section class="bio" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+<section class="bio" data-dir="{{ $.Site.Language.LanguageDirection | default "ltr" }}">
   {{ if ($.Param "enableBioImage" | default true) }}
   <hr class="hr-slash bio-hr"/>
   <div class="bio__photo-wrapper">
