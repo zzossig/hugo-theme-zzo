@@ -22,16 +22,16 @@
       {{ $paginator := .Paginate ($pages.GroupByPublishDate ($.Param "talksGroupByDate" | default "2006")) ($.Param "talksPaginate") }}
       {{ range ($paginator).PageGroups }}
         <span class="archive__key" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">{{ .Key }}</span>
-        <ul class="archive__ul" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+        <ul class="archive__ul" data-dir="{{ $.Site.Language.LanguageDirection | default "ltr" }}">
           {{ range .Pages }}
-          <li class="archive__li" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
-            <span class="talk__date" data-dir="{{ $.Param "languagedir" | default "ltr" }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
+          <li class="archive__li" data-dir="{{ $.Site.Language.LanguageDirection | default "ltr" }}">
+            <span class="talk__date" data-dir="{{ $.Site.Language.LanguageDirection | default "ltr" }}" data-ani="{{ $.Site.Params.enableUiAnimation | default "true" }}">
               {{ .PublishDate.Format (i18n "talks-dateformat") }}
             </span>
             {{ if .Params.disableLink }}
-            <div class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</div>
+            <div class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Site.Language.LanguageDirection | default "ltr" }}">{{ .Title }}</div>
             {{ else }}
-            <a href="{{ if .Params.externalLink }}{{ .Params.externalLink }}{{ else }}{{ .Permalink }}{{ end }}" target="{{ with .Params.externalLink }}_blank{{ end }}" rel="{{ with .Params.externalLink }}noreferrer{{ end }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Param "languagedir" | default "ltr" }}">{{ .Title }}</a>
+            <a href="{{ if .Params.externalLink }}{{ .Params.externalLink }}{{ else }}{{ .Permalink }}{{ end }}" target="{{ with .Params.externalLink }}_blank{{ end }}" rel="{{ with .Params.externalLink }}noreferrer{{ end }}" class="talk__title" data-title-wrap="{{ $titleWrap | default "wrap"}}" data-dir="{{ $.Site.Language.LanguageDirection | default "ltr" }}">{{ .Title }}</a>
             {{ end }}
             {{ with .Params.subLinks }}
               <div class="talk__icons">

@@ -3,7 +3,7 @@
   {{ partial "svgs/etc/search.svg" (dict "width" 22 "height" 22) }}
 </div>
 
-<div id="search-mobile-container" class="mobile-search hide" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+<div id="search-mobile-container" class="mobile-search hide" data-dir="{{ $.Site.Language.LanguageDirection | default "ltr" }}">
   <div class="mobile-search__top">
     <input id="search-mobile" type="text" aria-label="Mobile Search" placeholder="{{T "search-placeholder"}}" class="mobile-search__top--input"/>
     <div id="search-mobile-close" class="mobile-search__top--icon">

@@ -3,7 +3,7 @@
 {{ $isPad = or $isPad (and (eq .Kind "section") (eq .Type "publication")) }}
 {{ $isPad = or $isPad (and (eq .Type "tags") (ne .Kind "taxonomyTerm")) }}
 
-{{ if ne ($.Param "languagedir") "rtl" }}
+{{ if ne $.Site.Language.LanguageDirection "rtl" }}
 <div class="wrapper__right hide" data-pad="{{ $isPad }}" dir="ltr">
   <script>document.querySelector('.wrapper__right').classList.remove('hide')</script>
   {{ if and (eq ($.Param "tocPosition") "outer") .IsPage }}
@@ -25,7 +25,7 @@
     {{ end }}
   {{ end }}
 </div>
-{{ else if and (eq ($.Param "languagedir") "rtl") ($.Param "enableSidebarMenu") }}
+{{ else if and (eq $.Site.Language.LanguageDirection "rtl") ($.Param "enableSidebarMenu") }}
   <div class="wrapper__right" data-pad="{{ $isPad }}" dir="rtl">
     
   </div>
