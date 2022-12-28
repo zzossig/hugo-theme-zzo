@@ -10,7 +10,7 @@
   var enableSearchHighlight = JSON.parse({{ $enableSearchHighlight | jsonify }});
   {{ $isFirstSection := eq .Permalink .FirstSection.Permalink }}
   var isFirstSection = JSON.parse({{ $isFirstSection | jsonify }});
-  {{ $tagsBaseURL := ("/tags/" | relLangURL) }}
+  {{ $tagsBaseURL := ("tags/" | relLangURL) }}
   var tagsBaseURL = JSON.parse({{ $tagsBaseURL | jsonify }});
   
   document.addEventListener('DOMContentLoaded', function () {
