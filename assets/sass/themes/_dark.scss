@@ -1,6 +1,6 @@
 $dark: (
     footer-background-color: #403E41,
-    footer-color: #bdbdbd, 
+    footer-color: #bdbdbd,
     link: #FFD866,
     link-hover: #FF6188,
     title-color: #ffd866,
@@ -14,7 +14,7 @@ $dark: (
     dropdown-content-background-color: #595B5C,
     dropdown-item-hover-background-color: #727072,
     dropdown-item-hover-color: #FCFCFA,
-    dropdown-item-color: #FCFCFA,    
+    dropdown-item-color: #FCFCFA,
     navbar-border-bottom-color: #4e4e4e,
     navbar-background-color: #403E41,
     navbar-mobile-background-color: #3a3a3a,
@@ -107,4 +107,6 @@ $dark: (
     share-background-color: lighten(#403E41, 2.5%),
     donation-background-color: #525252,
     button-primary-color: $button_dark_primary_color,
+    tab-link-background-color: lighten(#2D2A2E, 5%),
+    tab-link-active-background-color: lighten(#2D2A2E, 20%),
 );
